@@ -10,6 +10,6 @@ These data models describe entities useful for dealing with IoT Data in The foll
 The main entities identified are:
 
 -   [Device](Device): It follows The [Fiware Device](https://github.com/smart-data-models/dataModel.Device/tree/master/Device),
--   [DeviceModel](DeviceModel): It follows The [Fiware DeviceModel](https://github.com/smart-data-models/dataModel.Device/tree/master/DeviceModel),
+
 -   [Actuator](Actuator/doc/spec.md):
 -   [Service](Service/doc/spec.md):
