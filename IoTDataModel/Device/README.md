@@ -251,6 +251,86 @@ The data model is defined as shown below:
     -   Attribute type: Property. List of references to [Person](http://schema.org/Person)
         or [Organization](https://schema.org/Organization) or List of URIs.
     -   Optional
+    
+ ## From DeviceModel
+ -   `function` : The functionality necessary to accomplish the task for which a
+    Device is designed. A device can be designed to perform more than one
+    function. Defined by [SAREF](https://w3id.org/saref#Function).
+
+    -   Attribute type: Property. List of [Text](https://schema.org/Text)
+    -   Allowed values: (`levelControl`, `sensing`, `onOff`, `openClose`,
+        `metering`, `eventNotification`), from SAREF.
+    -   Optional
+
+-   `supportedProtocol` : Supported protocol(s) or networks.
+
+    -   Attribute type: Property. List of [Text](https://schema.org/Text).
+    -   Allowed values: (`ul20`, `mqtt`, `lwm2m`, `http`, `websocket`, `onem2m`,
+        `sigfox`, `lora`, `nb-iot`, `ec-gsm-iot`, `lte-m`, `cat-m`, `3g`,
+        `grps`) or any other value meaningful for an application.
+    -   Optional
+
+-   `supportedUnits` : Units of measurement supported by the device.
+
+    -   Attribute type: Property. List of [Text](https://schema.org/Text).
+    -   Allowed values: The unit code (text) of measurement given using the
+        [UN/CEFACT Common Code](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes)
+        (max. 3 characters).
+    -   Optional
+
+-   `energyLimitationClass` : Device's class of energy limitation as per
+    RFC 7228.
+
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References:
+        [RFC7228](https://tools.ietf.org/html/rfc7228#page-11)
+    -   Allowed values: (`E0`, `E1`, `E2`, `E9`)
+    -   Optional
+
+-   `brandName` : Device's brand name.
+
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   See also: [https://schema.org/brand](https://schema.org/brand)
+    -   Mandatory
+
+-   `modelName` : Device's model name.
+
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   See also: [https://schema.org/model](https://schema.org/model)
+    -   Mandatory
+
+-   `manufacturerName` : Device's manufacturer name.
+
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   See also: [https://schema.org/model](https://schema.org/model)
+    -   Mandatory
+
+-   `name` : Name given to this device model.
+
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References:
+        `https://uri.etsi.org/ngsi-ld/name` equivalent to [name](https://schema.org/name)
+    -   Mandatory
+
+-   `description` : Device's description
+
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References:
+        `https://uri.etsi.org/ngsi-ld/description` equivalent to [description](https://schema.org/description)
+    -   Optional
+
+-   `documentation` : A link to device's documentation.
+
+    -   Attribute type: Property. [URL](https://schema.org/URL)
+    -   Optional
+
+-   `image` : A link to an image depicting the concerned device.
+
+    -   Normative References:
+        [https://schema.org/image](https://schema.org/image)
+    -   Optional
+
+ 
 
 **Note**: JSON Schemas are intended to capture the data type and associated
 constraints of the different Attributes, regardless their final representation
