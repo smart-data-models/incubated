@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.Building/Room/schema.json",
+  "title": "Smart data model for room",
+  "description": "Description of the room in a Building",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "Floor"
+      ],
+      "description": "NGSI Entity type"
+    },
+    "inBuilding": {
+      "anyOf": [
+        {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ]
+    },
+    "hasRoom": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          },
+          {
+            "type": "string",
+            "format": "uri"
+          }
+        ]
+      }
+    }
+  },
+  "hasZone": {
+    "type": "array",
+    "items": {
+      "anyOf": [
+        {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ]
+    }
+  },
+  "required": [
+    "type"
+  ]
+}
