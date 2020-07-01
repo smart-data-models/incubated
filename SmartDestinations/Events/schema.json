@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.TouristEvent/Event/schema.json",
+  "title": " Smart Data Models. Events schema",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "offeredBy": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "type",
+            "name"
+          ]
+        },
+        "touristType": {
+          "type": "string",
+          "description": "FAMILY TOURISM, LGTBI TOURISM, BACKPACKING TOURISM, WOMEN TOURISM, BUSINESS, TOURISM, ROMANTIC TOURISM, SENIOR TOURISM, SINGLES TOURISM"
+        }
+      }
+    }
+  ],
+  "required": [
+    "type",
+    "name"
+  ]
+}
