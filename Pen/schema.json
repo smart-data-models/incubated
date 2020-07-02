@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.Agrifood/Pen/schema.json",
+  "title": " Smart Data models - pen schema",
+  "description": "A pen located in a Compartmet of a Building in a Farm",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/AgriFood-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "pen"
+          ],
+          "description": "NGSI Entity type"
+        },
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "lastupdate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "farmId": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "buildingId": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "compartmentid": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "temperature": {
+          "type": "number"
+        },
+        "humidity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "luminosity": {
+          "type": "number",
+          "minimum": 0
+        },
+        "waterFlow": {
+          "type": "number",
+          "minimum": 0
+        },
+        "foodFlow": {
+          "type": "number",
+          "minimum": 0
+        },
+        "co2": {
+          "type": "number",
+          "minimum": 0
+        },
+        "numAnimals": {
+          "type": "number",
+          "minimum": 0
+        },
+        "avgWeight": {
+          "type": "number",
+          "minimum": 0
+        },
+        "weightStDev": {
+          "type": "number"
+        },
+        "sex": {
+          "type": "string",
+          "enum": [
+            "M",
+            "F",
+            "unknown"
+          ]
+        },
+        "deadAnimalsSinceDateOfArrival": {
+          "type": "number",
+          "minimum": 0
+        },
+        "additionalInfo": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "lastUpdate"
+  ]
+}

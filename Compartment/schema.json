@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.Agrifood/Compartment/schema.json",
+  "title": " Smart Data models - Compartment schema",
+  "description": "A part of a building belonging to a farm ",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/AgriFood-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "compartment"
+          ],
+          "description": "NGSI Entity type"
+        },
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "lastupdate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "farmId": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "buildingId": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "parentCompartmentid": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "temperature": {
+          "type": "number"
+        },
+        "humidity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "luminosity": {
+          "type": "number",
+          "minimum": 0
+        },
+        "co2": {
+          "type": "number",
+          "minimum": 0
+        },
+        "numAnimals": {
+          "type": "number",
+          "minimum": 0
+        },
+        "avgWeight": {
+          "type": "number",
+          "minimum": 0
+        },
+        "weightStDev": {
+          "type": "number"
+        },
+        "waterconsumption": {
+          "type": "number",
+          "minimum": 0
+        },
+        "feedconsumption": {
+          "type": "number",
+          "minimum": 0
+        },
+        "additionalInfo": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          },
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "lastUpdate"
+  ]
+}
