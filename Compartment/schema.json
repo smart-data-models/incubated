@@ -17,64 +17,15 @@
     },
     {
       "properties": {
+        "id": {
+          "type": "string"
+        },
         "type": {
           "type": "string",
           "enum": [
             "compartment"
           ],
           "description": "NGSI Entity type"
-        },
-        "id": {
-          "type": "string",
-          "format": "uri"
-        },
-        "lastupdate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "farmId": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-        },
-        "buildingId": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-        },
-        "parentCompartmentid": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-        },
-        "temperature": {
-          "type": "number"
-        },
-        "humidity": {
-          "type": "number",
-          "minimum": 0,
-          "maximum": 1
-        },
-        "luminosity": {
-          "type": "number",
-          "minimum": 0
-        },
-        "co2": {
-          "type": "number",
-          "minimum": 0
-        },
-        "numAnimals": {
-          "type": "number",
-          "minimum": 0
-        },
-        "avgWeight": {
-          "type": "number",
-          "minimum": 0
-        },
-        "weightStDev": {
-          "type": "number"
-        },
-        "waterconsumption": {
-          "type": "number",
-          "minimum": 0
-        },
-        "feedconsumption": {
-          "type": "number",
-          "minimum": 0
         },
         "additionalInfo": {
           "type": "array",
@@ -88,10 +39,80 @@
                 "type": "string"
               }
             }
-          },
-          "items": {
-            "type": "string"
           }
+        },
+        "arrivalTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "avgGrowth": {
+          "type": "number"
+        },
+        "avgWeight": {
+          "type": "number",
+          "minimum": 0
+        },
+        "buildingId": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "co2": {
+          "type": "number",
+          "minimum": 0
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "farmId": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "feedConsumption": {
+          "type": "number",
+          "minimum": 0
+        },
+        "humidity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "lastUpdate": {
+          "type": "number"
+        },
+        "luminosity": {
+          "type": "number"
+        },
+        "numAnimals": {
+          "type": "number"
+        },
+        "outputFeed": {
+          "type": "number"
+        },
+        "parentCompartmentId": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "sex": {
+          "type": "string",
+          "enum": [
+            "M",
+            "F",
+            "unknown",
+            ""
+          ]
+        },
+        "startWeight": {
+          "type": "number"
+        },
+        "temperature": {
+          "type": "number"
+        },
+        "waterConsumption": {
+          "type": "number",
+          "minimum": 0
+        },
+        "weightStDev": {
+          "type": "number"
         }
       }
     }
