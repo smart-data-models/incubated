@@ -1,0 +1,91 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0",
+    "$id": "https://smart-data-models.github.io/dataModel.Flight/schema.json",
+    "title": "Smart Data models - Flight schema",
+    "description": "A description of a generic flight",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Flight"
+                    ],
+                    "description": "NGSI Entity type"
+                },
+                "flightNumber": {
+                    "type": "string"
+                },
+                "flightNumberIATA": {
+                    "type": "string"
+                },
+                "flightNumberICAO": {
+                    "type": "string"
+                },
+                "flightType": {
+                    "type": "string",
+                    "enum": [
+                        "S",
+                        "N",
+                        "G",
+                        "M",
+                        "X"
+                    ]
+                },
+                "flightServiceIATA": {
+                    "type": "string",
+                    "enum": [
+                        "J",
+                        "S",
+                        "U",
+                        "F",
+                        "V",
+                        "M",
+                        "Q",
+                        "G",
+                        "B",
+                        "A",
+                        "R",
+                        "C",
+                        "O",
+                        "H",
+                        "L",
+                        "P",
+                        "T",
+                        "K",
+                        "D",
+                        "E",
+                        "W",
+                        "X",
+                        "I",
+                        "N"
+                    ]
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "scheduled",
+                        "active",
+                        "unknown",
+                        "redirected",
+                        "landed",
+                        "diverted",
+                        "cancelled"
+                    ]
+                },
+                "speed": {
+                    "type": "number"
+                }
+            }
+        }
+    ],
+    "required": ["id", "type", "flightNumber"]
+}

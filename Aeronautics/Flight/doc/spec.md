@@ -1,0 +1,105 @@
+Building:
+  - required:
+    - id
+    - type
+	- flightNumber 
+  - type: "object"
+    - allOf:
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+   - description: >
+      ## Description
+      Flight entity contains a description of a generic flight with the standard parameters used by the airline industry. This model is based on specifications published by the main organisms of the industry such us [EUROCONTROL](https://www.eurocontrol.int/), [ICAO](https://www.icao.int/) and [IATA](https://www.iata.org/).
+      ## Data Model
+  - properties:
+    - flightNumber:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Text"
+      - type: "string"
+      - description: >
+         Number of the flight without IATA and ICAO code
+    - flightNumberIATA:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Text"
+      - type: "string"
+      - description: >
+         Number of the flight with IATA code
+    - flightNumberICAO:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Text"
+      - type: "string"
+    - flightType:
+      - x-ngsi:
+        - type: "EnumProperty"
+      - type: "string"
+      - enum:
+        - S
+        - N
+        - G
+        - M
+        - X
+      - description: >
+         Flight type described as ICAO doc 4444 Appendix 2
+    - flightServiceIATA:
+      - x-ngsi:
+        - type: "EnumProperty"
+      - type: "string"
+      - enum:
+        - S
+        - N
+        - G
+        - M
+        - X
+        - J
+        - S
+        - U
+        - F
+        - V
+        - M
+        - Q
+        - G
+        - B
+        - A
+        - R
+        - C
+        - O
+        - H
+        - L
+        - P
+        - T
+        - K
+        - D
+        - E
+        - W
+        - X
+        - I
+        - N
+      - description: >
+         Flight service described as IATA
+    - status:
+      - x-ngsi:
+        - type: "EnumProperty"
+      - type: "string"
+      - enum:
+        - scheduled
+        - active
+        - unknown
+        - redirected
+        - landed
+        - diverted
+        - cancelled
+    - speed:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Number"
+      - type: "number"
+      - description: >
+         Flight speed. Kilometre per hour
+    - location:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://tools.ietf.org/html/rfc7946"
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/Location-Commons/location"
