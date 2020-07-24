@@ -1,0 +1,85 @@
+Flight:
+  required:
+    - id
+    - type
+    - flightNumber
+  allOf:
+    - $ref: >-
+        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/Common
+  type: object
+  description: |
+    Flight entity contains a description of a generic flight with the standard parameters used by the airline industry. This model is based on specifications published by the main organisms of the industry such us EUROCONTROL, ICAO and IATA.
+
+    The model specification can be found here.
+    
+    A JSON Schema corresponding to this data model can be found here.
+    
+  properties:
+    address:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/address
+    alternateName:
+       $ref: >-
+        https://smart-data-models.github.io/data-models/schema.org.yaml#/alternateName
+    areaServed:
+       $ref: >-
+        https://smart-data-models.github.io/data-models/schema.org.yaml#/areaServed
+    dataProvider:
+       $ref: >-
+        https://smart-data-models.github.io/data-models/fiware-terms.yaml#/dataProvider
+    description:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/description
+    flightNumber:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: ''
+    flightNumberIATA:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: ''
+    flightNumberICAO:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: ''
+    flightServiceIATA:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: ''
+    flightType:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: ''
+    location:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/location
+    name:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/name
+    owner:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/fiware-terms.yaml#/owner
+    source:
+       $ref: >-
+        https://smart-data-models.github.io/data-models/fiware-terms.yaml#/source
+    speed:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    status:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: ''
