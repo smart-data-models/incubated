@@ -1,8 +1,8 @@
-Building:
+Flight:
   - required:
     - id
     - type
-	- flightNumber 
+    - flightNumber
   - type: "object"
     - allOf:
       - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -99,7 +99,4 @@ Building:
       - description: >
          Flight speed. Kilometre per hour
     - location:
-      - x-ngsi:
-        - type: "Property"
-        - model: "https://tools.ietf.org/html/rfc7946"
-      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/Location-Commons/location"
+      - $ref: "https://github.com/smart-data-models/data-models/blob/master/common-schema.md#/Address"

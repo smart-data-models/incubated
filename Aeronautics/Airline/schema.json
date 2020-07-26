@@ -1,0 +1,37 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0",
+    "$id": "https://smart-data-models.github.io/dataModel.Airline/schema.json",
+    "title": "Smart Data models - Airline schema",
+    "description": "A description of a generic Airline",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Airline"
+                    ],
+                    "description": "NGSI Entity type"
+                },
+                "codeIATA": {
+                    "type": "string"
+                },
+                "codeICAO": {
+                    "type": "string"
+                },
+                "callsign": {
+                    "type": "string"
+                }
+            }
+        }
+    ],
+    "required": ["id", "type", "name", "codeIATA", "codeICAO"]
+}

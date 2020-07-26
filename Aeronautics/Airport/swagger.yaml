@@ -1,0 +1,51 @@
+--- 
+  components: 
+    schemas: 
+      Airport: 
+        $ref: "https://smart-data-models.github.io/pending/Aeronautics/Airport/model.yaml#/Airport"
+  info: 
+    description: |
+      Airport entity contains a description of a generic airport with the standard parameters used by the airline industry.
+    
+    title: Airport
+    version: "1.0.0"
+  openapi: "3.0.0"
+  
+  # These paths are merely representative.
+  paths: 
+    /ngsi-ld/v1/entities: 
+      get: 
+        description: "Retrieve a set of entities which matches a specific query from an NGSI-LD system"
+        parameters: 
+          - 
+            in: query
+            name: type
+            required: true
+            schema: 
+              enum: 
+                - Airport
+              type: string
+        responses: 
+          ? "200"
+          : 
+            content: 
+              application/ld+json: 
+                examples: 
+                  keyvalues: 
+                    summary: "Key-Values Pairs"
+                    value: 
+                      - 
+                        $ref: "https://smart-data-models.github.io/pending/Aeronautics/Airport/examples/example.jsonld"
+                  normalized: 
+                    summary: "Normalized NGSI-LD"
+                    value: 
+                      - 
+                        $ref: "https://smart-data-models.github.io/pending/Aeronautics/Airport/examples/example-normalized.json"
+            description: OK
+        tags: 
+          - ngsi-ld
+  tags: 
+    - 
+  
+      description: "NGSI-LD Linked-data Format"
+      name: ngsi-ld

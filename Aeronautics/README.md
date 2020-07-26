@@ -6,3 +6,4 @@ This subject contains data models for:
 
 -   Flight
 -   Airline
+-   Airport
