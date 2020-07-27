@@ -1,0 +1,232 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.PointOfInterest/Museum/schema.json",
+  "title": " - Museum schema",
+  "description": "A museum",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["Museum"],
+          "description": "NGSI Entity type"
+        },
+        "museumType": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "appliedArts",
+              "scienceAndTechnology",
+              "fineArts",
+              "music",
+              "history",
+              "sacredArt",
+              "archaeology",
+              "specials",
+              "decorativeArts",
+              "literature",
+              "medicineAndPharmacy",
+              "maritime",
+              "transports",
+              "military",
+              "wax",
+              "popularArtsAndTraditions",
+              "numismatic",
+              "unesco",
+              "ceramics",
+              "sumptuaryArts",
+              "naturalScience",
+              "prehistoric",
+              "ethnology",
+              "railway",
+              "mining",
+              "textile",
+              "sculpture",
+              "multiDisciplinar",
+              "painting",
+              "paleonthology",
+              "modernArt",
+              "thematic",
+              "architecture",
+              "museumHouse",
+              "cathedralMuseum",
+              "diocesanMuseum",
+              "universitary",
+              "contemporaryArt",
+              "bullfighting"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "facilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "elevator",
+              "cafeteria",
+              "shop",
+              "auditory",
+              "conferenceRoom",
+              "audioguide",
+              "cloakRoom",
+              "forDisabled",
+              "forBabies",
+              "guidedTour",
+              "restaurant",
+              "ramp",
+              "reservation"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "historicalPeriod": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "artPeriod": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "buildingType": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "prehistoricPlace",
+              "acropolis",
+              "alcazaba",
+              "aqueduct",
+              "alcazar",
+              "amphitheatre",
+              "arch",
+              "polularArchitecture",
+              "basilica",
+              "road",
+              "chapel",
+              "cartuja",
+              "nobleHouse",
+              "residence",
+              "castle",
+              "castro",
+              "catacombs",
+              "cathedral",
+              "cloister",
+              "convent",
+              "prehistoricCave",
+              "dolmen",
+              "officeBuilding",
+              "houseBuilding",
+              "industrialBuilding",
+              "militaryBuilding",
+              "hermitage",
+              "fortress",
+              "sculpturalGroups",
+              "church",
+              "garden",
+              "fishMarket",
+              "masia",
+              "masiaFortificada",
+              "minaret",
+              "monastery",
+              "monolith",
+              "walls",
+              "necropolis",
+              "menhir",
+              "mansion",
+              "palace",
+              "pantheon",
+              "pazo",
+              "pyramid",
+              "bridge",
+              "gate",
+              "arcade",
+              "walledArea",
+              "sanctuary",
+              "grave",
+              "synagogue",
+              "taulasTalayotsNavetas",
+              "theathre",
+              "temple",
+              "spring",
+              "tower",
+              "archeologicalSite",
+              "university",
+              "graveyard",
+              "fortifiedTemple",
+              "civilEngineering",
+              "square",
+              "seminar",
+              "bullfightingRing",
+              "publicBuilding",
+              "town",
+              "cavesAndTouristicMines",
+              "proCathedral",
+              "mosque",
+              "circus",
+              "burialMound"
+            ],
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "featuredArtist": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "contactPoint": {
+          "type": "object"
+        },
+        "touristArea": {
+          "type": "string"
+        },
+        "openingHoursSpecification": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/DateTime-Commons/openingHoursSpecification"
+        },
+        "refSeeAlso": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+              }
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    }
+  ],
+  "required": ["id", "type", "location", "name"]
+}
