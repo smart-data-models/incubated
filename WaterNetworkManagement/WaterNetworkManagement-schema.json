@@ -5,6 +5,10 @@
     "description": "Common NGSI-LD definitions for Water Network Management data models",
     "type": "object",
     "definitions": {
+        "datasetId": {
+            "type": "string",
+            "format": "uri"
+          },      
         "ngsildProperty": {
             "type": "object",
             "properties": {
@@ -35,7 +39,10 @@
                 "modifiedAt": {
                     "type": "string",
                     "format": "date-time"
-                }
+                },
+                "datasetId": {
+                  "$ref": "#/definitions/datasetId"
+                }        
             },
             "required": [
                 "type",
@@ -68,7 +75,10 @@
                 "modifiedAt": {
                     "type": "string",
                     "format": "date-time"
-                }
+                },
+                "datasetId": {
+                  "$ref": "#/definitions/datasetId"
+                }        
             },
             "required": [
                 "type",
