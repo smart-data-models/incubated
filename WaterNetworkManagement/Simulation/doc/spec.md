@@ -25,8 +25,33 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
 
 ### Simulation Entity Properties
 
+-   `description` : An optional text that describes other significant information about the junction
+    -   Attribute type: `Property`.Text
+    -   Optional
+
+-   `optionNames` : Names of options applied in the simulation
+
+    -   Attribute type: `Property`. List of String
+    -   Attribute metadata Properties:
+        -   `{{metadata Property name}}` : {{Metadata Property Description}}
+    -   Mandatory
+
+-   `optionValues` : Values of options applied in the simulation
+
+    -   Attribute type: `Property`. List of Number or String
+    -   Attribute metadata Properties:
+        -   `{{metadata Property name}}` : {{Metadata Property Description}}
+    -   Mandatory
+
 
 ### Simulation Entity Relationships
+
+-   `hasInputNetwork` : The ID of the network used in the simulation
+
+    -   Attribute type: `Relationship`. Reference to an entity of type `Network`
+    -   Attribute metadata Properties:
+        -   `{{metadata Property name}}` : {{Metadata Property Description}}
+    -   Mandatory
 
 
 **Note**: JSON Schemas are intended to capture the data type and associated
