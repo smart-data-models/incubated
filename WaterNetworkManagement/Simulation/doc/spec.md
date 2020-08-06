@@ -25,7 +25,11 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
 
 ### Simulation Entity Properties
 
--   `description` : An optional text that describes other significant information about the junction
+-   `description` : A free text description
+    -   Attribute type: `Property`.Text
+    -   Optional
+
+-   `createdBy` : Name or other identifier of who created/triggered the simulation
     -   Attribute type: `Property`.Text
     -   Optional
 
