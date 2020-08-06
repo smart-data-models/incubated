@@ -4,6 +4,42 @@
     "title": "WaterNetwork - Simulation",
     "description": "This entity contains a harmonised description of a generic simulation made for the Water Network Management domain. This entity is primarily associated with the water network management vertical and related IoT applications.",
     "type": "object",
+    "definitions": {
+        "modifiedInputNetworkParameter": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Property"
+                    ]
+                },
+                "targetURI": {
+                    "type": "string"
+                },
+                "targetProperty": {
+                    "type": "string"
+                },
+                "targetValue": {
+                    "type": [
+                        "number",
+                        "string",
+                        "object"
+                    ]
+                },
+                "datasetId": {
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/datasetId"
+                }
+            },
+            "required": [
+                "type",
+                "targetURI",
+                "targetProperty",
+                "targetValue",
+                "datasetId"
+            ]
+        }
+    },
     "allOf": [
         {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
