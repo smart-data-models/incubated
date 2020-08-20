@@ -5,6 +5,49 @@
     "description": "This entity contains a harmonised description of a generic simulation made for the Water Network Management domain. This entity is primarily associated with the water network management vertical and related IoT applications.",
     "type": "object",
     "definitions": {
+        "control": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Property"
+                    ]
+                },
+                "controlType": {
+                    "type": "string",
+                    "enum": [
+                        "LOWLEVEL", "HILEVEL", "TIMER", "TIMEOFDAY"
+                    ]
+                },
+                "controlsLink": {
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
+                },
+                "setting": {
+                    "type": [
+                        "number"
+                    ]
+                },
+                "monitorsNode": {
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
+                },
+                "triggerLevel": {
+                    "type": [
+                        "number"
+                    ]
+                },
+                "datasetId": {
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/datasetId"
+                }
+            },
+            "required": [
+                "type",
+                "controlType",
+                "controlsLink",
+                "setting",
+                "triggerLevel"
+            ]
+        },
         "modifiedInputNetworkParameter": {
             "type": "object",
             "properties": {
@@ -55,6 +98,12 @@
                 },
                 "description": {
                     "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "control": {
+                    "$ref": "#/definitions/control"
+                },
+                "modifiedInputNetworkParameter": {
+                    "$ref": "#/definitions/modifiedInputNetworkParameter"
                 },
                 "createdBy": {
                     "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildProperty"
