@@ -1,63 +1,139 @@
 {
-  "id": "Museum-Barcelona-MACBA-1234",
-  "type": "Museum",
-  "name": "Museo de Arte Contemporaneo de Barcelona",
-  "alternateName": {
-    "value": "MACBA"
-  },
-  "openingHoursSpecification": {
-    "value": [
-      {
-        "dayOfWeek": "Mo, Wed, Thu, Fr",
-        "closes": "19:30",
-        "opens": "11:00"
-      },
-      {
-        "dayOfWeek": "Sat",
-        "closes": "21:00",
-        "opens": "10:00"
-      },
-      {
-        "dayOfWeek": "Sun",
-        "closes": "15:00",
-        "opens": "10:00"
-      }
-    ]
-  },
-  "description": {
-    "value": "The MACBA was designed by the American architect Richard Meier and inaugurated in 1995."
-  },
-  "source": {
-    "value": "http://www.tourspain.es"
-  },
-  "artPeriod": {
-    "value": ["contemporary"]
-  },
-  "museumType": {
-    "value": ["fineArts"]
-  },
-  "facilities": {
-    "value": ["shop", "cloakRoom", "guidedTour"]
-  },
-  "location": {
-    "type": "geo:json",
-    "value": {
-      "type": "Point",
-      "coordinates": [2.1668771521199393, 41.38302235796602]
-    }
-  },
-  "address": {
-    "type": "PostalAddress",
-    "value": {
-      "addressCountry": "ES",
-      "addressLocality": "Barcelona",
-      "streetAddress": "Plaza Dels \u00c0ngels, 1"
-    }
-  },
-  "touristArea": {
-    "value": "Barcelona-Capital"
-  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/data-models/master/context.jsonld"
+  ],
+  "id": "urn:ngsi-ld:pipe:0012",
+  "type": "node",
   "name": {
-    "value": "Museo de Arte Contemporaneo de Barcelona"
+    "type": "Text",
+    "value": "Node for pipe flux on tank 2"
+  },
+  "algorithm": {
+    "type": "Object",
+    "value": {
+      "name": {
+        "type": "Text",
+        "value": "weigthed average"
+      },
+      "version": {
+        "type": "Text",
+        "value": "1.0"
+      }
+    }
+  },
+  "relatedNodes": {
+    "type": "Array",
+    "value": {
+      "type":
+    }
+{
+  "type": "Object",
+  "value": {
+    "node": {
+      "type": "URL",
+      "value": "urn:ngsi-ld:pipe:0007"
+    },
+    "typeOfRelationship": {
+      "type": "Text",
+      "value": "dataProvider"
+    }
   }
+},
+{
+"type": "Object",
+"value": {
+"node": {
+"type": "URL",
+"value": "urn:ngsi-ld:pipe:0009"
+},
+"typeOfRelationship": {
+"type": "Text",
+"value": "dataSource"
+}
+}
+}
+],
+"dataSource": [
+{
+"refDevice": "urn:ngsi-ld:pipe:007",
+"controlledProperty": "flux",
+"controlledAsset": "water",
+"observedAt": "2020-08-14",
+"value": 1000,
+"unitCode": "LTR",
+"position": {
+"location": {
+"type": "Point",
+"coordinates": [
+-4.754444444,
+41.640833333
+]
+},
+"address": {
+"streetAddress": "Plaza Dels Àngels, 1",
+"addressRegion": "Barcelona",
+"postalCode": "08077",
+"postOfficeBoxNumber": "",
+"areaServed": "Surroundings of IADB",
+"addressCountry": "ES",
+"addressLocality": "Barcelona"
+}
+}
+},
+{
+"refDevice": "urn:ngsi-ld:pipe:009",
+"controlledProperty": "flux",
+"controlledAsset": "water",
+"observedAt": "2020-08-14",
+"value": 700,
+"unitCode": "LTR",
+"position": {
+"location": {
+"type": "Point",
+"coordinates": [
+-4.754444444,
+41.640833333
+]
+},
+"address": {
+"streetAddress": "Plaza Dels Àngels, 1",
+"addressRegion": "Barcelona",
+"postalCode": "08077",
+"postOfficeBoxNumber": "",
+"areaServed": "Surroundings of IADB",
+"addressCountry": "ES",
+"addressLocality": "Barcelona"
+}
+}
+}
+],
+"observedAt": "2020-08-14",
+"validPeriod": "P0Y0M0DT1H0M0S",
+"dataResult": [
+{
+"controlledProperty": "flux",
+"controlledAsset": "",
+"observedAt": "",
+"value": 1700,
+"unitCode": "LTR",
+"position": {
+"location": {
+"type": "Point",
+"coordinates": [
+-4.754444444,
+41.640833333
+]
+},
+"address": {
+"streetAddress": "Plaza Dels Àngels, 1",
+"addressRegion": "Barcelona",
+"postalCode": "08077",
+"postOfficeBoxNumber": "",
+"areaServed": "Surroundings of IADB",
+"addressCountry": "ES",
+"addressLocality": "Barcelona"
+}
+}
+}
+]
 }

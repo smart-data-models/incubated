@@ -7,7 +7,7 @@
     },
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-    }
+    },
     {
       "properties": {
         "type": {
@@ -65,12 +65,19 @@
                 "type": "string"
               },
               "value": {
-                "type": "string"
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
               },
               "unitCode": {
                 "type": "string"
               },
-              "location": {
+              "position": {
                 "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
               }
             }
@@ -97,7 +104,14 @@
                 "type": "string"
               },
               "value": {
-                "type": "string"
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
               },
               "unitCode": {
                 "type": "string"
