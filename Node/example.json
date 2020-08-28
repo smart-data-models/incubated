@@ -1,67 +1,101 @@
 {
-  "id": "Spain-WeatherObserved-Valladolid-2016-11-30T07:00:00.00Z",
+  "id": "urn:ngsi-ld:pipe:0012",
   "type": "node",
-  "address": {
-    "addressLocality": "Valladolid",
-    "addressCountry": "ES"
-  },
-  "location": {
-    "type": "Point",
-    "coordinates": [-4.754444444, 41.640833333]
-  },
+  "name": "Node for pipe flux on tank 2",
   "algorithm": {
-    "name": "aggregation2",
-    "version" : "1.0"
+    "name": "weigthed average",
+    "version": "1.0"
   },
-  "dataSource":
-  [
+  "relatedNodes": [
     {
-      "refDevice": "sensorid1",
+      "node": "urn:ngsi-ld:pipe:0007",
+      "typeOfRelationship": "dataProvider"
+    },
+    {
+      "node": "urn:ngsi-ld:pipe:0009",
+      "typeOfRelationship": "dataSource"
+    }
+  ],
+  "dataSource": [
+    {
+      "refDevice": "urn:ngsi-ld:pipe:007",
       "controlledProperty": "flux",
-      "controlledAsset": "assetid1",
-      "observedAt": "2020-06-24T07:00:00.00Z",
-      "value": "23",
-      "unitCode": "MTS",
-      "location": {
-        "type": "Point",
-        "coordinates": [
-          -4.754444444,
-          41.640833333
-        ]
+      "controlledAsset": "water",
+      "observedAt": "2020-08-14",
+      "value": 1000,
+      "unitCode": "LTR",
+      "position": {
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            -4.754444444,
+            41.640833333
+          ]
+        },
+        "address": {
+          "streetAddress": "Plaza Dels Àngels, 1",
+          "addressRegion": "Barcelona",
+          "postalCode": "08077",
+          "postOfficeBoxNumber": "",
+          "areaServed": "Surroundings of IADB",
+          "addressCountry": "ES",
+          "addressLocality": "Barcelona"
+        }
       }
     },
     {
-      "refDevice": "sensorid2",
-      "controlledProperty": "temperature",
-      "controlledAsset": "assetid1",
-      "observedAt": "2020-06-24T07:00:01.00Z",
-      "value": "16",
-      "unitCode": "CEL",
-      "location": {
-        "type": "Point",
-        "coordinates": [
-          -4.754444444,
-          41.640833333
-        ]
+      "refDevice": "urn:ngsi-ld:pipe:009",
+      "controlledProperty": "flux",
+      "controlledAsset": "water",
+      "observedAt": "2020-08-14",
+      "value": 700,
+      "unitCode": "LTR",
+      "position": {
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            -4.754444444,
+            41.640833333
+          ]
+        },
+        "address": {
+          "streetAddress": "Plaza Dels Àngels, 1",
+          "addressRegion": "Barcelona",
+          "postalCode": "08077",
+          "postOfficeBoxNumber": "",
+          "areaServed": "Surroundings of IADB",
+          "addressCountry": "ES",
+          "addressLocality": "Barcelona"
+        }
       }
     }
   ],
-  "observedAt": "2020-06-24T07:00:02.00Z",
-  "validPeriod": "P0Y0M0DT0H3M0S",
-  "dataResult":
-  [
+  "observedAt": "2020-08-14",
+  "validPeriod": "P0Y0M0DT1H0M0S",
+  "dataResult": [
     {
       "controlledProperty": "flux",
-      "controlledAsset": "assetid1",
-      "observedAt": "2020-06-24T07:00:00.00Z",
-      "value": "23",
-      "unitCode": "MTS",
-      "location": {
-        "type": "Point",
-        "coordinates": [
-          -4.754444444,
-          41.640833333
-        ]
+      "controlledAsset": "",
+      "observedAt": "",
+      "value": 1700,
+      "unitCode": "LTR",
+      "position": {
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            -4.754444444,
+            41.640833333
+          ]
+        },
+        "address": {
+          "streetAddress": "Plaza Dels Àngels, 1",
+          "addressRegion": "Barcelona",
+          "postalCode": "08077",
+          "postOfficeBoxNumber": "",
+          "areaServed": "Surroundings of IADB",
+          "addressCountry": "ES",
+          "addressLocality": "Barcelona"
+        }
       }
     }
   ]
