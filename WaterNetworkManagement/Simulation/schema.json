@@ -1,0 +1,130 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Simulation/schema.json",
+    "title": "WaterNetwork - Simulation",
+    "description": "This entity contains a harmonised description of a generic simulation made for the Water Network Management domain. This entity is primarily associated with the water network management vertical and related IoT applications.",
+    "type": "object",
+    "definitions": {
+        "control": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Property"
+                    ]
+                },
+                "controlType": {
+                    "type": "string",
+                    "enum": [
+                        "LOWLEVEL", "HILEVEL", "TIMER", "TIMEOFDAY"
+                    ]
+                },
+                "controlsLink": {
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
+                },
+                "setting": {
+                    "type": [
+                        "number"
+                    ]
+                },
+                "monitorsNode": {
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
+                },
+                "triggerLevel": {
+                    "type": [
+                        "number"
+                    ]
+                },
+                "datasetId": {
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/datasetId"
+                }
+            },
+            "required": [
+                "type",
+                "controlType",
+                "controlsLink",
+                "setting",
+                "triggerLevel"
+            ]
+        },
+        "modifiedInputNetworkParameter": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Property"
+                    ]
+                },
+                "targetURI": {
+                    "type": "string"
+                },
+                "targetProperty": {
+                    "type": "string"
+                },
+                "targetValue": {
+                    "type": [
+                        "number",
+                        "string",
+                        "object"
+                    ]
+                },
+                "datasetId": {
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/datasetId"
+                }
+            },
+            "required": [
+                "type",
+                "targetURI",
+                "targetProperty",
+                "targetValue",
+                "datasetId"
+            ]
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Simulation"
+                    ],
+                    "description": "NGSI-LD Entity Type"
+                },
+                "description": {
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "control": {
+                    "$ref": "#/definitions/control"
+                },
+                "modifiedInputNetworkParameter": {
+                    "$ref": "#/definitions/modifiedInputNetworkParameter"
+                },
+                "createdBy": {
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "hasInputNetwork": {
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
+                },
+                "optionNames": {
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "optionValues": {
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildProperty"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type",
+        "hasInputNetwork",
+        "optionNames",
+        "optionValues"
+    ]
+}
