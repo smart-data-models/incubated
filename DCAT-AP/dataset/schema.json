@@ -1,0 +1,243 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "",
+  "title": "Distribution DCAT-AP 2.0 schema",
+  "description": "Distribution Schema meeting DCAT-AP 2.0 specification",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "dataset"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string",
+      "description": "camelCase naming convention broken for compatibility reasons"
+    },
+    "contactPoint": {
+      "type": "array",
+      "description": "vcard:Kind",
+      "items": {
+        "type": "string"
+      }
+    },
+    "distribution": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "keyword": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "publisher": {
+      "description": "foaf:Agent",
+      "type": "string"
+    },
+    "spatial": {
+      "description": "dct:Location. String?",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "temporal": {
+      "description": "dct:PeriodOfTime",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "theme": {
+      "description": "skos:Concept",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "accessRights": {
+      "description": "foaf:Agent",
+      "type": "string",
+      "enum": [
+        "public",
+        "restricted",
+        "non-public"
+      ]
+    },
+    "creator": {
+      "description": "dct:Standard",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "documentation": {
+      "description": "foaf:Document",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "frequency": {
+      "type": "string",
+      "description": "dct:Frequency"
+    },
+    "hasVersion": {
+      "description": "dcat:Dataset",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "identifier": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "isReferencedBy": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "isVersionOf": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "landingPage": {
+      "description": "foaf:Document",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "language": {
+      "description": "dct:LinguisticSystem",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "otherIdentifier": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "provenance": {
+      "description": "dct:ProvenanceStatement",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "qualifiedAttribution": {
+      "description": "prov:qualifiedAttribution",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "qualifiedRelation": {
+      "description": "dcat:Relationship",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "relation": {
+      "description": "rdfs:Resource",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "releaseDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sample": {
+      "description": "rdfs:Resource",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "source": {
+      "description": "rdfs:Resource",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "spatialResolution": {
+      "description": "xsd:decimal",
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "temporalResolution": {
+      "description": "xsd:duration",
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "Type": {
+      "description": "skos:Concept",
+      "type": "string"
+    },
+    "modified": {
+      "description": "rdfs:Literal typed as xsd:date or xsd:dateTime",
+      "type": "string",
+      "format": "date-time"
+    },
+    "versionInfo": {
+      "type": "string"
+    },
+    "versionNotes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "wasGeneratedBy": {
+      "description": "prov:Activity",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "description",
+    "Title"
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "",
+  "title": "Distribution DCAT-AP 2.0 schema",
+  "description": "Distribution Schema meeting DCAT-AP 2.0 specification",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "distribution"
+      ]
+    },
+    "accessURL": {
+      "type": "string",
+      "format": "uri",
+      "description": "rdfs:Resource"
+    },
+    "availability": {
+      "type": "string",
+      "description": "skos:Concept"
+    },
+    "description": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "format": {
+      "type": "string",
+      "description": "dct:MediaTypeOrExtent"
+    },
+    "license": {
+      "type": "string",
+      "description": "dct:LicenseDocument"
+    },
+    "accessService": {
+      "type": "array",
+      "description": "dcat:DataService",
+      "items": {
+        "type": "string"
+      }
+    },
+    "byteSize": {
+      "type": "number",
+      "description": "rdfs:Literal typed as xsd:decimal"
+    },
+    "checksum": {
+      "type": "number",
+      "description": "spdx:Checksum"
+    },
+    "compressFormat": {
+      "type": "number",
+      "description": "dct:MediaType"
+    },
+    "documentation": {
+      "description": "foaf:Document",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "downloadURL": {
+      "description": "rdfs:Resource",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "hasPolicy": {
+      "type": "string",
+      "description": "odrl:Policy"
+    },
+    "language": {
+      "description": "dct:LinguisticSystem",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "conformsTo": {
+      "type": "array",
+      "description": "dct:Standard",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "packageFormat": {
+      "type": "string",
+      "description": "dct:MediaType"
+    },
+    "releaseDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "rights": {
+      "description": "dct:RightsStatement",
+      "type": "string"
+    },
+    "spatialResolutionInMeters": {
+      "description": "xsd:decimal",
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "status": {
+      "description": "skos:Concept",
+      "type": "string"
+    },
+    "temporalResolution": {
+      "description": "xsd:duration",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "Title": {
+      "description": "rdfs:Literal",
+      "type": "string"
+    },
+    "modified": {
+      "description": "rdfs:Literal typed as xsd:date or xsd:dateTime",
+      "type": "string",
+      "format": "date-time"
+    },
+    "required": [
+      "id",
+      "type",
+      "accessURL"
+    ]
+  }
+}
