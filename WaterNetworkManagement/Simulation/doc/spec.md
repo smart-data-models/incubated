@@ -74,11 +74,6 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
     -   `modificationTargetValue`: A sub-property.
     -   Optional
 
-
--   `modificationTargetURI` : URI of network component with property modified in simulation. A sub-property of the Property `modifiedInputNetworkParameter`
-    -   Attribute type: `Property`.Text
-    -   Mandatory
-
 -   `modificationTargetProperty` : Name of the property modified in simulation. A sub-property of the Property `modifiedInputNetworkParameter`
     -   Attribute type: `Property`.Text
     -   Mandatory
@@ -94,6 +89,10 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
     -   Attribute type: `Relationship`. Reference to an entity of type `Network`
     -   Attribute metadata Properties:
         -   `{{metadata Property name}}` : {{Metadata Property Description}}
+    -   Mandatory
+
+-   `modificationTargetURI` : URI of network component with property modified in simulation. A sub-relationship of the Property `modifiedInputNetworkParameter`
+    -   Attribute type: `Relationship`
     -   Mandatory
 
 -   `controlsLink` : Link controlled. A sub-relationship of the Property `control`
