@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/incubated/caravan/schema.json",
+  "title": "Caravan data model",
+  "description": "Represent a caravan.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/incubated/house-schema.json#/definitions/"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/incubated/vehicle-schema.json#/definitions"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["caravan"],
+          "description": "NGSI Entity type"
+        }
+      }
+  ],
+  "required": [
+    "id",
+    "type",
+    "vehicleType",
+    "category",
+    "location"
+  ]
+}
