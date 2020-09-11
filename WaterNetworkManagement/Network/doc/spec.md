@@ -38,6 +38,13 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
         -   `{{metadata Property name}}` : {{Metadata Property Description}}
     -   Mandatory
 
+-   `hasSubGraph` : The ID of the sub-network, considered as a Network.
+
+    -   Attribute type: `Relationship`. Reference to an entity of type `Network`
+    -   Attribute metadata Properties:
+        -   `{{metadata Property name}}` : {{Metadata Property Description}}
+    -   Mandatory
+
 **Note**: JSON Schemas are intended to capture the data type and associated
 constraints of the different Attributes, regardless their final representation
 format in NGSI-LD.
