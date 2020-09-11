@@ -38,7 +38,7 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
         -   `{{metadata Property name}}` : {{Metadata Property Description}}
     -   Mandatory
 
--   `hasSubGraph` : The ID of the sub-network, considered as a Network.
+-   `hasSubNetwork` : The ID of the sub-network, considered as a Network.
 
     -   Attribute type: `Relationship`. Reference to an entity of type `Network`
     -   Attribute metadata Properties:
