@@ -29,10 +29,6 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
     -   Attribute type: `Property`.Text
     -   Optional
 
--   `createdBy` : Name or other identifier of who created/triggered the simulation
-    -   Attribute type: `Property`.Text
-    -   Optional
-
 -   `optionNames` : Names of options applied in the simulation
 
     -   Attribute type: `Property`. List of String
@@ -83,6 +79,10 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
 
 
 ### Simulation Entity Relationships
+
+-   `createdBy` : The ID of who created/triggered the simulation
+    -   Attribute type: `Relationship`. Reference to an entity of type `User`
+    -   Optional
 
 -   `hasInputNetwork` : The ID of the network used in the simulation
 
