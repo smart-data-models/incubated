@@ -43,11 +43,11 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
         -   `{{metadata Property name}}` : {{Metadata Property Description}}
     -   Mandatory
 
--   `control` : Description of a control applied to the network for the simulation
+-   `operationalControl` : Description of a control applied to the network for the simulation
     -   `controlType`: A sub-property.
-    -   `controlsLink`:A sub-Relationship.
+    -   `controlledLink`:A sub-Relationship.
     -   `setting`: A sub-property.
-    -   `monitorsNode`: A sub-Relationship.
+    -   `monitoredNode`: A sub-Relationship.
     -   `triggerLevel`: A sub-property.
     -   Optional
 
@@ -95,11 +95,11 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
     -   Attribute type: `Relationship`
     -   Mandatory
 
--   `controlsLink` : Link controlled. A sub-relationship of the Property `control`
+-   `controlledLink` : Link controlled. A sub-relationship of the Property `control`
     -   Attribute type: `Relationship`. Reference to an entity of type `Pipe`, `Pump` or `Valve`
     -   Mandatory
 
--   `monitorsNode` : Node which is monitored for control trigger level. A sub-relationship of the Property `control`
+-   `monitoredNode` : Node which is monitored for control trigger level. A sub-relationship of the Property `control`
     -   Attribute type: `Relationship`. Reference to an entity of type `Junction`, `Tank` or `Reservoir`
     -   Mandatory
 
