@@ -1,0 +1,172 @@
+Zone:
+  required:
+    - id
+    - type
+    - lastUpdate
+  allOf:
+    - $ref: >-
+        https://raw.githubusercontent.com/smart-data-models/data-models/master/ngsi-ld.yaml#/Common
+  type: object
+  description: 'A part of a building belonging to a farm '
+  properties:
+    additionalInfo:
+      x-ngsi:
+        type: Property
+      type: array
+      description: ''
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+          value:
+            type: string
+    address:
+      $ref: >-
+        https://raw.githubusercontent.com/smart-data-models/data-models/master/schema.org.yaml#/address
+    alternateName:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: ''
+    areaServed:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: ''
+    arrivalTimestamp:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: ''
+      format: date-time
+    avgGrowth:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    avgWeight:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    co2:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    companyId:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: ''
+    dataProvider:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: ''
+    description:
+      $ref: >-
+        https://raw.githubusercontent.com/smart-data-models/data-models/master/ngsi-ld.yaml#/description
+    empty:
+      x-ngsi:
+        type: Property
+      type: boolean
+      description: ''
+    feedConsumption:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    humidity:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    lastUpdate:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    location:
+      $ref: >-
+        https://raw.githubusercontent.com/smart-data-models/data-models/master/ngsi-ld.yaml#/location
+    luminosity:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    name:
+      $ref: >-
+        https://raw.githubusercontent.com/smart-data-models/data-models/master/ngsi-ld.yaml#/name
+    numAnimals:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    outputFeed:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    owner:
+      x-ngsi:
+        type: Property
+      type: array
+      description: ''
+      items: &ref_0
+        anyOf:
+          - type: string
+            minLength: 1
+            maxLength: 256
+            pattern: '^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$'
+          - type: string
+            format: uri
+    relatedSource:
+      x-ngsi:
+        type: Property
+      type: array
+      description: List of IDs the current entity may have in external applications
+      items:
+        - type: object
+          values:
+            application: *ref_0
+            applicationEntityId:
+              type: string
+    sex:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: ''
+    source:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: ''
+    startWeight:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    temperature:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    waterConsumption:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    weightStDev:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
