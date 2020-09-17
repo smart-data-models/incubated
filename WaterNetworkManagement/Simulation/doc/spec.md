@@ -29,10 +29,6 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
     -   Attribute type: `Property`.Text
     -   Optional
 
--   `createdBy` : Name or other identifier of who created/triggered the simulation
-    -   Attribute type: `Property`.Text
-    -   Optional
-
 -   `optionNames` : Names of options applied in the simulation
 
     -   Attribute type: `Property`. List of String
@@ -47,14 +43,64 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
         -   `{{metadata Property name}}` : {{Metadata Property Description}}
     -   Mandatory
 
+-   `operationalControl` : Description of a control applied to the network for the simulation
+    -   `controlType`: A sub-property.
+    -   `controlledLink`:A sub-Relationship.
+    -   `setting`: A sub-property.
+    -   `monitoredNode`: A sub-Relationship.
+    -   `triggerLevel`: A sub-property.
+    -   Optional
+
+-   `controlType` : Control type. A sub-property of the Property `control`
+    -   Attribute type: `Property`.Text
+    -  Values Restricted to :  "LOWLEVEL", "HILEVEL", "TIMER" and "TIMEOFDAY"
+    -   Mandatory
+
+-   `setting` : Setting applied in the to the controlled link when trigger level is reached. A sub-property of the Property `control`
+    -   Attribute type: `Property`.Number
+    -   Mandatory
+
+-   `triggerLevel` : Level at which control is activated. A sub-property of the Property `control`
+    -   Attribute type: `Property`.Number
+    -   Mandatory
+
+-   `modifiedInputNetworkParameter` : Description of a modification applied to the network for the simulation
+    -   `modificationTargetURI`: A sub-property.
+    -   `modificationTargetProperty`:A sub-property.
+    -   `modificationTargetValue`: A sub-property.
+    -   Optional
+
+-   `modificationTargetProperty` : Name of the property modified in simulation. A sub-property of the Property `modifiedInputNetworkParameter`
+    -   Attribute type: `Property`.Text
+    -   Mandatory
+
+-   `modificationTargetValue` : New value applied to the modified network property in the simulation. A sub-property of the Property `modifiedInputNetworkParameter`
+    -   Mandatory
+
 
 ### Simulation Entity Relationships
+
+-   `createdBy` : The ID of who created/triggered the simulation
+    -   Attribute type: `Relationship`. Reference to an entity of type `User`
+    -   Optional
 
 -   `hasInputNetwork` : The ID of the network used in the simulation
 
     -   Attribute type: `Relationship`. Reference to an entity of type `Network`
     -   Attribute metadata Properties:
         -   `{{metadata Property name}}` : {{Metadata Property Description}}
+    -   Mandatory
+
+-   `modificationTargetURI` : URI of network component with property modified in simulation. A sub-relationship of the Property `modifiedInputNetworkParameter`
+    -   Attribute type: `Relationship`
+    -   Mandatory
+
+-   `controlledLink` : Link controlled. A sub-relationship of the Property `control`
+    -   Attribute type: `Relationship`. Reference to an entity of type `Pipe`, `Pump` or `Valve`
+    -   Mandatory
+
+-   `monitoredNode` : Node which is monitored for control trigger level. A sub-relationship of the Property `control`
+    -   Attribute type: `Relationship`. Reference to an entity of type `Junction`, `Tank` or `Reservoir`
     -   Mandatory
 
 

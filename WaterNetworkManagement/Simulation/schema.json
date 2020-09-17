@@ -5,7 +5,7 @@
     "description": "This entity contains a harmonised description of a generic simulation made for the Water Network Management domain. This entity is primarily associated with the water network management vertical and related IoT applications.",
     "type": "object",
     "definitions": {
-        "control": {
+        "operationalControl": {
             "type": "object",
             "properties": {
                 "type": {
@@ -20,7 +20,7 @@
                         "LOWLEVEL", "HILEVEL", "TIMER", "TIMEOFDAY"
                     ]
                 },
-                "controlsLink": {
+                "controlledLink": {
                     "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
                 },
                 "setting": {
@@ -28,7 +28,7 @@
                         "number"
                     ]
                 },
-                "monitorsNode": {
+                "monitoredNode": {
                     "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
                 },
                 "triggerLevel": {
@@ -57,13 +57,13 @@
                         "Property"
                     ]
                 },
-                "targetURI": {
+                "modificationTargetURI": {
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
+                },
+                "modificationTargetProperty": {
                     "type": "string"
                 },
-                "targetProperty": {
-                    "type": "string"
-                },
-                "targetValue": {
+                "modificationTargetValue": {
                     "type": [
                         "number",
                         "string",
@@ -76,9 +76,9 @@
             },
             "required": [
                 "type",
-                "targetURI",
-                "targetProperty",
-                "targetValue",
+                "modificationTargetURI",
+                "modificationTargetProperty",
+                "modificationTargetValue",
                 "datasetId"
             ]
         }
@@ -106,7 +106,7 @@
                     "$ref": "#/definitions/modifiedInputNetworkParameter"
                 },
                 "createdBy": {
-                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildProperty"
+                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
                 },
                 "hasInputNetwork": {
                     "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
