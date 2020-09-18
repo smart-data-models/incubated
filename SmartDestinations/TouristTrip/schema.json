@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.Tourism/TouristTrip/schema.json",
+  "title": "tourist trip",
+  "description": "",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/address"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "touristType": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "enum": [
+            "FAMILY TOURISM",
+            "LGTBI TOURISM",
+            "BACKPACKING TOURISM",
+            "WOMEN TOURISM",
+            "BUSINESS TOURISM",
+            "ROMANTIC TOURISM",
+            "SENIOR TOURISM",
+            "SINGLES TOURISM",
+            "WELLNESS TOURISM",
+            "WEDDING & HONEYMOON TOURISM",
+            "ADVENTURE TOURISM",
+            "DIVING TOURISM",
+            "GAMBLING TOURISM",
+            "HUNTING TOURISM",
+            "CYCLING TOURISM",
+            "SHOPPING TOURISM",
+            "COMMUNITY-BASED TOURISM",
+            "CRUISE TOURISM",
+            "CULTURAL TOURISM",
+            "SPORTS TOURISM",
+            "WATER SPORTS TOURISM",
+            "WINTER SPORTS TOURISM",
+            "SHORT BREAK TOURISM",
+            "EVENTS AND FESTIVALS TOURISM",
+            "PARTY TOURISM",
+            "PHOTOGRAPHY TOURISM",
+            "LANGUAGE TOURISM",
+            "LUXURY TOURISM",
+            "MEDICAL TOURISM",
+            "MICE TOURISM",
+            "FISHING TOURISM",
+            "SAFARI TOURISM",
+            "TREKKING TOURISM",
+            "BEACH AND SUN TOURISM",
+            "RURAL TOURISM",
+            "SAILING TOURISM",
+            "FILM TOURISM",
+            "HERITAGE TOURISM",
+            "INDUSTRIAL TOURISM",
+            "URBAN TOURISM",
+            "RELIGIOUS TOURISM",
+            "MEMORIAL TOURISM",
+            "BIRDING TOURISM",
+            "ASTRONOMY TOURISM",
+            "ECOTOURISM ",
+            "GEOLOGICAL TOURISM",
+            "BULLFIGHTING TOURISM",
+            "NATURE TOURISM",
+            "BEER TOURISM ",
+            "WINE TOURISM ",
+            "FOOD TOURISM ",
+            "OLIVE OIL TOURISM",
+            "WHISKY TOURISM "
+          ]
+        }
+      ]
+    },
+    "addressLocality": {
+      "type": "string"
+    },
+    "itinerary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "streetAddress": {
+            "type": "string"
+          },
+          "postalCode": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "required": [
+      "type",
+      "name",
+      "description",
+      "touristType"
+    ]
+  }
+}
