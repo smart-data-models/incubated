@@ -1,0 +1,60 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"$id":"https://smart-data-models.github.io/incubated/DIH2/AGILPLAS/ProductionMeasurements/schema.json",
+	"title": "Production Measurements schema",
+	"description": "Represent a collection of measurements used to calculate OEE",
+	"type": "object",
+	"allOf": [
+		{
+			"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+		},
+		{
+			"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+		},
+		{
+			"properties": {
+				"type": {
+					"type": "string",
+					"enum": ["ProductionMeasurements"],
+ 					"description": "NGSI Entity type"
+				},
+				"plannedTime": {
+					"type": "number"
+				},
+				"operatingTime": {
+					"type": "number"
+				},
+				"lostTime": {
+					"type": "number"
+				},
+				"theoreticalCycleTime": {
+					"type": "number"
+				},
+				"actualMachineSpeed": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"theoreticalMachineSpeed": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"totalProduction": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"validProduction": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"defectiveProduction": {
+					"type": "integer",
+					"format": "int32"
+				},
+			}
+		}
+	],
+	"required": [
+		"id",
+		"type"
+	]
+}
