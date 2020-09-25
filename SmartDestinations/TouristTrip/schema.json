@@ -6,7 +6,7 @@
   "description": "",
   "allOf": [
     {
-      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/address"
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     }
   ],
   "type": "object",
@@ -98,22 +98,28 @@
             "type": "string"
           },
           "streetAddress": {
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "postalCode": {
             "type": "string"
           },
           "image": {
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       }
-    },
-    "required": [
-      "type",
-      "name",
-      "description",
-      "touristType"
-    ]
-  }
+    }
+  },
+  "required": [
+    "type",
+    "name",
+    "description",
+    "touristType"
+  ]
 }

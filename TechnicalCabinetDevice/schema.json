@@ -1,0 +1,326 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/data-models.Energy/TechnicalCabinetDevice/schema.json",
+  "title": "TechnicalCabinetDevice schema",
+  "description": "Technical Cabinet Device Data Model is intended to to describe the technical characteristics of the Device, designed to be placed in an urban or interurban environment. The main objective of these cabinets for this Data Model is to protect the electrical equipment necessary for the control, surveillance, reading and management of urban lighting, signaling, video and electrical distribution. The scope of use of some of these cabinets can extend to an additional protection for installations of modular apparatuses of telephony, data processing, meteorological stations, photo-voltaic stations, wind turbines stations, telecommunications, networks, data, bre Optics , etc. *Remark* : This Data Model can be used directly as a main entity to describe the device `Technical Cabinet`  or as a sub-entity of the Data Model  `DEVICE` using a reference by the `refDevice` attribute. It can also refer to the list of all the components it contains, with the `refDeviceList` attribute, using the Data Model  `DEVICE`",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "TechnicalCabinetDevice"
+          ],
+          "description": "NGSI Entity type"
+        },
+        "refDevice": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "refDeviceList": {
+          "type": "array",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          }
+        },
+        "refPointOfInterest": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "dateLastReported": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "brandName": {
+          "type": "string"
+        },
+        "modelName": {
+          "type": "string"
+        },
+        "manufacturerName": {
+          "type": "string"
+        },
+        "serialNumber": {
+          "type": "string"
+        },
+        "application": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "commercial",
+              "industrial",
+              "tertiary",
+              "road",
+              "publicWorks",
+              "urbanService",
+              "distributionService",
+              "other"
+            ]
+          }
+        },
+        "typeOfUse": {
+          "type": "string",
+          "enum": [
+            "indoor",
+            "outdoor",
+            "mixed",
+            "other"
+          ]
+        },
+        "installationMode": {
+          "type": "string",
+          "enum": [
+            "ground",
+            "underGround",
+            "aerial",
+            "wall",
+            "pole",
+            "roofing",
+            "other"
+          ]
+        },
+        "installationCondition": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "extremeHeat",
+              "extremeCold",
+              "extremeClimate",
+              "extremeHumidity",
+              "desert",
+              "sand",
+              "marine",
+              "saline",
+              "dust",
+              "seismic",
+              "other"
+            ]
+          }
+        },
+        "possibilityOfUse": {
+          "type": "string",
+          "enum": [
+            "stationary",
+            "mobile",
+            "mixed",
+            "other"
+          ]
+        },
+        "documentation": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "dimension": {
+            "type": "object",
+            "properties": {
+              "height": {
+                "type": "number",
+                "minimum": 0
+              },
+              "width": {
+                "type": "number",
+                "minimum": 0
+              },
+              "depth": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          },
+          "weight": {
+            "type": "number",
+            "minimum": 0
+          },
+          "internalDimension": {
+            "type": "object",
+            "properties": {
+              "height": {
+                "type": "number",
+                "minimum": 0
+              },
+              "width": {
+                "type": "number",
+                "minimum": 0
+              },
+              "depth": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          },
+          "protectionIP": {
+            "type": "string"
+          },
+          "protectionIK": {
+            "type": "number"
+          },
+          "maximumSystemVoltage": {
+            "type": "number",
+            "minimum": 0
+          },
+          "operatingTemperature": {
+            "type": "object",
+            "properties": {
+              "min": {
+                "type": "number",
+                "minimum": 0
+              },
+              "max": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          },
+          "protectionOthers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "basement",
+                "shielding",
+                "solar",
+                "water",
+                "dust",
+                "dampProof",
+                "insect",
+                "forcedOpening",
+                "saltSpray",
+                "abrasion",
+                "doorTearing",
+                "roofOverload",
+                "vandalism",
+                "graffiti",
+                "display",
+                "other"
+              ]
+            }
+          },
+          "doorCount": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 4
+          },
+          "doorType": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "solid",
+                "transparent",
+                "mixed",
+                "other"
+              ]
+            }
+          },
+          "doorOpeningAngle": {
+            "type": "number",
+            "minimum": 0
+          },
+          "doorClosingMode": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "revolvingHandle",
+                "fixedHandle",
+                "triangleHandle",
+                "other"
+              ]
+            }
+          },
+          "designMaterials": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "stainlessSteel",
+                "galvanizedSteel",
+                "aluminum",
+                "ABS-Plastic",
+                "fiberGlass",
+                "polyester",
+                "other"
+              ]
+            }
+          },
+          "interiorCoating": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "heatInsulating",
+                "polyesterResin",
+                "fiberGlass",
+                "polyester",
+                "plastic",
+                "Steel",
+                "other"
+              ]
+            }
+          },
+          "exteriorCoating": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "polyesterResin",
+                "fiberGlass",
+                "polyester",
+                "plastic",
+                "Steel",
+                "other"
+              ]
+            }
+          },
+          "exteriorFinish": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "textured",
+                "smooth",
+                "roughcast",
+                "raised",
+                "graffiti",
+                "other"
+              ]
+            }
+          },
+          "ventilationMode": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "selfVentilatedGills",
+                "airConditioners",
+                "dehumidifier",
+                "none",
+                "other"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "dateLastReported",
+    "typeOfUse",
+    "dimension"
+  ]
+}
