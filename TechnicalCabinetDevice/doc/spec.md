@@ -209,7 +209,7 @@ It can also refer to the list of all the components it contains, with the `refDe
 			- model: "https://schema.org/Text", "https://schema.org/URL"
 		- description: > Technical Documentation (Installation / maintenance / used).
 		- type: "string"
-	- owner:
+	- deviceOwner:
 		- x-ngsi:
 			- type: "Property"
 			- model: "https://schema.org/Text" included references to "http://schema.org/Person", "https://schema.org/Organization", "https://schema.org/URL".
