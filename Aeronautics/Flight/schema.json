@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$schemaVersion": "0.0",
-    "$id": "https://smart-data-models.github.io/dataModel.Flight/schema.json",
+    "$id": "https://smart-data-models.github.io/incubated/Aeronautics/Flight/schema.json",
     "title": "Smart Data models - Flight schema",
     "description": "A description of a generic flight",
     "type": "object",
@@ -40,35 +40,6 @@
                         "X"
                     ]
                 },
-                "flightServiceIATA": {
-                    "type": "string",
-                    "enum": [
-                        "J",
-                        "S",
-                        "U",
-                        "F",
-                        "V",
-                        "M",
-                        "Q",
-                        "G",
-                        "B",
-                        "A",
-                        "R",
-                        "C",
-                        "O",
-                        "H",
-                        "L",
-                        "P",
-                        "T",
-                        "K",
-                        "D",
-                        "E",
-                        "W",
-                        "X",
-                        "I",
-                        "N"
-                    ]
-                },
                 "status": {
                     "type": "string",
                     "enum": [
@@ -81,8 +52,20 @@
                         "cancelled"
                     ]
                 },
-                "speed": {
-                    "type": "number"
+                "aircraft": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                },
+                "aircraftModel": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                },
+                "departureAirport": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                },
+                "arrivalAirport": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                },
+                "airline": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
                 }
             }
         }

@@ -15,21 +15,6 @@ Flight:
     A JSON Schema corresponding to this data model can be found here.
     
   properties:
-    address:
-      $ref: >-
-        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/address
-    alternateName:
-       $ref: >-
-        https://smart-data-models.github.io/data-models/schema.org.yaml#/alternateName
-    areaServed:
-       $ref: >-
-        https://smart-data-models.github.io/data-models/schema.org.yaml#/areaServed
-    dataProvider:
-       $ref: >-
-        https://smart-data-models.github.io/data-models/fiware-terms.yaml#/dataProvider
-    description:
-      $ref: >-
-        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/description
     flightNumber:
       x-ngsi:
         type: Property
@@ -48,38 +33,28 @@ Flight:
         model: 'https://schema.org/Text'
       type: string
       description: ''
-    flightServiceIATA:
-      x-ngsi:
-        type: Property
-        model: 'https://schema.org/Text'
-      type: string
-      description: ''
     flightType:
       x-ngsi:
         type: Property
         model: 'https://schema.org/Text'
       type: string
-      description: ''
-    location:
-      $ref: >-
-        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/location
-    name:
-      $ref: >-
-        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/name
-    owner:
-      $ref: >-
-        https://smart-data-models.github.io/data-models/fiware-terms.yaml#/owner
-    source:
-       $ref: >-
-        https://smart-data-models.github.io/data-models/fiware-terms.yaml#/source
-    speed:
-      x-ngsi:
-        type: Property
-      type: number
-      description: ''
+      description: 'Flight type described as ICAO doc 4444 Appendix 2'
+      enum:
+        - S
+        - N
+        - G
+        - M
+        - X
     status:
       x-ngsi:
         type: Property
         model: 'https://schema.org/Text'
       type: string
-      description: ''
+      enum:
+        - scheduled
+        - active
+        - unknown
+        - redirected
+        - landed
+        - diverted
+        - cancelled 

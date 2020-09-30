@@ -28,16 +28,19 @@ Airport:
       - x-ngsi:
         - type: "Property"
         - model: "https://schema.org/Text"
-      - type: "string"
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons/name"
     - alternateName:
       - x-ngsi:
         - type: "Property"
         - model: "https://schema.org/Text"
-      - type: "string"
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons/alternateName"
     - address:
       - x-ngsi:
         - type: "Property"
         - model: "https://schema.org/address"
-      - $ref: "https://github.com/smart-data-models/data-models/blob/master/common-schema.md#/Address"
+      - $ref: "https://smart-data-models.github.io/data-modelscommon-schema.json#/definitions/Location-Commons/address"
     - location:
-      - $ref: "https://github.com/smart-data-models/data-models/blob/master/common-schema.md#/Address"
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://tools.ietf.org/html/rfc7946"
+      - $ref: "https://smart-data-models.github.io/data-modelscommon-schema.json#/definitions/Location-Commons/location"

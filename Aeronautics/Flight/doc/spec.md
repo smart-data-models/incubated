@@ -17,15 +17,13 @@ Flight:
         - type: "Property"
         - model: "https://schema.org/Text"
       - type: "string"
-      - description: >
-         Number of the flight without IATA and ICAO code
+      - description: Number of the flight without IATA and ICAO code
     - flightNumberIATA:
       - x-ngsi:
         - type: "Property"
         - model: "https://schema.org/Text"
       - type: "string"
-      - description: >
-         Number of the flight with IATA code
+      - description: Number of the flight with IATA code
     - flightNumberICAO:
       - x-ngsi:
         - type: "Property"
@@ -41,44 +39,7 @@ Flight:
         - G
         - M
         - X
-      - description: >
-         Flight type described as ICAO doc 4444 Appendix 2
-    - flightServiceIATA:
-      - x-ngsi:
-        - type: "EnumProperty"
-      - type: "string"
-      - enum:
-        - S
-        - N
-        - G
-        - M
-        - X
-        - J
-        - S
-        - U
-        - F
-        - V
-        - M
-        - Q
-        - G
-        - B
-        - A
-        - R
-        - C
-        - O
-        - H
-        - L
-        - P
-        - T
-        - K
-        - D
-        - E
-        - W
-        - X
-        - I
-        - N
-      - description: >
-         Flight service described as IATA
+      - description: Flight type described as ICAO doc 4444 Appendix 2
     - status:
       - x-ngsi:
         - type: "EnumProperty"
@@ -91,12 +52,33 @@ Flight:
         - landed
         - diverted
         - cancelled
-    - speed:
+    -  aircraft:
       - x-ngsi:
-        - type: "Property"
-        - model: "https://schema.org/Number"
-      - type: "number"
-      - description: >
-         Flight speed. Kilometre per hour
-    - location:
-      - $ref: "https://github.com/smart-data-models/data-models/blob/master/common-schema.md#/Address"
+        - type: "Relationship"
+      - type: "string"
+        - format: "URL"
+      - description: A reference to the aircraft
+    -  aircraftModel:
+      - x-ngsi:
+        - type: "Relationship"
+      - type: "string"
+        - format: "URL"
+      - description: A reference to the aircraft model
+    -  departureAirport:
+      - x-ngsi:
+        - type: "Relationship"
+      - type: "string"
+        - format: "URL"
+      - description: A reference to the departure airport
+    -  arrivalAirport:
+      - x-ngsi:
+        - type: "Relationship"
+      - type: "string"
+        - format: "URL"
+      - description: A reference to the arrival airport
+    -  airline:
+      - x-ngsi:
+        - type: "Relationship"
+      - type: "string"
+        - format: "URL"
+      - description: A reference to the airline      

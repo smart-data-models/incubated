@@ -1,9 +1,9 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$schemaVersion": "0.0",
-    "$id": "https://smart-data-models.github.io/incubated/Aeronautics/Airport/schema.json",
-    "title": "Smart Data models - Airport schema",
-    "description": "A description of a generic Airport",
+    "$id": "https://smart-data-models.github.io/incubated/Aeronautics/Aircraft/schema.json",
+    "title": "Smart Data models - Aircraft schema",
+    "description": "A description of a generic Aircraft",
     "type": "object",
     "allOf": [
         {
@@ -17,18 +17,21 @@
                 "type": {
                     "type": "string",
                     "enum": [
-                        "Airport"
+                        "Aircraft"
                     ],
                     "description": "NGSI Entity type"
                 },
-                "codeIATA": {
+                "registration": {
                     "type": "string"
                 },
-                "codeICAO": {
-                    "type": "string"
+                "speed": {
+                    "type": "number"
+                },
+                "aircraftModel": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
                 }
             }
         }
     ],
-    "required": ["id", "type", "name", "codeIATA", "codeICAO"]
+    "required": ["id", "type", "registration"]
 }
