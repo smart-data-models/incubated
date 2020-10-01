@@ -1,0 +1,62 @@
+{
+    "$schema": "http://json-schema.org/firefit/hamInspectionBufferSchema",
+    "$id": "https://github.com/smart-data-models/incubated/tree/master/DIH2/FIREFIT/HamInspectionBuffer/schema.json",
+    "title": "Ham Inspection Buffer",
+    "description": "A buffer entity used to register the results of ham pieces subject to an inspection process",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "Buffer unique identifier",
+            "type": "string"
+        },
+        "type": {
+            "description": "Buffer type",
+            "type": "string"
+        },
+        "inspection": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "Inspection type",
+                    "type": "string"
+                },
+                "value": {
+                    "type": "object",
+                    "properties": {
+                        "inspectionId": {
+                            "description": "Inspection unique identifier",
+                            "type": "string"
+                        },
+                        "inspectionImage": {
+                            "description": "Inspection encoded image result",
+                            "type": "string"
+                        },
+                        "inspection": {
+                            "description": "Inspection result",
+                            "type": "boolean"
+                        },
+                        "NaCl": {
+                            "description": "NaCl value measured by the inspection",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "inspectionId",
+                        "inspectionImage",
+                        "inspection",
+                        "NaCl"
+                    ]
+                }
+            },
+            "required": [
+                "type",
+                "value"
+            ]
+        }
+    },
+    "required": [
+        "id",
+        "type",
+        "sorting"
+    ]
+}

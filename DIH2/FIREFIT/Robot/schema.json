@@ -1,0 +1,80 @@
+{
+    "$schema": "http://json-schema.org/firefit/robotSchema",
+    "$id": "https://github.com/smart-data-models/incubated/tree/master/DIH2/FIREFIT/Robot/schema.json",
+    "title": "Robot",
+    "description": "A robot that executes a sorting operation between good and bad objects",
+    "type": "object",
+    "properties": {
+        "device_id": {
+            "description": "Robot unique identifier",
+            "type": "string"
+        },
+        "entity_name": {
+            "description": "Robot name",
+            "type": "string"
+        },
+        "apikey": {
+            "description": "Service that will contain the robot",
+            "type": "string"
+        },
+        "entity_type": {
+            "description": "Robot type",
+            "type": "string"
+        },
+        "transport": {
+            "description": "Robot communication protocol",
+            "type": "string"
+        },
+        "timezone": {
+            "description": "Timezone",
+            "type": "string"
+        },
+        "commands": {
+            "description": "Robot commands",
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "description": "Good object command name",
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Good object command type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "type"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "description": "Bad object command name",
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Bad object command type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "type"
+                    ]
+                }
+            ]
+        }
+    },
+    "required": [
+        "device_id",
+        "apikey",
+        "entity_type",
+        "transport",
+        "commands"
+    ]
+}

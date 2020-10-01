@@ -1,0 +1,68 @@
+{
+    "$schema": "http://json-schema.org/firefit/sensorSchema",
+    "$id": "https://github.com/smart-data-models/incubated/tree/master/DIH2/FIREFIT/Sensor/schema.json",
+    "title": "Sensor",
+    "description": "A generic sensor",
+    "type": "object",
+    "properties": {
+        "device_id": {
+            "description": "Sensor unique identifier",
+            "type": "string"
+        },
+        "entity_name": {
+            "description": "sensor name",
+            "type": "string"
+        },
+        "apikey": {
+            "description": "Service that will contain the sensor",
+            "type": "string"
+        },
+        "entity_type": {
+            "description": "Sensor type",
+            "type": "string"
+        },
+        "transport": {
+            "description": "Sensor communication protocol",
+            "type": "string"
+        },
+        "timezone": {
+            "description": "Timezone",
+            "type": "string"
+        },
+        "attributes": {
+            "description": "Sensor attributes",
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "object_id": {
+                            "description": "Sensor property id",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Sensor property name",
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Sensor property type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "object_id",
+                        "name",
+                        "type"
+                    ]
+                }
+            ]
+        }
+    },
+    "required": [
+        "device_id",
+        "apikey",
+        "entity_type",
+        "transport",
+        "attributes"
+    ]
+}
