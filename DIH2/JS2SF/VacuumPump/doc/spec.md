@@ -13,21 +13,18 @@ A JSON Schema corresponding to this data model can be found
 
 -   `type` : Entity type. It must be equal to `VacuumPump`.
 
--   `level` : The current vacuum level, a value beween 0 and 1.
+-   `vacuumLevel` : The current vacuum level, a value beween 0 and 1.
 
     -   Attribute type: Property.  [Number](http://schema.org/Number) 
     -   Allowed values: Interval \[0,1\].
     -   Default unit: bar.
-    -   Mandatory
 
 -   `on` : Indicates if the pump is on (true) or off (false).
     information
 
     -   Attribute type: Property. [Boolean](https://schema.org/Boolean)
-    -   Mandatory
 
--   `pumpType` : The pump type identifier.
+-   `pumpModel` : The pump model identifier.
 
     -   Attribute type: Property. [Text](https://schema.org/Text) 
-    -   Mandatory
 

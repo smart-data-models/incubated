@@ -9,24 +9,42 @@
       "type": "string"
     },
     "palletID": {
-      "type": "object",
-      "properties": {
-        "type": {
+      "type": "string"
+    },
+    "timeOfLoading": {
+      "type": "string"
+    },
+    "refCurrentLocation": {
+      "type": "string"
+    },
+    "refComingFrom": {
+      "type": "string"
+    },
+    "refGoiningTo": {
+      "type": "string"
+    },
+    "manufactueabilityOnFlexEdge": {
+      "type": "string",
+	  "enum": [
+		"CanPickUpOnly",
+		"CannotPickUp",
+		"CanProcess"
+	  ]
+    },
+    "refPieceList": {
+      "type": "array",
+      "items": [
+        {
           "type": "string"
         },
-        "value": {
+        {
           "type": "string"
         }
-      },
-      "required": [
-        "type",
-        "value"
       ]
     }
   },
   "required": [
     "id",
     "type",
-    "palletID"
   ]
 }
