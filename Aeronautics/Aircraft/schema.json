@@ -1,0 +1,37 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0",
+    "$id": "https://smart-data-models.github.io/incubated/Aeronautics/Aircraft/schema.json",
+    "title": "Smart Data models - Aircraft schema",
+    "description": "A description of a generic Aircraft",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Aircraft"
+                    ],
+                    "description": "NGSI Entity type"
+                },
+                "registration": {
+                    "type": "string"
+                },
+                "speed": {
+                    "type": "number"
+                },
+                "aircraftModel": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                }
+            }
+        }
+    ],
+    "required": ["id", "type", "registration"]
+}

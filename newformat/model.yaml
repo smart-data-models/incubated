@@ -1,0 +1,114 @@
+---
+# Copyright (c) 2020 Contributors to Smart-Data-Models
+# see https://github.com/smart-data-models/dataModel.Weather
+
+WeatherObserved:
+  required:
+    - id
+    - type
+    - dateObserved
+    - location
+  allOf:
+    - $ref: 'https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/Common'
+    - $ref: 'https://smart-data-models.github.io/dataModel.Weather/weather-model.yaml#/WeatherCommons'
+  type: object
+  description: |
+    An observation of weather conditions at a certain place and time. This data
+    model has been developed in cooperation with mobile operators and the GSMA.
+  properties:
+    address:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/schema.org.yaml#/address
+    alternateName:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/schema.org.yaml#/alternateName
+    areaServed:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/schema.org.yaml#/areaServed
+    atmosphericPressure:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Number'
+      type: number
+      description: 'The atmospheric pressure observed measured in Hecto Pascals.'
+    dataProvider:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/fiware-terms.yaml#/dataProvider
+    dateObserved:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'The date and time the observation was made in ISO8601 UTC format.'
+      format: date-time
+    description:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/description
+    dewPoint:
+      x-ngsi:
+        type: Property
+      type: number
+      description: 'The dew point encoded as a number. Celsius degrees.'
+    illuminance:
+      x-ngsi:
+        type: Property
+      type: number
+      description: '(https://en.wikipedia.org/wiki/Illuminance) observed measured in lux (lx) or lumens per square metre (cd·sr·m−2)'
+    location:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/location
+    name:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/name
+    owner:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/fiware-terms.yaml#/owner
+    precipitation:
+      x-ngsi:
+        type: Property
+      type: number
+      description: Air's temperature observed. Liters per square meter. 
+    pressureTendency: 
+       $ref: "https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/model.yaml#/PressureTendency"
+    snowHeight:
+      x-ngsi:
+        type: Property
+      type: number
+      description: 'The snow height observed by generic snow depth measurement sensors, expressed in centimeters'
+    solarRadiation:
+      x-ngsi:
+        type: Property
+      type: number
+      description: The solar radiation observed measured in Watts per square meter.
+    source:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/fiware-terms.yaml#/source
+    streamGauge:
+      x-ngsi:
+        type: Property
+      type: number
+      description: |
+        The water level surface elevation observed by Hydrometric
+        measurement sensors, namely a [Stream Gauge](https://en.wikipedia.org/wiki/Stream_gauge),
+        expressed in centimeters.
+    uVIndexMax:
+      x-ngsi:
+        type: Property
+      type: number
+      description: |
+        The maximum UV index for the period, based on the World Health Organization's UV Index measure. 
+        [http://www.who.int/uv/intersunprogramme/activities/uv_index/en/](http://www.who.int/uv/intersunprogramme/activities/uv_index/en/)
+
+
+PressureTendency:
+  type: string
+  enum: 
+    - falling
+    - raising
+    - steady
+  description: |
+    Is the pressure rising or falling? It can be expressed in quantitative terms or qualitative terms.
+    
+    - `falling`
+    - `raising`
+    - `steady`

@@ -1,0 +1,80 @@
+AircraftModel:
+  - required:
+    - id
+    - type
+    - codeIATA
+    - codeICAO
+    - name
+  - type: "object"
+    - allOf:
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+   - description: >
+      ## Description
+      AircraftModel entity contains a description of a generic aircraft model with the standard parameters used by the airline industry.
+      ## Data Model
+  - properties:
+    - codeIATA:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Text"
+      - type: "string"
+    - codeICAO:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Text"
+      - type: "string"
+    - name:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Text"
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons/name"
+    - length:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Number"
+      - type: "number"
+        - minimum: 0
+      - description: Aircraft model length in metres.
+    - wingSpan:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Number"
+      - type: "number"
+        - minimum: 0
+      - description: Aircraft model wingspan in metres.
+    - height:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Number"
+      - type: "number"
+        - minimum: 0
+      - description: Aircraft model height in metres.
+    - mtow:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Number"
+      - type: "number"
+        - minimum: 0
+      - description: Aircraft maximum takeoff weight in kilograms.
+    - maximumAllowedSpeed:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Number"
+      - type: "number"
+        - minimum: 0
+      - description: Aircraft maximum speed in kilometer per hour.
+    - maximumAllowedFuel:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Number"
+      - type: "number"
+        - minimum: 0
+      - description: Aircraft maximum fuel in kilograms.
+    - ceiling:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Number"
+      - type: "number"
+        - minimum: 0
+      - description: Maximum altitude the aircraft model can reach in metres.
