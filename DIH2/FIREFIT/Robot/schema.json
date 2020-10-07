@@ -5,76 +5,150 @@
     "description": "A robot that executes a sorting operation between good and bad objects",
     "type": "object",
     "properties": {
-        "device_id": {
+        "id": {
             "description": "Robot unique identifier",
             "type": "string"
         },
-        "entity_name": {
-            "description": "Robot name",
-            "type": "string"
-        },
-        "apikey": {
-            "description": "Service that will contain the robot",
-            "type": "string"
-        },
-        "entity_type": {
+        "type": {
             "description": "Robot type",
             "type": "string"
         },
-        "transport": {
-            "description": "Robot communication protocol",
-            "type": "string"
-        },
-        "timezone": {
-            "description": "Timezone",
-            "type": "string"
-        },
-        "commands": {
-            "description": "Robot commands",
-            "type": "array",
-            "items": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "description": "Good object command name",
-                            "type": "string"
-                        },
-                        "type": {
-                            "description": "Good object command type",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "name",
-                        "type"
-                    ]
+        "TimeInstant": {
+            "description": "Last Robot attributes update time record",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "TimeInstant type",
+                    "type": "string"
                 },
-                {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "description": "Bad object command name",
-                            "type": "string"
-                        },
-                        "type": {
-                            "description": "Bad object command type",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "name",
-                        "type"
-                    ]
+                "value": {
+                    "description": "TimeInstant value",
+                    "type": "string"
                 }
+            },
+            "required": [
+                "type",
+                "value"
+            ]
+        },
+        "bad_info": {
+            "description": "Command 'bad' feedback/result",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "Command 'bad' result type",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Command 'bad' result value",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "value"
+            ]
+        },
+        "bad_status": {
+            "description": "Command 'bad' status",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "Comand 'bad' status type",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Command 'bad' status value",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "value"
+            ]
+        },
+        "good_info": {
+            "description": "Command 'good' feedback/result",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "Command 'good' result type",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Command 'good' result value",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "value"
+            ]
+        },
+        "good_status": {
+            "description": "Command 'good' status",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "Comand 'good' status type",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Command 'good' status value",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "value"
+            ]
+        },
+        "good": {
+            "description": "Command 'good'",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "Command 'good' type",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Command 'good' value",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "value"
+            ]
+        },
+        "bad": {
+            "description": "Command 'bad'",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "Command 'bad' type",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Command 'bad' value",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "value"
             ]
         }
     },
     "required": [
-        "device_id",
-        "apikey",
-        "entity_type",
-        "transport",
-        "commands"
+        "id",
+        "type",
+        "TimeInstant",
+        "bad_info",
+        "bad_status",
+        "good_info",
+        "good_status",
+        "good",
+        "bad"
     ]
 }
