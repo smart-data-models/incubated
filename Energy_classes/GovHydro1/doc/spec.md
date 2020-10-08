@@ -1,0 +1,92 @@
+# GovHydro1
+type: "object"
+description : >
+## Description
+Basic Hydro turbine governor model.
+
+## Data Model
+  - properties:
+    - mwbase:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Base for power values (MWbase) (> 0).  Unit = MW. Default: 0.0
+    - rperm:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Permanent droop (R) (>0).  Typical Value = 0.04. Default: 0.0
+    - rtemp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Temporary droop (r) (>R).  Typical Value = 0.3. Default: 0.0
+    - tr:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Washout time constant (Tr) (>0).  Typical Value = 5. Default: 0
+    - tf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter time constant () (>0).  Typical Value = 0.05. Default: 0
+    - tg:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gate servo time constant (Tg) (>0).  Typical Value = 0.5. Default: 0
+    - velm:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum gate velocity (Vlem) (>0).  Typical Value = 0.2. Default: 0.0
+    - gmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum gate opening (Gmax) (>0).  Typical Value = 1. Default: 0.0
+    - gmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum gate opening (Gmin) (>=0).  Typical Value = 0. Default: 0.0
+    - tw:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Water inertia time constant (Tw) (>0).  Typical Value = 1. Default: 0
+    - at:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Turbine gain (At) (>0).  Typical Value = 1.2. Default: 0.0
+    - dturb:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Turbine damping factor (Dturb) (>=0).  Typical Value = 0.5. Default: 0.0
+    - qnl:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : No-load flow at nominal head (qnl) (>=0).  Typical Value = 0.08. Default: 0.0
+    - hdam:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Turbine nominal head (hdam).  Typical Value = 1. Default: 0.0
