@@ -1,0 +1,122 @@
+# ExcIEEEDC4B
+type: "object"
+description : >
+## Description
+The class represents IEEE Std 421.5-2005 type DC4B model. These excitation systems utilize a field-controlled dc commutator exciter with a continuously acting voltage regulator having supplies obtained from the generator or auxiliary bus.  Reference: IEEE Standard 421.5-2005 Section 5.4.
+
+## Data Model
+  - properties:
+    - ka:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator gain (K).  Typical Value = 1. Default: 0.0
+    - ta:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator time constant (T).  Typical Value = 0.2. Default: 0
+    - kp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Regulator proportional gain (K).  Typical Value = 20. Default: 0.0
+    - ki:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Regulator integral gain (K).  Typical Value = 20. Default: 0.0
+    - kd:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Regulator derivative gain (K).  Typical Value = 20. Default: 0.0
+    - td:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Regulator derivative filter time constant(T).  Typical Value = 0.01. Default: 0
+    - vrmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage regulator output (V).  Typical Value = 2.7. Default: 0.0
+    - vrmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage regulator output (V).  Typical Value = -0.9. Default: 0.0
+    - ke:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter constant related to self-excited field (K).  Typical Value = 1. Default: 0.0
+    - te:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter time constant, integration rate associated with exciter control (T).  Typical Value = 0.8. Default: 0
+    - kf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Excitation control system stabilizer gain (K).  Typical Value = 0. Default: 0.0
+    - tf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Excitation control system stabilizer time constant (T).  Typical Value = 1. Default: 0
+    - efd1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter voltage at which exciter saturation is defined (E).  Typical Value = 1.75. Default: 0.0
+    - seefd1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter saturation function value at the corresponding exciter voltage, E (S[E]).  Typical Value = 0.08. Default: 0.0
+    - efd2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter voltage at which exciter saturation is defined (E).  Typical Value = 2.33. Default: 0.0
+    - seefd2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter saturation function value at the corresponding exciter voltage, E (S[E]).  Typical Value = 0.27. Default: 0.0
+    - vemin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum exciter voltage output(V).  Typical Value = 0. Default: 0.0
+    - oelin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : OEL input (OELin). true = LV gate false = subtract from error signal. Typical Value = true. Default: False
+    - uelin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL input (UELin). true = HV gate false = add to error signal. Typical Value = true. Default: False
