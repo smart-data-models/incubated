@@ -1,0 +1,122 @@
+# ExcIEEEST1A
+type: "object"
+description : >
+## Description
+The class represents IEEE Std 421.5-2005 type ST1A model. This model represents systems in which excitation power is supplied through a transformer from the generator terminals (or the unit's auxiliary bus) and is regulated by a controlled rectifier.  The maximum exciter voltage available from such systems is directly related to the generator terminal voltage.  Reference: IEEE Standard 421.5-2005 Section 7.1.
+
+## Data Model
+  - properties:
+    - ilr:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter output current limit reference (I).  Typical Value = 0. Default: 0.0
+    - ka:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator gain (K).  Typical Value = 190. Default: 0.0
+    - kc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Rectifier loading factor proportional to commutating reactance (K). Typical Value = 0.08. Default: 0.0
+    - kf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Excitation control system stabilizer gains (K).  Typical Value = 0. Default: 0.0
+    - klr:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter output current limiter gain (K).  Typical Value = 0. Default: 0.0
+    - pssin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Selector of the Power System Stabilizer (PSS) input (PSSin). true = PSS input (Vs) added to error signal false = PSS input (Vs) added to voltage regulator output. Typical Value = true. Default: False
+    - ta:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator time constant (T).  Typical Value = 0. Default: 0
+    - tb:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator time constant (T).  Typical Value = 10. Default: 0
+    - tb1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator time constant (T).  Typical Value = 0. Default: 0
+    - tc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator time constant (T).  Typical Value = 1. Default: 0
+    - tc1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator time constant (T).  Typical Value = 0. Default: 0
+    - tf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Excitation control system stabilizer time constant (T).  Typical Value = 1. Default: 0
+    - uelin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Selector of the connection of the UEL input (UELin). Typical Value = ignoreUELsignal. Default: None
+    - vamax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage regulator output (V).  Typical Value = 14.5. Default: 0.0
+    - vamin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage regulator output (V).  Typical Value = -14.5. Default: 0.0
+    - vimax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage regulator input limit (V).  Typical Value = 999. Default: 0.0
+    - vimin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage regulator input limit (V).  Typical Value = -999. Default: 0.0
+    - vrmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage regulator outputs (V).  Typical Value = 7.8. Default: 0.0
+    - vrmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage regulator outputs (V).  Typical Value = -6.7. Default: 0.0
