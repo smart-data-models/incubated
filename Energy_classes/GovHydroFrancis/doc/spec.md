@@ -1,0 +1,170 @@
+# GovHydroFrancis
+type: "object"
+description : >
+## Description
+Detailed hydro unit - Francis model.  This model can be used to represent three types of governors. A schematic of the hydraulic system of detailed hydro unit models, like Francis and Pelton, is provided in the DetailedHydroModelHydraulicSystem diagram.
+
+## Data Model
+  - properties:
+    - am:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Opening section S at the maximum efficiency (Am).  Typical Value = 0.7. Default: 0.0
+    - av0:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Area of the surge tank (A). Unit = m. Typical Value = 30. Default: 0.0
+    - av1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Area of the compensation tank (A). Unit = m. Typical Value = 700. Default: 0.0
+    - bp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Droop (Bp).  Typical Value = 0.05. Default: 0.0
+    - db1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intentional dead-band width (DB1).  Unit = Hz.  Typical Value = 0. Default: 0.0
+    - etamax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum efficiency (EtaMax).  Typical Value = 1.05. Default: 0.0
+    - governorControl:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Governor control flag (Cflag).  Typical Value = mechanicHydrolicTachoAccelerator. Default: None
+    - h1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Head of compensation chamber water level with respect to the level of penstock (H).  Unit = m. Typical Value = 4. Default: 0.0
+    - h2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Head of surge tank water level with respect to the level of penstock (H).  Unit = m. Typical Value = 40. Default: 0.0
+    - hn:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Rated hydraulic head (H).  Unit = m. Typical Value = 250. Default: 0.0
+    - kc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Penstock loss coefficient (due to friction) (Kc).  Typical Value = 0.025. Default: 0.0
+    - kg:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Water tunnel and surge chamber loss coefficient (due to friction) (Kg).  Typical Value = 0.025. Default: 0.0
+    - kt:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Washout gain (Kt).  Typical Value = 0.25. Default: 0.0
+    - qc0:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : No-load turbine flow at nominal head (Qc0).  Typical Value = 0.21. Default: 0.0
+    - qn:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Rated flow (Q). Unit = m/s. Typical Value = 40. Default: 0.0
+    - ta:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Derivative gain (Ta).  Typical Value = 3. Default: 0
+    - td:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Washout time constant (Td).  Typical Value = 3. Default: 0
+    - ts:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gate servo time constant (Ts).  Typical Value = 0.5. Default: 0
+    - twnc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Water inertia time constant (Twnc).  Typical Value = 1. Default: 0
+    - twng:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Water tunnel and surge chamber inertia time constant (Twng). Typical Value = 3. Default: 0
+    - tx:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Derivative feedback gain (Tx).  Typical Value = 1. Default: 0
+    - va:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum gate opening velocity (Va).  Unit = PU/sec.  Typical Value = 0.011. Default: 0.0
+    - valvmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum gate opening (ValvMax).  Typical Value = 1. Default: 0.0
+    - valvmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum gate opening (ValvMin).  Typical Value = 0. Default: 0.0
+    - vc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum gate closing velocity (Vc).  Unit = PU/sec.  Typical Value = -0.011. Default: 0.0
+    - waterTunnelSurgeChamberSimulation:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Water tunnel and surge chamber simulation (Tflag). true = enable of water tunnel and surge chamber simulation false = inhibit of water tunnel and surge chamber simulation. Typical Value = false. Default: False
+    - zsfc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Head of upper water level with respect to the level of penstock (Zsfc).  Unit = m.  Typical Value = 25. Default: 0.0
