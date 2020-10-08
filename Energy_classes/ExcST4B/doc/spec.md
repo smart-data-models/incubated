@@ -1,0 +1,122 @@
+# ExcST4B
+type: "object"
+description : >
+## Description
+Modified IEEE ST4B static excitation system with maximum inner loop feedback gain .
+
+## Data Model
+  - properties:
+    - kpr:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator proportional gain (Kpr).  Typical Value = 10.75. Default: 0.0
+    - kir:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator integral gain (Kir).  Typical Value = 10.75. Default: 0.0
+    - ta:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator time constant (Ta).  Typical Value = 0.02. Default: 0
+    - vrmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage regulator output (Vrmax).  Typical Value = 1. Default: 0.0
+    - vrmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage regulator output (Vrmin).  Typical Value = -0.87. Default: 0.0
+    - kpm:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator proportional gain output (Kpm).  Typical Value = 1. Default: 0.0
+    - kim:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator integral gain output (Kim).  Typical Value = 0. Default: 0.0
+    - vmmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum inner loop output (Vmmax).  Typical Value = 99. Default: 0.0
+    - vmmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum inner loop output (Vmmin).  Typical Value = -99. Default: 0.0
+    - kg:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Feedback gain constant of the inner loop field regulator (Kg). Typical Value = 0. Default: 0.0
+    - kp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Potential circuit gain coefficient (Kp).  Typical Value = 9.3. Default: 0.0
+    - thetap:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Potential circuit phase angle (thetap).  Typical Value = 0. Default: 0.0
+    - ki:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Potential circuit gain coefficient (Ki).  Typical Value = 0. Default: 0.0
+    - kc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Rectifier loading factor proportional to commutating reactance (Kc). Typical Value = 0.113. Default: 0.0
+    - xl:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Reactance associated with potential source (Xl).  Typical Value = 0.124. Default: 0.0
+    - vbmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum excitation voltage (Vbmax).  Typical Value = 11.63. Default: 0.0
+    - vgmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum inner loop feedback voltage (Vgmax).  Typical Value = 5.8. Default: 0.0
+    - uel:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Selector (Uel). true = UEL is part of block diagram false = UEL is not part of block diagram.  Typical Value = false. Default: False
+    - lvgate:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Selector (LVgate). true = LVgate is part of the block diagram false = LVgate is not part of the block diagram.  Typical Value = false. Default: False
