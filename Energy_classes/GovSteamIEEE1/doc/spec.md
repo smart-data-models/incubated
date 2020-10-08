@@ -1,0 +1,134 @@
+# GovSteamIEEE1
+type: "object"
+description : >
+## Description
+IEEE steam turbine governor model.  Ref
+
+## Data Model
+  - properties:
+    - mwbase:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Base for power values (MWbase) (> 0) Default: 0.0
+    - k:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Governor gain (reciprocal of droop) (K) (> 0).  Typical Value = 25. Default: 0.0
+    - t1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Governor lag time constant (T1).  Typical Value = 0. Default: 0
+    - t2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Governor lead time constant (T2).  Typical Value = 0. Default: 0
+    - t3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Valve positioner time constant (T3) (> 0).  Typical Value = 0.1. Default: 0
+    - uo:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum valve opening velocity (Uo) (> 0).  Unit = PU/sec.  Typical Value = 1. Default: 0.0
+    - uc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum valve closing velocity (Uc) (< 0).  Unit = PU/sec.  Typical Value = -10. Default: 0.0
+    - pmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum valve opening (Pmax) (> Pmin).  Typical Value = 1. Default: 0.0
+    - pmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum valve opening (Pmin) (>= 0).  Typical Value = 0. Default: 0.0
+    - t4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Inlet piping/steam bowl time constant (T4).  Typical Value = 0.3. Default: 0
+    - k1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fraction of HP shaft power after first boiler pass (K1).  Typical Value = 0.2. Default: 0.0
+    - k2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fraction of LP shaft power after first boiler pass (K2).  Typical Value = 0. Default: 0.0
+    - t5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant of second boiler pass (T5).  Typical Value = 5. Default: 0
+    - k3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fraction of HP shaft power after second boiler pass (K3).  Typical Value = 0.3. Default: 0.0
+    - k4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fraction of LP shaft power after second boiler pass (K4).  Typical Value = 0. Default: 0.0
+    - t6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant of third boiler pass (T6).  Typical Value = 0.5. Default: 0
+    - k5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fraction of HP shaft power after third boiler pass (K5).  Typical Value = 0.5. Default: 0.0
+    - k6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fraction of LP shaft power after third boiler pass (K6).  Typical Value = 0. Default: 0.0
+    - t7:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant of fourth boiler pass (T7).  Typical Value = 0. Default: 0
+    - k7:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fraction of HP shaft power after fourth boiler pass (K7).  Typical Value = 0. Default: 0.0
+    - k8:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fraction of LP shaft power after fourth boiler pass (K8).  Typical Value = 0. Default: 0.0
