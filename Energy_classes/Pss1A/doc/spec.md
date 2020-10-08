@@ -1,0 +1,140 @@
+# Pss1A
+type: "object"
+description : >
+## Description
+Single input power system stabilizer. It is a modified version in order to allow representation of various vendors' implementations on PSS type 1A.
+
+## Data Model
+  - properties:
+    - inputSignalType:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Type of input signal. Default: None
+    - a1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A1). Default: 0.0
+    - a2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A2). Default: 0.0
+    - t1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead/lag time constant (T1). Default: 0
+    - t2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead/lag time constant (T2). Default: 0
+    - t3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead/lag time constant (T3). Default: 0
+    - t4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead/lag time constant (T4). Default: 0
+    - t5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Washout time constant (T5). Default: 0
+    - t6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Transducer time constant (T6). Default: 0
+    - ks:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Stabilizer gain (Ks). Default: 0.0
+    - vrmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum stabilizer output (Vrmax). Default: 0.0
+    - vrmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum stabilizer output (Vrmin). Default: 0.0
+    - vcu:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Stabilizer input cutoff threshold (Vcu). Default: 0.0
+    - vcl:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Stabilizer input cutoff threshold (Vcl). Default: 0.0
+    - a3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A3). Default: 0.0
+    - a4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A4). Default: 0.0
+    - a5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A5). Default: 0.0
+    - a6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A6). Default: 0.0
+    - a7:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A7). Default: 0.0
+    - a8:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A8). Default: 0.0
+    - kd:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Selector (Kd).  true = e used false = e not used. Default: False
+    - tdelay:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant (Tdelay). Default: 0
