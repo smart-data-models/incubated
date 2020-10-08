@@ -1,0 +1,110 @@
+# GovSteamCC
+type: "object"
+description : >
+## Description
+Cross compound turbine governor model.
+
+## Data Model
+  - properties:
+    - mwbase:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Base for power values (MWbase) (>0).  Unit = MW. Default: 0.0
+    - pmaxhp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum HP value position (Pmaxhp).  Typical Value = 1. Default: 0.0
+    - rhp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : HP governor droop (Rhp).  Typical Value = 0.05. Default: 0.0
+    - t1hp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : HP governor time constant (T1hp).  Typical Value = 0.1. Default: 0
+    - t3hp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : HP turbine time constant (T3hp).  Typical Value = 0.1. Default: 0
+    - t4hp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : HP turbine time constant (T4hp).  Typical Value = 0.1. Default: 0
+    - t5hp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : HP reheater time constant (T5hp).  Typical Value = 10. Default: 0
+    - fhp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fraction of HP power ahead of reheater (Fhp).  Typical Value = 0.3. Default: 0.0
+    - dhp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : HP damping factor (Dhp).  Typical Value = 0. Default: 0.0
+    - pmaxlp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum LP value position (Pmaxlp).  Typical Value = 1. Default: 0.0
+    - rlp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : LP governor droop (Rlp).  Typical Value = 0.05. Default: 0.0
+    - t1lp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : LP governor time constant (T1lp).  Typical Value = 0.1. Default: 0
+    - t3lp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : LP turbine time constant (T3lp).  Typical Value = 0.1. Default: 0
+    - t4lp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : LP turbine time constant (T4lp).  Typical Value = 0.1. Default: 0
+    - t5lp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : LP reheater time constant (T5lp).  Typical Value = 10. Default: 0
+    - flp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fraction of LP power ahead of reheater (Flp).  Typical Value = 0.7. Default: 0.0
+    - dlp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : LP damping factor (Dlp).  Typical Value = 0. Default: 0.0
