@@ -1,0 +1,98 @@
+# Pss1
+type: "object"
+description : >
+## Description
+Italian PSS - three input PSS (speed, frequency, power).
+
+## Data Model
+  - properties:
+    - kw:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Shaft speed power input gain (K).  Typical Value = 0. Default: 0.0
+    - kf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Frequency power input gain (K).  Typical Value = 5. Default: 0.0
+    - kpe:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Electric power input gain (K).  Typical Value = 0.3. Default: 0.0
+    - pmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum power PSS enabling (P).  Typical Value = 0.25. Default: 0.0
+    - ks:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : PSS gain (K).  Typical Value = 1. Default: 0.0
+    - vsmn:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Stabilizer output max limit (V).  Typical Value = -0.06. Default: 0.0
+    - vsmx:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Stabilizer output min limit (V).  Typical Value = 0.06. Default: 0.0
+    - tpe:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Electric power filter time constant (T).  Typical Value = 0.05. Default: 0
+    - t5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Washout (T).  Typical Value = 3.5. Default: 0
+    - t6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter time constant (T).  Typical Value = 0. Default: 0
+    - t7:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead/lag time constant (T).  Typical Value = 0. Default: 0
+    - t8:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead/lag time constant (T).  Typical Value = 0. Default: 0
+    - t9:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead/lag time constant (T).  Typical Value = 0. Default: 0
+    - t10:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead/lag time constant (T).  Typical Value = 0. Default: 0
+    - vadat:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: :  Default: False
