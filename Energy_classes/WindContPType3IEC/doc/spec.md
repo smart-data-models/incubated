@@ -1,0 +1,146 @@
+# WindContPType3IEC
+type: "object"
+description : >
+## Description
+P control model Type 3.  Reference: IEC Standard 61400-27-1 Section 6.6.5.3.
+
+## Data Model
+  - properties:
+    - dpmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum wind turbine power ramp rate (). It is project dependent parameter. Default: 0.0
+    - dtrisemaxlvrt:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Limitation of torque rise rate during LVRT for S (d). It is project dependent parameter. Default: 0.0
+    - kdtd:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gain for active drive train damping (). It is type dependent parameter. Default: 0.0
+    - kip:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : PI controller integration parameter (). It is type dependent parameter. Default: 0.0
+    - kpp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : PI controller proportional gain (). It is type dependent parameter. Default: 0.0
+    - mplvrt:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Enable LVRT power control mode (M true = 1: voltage control false = 0: reactive power control.  It is project dependent parameter. Default: False
+    - omegaoffset:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Offset to reference value that limits controller action during rotor speed changes (omega). It is case dependent parameter. Default: 0.0
+    - pdtdmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum active drive train damping power (). It is type dependent parameter. Default: 0.0
+    - rramp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Ramp limitation of torque, required in some grid codes (). It is project dependent parameter. Default: 0.0
+    - tdvs:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Timedelay after deep voltage sags (T). It is project dependent parameter. Default: 0
+    - temin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum electrical generator torque (). It is type dependent parameter. Default: 0.0
+    - tomegafilt:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter time constant for generator speed measurement (). It is type dependent parameter. Default: 0
+    - tpfilt:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter time constant for power measurement (). It is type dependent parameter. Default: 0
+    - tpord:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant in power order lag (). It is type dependent parameter. Default: 0.0
+    - tufilt:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter time constant for voltage measurement (). It is type dependent parameter. Default: 0
+    - tuscale:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage scaling factor of reset-torque (T). It is project dependent parameter. Default: 0.0
+    - twref:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant in speed reference filter (). It is type dependent parameter. Default: 0
+    - udvs:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage limit for hold LVRT status after deep voltage sags (). It is project dependent parameter. Default: 0.0
+    - updip:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage dip threshold for P-control ().  Part of turbine control, often different (e.g 0.8) from converter thresholds. It is project dependent parameter. Default: 0.0
+    - wdtd:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Active drive train damping frequency (omega). It can be calculated from two mass model parameters. It is type dependent parameter. Default: 0.0
+    - zeta:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Coefficient for active drive train damping (zeta). It is type dependent parameter. Default: 0.0
+    - WindGenTurbineType3IEC:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Wind turbine type 3 model with which this Wind control P type 3 model is associated. Default: None
+    - WindDynamicsLookupTable:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : The P control type 3 model with which this wind dynamics lookup table is associated. Default: "list"
