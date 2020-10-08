@@ -1,0 +1,206 @@
+# GovHydroPID
+type: "object"
+description : >
+## Description
+PID governor and turbine.
+
+## Data Model
+  - properties:
+    - mwbase:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Base for power values (MWbase) (>0).  Unit = MW. Default: 0.0
+    - pmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum gate opening, PU of MWbase (Pmax).  Typical Value = 1. Default: 0.0
+    - pmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum gate opening, PU of MWbase (Pmin).  Typical Value = 0. Default: 0.0
+    - r:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Steady state droop (R).  Typical Value = 0.05. Default: 0.0
+    - td:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Input filter time constant (Td).  Typical Value = 0. Default: 0
+    - tf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Washout time constant (Tf).  Typical Value = 0.1. Default: 0
+    - tp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gate servo time constant (Tp).  Typical Value = 0.35. Default: 0
+    - velop:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum gate opening velocity (Velop).  Unit = PU/sec.  Typical Value = 0.09. Default: 0.0
+    - velcl:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum gate closing velocity (Velcl).  Unit = PU/sec.  Typical Value = -0.14. Default: 0.0
+    - kd:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Derivative gain (Kd).  Typical Value = 1.11. Default: 0.0
+    - kp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Proportional gain (Kp).  Typical Value = 0.1. Default: 0.0
+    - ki:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Integral gain (Ki).  Typical Value = 0.36. Default: 0.0
+    - kg:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gate servo gain (Kg).  Typical Value = 2.5. Default: 0.0
+    - tturb:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Turbine time constant (Tturb) (note 3).  Typical Value = 0.8. Default: 0
+    - aturb:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Turbine numerator multiplier (Aturb) (note 3).  Typical Value -1. Default: 0.0
+    - bturb:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Turbine denominator multiplier (Bturb) (note 3).  Typical Value = 0.5. Default: 0.0
+    - tt:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Power feedback time constant (Tt).  Typical Value = 0.02. Default: 0
+    - db1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intentional dead-band width (db1).  Unit = Hz.  Typical Value = 0. Default: 0.0
+    - inputSignal:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Input signal switch (Flag).  true = Pe input is used false = feedback is received from CV. Flag is normally dependent on Tt.  If Tf is zero, Flag is set to false. If Tf is not zero, Flag is set to true.  Typical Value = true. Default: False
+    - eps:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intentional db hysteresis (eps).  Unit = Hz.  Typical Value = 0. Default: 0.0
+    - db2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Unintentional dead-band (db2).  Unit = MW.  Typical Value = 0. Default: 0.0
+    - gv1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 1, PU gv (Gv1).  Typical Value = 0. Default: 0.0
+    - pgv1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 1, PU power (Pgv1).  Typical Value = 0. Default: 0.0
+    - gv2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 2, PU gv (Gv2).  Typical Value = 0. Default: 0.0
+    - pgv2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 2, PU power (Pgv2).  Typical Value = 0. Default: 0.0
+    - gv3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 3, PU gv (Gv3).  Typical Value = 0. Default: 0.0
+    - pgv3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 3, PU power (Pgv3).  Typical Value = 0. Default: 0.0
+    - gv4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 4, PU gv (Gv4).  Typical Value = 0. Default: 0.0
+    - pgv4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 4, PU power (Pgv4).  Typical Value = 0. Default: 0.0
+    - gv5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 5, PU gv (Gv5).  Typical Value = 0. Default: 0.0
+    - pgv5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 5, PU power (Pgv5).  Typical Value = 0. Default: 0.0
+    - gv6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 6, PU gv (Gv6).  Typical Value = 0. Default: 0.0
+    - pgv6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 6, PU power (Pgv6).  Typical Value = 0. Default: 0.0
