@@ -1,0 +1,104 @@
+# ExcST7B
+type: "object"
+description : >
+## Description
+Modified IEEE ST7B static excitation system without stator current limiter (SCL) and current compensator (DROOP) inputs.
+
+## Data Model
+  - properties:
+    - kh:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High-value gate feedback gain (Kh).  Typical Value = 1. Default: 0.0
+    - kia:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator integral gain (Kia).  Typical Value = 1. Default: 0.0
+    - kl:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low-value gate feedback gain (Kl).  Typical Value = 1. Default: 0.0
+    - kpa:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator proportional gain (Kpa).  Typical Value = 40. Default: 0.0
+    - oelin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : OEL input selector (OELin). Typical Value = noOELinput. Default: None
+    - tb:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Regulator lag time constant (Tb).  Typical Value = 1. Default: 0
+    - tc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Regulator lead time constant (Tc).  Typical Value = 1. Default: 0
+    - tf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Excitation control system stabilizer time constant (Tf).  Typical Value = 1. Default: 0
+    - tg:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Feedback time constant of inner loop field voltage regulator (Tg).  Typical Value = 1. Default: 0
+    - tia:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Feedback time constant (Tia).  Typical Value = 3. Default: 0
+    - ts:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Rectifier firing time constant (Ts).  Typical Value = 0. Default: 0
+    - uelin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL input selector (UELin). Typical Value = noUELinput. Default: None
+    - vmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage reference signal (Vmax).  Typical Value = 1.1. Default: 0.0
+    - vmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage reference signal (Vmin).  Typical Value = 0.9. Default: 0.0
+    - vrmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage regulator output (Vrmax).  Typical Value = 5. Default: 0.0
+    - vrmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage regulator output (Vrmin).  Typical Value = -4.5. Default: 0.0
