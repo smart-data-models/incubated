@@ -1,0 +1,92 @@
+# CsConverter
+type: "object"
+description : >
+## Description
+DC side of the current source converter (CSC).
+
+## Data Model
+  - properties:
+    - maxAlpha:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum firing angle. CSC configuration data used in power flow. Default: 0.0
+    - maxGamma:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum extinction angle. CSC configuration data used in power flow. Default: 0.0
+    - maxIdc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : The maximum direct current (Id) on the DC side at which the converter should operate. Converter configuration data use in power flow. Default: 0.0
+    - minAlpha:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum firing angle. CSC configuration data used in power flow. Default: 0.0
+    - minGamma:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum extinction angle. CSC configuration data used in power flow. Default: 0.0
+    - minIdc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : The minimum direct current (Id) on the DC side at which the converter should operate. CSC configuration data used in power flow. Default: 0.0
+    - ratedIdc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Rated converter DC current, also called IdN. Converter configuration data used in power flow. Default: 0.0
+    - operatingMode:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Indicates whether the DC pole is operating as an inverter or as a rectifier. CSC control variable used in power flow. Default: None
+    - pPccControl:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: :  Default: None
+    - targetAlpha:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Target firing angle. CSC control variable used in power flow. Default: 0.0
+    - targetGamma:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Target extinction angle. CSC  control variable used in power flow. Default: 0.0
+    - targetIdc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : DC current target value. CSC control variable used in power flow. Default: 0.0
+    - alpha:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Firing angle, typical value between 10 and 18 degrees for a rectifier. CSC state variable, result from power flow. Default: 0.0
+    - gamma:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Extinction angle. CSC state variable, result from power flow. Default: 0.0
