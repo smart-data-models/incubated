@@ -1,0 +1,92 @@
+# WindPlantReactiveControlIEC
+type: "object"
+description : >
+## Description
+Simplified plant voltage and reactive power control model for use with type 3 and type 4 wind turbine models.  Reference: IEC Standard 61400-27-1 Annex E.
+
+## Data Model
+  - properties:
+    - WindPlantIEC:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Wind plant model with which this wind reactive control is associated. Default: None
+    - kiwpx:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Plant Q controller integral gain (). It is type dependent parameter. Default: 0.0
+    - kpwpx:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Plant Q controller proportional gain (). It is type dependent parameter. Default: 0.0
+    - kwpqu:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Plant voltage control droop (). It is project dependent parameter. Default: 0.0
+    - mwppf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Power factor control modes selector (). Used only if mwpu is set to false. true = 1: power factor control false = 0: reactive power control. It is project dependent parameter. Default: False
+    - mwpu:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Reactive power control modes selector (). true = 1: voltage control false = 0: reactive power control. It is project dependent parameter. Default: False
+    - twppfilt:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter time constant for active power measurement (). It is type dependent parameter. Default: 0
+    - twpqfilt:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter time constant for reactive power measurement (). It is type dependent parameter. Default: 0
+    - twpufilt:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter time constant for voltage measurement (). It is type dependent parameter. Default: 0
+    - txft:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead time constant in reference value transfer function (). It is type dependent parameter. Default: 0
+    - txfv:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lag time constant in reference value transfer function (). It is type dependent parameter. Default: 0
+    - uwpqdip:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage threshold for LVRT detection in q control (). It is type dependent parameter. Default: 0.0
+    - xrefmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum  ( or delta ) request from the plant controller (). It is project dependent parameter. Default: 0.0
+    - xrefmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum  ( or delta) request from the plant controller (). It is project dependent parameter. Default: 0.0
