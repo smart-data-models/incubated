@@ -1,0 +1,170 @@
+# PssIEEE2B
+type: "object"
+description : >
+## Description
+The class represents IEEE Std 421.5-2005 type PSS2B power system stabilizer model. This stabilizer model is designed to represent a variety of dual-input stabilizers, which normally use combinations of power and speed or frequency to derive the stabilizing signal.  Reference: IEEE 2B 421.5-2005 Section 8.2.
+
+## Data Model
+  - properties:
+    - inputSignal1Type:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Type of input signal #1.  Typical Value = rotorSpeed. Default: None
+    - inputSignal2Type:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Type of input signal #2.  Typical Value = generatorElectricalPower. Default: None
+    - vsi1max:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Input signal #1 max limit (Vsi1max).  Typical Value = 2. Default: 0.0
+    - vsi1min:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Input signal #1 min limit (Vsi1min).  Typical Value = -2. Default: 0.0
+    - tw1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : First washout on signal #1 (Tw1).  Typical Value = 2. Default: 0
+    - tw2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Second washout on signal #1 (Tw2).  Typical Value = 2. Default: 0
+    - vsi2max:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Input signal #2 max limit (Vsi2max).  Typical Value = 2. Default: 0.0
+    - vsi2min:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Input signal #2 min limit (Vsi2min).  Typical Value = -2. Default: 0.0
+    - tw3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : First washout on signal #2 (Tw3).  Typical Value = 2. Default: 0
+    - tw4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Second washout on signal #2 (Tw4).  Typical Value = 0. Default: 0
+    - t1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead/lag time constant (T1).  Typical Value = 0.12. Default: 0
+    - t2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead/lag time constant (T2).  Typical Value = 0.02. Default: 0
+    - t3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead/lag time constant (T3).  Typical Value = 0.3. Default: 0
+    - t4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead/lag time constant (T4).  Typical Value = 0.02. Default: 0
+    - t6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant on signal #1 (T6).  Typical Value = 0. Default: 0
+    - t7:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant on signal #2 (T7).  Typical Value = 2. Default: 0
+    - t8:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead of ramp tracking filter (T8).  Typical Value = 0.2. Default: 0
+    - t9:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lag of ramp tracking filter (T9).  Typical Value = 0.1. Default: 0
+    - t10:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead/lag time constant (T10).  Typical Value = 0. Default: 0
+    - t11:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Lead/lag time constant (T11).  Typical Value = 0. Default: 0
+    - ks1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Stabilizer gain (Ks1).  Typical Value = 12. Default: 0.0
+    - ks2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gain on signal #2 (Ks2).  Typical Value = 0.2. Default: 0.0
+    - ks3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gain on signal #2 input before ramp-tracking filter (Ks3).  Typical Value = 1. Default: 0.0
+    - n:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Order of ramp tracking filter (N).  Typical Value = 1. Default: 0
+    - m:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Denominator order of ramp tracking filter (M).  Typical Value = 5. Default: 0
+    - vstmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Stabilizer output max limit (Vstmax).  Typical Value = 0.1. Default: 0.0
+    - vstmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Stabilizer output min limit (Vstmin).  Typical Value = -0.1. Default: 0.0
