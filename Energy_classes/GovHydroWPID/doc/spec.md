@@ -1,0 +1,140 @@
+# GovHydroWPID
+type: "object"
+description : >
+## Description
+Woodward PID Hydro Governor.
+
+## Data Model
+  - properties:
+    - mwbase:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Base for power values  (MWbase) (>0).  Unit = MW. Default: 0.0
+    - treg:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Speed detector time constant (Treg). Default: 0
+    - reg:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Permanent drop (Reg). Default: 0.0
+    - kp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Proportional gain (Kp).  Typical Value = 0.1. Default: 0.0
+    - ki:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Reset gain (Ki).  Typical Value = 0.36. Default: 0.0
+    - kd:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Derivative gain (Kd).  Typical Value = 1.11. Default: 0.0
+    - ta:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Controller time constant (Ta) (>0).  Typical Value = 0. Default: 0
+    - tb:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gate servo time constant (Tb) (>0).  Typical Value = 0. Default: 0
+    - velmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum gate opening velocity (Velmax).  Unit = PU/sec.  Typical Value = 0. Default: 0.0
+    - velmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum gate closing velocity (Velmin).  Unit = PU/sec.  Typical Value = 0. Default: 0.0
+    - gatmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gate opening Limit Maximum (Gatmax). Default: 0.0
+    - gatmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gate opening Limit Minimum (Gatmin). Default: 0.0
+    - tw:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Water inertia time constant (Tw) (>0).  Typical Value = 0. Default: 0
+    - pmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum Power Output (Pmax). Default: 0.0
+    - pmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum Power Output (Pmin). Default: 0.0
+    - d:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Turbine damping factor (D).  Unit = delta P / delta speed. Default: 0.0
+    - gv3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gate position 3 (Gv3). Default: 0.0
+    - gv1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gate position 1 (Gv1). Default: 0.0
+    - pgv1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Output at Gv1 PU of MWbase (Pgv1). Default: 0.0
+    - gv2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gate position 2 (Gv2). Default: 0.0
+    - pgv2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Output at Gv2 PU of MWbase (Pgv2). Default: 0.0
+    - pgv3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Output at Gv3 PU of MWbase (Pgv3). Default: 0.0
