@@ -1,0 +1,212 @@
+# PssPTIST3
+type: "object"
+description : >
+## Description
+PTI Microprocessor-Based Stabilizer type 3.
+
+## Data Model
+  - properties:
+    - m:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : (M).  M=2*H.  Typical Value = 5. Default: 0.0
+    - tf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant (Tf).  Typical Value = 0.2. Default: 0
+    - tp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant (Tp).  Typical Value = 0.2. Default: 0
+    - t1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant (T1).  Typical Value = 0.3. Default: 0
+    - t2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant (T2).  Typical Value = 1. Default: 0
+    - t3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant (T3).  Typical Value = 0.2. Default: 0
+    - t4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant (T4).  Typical Value = 0.05. Default: 0
+    - k:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gain (K).  Typical Value = 9. Default: 0.0
+    - dtf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time step frequency calculation (0.03 for 50 Hz) (Dtf).  Typical Value = 0.025. Default: 0
+    - dtc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time step related to activation of controls (0.03 for 50 Hz) (Dtc).  Typical Value = 0.025. Default: 0
+    - dtp:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time step active power calculation (0.015 for 50 Hz) (Dtp).  Typical Value = 0.0125. Default: 0
+    - t5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant (T5). Default: 0
+    - t6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant (T6). Default: 0
+    - a0:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter coefficient (A0). Default: 0.0
+    - a1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Limiter (Al). Default: 0.0
+    - a2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter coefficient (A2). Default: 0.0
+    - b0:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter coefficient (B0). Default: 0.0
+    - b1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter coefficient (B1). Default: 0.0
+    - b2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter coefficient (B2). Default: 0.0
+    - a3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter coefficient (A3). Default: 0.0
+    - a4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter coefficient (A4). Default: 0.0
+    - a5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter coefficient (A5). Default: 0.0
+    - b3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter coefficient (B3). Default: 0.0
+    - b4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter coefficient (B4). Default: 0.0
+    - b5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Filter coefficient (B5). Default: 0.0
+    - athres:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Threshold value above which output averaging will be bypassed (Athres).  Typical Value = 0.005. Default: 0.0
+    - dl:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Limiter (Dl). Default: 0.0
+    - al:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Limiter (Al). Default: 0.0
+    - lthres:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Threshold value (Lthres). Default: 0.0
+    - pmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : (Pmin). Default: 0.0
+    - isw:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Digital/analog output switch (Isw). true = produce analog output false = convert to digital output, using tap selection table. Default: False
+    - nav:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Number of control outputs to average (Nav) (1 <= Nav <= 16).  Typical Value = 4. Default: 0.0
+    - ncl:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Number of counts at limit to active limit function (Ncl) (>0). Default: 0.0
+    - ncr:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Number of counts until reset after limit function is triggered (Ncr). Default: 0.0
