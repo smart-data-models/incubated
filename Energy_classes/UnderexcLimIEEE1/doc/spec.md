@@ -1,0 +1,98 @@
+# UnderexcLimIEEE1
+type: "object"
+description : >
+## Description
+The class represents the Type UEL1 model which has a circular limit boundary when plotted in terms of machine reactive power vs. real power output.  Reference: IEEE UEL1 421.5-2005 Section 10.1.
+
+## Data Model
+  - properties:
+    - kur:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL radius setting (K).  Typical Value = 1.95. Default: 0.0
+    - kuc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL center setting (K).  Typical Value = 1.38. Default: 0.0
+    - kuf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL excitation system stabilizer gain (K).  Typical Value = 3.3. Default: 0.0
+    - vurmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL maximum limit for radius phasor magnitude (V).  Typical Value = 5.8. Default: 0.0
+    - vucmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL maximum limit for operating point phasor magnitude (V).  Typical Value = 5.8. Default: 0.0
+    - kui:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL integral gain (K).  Typical Value = 0. Default: 0.0
+    - kul:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL proportional gain (K).  Typical Value = 100. Default: 0.0
+    - vuimax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL integrator output maximum limit (V). Default: 0.0
+    - vuimin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL integrator output minimum limit (V). Default: 0.0
+    - tu1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL lead time constant (T).  Typical Value = 0. Default: 0
+    - tu2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL lag time constant (T).  Typical Value = 0.05. Default: 0
+    - tu3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL lead time constant (T).  Typical Value = 0. Default: 0
+    - tu4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL lag time constant (T).  Typical Value = 0. Default: 0
+    - vulmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL output maximum limit (V).  Typical Value = 18. Default: 0.0
+    - vulmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : UEL output minimum limit (V).  Typical Value = -18. Default: 0.0
