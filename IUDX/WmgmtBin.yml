@@ -1,0 +1,92 @@
+author: IUDX initiative
+description: Data model for solid waste management bins in Varanasi city.
+properties:
+- iudx:WmgmtBin:
+    description: id of the data model
+    required: Optional
+    type: owl:Class
+- iudx:binColor:
+    description: Color of the bin. Could be used for indicating the type of waste.
+      The color coding should follow the conventions applicable to the geographical
+      area the bins are located.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:binClearedTime:
+    description: Time when the bin was last cleared.
+    required: Optional
+    type: iudx:TimeProperty
+- iudx:binCapacity:
+    description: Total capacity in terms of the volume of waste the bin can hold.
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:wardID:
+    description: Ward ID of the entity corresponding to this observation.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:binCategory:
+    description: Category/type of the waste container bin. It can be a household bin
+      or a dumpster or any other pre-defined category/type.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:license_plate:
+    description: 'Gives the License Plate number of the vehice. SameAs: ''license_plate''
+      field from GTFS Realtime message-VehicleDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicledescriptor)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:binFillingLevel:
+    description: Current level of waste in the bin. Typically, the level is specified
+      in terms of percentage volume filled.
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:binFullnessThreshold:
+    description: The fullness threshold level of the bin defined as the level (in
+      terms of percentage) when the bin full alert or notification will be generated.
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:RFID:
+    description: Gives the ID of the RFID reader.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:binRecommendedLoad:
+    description: Recommended load (weight) that the waste bin corresponding to this
+      observation can hold.
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:binLoggedTime:
+    description: Time when the bin's level was last logged.
+    required: Optional
+    type: iudx:TimeProperty
+- iudx:binMaxLoad:
+    description: Maximum load (weight) that the waste bin can hold.
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:location:
+    description: Location associated with a resource Item (a spatial point), a group
+      of resource items (a spatial region) or even an observation in case of a mobile
+      sensor.
+    required: Optional
+    type: iudx:GeoProperty
+- iudx:binId:
+    description: ID of the waste carrying bin
+    required: Optional
+    type: iudx:TextProperty
+- iudx:wasteBinInfo:
+    description: Describes the information of the waste bin device, sensor in consideration
+    required: Optional
+    type: iudx:StructuredProperty
+- iudx:WasteManagement:
+    description: Data models that pertain to the waste management domain
+    required: Optional
+    type: owl:Class
+- iudx:DataModel:
+    description: Class of all Data Models.
+    required: Optional
+    type: owl:Class
+- iudx:Thing:
+    description: Most generic IUDX object.
+    required: Optional
+    type: owl:Class
+- iudx:description:
+    description: Description for an IUDX thing.
+    required: Optional
+    type: iudx:TextProperty
