@@ -11,9 +11,12 @@
         },
         "type": {
             "description": "Sensor type",
-            "type": "string"
+            "type": "string",
+            "enum": [
+                "sensor"
+            ]
         },
-        "Reading": {
+        "reading": {
             "description": "Sensor reading",
             "type": "object",
             "properties": {
@@ -31,29 +34,15 @@
                 "value"
             ]
         },
-        "TimeInstant": {
-            "description": "Last Sensor attributes update time record",
-            "type": "object",
-            "properties": {
-                "type": {
-                    "description": "TimeInstant type",
-                    "type": "string"
-                },
-                "value": {
-                    "description": "TimeInstant value",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "type",
-                "value"
-            ]
+        "timeInstant": {
+            "type": "string",
+            "format": "date-time"
         }
     },
     "required": [
         "id",
         "type",
-        "Reading",
-        "TimeInstant"
+        "reading",
+        "timeInstant"
     ]
 }
