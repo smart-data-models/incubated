@@ -1,0 +1,59 @@
+{
+    "$schema": "http://json-schema.org/firefit/sensorSchema",
+    "$id": "https://github.com/smart-data-models/incubated/tree/master/DIH2/FIREFIT/Sensor/schema.json",
+    "title": "Sensor",
+    "description": "A generic sensor",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "Sensor unique identifier",
+            "type": "string"
+        },
+        "type": {
+            "description": "Sensor type",
+            "type": "string"
+        },
+        "Reading": {
+            "description": "Sensor reading",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "Sensor reading type",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Sensor reading value",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "value"
+            ]
+        },
+        "TimeInstant": {
+            "description": "Last Sensor attributes update time record",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "TimeInstant type",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "TimeInstant value",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "value"
+            ]
+        }
+    },
+    "required": [
+        "id",
+        "type",
+        "Reading",
+        "TimeInstant"
+    ]
+}
