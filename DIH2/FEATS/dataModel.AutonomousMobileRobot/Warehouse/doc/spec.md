@@ -1,36 +1,38 @@
-# Warehouse
-
-This folder contains all the software artefacts to offer warehouse data in NGSI v2.
-
-**Note**: JSON Schemas only capture the NGSI simplified representation, this
-means that to test the JSON schema examples with a [FIWARE NGSI version 2]
-(http://fiware.github.io/specifications/ngsiv2/stable) API implementation, you
-need to use the `keyValues` mode (`options=keyValues`).
-
-## Examples of use
-
-```bash
-curl -X GET \
-  'https://streams.lab.fiware.org/v2/entities?type=Warehouse&options=keyValues&limit=1' \
-  | python -m json.tool
-```
-
-```json
-[
-    {
-        "dateCreated": "2020-09-15T09:54:07.100Z",
-        "dateModified": "2020-09-15T09:54:07.100Z",
-        "id": "urn:ngsi-ld:Warehouse:1600160047106",
-        "location": {
-            "coordinates": [
-                -8.6313127,
-                41.157774
-            ],
-            "type": "Point"
-        },
-        "name": "White Warehouse",
-        "status": "ready",
-        "type": "Warehouse"
-    }
-]
-```
+Warehouse:
+  - description: >
+    ## Description
+    This entity contains a harmonised description of a Warehouse.
+    
+  - properties:
+    - status:
+      - x-ngsi:
+        - type: "EnumProperty"
+      - type: "string"
+      - enum:
+        - ready
+        - outOfService
+      - description: >
+            A sequence of characters that define the current status of the warehouse
+    - name:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Text"
+      - type: "string"
+      - description: >
+            A sequence of characters that define the warehouse's name
+    - location:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Float"
+      - type: array
+        - items:
+          - type: object
+          - properties:
+            - type:
+              - type: float
+                - values:
+                  - type: array
+                    - items:
+                      - type: float
+      - description: >
+            Array that defines the warehouse's latitude and longitude

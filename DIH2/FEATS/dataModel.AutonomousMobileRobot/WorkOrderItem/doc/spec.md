@@ -1,31 +1,33 @@
-# Work order item
-
-This folder contains all the software artefacts to offer work order item data 
-in NGSI v2.
-
-**Note**: JSON Schemas only capture the NGSI simplified representation, this
-means that to test the JSON schema examples with a [FIWARE NGSI version 2]
-(http://fiware.github.io/specifications/ngsiv2/stable) API implementation, you
-need to use the `keyValues` mode (`options=keyValues`).
-
-## Examples of use
-
-```bash
-curl -X GET \
-  'https://streams.lab.fiware.org/v2/entities?type=WorkOrderItem&options=keyValues&limit=1' \
-  | python -m json.tool
-```
-
-```json
-[
-    {
-        "dateCreated": "2020-09-16T09:37:33.048Z",
-        "dateModified": "2020-09-16T09:37:33.048Z",
-        "id": "urn:ngsi-ld:WorkOrderItem:1600245453048",
-        "quantity": 30,
-        "refMaterial": "urn:ngsi-ld:Material:1600245319558",
-        "refWorkorder": "urn:ngsi-ld:WorkOrder:1600245452946",
-        "type": "WorkOrderItem"
-    }
-]
-```
+Work Order Item:
+  - description: >
+    ## Description
+    This entity contains a harmonised description of a Work Order Item. This entity
+    is associated with two other entities:
+      - Material: defines the material that this work order item refers
+      - Work order: defines the work order that this work order item belongs.
+    
+  - properties:
+    - quantity:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Integer"
+      - type: "integer"
+      - format: "int32"
+      - description: >
+            Amount of material items to be transported by robot
+    - refMaterial:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/URL"
+      - type: "string"
+      - format: "URL"
+      - description: >
+            The URL holding the material entity that robot will transport
+    - refWorkOrder:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/URL"
+      - type: "string"
+      - format: "URL"
+      - description: >
+            The URL holding the work order entity that owns this work order item
