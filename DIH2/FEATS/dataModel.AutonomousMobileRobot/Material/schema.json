@@ -1,0 +1,35 @@
+{
+  "$id": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/Material/schema.json",
+  "type": "object",
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "title": "Material data model JSON Schema",
+  "description": "A definition of a warehouse material in industry scope",
+  "allOf": [
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "NGSI Entity type"
+        },
+        "batch": {
+          "type": "string"
+        },
+        "mType": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "number"
+        },
+        "refWarehouse": {
+          "$ref": "https://github.com/smart-data-models/dataModel.AutonomousMobileRobot/Warehouse/schema.json"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "mType"
+  ]
+}

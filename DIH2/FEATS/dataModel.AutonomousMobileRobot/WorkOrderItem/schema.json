@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/WorkOrderItem/schema.json",
+  "title": "Work order item data model JSON Schema",
+  "description": "A definition of a fabric work order item in industry",
+  "type": "object",
+  "allOf": [
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "NGSI Entity type"
+        },
+        "quantity": {
+          "type": "number"
+        },
+        "refMaterial": {
+          "$ref": "https://github.com/smart-data-models/dataModel.AutonomousMobileRobot/Material/schema.json"
+        },
+        "refWorkOrder": {
+          "$ref": "https://github.com/smart-data-models/dataModel.AutonomousMobileRobot/WorkOrder/schema.json"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "quantity",
+    "refMaterial",
+    "refWorkOrder"
+  ]
+}
