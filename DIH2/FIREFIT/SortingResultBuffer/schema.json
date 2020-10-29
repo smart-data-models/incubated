@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/firefit/sortingResultBufferSchema",
+  "$id": "https://github.com/smart-data-models/incubated/tree/master/DIH2/FIREFIT/SortingResultBuffer/schema.json",
+  "title": "Sorting Result Buffer",
+  "description": "A buffer entity used to register the results of an object subject to an inspection process followed by a sorting process while having random extraction between the processes",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Buffer unique identifier",
+      "type": "string"
+    },
+    "type": {
+      "description": "Buffer type",
+      "type": "string",
+      "enum": [
+        "SortingResultBuffer"
+      ]
+    },
+    "sorting": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "Results type",
+          "type": "string"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "inspectionId": {
+              "description": "Inspection process unique identifier",
+              "type": "string"
+            },
+            "inspectionImage": {
+              "description": "Inspection process encoded image result",
+              "type": "string"
+            },
+            "extracted": {
+              "description": "Random extraction result",
+              "type": "boolean"
+            },
+            "sorted": {
+              "description": "Sorting process result",
+              "type": "boolean"
+            },
+            "id": {
+              "description": "Object id",
+              "type": "string"
+            },
+            "inspection": {
+              "description": "Inspection process result",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "inspectionId",
+            "inspectionImage",
+            "extracted",
+            "sorted",
+            "id",
+            "inspection"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "sorting"
+  ]
+}

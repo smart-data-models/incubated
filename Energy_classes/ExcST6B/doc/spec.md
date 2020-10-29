@@ -1,0 +1,146 @@
+# ExcST6B
+type: "object"
+description : >
+## Description
+Modified IEEE ST6B static excitation system with PID controller and optional inner feedbacks loop.
+
+## Data Model
+  - properties:
+    - ilr:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter output current limit reference (Ilr).  Typical Value = 4.164. Default: 0.0
+    - k1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Selector (K1). true = feedback is from Ifd false = feedback is not from Ifd. Typical Value = true. Default: False
+    - kcl:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter output current limit adjustment (Kcl).  Typical Value = 1.0577. Default: 0.0
+    - kff:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Pre-control gain constant of the inner loop field regulator (Kff).  Typical Value = 1. Default: 0.0
+    - kg:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Feedback gain constant of the inner loop field regulator (Kg).  Typical Value = 1. Default: 0.0
+    - kia:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator integral gain (Kia).  Typical Value = 45.094. Default: 0.0
+    - klr:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter output current limit adjustment (Kcl).  Typical Value = 17.33. Default: 0.0
+    - km:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Forward gain constant of the inner loop field regulator (Km).  Typical Value = 1. Default: 0.0
+    - kpa:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator proportional gain (Kpa).  Typical Value = 18.038. Default: 0.0
+    - kvd:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator derivative gain (Kvd).  Typical Value = 0. Default: 0.0
+    - oelin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : OEL input selector (OELin). Typical Value = noOELinput. Default: None
+    - tg:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Feedback time constant of inner loop field voltage regulator (Tg).  Typical Value = 0.02. Default: 0
+    - ts:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Rectifier firing time constant (Ts).  Typical Value = 0. Default: 0
+    - tvd:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator derivative gain (Tvd).  Typical Value = 0. Default: 0
+    - vamax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage regulator output (Vamax).  Typical Value = 4.81. Default: 0.0
+    - vamin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage regulator output (Vamin).  Typical Value = -3.85. Default: 0.0
+    - vilim:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Selector (Vilim). true = Vimin-Vimax limiter is active false = Vimin-Vimax limiter is not active. Typical Value = true. Default: False
+    - vimax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage regulator input limit (Vimax).  Typical Value = 10. Default: 0.0
+    - vimin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage regulator input limit (Vimin).  Typical Value = -10. Default: 0.0
+    - vmult:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Selector (Vmult). true = multiply regulator output by terminal voltage false = do not multiply regulator output by terminal voltage.  Typical Value = true. Default: False
+    - vrmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage regulator output (Vrmax).  Typical Value = 4.81. Default: 0.0
+    - vrmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage regulator output (Vrmin).  Typical Value = -3.85. Default: 0.0
+    - xc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Excitation source reactance (Xc).  Typical Value = 0.05. Default: 0.0

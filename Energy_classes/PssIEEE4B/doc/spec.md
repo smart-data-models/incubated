@@ -1,0 +1,410 @@
+# PssIEEE4B
+type: "object"
+description : >
+## Description
+The class represents IEEE Std 421.5-2005 type PSS2B power system stabilizer model. The PSS4B model represents a structure based on multiple working frequency bands. Three separate bands, respectively dedicated to the low-, intermediate- and high-frequency modes of oscillations, are used in this delta-omega (speed input) PSS.  Reference: IEEE 4B 421.5-2005 Section 8.4.
+
+## Data Model
+  - properties:
+    - bwh1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter 1 (high-frequency band): Three dB bandwidth (B). Default: 0.0
+    - bwh2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter 2 (high-frequency band): Three dB bandwidth (B). Default: 0.0
+    - bwl1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter 1 (low-frequency band): Three dB bandwidth (B). Default: 0.0
+    - bwl2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter 2 (low-frequency band): Three dB bandwidth (B). Default: 0.0
+    - kh:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band gain (K).  Typical Value = 120. Default: 0.0
+    - kh1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band differential filter gain (K).  Typical Value = 66. Default: 0.0
+    - kh11:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band first lead-lag blocks coefficient (K).  Typical Value = 1. Default: 0.0
+    - kh17:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band first lead-lag blocks coefficient (K).  Typical Value = 1. Default: 0.0
+    - kh2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band differential filter gain (K).  Typical Value = 66. Default: 0.0
+    - ki:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band gain (K).  Typical Value = 30. Default: 0.0
+    - ki1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band differential filter gain (K).  Typical Value = 66. Default: 0.0
+    - ki11:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band first lead-lag blocks coefficient (K).  Typical Value = 1. Default: 0.0
+    - ki17:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band first lead-lag blocks coefficient (K).  Typical Value = 1. Default: 0.0
+    - ki2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band differential filter gain (K).  Typical Value = 66. Default: 0.0
+    - kl:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band gain (K).  Typical Value = 7.5. Default: 0.0
+    - kl1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band differential filter gain (K).  Typical Value = 66. Default: 0.0
+    - kl11:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band first lead-lag blocks coefficient (K).  Typical Value = 1. Default: 0.0
+    - kl17:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band first lead-lag blocks coefficient (K).  Typical Value = 1. Default: 0.0
+    - kl2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band differential filter gain (K).  Typical Value = 66. Default: 0.0
+    - omeganh1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter 1 (high-frequency band): filter frequency (omega). Default: 0.0
+    - omeganh2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter 2 (high-frequency band): filter frequency (omega). Default: 0.0
+    - omeganl1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter 1 (low-frequency band): filter frequency (omega). Default: 0.0
+    - omeganl2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter 2 (low-frequency band): filter frequency (omega). Default: 0.0
+    - th1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band time constant (T).  Typical Value = 0.01513. Default: 0
+    - th10:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band time constant (T).  Typical Value = 0. Default: 0
+    - th11:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band time constant (T).  Typical Value = 0. Default: 0
+    - th12:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band time constant (T).  Typical Value = 0. Default: 0
+    - th2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band time constant (T).  Typical Value = 0.01816. Default: 0
+    - th3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band time constant (T).  Typical Value = 0. Default: 0
+    - th4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band time constant (T).  Typical Value = 0. Default: 0
+    - th5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band time constant (T).  Typical Value = 0. Default: 0
+    - th6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band time constant (T).  Typical Value = 0. Default: 0
+    - th7:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band time constant (T).  Typical Value = 0.01816. Default: 0
+    - th8:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band time constant (T).  Typical Value = 0.02179. Default: 0
+    - th9:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band time constant (T).  Typical Value = 0. Default: 0
+    - ti1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band time constant (T).  Typical Value = 0.173. Default: 0
+    - ti10:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band time constant (T).  Typical Value = 0. Default: 0
+    - ti11:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band time constant (T).  Typical Value = 0. Default: 0
+    - ti12:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band time constant (T).  Typical Value = 0. Default: 0
+    - ti2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band time constant (T).  Typical Value = 0.2075. Default: 0
+    - ti3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band time constant (T).  Typical Value = 0. Default: 0
+    - ti4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band time constant (T).  Typical Value = 0. Default: 0
+    - ti5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band time constant (T).  Typical Value = 0. Default: 0
+    - ti6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band time constant (T).  Typical Value = 0. Default: 0
+    - ti7:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band time constant (T).  Typical Value = 0.2075. Default: 0
+    - ti8:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band time constant (T).  Typical Value = 0.2491. Default: 0
+    - ti9:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band time constant (T).  Typical Value = 0. Default: 0
+    - tl1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band time constant (T).  Typical Value = 1.73. Default: 0
+    - tl10:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band time constant (T).  Typical Value = 0. Default: 0
+    - tl11:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band time constant (T).  Typical Value = 0. Default: 0
+    - tl12:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band time constant (T).  Typical Value = 0. Default: 0
+    - tl2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band time constant (T).  Typical Value = 2.075. Default: 0
+    - tl3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band time constant (T).  Typical Value = 0. Default: 0
+    - tl4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band time constant (T).  Typical Value = 0. Default: 0
+    - tl5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band time constant (T).  Typical Value = 0. Default: 0
+    - tl6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band time constant (T).  Typical Value = 0. Default: 0
+    - tl7:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band time constant (T).  Typical Value = 2.075. Default: 0
+    - tl8:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band time constant (T).  Typical Value = 2.491. Default: 0
+    - tl9:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band time constant (T).  Typical Value = 0. Default: 0
+    - vhmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band output maximum limit (V).  Typical Value = 0.6. Default: 0.0
+    - vhmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : High band output minimum limit (V).  Typical Value = -0.6. Default: 0.0
+    - vimax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band output maximum limit (V).  Typical Value = 0.6. Default: 0.0
+    - vimin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intermediate band output minimum limit (V).  Typical Value = -0.6. Default: 0.0
+    - vlmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band output maximum limit (V).  Typical Value = 0.075. Default: 0.0
+    - vlmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Low band output minimum limit (V).  Typical Value = -0.075. Default: 0.0
+    - vstmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : PSS output maximum limit (V).  Typical Value = 0.15. Default: 0.0
+    - vstmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : PSS output minimum limit (V).  Typical Value = -0.15. Default: 0.0

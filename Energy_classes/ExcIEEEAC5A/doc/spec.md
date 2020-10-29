@@ -1,0 +1,92 @@
+# ExcIEEEAC5A
+type: "object"
+description : >
+## Description
+The class represents IEEE Std 421.5-2005 type AC5A model. The model represents a simplified model for brushless excitation systems. The regulator is supplied from a source, such as a permanent magnet generator, which is not affected by system disturbances.  Unlike other ac models, this model uses loaded rather than open circuit exciter saturation data in the same way as it is used for the dc models.  Because the model has been widely implemented by the industry, it is sometimes used to represent other types of systems when either detailed data for them are not available or simplified models are required.   Reference: IEEE Standard 421.5-2005 Section 6.5.
+
+## Data Model
+  - properties:
+    - ka:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator gain (K).  Typical Value = 400. Default: 0.0
+    - ta:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator time constant (T).  Typical Value = 0.02. Default: 0
+    - vrmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage regulator output (V).  Typical Value = 7.3. Default: 0.0
+    - vrmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage regulator output (V).  Typical Value = -7.3. Default: 0.0
+    - ke:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter constant related to self-excited field (K).  Typical Value = 1. Default: 0.0
+    - te:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter time constant, integration rate associated with exciter control (T).  Typical Value = 0.8. Default: 0
+    - kf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Excitation control system stabilizer gains (K).  Typical Value = 0.03. Default: 0.0
+    - tf1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Excitation control system stabilizer time constant (T).  Typical Value = 1. Default: 0
+    - tf2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Excitation control system stabilizer time constant (T).  Typical Value = 1. Default: 0
+    - tf3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Excitation control system stabilizer time constant (T).  Typical Value = 1. Default: 0
+    - efd1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter voltage at which exciter saturation is defined (E).  Typical Value = 5.6. Default: 0.0
+    - seefd1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter saturation function value at the corresponding exciter voltage, E (S[E]).  Typical Value = 0.86. Default: 0.0
+    - efd2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter voltage at which exciter saturation is defined (E).  Typical Value = 4.2. Default: 0.0
+    - seefd2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter saturation function value at the corresponding exciter voltage, E (S[E]).  Typical Value = 0.5. Default: 0.0

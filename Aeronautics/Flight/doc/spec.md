@@ -52,6 +52,18 @@ Flight:
         - landed
         - diverted
         - cancelled
+    - departureDateTime:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/DateTime"
+       - type: "string"
+         - format : "date-time"
+    - arrivalDateTime:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/DateTime"
+       - type: "string"
+         - format : "date-time"
     -  aircraft:
       - x-ngsi:
         - type: "Relationship"

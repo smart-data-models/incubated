@@ -1,0 +1,116 @@
+# ExcST1A
+type: "object"
+description : >
+## Description
+Modification of an old IEEE ST1A static excitation system without overexcitation limiter (OEL) and underexcitation limiter (UEL).
+
+## Data Model
+  - properties:
+    - vimax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage regulator input limit (Vimax).  Typical Value = 999. Default: 0.0
+    - vimin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage regulator input limit (Vimin).  Typical Value = -999. Default: 0.0
+    - tc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator time constant (Tc).  Typical Value = 1. Default: 0
+    - tb:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator time constant (Tb).  Typical Value = 10. Default: 0
+    - ka:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator gain (Ka).  Typical Value = 190. Default: 0.0
+    - ta:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator time constant (Ta).  Typical Value = 0.02. Default: 0
+    - vrmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage regulator outputs (Vrmax).  Typical Value = 7.8. Default: 0.0
+    - vrmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage regulator outputs (Vrmin).  Typical Value = -6.7. Default: 0.0
+    - kc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Rectifier loading factor proportional to commutating reactance (Kc). Typical Value = 0.05. Default: 0.0
+    - kf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Excitation control system stabilizer gains (Kf).  Typical Value = 0. Default: 0.0
+    - tf:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Excitation control system stabilizer time constant (Tf).  Typical Value = 1. Default: 0
+    - tc1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator time constant (Tc).  Typical Value = 0. Default: 0
+    - tb1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Voltage regulator time constant (Tb).  Typical Value = 0. Default: 0
+    - vamax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage regulator output (Vamax).  Typical Value = 999. Default: 0.0
+    - vamin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage regulator output (Vamin).  Typical Value = -999. Default: 0.0
+    - ilr:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter output current limit reference (Ilr).  Typical Value = 0. Default: 0.0
+    - klr:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter output current limiter gain (Klr).  Typical Value = 0. Default: 0.0
+    - xe:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Excitation xfmr effective reactance (Xe).  Typical Value = 0.04. Default: 0.0

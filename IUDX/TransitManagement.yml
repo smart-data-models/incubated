@@ -1,0 +1,423 @@
+author: IUDX initiative
+description: A public transit system Data Model.
+properties:
+- iudx:TransitManagement:
+    description: id of the data model
+    required: Optional
+    type: owl:Class
+- iudx:route_type:
+    description: "Number indicating the type of transport-\n1 - Subway, Metro. Any\
+      \ underground rail system within a metropolitan area.\n2 - Rail. Used for intercity\
+      \ or long-distance travel.\n3 - Bus. Used for short- and long-distance bus routes.\
+      \ \nSameAs: 'route_type' field from GTFS Static Field definitions-routes.txt\
+      \ (https://developers.google.com/transit/gtfs/reference#routestxt)"
+    required: Optional
+    type: iudx:TextProperty
+- iudx:departure_time:
+    description: "Specifies the departure time from a specific stop for a specific\
+      \ trip on a route. Times must be eight digits in HH:MM:SS format (H:MM:SS is\
+      \ also accepted, if the hour begins with 0). \nNote: Trips that span multiple\
+      \ dates will have stop times greater than 24:00:00. For example, if a trip begins\
+      \ at 10:30:00 p.m. and ends at 2:15:00 a.m. on the following day, the stop times\
+      \ would be 22:30:00 and 26:15:00. Entering those stop times as 22:30:00 and\
+      \ 02:15:00 would not produce the desired results. SameAs: 'departure_time' field\
+      \ from GTFS Static Field definitions-stop_times.txt (https://developers.google.com/transit/gtfs/reference#stop_timestxt)"
+    required: Optional
+    type: iudx:TextProperty
+- iudx:geoCovers:
+    description: Represents the coverage relationship between two geometries/places.
+    required: Optional
+    type: iudx:GeoProperty
+- iudx:bearing:
+    description: Gives the vehicle GPS angle measured in a clockwise direction from
+      the True North. SameAs 'bearing' field from GTFS Realtime message-Position(https://developers.google.com/transit/gtfs-realtime/reference#message-position)
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:trip:
+    description: Describes the trip the vehicle corresponding to this observation
+      is making. SameAs:'trip' field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)(https://developers.google.com/transit/gtfs-realtime/reference#message-tripupdate)
+    required: Optional
+    type: iudx:StructuredProperty
+- iudx:latitude:
+    description: Latitude of a place. Specified in WGS 84 CRS (https://en.wikipedia.org/wiki/World_Geodetic_System)
+    required: Optional
+    type: iudx:GeoProperty
+- iudx:trip_direction:
+    description: 'Gives the direction in which the vehicle is travelling. SameAs:
+      ''direction_id'' field from GTFS Realtime message-TripDescriptor but is represented
+      in the form of an ENUM[UP,DN] in place of [0,1] as seen in ''direction_id''
+      (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor).'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:ac_available:
+    description: Describes the presence of air conditioning option in the vehicle
+      corresponding to this observation.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:timestamp:
+    description: 'Last reported time of observation from the vehicle. SameAs: ''timestamp''
+      field from GTFS Realtime message-Vehicleposition (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)'
+    required: Optional
+    type: iudx:TimeProperty
+- iudx:tripDetails:
+    description: A descriptor of realtime update on the schedule of a vehicle along
+      a trip.
+    required: Optional
+    type: iudx:StructuredProperty
+- iudx:route_long_name:
+    description: 'Full name of a route. This name is more descriptive than the routeShortName
+      and often includes the route''s destination or stop. This mostly includes the
+      to and from destination names of the route. SameAs: ''route_long_name'' field
+      from GTFS Static Field definitions-routes.txt (https://developers.google.com/transit/gtfs/reference#routestxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:agency_id:
+    description: 'ID that uniquely identifies a transit agency. A transit feed may
+      represent data from more than one agency. The agency_id is dataset unique. This
+      field is optional for transit feeds that only contain data for a single agency.
+      SameAs: ''agency_id'' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:departure:
+    description: 'If schedule_relationship is empty or SCHEDULED, either arrival or
+      departure must be provided within a StopTimeUpdate. SameAs: ''departure'' field
+      from GTFS Realtime message-StopTimeUpdate (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeupdate)'
+    required: Optional
+    type: iudx:StructuredProperty
+- iudx:last_stop_id:
+    description: 'Stop ID/Stop name of the previous bus stop corresponding to the
+      bus in this observation. SameAs: ''stop_id'' field from GTFS Realtime message-VehiclePosition
+      (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:depot_name:
+    description: Describes the depot name of the bus depot corresponding to this observation.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:route_url:
+    description: 'Contains the URL of a web page about that particular route and is
+      different from the agency_url. SameAs: ''route_url'' field from GTFS Static
+      Field definitions-routes.txt (https://developers.google.com/transit/gtfs/reference#routestxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:start_time:
+    description: 'Describes the initial scheduled start time of the trip corresponding
+      to the vehicle this observation. An example format for this field - 11:15:35
+      or 25:15:35. SameAs: ''start_time'' field from GTFS Realtime message-TripDescriptor
+      (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:direction_id:
+    description: 'Indicates the direction of travel of the vehicle corresponding to
+      this observation, can be referenced from the GTFS static feed trips.txt. SameAs:
+      ''direction_id'' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)'
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:entity_id:
+    description: Feed unique ID for the entity coressponding to this observation.SameAs:'entity_id'
+      field from GTFS Realtime message-FeedEntity(https://developers.google.com/transit/gtfs-realtime/reference#message-feedentity)
+    required: Optional
+    type: iudx:TextProperty
+- iudx:license_plate:
+    description: 'Gives the License Plate number of the vehice. SameAs: ''license_plate''
+      field from GTFS Realtime message-VehicleDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicledescriptor)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:stop_sequence_detail:
+    description: 'Describes the stop sequence for a trip in the designated route made
+      by the public transit vehicle. SameAs: ''stop_sequence'' field from GTFS Static
+      Field definitions-stop_times.txt (https://developers.google.com/transit/gtfs/reference#stop_timestxt)'
+    required: Optional
+    type: iudx:StructuredProperty
+- iudx:arrival:
+    description: 'If schedule_relationship is empty or SCHEDULED, either arrival or
+      departure must be provided within a StopTimeUpdate. SameAs: ''arrival'' field
+      from GTFS Realtime message-StopTimeUpdate (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeupdate)'
+    required: Optional
+    type: iudx:StructuredProperty
+- iudx:route_desc:
+    description: 'Description of the route. This can include the entire route details
+      including to and from destination and timing information in a text description
+      form. SameAs: ''route_desc'' field from GTFS Static Field definitions-routes.txt
+      (https://developers.google.com/transit/gtfs/reference#routestxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:position:
+    description: Deccribes the current position of the vehicle corresponding to this
+      observation. SameAs:'position' field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)
+    required: Optional
+    type: iudx:StructuredProperty
+- iudx:stop_name:
+    description: 'Describes the name of the Bus Stop. SameAs: ''stop_name'' field
+      from GTFS Static Field definitions-stops.txt (https://developers.google.com/transit/gtfs/reference#stopstxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:stop_url:
+    description: 'This field contains the URL of a web page about a particular stop
+      and is different from the agency_url and the route_url fields. SameAs: ''stop_url''
+      field from GTFS Static Field definitions-stops.txt (https://developers.google.com/transit/gtfs/reference#stopstxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:stop_code:
+    description: 'This field contains short text or a number that uniquely identifies
+      the stop for passengers. Can be same as stop_id if it is for public. SameAs:
+      ''stop_code'' field from GTFS Static Field definitions-stops.txt (https://developers.google.com/transit/gtfs/reference#stopstxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:vehicleType:
+    description: Describes the type of vehicle corresponding to this observation,
+      could be hopper, compactor, tipper, dumper in case of solid waste management
+      vehicles and BRT mini bus, BRT bus, city bus in case of ITMS vehicles.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:uncertainity:
+    description: 'If uncertainty is omitted, it is interpreted as unknown. To specify
+      a completely certain prediction, set its uncertainty to 0.SameAs: ''uncertainity''
+      field from GTFS Realtime message-StopTimeEvent (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeevent)'
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:stop_id:
+    description: 'Stop ID/Stop name of the bus stops corresponding to the bus in this
+      observation. SameAs: ''stop_id'' field from GTFS Realtime message-Vehicleposition
+      (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:route_id:
+    description: 'Route ID assigned to the route on which the bus/vehicle corresponding
+      to the bus in this observation is currently plying on. SameAs: ''route_id''
+      field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:agency_lang:
+    description: 'Contains a two-letter ISO 639-1 code for the primary language used
+      by this transit agency. The language code is case-insensitive (both en and EN
+      are accepted). SameAs: ''agency_lang'' field from GTFS Static Field Definition
+      - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:stop_desc:
+    description: 'This field contains a description of a stop. SameAs: ''stop_desc''
+      field from GTFS Static Field definitions-stops.txt (https://developers.google.com/transit/gtfs/reference#stopstxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:route_text_color:
+    description: 'This field can be used to specify a legible color to use for text
+      drawn against a background of route_color. The color must be provided as a six-character
+      hexadecimal number, for example, FFD700. If no color is specified, the default
+      text color is black (000000). SameAs: ''route_text_color'' field from GTFS Static
+      Field definitions-routes.txt (https://developers.google.com/transit/gtfs/reference#routestxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:trip_id:
+    description: 'Trip ID/Trip name alloted to the bus corresponding to this observation,
+      in consideration to the time of the day and the direction of the trip on the
+      given routeId. SameAs: ''trip_id'' field from GTFS Realtime message-TripDescriptor
+      (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:current_stop_sequence:
+    description: Gives the stop sequence index of the current stop. This is determined
+      by considering current_status, if current_status is missing IN_TRANSIT_TO is
+      assumed. SameAs:'current_stop_sequence' field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:agency_url:
+    description: 'The agency_url field contains the URL of the transit agency. SameAs:
+      ''agency_url'' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:speed:
+    description: Gives the Speed  of the vehicle.SameAs 'speed' field from GTFS Realtime
+      message-Position(https://developers.google.com/transit/gtfs-realtime/reference#message-position)
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:trip_delay:
+    description: 'This can be positive and negative in seconds and shows how much
+      the vehicle deviates from the planned one. SameAs: ''delay'' field from GTFS
+      Realtime message-StopTimeEvent (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeevent)'
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:longitude:
+    description: Longitude of a place. Specified in WGS 84 CRS (https://en.wikipedia.org/wiki/World_Geodetic_System)
+    required: Optional
+    type: iudx:GeoProperty
+- iudx:last_stop_arrival_time:
+    description: "Specifies the arrival time at the previous stop for a specific trip\
+      \ on a route. Times must be eight digits in HH:MM:SS format (H:MM:SS is also\
+      \ accepted, if the hour begins with 0). \nNote: Trips that span multiple dates\
+      \ will have stop times greater than 24:00:00. For example, if a trip begins\
+      \ at 10:30:00 p.m. and ends at 2:15:00 a.m. on the following day, the stop times\
+      \ would be 22:30:00 and 26:15:00. Entering those stop times as 22:30:00 and\
+      \ 02:15:00 would not produce the desired results. This is SameAs: absolute 'time'(StopTimeEvent)\
+      \ in the 'arrival' field of the stop_time_update (StopTimeUpdate) message of\
+      \ the GTFS Realtime message-TripUpdate (https://developers.google.com/transit/gtfs-realtime/reference#message-tripupdate)"
+    required: Optional
+    type: iudx:TimeProperty
+- iudx:vehicle_label:
+    description: 'User visible label, i.e., something that must be shown to the passenger
+      to help identify the correct vehicle. SameAs: ''label'' field from GTFS Realtime
+      message-VehicleDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicledescriptor)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:tripDirection:
+    description: Gives the direction in which the vehicle is travelling in ENUM[UP,DN]
+    required: Optional
+    type: iudx:TextProperty
+- iudx:deviceInfo:
+    description: Information about the device associated with the observations.
+    required: Optional
+    type: iudx:StructuredProperty
+- iudx:last_tracked_time:
+    description: Gives the time at which the vehicle was last tracked.
+    required: Optional
+    type: iudx:TimeProperty
+- iudx:agency_name:
+    description: 'The agency_name field contains the full name of the transit agency.
+      SameAs: ''agency_name'' field from GTFS Static Field Definition - agency.txt
+      (https://developers.google.com/transit/gtfs/reference#agencytxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:route_short_name:
+    description: 'Short name of a route. This will often be the transit vehicle''s
+      board name like "402D",  or "Green" that riders use to identify a route. SameAs:
+      ''route_short_name'' field from GTFS Static Field definitions-routes.txt (https://developers.google.com/transit/gtfs/reference#routestxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:depot_id:
+    description: Describes the unique id of the bus depot corresponding to this observation.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:trip_update:
+    description: Describes the trip information like delay, departures, etc., for
+      a trip made by the vehicle corresponding to this observation.SameAs:'trip_update'
+      field from GTFS Realtime message-FeedEntity(https://developers.google.com/transit/gtfs-realtime/reference#message-feedentity)
+    required: Optional
+    type: iudx:StructuredProperty
+- iudx:actualTripStartTime:
+    description: This field specifies the time at which service actually began.
+    required: Optional
+    type: iudx:TimeProperty
+- iudx:stop_headsign:
+    description: "This field contains the text that appears on a sign that identifies\
+      \ the trip\u2019s destination to passengers. SameAs: 'stop_headsign' field from\
+      \ GTFS Static Field definitions-stop_times.txt (https://developers.google.com/transit/gtfs/reference#stop_timestxt)"
+    required: Optional
+    type: iudx:TextProperty
+- iudx:seating_capacity:
+    description: Describes the passenger seating capacity of the vehicle corresponding
+      to this observation.
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:agency_timezone:
+    description: 'Timezone field contains the timezone where the transit agency is
+      located. SameAs: ''agency_timezone'' field from GTFS Static Field Definition
+      - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:standing_capacity:
+    description: Describes the passenger standing capacity of the vehicle corresponding
+      to this observation.
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:actual_trip_start_time:
+    description: 'This field specifies the time at which service actually began.  This
+      is SameAs: absolute ''time''(StopTimeEvent) in the ''arrival'' field of the
+      stop_time_update (StopTimeUpdate) message of the GTFS Realtime message-TripUpdate
+      (https://developers.google.com/transit/gtfs-realtime/reference#message-tripupdate)'
+    required: Optional
+    type: iudx:TimeProperty
+- iudx:stop_sequence:
+    description: 'Indicates the stop sequencel of the vehicle corresponding to this
+      observation, can be referenced from the GTFS static feed stop_times.txt. SameAs:
+      ''stop_sequence'' field from GTFS Realtime message-StopTimeUpdate (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeupdate)'
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:trip_details:
+    description: A descriptor of realtime update on the schedule of a vehicle along
+      a trip.
+    required: Optional
+    type: iudx:StructuredProperty
+- iudx:current_status:
+    description: 'Describes the status of the vehicle w.r.t the stop corresponding
+      to this observation ENUM: [INCOMING_AT, STOPPED_AT, IN_TRANSIT_TO]. SameAs:''current_status''
+      field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:observationDateTime:
+    description: Last reported time of observation.
+    required: Optional
+    type: iudx:TimeProperty
+- iudx:schedule_relationship:
+    description: 'Describes if the Route/Trip has been scheduled. SameAs: ''schedule_relationship''
+      field from enumScheduleRelationship (https://developers.google.com/transit/gtfs-realtime/reference#enum-schedulerelationship-2)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:vehicleDesc:
+    description: Describes the additional information of the vehicle corresponding
+      to this observation. SameAs:'vehicle' field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)/(https://developers.google.com/transit/gtfs-realtime/reference#message-tripupdate)
+    required: Optional
+    type: iudx:StructuredProperty
+- iudx:start_date:
+    description: 'Describes the initial scheduled date of the trip corresponding to
+      the vehicle this observation. An example format for this field - YYYYMMDD. SameAs:
+      ''start_date'' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:route_color:
+    description: 'If assigned, this field defines a color that corresponds to a route.
+      The color must be provided as a six-character hexadecimal number, for example,
+      00FFFF. If no color is specified, the default route color is white (FFFFFF).
+      SameAs: ''route_color'' field from GTFS Static Field definitions-routes.txt
+      (https://developers.google.com/transit/gtfs/reference#routestxt)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:location:
+    description: Location associated with a resource Item (a spatial point), a group
+      of resource items (a spatial region) or even an observation in case of a mobile
+      sensor.
+    required: Optional
+    type: iudx:GeoProperty
+- iudx:vehicle_position:
+    description: Describes the realtime position of the vehicle corresponding to this
+      observation. SameAs:'vehicle' field from GTFS Realtime message-FeedEntity(https://developers.google.com/transit/gtfs-realtime/reference#message-feedentity)
+    required: Optional
+    type: iudx:StructuredProperty
+- iudx:arrival_time:
+    description: "Specifies the arrival time at a specific stop for a specific trip\
+      \ on a route. Times must be eight digits in HH:MM:SS format (H:MM:SS is also\
+      \ accepted, if the hour begins with 0). \nNote: Trips that span multiple dates\
+      \ will have stop times greater than 24:00:00. For example, if a trip begins\
+      \ at 10:30:00 p.m. and ends at 2:15:00 a.m. on the following day, the stop times\
+      \ would be 22:30:00 and 26:15:00. Entering those stop times as 22:30:00 and\
+      \ 02:15:00 would not produce the desired results. SameAs: 'arrival_time' field\
+      \ from GTFS Static Field definitions-stop_times.txt (https://developers.google.com/transit/gtfs/reference#stop_timestxt)"
+    required: Optional
+    type: iudx:TextProperty
+- iudx:stop_time_update:
+    description: 'Updated sorted stop sequence for the trip made by the vehicle corresponding
+      to this observation, not to be considered if schedule_realtionship is "CANCELED".
+      SameAs: ''stop_time_update'' field from GTFS Realtime message-TripUpdate (https://developers.google.com/transit/gtfs-realtime/reference#message-tripupdate)'
+    required: Optional
+    type: iudx:StructuredProperty
+- iudx:vehicle_id:
+    description: 'Unique ID assigned to the vehicle corresponding to this observation,
+      used in internal system identification. SameAs: ''id'' field from GTFS Realtime
+      message-VehicleDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicledescriptor)'
+    required: Optional
+    type: iudx:TextProperty
+- iudx:UrbanMobility:
+    description: Data models that pertain to the urban mobility domain
+    required: Optional
+    type: owl:Class
+- iudx:DataModel:
+    description: Class of all Data Models.
+    required: Optional
+    type: owl:Class
+- iudx:Thing:
+    description: Most generic IUDX object.
+    required: Optional
+    type: owl:Class
+- iudx:description:
+    description: Description for an IUDX thing.
+    required: Optional
+    type: iudx:TextProperty

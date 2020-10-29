@@ -1,0 +1,122 @@
+# GeneratingUnit
+type: "object"
+description : >
+## Description
+A single or set of synchronous machines for converting mechanical power into alternating-current power. For example, individual machines within a set may be defined for scheduling purposes while a single control signal is derived for the set. In this case there would be a GeneratingUnit for each member of the set and an additional GeneratingUnit corresponding to the set.
+
+## Data Model
+  - properties:
+    - genControlSource:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : The source of controls for a generating unit. Default: None
+    - governorSCD:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Governor Speed Changer Droop.   This is the change in generator power output divided by the change in frequency normalized by the nominal power of the generator and the nominal frequency and expressed in percent and negated. A positive value of speed change droop provides additional generator output upon a drop in frequency. Default: 0.0
+    - initialP:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Default initial active power  which is used to store a powerflow result for the initial active power for this unit in this network configuration. Default: 0.0
+    - longPF:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Generating unit long term economic participation factor. Default: 0.0
+    - maximumAllowableSpinningReserve:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum allowable spinning reserve. Spinning reserve will never be considered greater than this value regardless of the current operating point. Default: 0.0
+    - maxOperatingP:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : This is the maximum operating active power limit the dispatcher can enter for this unit. Default: 0.0
+    - minOperatingP:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : This is the minimum operating active power limit the dispatcher can enter for this unit. Default: 0.0
+    - nominalP:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : The nominal power of the generating unit.  Used to give precise meaning to percentage based attributes such as the governor speed change droop (governorSCD attribute). The attribute shall be a positive value equal or less than RotatingMachine.ratedS. Default: 0.0
+    - ratedGrossMaxP:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : The unit`s gross rated maximum capacity (book value). Default: 0.0
+    - ratedGrossMinP:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : The gross rated minimum generation level which the unit can safely operate at while delivering power to the transmission grid. Default: 0.0
+    - ratedNetMaxP:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : The net rated maximum capacity determined by subtracting the auxiliary power used to operate the internal plant machinery from the rated gross maximum capacity. Default: 0.0
+    - shortPF:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Generating unit short term economic participation factor. Default: 0.0
+    - startupCost:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : The initial startup cost incurred for each start of the GeneratingUnit. Default: 0.0
+    - variableCost:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : The variable cost component of production per unit of ActivePower. Default: 0.0
+    - totalEfficiency:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : The efficiency of the unit in converting the fuel into electrical energy. Default: 0.0
+    - ControlAreaGeneratingUnit:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : ControlArea specifications for this generating unit. Default: "list"
+    - RotatingMachine:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : A synchronous machine may operate as a generator and as such becomes a member of a generating unit. Default: "list"
+    - GrossToNetActivePowerCurves:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : A generating unit may have a gross active power to net active power curve, describing the losses and auxiliary power requirements of the unit. Default: "list"
+    - normalPF:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Generating unit economic participation factor. Default: 0.0

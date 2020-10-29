@@ -1,0 +1,60 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"$id":"https://smart-data-models.github.io/incubated/DIH2/AGILPLAS/ProductionMeasurements/schema.json",
+	"title": "Production Measurements schema",
+	"description": "Represent a collection of measurements used to calculate OEE",
+	"type": "object",
+	"allOf": [
+		{
+			"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+		},
+		{
+			"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+		},
+		{
+			"properties": {
+				"type": {
+					"type": "string",
+					"enum": ["ProductionMeasurements"],
+ 					"description": "NGSI Entity type"
+				},
+				"plannedProductionTime": {
+					"type": "number",
+					"minimum": 0
+				},
+				"operatingTime": {
+					"type": "number",
+					"minimum": 0
+				},
+				"lostTime": {
+					"type": "number",
+					"minimum": 0
+				},
+				"theoreticalCycleTime": {
+					"type": "number",
+					"minimum": 0
+				},
+				"theoreticalOutputRate": {
+					"type": "integer",
+					"minimum": 0
+				},
+				"totalProduction": {
+					"type": "integer",
+					"minimum": 0
+				},
+				"validProduction": {
+					"type": "integer",
+					"minimum": 0
+				},
+				"rejectedProduction": {
+					"type": "integer",
+					"minimum": 0
+				},
+			}
+		}
+	],
+	"required": [
+		"id",
+		"type"
+	]
+}

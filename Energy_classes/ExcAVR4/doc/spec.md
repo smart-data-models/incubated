@@ -1,0 +1,92 @@
+# ExcAVR4
+type: "object"
+description : >
+## Description
+Italian excitation system. It represents static exciter and electric voltage regulator.
+
+## Data Model
+  - properties:
+    - ka:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : AVR gain (K).  Typical Value = 300. Default: 0.0
+    - vrmn:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum AVR output (V).  Typical Value = 0. Default: 0.0
+    - vrmx:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum AVR output (V).  Typical Value = 5. Default: 0.0
+    - t1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : AVR time constant (T).  Typical Value = 4.8. Default: 0
+    - t2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : AVR time constant (T).  Typical Value = 1.5. Default: 0
+    - t3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : AVR time constant (T).  Typical Value = 0. Default: 0
+    - t4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : AVR time constant (T).  Typical Value = 0. Default: 0
+    - ke:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter gain (K).  Typical Value = 1. Default: 0.0
+    - vfmx:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum exciter output (V).  Typical Value = 5. Default: 0.0
+    - vfmn:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum exciter output (V).  Typical Value = 0. Default: 0.0
+    - kif:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter internal reactance (K).  Typical Value = 0. Default: 0.0
+    - tif:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter current feedback time constant (T).  Typical Value = 0. Default: 0
+    - t1if:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter current feedback time constant (T).  Typical Value = 60. Default: 0
+    - imul:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : AVR output voltage dependency selector (Imul). true = selector is connected false = selector is not connected. Typical Value = true. Default: False

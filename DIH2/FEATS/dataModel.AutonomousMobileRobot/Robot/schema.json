@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/Robot/schema.json",
+  "title": "Robot data model JSON Schema",
+  "description": "A definition of a robot to operate in industry",
+  "type": "object",
+  "allOf": [
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "NGSI Entity type"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "moving",
+            "stopped",
+            "ready",
+            "idle"
+          ]
+        },
+        "available": {
+          "type": "boolean"
+        },
+        "battery": {
+          "type": "number"
+        },
+        "location": {
+          "type": "object"
+        },
+        "name": {
+          "type": "string"
+        },
+        "refDestination": {
+          "$ref": "https://github.com/smart-data-models/dataModel.AutonomousMobileRobot/Warehouse/schema.json"
+        },
+        "refPayload": {
+          "$ref": "https://github.com/smart-data-models/dataModel.AutonomousMobileRobot/Material/schema.json"
+        },
+        "refWorkOrder": {
+          "$ref": "https://github.com/smart-data-models/dataModel.AutonomousMobileRobot/WorkOrder/schema.json"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "battery"
+  ]
+}

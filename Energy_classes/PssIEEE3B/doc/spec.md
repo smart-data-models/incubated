@@ -1,0 +1,122 @@
+# PssIEEE3B
+type: "object"
+description : >
+## Description
+The class represents IEEE Std 421.5-2005 type PSS3B power system stabilizer model. The PSS model PSS3B has dual inputs of electrical power and rotor angular frequency deviation. The signals are used to derive an equivalent mechanical power signal.  Reference: IEEE 3B 421.5-2005 Section 8.3.
+
+## Data Model
+  - properties:
+    - inputSignal1Type:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Type of input signal #1.  Typical Value = generatorElectricalPower. Default: None
+    - inputSignal2Type:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Type of input signal #2.  Typical Value = rotorSpeed. Default: None
+    - t1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Transducer time constant (T1).  Typical Value = 0.012. Default: 0
+    - t2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Transducer time constant (T2).  Typical Value = 0.012. Default: 0
+    - tw1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Washout time constant (Tw1).  Typical Value = 0.3. Default: 0
+    - tw2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Washout time constant (Tw2).  Typical Value = 0.3. Default: 0
+    - tw3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Washout time constant (Tw3).  Typical Value = 0.6. Default: 0
+    - ks1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gain on signal # 1 (Ks1).  Typical Value = -0.602. Default: 0.0
+    - ks2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Gain on signal # 2 (Ks2).  Typical Value = 30.12. Default: 0.0
+    - a1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A1).  Typical Value = 0.359. Default: 0.0
+    - a2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A2).  Typical Value = 0.586. Default: 0.0
+    - a3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A3).  Typical Value = 0.429. Default: 0.0
+    - a4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A4).  Typical Value = 0.564. Default: 0.0
+    - a5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A5).  Typical Value = 0.001. Default: 0.0
+    - a6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A6).  Typical Value = 0. Default: 0.0
+    - a7:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A7).  Typical Value = 0.031. Default: 0.0
+    - a8:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Notch filter parameter (A8).  Typical Value = 0. Default: 0.0
+    - vstmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Stabilizer output max limit (Vstmax).  Typical Value = 0.1. Default: 0.0
+    - vstmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Stabilizer output min limit (Vstmin).  Typical Value = -0.1. Default: 0.0

@@ -1,0 +1,122 @@
+# GovSteamFV3
+type: "object"
+description : >
+## Description
+Simplified GovSteamIEEE1 Steam turbine governor model with Prmax limit and fast valving.
+
+## Data Model
+  - properties:
+    - mwbase:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Base for power values (MWbase) (>0).  Unit = MW. Default: 0.0
+    - k:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Governor gain, (reciprocal of droop) (K).  Typical Value = 20. Default: 0.0
+    - t1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Governor lead time constant (T1).  Typical Value = 0. Default: 0
+    - t2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Governor lag time constant (T2).  Typical Value = 0. Default: 0
+    - t3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Valve positioner time constant (T3).  Typical Value = 0. Default: 0
+    - uo:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum valve opening velocity (Uo).  Unit = PU/sec.  Typical Value = 0.1. Default: 0.0
+    - uc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum valve closing velocity (Uc).  Unit = PU/sec.  Typical Value = -1. Default: 0.0
+    - pmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum valve opening, PU of MWbase (Pmax).  Typical Value = 1. Default: 0.0
+    - pmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum valve opening, PU of MWbase (Pmin).  Typical Value = 0. Default: 0.0
+    - t4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Inlet piping/steam bowl time constant (T4).  Typical Value = 0.2. Default: 0
+    - k1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fraction of turbine power developed after first boiler pass (K1).  Typical Value = 0.2. Default: 0.0
+    - t5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant of second boiler pass (i.e. reheater) (T5).  Typical Value = 0.5. Default: 0
+    - k2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fraction of turbine power developed after second boiler pass (K2).  Typical Value = 0.2. Default: 0.0
+    - t6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time constant of crossover or third boiler pass (T6).  Typical Value = 10. Default: 0
+    - k3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fraction of hp turbine power developed after crossover or third boiler pass (K3). Typical Value = 0.6. Default: 0.0
+    - ta:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time to close intercept valve (IV) (Ta).  Typical Value = 0.97. Default: 0
+    - tb:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time until IV starts to reopen (Tb).  Typical Value = 0.98. Default: 0
+    - tc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Time until IV is fully open (Tc).  Typical Value = 0.99. Default: 0
+    - prmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Max. pressure in reheater (Prmax).  Typical Value = 1. Default: 0.0

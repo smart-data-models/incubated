@@ -1,0 +1,212 @@
+# GovGAST1
+type: "object"
+description : >
+## Description
+Modified single shaft gas turbine.
+
+## Data Model
+  - properties:
+    - mwbase:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Base for power values (MWbase) (> 0).  Unit = MW. Default: 0.0
+    - r:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Permanent droop (R).  Typical Value = 0.04. Default: 0.0
+    - t1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Governor mechanism time constant (T1).  T1 represents the natural valve positioning time constant of the governor for small disturbances, as seen when rate limiting is not in effect.  Typical Value = 0.5. Default: 0
+    - t2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Turbine power time constant (T2).  T2 represents delay due to internal energy storage of the gas turbine engine. T2 can be used to give a rough approximation to the delay associated with acceleration of the compressor spool of a multi-shaft engine, or with the compressibility of gas in the plenum of the free power turbine of an aero-derivative unit, for example.  Typical Value = 0.5. Default: 0
+    - t3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Turbine exhaust temperature time constant (T3).  T3 represents delay in the exhaust temperature and load limiting system. Typical Value = 3. Default: 0
+    - lmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Ambient temperature load limit (Lmax).  Lmax is the turbine power output corresponding to the limiting exhaust gas temperature.  Typical Value = 1. Default: 0.0
+    - kt:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Temperature limiter gain (Kt).  Typical Value = 3. Default: 0.0
+    - vmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum turbine power, PU of MWbase (Vmax).  Typical Value = 1. Default: 0.0
+    - vmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum turbine power, PU of MWbase (Vmin).  Typical Value = 0. Default: 0.0
+    - fidle:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fuel flow at zero power output (Fidle).  Typical Value = 0.18. Default: 0.0
+    - rmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum fuel valve opening rate (Rmax).  Unit = PU/sec.  Typical Value = 1. Default: 0.0
+    - loadinc:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Valve position change allowed at fast rate (Loadinc).  Typical Value = 0.05. Default: 0.0
+    - tltr:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Valve position averaging time constant (Tltr).  Typical Value = 10. Default: 0
+    - ltrate:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum long term fuel valve opening rate (Ltrate).  Typical Value = 0.02. Default: 0.0
+    - a:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Turbine power time constant numerator scale factor (a).  Typical Value = 0.8. Default: 0.0
+    - b:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Turbine power time constant denominator scale factor (b).  Typical Value = 1. Default: 0.0
+    - db1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intentional dead-band width (db1).  Unit = Hz.  Typical Value = 0. Default: 0.0
+    - eps:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Intentional db hysteresis (eps).  Unit = Hz.  Typical Value = 0. Default: 0.0
+    - db2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Unintentional dead-band (db2).  Unit = MW.  Typical Value = 0. Default: 0.0
+    - gv1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 1, PU gv (Gv1).  Typical Value = 0. Default: 0.0
+    - pgv1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 1, PU power (Pgv1).  Typical Value = 0. Default: 0.0
+    - gv2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 2,PU gv (Gv2).  Typical Value = 0. Default: 0.0
+    - pgv2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 2, PU power (Pgv2).  Typical Value = 0. Default: 0.0
+    - gv3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 3, PU gv (Gv3).  Typical Value = 0. Default: 0.0
+    - pgv3:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 3, PU power (Pgv3).  Typical Value = 0. Default: 0.0
+    - gv4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 4, PU gv (Gv4).  Typical Value = 0. Default: 0.0
+    - pgv4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 4, PU power (Pgv4).  Typical Value = 0. Default: 0.0
+    - gv5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 5, PU gv (Gv5).  Typical Value = 0. Default: 0.0
+    - pgv5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 5, PU power (Pgv5).  Typical Value = 0. Default: 0.0
+    - gv6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 6, PU gv (Gv6).  Typical Value = 0. Default: 0.0
+    - pgv6:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Nonlinear gain point 6, PU power (Pgv6).  Typical Value = 0. Default: 0.0
+    - ka:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Governor gain (Ka).  Typical Value = 0. Default: 0.0
+    - t4:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Governor lead time constant (T4).  Typical Value = 0. Default: 0
+    - t5:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Governor lag time constant (T5).  Typical Value = 0. Default: 0

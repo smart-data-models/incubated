@@ -1,0 +1,224 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.Device/Device/schema.json",
+  "title": " MultiSensor schema",
+  "description": "An apparatus (hardware + software + firmware) gathering several sensoring properties from one or multiple assets ).",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Multisensor"
+          ],
+          "description": "NGSI Entity type"
+        },
+        "measurements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "controlledProperty": {
+                "type": "string",
+                "enum": [
+                  "temperature",
+                  "humidity",
+                  "light",
+                  "motion",
+                  "fillingLevel",
+                  "occupancy",
+                  "power",
+                  "pressure",
+                  "smoke",
+                  "energy",
+                  "airPollution",
+                  "noiseLevel",
+                  "weatherConditions",
+                  "precipitation",
+                  "windSpeed",
+                  "windDirection",
+                  "atmosphericPressure",
+                  "solarRadiation",
+                  "depth",
+                  "pH",
+                  "conductivity",
+                  "conductance",
+                  "tss",
+                  "tds",
+                  "turbidity",
+                  "salinity",
+                  "orp",
+                  "cdom",
+                  "waterPollution",
+                  "location",
+                  "speed",
+                  "heading",
+                  "weight",
+                  "waterConsumption",
+                  "gasComsumption",
+                  "electricityConsumption",
+                  "eatingActivity",
+                  "milking",
+                  "movementActivity",
+                  "soilMoisture"
+                ]
+              },
+              "controlledAsset": {
+                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+              },
+              "placement": {
+                "type": "object",
+                "properties": {
+                  "distance": {
+                    "type": "number"
+                  },
+                  "depth": {
+                    "type": "number"
+                  },
+                  "direction": {
+                    "type": "string",
+                    "enum": [
+                      "Inlet",
+                      "Outlet",
+                      "Entry",
+                      "Exit"
+                    ]
+                  },
+                  "relativePosition": {
+                    "type": "string"
+                  },
+                  "origin": {
+                    "type": "string"
+                  }
+                }
+              },
+              "observedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "ipAddress": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "oneOf": [
+                    {
+                      "format": "ipv4"
+                    },
+                    {
+                      "format": "ipv6"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "mnc": {
+          "type": "string"
+        },
+        "macAddress": {
+          "type": "array",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/MacAddressType"
+          }
+        },
+        "configuration": {
+          "type": "object"
+        },
+        "dateInstalled": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateFirstUsed": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateManufactured": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "hardwareVersion": {
+          "type": "string"
+        },
+        "softwareVersion": {
+          "type": "string"
+        },
+        "firmwareVersion": {
+          "type": "string"
+        },
+        "osVersion": {
+          "type": "string"
+        },
+        "dateLastCalibration": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "serialNumber": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "refDeviceModel": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+            }
+          ]
+        },
+        "batteryLevel": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "number",
+              "const": -1
+            }
+          ]
+        },
+        "rssi": {
+          "type": "number"
+        },
+        "deviceState": {
+          "type": "string"
+        },
+        "dateLastValueReported": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

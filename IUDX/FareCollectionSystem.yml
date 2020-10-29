@@ -1,0 +1,106 @@
+author: IUDX initiative
+description: A public transit fare collection system Data Model.
+properties:
+- iudx:FareCollectionSystem:
+    description: id of the data model
+    required: Optional
+    type: owl:Class
+- iudx:ticketTypeCode:
+    description: Unique ticket type code of the corresponding trip.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:entryAreaCode:
+    description: Area code of the passenger boarding stop (used by the fare collection
+      agency). For example, whether the stop is city-bus-service stop or brts stop
+      or other service type stop etc.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:cardID:
+    description: Unique ticket ID of the transaction or ID of the smart card used
+      in the transaction.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:transactionTypeID:
+    description: Type of the transaction corresponding to this observation. For example,
+      QR sale, fare gate entry, smart card, pass sale etc.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:equipmentID:
+    description: Unique equipment id for the corresponding equipment.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:equipmentSequenceNumber:
+    description: Sequence number for the given equipment.
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:originStationCode:
+    description: Area code of the trip origin stop (used by the fare collection agency)
+    required: Optional
+    type: iudx:TextProperty
+- iudx:employeeShiftCode:
+    description: Shift of operation the employee belonging the fare collection agency/
+      public transit agency. Indiacted as "1" when the employee operates in the first
+      shift, "2" when the employee operates in the second shift and "3" when the employee
+      operates in the third shift.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:routeNum:
+    description: Name of the route corresponding to the vehicle in this observation.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:transactionDateTime:
+    description: Date-time of the transaction corresponding to this observation.
+    required: Optional
+    type: iudx:TimeProperty
+- iudx:currentTripCount:
+    description: The current count of trips made by the vehicle corresponding to this
+      obersvation on the given day of operation.
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:equipmentTypeCode:
+    description: Unique code indicating the type of equipment used in the transaction
+      (used by fare collection agency). Eg - Pole Validator, ETM, Fare Gate etc.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:transactionVehicleNum:
+    description: Code used by fare collection agency for the vehicle number corresponding
+      to the transaction.
+    required: Optional
+    type: iudx:QuantitativeProperty
+- iudx:equipmentStationCode:
+    description: Unique station code of the corresponding equipment (used by fare
+      collection agency).
+    required: Optional
+    type: iudx:TextProperty
+- iudx:equipmentCompanyCode:
+    description: Company/Agency code for the transaction equipment (used by fare collection
+      agency). For example, CBS (city bus service), BRTS etc.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:exitAreaCode:
+    description: Area code of the passenger alighting stop (used by the fare collection
+      agency). For example, whether the stop is city-bus-service stop or brts stop
+      or other service type stop etc.
+    required: Optional
+    type: iudx:TextProperty
+- iudx:destinationStationCode:
+    description: Area code of the trip destination stop (used by the fare collection
+      agency)
+    required: Optional
+    type: iudx:TextProperty
+- iudx:UrbanMobility:
+    description: Data models that pertain to the urban mobility domain
+    required: Optional
+    type: owl:Class
+- iudx:DataModel:
+    description: Class of all Data Models.
+    required: Optional
+    type: owl:Class
+- iudx:Thing:
+    description: Most generic IUDX object.
+    required: Optional
+    type: owl:Class
+- iudx:description:
+    description: Description for an IUDX thing.
+    required: Optional
+    type: iudx:TextProperty

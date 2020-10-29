@@ -1,0 +1,104 @@
+# ExcDC3A
+type: "object"
+description : >
+## Description
+This is modified IEEE DC3A direct current commutator exciters with speed input, and death band.  DC old type 4.
+
+## Data Model
+  - properties:
+    - trh:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Rheostat travel time (Trh).  Typical Value = 20. Default: 0
+    - ks:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Coefficient to allow different usage of the model-speed coefficient (Ks).  Typical Value = 0. Default: 0.0
+    - kr:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Death band (Kr).  If Kr is not zero, the voltage regulator input changes at a constant rate if Verr > Kr or Verr < -Kr as per the IEEE (1968) Type 4 model. If Kr is zero, the error signal drives the voltage regulator continuously as per the IEEE (1980) DC3 and IEEE (1992, 2005) DC3A models.  Typical Value = 0. Default: 0.0
+    - kv:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Fast raise/lower contact setting (Kv).  Typical Value = 0.05. Default: 0.0
+    - vrmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage regulator output (Vrmax).  Typical Value = 5. Default: 0.0
+    - vrmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage regulator output (Vrmin).  Typical Value = 0. Default: 0.0
+    - te:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter time constant, integration rate associated with exciter control (Te).  Typical Value = 1.83. Default: 0
+    - ke:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter constant related to self-excited field (Ke).  Typical Value = 1. Default: 0.0
+    - efd1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter voltage at which exciter saturation is defined (Efd1).  Typical Value = 2.6. Default: 0.0
+    - seefd1:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter saturation function value at the corresponding exciter voltage, Efd1 (Se[Eefd1]).  Typical Value = 0.1. Default: 0.0
+    - efd2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter voltage at which exciter saturation is defined (Efd2).  Typical Value = 3.45. Default: 0.0
+    - seefd2:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Exciter saturation function value at the corresponding exciter voltage, Efd2 (Se[Efd2]).  Typical Value = 0.35. Default: 0.0
+    - exclim:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : (exclim).  IEEE standard is ambiguous about lower limit on exciter output. true = a lower limit of zero is applied to integrator output false = a lower limit of zero not applied to integrator output. Typical Value = true. Default: False
+    - edfmax:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Maximum voltage exciter output limiter (Efdmax).  Typical Value = 99. Default: 0.0
+    - efdmin:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : Minimum voltage exciter output limiter (Efdmin).  Typical Value = -99. Default: 0.0
+    - efdlim:
+      - x-ngsi:
+        - type: Property
+        - model: https://schema.org/Number
+      - type: "number"
+      - description: : (Efdlim). true = exciter output limiter is active false = exciter output limiter not active. Typical Value = true. Default: False
