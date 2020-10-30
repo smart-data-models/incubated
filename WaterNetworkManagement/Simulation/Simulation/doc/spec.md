@@ -1,7 +1,7 @@
-# Simulation
+# SimulationScenarios
 
 ## Description
-This entity contains an harmonised description of a generic simulation made for the Water Network Management domain. This entity is primarily associated with the water network management vertical and related IoT applications.
+This entity contains an harmonised description of a generic simulation scenario made for the Water Network Management domain. This entity is primarily associated with the water network management vertical and related IoT applications.
 
 ## Data Model
 
