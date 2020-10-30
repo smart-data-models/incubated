@@ -34,3 +34,6 @@ A JSON Schema corresponding to this data model can be found
 
     -   Attribute type: Property. [Text](https://schema.org/Text) 
 
+-   `weight` : Indicates the weight off the piece.
+
+    -   Attribute type: Property. [Number](https://schema.org/Number) 

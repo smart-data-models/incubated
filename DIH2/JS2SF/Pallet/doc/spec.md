@@ -39,3 +39,6 @@ A JSON Schema corresponding to this data model can be found
 
     -   Attribute type: Property. Array Relationship [Text](https://schema.org/Text) 
 
+-   `priority` : Indicates the priority of the pallet.
+
+    -   Attribute type: Property. Relationship [Integer](https://schema.org/Number) 
