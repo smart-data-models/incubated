@@ -1,41 +1,34 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$id": "# { todo } #",
-    "title": "Greek National Water Company - Water Management System - PointfMeasurement",
-    "description": "This entity contains a first version of the measurement point where water quality measurements are taken",
-    "type": "object",    
+    "title": "Greek National Water Company - Water Management System - Channel",
+    "description": "This entity contains the description of the Channel",
+    "type": "object",
     "allOf": [
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-        },
-        {
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": ["PointfMeasurement"],
-                    "description": "NGSI-LD Entity Type"
-                },
-                "elevation": {
-                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                },
-                "initialQuality": {
-                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                },
-                "description": {
-                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                },
-                "id": {
-                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                },
-                "cross-section": {
-                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                }
-            }
+      {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["Channel"]
+            "description": "NGSI-LD Entity Type"
+          },
+          "length": {
+            "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+          },
+          "diameter": {
+            "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+          },
+          "startsAt": {
+            "$ref": "../Junction/schema.json"
+          },
+          "endsAt": {
+            "$ref": "../Junction/schema.json"
+          },
         }
+      }
     ],
     "required": [
-        "id",
-        "name",
-        "location",
+      "id",
+      "type",
     ]
-}
+  }

@@ -1,41 +1,54 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$id": "# { todo } #",
-    "title": "Greek National Water Company - Water Management System - PointfMeasurement",
-    "description": "This entity contains a first version of the measurement point where water quality measurements are taken",
-    "type": "object",    
-    "allOf": [
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-        },
-        {
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": ["PointfMeasurement"],
-                    "description": "NGSI-LD Entity Type"
-                },
-                "elevation": {
+    "title": "Greek National Water Company - Water Management System - ObservedAsset",
+    "description": "This entity contains the properties that can be observed by a device",
+    "type": "object",
+    "asset": {
+      "type": "Property",
+      "oneOf": [
+                "FlowRate": {
                     "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 },
-                "initialQuality": {
+                "Turbidity": {
                     "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 },
-                "description": {
+                "Conductivity": {
                     "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 },
-                "id": {
+                "AverageVelocity": {
                     "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 },
-                "cross-section": {
+                "WaterDemand": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "FlowRateCalibrated": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "WaterDepth": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "Temperature": {
                     "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 }
-            }
-        }
-    ],
+          }
+      ],
+      "dateObserved": {
+          "type": "Property",
+          "value": {
+              "type": "DateTime",
+          }
+      },
+      "measuredValue": {
+          "type": "Property",
+          "value": {
+              "type": "Number",
+          }
+      }
+    },
     "required": [
-        "id",
-        "name",
-        "location",
+        "assert",
+        "dateObserved",
+        "measuredValue",
     ]
 }
