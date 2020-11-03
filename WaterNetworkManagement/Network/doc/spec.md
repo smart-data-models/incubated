@@ -12,17 +12,6 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
 
 -   `type`: Entity type. It must be equal to `Network`.
 
--   `modifiedAt`: Last update timestamp of this
-    entity.
-
-    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
-    -   Read-Only. Automatically generated.
-
--   `createdAt`: Entity's creation timestamp.
-
-    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
-    -   Read-Only. Automatically generated.
-
 ### Network Entity Properties
 
 -   `description` : A free text description
@@ -31,19 +20,19 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
 
 ### Network Entity Relationships
 
--   `hasPart` : The ID of a component of the network
+-   isComposedOf: The ID of water component of the network
 
     -   Attribute type: `Relationship`. Reference to an entity of type `Node (Reservoir, Junction, Tank)` or `Link (Pipe, Valve, Pump)`
     -   Attribute metadata Properties:
         -   `{{metadata Property name}}` : {{Metadata Property Description}}
-    -   Mandatory
+    -   Optional
 
 -   `hasSubNetwork` : The ID of the sub-network, considered as a Network.
 
     -   Attribute type: `Relationship`. Reference to an entity of type `Network`
     -   Attribute metadata Properties:
         -   `{{metadata Property name}}` : {{Metadata Property Description}}
-    -   Mandatory
+    -   Optional
 
 **Note**: JSON Schemas are intended to capture the data type and associated
 constraints of the different Attributes, regardless their final representation
