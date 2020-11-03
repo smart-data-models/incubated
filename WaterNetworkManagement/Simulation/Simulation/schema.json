@@ -4,88 +4,12 @@
     "title": "WaterNetwork - Simulation",
     "description": "This entity contains a harmonised description of a generic simulation made for the Water Network Management domain. This entity is primarily associated with the water network management vertical and related IoT applications.",
     "type": "object",
-    "definitions": {
-        "operationalControl": {
-            "type": "object",
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "Property"
-                    ]
-                },
-                "controlType": {
-                    "type": "string",
-                    "enum": [
-                        "LOWLEVEL", "HILEVEL", "TIMER", "TIMEOFDAY"
-                    ]
-                },
-                "controlledLink": {
-                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
-                },
-                "setting": {
-                    "type": [
-                        "number"
-                    ]
-                },
-                "monitoredNode": {
-                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
-                },
-                "triggerLevel": {
-                    "type": [
-                        "number"
-                    ]
-                },
-                "datasetId": {
-                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/datasetId"
-                }
-            },
-            "required": [
-                "type",
-                "controlType",
-                "controlsLink",
-                "setting",
-                "triggerLevel"
-            ]
-        },
-        "modifiedInputNetworkParameter": {
-            "type": "object",
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "Property"
-                    ]
-                },
-                "modificationTargetURI": {
-                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
-                },
-                "modificationTargetProperty": {
-                    "type": "string"
-                },
-                "modificationTargetValue": {
-                    "type": [
-                        "number",
-                        "string",
-                        "object"
-                    ]
-                },
-                "datasetId": {
-                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/datasetId"
-                }
-            },
-            "required": [
-                "type",
-                "modificationTargetURI",
-                "modificationTargetProperty",
-                "modificationTargetValue",
-                "datasetId"
-            ]
-        }
-    },
     "allOf": [
         {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.WaterNetworkManagement/master/WaterNetworkManagement-schema.json"
         },
         {
             "properties": {
@@ -97,34 +21,61 @@
                     "description": "NGSI-LD Entity Type"
                 },
                 "description": {
-                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildProperty"
-                },
-                "control": {
-                    "$ref": "#/definitions/control"
-                },
-                "modifiedInputNetworkParameter": {
-                    "$ref": "#/definitions/modifiedInputNetworkParameter"
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
                 },
                 "createdBy": {
-                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relatnioship"
                 },
                 "hasInputNetwork": {
-                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildRelationship"
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relatnioship"
                 },
-                "optionNames": {
-                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildProperty"
+                "hasResult": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relatnioship"
                 },
-                "optionValues": {
-                    "$ref": "../WaterNetworkManagement-schema.json#/definitions/ngsildProperty"
+                "duration": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "hydraulicTimeStep": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "flowUnits": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "headlossFormula": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "demandModel": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "operationalControl": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "triggerLevel": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "setting": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "controlType": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "controlledLink": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relatnioship"
+                },
+                "monitoredNode": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relatnioship"
+                },
+                "targetURI": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relatnioship"
+                },
+                "inputParameters": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
                 }
             }
         }
     ],
     "required": [
         "id",
-        "type",
-        "hasInputNetwork",
-        "optionNames",
-        "optionValues"
+        "type"
     ]
 }

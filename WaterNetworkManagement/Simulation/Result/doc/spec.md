@@ -12,26 +12,16 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
 
 -   `type`: Entity type. It must be equal to `Simulation`.
 
--   `modifiedAt`: Last update timestamp of this
-    entity.
-
-    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
-    -   Read-Only. Automatically generated.
-
--   `createdAt`: Entity's creation timestamp.
-
-    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
-    -   Read-Only. Automatically generated.
-
 ### Simulation Entity Properties
 
 -   `description` : A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   `modifiedOutput` : Description of a modification applied to the network for the simulation
-    -   `simulatedProperties`: A sub-property.
-    -   Optional
+-   `outputParameters` : Description of the set of results of applied simulation to the network.
+    -   water attribute: A sub-property. A water attribute issued from the [Water managemement network model](https://github.com/smart-data-models/dataModel.WaterNetworkManagement/tree/master). It follows fully this data model and it could be a property or a relationship. It contains the results of the simulation.
+-   `targetUri`: A sub-relationship of the water attribute.
+   -   Optiona
 
 
 ### Simulation Entity Relationships
@@ -47,7 +37,7 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
         -   `{{metadata Property name}}` : {{Metadata Property Description}}
     -   Mandatory
 
--   `targetURI` : URI of network component with property modified in simulation. A sub-relationship of the Property `modifiedInputNetworkParameter`
+-   `targetURI` : URI of network component with property modified in simulation. A sub-relationship of the water attribute Property
     -   Attribute type: `Relationship`
     -   Mandatory
 

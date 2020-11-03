@@ -1,4 +1,4 @@
-# SimulationScenarios
+# Simulation
 
 ## Description
 This entity contains an harmonised description of a generic simulation scenario made for the Water Network Management domain. This entity is primarily associated with the water network management vertical and related IoT applications.
@@ -12,36 +12,31 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
 
 -   `type`: Entity type. It must be equal to `Simulation`.
 
--   `modifiedAt`: Last update timestamp of this
-    entity.
-
-    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
-    -   Read-Only. Automatically generated.
-
--   `createdAt`: Entity's creation timestamp.
-
-    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
-    -   Read-Only. Automatically generated.
-
 ### Simulation Entity Properties
 
 -   `description` : A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   `optionNames` : Names of options applied in the simulation
+-   duration: A free text description
+    -   Attribute type: `Property`.Text
+    -   Optional
 
-    -   Attribute type: `Property`. List of String
-    -   Attribute metadata Properties:
-        -   `{{metadata Property name}}` : {{Metadata Property Description}}
-    -   Mandatory
+-   hydraulicTimeStep: A free text description
+    -   Attribute type: `Property`.Text
+    -   Optional
 
--   `optionValues` : Values of options applied in the simulation
+-   flowUnits: A free text description
+    -   Attribute type: `Property`.Text
+    -   Optional
 
-    -   Attribute type: `Property`. List of Number or String
-    -   Attribute metadata Properties:
-        -   `{{metadata Property name}}` : {{Metadata Property Description}}
-    -   Mandatory
+-   headlossFormula: A free text description
+    -   Attribute type: `Property`.Text
+    -   Optional
+
+-   demandModel: A free text description
+    -   Attribute type: `Property`.Text
+    -   Optional
 
 -   `operationalControl` : Description of a control applied to the network for the simulation
     -   `controlType`: A sub-property.
@@ -53,7 +48,7 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
 
 -   `controlType` : Control type. A sub-property of the Property `control`
     -   Attribute type: `Property`.Text
-    -  Values Restricted to :  "LOWLEVEL", "HILEVEL", "TIMER" and "TIMEOFDAY"
+    -   Values Restricted to :  "LOWLEVEL", "HILEVEL", "TIMER" and "TIMEOFDAY"
     -   Mandatory
 
 -   `setting` : Setting applied in the to the controlled link when trigger level is reached. A sub-property of the Property `control`
@@ -64,19 +59,10 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
     -   Attribute type: `Property`.Number
     -   Mandatory
 
--   `modifiedInputNetworkParameter` : Description of a modification applied to the network for the simulation
-    -   `modificationTargetURI`: A sub-property.
-    -   `modificationTargetProperty`:A sub-property.
-    -   `modificationTargetValue`: A sub-property.
+-   `inputParameter` : Description of the set of modifications to be applied to the network for the simulation
+    -   water attribute: A sub-property. A water attribute issued from the [Water managemement network model](https://github.com/smart-data-models/dataModel.WaterNetworkManagement/tree/master). It follows fully this data model and it could be a property or a relationship . It is the attribute that will be modified by the simulation.
+    -   `targetURI`:A sub-Relationship of the water attribute. It presents the target water node or link that will handle the modification.
     -   Optional
-
--   `modificationTargetProperty` : Name of the property modified in simulation. A sub-property of the Property `modifiedInputNetworkParameter`
-    -   Attribute type: `Property`.Text
-    -   Mandatory
-
--   `modificationTargetValue` : New value applied to the modified network property in the simulation. A sub-property of the Property `modifiedInputNetworkParameter`
-    -   Mandatory
-
 
 ### Simulation Entity Relationships
 
@@ -91,7 +77,7 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
         -   `{{metadata Property name}}` : {{Metadata Property Description}}
     -   Mandatory
 
--   `modificationTargetURI` : URI of network component with property modified in simulation. A sub-relationship of the Property `modifiedInputNetworkParameter`
+-   `targetURI` : URI of network component with property modified in simulation. A sub-relationship of the Property water attribute.
     -   Attribute type: `Relationship`
     -   Mandatory
 

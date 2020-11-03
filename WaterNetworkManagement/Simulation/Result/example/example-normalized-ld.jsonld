@@ -13,20 +13,16 @@
         "type": "Relationship",
         "object": "urn:ngsi-ld:Simulation:01"
     },
-    "modifiedOutput": [
+    "outputParameters": [
         {
             "type": "Property",
             "value": "output parameter 1",
-            "targetURI": {
+            "waterLevel": {
                 "type": "Property",
-                "value": "urn:ngsi-ld:Valve:V1"
-            },
-            "simulatedProperties": {
-                "type": "Property",
-                "value": "setting",
-                "waterLevel": {
+                "value": 50,
+                "targetURI": {
                     "type": "Property",
-                    "value": 50
+                    "value": "urn:ngsi-ld:Valve:V1"
                 }
             },
             "datasetId": "urn:ngsi-ld:Dataset:ValveSetting"
@@ -34,16 +30,12 @@
         {
             "type": "Property",
             "value": "output parameter 2",
-            "targetURI": {
-                "type": "Relationship",
-                "value": "urn:ngsi-ld:Tank:T1"
-            },
-            "simulatedProperties": {
+            "initialQuality": {
                 "type": "Property",
-                "value": "initialQuality",
-                "initialQuality": {
-                    "type": "Property",
-                    "value": 2
+                "value": 2,
+                "targetURI": {
+                    "type": "Relationship",
+                    "value": "urn:ngsi-ld:Tank:T1"
                 }
             },
             "datasetId": "urn:ngsi-ld:Dataset:TankInitialQuality"
