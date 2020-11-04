@@ -18,20 +18,26 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
     -   Attribute type: `Property`.Text
     -   Optional
 
--   `duration`: A free text description
-    -   Attribute type: `Property`.Text
+-   `duration`: Duration of the simulation, given in seconds.
+    -   Attribute type: `Property`.Number
     -   Optional
 
--   `hydraulicTimeStep`: A free text description
-    -   Attribute type: `Property`.Text
+-   `hydraulicTimeStep`: Determines how often the hydraulic state of the network is calculated. Given in seconds.
+    -   Attribute type: `Property`.Number
     -   Optional
 
--   `flowUnits`: A free text description
+-   `flowUnits`: Units in which flow rates are expressed in the simulation. Allowable options are "CFS" (cubic feet per second), "GPM" (gallons per minute), "MGD" (million gallons per day), "IMGD" (imperial MGD), "AFD" (acre-feet per day), "LPS" (litres pre second), "LPM" (litres per minute), "MLD" (million litres per day), "CMH" (cubic metres per hour) and "CMD" (cubic metres per day).
     -   Attribute type: `Property`.Text
+    -   Values Restricted to : "CFS", "GPM", "MGD", "IMGD" (imperial MGD), "AFD", "LPS", "LPM", "MLD", "CMH", "CMD"
     -   Optional
 
--   `headlossFormula`: A free text description
+-   `headlossFormula`: Formula used for computing head loss for flow through a pipe. The choices are the Hazen-Williams (H-W), Darcy-Weisbach (D-W) or Chezy-Manning (C-M) formulas.
     -   Attribute type: `Property`.Text
+    -   Values Restricted to : "H-W", "D-W", "C-M"
+    -   Optional
+
+-   `startClockTime`: Time of day at which the simulation begins. Given as seconds from start of day.
+    -   Attribute type: `Property`.Number
     -   Optional
 
 -   `patternStep`: A free text description
@@ -42,116 +48,132 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
     -   Attribute type: `Property`.Text
     -   Optional
 
--   `reportStep`: A free text description
+-   `reportStep`: Interval at which output results are reported. given in seconds.
     -   Attribute type: `Property`.Text
     -   Optional
 
--   `reportStart`: A free text description
+-   `reportStart`: Simulation time at which results start to be reported. Given in seconds from start of simulation.
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `ruleTimeStep`: Time step used to check for changes in system status due to rule-based controls. Given in seconds.
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `statistic`: The type of statistical post-processing that is done on the time series of simulation results generated. Options are "AVERAGED" (report time-averaged results), "MINIMUM" (report only minimum values), "MAXIMUM" (report only maximum values), "RANGE" (report difference between minimum and maximum values) and "NONE" (report full time series)
+    -   Attribute type: `Property`.Text
+    -   Values Restricted to : "AVERAGED", "MINIMUM", "MAXIMUM", "RANGE", "NONE"
+    -   Optional
+
+-   `trials`: The the maximum number of trials used to solve network hydraulics at each hydraulic time step of a simulation
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `accuracy`: Total normalized flow change convergence criterion for determining when a hydraulic solution has been reached.
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `tolerance`: Water quality tolerance
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `emitterExponent`: Power to which pressure at a junction is raised when computing from from an emitter.
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `headError`: Maximum headloss convergence criterion for determining when a hydraulic solution has been reached.
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `flowChange`: Maximum flow change convergence criterion for determining when a hydraulic solution has been reached.
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `demandCharge`: Energy charge per maximum kW usage.
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `demandModel`: Specifies whether a the analysis is pressure driven ("PDA") or demand driven ("DDA").
+    -   Attribute type: `Property`.Text
+    -   Values Restricted to : "PDA", "DDA"
+    -   Optional
+
+-   `minimumPressure`: Pressure below which no demand can be delivered under a pressure dirven analysis. Only used if `demandModel` is "PDA".
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `requiredPressure`: Pressure required to supply a node's full demand under a pressure dirven analysis. Only used if `demandModel` is "PDA".
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `pressureExponent`: Power to which pressure is raised when calculating the demand delivered under a pressure dirven analysis. Only used if `demandModel` is "PDA".
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `viscosity`: The kinematic viscosity of the fluid being modeled relative to that of water at 20 deg. C
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `unbalanced`: Determines what happens if a hydraulic solution cannot be reached within the allowed number of trials. Allowable options are "STOP" (halt analysis), "CONTINUE" (continue analysis but with a warning message) and "CONTINUE_N" (continue for another N trials, where the value of N is given by `unbalancedN`)
+    -   Attribute type: `Property`.Text
+    -   Values Restricted to : "STOP", "CONTINUE", "CONTINUE_N"
+    -   Optional
+
+-   `unbalancedN`: Number of additional trials allowed if `unbalanced` is set to "CONTINUE_N". Mandatory if `unbalanced` is set to "CONTINUE_N", else not required.
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `checkFrequency`: Frequency of hydraulic status checks
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `maxCheck`: Number of trials after which status checks are discontinued
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `dampLimit`: Accuracy value at which solution damping and status checks begin for PRVs and PSVs.
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `diffusivity`: Molecular diffusivity of the chemical analysed in a quality analysis, relative to diffusivity of chlorine in water.
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `bulkOrder`: Bulk water reaction order for pipes
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `wallOrder`: Wall reaction order for pipes
+    -   Attribute type: `Property`.Number
+    -   Optional
+
+-   `tankOrder`: Bulk water reaction order for tanks
     -   Attribute type: `Property`.Text
     -   Optional
 
--   `ruleStep`: A free text description
+-   `concentrationLimit`: Limiting concentration for growth reactions
     -   Attribute type: `Property`.Text
     -   Optional
 
--   `statistic`: A free text description
+-   `qualityType`: Type of water quality analysis
+    -   Attribute type: `Property`.Text
+    -   Values Restricted to : "NONE", "CHEM", "AGE" and "TRACE"
+    -   Optional
+
+-   `chemicalName`: Name of the chemical modelled. Only used if `qualityType` is "CHEM".
     -   Attribute type: `Property`.Text
     -   Optional
 
--   `trials`: A free text description
+-   `chemicalUnits`: Units of the chemical modelled. Only used if `qualityType` is "CHEM".
     -   Attribute type: `Property`.Text
     -   Optional
 
--   `accuracy`: A free text description
-    -   Attribute type: `Property`.Text
+-   `specificGravity`: The the ratio of the density of the fluid being modeled to that of water at 4 deg. C
+    -   Attribute type: `Property`.Number
     -   Optional
 
--   `tolerance`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `emitterExponent`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `headerError`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `flowChange`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `demandCharge`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `demandCharge`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `viscosity`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `unbalanced`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `checkFrequency`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `maxCheck`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `dampLimit`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `diffusivity`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `bulkOrder`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `wallOrder`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `tankOrder`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `concentrationLimit`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `qualityType`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `chemicalName`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `chemicalUnits`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `flowUnits`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `flowUnits`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `qualityTimeSte`p: A free text description
-    -   Attribute type: `Property`.Text
+-   `qualityTimeStep`: The timestep used to track changes in water quality in the network. Given in seconds.
+    -   Attribute type: `Property`.Number
     -   Optional
 
 -   `operationalControl` : Description of a control applied to the network for the simulation
