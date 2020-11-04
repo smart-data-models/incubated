@@ -18,139 +18,139 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
     -   Attribute type: `Property`.Text
     -   Optional
 
--   duration: A free text description
+-   `duration`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   hydraulicTimeStep: A free text description
+-   `hydraulicTimeStep`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   flowUnits: A free text description
+-   `flowUnits`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   headlossFormula: A free text description
+-   `headlossFormula`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   patternStep: A free text description
+-   `patternStep`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   patternStart: A free text description
+-   `patternStart`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   reportStep: A free text description
+-   `reportStep`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   reportStart: A free text description
+-   `reportStart`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   ruleStep: A free text description
+-   `ruleStep`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   statistic: A free text description
+-   `statistic`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   trials: A free text description
+-   `trials`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   accuracy: A free text description
+-   `accuracy`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   tolerance: A free text description
+-   `tolerance`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   emitterExponent: A free text description
+-   `emitterExponent`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   headerError: A free text description
+-   `headerError`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   flowChange: A free text description
+-   `flowChange`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   demandCharge: A free text description
+-   `demandCharge`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   demandCharge: A free text description
+-   `demandCharge`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   viscosity: A free text description
+-   `viscosity`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   unbalanced: A free text description
+-   `unbalanced`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   checkFrequency: A free text description
+-   `checkFrequency`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   maxCheck: A free text description
+-   `maxCheck`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   dampLimit: A free text description
+-   `dampLimit`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   diffusivity: A free text description
+-   `diffusivity`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   bulkOrder: A free text description
+-   `bulkOrder`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   wallOrder: A free text description
+-   `wallOrder`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   tankOrder: A free text description
+-   `tankOrder`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   concentrationLimit: A free text description
+-   `concentrationLimit`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   qualityType: A free text description
+-   `qualityType`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   chemicalName: A free text description
+-   `chemicalName`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   chemicalUnits: A free text description
+-   `chemicalUnits`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   flowUnits: A free text description
+-   `flowUnits`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   flowUnits: A free text description
+-   `flowUnits`: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
--   qualityTimeStep: A free text description
+-   `qualityTimeSte`p: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
