@@ -1,7 +1,7 @@
-# Simulation
+# Simulation Result
 
 ## Description
-This entity contains an harmonised description of a generic simulation made for the Water Network Management domain. This entity is primarily associated with the water network management vertical and related IoT applications.
+This entity contains an harmonised description of a generic result of a simulation made for the Water Network Management domain. This entity is primarily associated with the water network management vertical and related IoT applications.
 
 ## Data Model
 
@@ -10,9 +10,9 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
 ### NGSI-LD common Properties
 -   `id`: Unique identifier.
 
--   `type`: Entity type. It must be equal to `Simulation`.
+-   `type`: Entity type. It must be equal to `SimulationResult`.
 
-### Simulation Entity Properties
+### Simulation Result Entity Properties
 
 -   `description` : A free text description
     -   Attribute type: `Property`.Text
@@ -20,11 +20,10 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
 
 -   `outputParameters` : Description of the set of results of applied simulation to the network.
     -   water attribute: A sub-property. A water attribute issued from the [Water managemement network model](https://github.com/smart-data-models/dataModel.WaterNetworkManagement/tree/master). It follows fully this data model and it could be a property or a relationship. It contains the results of the simulation.
--   `targetUri`: A sub-relationship of the water attribute.
-   -   Optiona
+   -   Optional
 
 
-### Simulation Entity Relationships
+### Simulation Result Entity Relationships
 
 -   `createdBy` : The ID of who created/triggered the simulation
     -   Attribute type: `Relationship`. Reference to an entity of type `User`
@@ -32,15 +31,21 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
 
 -   `hasInputNetwork` : The ID of the network used in the simulation
 
-    -   Attribute type: `Relationship`. Reference to an entity of type `Network`
+    -   Attribute type: `Relationship`. Reference to an entity of type `WaterNetwork`
     -   Attribute metadata Properties:
         -   `{{metadata Property name}}` : {{Metadata Property Description}}
-    -   Mandatory
+    -   Optional
 
 -   `targetURI` : URI of network component with property modified in simulation. A sub-relationship of the water attribute Property
     -   Attribute type: `Relationship`
     -   Mandatory
 
+-   `refSimulationScenario` : The ID of the simulation scenario
+
+    -   Attribute type: `Relationship`. Reference to an entity of type `SimulationScenario`
+    -   Attribute metadata Properties:
+        -   `{{metadata Property name}}` : {{Metadata Property Description}}
+    -   Mandatory
 
 **Note**: JSON Schemas are intended to capture the data type and associated
 constraints of the different Attributes, regardless their final representation
