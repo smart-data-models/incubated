@@ -1,0 +1,168 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Simulation/schema.json",
+    "title": "WaterNetwork - SimulationScenario",
+    "description": "This entity contains a harmonised description of a generic simulation scenario made for the Water Network Management domain. This entity is primarily associated with the water network management vertical and related IoT applications.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.WaterNetworkManagement/master/WaterNetworkManagement-schema.json"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "SimulationScenario"
+                    ],
+                    "description": "NGSI-LD Entity Type"
+                },
+                "description": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "createdBy": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                },
+                "hasInputNetwork": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                },
+                "hasSimulationResult": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                },
+                "qualityTimeStep":{
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                },
+                "duration": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "hydraulicTimeStep": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "patternStep": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "patternStart": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "reportStep": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "reportStart": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "ruleStep": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "statistic": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "trials": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "accuracy": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "tolerance": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "emitterExponent": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "headError": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "flowChange": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "demandCharge": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "specificGravity": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "viscosity": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "unbalanced": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "checkFrequency": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "maxCheck": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "dampLimit": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "diffusivity": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "bulkOrder": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "wallOrder": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "tankOrder": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "concentrationLimit": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "qualityType": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "chemicalName": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "chemicalUnits": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "traceNodeID": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                },
+                "flowUnits": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "headlossFormula": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "demandModel": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "operationalControl": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "triggerLevel": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "setting": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "controlType": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                },
+                "controlledLink": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                },
+                "monitoredNode": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                },
+                "targetURI": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                },
+                "inputParameters": {
+                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ]
+}

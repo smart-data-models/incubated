@@ -1,0 +1,182 @@
+{
+    "id": "urn:ngsi-ld:SimulationScenario:01",
+    "type": "SimulationScenario",
+    "description": {
+        "type": "Property",
+        "value": "Free Text"
+    },
+    "createdBy": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:User:u1"
+    },
+    "hasInputNetwork": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:WaterNetwork:01"
+    },
+    "hasSimulationResult": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:SimulationResult:01"
+    },
+    "duration": {
+        "type": "Property",
+        "value": 86400,
+        "unitCode": "SEC"
+    },
+    "hydraulicTimeStep": {
+        "type": "Property",
+        "value": 3600,
+        "unitCode": "SEC"
+    },
+    "flowUnits": {
+        "type": "Property",
+        "value": "LPS"
+    },
+    "headlossFormula": {
+        "type": "Property",
+        "value": "H-W"
+    },
+    "demandModel": {
+        "type": "Property",
+        "value": "PDA"
+    },
+    "operationalControl": [
+        {
+            "type": "Property",
+            "value": "Operational Control 1",
+            "setting": {
+                "type": "Property",
+                "value": 0
+            },
+            "triggerLevel": {
+                "type": "Property",
+                "value": 30
+            },
+            "controlType": {
+                "type": "Property",
+                "value": "HILEVEL"
+            },
+            "controlledLink": {
+                "type": "Relationship",
+                "object": "urn:ngsi-ld:Tank:T1",
+                "datasetId": "urn:ngsi-ld:Dataset:Control01:Node01"
+            },
+            "monitoredNode": {
+                "type": "Relationship",
+                "object": "urn:ngsi-ld:Pump:P1",
+                "datasetId": "urn:ngsi-ld:Dataset:Control01:Link01"
+            },
+            "datasetId": "urn:ngsi-ld:Dataset:HiLevel"
+        },
+        {
+            "type": "Property",
+            "value": "Operational Control 2",
+            "triggerLevel": {
+                "type": "Property",
+                "value": 10
+            },
+            "setting": {
+                "type": "Property",
+                "value": 1
+            },
+            "controlType": {
+                "type": "Property",
+                "value": "LOWLEVEL"
+            },
+            "monitoredNode": {
+                "type": "Relationship",
+                "object": "urn:ngsi-ld:Tank:T1"
+            },
+            "controlledLink": {
+                "type": "Relationship",
+                "object": "urn:ngsi-ld:Pump:P1"
+            },
+            "datasetId": "urn:ngsi-ld:Dataset:LowLevel"
+        }
+    ],
+    "inputParameters": [
+        {
+            "type": "Property",
+            "value": "Property 1",
+            "setting": {
+                "type": "Property",
+                "value": 50,
+                "targetURI": {
+                    "type": "Property",
+                    "value": "urn:ngsi-ld:Valve:V1"
+                }
+            },
+            "datasetId": "urn:ngsi-ld:Dataset:ValveSetting"
+        },
+        {
+            "type": "Property",
+            "value": "Property 2",
+            "initialQuality": {
+                "type": "Property",
+                "value": 2,
+                "targetURI": {
+                    "type": "Relationship",
+                    "value": "urn:ngsi-ld:Tank:T1"
+                }
+            },
+            "datasetId": "urn:ngsi-ld:Dataset:TankInitialQuality"
+        },
+        {
+            "type": "Property",
+            "value": "Property 1",
+            "efficCurve": {
+                "type": "Relationship",
+                "object": "urn:ngsi-ld:Curve:C1",
+                "targetURI": {
+                    "type": "Relationship",
+                    "object": "urn:ngsi-ld:Pump:P1"
+                }
+            },
+            "datasetId": "urn:ngsi-ld:Dataset:PumpCurve"
+        },
+        {
+            "type": "Property",
+            "value": "demand Category 1",
+            "demandCategory": {
+                "type": "Property",
+                "value": "agriculture demand",
+                "baseDemand": {
+                    "type": "Property",
+                    "value": 1.1
+                },
+                "demandPattern": {
+                    "type": "Relationship",
+                    "value": "urn:ngsi-ld:Pattern:Agriculture"
+                },
+                "targetURI": {
+                    "type": "Relationship",
+                    "object": "urn:ngsi-ld:Junction:J1"
+                }
+            },
+            "datasetId": "urn:ngsi-ld:Dataset:Demand1"
+        },
+        {
+            "type": "Property",
+            "value": "demand Category 2",
+            "demandCategory": {
+                "type": "Property",
+                "value": "residential demand",
+                "baseDemand": {
+                    "type": "Property",
+                    "value": 1.7
+                },
+                "demandPattern": {
+                    "type": "Relationship",
+                    "value": "urn:ngsi-ld:Pattern:Residential"
+                },
+                "targetURI": {
+                    "type": "Relationship",
+                    "object": "urn:ngsi-ld:Junction:J1"
+                }
+            },
+            "datasetId": "urn:ngsi-ld:Dataset:Demand2"
+        }
+    ],
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context"
+    ]
+}
