@@ -227,9 +227,9 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
     -   Attribute type: `Relationship`. Reference to an entity of type `Junction`, `Tank` or `Reservoir`
     -   Mandatory
 
--   `traceNodeID` : URI of Node... 
+-   `traceNodeID` : URI of node being traced in the quality analysis. Mandatory if `qualityType` is "TRACE", otherwise not required.
     -   Attribute type: `Relationship`
-    -   Mandatory
+    -   Optional
 
 **Note**: JSON Schemas are intended to capture the data type and associated
 constraints of the different Attributes, regardless their final representation
