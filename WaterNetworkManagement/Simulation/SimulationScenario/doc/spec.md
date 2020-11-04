@@ -196,7 +196,7 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
 
 -   `hasSimulationResult` : The ID of the network used in the simulation
 
-    -   Attribute type: `Relationship`. Reference to an entity of type `Network`
+    -   Attribute type: `Relationship`. Reference to an entity of type `SimulationResult`
     -   Attribute metadata Properties:
         -   `{{metadata Property name}}` : {{Metadata Property Description}}
     -   Mandatory
