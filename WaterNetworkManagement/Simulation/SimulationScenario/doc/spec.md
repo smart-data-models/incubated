@@ -10,7 +10,7 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
 ### NGSI-LD common Properties
 -   `id`: Unique identifier.
 
--   `type`: Entity type. It must be equal to `SimulationScenarios`.
+-   `type`: Entity type. It must be equal to `SimulationScenario`.
 
 ### Simulation Scenario Entity Properties
 
@@ -146,7 +146,11 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
     -   Attribute type: `Property`.Text
     -   Optional
 
--   demandModel: A free text description
+-   flowUnits: A free text description
+    -   Attribute type: `Property`.Text
+    -   Optional
+
+-   qualityTimeStep: A free text description
     -   Attribute type: `Property`.Text
     -   Optional
 
