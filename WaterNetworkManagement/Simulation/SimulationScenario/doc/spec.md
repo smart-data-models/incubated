@@ -40,14 +40,6 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
     -   Attribute type: `Property`.Number
     -   Optional
 
--   `patternStep`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
--   `patternStart`: A free text description
-    -   Attribute type: `Property`.Text
-    -   Optional
-
 -   `reportStep`: Interval at which output results are reported. given in seconds.
     -   Attribute type: `Property`.Text
     -   Optional
