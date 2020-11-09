@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://github.com/ts-exsensio/DataModel/Product/schema.json",
+  "title": "Products schema",
+  "description": "Represent a collection of products used in measurements",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://github.com/ts-exsensio/DataModel/common-schema.json#/definitions/EntityIdentifierType"
+    },
+    {
+      "$ref": "https://github.com/ts-exsensio/DataModel/common-schema.json#/definitions/TimeSpan"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Product"
+          ],
+          "description": "NGSI Entity type"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name"
+  ]
+}
