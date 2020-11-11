@@ -6,7 +6,6 @@ OEEMetric
     - goodProductCount
     - productionBreakDuration
     - productionIdealDuration
-    - productionShiftDuration
   - type: "object"
     - allOf:
       - $ref: "https://github.com/ts-exsensio/DataModel/common-schema.json#/definitions/EntityIdentifierType"
@@ -45,13 +44,3 @@ OEEMetric
       - type: "text"
       - description: >
             Theoretical minimum time to produce one part. The inverse of Ideal Run Rate. Used to calculate OEE Performance. A variation of the calculation uses Ideal Run Rate instead.
-    - productionShiftDuration:
-      - x-ngsi:
-        - type: "Property"
-        - model: "https://schema.org/Text"
-      - type: "text"
-      - description: >
-            The period of time where a shift is scheduled to be running the machine.
-
-
-
