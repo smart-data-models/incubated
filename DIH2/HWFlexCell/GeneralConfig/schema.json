@@ -1,0 +1,67 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://github.com/smart-data-models/incubated/tree/master/DIH2/HWFlexCell/GeneralConfig/schema.json",
+    "type": "object",
+    "title": "The general configuration schema",
+    "description": "The general configuration schema comprises variuos setting for the system.",
+    "required": [
+        "id",
+        "update_active",
+        "step_mode",
+        "available_tools",
+        "hexapods_ok",
+        "type"
+    ],
+    "properties": {
+        "id": {
+            "$id": "#/properties/id",
+            "type": "string",
+            "description": "OCB object ID."
+        },
+        "update_active": {
+            "$id": "#/properties/update_active",
+            "type": "boolean",
+            "description": "Allow to update active object.",
+            "default": false
+        },
+        "step_mode": {
+            "$id": "#/properties/step_mode",
+            "type": "string",
+            "description": "Production to be done in steps.",
+            "default": "OFF"
+        },
+        "available_tools": {
+            "$id": "#/properties/available_tools",
+            "type": "array",
+            "description": "Array of available tools.",
+            "default": [],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/available_tools/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/available_tools/items/anyOf/0",
+                        "type": "string",
+                        "description": "Tool ID / name.",
+                        "default": ""
+                    }
+                ]
+            }
+        },
+        "hexapods_ok": {
+            "$id": "#/properties/hexapods_ok",
+            "type": "array",
+            "description": "Array of checked / prepared hexapods that has correct tool and is in correct position.",
+            "default": [],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/hexapods_ok/items"
+            }
+        },
+        "type": {
+            "$id": "#/properties/type",
+            "type": "string"
+        }
+    },
+    "additionalProperties": true
+}
