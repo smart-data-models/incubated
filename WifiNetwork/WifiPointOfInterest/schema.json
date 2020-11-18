@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/dataModel.WifiNetwork/WifiPointOfInterest/schema.json",
+  "title": "Wifi Point Of Interest",
+  "description": "This entity describes a Point of Interest that has a wireless network",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+	{
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+	{
+      "properties": {
+        "type": {
+          "type": "string",
+	      "enum": ["WifiPointOfInterest"],
+          "description": "NGSI Entity type"
+        },    
+	    "clientsConnected": {
+          "type": "number",
+	      "minimum": 0
+        },	
+	    "wifiStatus": {
+          "type": "string",
+	      "enum": ["noService", "working", "workingPartially", "totalFailure"]
+        },
+	    "service": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+		"TimeInstant": {
+          "type": "string",
+          "format": "date-time"
+        },		
+	    "category": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+		"contactPoint": {
+          "type": "string"
+        }
+      }
+	}
+  ],
+  "required": ["id", "type", "name", "address", "location", "clientsConnected"]
+}
