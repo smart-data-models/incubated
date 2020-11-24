@@ -56,39 +56,39 @@ Flight:
       - x-ngsi:
         - type: "Property"
         - model: "https://schema.org/DateTime"
-       - type: "string"
+      - type: "string"
          - format : "date-time"
     - arrivalDateTime:
       - x-ngsi:
         - type: "Property"
         - model: "https://schema.org/DateTime"
-       - type: "string"
+      - type: "string"
          - format : "date-time"
-    -  aircraft:
+    - aircraft:
       - x-ngsi:
         - type: "Relationship"
       - type: "string"
         - format: "URL"
       - description: A reference to the aircraft
-    -  aircraftModel:
+    - aircraftModel:
       - x-ngsi:
         - type: "Relationship"
       - type: "string"
         - format: "URL"
       - description: A reference to the aircraft model
-    -  departureAirport:
+    - departureAirport:
       - x-ngsi:
         - type: "Relationship"
       - type: "string"
         - format: "URL"
       - description: A reference to the departure airport
-    -  arrivalAirport:
+    - arrivalAirport:
       - x-ngsi:
         - type: "Relationship"
       - type: "string"
         - format: "URL"
       - description: A reference to the arrival airport
-    -  airline:
+    - airline:
       - x-ngsi:
         - type: "Relationship"
       - type: "string"
