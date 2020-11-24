@@ -28,7 +28,7 @@ Aircraft:
       - x-ngsi:
         - type: "Property"
         - model: "https://tools.ietf.org/html/rfc7946"
-      - $ref: "https://smart-data-models.github.io/data-modelscommon-schema.json#/definitions/Location-Commons/location"
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/location"
     - aircraftModel:
       - x-ngsi:
         - type: "Relationship"

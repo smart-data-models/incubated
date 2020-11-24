@@ -3,8 +3,6 @@ Airport:
     - id
     - type
     - name
-    - codeIATA
-    - codeICAO
   - type: "object"
     - allOf:
       - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -38,9 +36,9 @@ Airport:
       - x-ngsi:
         - type: "Property"
         - model: "https://schema.org/address"
-      - $ref: "https://smart-data-models.github.io/data-modelscommon-schema.json#/definitions/Location-Commons/address"
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/address"
     - location:
       - x-ngsi:
         - type: "Property"
         - model: "https://tools.ietf.org/html/rfc7946"
-      - $ref: "https://smart-data-models.github.io/data-modelscommon-schema.json#/definitions/Location-Commons/location"
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/location"
