@@ -64,31 +64,31 @@ Flight:
         - model: "https://schema.org/DateTime"
       - type: "string"
          - format : "date-time"
-    - aircraft:
+    - hasAircraft:
       - x-ngsi:
         - type: "Relationship"
       - type: "string"
         - format: "URL"
       - description: A reference to the aircraft
-    - aircraftModel:
+    - hasAircraftModel:
       - x-ngsi:
         - type: "Relationship"
       - type: "string"
         - format: "URL"
       - description: A reference to the aircraft model
-    - departureAirport:
+    - departsFromAirport:
       - x-ngsi:
         - type: "Relationship"
       - type: "string"
         - format: "URL"
       - description: A reference to the departure airport
-    - arrivalAirport:
+    - arrivalsToAirport:
       - x-ngsi:
         - type: "Relationship"
       - type: "string"
         - format: "URL"
       - description: A reference to the arrival airport
-    - airline:
+    - belongsToAirline:
       - x-ngsi:
         - type: "Relationship"
       - type: "string"

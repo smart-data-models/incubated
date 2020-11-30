@@ -29,7 +29,7 @@ Aircraft:
         - type: "Property"
         - model: "https://tools.ietf.org/html/rfc7946"
       - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/location"
-    - aircraftModel:
+    - belongsToAircraftModel:
       - x-ngsi:
         - type: "Relationship"
       - type: "string"
