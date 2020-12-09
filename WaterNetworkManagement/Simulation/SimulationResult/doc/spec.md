@@ -36,7 +36,7 @@ A JSON Schema corresponding to this data model can be found [here](../schema.jso
         -   `{{metadata Property name}}` : {{Metadata Property Description}}
     -   Optional
 
--   `targetURI` : URI of network component with property modified in simulation. A sub-relationship of the water attribute Property
+-   `targetURI` : URI of network component with a simulated property value. A sub-relationship of the water attribute Property
     -   Attribute type: `Relationship`
     -   Mandatory
 
