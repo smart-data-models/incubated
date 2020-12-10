@@ -1,6 +1,5 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$schemaVersion": "0.0",
     "$id": "https://smart-data-models.github.io/incubated/Aeronautics/Flight/schema.json",
     "title": "Smart Data models - Flight schema",
     "description": "A description of a generic flight",
@@ -19,16 +18,22 @@
                     "enum": [
                         "Flight"
                     ],
-                    "description": "NGSI Entity type"
+                    "description": "Property. NGSI Entity type. It has to be Flight"
                 },
                 "flightNumber": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern": "^[A-Z0-9]{1,}$",
+                    "description": "Property. Model:'http://schema.org/Text'. Flight identifier without information of airline"
                 },
                 "flightNumberIATA": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern": "^[A-Z0-9]{3,}$",
+                    "description": "Property. Model:'http://schema.org/Text'. IATA flight identifier"
                 },
                 "flightNumberICAO": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern": "^[A-Z]{3}[A-Z0-9]{1,}$",
+                    "description": "Property. Model:'http://schema.org/Text'. ICAO flight identifier"
                 },
                 "flightType": {
                     "type": "string",
@@ -38,9 +43,10 @@
                         "G",
                         "M",
                         "X"
-                    ]
+                    ],
+                    "description": "Property. Model:'http://schema.org/Text'. Flight type described as ICAO doc 4444 Appendix 2. Enum:'S, N, G, M, X'"
                 },
-                "status": {
+                "state": {
                     "type": "string",
                     "enum": [
                         "scheduled",
@@ -50,37 +56,189 @@
                         "landed",
                         "diverted",
                         "cancelled"
-                    ]
+                    ],
+                    "description": "Property. Model:'http://schema.org/Text'. Current state of the flight. Enum:'scheduled, active, unknown, redirected, landed, diverted, cancelled'"
                 },
-                "departureDateTime": {
-                    "type": "string",
-                    "format": "date-time"
+                "passengerCount": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property. Model:'http://schema.org/Integer'. Number of flight passengers"
                 },
-                "arrivalDateTime": {
+                "dateDeparture": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Departure date of the flight"
+                },
+                "dateArrival": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Arrival date of the flight"
+                },
+                "dateSOBT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Scheduled Off-Block Time"
+                },
+                "dateEOBT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Estimated Off-Block time"
+                },
+                "dateTOBT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Target Off-Block time"
+                },
+                "dateTSAT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Target Start Up Approval TIme"
+                },
+                "dateCOBT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Calculated Off-Block Time"
+                },
+                "dateAOBT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Actual Off-Block Time"
+                },
+                "dateEXOT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Estimated Taxi-Out Time"
+                },
+                "dateAXOT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Actual Taxi-Out Time"
+                },
+                "dateSTOT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Scheduled Take-Off Time"
+                },
+                "dateETOT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Estimated Take-Off Time"
+                },
+                "dateTTOT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Target Take-Off Time"
+                },
+                "dateCTOT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Calculated Take-Off Time"
+                },
+                "dateATOT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Actual Take-Off Time"
+                },
+                "dateCTO": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Calculated Time Over"
+                },
+                "dateETO": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Estimated Time Over"
+                },
+                "dateATO": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Actual Time Over"
+                },
+                "dateSLDT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Scheduled Landing Time"
+                },
+                "dateELDT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Estimated Landing Time"
+                },
+                "dateTLDT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Target Landing Time"
+                },
+                "dateCLDT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Calculated Landing Time"
+                },
+                "dateALDT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Actual Landing Time"
+                },
+                "dateEXIT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Estimated Taxi-In Time"
+                },
+                "dateAXIT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Actual Taxi-In Time"
+                },
+                "dateSIBT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Scheduled In-Block Time"
+                },
+                "dateEIBT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Estimated In-Block Time"
+                },
+                "dateTIBT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Target In-Block Time"
+                },
+                "dateCIBT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Calculated In-Block Time"
+                },
+                "dateAIBT": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Actual In-Block Time"
                 },
                 "hasAircraft": {
-                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+                    "description": "Relationship. Model:'http://schema.org/URL'. Reference to the aircraft entity"
                 },
                 "hasAircraftModel": {
-                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+                    "description": "Relationship. Model:'http://schema.org/URL'. Reference to the aircraft model entity"
                 },
                 "departsFromAirport": {
-                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+                    "description": "Relationship. Model:'http://schema.org/URL'. Reference to the departure airport entity"
                 },
-                "arrivalsToAirport": {
-                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                "arrivesToAirport": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+                    "description": "Relationship. Model:'http://schema.org/URL'. Reference to the arrival airport entity"
                 },
                 "belongsToAirline": {
-                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+                    "description": "Relationship. Model:'http://schema.org/URL'. Reference to the airline entity"
                 }
             }
         }
     ],
     "required": [
         "id",
-        "type",
-        "flightNumber"
+        "type"
     ]
 }

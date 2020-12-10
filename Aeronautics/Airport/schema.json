@@ -1,9 +1,8 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$schemaVersion": "0.0",
     "$id": "https://smart-data-models.github.io/incubated/Aeronautics/Airport/schema.json",
     "title": "Smart Data models - Airport schema",
-    "description": "A description of a generic Airport",
+    "description": "A description of a generic airport",
     "type": "object",
     "allOf": [
         {
@@ -19,13 +18,17 @@
                     "enum": [
                         "Airport"
                     ],
-                    "description": "NGSI Entity type"
+                    "description": "Property. NGSI Entity type. It has to be Airport"
                 },
                 "codeIATA": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern": "^[A-Z]{3}",
+                    "description": "Property. Model:'http://schema.org/Text'. IATA airport code"
                 },
                 "codeICAO": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern": "^[A-Z]{4}$",
+                    "description": "Property. Model:'http://schema.org/Text'. ICAO airport code"
                 }
             }
         }

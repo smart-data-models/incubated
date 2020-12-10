@@ -40,7 +40,7 @@ Flight:
         - M
         - X
       - description: Flight type described as ICAO doc 4444 Appendix 2
-    - status:
+    - state:
       - x-ngsi:
         - type: "EnumProperty"
       - type: "string"
@@ -52,13 +52,13 @@ Flight:
         - landed
         - diverted
         - cancelled
-    - departureDateTime:
+    - dateDeparture:
       - x-ngsi:
         - type: "Property"
         - model: "https://schema.org/DateTime"
       - type: "string"
          - format : "date-time"
-    - arrivalDateTime:
+    - dateArrival:
       - x-ngsi:
         - type: "Property"
         - model: "https://schema.org/DateTime"
@@ -82,7 +82,7 @@ Flight:
       - type: "string"
         - format: "URL"
       - description: A reference to the departure airport
-    - arrivalsToAirport:
+    - arrivesToAirport:
       - x-ngsi:
         - type: "Relationship"
       - type: "string"

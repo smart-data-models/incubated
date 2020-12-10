@@ -1,9 +1,8 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$schemaVersion": "0.0",
     "$id": "https://smart-data-models.github.io/incubated/Aeronautics/Aircraft/schema.json",
     "title": "Smart Data models - Aircraft schema",
-    "description": "A description of a generic Aircraft",
+    "description": "Represent a generic aircraft",
     "type": "object",
     "allOf": [
         {
@@ -19,16 +18,20 @@
                     "enum": [
                         "Aircraft"
                     ],
-                    "description": "NGSI Entity type"
+                    "description": "Property. NGSI Entity type. It has to be Aircraft"
                 },
                 "registration": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern": "^[A-Z]-[A-Z]{4}|[A-Z]{2}-[A-Z]{3}|[A-Z]{5}|N[0-9]{1,5}[A-Z]{0,2}$",
+                    "description": "Property. Model:'http://schema.org/Text'. Tail number or aircraft registration"
                 },
                 "speed": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "Property. Model:'http://schema.org/Number'. Current aircraft speed in kilometres per hour. Units:'kilometres per hour'"
                 },
                 "belongsToAircraftModel": {
-                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+                    "description": "Relationship. Model:'http://schema.org/URL'. Reference to the aircraft model entity"
                 }
             }
         }

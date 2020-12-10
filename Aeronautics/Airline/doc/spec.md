@@ -22,7 +22,7 @@ Airline:
         - type: "Property"
         - model: "https://schema.org/Text"
       - type: "string"
-    - callsign:
+    - callSign:
       - x-ngsi:
         - type: "Property"
         - model: "https://schema.org/Text"
