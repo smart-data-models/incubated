@@ -1,4 +1,4 @@
-Flight:
+FlightNotification:
   - required:
     - id
     - type
