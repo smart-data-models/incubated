@@ -54,16 +54,264 @@ Flight:
         - landed
         - diverted
         - cancelled
+    passengerCount:
+      x-ngsi:
+        type: Property
+        model: "https://schema.org/Integer"
+      type: integer
+      description: 'Number of flight passengers.'
     dateDeparture:
       x-ngsi:
         type: Property
         model: 'https://schema.org/DateTime'
       type: string
-      description: 'The date and time the observation was made in ISO8601 UTC format.'
+      description: 'Departure date of the flight.'
       format: date-time
     dateArrival:
       x-ngsi:
         type: Property
         model: 'https://schema.org/DateTime'
       type: string
-      format: date-time 
+      description: 'Arrival date of the flight.'
+      format: date-time
+    dateSOBT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Scheduled Off-Block Time.'
+      format: date-time
+    dateEOBT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Estimated Off-Block Time.'
+      format: date-time
+    dateTOBT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Target Off-Block Time.'
+      format: date-time
+    dateTSAT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Target Start Up Approval Time.'
+      format: date-time
+    dateCOBT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Calculated Off-Block Time.'
+      format: date-time
+    dateAOBT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Actual Off-Block Time.'
+      format: date-time
+    dateEXOT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Estimated Taxi-Out Time.'
+      format: date-time
+    dateAXOT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Actual Taxi-Out Time.'
+      format: date-time
+    dateSTOT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Scheduled Take-Off Time.'
+      format: date-time
+    dateETOT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Estimated Take-Off Time.'
+      format: date-time
+    dateTTOT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Target Take-Off Time.'
+      format: date-time
+    dateCTOT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Calculated Take-Off Time.'
+      format: date-time
+    dateATOT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Actual Take-Off Time.'
+      format: date-time
+    dateETO:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Estimated Time Over.'
+      format: date-time
+    dateCTO:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Calculated Time Over.'
+      format: date-time
+    dateATO:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Actual Time Over.'
+      format: date-time
+    dateSLDT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Scheduled Landing Time.'
+      format: date-time
+    dateELDT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Estimated Landing Time.'
+      format: date-time
+    dateTLDT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Target Landing Time.'
+      format: date-time
+    dateCLDT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Calculated Landing Time.'
+      format: date-time
+    dateALDT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Actual Landing Time.'
+      format: date-time
+    dateEXIT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Estimated Taxi-In Time.'
+      format: date-time
+    dateAXIT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Actual Taxi-In Time.'
+      format: date-time
+    dateSIBT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Scheduled In-Block Time.'
+      format: date-time
+    dateEIBT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Estimated In-Block Time.'
+      format: date-time
+    dateTIBT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Target In-Block Time.'
+      format: date-time
+    dateCIBT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Calculated In-Block Time.'
+      format: date-time
+    dateAIBT:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Actual In-Block Time.'
+      format: date-time
+    hasAircraft:
+      anyOf: &anyof
+        - maxLength: 256
+          minLength: 1
+          pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
+          type: string
+        - format: uri
+          type: string
+      description: 'Relationship. Reference to the aircraft entity'
+    hasAircraftModel:
+      anyOf: &anyof
+        - maxLength: 256
+          minLength: 1
+          pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
+          type: string
+        - format: uri
+          type: string
+      description: 'Relationship. Reference to the aircraft model entity'
+    departsFromAirport:
+      anyOf: &anyof
+        - maxLength: 256
+          minLength: 1
+          pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
+          type: string
+        - format: uri
+          type: string
+      description: 'Relationship. Reference to the departure airport entity'
+    arrivesToAirport:
+      anyOf: &anyof
+        - maxLength: 256
+          minLength: 1
+          pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
+          type: string
+        - format: uri
+          type: string
+      description: 'Relationship. Reference to the arrival airport entity'
+    belongsToAirline:
+      anyOf: &anyof
+        - maxLength: 256
+          minLength: 1
+          pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
+          type: string
+        - format: uri
+          type: string
+      description: 'Relationship. Reference to the airline model entity'

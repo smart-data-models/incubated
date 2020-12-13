@@ -1,0 +1,47 @@
+Flight:
+  required:
+    - id
+    - type
+    - belongsToFlight
+    - dateIssued
+    - description
+  allOf:
+    - $ref: >-
+        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/Common
+  type: object
+  description: |
+      Flight Notification entity contains a description of a generic notification during flight operation and preparation.
+    
+  properties:
+    description:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/description
+    state:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      enum:
+        - active
+        - inactive
+        - completed
+        - unknown
+    dateIssued:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Date when the notiffication was created.'
+      format: date-time
+    dataProvider:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/fiware-terms.yaml#/dataProvider 
+    belongsToFlight:
+      anyOf: &anyof
+        - maxLength: 256
+          minLength: 1
+          pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
+          type: string
+        - format: uri
+          type: string
+      description: 'Relationship. Reference to the flight entity'

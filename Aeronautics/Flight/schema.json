@@ -1,5 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0",
     "$id": "https://smart-data-models.github.io/incubated/Aeronautics/Flight/schema.json",
     "title": "Smart Data models - Flight schema",
     "description": "A description of a generic flight",
@@ -82,17 +83,17 @@
                 "dateEOBT": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Property. Model:'http://schema.org/DateTime'. Estimated Off-Block time"
+                    "description": "Property. Model:'http://schema.org/DateTime'. Estimated Off-Block Time"
                 },
                 "dateTOBT": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Property. Model:'http://schema.org/DateTime'. Target Off-Block time"
+                    "description": "Property. Model:'http://schema.org/DateTime'. Target Off-Block Time"
                 },
                 "dateTSAT": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Property. Model:'http://schema.org/DateTime'. Target Start Up Approval TIme"
+                    "description": "Property. Model:'http://schema.org/DateTime'. Target Start Up Approval Time"
                 },
                 "dateCOBT": {
                     "type": "string",
@@ -139,15 +140,15 @@
                     "format": "date-time",
                     "description": "Property. Model:'http://schema.org/DateTime'. Actual Take-Off Time"
                 },
-                "dateCTO": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Property. Model:'http://schema.org/DateTime'. Calculated Time Over"
-                },
                 "dateETO": {
                     "type": "string",
                     "format": "date-time",
                     "description": "Property. Model:'http://schema.org/DateTime'. Estimated Time Over"
+                },
+                "dateCTO": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Calculated Time Over"
                 },
                 "dateATO": {
                     "type": "string",
@@ -215,24 +216,79 @@
                     "description": "Property. Model:'http://schema.org/DateTime'. Actual In-Block Time"
                 },
                 "hasAircraft": {
-                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
-                    "description": "Relationship. Model:'http://schema.org/URL'. Reference to the aircraft entity"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 256,
+                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    ],
+                    "description": "Relationship. Reference to the aircraft entity"
                 },
                 "hasAircraftModel": {
-                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
-                    "description": "Relationship. Model:'http://schema.org/URL'. Reference to the aircraft model entity"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 256,
+                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    ],
+                    "description": "Relationship. Reference to the aircraft model entity"
                 },
                 "departsFromAirport": {
-                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
-                    "description": "Relationship. Model:'http://schema.org/URL'. Reference to the departure airport entity"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 256,
+                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    ],
+                    "description": "Relationship. Reference to the departure airport entity"
                 },
                 "arrivesToAirport": {
-                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
-                    "description": "Relationship. Model:'http://schema.org/URL'. Reference to the arrival airport entity"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 256,
+                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    ],
+                    "description": "Relationship. Reference to the arrival airport entity"
                 },
                 "belongsToAirline": {
-                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
-                    "description": "Relationship. Model:'http://schema.org/URL'. Reference to the airline entity"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 256,
+                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    ],
+                    "description": "Relationship. Reference to the airline entity"
                 }
             }
         }

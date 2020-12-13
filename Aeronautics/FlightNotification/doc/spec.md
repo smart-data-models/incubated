@@ -1,0 +1,48 @@
+Flight:
+  - required:
+    - id
+    - type
+    - belongsToFlight
+    - dateIssued
+    - description
+  - type: "object"
+    - allOf:
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+   - description: >
+      ## Description
+      Flight Notification entity contains a description of a generic notification during flight operation and preparation.
+      ## Data Model
+  - properties:
+    - belongsToFlight:
+      - x-ngsi:
+        - type: "Relationship"
+      - type: "string"
+        - format: "URL"
+      - description: A reference to the flight
+    - dataProvider:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Text"
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons/dataProvider"
+    - dateIssued:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/DateTime"
+      - type: "string"
+         - format : "date-time"
+      - description: Date when the notification take place
+    - description:
+      - x-ngsi:
+        - type: "Property"
+        - model: "https://schema.org/Text"
+      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons/description"
+    - state:
+      - x-ngsi:
+        - type: "EnumProperty"
+      - type: "string"
+      - enum:
+        - active
+        - inactive
+        - completed
+        - unknown

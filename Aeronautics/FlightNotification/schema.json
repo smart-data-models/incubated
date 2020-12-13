@@ -1,9 +1,9 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$schemaVersion": "0.0",
-    "$id": "https://smart-data-models.github.io/incubated/Aeronautics/Aircraft/schema.json",
-    "title": "Smart Data models - Aircraft schema",
-    "description": "Represent a generic aircraft",
+    "$id": "https://smart-data-models.github.io/incubated/Aeronautics/Flight/schema.json",
+    "title": "Smart Data models - FlightNotification schema",
+    "description": "A description of a generic flight notification",
     "type": "object",
     "allOf": [
         {
@@ -17,20 +17,26 @@
                 "type": {
                     "type": "string",
                     "enum": [
-                        "Aircraft"
+                        "FlightNotification"
                     ],
-                    "description": "Property. NGSI Entity type. It has to be Aircraft"
+                    "description": "Property. NGSI Entity type. It has to be FlightNotification"
                 },
-                "registration": {
+                "state": {
                     "type": "string",
-                    "pattern": "^[A-Z]-[A-Z]{4}|[A-Z]{2}-[A-Z]{3}|[A-Z]{5}|N[0-9]{1,5}[A-Z]{0,2}$",
-                    "description": "Property. Model:'http://schema.org/Text'. Tail number or aircraft registration"
+                    "enum": [
+                        "active",
+                        "inactive",
+                        "completed",
+                        "unknown"
+                    ],
+                    "description": "Property. Model:'http://schema.org/Text'. Current state of the flight notification. Enum:'active, inactive, completed, unknown'"
                 },
-                "speed": {
-                    "type": "number",
-                    "description": "Property. Model:'http://schema.org/Number'. Current aircraft speed in kilometres per hour. Units:'kilometres per hour'"
+                "dateIssued": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Date when the notiffication was created"
                 },
-                "belongsToAircraftModel": {
+                "belongsToFlight": {
                     "anyOf": [
                         {
                             "type": "string",
@@ -43,7 +49,7 @@
                             "format": "uri"
                         }
                     ],
-                    "description": "Relationship. Reference to the aircraft model entity"
+                    "description": "Relationship. Reference to the flight entity"
                 }
             }
         }
@@ -51,6 +57,8 @@
     "required": [
         "id",
         "type",
-        "registration"
+        "belongsToFlight",
+        "dateIssued",
+        "description"
     ]
 }

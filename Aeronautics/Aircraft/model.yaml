@@ -26,3 +26,12 @@ Aircraft:
         model: "https://schema.org/Number"
       type: number
       description: ''
+    belongsToAircraftModel:
+      anyOf: &anyof
+        - maxLength: 256
+          minLength: 1
+          pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
+          type: string
+        - format: uri
+          type: string
+      description: 'Relationship. Reference to the aircraft model entity'
