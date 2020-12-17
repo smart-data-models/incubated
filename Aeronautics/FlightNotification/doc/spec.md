@@ -24,7 +24,7 @@ FlightNotification:
       - x-ngsi:
         - type: "Property"
         - model: "https://schema.org/Text"
-      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons/dataProvider"
+      - $ref: "https://smart-data-models.github.io/data-models/fiware-terms.yaml#/dataProvider"
     - dateIssued:
       - x-ngsi:
         - type: "Property"
@@ -36,7 +36,7 @@ FlightNotification:
       - x-ngsi:
         - type: "Property"
         - model: "https://schema.org/Text"
-      - $ref: "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons/description"
+      - $ref: " https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/description"
     - state:
       - x-ngsi:
         - type: "EnumProperty"
