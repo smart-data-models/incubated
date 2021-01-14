@@ -1,0 +1,77 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "schemaVersion": "0.0",
+    "$id": "https://smart-data-models.github.io/incubated/Anomaly/schema.json",
+    "title": "Anomaly",
+    "description": "This entity contains a harmonised description of an anomaly.",
+    "type": "object",
+    "allOf": [
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Anomaly"
+                    ],
+                    "description": "Property. NGSI-LD Entity Type. It has to be Anomaly"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. An optional text that describes other significant information about the anomaly"
+                },
+                "detectedBy": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. The ID of the device at which the anomaly was detected"
+                },
+                "anomalousProperty": {
+                    "type": "string",
+                    "description": "Property. Model:'http://schema.org/Text'. The controlledProperty (of the device) in which the anomaly was detected"
+                },
+                "dateDetected": {
+                    "type": "string",
+                    "description": "Property. Model:'http://schema.org/DateTime'. The date and time at which the anomaly was first detected"
+                },
+                "thresholdBreach": {
+                    "type": "object",
+                    "description": "Property. Model:'https://schema.org/Text'. Description of an observed threshold breach that contributed to detection of an anomaly",
+                    "properties": {
+                        "dateObserved": {
+                            "type": "string",
+                            "description": "Property. Model:'http://schema.org/DateTime'. A sub-property of the Property 'thresholdBreach'. The date and time at which the threshold breach was observed"
+                        },
+                        "measuredValue": {
+                            "type": "number",
+                            "description": "Property. Model:'http://schema.org/Number'. A sub-property of the Property 'thresholdBreach'. The value measured for the corresponding device and controlled property"
+                        },
+                        "thresholdType": {
+                            "type": "string",
+                            "description": "Property. Model:'https://schema.org/Text'. A sub-property of the Property 'thresholdBreach'. The type of the threshold that was breached",
+                            "enum": [
+                                "UPPER",
+                                "LOWER"
+                            ]
+                        },
+                        "thresholdValue": {
+                            "type": "number",
+                            "description": "Property. Model:'https://schema.org/Number'. A sub-property of the Property 'thresholdBreach'. The value of the threshold that was breached"
+                        }
+                    },
+                    "required": [
+                        "dateObserved",
+                        "measuredValue",
+                        "thresholdType",
+                        "thresholValue"
+                    ]
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type",
+        "detectedBy",
+        "anomalousProperty",
+        "dateDetected"
+    ]
+}
