@@ -36,7 +36,7 @@
               "format": "uri"
             }
           ],
-          "description": "Relationship. The ID of who created/triggered the simulation. Reference to an entity of type `User`. Model:'https://schema.org/Text'"
+          "description": "Relationship. The ID of who created/triggered the simulation. Reference to an entity of type `User`. Model:'https://schema.org/URL'"
         },
         "hasInputNetwork": {
           "anyOf": [
@@ -51,7 +51,7 @@
               "format": "uri"
             }
           ],
-          "description": "Relationship. The ID of the network used in the simulation. Model:'https://schema.org/Text'"
+          "description": "Relationship. The ID of the network used in the simulation. Model:'https://schema.org/URL'"
         },
         "hasSimulationResult": {
           "anyOf": [
@@ -66,7 +66,7 @@
               "format": "uri"
             }
           ],
-          "description": "Relationship. The ID of the realted simulation. Reference to an entity of type `SimulationResult`. Model:'https://schema.org/Text'"
+          "description": "Relationship. The ID of the related simulation. Reference to an entity of type `SimulationResult`. Model:'https://schema.org/URL'"
         },
         "qualityTimeStep": {
           "type": "number",
@@ -87,7 +87,7 @@
         "patternStart": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'https://schema.org/DateTime'. time of the pattern start of the simulation."
+          "description": "Property. Model:'https://schema.org/DateTime'. Start time of the  the simulation."
         },
         "reportStep": {
           "type": "number",
@@ -114,7 +114,7 @@
         },
         "trials": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. The the maximum number of trials used to solve network hydraulics at each hydraulic time step of a simulation"
+          "description": "Property. Model:'https://schema.org/Number'. The maximum number of trials used to solve network hydraulics at each hydraulic time step of a simulation"
         },
         "accuracy": {
           "type": "number",
@@ -126,7 +126,7 @@
         },
         "emitterExponent": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Power to which pressure at a junction is raised when computing from from an emitter."
+          "description": "Property. Model:'https://schema.org/Number'. Power to which pressure at a junction is raised when computing from an emitter."
         },
         "headError": {
           "type": "number",
@@ -142,7 +142,15 @@
         },
         "specificGravity": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. The the ratio of the density of the fluid being modeled to that of water at 4 deg. C"
+          "description": "Property. Model:'https://schema.org/Number'. The ratio of the density of the fluid being modeled to that of water at 4 deg. C"
+        },
+        "requiredPressure": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Pressure required for the simulation"
+        },
+        "pressureExponent": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Pressure exponent required for the simulation"
         },
         "viscosity": {
           "type": "number",
@@ -171,7 +179,7 @@
         },
         "dampLimit": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. ccuracy value at which solution damping and status checks begin for PRVs and PSVs."
+          "description": "Property. Model:'https://schema.org/Number'. Accuracy value at which solution damping and status checks begin for PRVs and PSVs."
         },
         "diffusivity": {
           "type": "string",
@@ -201,7 +209,7 @@
             "none",
             "trace"
           ],
-          "description": "Property. Model:'https://schema.org/Text'. Type of water quality analysis. enum:'chem, age, trace, none'"
+          "description": "Property. Model:'https://schema.org/Text'. Type of water quality analysis. Enum:'chem, age, trace, none'"
         },
         "chemicalName": {
           "type": "string",
@@ -240,7 +248,7 @@
             "MLD",
             "MGD"
           ],
-          "description": "Property. Model:'https://schema.org/Text'. Units in which flow rates are expressed in the simulation. Allowable options are CFS (cubic feet per second), GPM (gallons per minute), MGD (million gallons per day), IMGD (imperial MGD), AFD (acre-feet per day), LPS (litres pre second), LPM (litres per minute), MLD (million litres per day), CMH (cubic metres per hour) and CMD (cubic metres per day)"
+          "description": "Property. Model:'https://schema.org/Text'. Units in which flow rates are expressed in the simulation. Allowable options are CFS (cubic feet per second), GPM (gallons per minute), MGD (million gallons per day), IMGD (imperial MGD), AFD (acre-feet per day), LPS (litres pre second), LPM (litres per minute), MLD (million litres per day), CMH (cubic metres per hour) and CMD (cubic metres per day). Enum:'AFD, CFS, CMD, CMH, GPM, IMGD, LPS, LPM, MLD, MGD'"
         },
         "headlossFormula": {
           "type": "string",
@@ -257,7 +265,7 @@
             "DDA",
             "PDA"
           ],
-          "description": "Property. Model:'https://schema.org/Text'. Specifies whether a the analysis is pressure driven (PDA) or demand driven (DDA). Enum:'DDA, PDA'"
+          "description": "Property. Model:'https://schema.org/Text'. Specifies whether the analysis is pressure driven (PDA) or demand driven (DDA). Enum:'DDA, PDA'"
         },
         "operationalControl": {
           "type": "string",
@@ -281,12 +289,12 @@
         "controlType": {
           "type": "string",
           "enum": [
-            "LOWLEVEL",
             "HILEVEL",
-            "TIMER",
-            "TIMEOFDAY"
+            "LOWLEVEL",
+            "TIMEOFDAY",
+            "TIMER"
           ],
-          "description": "Property. Model:'https://schema.org/Text'. Setting applied in the to the controlled link when trigger level is reached. A sub-property of the Property `control`. Enum:'LOWLEVEL, HILEVEL, TIMER, TIMEOFDAY'"
+          "description": "Property. Model:'https://schema.org/Text'. Setting applied in the to the controlled link when trigger level is reached. A sub-property of the Property `control`. Enum:'HILEVEL, LOWLEVEL, TIMEOFDAY, TIMER'"
         },
         "controlledLink": {
           "anyOf": [
@@ -319,10 +327,26 @@
           "description": "Relationship. Model:'https://schema.org/URL'. Node which is monitored for control trigger level. A sub-relationship of the Property `control`.  Reference to an entity of type `Junction`, `Tank` or `Reservoir`"
         },
         "targetURI": {
-          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
+          ],
+          "description": "Relationship. Model:'https://schema.org/URL'. URI of network component with property modified in simulation. A sub-relationship of the Property water attribute."
         },
-        "inputParameters": {
-          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+        "inputParameter": {
+          "type": "array",
+          "description": "Property. Model:'https://Text'. Description of the set of modifications to be applied to the network for the simulation",
+          "items": {
+            "type": "string"
+          }
         }
       }
     }

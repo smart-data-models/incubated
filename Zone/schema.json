@@ -17,18 +17,16 @@
     },
     {
       "properties": {
-        "id": {
-          "type": "string"
-        },
         "type": {
           "type": "string",
           "enum": [
-            "zone"
+            "Zone"
           ],
-          "description": "NGSI Entity type"
+          "description": "Property. NGSI Entity type. it has to be Zone"
         },
         "additionalInfo": {
           "type": "array",
+          "description": "Property. Structured object with property's names and its value to include additional information. ",
           "items": {
             "type": "object",
             "properties": {
@@ -41,77 +39,126 @@
             }
           }
         },
-        "arrivalTimestamp": {
+        "lastUpdateTimestamp": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. Date and time at which the measurements in the zone were taken"
         },
-        "avgGrowth": {
-          "type": "number"
-        },
-        "avgWeight": {
-          "type": "number",
-          "minimum": 0
+        "farmId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Model:'https://schema.org/URL'. Unique identifier of a farm the zone belongs to"
         },
         "buildingId": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Model:'https://schema.org/URL'. Unique identifier of a building the zone belongs to"
+        },
+        "companyId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Model:'https://schema.org/URL'. Unique identifier of a company the zone belongs to"
+        },
+        "parentZoneId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Model:'https://schema.org/URL'. Unique identifier of a other zone this zone belongs to"
+        },
+        "currentTemperature": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Temperature of the zone."
+        },
+        "currentLuminosity": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The brightness of a light source of a certain wavelength at the zone."
+        },
+        "currentHumidity": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Quantity representing the amount of water vapour in the atmosphere in the zone."
         },
         "co2": {
           "type": "number",
-          "minimum": 0
+          "description": "Property. Model:'https://schema.org/Number'. The CO2 concentration in the zone."
         },
-        "companyId": {
-          "type": "string"
-        },
-        "empty": {
-          "type": "boolean"
-        },
-        "farmId": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-        },
-        "feedConsumption": {
-          "type": "number",
-          "minimum": 0
-        },
-        "humidity": {
+        "currentNumAnimals": {
           "type": "number",
           "minimum": 0,
-          "maximum": 1
+          "description": "Property. Model:'https://schema.org/Number'. Number of animals in the zone."
+        },
+        "currentAvgWeight": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. The avg weight of the animals in this zone."
+        },
+        "currentAvgGrowth": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. The avg growth in weight of the animals in this zone."
+        },
+        "currentWeightStDev": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. The standard deviation associated to the average weight of the animals contained in the zone"
+        },
+        "currentWaterConsumption": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. The total amount of water that came out from the tap or taps in the zone"
+        },
+        "currentFeedConsumption": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. The total amount of food that has been eaten from the feeding station(s) in the zone"
         },
         "lastUpdate": {
-          "type": "number"
-        },
-        "luminosity": {
-          "type": "number"
-        },
-        "numAnimals": {
-          "type": "number"
-        },
-        "outputFeed": {
-          "type": "number"
-        },
-        "parentZoneId": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-        },
-        "sex": {
-          "type": "string",
-          "enum": [
-            "M",
-            "F",
-            "unknown",
-            ""
-          ]
-        },
-        "startWeight": {
-          "type": "number"
-        },
-        "temperature": {
-          "type": "number"
-        },
-        "waterConsumption": {
-          "type": "number",
-          "minimum": 0
-        },
-        "weightStDev": {
           "type": "number"
         }
       }
