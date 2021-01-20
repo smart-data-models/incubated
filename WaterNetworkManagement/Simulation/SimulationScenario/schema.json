@@ -21,149 +21,192 @@
                     "description": "NGSI-LD Entity Type"
                 },
                 "description": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.WaterNetworkManagement/master/WaterNetworkManagement-schema.json#/definitions/description"
                 },
                 "createdBy": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. The ID of who created/triggered the simulation"
                 },
                 "hasInputNetwork": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. The ID of the network used in the simulation"
                 },
                 "hasSimulationResult": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. The ID of the network used in the simulation"
                 },
-                "qualityTimeStep":{
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                "qualityTimeStep": {
+                    "type":"number",
+                    "description": "Property. The timestep used to track changes in water quality in the network. Given in seconds."
                 },
                 "duration": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"number",
+                    "description": "Property. Duration of the simulation, given in seconds."
                 },
                 "hydraulicTimeStep": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
-                },
-                "patternStep": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
-                },
-                "patternStart": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"number",
+                    "description": "Property. Determines how often the hydraulic state of the network is calculated. Given in seconds."
                 },
                 "reportStep": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property. Interval at which output results are reported. given in seconds."
                 },
                 "reportStart": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"number",
+                    "description": "Property. Simulation time at which results start to be reported. Given in seconds from start of simulation."
                 },
-                "ruleStep": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                "ruleTimeStep": {
+                    "type":"number",
+                    "description": "Time step used to check for changes in system status due to rule-based controls. Given in seconds."
                 },
                 "statistic": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property. The type of statistical post-processing that is done on the time series of simulation results generated. Options are 'AVERAGED' (report time-averaged results), 'MINIMUM' (report only minimum values), 'MAXIMUM' (report only maximum values), 'RANGE' (report difference between minimum and maximum values) and 'NONE' (report full time series)"
                 },
                 "trials": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property. The the maximum number of trials used to solve network hydraulics at each hydraulic time step of a simulation"
                 },
                 "accuracy": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"number",
+                    "description": "Property. Total normalized flow change convergence criterion for determining when a hydraulic solution has been reached."
                 },
                 "tolerance": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"number",
+                    "description": "Property. Water quality tolerance"
                 },
                 "emitterExponent": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"number",
+                    "description": "Property. Power to which pressure at a junction is raised when computing from from an emitter."
                 },
                 "headError": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"number",
+                    "description": "Property. Maximum headloss convergence criterion for determining when a hydraulic solution has been reached."
                 },
                 "flowChange": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"number",
+                    "description": "Property. Maximum flow change convergence criterion for determining when a hydraulic solution has been reached."
                 },
                 "demandCharge": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"number",
+                    "description": "Property. Energy charge per maximum kW usage."
                 },
                 "specificGravity": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"number",
+                    "description": "Property. The the ratio of the density of the fluid being modeled to that of water at 4 deg. C"
                 },
                 "viscosity": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"number",
+                    "description": "Property. The kinematic viscosity of the fluid being modeled relative to that of water at 20 deg. C"
                 },
                 "unbalanced": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property. Determines what happens if a hydraulic solution cannot be reached within the allowed number of trials. Allowable options are 'STOP' (halt analysis), 'CONTINUE' (continue analysis but with a warning message) and 'CONTINUE_N' (continue for another N trials, where the value of N is given by unbalancedN)"
                 },
                 "checkFrequency": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"number",
+                    "description": "Property. Frequency of hydraulic status checks"
                 },
                 "maxCheck": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"number",
+                    "description": "Property. Number of trials after which status checks are discontinued"
                 },
                 "dampLimit": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type": "number",
+                    "description": "Property. Accuracy value at which solution damping and status checks begin for PRVs and PSVs."
                 },
                 "diffusivity": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type": "number",
+                    "description": "Property. Molecular diffusivity of the chemical analysed in a quality analysis, relative to diffusivity of chlorine in water."
                 },
                 "bulkOrder": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type": "number",
+                    "description": "Property. Bulk water reaction order for pipes"
                 },
                 "wallOrder": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type": "number",
+                    "description": "Property. Wall reaction order for pipes"
                 },
                 "tankOrder": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property. Bulk water reaction order for tanks"
                 },
                 "concentrationLimit": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property. Limiting concentration for growth reactions"
                 },
                 "qualityType": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property. Type of water quality analysis"
                 },
                 "chemicalName": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property. Name of the chemical modelled. Only used if qualityType is CHEM."
                 },
                 "chemicalUnits": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property. Units of the chemical modelled. Only used if qualityType is CHEM."
                 },
                 "traceNodeID": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. URI of node being traced in the quality analysis. Mandatory if qualityType is TRACE, otherwise not required"
                 },
                 "flowUnits": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type": "string",
+                    "description": "Property. Units in which flow rates are expressed in the simulation. Allowable options are 'CFS' (cubic feet per second), 'GPM' (gallons per minute), 'MGD' (million gallons per day), 'IMGD' (imperial MGD), 'AFD' (acre-feet per day), 'LPS' (litres pre second), 'LPM' (litres per minute), 'MLD' (million litres per day), 'CMH' (cubic metres per hour) and 'CMD' (cubic metres per day)."
                 },
                 "headlossFormula": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property. Formula used for computing head loss for flow through a pipe. The choices are the Hazen-Williams (H-W), Darcy-Weisbach (D-W) or Chezy-Manning (C-M) formulas."
                 },
                 "demandModel": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property. Specifies whether a the analysis is pressure driven ('PDA') or demand driven ('DDA')."
                 },
                 "operationalControl": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property.  Description of a control applied to the network for the simulation"
                 },
                 "triggerLevel": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property. Level at which control is activated. A sub-property of the Property control"
                 },
                 "setting": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property. Setting applied in the to the controlled link when trigger level is reached. A sub-property of the Property control"
                 },
                 "controlType": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type":"string",
+                    "description": "Property.  Control type. A sub-property of the Property control"
                 },
                 "controlledLink": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Link controlled. A sub-relationship of the Property control."
                 },
                 "monitoredNode": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Node which is monitored for control trigger level. A sub-relationship of the Property control."
                 },
                 "targetURI": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship.URI of network component with property modified in simulation. A sub-relationship of the Property water attribute."
                 },
                 "inputParameters": {
-                    "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+                    "type": "string",
+                    "description": "Property. Description of the set of modifications to be applied to the network for the simulation"
                 }
             }
         }
     ],
     "required": [
         "id",
-        "type",
-        "hasInputNetwork"
+        "type"
     ]
 }
