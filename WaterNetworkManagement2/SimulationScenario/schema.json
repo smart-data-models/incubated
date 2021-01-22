@@ -336,29 +336,32 @@
           }
         },
         "inputParameter": {
-          "type": "object",
+          "type": "array",
           "description": "Property. Model:'https://Text'. Description of the set of modifications to be applied to the network for the simulation",
-          "properties": {
-            "type": {
-              "type": "string"
-            },
-            "setting": {
-              "type": "number"
-            },
-            "targetURI": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "minLength": 1,
-                  "maxLength": 256,
-                  "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
-                },
-                {
-                  "type": "string",
-                  "format": "uri"
-                }
-              ],
-              "description": "Relationship. Model:'https://schema.org/URL'. URI of network component with property modified in simulation. A sub-relationship of the Property water attribute."
+          "items": {
+            "type": "object",
+            "properties": {
+              "parameterName": {
+                "type": "string"
+              },
+              "setting": {
+                "type": "number"
+              },
+              "targetURI": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                ],
+                "description": "Relationship. Model:'https://schema.org/URL'. URI of network component with property modified in simulation. A sub-relationship of the Property water attribute."
+              }
             }
           }
         }
