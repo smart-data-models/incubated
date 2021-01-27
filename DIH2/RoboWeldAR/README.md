@@ -1,3 +1,8 @@
+# RoboWeldAR data models
 
+The following models were created to facilitate exchange of information with the Orion Context Broker. 
 
-Subfolder to collaborate on the data models associated with the RoboWeldAR DIH^2 Experiment
+- Data model for the 3D reconstruction service
+- Data model for the robotic control service
+- Data model for the 3D tracking service
+
