@@ -55,12 +55,21 @@
         },
         "outputParameters": {
           "type": "array",
-          "description": "Relationship. Model:'https://schema.org/URL'. Description of the set of results of applied simulation to the network.",
+          "description": "Property. Description of the set of results of applied simulation to the network.",
           "items": {
             "type": "object",
             "properties": {
               "parameter": {
-                "type": "string"
+                "type": "string",
+                "enum": [
+                  "flow",
+                  "velocity",
+                  "quality",
+                  "demand",
+                  "head",
+                  "quality",
+                  "sourceMassInflow"
+                ]
               },
               "value": {
                 "anyOf": [
@@ -87,6 +96,18 @@
                     "type": "string",
                     "format": "uri"
                   }
+                ]
+              },
+              "nodeType": {
+                "type": "string",
+                "enum": [
+                  "Curve",
+                  "Junction",
+                  "Pattern",
+                  "Pipe",
+                  "Reservoir",
+                  "Tank",
+                  "Valve"
                 ]
               }
             }
