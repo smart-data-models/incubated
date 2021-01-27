@@ -12,30 +12,30 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "enum": ["RawWaterFlowObserved"],
+                    "enum": ["PointfMeasurement"],
                     "description": "NGSI-LD Entity Type"
                 },
-                "velocity": {
+                "elevation": {
                     "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 },
-                "water_depth": {
+                "initialQuality": {
                     "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 },
-                "flow_rate": {
+                "description": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "id": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "cross-section": {
                     "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 }
-            },
-            "refDevice": {
-              "$ref": "../Device/schema.json"
             }
         }
-    ],"allOf": [
-        {"required": ["id"]},
-        {"required": ["location"]}
-    ],"anyOf": [
-        {"required": ["velocity"]},
-        {"required": ["water_depth"]},
-        {"required": ["flow_rate"]}
     ],
-    
+    "required": [
+        "id",
+        "name",
+        "location",
+    ]
 }

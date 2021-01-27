@@ -3,7 +3,7 @@
     "$id": "# { todo } #",
     "title": "Greek National Water Company - Water Management System - PointfMeasurement",
     "description": "This entity contains a first version of the measurement point where water quality measurements are taken",
-    "type": "object",
+    "type": "object",    
     "allOf": [
         {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
@@ -15,18 +15,20 @@
                     "enum": ["PointfMeasurement"],
                     "description": "NGSI-LD Entity Type"
                 },
-                "position": {
+                "elevation": {
                     "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 },
-                "relatedTo": {
-                  "oneOf": [
-                    {
-                        "$ref": "../Junction/schema.json"
-                    },
-                    {
-                        "$ref": "../Channel/schema.json"
-                    }
-                  ]
+                "initialQuality": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "description": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "id": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "cross-section": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 }
             }
         }
@@ -34,7 +36,6 @@
     "required": [
         "id",
         "name",
-        "position",
         "location",
     ]
 }

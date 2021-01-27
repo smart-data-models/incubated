@@ -12,30 +12,30 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "enum": ["RawWaterQualiltyObserved"],
+                    "enum": ["PointfMeasurement"],
                     "description": "NGSI-LD Entity Type"
                 },
-                "conductivity": {
+                "elevation": {
                     "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 },
-                "temperature": {
+                "initialQuality": {
                     "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 },
-                "turbidity": {
+                "description": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "id": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "cross-section": {
                     "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 }
-            },
-            "refDevice": {
-              "$ref": "../Device/schema.json"
             }
         }
-    ],"allOf": [
-        {"required": ["id"]},
-        {"required": ["location"]}
-    ],"anyOf": [
-        {"required": ["conductivity"]},
-        {"required": ["turbidity"]},
-        {"required": ["temperature"]}
     ],
-    
+    "required": [
+        "id",
+        "name",
+        "location",
+    ]
 }

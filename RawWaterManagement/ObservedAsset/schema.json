@@ -1,0 +1,54 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "# { todo } #",
+    "title": "Greek National Water Company - Water Management System - ObservedAsset",
+    "description": "This entity contains the properties that can be observed by a device",
+    "type": "object",
+    "asset": {
+      "type": "Property",
+      "oneOf": [
+                "FlowRate": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "Turbidity": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "Conductivity": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "AverageVelocity": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "WaterDemand": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "FlowRateCalibrated": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "WaterDepth": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "Temperature": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                }
+          }
+      ],
+      "dateObserved": {
+          "type": "Property",
+          "value": {
+              "type": "DateTime",
+          }
+      },
+      "measuredValue": {
+          "type": "Property",
+          "value": {
+              "type": "Number",
+          }
+      }
+    },
+    "required": [
+        "assert",
+        "dateObserved",
+        "measuredValue",
+    ]
+}

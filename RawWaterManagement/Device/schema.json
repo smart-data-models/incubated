@@ -10,13 +10,13 @@
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
     },
     {
-      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-    },
-    {
       "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons"
     },
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/PhysicalObject-Commons"
+    },
+    {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
     {
       "properties": {
@@ -25,26 +25,21 @@
           "enum": ["Device"],
           "description": "NGSI Entity type"
         },
-        "controlledAsset": {
+        "vendor": {
+          "type": "string",
+          "description": "The Vendor of the Device (should be 'Metrica' or 'Alticon' for this project only)"
+        },
+        "dst_enabled": {
+          "type": "boolean",
+          "description": "Some devices measure with DST turned on and some others with DST turned off"
+        },
+        "attachedTo": {
           "$ref": "../PointOfMeasurement/schema.json"
-        },"controlledProperty": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "temperature",
-              "humidity",
-              "power",
-              "pressure",
-              "depth",
-              "pH",
-              "conductivity",
-              "conductance",
-              "turbidity",
-              "salinity",
-              "waterFlow"
-            ]
-          }
+        },
+        {
+          "observes": {
+            "$ref": "../ObservedAsset/schema.json"
+          },
         },
         "function": {
           "type": "array",
@@ -66,10 +61,6 @@
             "type": "string"
           }
         },
-        "energyLimitationClass": {
-          "type": "string",
-          "enum": ["E0", "E1", "E2", "E9"]
-        },
         "documentation": {
           "type": "string",
           "format": "uri"
@@ -81,9 +72,6 @@
           "type": "string"
         },
         "manufacturerName": {
-          "type": "string"
-        },        
-        "mnc": {
           "type": "string"
         },
         "macAddress": {
@@ -105,9 +93,6 @@
               }
             ]
           }
-        },
-        "configuration": {
-          "type": "object"
         },
         "dateInstalled": {
           "type": "string",
@@ -182,5 +167,5 @@
       }
     }
   ],
-  "required": ["id",    "manufacturerName", "brandName", "modelName""type", "controlledProperty"]
+  "required": ["id", "vendor", "dst_enabled", "ObservedAsset", "observes"]
 }

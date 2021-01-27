@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$id": "# { todo } #",
-    "title": "Greek National Water Company - Water Management System - PointfMeasurement",
-    "description": "This entity contains a first version of the measurement point where water quality measurements are taken",
+    "title": "Greek National Water Company - Water Management System - Junction ",
+    "description": "This entity contains a first version of the Junction",
     "type": "object",
     "allOf": [
         {
@@ -12,21 +12,20 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "enum": ["PointfMeasurement"],
+                    "enum": ["Junction"],
                     "description": "NGSI-LD Entity Type"
                 },
-                "position": {
+                "elevation": {
                     "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 },
-                "relatedTo": {
-                  "oneOf": [
-                    {
-                        "$ref": "../Junction/schema.json"
-                    },
-                    {
-                        "$ref": "../Channel/schema.json"
-                    }
-                  ]
+                "description": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "id": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "cross-section": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 }
             }
         }
@@ -34,7 +33,6 @@
     "required": [
         "id",
         "name",
-        "position",
         "location",
     ]
 }
