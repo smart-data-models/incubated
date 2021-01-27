@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/dataModel.WifiNetwork/AccessPoint/schema.json",
+  "title": "Access Point",
+  "description": "This entity describes an Access Point which is a networking hardware that generates a wireless network and allows other Wi-Fi devices to connect to it",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+	{
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+	{
+      "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons"
+    },
+	{
+	  "properties": {
+	    "type": {
+          "type": "string",
+	      "enum": ["AccessPoint"],
+          "description": "NGSI Entity type"
+        },
+	    "apState": {
+          "type": "string",
+	      "enum": ["up","down"]
+        },
+	    "clientsConnected": {
+          "type": "number",
+	      "minimum": 0
+        },
+	    "ssid": {
+          "type": "array",
+	      "items": {
+            "type": "string"
+          }
+        },
+	    "service": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "refPointOfInterest": {
+          "type": "string",
+	      "$ref": "https://smart-data-models.github.io/dataModel.WifiNetwork/WifiPointOfInterest/schema.json"
+        },
+		"TimeInstant": {
+          "type": "string",
+          "format": "date-time"
+        },
+	    "contactPoint": {
+          "type": "string"
+        },
+		"dateInstalled": {
+          "type": "string",
+          "format": "date-time"
+        },
+	    "dateLastReboot": {
+          "type": "string",
+	      "format": "date-time"
+        },
+		"dateLastValueReported": {
+          "type": "string",
+	      "format": "date-time"
+        },
+		"firmwareVersion": {
+          "type": "string"
+        },
+		"hardwareVersion": {
+          "type": "string"
+        },
+		"ipAddress": {
+		  "type": "string"
+        },
+		"modelName": {
+          "type": "string"
+        },
+		"osVersion": {
+          "type": "string"
+        },
+		"provider": {
+          "type": "string"
+        },
+		"serialNumber": {
+          "type": "string"
+        },
+		"softwareVersion": {
+          "type": "string"
+        }
+	  }
+	}
+  ],
+  "required": ["id", "type", "name", "address", "location",	"clientsConnected"]
+}
