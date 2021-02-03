@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://github.com/sprukkiemaster/SmartDataModel/main/SMB/schema.json",
+  "title": "SMB / FIWARE - ModuleStatus",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Sensor"
+          ],
+          "description": "Property. NGSI Entity type. It has to be Sensor"
+        },
+        "sType": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. type description of the object"
+        },
+        "value": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Sensor output value"
+        }
+      },
+      "enterprise": {
+        "type": "string",
+        "description": "Property. Model:'https://schema.org/Text'. Name of the enterprise"
+      },
+      "site": {
+        "type": "string",
+        "description": "Property. Model:'https://schema.org/Text'. Name of the production site"
+      },
+      "area": {
+        "type": "string",
+        "description": "Property. Model:'https://schema.org/Text'. Name of the area location on the site"
+      },
+      "processCell": {
+        "type": "string",
+        "description": "Property. Model:'https://schema.org/Text'. Name of the processcell"
+      },
+      "unit": {
+        "type": "string",
+        "description": "Property. Model:'https://schema.org/Text'. Name of the unit the in the processcell"
+      },
+      "equipmentModule": {
+        "type": "string",
+        "description": "Property. Model:'https://schema.org/Text'. Name of the equipmentmodule in the unit"
+      },
+      "controlModule": {
+        "type": "string",
+        "description": "Property. Model:'https://schema.org/Text'. Name of the controllmodule in the equipmentmodule"
+      },
+      "dateIssued": {
+        "type": "string",
+        "description": "Property. Model:'https://schema.org/DateTime'. Time stamp of event"
+      }
+    }
+  ]
+}
