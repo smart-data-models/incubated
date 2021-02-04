@@ -1,0 +1,75 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "schemaVersion": "0.0",
+    "$id": "https://smart-data-models.github.io/data-models/specs/WasteWaterTreatment/Junction/schema.json",
+    "title": "WasteWaterTreatment - Junction",
+    "description": "This entity contains an harmonised description of a generic Junction made for the Wastewater treatment domain. Junctions could be in place in certain sections of thetreatment plant. In wastewater treatment purposes, the junction is most useful if it is a locationof a sensor that measures a specific variable.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "junction"
+                    ],
+                    "description": "NGSI-LD Entity Type"
+                },
+                "DS": {
+                    "type": "number",
+                    "description": "Property. Model: https://schema.org/Number. Units: 'mg/L'. Dry solids concentration measured in wastewater."
+                },
+                "NH4": {
+                    "type": "number",
+                    "description": "Property. Model: https://schema.org/Number. Units: 'mg/L'. Ammonia concentration measured in wastewater."
+                },
+                "NO3": {
+                    "type": "number",
+                    "description": "Property. Model: https://schema.org/Number. Units: 'mg/L'. Nitrate concentration measured in wastewater."
+                },
+                "DO": {
+                    "type": "number",
+                    "description": "Property. Model: https://schema.org/Number. Units: 'mg/L'. Dissolved oxygen concentration measured in wastewater."
+                },
+                "Redox": {
+                    "type": "number",
+                    "description": "Property. Model: https://schema.org/Number. Units: 'mV'. Redox level measured in wastewater."
+                },
+                "TN": {
+                    "type": "number",
+                    "description": "Property. Model: https://schema.org/Number. Units: 'mg/L'. Total Nitrogen concentration measured in wastewater."
+                },
+                "temperature": {
+                    "type": "number",
+                    "description": "Property. Model: https://schema.org/Number. Units: 'Celsius'. Wastewater temperature measured."
+                },
+                "pH": {
+                    "type": "number",
+                    "description": "Property. Model: https://schema.org/Number. Water pH level measured."
+                },
+                "emissionFlow": {
+                    "type": "number",
+                    "description": "Property. Model: https://schema.org/Number. Units: 'm3'. Gas emission flow volume measured at a junction prior to being emitted in an off-gas stack."
+                },
+                "startsAt": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. A relationship indicating the entity the junction is connected to in the upstream point"
+                },
+                "endsAt": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. A relationship indicating the entity the junction is connected to in the downstream point"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type",
+        "description"
+    ]
+}
