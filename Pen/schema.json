@@ -3,7 +3,7 @@
   "$schemaVersion": "0.0",
   "$id": "https://smart-data-models.github.io/dataModel.Agrifood/Pen/schema.json",
   "title": " Smart Data models - pen schema",
-  "description": "A pen located in a zone of a Building in a Farm",
+  "description": "Fenced area in a building or department or outside housing a group of animals. Animals in a pen can move and interact freely. Pens are often not completely separated from each other (half walls, iron bars, fences,…), making it possible that animals from neighbouring pens can see/touch",
   "type": "object",
   "allOf": [
     {
@@ -25,10 +25,11 @@
           "enum": [
             "Pen"
           ],
-          "description": "NGSI Entity type"
+          "description": "Property. NGSI Entity type. it has to be Pen"
         },
         "additionalInfo": {
           "type": "array",
+          "description": "Property. list of all the raw values sent by the sensor/platform with all the possible extra properties that are not included in the main structure. It is a JSON structure similar to this: {'name': 'temperature', 'value' : 32}",
           "items": {
             "type": "object",
             "properties": {
@@ -53,60 +54,122 @@
         },
         "arrivalTimestamp": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. Date and Time for the arrival of animals to the Pen"
         },
         "avgGrowth": {
           "type": "number",
-          "minimum": 0
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. The average growth in weight of the animal in this pen"
         },
         "avgWeight": {
           "type": "number",
-          "minimum": 0
+          "minimum": 0,
+          "description": "Property. Units:'Kg'. Model:'https://schema.org/Number'. The average weight of the animal in this Pen. "
         },
         "buildingId": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Model:'https://schema.org/URL'. Unique identifier of the Building the item is located in"
         },
         "co2": {
           "type": "number",
-          "minimum": 0
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. The CO2 concentration in the item"
         },
         "companyId": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Model:'https://schema.org/URL'. Unique identifier of a company"
         },
         "compartmentId": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Property. Model:'https://schema.org/URL'. Unique identifier of the Compartment the Pen is located in."
         },
         "deadAnimalsSinceDateOfArrival": {
           "type": "number",
-          "minimum": 0
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Number of dead animals since the date of arrival"
         },
         "farmId": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                    "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Model:'https://schema.org/URL'. Unique identifier of the Farm the Pen is located in."
         },
         "feedConsumption": {
           "type": "number",
-          "minimum": 0
-        },
-        "foodFlow": {
-          "type": "number",
-          "minimum": 0
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. The total amount of food that has been eaten from the feeding station(s) in the pen.It is measured through feed intakes and specific structure to let only one animal at a time to eat. Units:'Kg'"
         },
         "humidity": {
           "type": "number",
           "minimum": 0,
-          "maximum": 1
+          "maximum": 1,
+          "description": "Property. Model:'https://schema.org/Number'. Quantity representing the amount of water vapour in the atmosphere in the pen. "
         },
         "lastUpdate": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. Date and time at which the measurements in the item were taken. Units:'Seconds'"
         },
         "luminosity": {
           "type": "number",
-          "minimum": 0
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. The brightness of a light source of a certain wavelength at the item.Units:'LUX'"
         },
         "numAnimals": {
           "type": "number",
-          "minimum": 0
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Number of animals contained in the Pen."
         },
         "sex": {
           "type": "string",
@@ -115,21 +178,21 @@
             "F",
             "unknown",
             ""
-          ]
+          ],
+          "description": "Property. Model:'https://schema.org/Number'. The sex of the animals contained in the pen"
         },
         "temperature": {
-          "type": "number"
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Temperature of the Pen.  Unirs:' Celsius degree'"
         },
         "waterConsumption": {
           "type": "number",
-          "minimum": 0
-        },
-        "waterFlow": {
-          "type": "number",
-          "minimum": 0
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. The total amount of water that came out from the tap or taps in the pen. It is measured through flowmeters and specific structure to let only one animal at a time drink."
         },
         "weightStDev": {
-          "type": "number"
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The standard deviation associated to the average weight of the animals contained in the Pen."
         }
       }
     }
