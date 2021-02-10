@@ -277,6 +277,7 @@
         },
         "operationalControl": {
           "type": "array",
+          "description": "Property. ",
           "items": {
             "type": "object",
             "properties": {
@@ -344,8 +345,18 @@
               "parameterName": {
                 "type": "string"
               },
-              "setting": {
-                "type": "number"
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
               },
               "targetURI": {
                 "anyOf": [
