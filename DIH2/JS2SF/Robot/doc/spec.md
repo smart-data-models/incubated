@@ -25,15 +25,7 @@ A JSON Schema corresponding to this data model can be found
 
     -   Attribute type: Property. [Integer](https://schema.org/Integer) 
 
--   `toolModel` : The model info of the tool with current ToolID.
-
-    -   Attribute type: Property. [Text](https://schema.org/Text) 
-
--   `programName` : Name of the program executing on the robot.
-
-    -   Attribute type: Property. [Text](https://schema.org/Text) 
-
--   `jobName` : Identifier of the job executing on the robot.
+-   `jobCurrentState` : Current status of the robot job: Idle, Loading, Processing, Unloading.
 
     -   Attribute type: Property. [Text](https://schema.org/Text) 
 
@@ -64,11 +56,3 @@ A JSON Schema corresponding to this data model can be found
 -   `status` : Status of the robot.
 
     -   Attribute type: Property. [Text](https://schema.org/Text) 
-
--   `totalNumberOfPieces` : Total number of pieces in the job executing on the robot.
-
-    -   Attribute type: Property. [Integer](https://schema.org/Integer) 
-
--   `currentPieceNumber` : Current number of pieces done in the job executing on the robot.
-
-    -   Attribute type: Property. [Integer](https://schema.org/Integer) 

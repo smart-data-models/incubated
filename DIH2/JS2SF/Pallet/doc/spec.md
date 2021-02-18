@@ -17,11 +17,7 @@ A JSON Schema corresponding to this data model can be found
 
     -   Attribute type: Property. [DateTime](https://schema.org/DateTime) 
 
--   `refCurrentLocation` : Indicates the location of the pallet.
-
-    -   Attribute type: Property. Relationship [Text](https://schema.org/Text) 
-
--   `refComingFrom` : Indicates where the pallet came from.
+-   `refpalletLocation` : Indicates the location of the pallet.
 
     -   Attribute type: Property. Relationship [Text](https://schema.org/Text) 
 
@@ -35,7 +31,7 @@ A JSON Schema corresponding to this data model can be found
     -   Attribute type: Property. [Text](https://schema.org/Text) 
 	-	Enum values : "CanPickUpOnly", "CannotPickUp", "CanProcess"
 
--   `refPieceList` : List of stone pieces currently on the pallet.
+-   `status` : Current status (loading, unloading, empty, filled) of the pallet.
 
     -   Attribute type: Property. Array Relationship [Text](https://schema.org/Text) 
 

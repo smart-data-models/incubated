@@ -41,3 +41,11 @@ A JSON Schema corresponding to this data model can be found
 
     -   Attribute type: Property. [Text](https://schema.org/Text) 
 
+-   `totalNumberOfPieces` : Total number of pieces in the job executing on the robotic cell.
+
+    -   Attribute type: Property. [Integer](https://schema.org/Integer) 
+
+-   `currentPieceNumber` : Current number of pieces done in the job executing on the robotic cell.
+
+    -   Attribute type: Property. [Integer](https://schema.org/Integer) 
+
