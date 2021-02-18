@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.Weather/WeatherForecast/schema.json",
+  "sha": "68241b0033f01cce2875847146a9ebf10c99ceaf",
+  "title": " - Weather Forecast schema",
+  "description": "A harmonised description of a Weather Forecast",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["WeatherForecast"],
+          "description": "NGSI Entity type. It has to be WeatherForecast",
+          "typeNGSI": "Property",
+          "model": "https://schema.org/Text",
+          "privacy": "none",
+          "units": ""
+        },
+        "dateRetrieved": {
+          "type": "string",
+          "format": "date-time",
+           "description": "The date and time the forecast was retrieved in ISO8601 UTC format.",
+           "typeNGSI": "Property",
+           "model": "https://schema.org/DateTime",
+           "privacy": "none",
+           "units": ""
+        },
+        "dateIssued": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time the forecast was issued by the meteorological bureau in ISO8601 UTC format.",
+          "typeNGSI": "Property",
+          "model": "https://schema.org/DateTime",
+          "privacy": "none",
+          "units": ""
+        },
+        "validity": {
+          "type": "string",
+          "description": "Includes the validity period for this forecast as a ISO8601 time interval. As a workaround for the lack of support of Orion Context Broker for datetime intervals, it can be used two separate attributes: `validFrom`, `validTo`.",
+          "typeNGSI": "Property",
+          "model": "https://schema.org/DateTime",
+          "privacy": "none",
+          "units": ""
+        },
+        "validFrom": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Validity period start date and time.",
+          "typeNGSI": "Property",
+          "model": "https://schema.org/DateTime",
+          "privacy": "none",
+          "units": ""
+        },
+        "validTo": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Validity period end date and time.",
+          "typeNGSI": "Property",
+          "model": "https://schema.org/DateTime",
+          "privacy": "none",
+          "units": ""
+        },
+        "dayMaximum": {
+          "type": "object",
+          "description": "Maximum values for the reported period. Subattributes:- `temperature` : Maximum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. Maximum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.-   `relativeHumidity`. Maximum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`.",
+          "typeNGSI": "Property",
+          "model": "https://schema.org/StructuredValue",
+          "privacy": "none",
+          "units": "",
+          "allOf": [
+            {
+              "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-AirConditions"
+            }
+          ]
+        },
+        "dayMinimum": {
+          "type": "object",
+          "description": "Minimum values forecasted for the reported period.  Minimum values for the reported period. Subattributes:- `temperature` : Minimum temperature. See `WeatherForecast.temperature` for description and units. - `feelLikesTemperature`. Minimum feels like temperature. Same semantics and units as `WeatherForecast.feelsLikeTemperature`.- `relativeHumidity`. Minimum relative humidity. Same semantics and units as `WeatherForecast.relativeHumidity`",
+          "typeNGSI": "Property",
+          "model": "https://schema.org/Text",
+          "privacy": "none",
+          "units": "",
+          "allOf": [
+            {
+              "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-AirConditions"
+            }
+          ]
+        },
+        "uVIndexMax": {
+          "type": "number",
+          "description": "The maximum UV index for the period, based on the World Health Organization's UV Index measure. Normative references: [http://www.who.int/uv/intersunprogramme/activities/uv_index/en/](http://www.who.int/uv/intersunprogramme/activities/uv_index/en/)",
+          "minimum": 0,
+          "typeNGSI": "Property",
+          "model": "https://schema.org/Number",
+          "privacy": "none",
+          "units": ""
+        }
+      }
+    }
+  ],
+  "required": ["id", "type", "dateIssued", "address"]
+}
