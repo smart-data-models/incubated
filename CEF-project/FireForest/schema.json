@@ -1,0 +1,34 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0",
+    "$id": "https://smart-data-models.github.io/dataModel.Subject/NameOfDataModeld/schema.json",
+    "title": " Smart Data Models - Name of the data model",
+    "description": "Couple of lines of general description.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/dataModel.Environment/AirQualityObserved/schema.json"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/schema.json"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/dataModel.Weather/WeatherForecast/schema.json"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/dataModel.ParksAndGardens/GreenspaceRecord/schema.json"
+        },
+        {
+            "properties": {
+                "smokePresence": {
+                    "type": "number",
+                    "description": "Property. Model:'https://schema.org/Number'. Percentage of smoke detected by cameras."
+                },
+                "fireDetected": {
+                    "type": "boolean",
+                    "description": "Property. Model:'https://schema.org/Boolean'. Presence of a fire detected by cameras."
+                }
+            }
+        }
+    ]
+}
