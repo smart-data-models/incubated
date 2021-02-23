@@ -5,31 +5,78 @@
     "description": "This entity contains a first version of the Junction",
     "type": "object",
     "allOf": [
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-        },
-        {
-            "properties": {
-                "type": {
+              "location": {
+                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+              },
+              "position": {
+                  "type": "number",
+                  "measuredFrom":{
+                    "type": "Relationship",
+                    "oneOf":[
+                      "$ref": "../Junction/schema.json",
+                      "$ref": "../SluiceGate/schema.json",
+                      "$ref": "../Reservoir/schema.json",
+                    ]
+                  }
+              },
+              {
+              "properties": {
+                  "type": {
+                      "type": "string",
+                      "enum": ["Junction"],
+                      "description": "NGSI-LD Entity Type"
+                  },
+                  "name": {
                     "type": "string",
-                    "enum": ["Junction"],
-                    "description": "NGSI-LD Entity Type"
-                },
-                "elevation": {
-                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                },
-                "description": {
-                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                },
-                "id": {
-                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                },
-                "cross-section": {
-                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                }
+                    "description": "the name of the junction",
+                  },
+                  "tag": {
+                    "type": "string",
+                    "description": "An optional text used to assign the junction to a category, perhaps one based on age or the served area",
+                  },
+                  "waterOutflow": {
+                    "type": "number",
+                    "description": "Water abstracted (or diverted) from the junction to another source (m3/s)",
+                  },
+                  "elevation": {
+                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                  },
+                  "waterInflow": {
+                    "type": "number",
+                    "description": "Water inserted to the junction from another source (m3/s)",
+                  },
+                  "description": {
+                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                  },
+                  "id": {
+                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                  },
+                  "cross-section": {
+                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                  }
+              }
+            },
+            {
+              "downstreamNode": {
+                "type": "Relationship",
+                "oneOf": [
+                  "$ref": "../Junction/schema.json",
+                  "$ref": "../Channel/schema.json",
+                  "$ref": "../Spillway/schema.json",
+                  "$ref": "../SluiceGate/schema.json",
+                ]
+              },
+              "upstreamNode": {
+                "type": "Relationship",
+                "oneOf": [
+                  "$ref": "../Junction/schema.json",
+                  "$ref": "../Channel/schema.json",
+                  "$ref": "../Spillway/schema.json",
+                  "$ref": "../SluiceGate/schema.json",
+                ]
+              },
             }
-        }
-    ],
+          ],
     "required": [
         "id",
         "name",
