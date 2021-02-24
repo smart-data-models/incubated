@@ -1,25 +1,27 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$schemaVersion": "0.0",
-    "$id": "https://smart-data-models.github.io/dataModel.Subject/NameOfDataModeld/schema.json",
+    "$id": "https://smart-data-models.github.io/dataModel.Subject/ForestStatus/schema.json",
     "title": " Smart Data Models - Name of the data model",
-    "description": "Couple of lines of general description.",
+    "description": "This entity describes the status of a forest.",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://smart-data-models.github.io/dataModel.Environment/AirQualityObserved/schema.json"
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
         },
         {
-            "$ref": "https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/schema.json"
-        },
-        {
-            "$ref": "https://smart-data-models.github.io/dataModel.Weather/WeatherForecast/schema.json"
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
         },
         {
             "$ref": "https://smart-data-models.github.io/dataModel.ParksAndGardens/GreenspaceRecord/schema.json"
         },
         {
             "properties": {
+                "type": {
+                    "type": "object",
+                    "description": "Property. It has to be NameOfDataModel",
+                    "properties": {}
+                },
                 "smokePresence": {
                     "type": "number",
                     "description": "Property. Model:'https://schema.org/Number'. Percentage of smoke detected by cameras."
@@ -27,6 +29,11 @@
                 "fireDetected": {
                     "type": "boolean",
                     "description": "Property. Model:'https://schema.org/Boolean'. Presence of a fire detected by cameras."
+                },
+                "fireRiskIndex": {
+                    "type": "string",
+                    "format": "number",
+                    "description": "Property. Model:'https://schema.org/URL'. Possible risk of fire"
                 }
             }
         }
