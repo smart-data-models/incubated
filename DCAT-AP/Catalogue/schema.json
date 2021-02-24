@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0",
+    "$id": "https://smart-data-models.github.io/dataModel.DCAT/CatalogueDCAT/schema.json",
+    "title": " Smart Data Models - CatalogueDCAT",
+    "description": "Catalogue of datasets compliant with DCAT specification.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. It has to be CatalogueDCAT"
+                },
+                "dataset": {
+                    "type": "array",
+                    "description": "Property. This property links the Catalogue with a Dataset that is part of the Catalogue. Model:'dcat:Dataset'",
+                    "items": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                },
+                "publisher": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. A property which is a string with the format date time. Model:'foaf:Agent'"
+                },
+                "title": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Model:'https://schema.org/URL'. This property refers to an entity (organisation) responsible for making the Catalogue available. Model:'rdfs:Literal'"
+                }
+            }
+        }
+    ]
+}
