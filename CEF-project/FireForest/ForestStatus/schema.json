@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/schema#",
     "$schemaVersion": "0.0",
     "$id": "https://smart-data-models.github.io/dataModel.Subject/ForestStatus/schema.json",
-    "title": " Smart Data Models - Name of the data model",
+    "title": " Forest Status schema",
     "description": "This entity describes the status of a forest.",
     "type": "object",
     "allOf": [
@@ -17,13 +17,10 @@
         },
         {
             "properties": {
-                "type": {
-                    "type": "object",
-                    "description": "Property. It has to be NameOfDataModel",
-                    "properties": {}
-                },
                 "smokePresence": {
                     "type": "number",
+                    "minimum": 0,
+                    "maximum":1,
                     "description": "Property. Model:'https://schema.org/Number'. Percentage of smoke detected by cameras."
                 },
                 "fireDetected": {
@@ -31,8 +28,8 @@
                     "description": "Property. Model:'https://schema.org/Boolean'. Presence of a fire detected by cameras."
                 },
                 "fireRiskIndex": {
-                    "type": "string",
-                    "format": "number",
+                    "type": "number",
+                    "minimum":0,
                     "description": "Property. Model:'https://schema.org/URL'. Possible risk of fire"
                 }
             }
