@@ -60,6 +60,14 @@
                     "type": "number",
                     "description": "Orifice discharge coefficient (m0.5/s) accounts for energy losses as water passes under the gate and the downstream tailwater increases to the point at which the gate is no longer flowing freely (downstream submergence is causing a greater upstream headwater for a given flow)",
                   },
+                  "waterDischarge": {
+                    "type": "number",
+                    "description": "the discharge that passes the weir (Q)",
+                  },
+                  "headDifference": {
+                    "type": "number",
+                    "description": "the difference between the upstream depth and the depth just downstream",
+                  },
                   "flowType": {
                     "type": "string",
                     "enum": ["Overflow", "Free Flow", "Submerged Flow"]
@@ -77,32 +85,91 @@
               }
             },
             {
-              "downstreamNode": {
-                "type": "Relationship",
-                "oneOf": [
-                  "$ref": "../Junction/schema.json",
-                  "$ref": "../Channel/schema.json",
-                  "$ref": "../Spillway/schema.json",
-                  "$ref": "../SluiceGate/schema.json",
+              "upstreamControlPoint": {
+                "description": "Description of cross section just upstream of the sluice weir which controls the flow",
+                "allOf":[
+                  {
+                    "depth":{
+                      "type": "number",
+                      "description": "A sub-property: the water depth just upstream of the sluice gate"
+                    }
+                  },
+                  {
+                    "hasCrossSection":{
+                      "description": "A sub-relationship indicating the ID of the cross section",
+                      "type": "Relationship",
+                      "$ref": "../CrossSection/schema.json"
+                    }
+                  }
                 ]
-              },
-              "upstreamNode": {
-                "type": "Relationship",
-                "oneOf": [
-                  "$ref": "../Junction/schema.json",
-                  "$ref": "../Channel/schema.json",
-                  "$ref": "../Spillway/schema.json",
-                  "$ref": "../SluiceGate/schema.json",
+              }
+            },
+            {
+              "justDownsreamControlPoint": {
+                "description": "Description of cross section just downstream of the sluice weir which controls the flow",
+                "allOf":[
+                  {
+                    "depth":{
+                      "type": "number",
+                      "description": "A sub-property: the water depth just upstream of the sluice gate"
+                    }
+                  },
+                  {
+                    "hasCrossSection":{
+                      "description": "A sub-relationship indicating the ID of the cross section",
+                      "type": "Relationship",
+                      "$ref": "../CrossSection/schema.json"
+                    }
+                  }
                 ]
-              },"hasGate":{
+              }
+            },
+            {
+              "downsreamControlPoint": {
+                "description": "Description of cross section downstream of the sluice weir where the flow conditions become permanent",
+                "allOf":[
+                  {
+                    "depth":{
+                      "type": "number",
+                      "description": "A sub-property: the water depth just upstream of the sluice gate"
+                    }
+                  },
+                  {
+                    "hasCrossSection":{
+                      "description": "A sub-relationship indicating the ID of the cross section",
+                      "type": "Relationship",
+                      "$ref": "../CrossSection/schema.json"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "observedBy":{
                 "type": "Relationship",
-                "description": "A relationship to the ID label of the gate",
-                "$ref": "../RegulationGate/schema.json",
-              },
-              "hasSpillway":{
+                "description": "A relationship to the device that provides the gateOpening, upstreamDepth, downstreamDepth, flowRate",
+                "$ref": "../Device/schema.json",
+              }
+            },
+            {
+              "hasCrossSection":{
+                "description": "A sub-relationship indicating the ID of the cross section",
                 "type": "Relationship",
-                "description": "A relationship to the ID label of the spillway",
-                "$ref": "../Spillway/schema.json",
+                "$ref": "../CrossSection/schema.json"
+              }
+            },
+            {
+              "curveDischargeCoefficient":{
+                "description": "A relationship to the ID label of the curve that represents the discharge Coefficient as a function of relative weir opening (weir opening over upstream depth), Cd over a/H1",
+                "type": "Relationship",
+                "$ref": "../Curve/schema.json"
+              }
+            },
+            {
+              "attachedTo":{
+                "description": "A relationship to the ID of the channel or the junction where the cross-section is attached to. Reference to an entity of type Channel",
+                "type": "Relationship",
+                "$ref": "../Channel/schema.json"
               }
             }
           ],
