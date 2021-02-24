@@ -2,8 +2,8 @@
   "$schema": "http://json-schema.org/schema#",
   "$schemaVersion": "0.0",
   "$id": "# { todo } #",
-  "title": "- Sea Conditions schema",
-  "description": "This entity contains a harmonised geographic description of a Point of Interest",
+  "title": "Sea Conditions schema",
+  "description": "This entity contains a harmonised geographic description of sea conditions",
   "type": "object",
   "allOf": [
     {
@@ -20,7 +20,7 @@
           "maximum": 9,
           "description": "Property. Model:'https://schema.org/Number'. Units:'Douglas sea scale'. It indicates the height of the waves and also measures the swell of the sea."
         },
-        "seaTemperature": {
+        "surfaceTemperature": {
           "type": "number",
           "description": "Property. Model:'https://schema.org/Number'. Units:'Celsius degrees'. Sea surface temperature."
         },
@@ -32,22 +32,25 @@
           "type": "number",
           "description": "Property. Model:'https://schema.org/Number'. Units:'Seconds'. Indicates the time between the crests of a wave."
         },
-        "seapH": {
+        "pH": {
           "type": "number",
           "minimum": 0,
           "maximum": 14,
           "description": "Property. Model:'https://schema.org/Number'. Acidity or basicity of an aqueous solution."
         },
-        "seaSalinity": {
+        "salinity": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Units:'Parts per thousand'. Indicates the amount of salts dissolved in water."
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Parts per thousand'. Amount of salts dissolved in water."
+        },
+        "dateObserved":{
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat."
         }
       }
     }
   ],
   "required": [
-    "id",
-    "dateObserved",
-    "location"
+    "id"
   ]
 }
