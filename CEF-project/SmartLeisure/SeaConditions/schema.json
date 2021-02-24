@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "# { todo } #",
+  "title": "- Sea Conditions schema",
+  "description": "This entity contains a harmonised geographic description of a Point of Interest",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "waveLevel": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 9,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Douglas sea scale'. It indicates the height of the waves and also measures the swell of the sea."
+        },
+        "seaTemperature": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Celsius degrees'. Sea surface temperature."
+        },
+        "waveHeight": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Meters'. Height of the waves."
+        },
+        "wavePeriod": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Seconds'. Indicates the time between the crests of a wave."
+        },
+        "seapH": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 14,
+          "description": "Property. Model:'https://schema.org/Number'. Acidity or basicity of an aqueous solution."
+        },
+        "seaSalinity": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Parts per thousand'. Indicates the amount of salts dissolved in water."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "dateObserved",
+    "location"
+  ]
+}

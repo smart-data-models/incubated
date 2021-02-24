@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "# { todo } #",
+  "title": "Urban mobility bike lanes schema",
+  "description": "A generic public bike lane",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "laneOccupancy": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Indicates the number of bikes circulating on the bike lane."
+        },
+        "laneLength": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Indicates the length of the bike lane."
+        },
+        "laneWidth": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Indicates the width of the bike lane."
+        },
+        "dateObserved":{
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "location"
+  ]
+}
