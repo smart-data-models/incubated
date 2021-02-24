@@ -46,36 +46,51 @@
       ]
     },
     "temperature": {
-      "allOf": [
-        {
-          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
-        },
-        {
-          "properties": {
-            "value": {
-              "type": [
-                "number"
-              ]
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+          },
+          {
+            "properties": {
+              "value": {
+                "type": [
+                  "number"
+                ]
+              },
+              "unitCode": {
+                "enum": [
+                  "CEL"
+                ]
+              }
             }
           }
-        }
-      ]
+        ]      }
     },
     "relativeHumidity": {
-      "allOf": [
-        {
-          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
-        },
-        {
-          "properties": {
-            "value": {
-              "type": [
-                "number"
-              ]
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+          },
+          {
+            "properties": {
+              "value": {
+                "type": [
+                  "number"
+                ]
+              },
+              "unitCode": {
+                "enum": [
+                  "CEL"
+                ]
+              }
             }
           }
-        }
-      ]
+        ]
+      }
     },
     "addressCountry": {
       "allOf": [
@@ -102,7 +117,7 @@
           "properties": {
             "value": {
               "type": [
-                "number"
+                "string"
               ]
             }
           }
@@ -125,7 +140,7 @@
         }
       ]
     },
-    "adressType": {
+    "addressType": {
       "allOf": [
         {
           "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
@@ -153,40 +168,6 @@
         "WeatherForecast"
       ]
     },
-    "dayMinimum": {
-      "allOf": [
-        {
-          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
-        },
-        {
-          "properties": {
-            "feelsLikeTemperature": {
-              "$ref": "#/definitions/feelsLikeTemperature"
-            },
-            "temperature": {
-              "$ref": "#/definitions/temperature"
-            },
-            "relativeHumidity": {
-              "$ref": "#/definitions/relativeHumidity"
-            }
-          }
-        }
-      ],
-      "required": [
-        "type",
-        "value",
-        "feelsLikeTemperature",
-        "temperature",
-        "relativeHumidity"
-      ]
-    },
-    "feelsLikeTemperature": {
-      "$ref": "#/definitions/feelsLikeTemperature",
-      "required": [
-        "type",
-        "value"
-      ]
-    },
     "dataProvider": {
       "allOf": [
         {
@@ -211,7 +192,8 @@
       "$ref": "#/definitions/temperature",
       "required": [
         "type",
-        "value"
+        "value",
+        "datasetId"
       ]
     },
     "weatherType": {
@@ -252,33 +234,6 @@
       "required": [
         "type",
         "value"
-      ]
-    },
-    "dayMaximum": {
-      "allOf": [
-        {
-          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
-        },
-        {
-          "properties": {
-            "feelsLikeTemperature": {
-              "$ref": "#/definitions/feelsLikeTemperature"
-            },
-            "temperature": {
-              "$ref": "#/definitions/temperature"
-            },
-            "relativeHumidity": {
-              "$ref": "#/definitions/relativeHumidity"
-            }
-          }
-        }
-      ],
-      "required": [
-        "type",
-        "value",
-        "feelsLikeTemperature",
-        "temperature",
-        "relativeHumidity"
       ]
     },
     "source": {
@@ -330,7 +285,7 @@
           "properties": {
             "value": {
               "type": [
-                "number"
+                "string"
               ]
             }
           }
@@ -357,8 +312,8 @@
             "addressLocality": {
               "$ref": "#/definitions/addressLocality"
             },
-            "adressType": {
-              "$ref": "#/definitions/adressType"
+            "addressType": {
+              "$ref": "#/definitions/addressType"
             }
           }
         }
@@ -369,7 +324,7 @@
         "addressCountry",
         "postalCode",
         "addressLocality",
-        "adressType"
+        "addressType"
       ]
     },
     "relativeHumidity": {
