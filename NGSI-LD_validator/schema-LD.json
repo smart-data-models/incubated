@@ -24,26 +24,11 @@
         }
       ]
     },
-    "feelsLikeTemperature": {
-      "allOf": [
-        {
-          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
-        },
-        {
-          "properties": {
-            "value": {
-              "type": [
-                "number"
-              ]
-            },
-            "unitCode": {
-              "enum": [
-                "CEL"
-              ]
-            }
-          }
-        }
-      ]
+    "providedBy": {
+      "type": "array",
+      "items": {
+        "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+      }
     },
     "temperature": {
       "type": "array",
@@ -66,7 +51,8 @@
               }
             }
           }
-        ]      }
+        ]
+      }
     },
     "relativeHumidity": {
       "type": "array",
@@ -326,6 +312,9 @@
         "addressLocality",
         "addressType"
       ]
+    },
+    "providedBy": {
+      "$ref": "#/definitions/providedBy"
     },
     "relativeHumidity": {
       "$ref": "#/definitions/relativeHumidity"
