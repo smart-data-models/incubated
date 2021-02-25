@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "# { todo } #",
+    "title": "Greek National Water Company - Water Management System - Channel",
+    "description": "This entity contains a harmonised description of a generic water system made for raw-water supply management domain. This entity is primarily associated with the water management vertical and related IoT applications. This entity represents either a system composed by different components (e.g., channels, junctions, cross-sections etc) or just a component (e.g., simulation of a spillway)",
+    "type": "object",
+    "allOf": [
+      {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["WaterSystem"]
+            "description": "NGSI-LD Entity Type"
+          },
+          "description": {
+            "type": "string",
+            "description": "A free text description for the system",
+          },
+            "mostUpstreamPoint": {
+              "type": "Relationship",
+              "description": ""
+            },"mostDownstreamPoint": {
+              "type": "Relationship",
+              "description": ""
+            },"rightSideSlope": {
+              "type": "number",
+              "description": "The slope of the right bank of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
+            },"bottomWidth": {
+              "type": "number",
+              "description": "The bottom width of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
+            }
+          },
+          "isComposedOf": {
+            "type": "Relationship",
+            "oneOf": [
+              "$ref": "../Junction/schema.json",
+              "$ref": "../Channel/schema.json",
+              "$ref": "../CrossSection/schema.json",
+              "$ref": "../RegulationGate/schema.json",
+              "$ref": "../Spillway/schema.json",
+              "$ref": "../regulationStructure/schema.json",
+            ]
+          },
+          "hasSubSystem": {
+            "type": "Relationship",
+            "$ref": "../WaterSystem/schema.json",
+          }
+        }
+      }
+    ],
+    "required": [
+      "id",
+      "type",
+    ]
+  }
