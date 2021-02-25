@@ -1,85 +1,34 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$id": "# { todo } #",
-    "title": "Greek National Water Company - Water Management System - Channel",
-    "description": "This entity contains a harmonised description of a generic channel (reach) made for raw-water supply management domain. This entity is primarily associated with the water management vertical and related IoT applications.",
+    "title": "Greek National Water Company - Water Management System - HydraulicSimulationResult",
+    "description": "",
     "type": "object",
     "allOf": [
       {
         "properties": {
           "type": {
             "type": "string",
-            "enum": ["Channel"]
+            "enum": ["HydraulicSimulationResult"]
             "description": "NGSI-LD Entity Type"
           },
-          "tag": {
+          "dateCreated": {
+            "type": "datetime",
+            "description": "Entity creation timestamp. This will usually be allocated by the storage platform"
+          },
+          "description": {
             "type": "string",
-            "description": "An optional text used to assign the channel to a category, perhaps one based on age or the served area",
+            "description": "An optional text that describes other significant information about the simulation scenario"
           },
-          "geometry": {
-            "type": "string",
-            "enum": ["Trapezoidal", "Circular"]
-            "description": "Description of the geometry of a channel. Text defining the geometry of a channel. Values restricted to 'Trapezoidal' (for open channels) or 'Circular' (for pressurized flow).",
-            "properties": {
-              "bottomSlope": {
-                "type": "number",
-                "description": "The bottom slope of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
-            },"bottomSlope": {
-              "type": "number",
-              "description": "The bottom slope of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
-            },"leftSideSlope": {
-              "type": "number",
-              "description": "The slope of the left bank of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
-            },"rightSideSlope": {
-              "type": "number",
-              "description": "The slope of the right bank of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
-            },"bottomWidth": {
-              "type": "number",
-              "description": "The bottom width of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
-            },"maxWaterDepth": {
-              "type": "number",
-              "description": "The maximum allowable water depth of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
-            },"roughness ": {
-              "type": "number",
-              "description": "The roughness coefficient of the channel. Manning’s coefficient for open channel flows or Surface roughness k for pipe flows"
-            },"flowType": {
-              "type": "number",
-              "description": "Text defining the type of flow in the channel. Values restricted to 'free surface flow' or 'pressure-driven flow' or 'flow with steep controls'"
-            },"celerity": {
-              "type": "number",
-              "description": "velocity of a surge propagated along the channel after the opening or close of a sluice gate"
-            },"timeTravel": {
-              "type": "number",
-              "description": "the time travel of a surge from the downstream sluice gate to the upstream one"
-            },"waterLoss": {
-              "type": "number",
-              "description": "water leakages/losses - a flow number or a percentage of flow"
-            },
+          "createdBy": {
+            "[todo]"
           },
-          "length": {
-            "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+          "hasInputWaterSystem": {
+            "$ref": "../WaterSystem/schema.json"
           },
-          "diameter": {
-            "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+          "computedBy": {
+            "$ref": "../HydraulicSimulation/schema.json"
           },
-          "downstreamNode": {
-            "type": "Relationship",
-            "oneOf": [
-              "$ref": "../Junction/schema.json",
-              "$ref": "../regulationStructure/schema.json",
-            ]
-          },
-          "upstreamNode": {
-            "type": "Relationship",
-            "oneOf": [
-              "$ref": "../Junction/schema.json",
-              "$ref": "../regulationStructure/schema.json",
-            ]
-          },
-          "observedBy":{
-            "type": "Relationship",
-            "$ref": "../Device/schema.json",
-          }
         }
       }
     ],
