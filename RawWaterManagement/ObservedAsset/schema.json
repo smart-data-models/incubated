@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "# { todo } #",
+    "title": "Greek National Water Company - Water Management System - PointfMeasurement",
+    "description": "This entity contains temporal data",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": ["ObservedAsset"],
+                    "description": "NGSI-LD Entity Type"
+                },
+                "description": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "id": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "observedAt": {
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                },
+                "observedBy":{
+                  "type": "Relationship",
+                  "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json",
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "name",
+        "location",
+        "observedAt",
+        "observedBy"
+    ]
+}
