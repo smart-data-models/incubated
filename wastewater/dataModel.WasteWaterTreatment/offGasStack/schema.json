@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "schemaVersion": "0.0",
+    "$id": "https://smart-data-models.github.io/data-models/specs/WasteWaterTreatment/OffGasStack/schema.json",
+    "title": "WasteWaterTreatment - Off-gas Stack",
+    "description": "This entity contains a harmonised description of a generic Off-gas Stack made for the Wastewater treatment domain. This entity represents stacks that are present in some wastewater treatment plants where the emissions, greenhouse gases included, are emitted.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "offGasStack"
+                    ],
+                    "description": "NGSI-LD Entity Type"
+                },
+                "N2O": {
+                    "type": "number",
+                    "description": "Property. Model: https://schema.org/Number. Units: 'ppm'. N2O gas emissions from an off-gas stack entity."
+                },
+                "CO2": {
+                    "type": "number",
+                    "description": "Property. Model: https://schema.org/Number. Units: 'ppm'. CO2 gas emissions from an off-gas stack entity."
+                },
+                "CH4": {
+                    "type": "number",
+                    "description": "Property. Model: https://schema.org/Number. Units: 'ppm'. CH4 gas emissions from an off-gas stack entity."
+                },
+                "O2": {
+                    "type": "number",
+                    "description": "Property. Model: https://schema.org/Number. Units: 'ppm'. O2 gas emissions from an off-gas stack entity."
+                },
+                "startsAt": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. A relationship indicating the entity the Off Gas Stack is connected to in the upstream point."
+                },
+                "endsAt": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. A relationship indicating the entity the Off Gas Stack is connected to in the downstream point."
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type",
+        "description"
+    ]
+}

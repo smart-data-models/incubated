@@ -1,0 +1,53 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "schemaVersion": "0.0",
+    "$id": "https://smart-data-models.github.io/data-models/specs/WasteWaterTreatment/Blower/schema.json",
+    "title": "WasteWaterTreatment - Blowers",
+    "description": "This entity contains an harmonised description of a Blower made for the Wastewater treatment domain. The entity represents a Blower that are used for aeration purposes in the wastewater treatment process. Important parameters are measured to regulate and measure the amount of airflow is being provided to the aeration tank in the bioreactor. Energy consumption of a blower is also important information for real-time control and optimisation of the wastewater treatment plant.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": "string",
+                "enum": [
+                    "blower"
+                ],
+                "description": "NGSI-LD Entity Type"
+            },
+            "airflow": {
+                "type": "number",
+                "description": "Property. Model: https://schema.org/Number. Units: 'm/s'. Airflow blown by a blower."
+            },
+            "energy": {
+                "type": "number",
+                "description": "Property. Model: https://schema.org/Number. Units: 'kW'. Energy consumed by a blower."
+            },
+            "pressure": {
+                "type": "number",
+                "description": "Property. Model: https://schema.org/Number. Units: 'kPa'. Pressure measurement in the blower."
+            },
+            "airflowEstimation": {
+                "type": "number",
+                "description": "Property. Model: https://schema.org/Number. Units: m/s. Airflow estimation by AI soft sensor simulation."
+            },
+            "startsAt": {
+                "type": "string",
+                "format": "uri",
+                "description": "Relationship. A relationship indicating the entity the blower is connected to in the upstream point."
+            },
+            "endsAt": {
+                "type": "string",
+                "format": "uri",
+                "description": "Relationship. A relationship indicating the entity the blower is connected to in the downstream point."
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type",
+        "description"
+    ]
+}

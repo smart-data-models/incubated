@@ -1,0 +1,58 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "schemaVersion": "0.0",
+    "$id": "https://smart-data-models.github.io/data-models/specs/WasteWaterTreatment/WasteWaterDevice/schema.json",
+    "title": "WasteWaterTreatment - Device",
+    "description": "This entity contains an harmonised description of a Device installed in a wastewater treatmentplant. The entity represents a Device (sensors or actuators) that are used for the purpose of measuring key parameters in wastewater treatment processes.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons"
+        },
+        {
+            "property": {
+                "type": "string",
+                "enum": [
+                    "device"
+                ],
+                "description": "NGSI-LD Entity Type"
+            },
+            "category": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons/properties/category"
+            },
+            "controlledProperty": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons/properties/controlledProperty"
+            },
+            "controlledAsset": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Device/Device/schema.json#/definitions/Device-Commons/properties/controlledAsset"
+            },
+            "dateLastCalibration": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Device/Device/schema.json#/definitions/Device-Commons/properties/dateLastCalibration"
+            },
+            "dateNextCalibration": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Property. Model:'https://schema.org/DateTime'. A timestamp which denotes when the next calibration of the device will happen."
+            },
+            "deviceState": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Device/Device/schema.json#/definitions/Device-Commons/properties/deviceState"
+            },
+            "value": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Device/Device/schema.json#/definitions/Device-Commons/properties/value"
+            },
+            "refDeviceModel": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Device/Device/schema.json#/definitions/Device-Commons/properties/refDeviceModel"
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type",
+        "description",
+        "controlledProperty",
+        "controlledAsset"
+    ]
+}
