@@ -9,25 +9,27 @@
     "type": {
       "type": "string",
       "enum": [
-        "dataset"
-      ]
+        "Dataset"
+      ],
+      "description": "Property. It has to be Dataset"
     },
-    "description": {
-      "type": "string"
-    },
-    "Title": {
-      "type": "string",
-      "description": "camelCase naming convention broken for compatibility reasons"
+    "title": {
+      "type": "array",
+      "description": "Property. This property contains a name given to the Dataset. This property can be repeated for parallel language versions of the name.",
+      "items": {
+        "type": "string"
+      }
     },
     "contactPoint": {
       "type": "array",
-      "description": "vcard:Kind",
+      "description": "Property. Model:'vcard:Kind'. This property contains contact information that can be used for sending comments about the Dataset.",
       "items": {
         "type": "string"
       }
     },
     "distribution": {
       "type": "array",
+      "description": "Property. This property links the Dataset to an available Distribution. Model:'dcat:distribution'",
       "items": {
         "type": "string",
         "format": "uri"
@@ -35,23 +37,24 @@
     },
     "keyword": {
       "type": "array",
+      "description": "Property. This property contains a keyword or tag, describing the Dataset. Model:'dcat:keyword'",
       "items": {
         "type": "string"
       }
     },
     "publisher": {
-      "description": "foaf:Agent",
+      "description": "Property. Model:'foaf:Agent'. This property refers to an entity (organisation) responsible for making the Dataset available",
       "type": "string"
     },
     "spatial": {
-      "description": "dct:Location. String?",
+      "description": "Geoproperty. Model:'dct:Location'. This property refers to a geographic region that is covered by the Dataset",
       "type": "array",
       "items": {
-        "type": "string"
+        "$ref": "http://geojson.org/schema/Geometry.json#"
       }
     },
     "temporal": {
-      "description": "dct:PeriodOfTime",
+      "description": "Property. This property refers to a temporal period that the Dataset covers. Model:'dct:PeriodOfTime'",
       "type": "array",
       "items": {
         "type": "string",
@@ -59,15 +62,15 @@
       }
     },
     "theme": {
-      "description": "skos:Concept",
+      "description": "Property. Model:'dcat:theme'. This property refers to a category of the Dataset. A Dataset may be associated with multiple themes",
       "type": "array",
       "items": {
         "type": "string"
       }
     },
     "accessRights": {
-      "description": "foaf:Agent",
       "type": "string",
+      "description": "Property. Model:'foaf:Agent'. This property refers to information that indicates whether the Dataset is open data, has access restrictions or is not public. A controlled vocabulary with three members (:public, :restricted, :non-public) will be created and maintained by the Publications Office of the EU. Enum:'public, restricted, non-public'",
       "enum": [
         "public",
         "restricted",
@@ -75,11 +78,8 @@
       ]
     },
     "creator": {
-      "description": "dct:Standard",
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "type": "string",
+      "description": "Property. Model:'https://schema.org/Text'. This property refers to the entity primarily responsible for producing the catalogue"
     },
     "documentation": {
       "description": "foaf:Document",
@@ -238,6 +238,6 @@
     "id",
     "type",
     "description",
-    "Title"
+    "title"
   ]
 }
