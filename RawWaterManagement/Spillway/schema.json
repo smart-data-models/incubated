@@ -1,0 +1,131 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "# { todo } #",
+    "title": "Greek National Water Company - Water Management System - Junction ",
+    "description": "An optional text that describes other significant information about the spillway",
+    "type": "object",
+    "allOf": [
+              "location": {
+                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+              },
+              "position": {
+                  "type": "number",
+                  "measuredFrom":{
+                    "type": "Relationship",
+                    "description": ": A sub-Relationship to the ID of a node (e.g., Junction, Sluice gate, Reservoir) from which the relevant position of the cross section is measured",
+                    "oneOf":[
+                      "$ref": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Junction/schema.json",
+                      "$ref": "../SluiceGate/schema.json",
+                      "$ref": "../Reservoir/schema.json",
+                    ]
+                  }
+              },
+              {
+              "properties": {
+                  "type": {
+                      "type": "string",
+                      "enum": ["Spillway"],
+                      "description": "NGSI-LD Entity Type"
+                  },
+                  "tag": {
+                    "type": "string",
+                    "description": "An optional text used to assign the spillway to a category, perhaps one based on age or the served area",
+                  },
+                  "spillwayType": {
+                    "type": "string",
+                    "description": "The type of the spillway (the methods for computing outflow): It defines the type of the spillway. It takes specific values: 'BROAD-CRESTED', 'OGEE', 'SHARP-CRESTED' or 'SPECIFIED SPILLWAY'. In the case of “SPECIFIED SPILLWAY”, only 'elevation (m) – discharge (m3/s)' curve is required",
+                    "enum": [
+                      "Broad-Crested", "Ogee", "Sharp-Crested", "Specified Spillway"
+                    ]
+                  },
+                  "crestElevation": {
+                    "type": "string",
+                    "description": "The length of the spillway (m) equal to the total length through which water passes.  Required only for 'BROAD-CRESTED', 'OGEE' and 'SHARP-CRESTED'",
+                    "enum": [
+                      "Broad-Crested", "Ogee", "Sharp-Crested"
+                    ]
+                  },
+                  "spillwayWidth": {
+                    "type": "number",
+                    "description": "The width of the spillway (m). Only for 'BROAD-CRESTED' type",
+                  },
+                  "numberAbutments": {
+                    "type": "number",
+                    "description": "The number of abutments of an ogee spillway. Only for 'Ogee' type",
+                  },
+                  "apronElevation": {
+                    "type": "number",
+                    "description": "The elevation at the bottom of the ogee spillway structure (P, just upstream of the spillway)",
+                  },
+                  "apronLength": {
+                    "type": "number",
+                    "description": "The total length of the spillway bottom (m)",
+                  },
+                  "dischargeCoefficient": {
+                    "type": "number",
+                    "description": "the discharge coefficient (m0.5/s) accounts for energy losses as water enters the spillway, flows through the spillway, and eventually exits the spillway",
+                  },
+                  "designHead": {
+                    "type": "number",
+                    "description": "The design head is the total upstream energy head, measured above the spillway crest, for which the spillway is designed (Ho) for 'Ogee Spillway'",
+                  },
+                  "designDischargeCoefficient": {
+                    "type": "number",
+                    "description": "The discharge coefficient (Co) for the design discharge (Ho)",
+                  },
+                  "maxFloodElevation": {
+                    "type": "number",
+                    "description": "The maximum elevation of water that can passes the spillway",
+                  },
+                  "waterDischarge": {
+                    "type": "number",
+                    "description": "the discharge that passes the spillway (Q)",
+                  },"upstreamVelocity": {
+                    "type": "number",
+                    "description": "The flow velocity upstream of the spillway",
+                  },"upstreamHead": {
+                    "type": "number",
+                    "description": "The total upstream energy head",
+                  },"upstreamDepth": {
+                    "type": "number",
+                    "description": "The water depth upstream of the spillway, above the crest (H)",
+                  },
+                  "abutmentType": {
+                    "type": "string",
+                    "description": "The type of abutments of an ogee spillway. Restricted values to 'Concrete' or 'Earth'.  Only for 'Ogee' type",
+                    "enum": ["Concrete", "Earth"]
+                  },
+                  "description": {
+                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                  },
+                  "id": {
+                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                  },
+                  "cross-section": {
+                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                  }
+              }
+            },
+            {
+              "curveElevationDischarge": {
+                "type": "Relationship",
+                "description": "A relationship to the ID label of the curve that represents the elevation as a function of discharge",
+                "$ref": "https://smart-data-models.github.io/dataModel.WaterNetworkManagement/Curve/schema.json",
+              },
+              "curveDischargeCoefficient": {
+                "type": "Relationship",
+                "description": "A relationship to the ID label of the curve that represents the discharge coefficient as a function of upstream head/depth and spillway geometry. For 'BROAD-CRESTED', discharge coefficient as a function of upstream head over spillway width. For 'OGEE', C/Co over H/Ho",
+                "$ref": "https://smart-data-models.github.io/dataModel.WaterNetworkManagement/Curve/schema.json",
+              },"curveDesignDischargeCoefficient":{
+                "type": "Relationship",
+                "description": "A relationship to the ID label of the curve that represents the design discharge coefficient as a function of apron Elevation over design upstream head. Only for 'OGEE' (Co over P/ Ho)",
+                "$ref": "https://smart-data-models.github.io/dataModel.WaterNetworkManagement/Curve/schema.json",
+              }
+            }
+          ],
+    "required": [
+        "id",
+        "name",
+        "location",
+    ]
+}

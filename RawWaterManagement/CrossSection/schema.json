@@ -1,0 +1,113 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "# { todo } #",
+    "title": "Greek National Water Company - Water Management System - CrossSection ",
+    "description": "This entity contains a harmonised description of a generic cross-section made for raw-water supply management domain. This entity is primarily associated with the water management vertical and related IoT applications. Act as computation point",
+    "type": "object",
+    {
+        "properties": {
+            "type": {
+                "type": "string",
+                "enum": ["CrossSection"],
+                "description": "NGSI-LD Entity Type"
+            },
+            "tag": {
+              "type": "string",
+              "description": "An optional text used to assign the cross section to a category, perhaps one based on age or the served area",
+            },
+            "position": {
+                "type": "number",
+                "measuredFrom":{
+                  "type": "Relationship",
+                  "oneOf":[
+                    "$ref": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Junction/schema.json",
+                    "$ref": "../SluiceGate/schema.json",
+                    "$ref": "../Reservoir/schema.json",
+                  ]
+                }
+            },
+            "location": {
+              "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+            },
+            "cross-section": {
+                "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+            },"Flow": {
+              "type": "number",
+              "description": "Rate of flow in the cross-section"
+            },"Velocity": {
+              "type": "number",
+              "description": "Velocity in the cross-section"
+            },"Quality": {
+              "type": "number",
+              "description": "Quality parameter (temperature, turbidity, conductivity) in the cross-section"
+            },"Depth": {
+              "type": "number",
+              "description": "Water depth in the cross-section"
+            },"EnergyHead": {
+              "type": "number",
+              "description": "the energy head in the cross-section"
+            },"PressureHead": {
+              "type": "number",
+              "description": "for pressurized flow"
+            },"CrossSectionGeometry": {
+              "type": "string",
+              "enum": ["Trapezoidal", "Circular", "Irregular"],
+              "description": "Description of the geometry of a cross-section. Text defining the geometry of a channel. Values restricted to 'Trapezoidal' (for open channels) or 'Circular' (for pressurized flow) or 'Irregular'",
+              "properties":
+              {
+                "oneOf":[
+                  {
+                    "leftSideSlope": {
+                      "type": "number",
+                      "description": ""
+                    },"rightSideSlope": {
+                      "type": "number",
+                      "description": ""
+                    },"bottomWidth": {
+                      "type": "number",
+                      "description": ""
+                    },"maxWaterDepth": {
+                      "type": "number",
+                      "description": ""
+                    },"crossSectionCoordinates": {
+                      "type": "number",
+                      "description": ""
+                    },"leftSideSlope": {
+                      "type": "number",
+                      "description": ""
+                    },
+                  },
+                  {
+                    "copiesFrom": {
+                      "type": "Relationship",
+                      "description": "URI of a Channel component from which the value of a property is obtained",
+                      "$ref": "../Channel/schema.json"
+                    },
+                  }
+                ]
+              }
+            },"attachedTo":{
+              "type": "Relationship",
+              "description": "A relationship to the ID of the channel where the cross-section “lives in”. Reference to an entity of type Channel",
+              "$ref": "../Channel/schema.json",
+            },"observedBy":{
+              "type": "Relationship",
+              "description": "A relationship to the device that provides the flow, velocity, depth, quality and waterOutflow property value. Reference to an entity of type Device",
+              "$ref": "../Device/schema.json",
+            },"measuredFrom":{
+              "type": "Relationship",
+              "description": "A sub-Relationship to the ID of a node (e.g., Junction, Sluice gate, Reservoir) from which the relevant position of the cross section is measured",
+              "oneOf": [
+                "$ref": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Junction/schema.json",
+                "$ref": "../SluiceGate/schema.json",
+                "$ref": "../Reservoir/schema.json",
+              ]
+            }
+        } // properties
+    }
+    "required": [
+        "id",
+        "name",
+        "location",
+    ]
+}
