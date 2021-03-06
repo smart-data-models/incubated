@@ -13,8 +13,7 @@
             "description": "NGSI-LD Entity Type"
           },
           "tag": {
-            "type": "string",
-            "description": "An optional text used to assign the channel to a category, perhaps one based on age or the served area",
+            "$ref": "../RawWaterManagement-schema.json#/definitions/tag"
           },
           "geometry": {
             "type": "string",
@@ -57,24 +56,14 @@
             },
           },
           "length": {
-            "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-          },
-          "diameter": {
-            "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+            "type": "number",
+            "description": ": The length of the channel. All units are accepted in CEFACT code"
           },
           "downstreamNode": {
-            "type": "Relationship",
-            "oneOf": [
-              "$ref": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Junction/schema.json",
-              "$ref": "../regulationStructure/schema.json",
-            ]
+            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship"
           },
           "upstreamNode": {
-            "type": "Relationship",
-            "oneOf": [
-              "$ref": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Junction/schema.json",
-              "$ref": "../regulationStructure/schema.json",
-            ]
+            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship"
           },
           "observedBy":{
             "type": "Relationship",
@@ -85,6 +74,6 @@
     ],
     "required": [
       "id",
-      "type",
+      "type",      
     ]
   }

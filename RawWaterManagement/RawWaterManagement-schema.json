@@ -35,27 +35,34 @@
                 "modifiedAt": {
                     "type": "string",
                     "format": "date-time"
+                },
+                "tag":{
+                  "type": "string",
+                  "description": "An optional text used to assign the object to a category",
                 }
             },
-            "required": [
-                "type",
-                "value"
-            ]
         },
         "ngsildRelationship": {
             "type": "object",
             "properties": {
                 "type": {
                     "type": "string",
-                    "enum": [
-                        "Relationship"
-                    ]
+                    "enum": ["Relationship"]
                 },
                 "object": {
-                    "type": [
-                        "string"
-                    ],
+                    "type": ["string"],
                     "format": "uri"
+                },
+                "target":{
+                    "enum": [
+                      "Channel",
+                      "CrossSection",
+                      "RegulationGate",
+                      "regulationStructure",
+                      "Spillway",
+                      "WaterSystem",
+                      "HydraulicSimulation",
+                      "HydraulicSimulationResult"]
                 },
                 "createdAt": {
                     "type": "string",
@@ -70,9 +77,8 @@
                     "format": "date-time"
                 }
             },
-            "required": [
-                "type",
-                "object"
+            "required":[
+              "type", "object"
             ]
         }
     }
