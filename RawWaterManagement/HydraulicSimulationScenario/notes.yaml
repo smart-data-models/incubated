@@ -1,5 +1,32 @@
 notesHeader:
 
+This entity contains a harmonised description of a simulation scenario for the estimation of the optimal regulation gate settings in a raw-water system.
+
+HydraulicSimulationScenario Properties
+id: Unique identifier (required).
+description: An optional text that describes other significant information about the simulation scenario.
+Duration: Duration of the simulation, given in seconds.
+hydraulicTimeStep: Determines how often the hydraulic state of the network is calculated. Given in seconds.
+flowUnits: Units in which flow rates are expressed in the simulation. Allowable options are "CFS" (cubic feet per second), "GPM" (gallons per minute), "MGD" (million gallons per day), "IMGD" (imperial MGD), "AFD" (acre-feet per day), "LPS" (litres pre second), "LPM" (litres per minute), "MLD" (million litres per day), "CMH" (cubic metres per hour) and "CMD" (cubic metres per day).
+Values Restricted to : "CFS", "GPM", "MGD", "IMGD" (imperial MGD), "AFD", "LPS", "LPM", "MLD", "CMH", "CMD".
+startSimulationTime: Time of day at which the simulation begins. Timestamp.
+endSimulationTime: Time of day at which the simulation ends. Timestamp.
+flowConvergenceAccuracy: Criterion to determine whether the target flow has been established (difference between the real and target flow).
+targetValues: Description of the set of target values defined by the user before the simulation.
+water attribute: A sub-property (e.g., flow). A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship. It contains the target values for specified properties, defined before the simulation.
+targetURI: A sub-Relationship of the water attribute. It presents the target water node or link that will handle the modification.
+initialConditions: Description of a set of initial conditions of the water system for the simulation. A sub-property (e.g., flow). A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship. It contains the values of specified properties at the beginning of the simulation.
+targetURI: A sub-Relationship of the water attribute. It presents the target water node or link that will handle the modification.
+modelParameters: Description of a set of model parameters defined by the user.
+inputParameters: Description of the set of modifications to be applied to the water system for the simulation.
+water attribute: A sub-property. A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship.
+targetURI: A sub-Relationship of the water attribute. It presents the target water node or link that will handle the modification.
+
+HydraulicSimulationScenario Relationships
+createdBy: The ID of who created/triggered the simulation.
+hasInputWaterSystem: Reference to an entity of type “WaterSystem”. Reference to the ID of the “WaterSystem” system used in the simulation.
+hasSimulationResult: Reference to the ID of Simulation Results - an entity of type “HydraulicSimulationResult”.
+
 notesMiddle:
 
 notesFooter:
