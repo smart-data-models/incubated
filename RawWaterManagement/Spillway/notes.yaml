@@ -1,5 +1,36 @@
 notesHeader:
 
+Spillway Properties
+id: Unique identifier (required).
+description: An optional text that describes other significant information about the spillway.
+tag: An optional text used to assign the spillway to a category, perhaps one based on age or the served area.
+
+spillwayType: The type of the spillway (the methods for computing outflow): It defines the type of the spillway. It takes specific values: “BROAD-CRESTED”, “OGEE”, ”SHARP-CRESTED” or “SPECIFIED SPILLWAY”. In the case of “SPECIFIED SPILLWAY”, only “elevation (m) – discharge (m3/s)” curve is required.
+crestElevation: The crest elevation of the spillway (m). Required only for “BROAD-CRESTED”, “OGEE” and ”SHARP-CRESTED”.
+crestLength: The length of the spillway (m) equal to the total length through which water passes.  Required only for “BROAD-CRESTED”, “OGEE” and ”SHARP-CRESTED”.
+spillwayWidth: The width of the spillway (m). Only for “BROAD-CRESTED”.
+numberAbutments: The number of abutments of an ogee spillway. Only for “OGEE”.
+abutmentType: The type of abutments of an ogee spillway. Restricted values to “Concrete” or ”Earth”.  Only for “OGEE”.
+apronElevation: The elevation at the bottom of the ogee spillway structure (P, just upstream of the spillway).
+apronLength: The total length of the spillway bottom (m).
+
+dischargeCoefficient: the discharge coefficient (m0.5/s) accounts for energy losses as water enters the spillway, flows through the spillway, and eventually exits the spillway.
+designHead: The design head is the total upstream energy head, measured above the spillway crest, for which the spillway is designed (Ho) for “Ogee Spillway”.
+designDischarge: The design discharge of the spillway (m3/s). Only for “OGEE”.
+designDischargeCoefficient: the discharge coefficient (Co) for the design discharge (Ho).
+maxFloodElevation: The maximum elevation of water that can passes the spillway.
+
+waterDischarge: the discharge that passes the spillway (Q).
+upstreamVelocity: the flow velocity upstream of the spillway.
+upstreamHead: the total upstream energy head.
+upstreamDepth: the water depth upstream of the spillway, above the crest (H).
+
+Spillway Relationships
+curveElevationDischarge: A relationship to the ID label of the curve that represents the elevation as a function of discharge.
+curveDischargeCoefficient: A relationship to the ID label of the curve that represents the discharge coefficient as a function of upstream head/depth and spillway geometry. For “BROAD-CRESTED”, discharge coefficient as a function of upstream head over spillway width. For “OGEE”, C/Co over H/Ho.
+curveDesignDischargeCoefficient: A relationship to the ID label of the curve that represents the design discharge coefficient as a function of apron Elevation over design upstream head. Only for “OGEE” (Co over P/ Ho). 
+
+
 notesMiddle:
 
 notesFooter:

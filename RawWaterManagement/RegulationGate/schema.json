@@ -9,16 +9,7 @@
                 "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
               },
               "position": {
-                  "type": "number",
-                  "measuredFrom":{
-                    "type": "Relationship",
-                    "description": ": A sub-Relationship to the ID of a node (e.g., Junction, Sluice gate, Reservoir) from which the relevant position of the cross section is measured",
-                    "oneOf":[
-                      "$ref": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Junction/schema.json",
-                      "$ref": "../SluiceGate/schema.json",
-                      "$ref": "../Reservoir/schema.json",
-                    ]
-                  }
+                "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship"
               },
               {
               "properties": {
@@ -28,8 +19,7 @@
                       "description": "NGSI-LD Entity Type"
                   },
                   "tag": {
-                    "type": "string",
-                    "description": ": An optional text used to assign the regulation gate to a category, perhaps one based on age or the served area",
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/tag"
                   },
                   "gateType": {
                     "type": "string",
@@ -44,7 +34,7 @@
                     "type": "number",
                     "description": "the height of gate opening (in meters or percentage)",
                     "Unit": {
-                      "type": "property",
+                      "type": "string",
                       "enum": ["m", "%"]
                     }
                   },
@@ -73,15 +63,6 @@
                     "enum": ["Overflow", "Free Flow", "Submerged Flow"]
                     "description": "It defines the flow conditions in the gate. It takes the values: 'OVERFLOW' (upstream water level exceeds the weir crest level), 'FREE-FLOW' (water level is lower than gate edge), 'SUBMERGED FLOW' (the rate of flow passing through the gate is regulated by the opening of the gate)",
                   },
-                  "description": {
-                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                  },
-                  "id": {
-                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                  },
-                  "cross-section": {
-                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                  }
               }
             },
             {
@@ -175,7 +156,6 @@
           ],
     "required": [
         "id",
-        "name",
         "location",
     ]
 }

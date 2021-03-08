@@ -11,13 +11,7 @@
               "position": {
                   "type": "number",
                   "measuredFrom":{
-                    "type": "Relationship",
-                    "description": ": A sub-Relationship to the ID of a node (e.g., Junction, Sluice gate, Reservoir) from which the relevant position of the cross section is measured",
-                    "oneOf":[
-                      "$ref": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Junction/schema.json",
-                      "$ref": "../SluiceGate/schema.json",
-                      "$ref": "../Reservoir/schema.json",
-                    ]
+                    "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship"
                   }
               },
               {
@@ -28,8 +22,7 @@
                       "description": "NGSI-LD Entity Type"
                   },
                   "tag": {
-                    "type": "string",
-                    "description": "An optional text used to assign the spillway to a category, perhaps one based on age or the served area",
+                    "$ref": "../RawWaterManagement-schema.json#/definitions/tag"
                   },
                   "spillwayType": {
                     "type": "string",
@@ -98,12 +91,6 @@
                   "description": {
                       "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                   },
-                  "id": {
-                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                  },
-                  "cross-section": {
-                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                  }
               }
             },
             {
@@ -125,7 +112,6 @@
           ],
     "required": [
         "id",
-        "name",
         "location",
     ]
 }
