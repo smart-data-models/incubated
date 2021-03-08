@@ -11,13 +11,7 @@
               "position": {
                   "type": "number",
                   "measuredFrom":{
-                    "type": "Relationship",
-                    "description": ": A sub-Relationship to the ID of a node (e.g., Junction, Sluice gate, Reservoir) from which the relevant position of the cross section is measured",
-                    "oneOf":[
-                      "$ref": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Junction/schema.json",
-                      "$ref": "../SluiceGate/schema.json",
-                      "$ref": "../Reservoir/schema.json",
-                    ]
+                    "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship"
                   }
               },
               {
@@ -57,21 +51,11 @@
             {
               "downstreamNode": {
                 "type": "Relationship",
-                "oneOf": [
-                  "$ref": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Junction/schema.json",
-                  "$ref": "../Channel/schema.json",
-                  "$ref": "../Spillway/schema.json",
-                  "$ref": "../SluiceGate/schema.json",
-                ]
+                "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship"
               },
               "upstreamNode": {
                 "type": "Relationship",
-                "oneOf": [
-                  "$ref": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Junction/schema.json",
-                  "$ref": "../Channel/schema.json",
-                  "$ref": "../Spillway/schema.json",
-                  "$ref": "../SluiceGate/schema.json",
-                ]
+                "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship"
               },"hasGate":{
                 "type": "Relationship",
                 "description": "A relationship to the ID label of the gate",
