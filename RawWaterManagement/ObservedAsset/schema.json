@@ -15,25 +15,33 @@
                     "enum": ["ObservedAsset"],
                     "description": "NGSI-LD Entity Type"
                 },
-                "description": {
-                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                },
-                "id": {
-                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                },
                 "observedAt": {
                     "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
                 },
-                "observedBy":{
+                "observedBy": {
                   "type": "Relationship",
                   "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json",
+                },
+                "monitoredProperty": {
+                  "type": "string",
+                  "enum": [
+                    "Water level",
+                    "Gate Opening",
+                    "Water flow",
+                    "Water temperature",
+                    "Average Velocity",
+                    "Specific Conductivity",
+                    "Turbidity",
+                    "Battery supply",
+                    "Water velocity",
+                  ]
                 }
             }
         }
     ],
     "required": [
         "id",
-        "name",
+        "monitoredProperty",
         "location",
         "observedAt",
         "observedBy"
