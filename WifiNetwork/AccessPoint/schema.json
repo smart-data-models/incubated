@@ -8,88 +8,129 @@
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
     },
-	{
+    {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
-	{
+    {
       "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons"
     },
-	{
-	  "properties": {
-	    "type": {
+    {
+      "properties": {
+        "type": {
           "type": "string",
-	      "enum": ["AccessPoint"],
-          "description": "NGSI Entity type"
+          "enum": [
+            "AccessPoint"
+          ],
+          "description": "Property. NGSI Entity type. It has to be AccessPoint"
         },
-	    "apState": {
+        "apState": {
           "type": "string",
-	      "enum": ["up","down"]
+          "enum": [
+            "up",
+            "down"
+          ],
+          "description": "Property. Model:'https://schema.org/Text'. Enum:'up, down'. Status of availability "
         },
-	    "clientsConnected": {
+        "clientsConnected": {
           "type": "number",
-	      "minimum": 0
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Number of people connected to the Access Point"
         },
-	    "ssid": {
+        "ssid": {
           "type": "array",
-	      "items": {
+          "description": "Property. Model:'https://schema.org/Text'. ",
+          "items": {
             "type": "string"
           }
         },
-	    "service": {
+        "service": {
           "type": "array",
+          "description": "Property. Model:'https://schema.org/Text'. ",
           "items": {
             "type": "string"
           }
         },
         "refPointOfInterest": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Model:'https://schema.org/URL'. Reference to the point of interest"
+        },
+        "TimeInstant": {
           "type": "string",
-	      "$ref": "https://smart-data-models.github.io/dataModel.WifiNetwork/WifiPointOfInterest/schema.json"
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. "
         },
-		"TimeInstant": {
+        "email": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/email"
+        },
+        "dateInstalled": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'."
         },
-	    "contactPoint": {
-          "type": "string"
-        },
-		"dateInstalled": {
+        "dateLastReboot": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'."
         },
-	    "dateLastReboot": {
+        "dateLastValueReported": {
           "type": "string",
-	      "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'."
         },
-		"dateLastValueReported": {
+        "firmwareVersion": {
           "type": "string",
-	      "format": "date-time"
+          "description": "Property. Model:'https://schema.org/Text'."
         },
-		"firmwareVersion": {
-          "type": "string"
+        "hardwareVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
         },
-		"hardwareVersion": {
-          "type": "string"
+        "ipAddress": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
         },
-		"ipAddress": {
-		  "type": "string"
+        "macAddress": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
         },
-		"modelName": {
-          "type": "string"
+        "modelName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
         },
-		"osVersion": {
-          "type": "string"
+        "osVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
         },
-		"provider": {
-          "type": "string"
+        "serialNumber": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
         },
-		"serialNumber": {
-          "type": "string"
-        },
-		"softwareVersion": {
-          "type": "string"
+        "softwareVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
         }
-	  }
-	}
+      }
+    }
   ],
-  "required": ["id", "type", "name", "address", "location",	"clientsConnected"]
+  "required": [
+    "id",
+    "type",
+    "name",
+    "address",
+    "location",
+    "clientsConnected"
+  ]
 }
