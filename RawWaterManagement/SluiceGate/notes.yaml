@@ -1,14 +1,14 @@
 notesHeader:
-This entity contains a harmonised description of a generic “RegulationGate” made for raw-water supply management domain. Regulation structure consists a junction type object, controlling flow in a channel.
+This entity contains a harmonised description of a generic Sluice Gate made for raw-water supply management of open-channel systems.
 
-RegulationGate Entity Properties
+SluiceGate Entity Properties
 id: Unique identifier (required).
 description: An optional text that describes other significant information about the regulation gate.
 tag: An optional text used to assign the regulation gate to a category, perhaps one based on age or the served area.
 
 gateType: The type of the gate: specific values “SLUICE-GATE” or “RADIAL-GATE”.
 gateWidth: the width of the sluice gate (m).
-gateOpening: the height of gate opening (in meters or percentage). 
+gateOpening: the height of gate opening (in meters or percentage).
 gateBottomElevation: Elevation of the bottom (crest) of the gate.
 flowType: It defines the flow conditions in the gate. It takes the values: “OVERFLOW” (upstream water level exceeds the weir crest level), “FREE-FLOW” (water level is lower than gate edge),”SUBMERGED FLOW” (the rate of flow passing through the gate is regulated by the opening of the gate).
 gateDischargeCoefficient: Gate discharge coefficient (m0.5/s) accounts for energy losses as water passes under the gate.
@@ -25,7 +25,7 @@ downstreamControlPoint: Description of cross section downstream of the sluice we
 depth: A sub-property: the water depth just downstream of the sluice gate.
 hasCrossSection: A sub-relationship indicating the ID of the cross section.
 
-RegulationGate Entity Relationships
+SluiceGate Entity Relationships
 observedBy: A relationship to the device that provides the gateOpening, upstreamDepth, downstreamDepth, flowRate. Reference to an entity of type Device.
 hasCrossSection: A sub-relationship indicating the ID of the cross section.
 curveDischargeCoefficient: A relationship to the ID label of the curve that represents the discharge Coefficient as a function of relative weir opening (weir opening over upstream depth), Cd over a/H1..

@@ -1,16 +1,18 @@
 notesHeader:
 
+This entity contains a harmonised description of a simulation result for the estimation of the optimal regulation gate settings in a raw-water system.
+
 HydraulicSimulationResult Properties
 id (e.g., "urn:ngsi-ld: HydraulicSimulationScenario: 01")
-type
-description (A free text description for the system).
+type:
+description: (A free text description for the system).
 dateCreated: Entity creation timestamp. This will usually be allocated by the storage platform.
 output Parameters: Description of the set of results from a simulation applied to a water system.
 water attribute: A sub-property. A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship. It contains the results of the simulation.
 
 HydraulicSimulationResult Relationships
 createdBy: The ID of who created/triggered the simulation.
-hasInputWaterSystem: Reference to an entity of type “WaterSystem”. Reference to the ID of the “WaterSystem” system used in the simulation.
+hasInputOpenChannelSystem: Reference to an entity of type “WaterSystem”. Reference to the ID of the “WaterSystem” system used in the simulation.
 refHydraulicSimulationScenario: Reference to an entity of type “HydraulicSimulationScenario”. Reference to the ID of the Hydraulic simulation scenario.
 computedBy : URI of network component with a simulated property value. A sub-relationship of the water attribute Property. Relationship (Mandatory)
 
