@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema#",
   "$schemaVersion": "0.0",
   "$id": "# { todo } #",
-  "title": "Enviroment conditions schema",
+  "title": "Environment conditions schema",
   "description": "This entity contains a harmonised description of weather and air quality conditions",
   "type": "object",
   "allOf": [
@@ -13,19 +13,21 @@
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
     {
-      "$ref": "https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/schema.json#/allOf/properties"
-    },
-    {
-      "$ref": "https://smart-data-models.github.io/dataModel.Environment/AirQualityObserved/schema.json#/allOf/properties"
+      "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-Commons"
     },
     {
     "properties": {
         "type": {
           "type": "string",
           "enum": [
-            "EnviromentConditions"
+            "EnvironmentConditions"
           ],
-          "description": "Property. NGSI-LD Entity Type. It has to be EnviromentConditions"
+          "description": "Property. NGSI-LD Entity Type. It has to be EnvironmentConditions"
+        },
+        "airQualityIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Air quality index is a number used to report the quality of the air on any given day."
         }
       }
     }
