@@ -16,37 +16,42 @@
         "type": {
           "type": "string",
 	      "enum": ["WifiPointOfInterest"],
-          "description": "NGSI Entity type"
+          "description": "Property. NGSI Entity type. it has to be WifiPointOfInterest"
         },    
 	    "clientsConnected": {
           "type": "number",
-	      "minimum": 0
+	      "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Number of people connected to the Access Point"
         },	
 	    "wifiStatus": {
           "type": "string",
-	      "enum": ["noService", "working", "workingPartially", "totalFailure"]
+	      "enum": ["noService", "working", "workingPartially", "totalFailure"],
+                    "description": "Property. Model:'https://schema.org/Text'. Status of availability of the Access Point"
         },
 	    "service": {
           "type": "array",
+          "description": "Property. Model:'https://schema.org/Number'. ",
           "items": {
             "type": "string"
           }
         },
-		"TimeInstant": {
+		"timeInstant": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. "
         },		
 	    "category": {
           "type": "array",
+          "description": "Property. Model:'https://schema.org/Number'. ",
           "items": {
             "type": "string"
           }
         },
-		"contactPoint": {
-          "type": "string"
+		"email": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/defintions/email"
         }
       }
 	}
   ],
-  "required": ["id", "type", "name", "address", "location", "clientsConnected"]
+  "required": ["id", "type"]
 }
