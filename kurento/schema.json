@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "id": "https://fiware.github.io/dataModels/specs/Media/MediaEvent/schema.json",
+  "title": "Smart Data Models - Media / Media Event",
+  "description": "Base for all events raised by elements in the media server",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "MediaEvent"
+          ],
+          "description": "Property. NGSI Entity type. It has to be MediaEvent"
+        },
+        "eventType": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. ...."
+        },
+        "mediaSource": {
+          "$ref": "https://smart-data-models.github.io/MultiMedia/MultiMedia-schema.json#/definitions/mediaSource"
+        },
+        "data": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/StructuredValue'. ...."
+        },
+        "deviceSource": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Property. Model:'https://schema.org/URL'. ...."
+        },
+        "observedEntities": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/StructuredValue'. ....",
+          "items": {
+            "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/EntityIdentifierType"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "eventType",
+    "dateCreated"
+  ]
+}
