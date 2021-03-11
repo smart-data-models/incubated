@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0",
+    "$id": "# { todo } #",
+    "title": " Smart Data Models - vibrations Observed",
+    "description": "the vibrations observed in a specific place.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+        "properties": {
+            "type": {
+                "type": "string",
+                "enum": [
+                  "VibrationsObserved"
+                ],
+                "description": "Property. NGSI-LD Entity Type. It has to be VibrationsObserved"
+              },
+            "dateObserved": {
+                "type": "string",
+                "description": "Property. Date and time of the observation in ISO8601"
+            },
+            "accelerationMeasured": {
+                "type": "number",
+                "description": "Property. Model:'https://schema.org/Number'. Magntiude of the vibrations observed (e.g. Earthquake) or other floor movements"
+            },
+            "units": {
+                "type": "string",
+                "enum": [
+                    "m/s2"
+                  ],
+                "description": "Property. Model:'https://schema.org/Text'. The units used to measure the vibrations.It has to be m/s2 "
+            }
+        }
+        }
+    ],
+    "required": ["id","dateObserved","accelerationMeasured"]
+}
