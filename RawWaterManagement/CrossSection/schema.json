@@ -16,11 +16,12 @@
         "position": {
             "type": "number",
             "measuredFrom":{
-              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship"
+              "type": "object",
+              "description": "Description of relevant position of a cross section from a reference point",
+              "properties":{
+                "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+              }
             }
-        },
-        "location": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
         },
         "cross-section": {
             "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
@@ -65,37 +66,39 @@
                 },"crossSectionCoordinates": {
                   "type": "number",
                   "description": ""
-                },"leftSideSlope": {
-                  "type": "number",
-                  "description": ""
-                },
+                }
               },
               {
                 "copiesFrom": {
-                  "type": "Relationship",
                   "description": "URI of a Channel component from which the value of a property is obtained",
-                  "$ref": "../Channel/schema.json"
-                },
+                  "type": "object",
+                  "properties":{
+                    "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+                  }
+                }
               }
             ]
           }
-        },"attachedTo":{
-          "type": "Relationship",
-          "description": "A relationship to the ID of the channel where the cross-section “lives in”. Reference to an entity of type Channel",
-          "$ref": "../Channel/schema.json",
-        },"observedBy":{
-          "type": "Relationship",
-          "description": "A relationship to the device that provides the flow, velocity, depth, quality and waterOutflow property value. Reference to an entity of type Device",
-          "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json",
-        },"measuredFrom":{
-          "type": "Relationship",
-          "description": "A sub-Relationship to the ID of a node (e.g., Junction, Sluice gate, Reservoir) from which the relevant position of the cross section is measured",
-          "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship"
+        },
+        "attachedTo":{
+          "type": "String",
+          "format": "uri",
+          "description": "A relationship to the ID of the channel where the cross-section “lives in”. Reference to an entity of type Channel"
+        },
+        "observedBy":{
+          "type": "String",
+          "description": "Relationship. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'",
+          "format": "uri"
+        },
+        "measuredFrom":{
+          "type": "String",
+          "format": "uri",
+          "description": "A sub-Relationship to the ID of a node (e.g., Junction, Sluice gate, Reservoir) from which the relevant position of the cross section is measured"
         }
     },
     "required": [
         "id",
         "name",
-        "location",
+        "location"
     ]
 }

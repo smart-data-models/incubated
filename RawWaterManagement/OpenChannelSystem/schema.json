@@ -9,12 +9,12 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": ["OpenChannelSystem"]
+            "enum": ["OpenChannelSystem"],
             "description": "NGSI-LD Entity Type"
           },
           "description": {
             "type": "string",
-            "description": "A free text description for the system",
+            "description": "A free text description for the system"
           },
             "mostUpstreamPoint": {
               "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship"
@@ -29,17 +29,18 @@
             }
           },
           "isComposedOf": {
+            "description": "Reference to the ID of an entity of type Channel, cross-section, Junction, Regulation structure, Regulation gate, Spillway.",
             "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship"
           },
           "hasSubSystem": {
-            "type": "Relationship",
-            "$ref": "../OpenChannelSystem/schema.json",
+            "type": "String",
+            "format": "uri",
+            "description": "Relationship. Model: '../OpenChannelSystem/schema.json'. Reference to the ID of a water sub-system, considered as a water system - an entity of type WaterSystem."
           }
         }
-      }
     ],
     "required": [
       "id",
-      "type",
+      "type"
     ]
   }
