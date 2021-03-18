@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.MLModel/MLModel/schema.json",
+  "title": " Smart Data Models - Machine Learning Model",
+  "description": "Data model for compilation of the elements of a machine learning model.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "typeOfAlgorithm": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. enumeration"
+        },
+        "inputDataSources": {
+          "type": "object",
+          "description": "Property. Current flooding level indicated by the sensing station corresponding to this observation, computed using referenceLevel and measuredDistance(currentLevel = referenceLevel - measuredDistance).",
+          "properties": {
+            "datasource": {
+              "type": "string",
+              "format": "uri"
+            },
+            "dataFormat": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "outputDataSources": {
+          "type": "object",
+          "description": "Property. Reference danger level threshold value set for the sensing station corresponding to this observation. Flood level status is marked danger if the current level crosses the danger level threshold value.",
+          "properties": {
+            "properties": {
+              "datasource": {
+                "type": "string",
+                "format": "uri"
+              },
+              "dataFormat": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
