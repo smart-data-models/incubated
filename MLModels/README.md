@@ -1,0 +1,2 @@
+Directory for gathering of data models compiling the needs of ML (machine learning) algorithms to be applied for the data 
+It is not for the definition of the algorithms (but for identifying the name, input, output, etc)
