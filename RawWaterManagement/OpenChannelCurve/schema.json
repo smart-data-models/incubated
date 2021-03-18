@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "# { todo } #",
+    "title": "Open Channel Management - HydraulicSimulationResult",
+    "description": "[todo] made for Open Channel Management (raw-water systems)",
+    "type": "object",
+    "allOf": [
+      {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["HydraulicSimulationResult"],
+            "description": "NGSI-LD Entity Type"
+          },
+          "dateCreated": {
+            "type": "datetime",
+            "description": "Entity creation timestamp. This will usually be allocated by the storage platform"
+          },
+          "description": {
+            "type": "string",
+            "description": "An optional text that describes other significant information about the simulation scenario"
+          },
+          "createdBy": {
+            "description": "todo!"
+          },
+          "hasInputOpenChannelSystem": {
+            "$ref": "../OpenChannelSystem/schema.json"
+          },
+          "computedBy": {
+            "$ref": "../HydraulicSimulation/schema.json"
+          }
+        }
+      }
+    ],
+    "required": [
+      "id",
+      "type",
+      "computedBy"
+    ]
+  }
