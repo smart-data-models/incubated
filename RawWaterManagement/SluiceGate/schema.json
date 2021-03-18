@@ -67,84 +67,42 @@
         },
         "upstreamEndControlPoint": {
           "type": "object",
-          "description": "Description of cross section just upstream of the sluice weir which controls the flow",
-          "allOf":[
-            {
-              "depth":{
-                "type": "number",
-                "description": "A sub-property: the water depth just upstream of the sluice gate"
-              }
-            },
-            {
-              "hasCrossSection":{
-                "description": "A sub-relationship indicating the ID of the cross section",
-                "$ref": "../CrossSection/schema.json"
-              }
+          "description": "A relationship indicating the ID of the cross section just upstream of the sluice gate",
+            "properties":{
+              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
             }
-          ]
         },
-        "justDownsreamControlPoint": {
-          "description": "Description of cross section just downstream of the sluice weir which controls the flow",
-          "allOf":[
-            {
-              "depth":{
-                "type": "number",
-                "description": "A sub-property: the water depth just upstream of the sluice gate"
-              }
-            },
-            {
-              "hasCrossSection":{
-                "description": "A sub-relationship indicating the ID of the cross section",
-                "type": "object",
-                "properties":{
-                  "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
-                }
-              }
+        "downsreamEndControlPoint": {
+          "description": "A relationship indicating the ID of the cross section just downstream of the sluice gate",
+          "type": "object",
+            "properties":{
+              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
             }
-          ]
+        },
+        "upstreamControlPoint": {
+          "type": "object",
+          "description": "A relationship indicating the ID of the cross section in a distance where the flow conditions are permanent, upstream of the sluice gate",
+            "properties":{
+              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+            }
         },
         "downsreamControlPoint": {
-          "description": "Description of cross section downstream of the sluice weir where the flow conditions become permanent",
-          "allOf":[
-            {
-              "depth":{
-                "type": "number",
-                "description": "A sub-property: the water depth just upstream of the sluice gate"
-              }
-            },
-            {
-              "hasCrossSection":{
-                "description": "A sub-relationship indicating the ID of the cross section",
-                "type": "object",
-                "properties":{
-                  "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
-                }
-              }
+          "description": "A relationship indicating the ID of the cross section in a distance where the flow conditions are permanent, downstream of the sluice gate",
+          "type": "object",
+            "properties":{
+              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
             }
-          ]
         },
         "observedBy":{
           "type": "String",
-          "description": "Relationship. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'",
+          "description": "Property. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'",
           "format": "uri"
         },
-        "hasCrossSection":{
-          "description": "A sub-relationship indicating the ID of the cross section",
-          "type": "object",
-          "properties":{
-            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
-          }
-        },
         "curveDischargeCoefficient":{
-          "description": "Relationship. Model:'https://smart-data-models.github.io/dataModel.WaterNetworkManagement/Curve/schema.json'. The ID label of the curve that represents the discharge Coefficient as a function of relative weir opening (weir opening over upstream depth), Cd over a/H1",
+          "description": "Property. Model:'../OpenChannelCurve/schema.json'. The ID label of the curve that represents the discharge Coefficient as a function of relative weir opening (weir opening over upstream depth), Cd over a/H1",
           "type": "String",
           "format": "uri"
         },
-        "attachedTo":{
-          "description": "A relationship to the ID of the channel or the junction where the cross-section is attached to. Reference to an entity of type Channel",
-          "type": "Relationship",
-          "$ref": "../Channel/schema.json"
-        }
       }
     ],
     "required": [
