@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$id": "# { todo } #",
-    "title": "Greek National Water Company - Water Management System - CrossSection ",
-    "description": "This entity contains a harmonised description of a generic cross-section made for raw-water supply management domain. This entity is primarily associated with the water management vertical and related IoT applications. Act as computation point",
+    "title": "Open Channel Management - CrossSection ",
+    "description": "This entity contains a harmonised description of a generic cross-section made for Open Channel Management (raw-water systems). CrossSection defines any point of the system where water-related properties are monitored or computed.",
     "type": "object",
       "properties": {
         "type": {
@@ -17,7 +17,7 @@
             "type": "number",
             "measuredFrom":{
               "type": "object",
-              "description": "Description of relevant position of a cross section from a reference point",
+              "description": "Description of relevant position of a cross section from a reference point (e.g., the most upstream point of the system)",
               "properties":{
                 "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
               }
@@ -25,47 +25,64 @@
         },
         "cross-section": {
             "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-        },"flow": {
+        },"waterFlow": {
           "type": "number",
-          "description": "Rate of flow in the cross-section"
-        },"velocity": {
+          "minimum" : "0",
+          "description": "Rate of water flow in the cross-section"
+        },"waterVelocity": {
           "type": "number",
+          "minimum" : "0",
           "description": "Velocity in the cross-section"
-        },"quality": {
+        },"waterTemperature": {
           "type": "number",
-          "description": "Quality parameter (temperature, turbidity, conductivity) in the cross-section"
-        },"depth": {
+          "description": "Quality parameter (temperature) in the cross-section"
+        },"turbidity":{
           "type": "number",
-          "description": "Water depth in the cross-section"
+          "minimum" : "0",
+          "description": "Quality parameter (turbidity) in the cross-section"
+        },"specificConductivity": {
+          "type": "number",
+          "minimum" : "0",
+          "description": "Quality parameter (conductivity) in the cross-section"
+        },"waterLevel": {
+          "type": "number",
+          "minimum" : "0",
+          "description": "Water level in the cross-section"
         },"energyHead": {
           "type": "number",
           "description": "the energy head in the cross-section"
-        },"pressureHead": {
-          "type": "number",
-          "description": "for pressurized flow"
         },"CrossSectionGeometry": {
           "type": "string",
-          "enum": ["Trapezoidal", "Circular", "Irregular"],
-          "description": "Description of the geometry of a cross-section. Text defining the geometry of a channel. Values restricted to 'Trapezoidal' (for open channels) or 'Circular' (for pressurized flow) or 'Irregular'",
+          "enum": ["Trapezoidal", "Circular"],
+          "description": "Description of the geometry of a cross-section. Text defining the geometry of a CrossSection. Values restricted to 'Trapezoidal' or 'Circular'.",
           "properties":
           {
             "oneOf":[
               {
-                "leftSideSlope": {
+                "bottomSlope": {
                   "type": "number",
-                  "description": ""
+                  "minimum" : "0",
+                  "description": "The bottom slope of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
+                },"leftSideSlope": {
+                    "type": "number",
+                    "minimum" : "0",
+                    "description": "The slope of the left bank of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
                 },"rightSideSlope": {
-                  "type": "number",
-                  "description": ""
+                    "type": "number",
+                    "minimum" : "0",
+                    "description": "The slope of the right bank of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
                 },"bottomWidth": {
-                  "type": "number",
-                  "description": ""
+                    "type": "number",
+                    "minimum" : "0",
+                    "description": "The bottom width of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
+                },"diameter": {
+                    "type": "number",
+                    "minimum" : "0",
+                    "description": "The diameter of a circular channel"
                 },"maxWaterDepth": {
-                  "type": "number",
-                  "description": ""
-                },"crossSectionCoordinates": {
-                  "type": "number",
-                  "description": ""
+                    "type": "number",
+                    "minimum" : "0",
+                    "description": "The maximum allowable water depth of the channel. All units are accepted in CEFACT code"
                 }
               },
               {
@@ -81,19 +98,15 @@
           }
         },
         "attachedTo":{
-          "type": "String",
-          "format": "uri",
-          "description": "A relationship to the ID of the channel where the cross-section “lives in”. Reference to an entity of type Channel"
+          "type": "object",
+          "description": "A relationship to the ID of the channel where the cross-section 'lives in'. Reference to an entity of type Channel",
+          "properties":{
+            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
         },
         "observedBy":{
           "type": "String",
           "description": "Relationship. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'",
           "format": "uri"
-        },
-        "measuredFrom":{
-          "type": "String",
-          "format": "uri",
-          "description": "A sub-Relationship to the ID of a node (e.g., Junction, Sluice gate, Reservoir) from which the relevant position of the cross section is measured"
         }
     },
     "required": [

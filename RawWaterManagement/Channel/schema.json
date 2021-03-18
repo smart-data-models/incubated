@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$id": "# { todo } #",
-    "title": "Greek National Water Company - Water Management System - Channel",
-    "description": "This entity contains a harmonised description of a generic channel (reach) made for raw-water supply management domain. This entity is primarily associated with the water management vertical and related IoT applications.",
+    "title": "Open Channel Management - Channel",
+    "description": "This entity contains a harmonised description of a generic channel made for Open Channel Management (raw-water systems)",
     "type": "object",
       "properties": {
         "type": {
@@ -14,52 +14,69 @@
             "$ref": "../RawWaterManagement-schema.json#/definitions/tag"
           },
         "geometry": {
-            "description": "Description of the geometry of a channel. Text defining the geometry of a channel. Values restricted to 'Trapezoidal' (for open channels) or 'Circular' (for pressurized flow).",
+            "description": "Description of the geometry of a channel. Text defining the geometry of a channel. Values restricted to 'Trapezoidal' or 'Circular'",
             "type": "object",
-            "enum": ["Trapezoidal", "Circular"],
             "properties": {
-                "bottomSlope": {
+                "geometryType":{
+                  "type": "string",
+                  "enum": ["Trapezoidal", "Circular"]
+                },"bottomSlope": {
                   "type": "number",
+                  "minimum" : "0",
                   "description": "The bottom slope of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
                 },"leftSideSlope": {
                     "type": "number",
+                    "minimum" : "0",
                     "description": "The slope of the left bank of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
                 },"rightSideSlope": {
                     "type": "number",
+                    "minimum" : "0",
                     "description": "The slope of the right bank of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
                 },"bottomWidth": {
                     "type": "number",
+                    "minimum" : "0",
                     "description": "The bottom width of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
+                },"diameter": {
+                    "type": "number",
+                    "minimum" : "0",
+                    "description": "The diameter of a circular channel"
                 },"maxWaterDepth": {
                     "type": "number",
-                    "description": "The maximum allowable water depth of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
-                },"roughness ": {
+                    "minimum" : "0",
+                    "description": "The maximum allowable water depth of the channel. All units are accepted in CEFACT code"
+                },"roughnessCoefficient": {
                     "type": "number",
-                    "description": "The roughness coefficient of the channel. Manning’s coefficient for open channel flows or Surface roughness k for pipe flows"
+                    "minimum" : "0",
+                    "description": "The Manning’s roughness coefficient for free surface flow"
                 },"flowType": {
-                    "type": "number",
-                    "description": "Text defining the type of flow in the channel. Values restricted to 'free surface flow' or 'pressure-driven flow' or 'flow with steep controls'"
+                    "type": "string",
+                    "description": "Enum: 'Free-Surface flow'. Text defining the type of flow in the channel",
+                    "enum": ["Free-Surface flow"]
                 },"celerity": {
                     "type": "number",
-                    "description": "velocity of a surge propagated along the channel after the opening or close of a sluice gate"
-                },"timeTravel": {
+                    "minimum" : "0",
+                    "description": "Velocity of a surge propagated along the channel after the opening or close of a sluice gate"
+                },"travelDuration": {
                     "type": "number",
-                    "description": "the time travel of a surge from the downstream sluice gate to the upstream one"
+                    "minimum" : "0",
+                    "description": "The duration of the surge which travels from the downstream junction (sluice gate) to the upstream junction (sluice gate)"
                 },"waterLoss": {
                     "type": "number",
+                    "minimum" : "0",
                     "description": "water leakages/losses - a flow number or a percentage of flow"
                 },"length": {
                     "type": "number",
+                    "minimum" : "0",
                     "description": "The length of the channel. All units are accepted in CEFACT code"
                 },"downstreamNode": {
-                    "description": "A relationship indicating the ID of the downstream node (junction, regulation structure) – where the channel ends",
+                    "description": "A relationship indicating the ID of the downstream node (junction, regulation structure) – where a channel ends",
                     "type": "object",
                     "properties":{
                       "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
                     }
                   },
                   "upstreamNode": {
-                    "description": "A relationship indicating the ID of the upstream node (junction, regulation structure) – where the channel begins",
+                    "description": "A relationship indicating the ID of the upstream node (junction, regulation structure) – where a channel begins",
                     "type": "object",
                     "properties":{
                       "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"

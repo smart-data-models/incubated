@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$id": "# { todo } #",
-    "title": "Greek National Water Company - Water Management System - Channel",
-    "description": "This entity contains a harmonised description of a generic water system made for raw-water supply management domain. This entity is primarily associated with the water management vertical and related IoT applications. This entity represents either a system composed by different components (e.g., channels, junctions, cross-sections etc) or just a component (e.g., simulation of a spillway)",
+    "title": "Open Channel Management - OpenChannelSystem",
+    "description": "This entity contains a harmonised description of a generic water system made for Open Channel Management (raw-water systems). This entity represents either a system composed of different components (e.g., channels, junctions, cross-sections etc) or just a component (e.g., a SluiceGate)",
     "type": "object",
     "allOf": [
       {
@@ -17,25 +17,31 @@
             "description": "A free text description for the system"
           },
             "mostUpstreamPoint": {
-              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship"
+              "type": "object",
+              "description": "Relationship. Reference to the id of the most upstream point of the system",
+              "properties":{
+                "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+              }
             },"mostDownstreamPoint": {
-              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship"
-            },"rightSideSlope": {
-              "type": "number",
-              "description": "The slope of the right bank of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
-            },"bottomWidth": {
-              "type": "number",
-              "description": "The bottom width of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
-            }
+              "type": "object",
+              "description": "Relationship. Reference to the id of the most downstream point of the system",
+              "properties":{
+                "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+              }
           },
           "isComposedOf": {
-            "description": "Reference to the ID of an entity of type Channel, cross-section, Junction, Regulation structure, Regulation gate, Spillway.",
-            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship"
+            "type": "object",
+            "description": "Relationship. Reference to the ID of an entity of type Channel, cross-section, Junction, Regulation structure, SluiceGate, Spillway.",
+            "properties":{
+              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+            }
+
           },
           "hasSubSystem": {
-            "type": "String",
-            "format": "uri",
-            "description": "Relationship. Model: '../OpenChannelSystem/schema.json'. Reference to the ID of a water sub-system, considered as a water system - an entity of type WaterSystem."
+            "type": "object",
+            "description": "Relationship. Reference to the ID of an Open Channel sub-system, considered as a system - an entity of type OpenChannelSystem.",
+            "properties":{
+              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
           }
         }
     ],
