@@ -2,19 +2,10 @@
     "$schema": "http://json-schema.org/schema#",
     "$id": "# { todo } #",
     "title": "Open Channel Management - SluiceGate ",
-    "description": "This entity contains a harmonised description of a generic SluiceGatee made for Open Channel Management (raw-water systems). Regulation structure consists a junction type object, controlling flow in a channel",
+    "description": "This entity contains a harmonised description of a generic Sluice Gate made for Open Channel Management (raw-water systems).",
     "type": "object",
     "allOf": [
       {
-        "position": {
-          "type": "number",
-          "measuredFrom":{
-            "type": "object",
-            "properties":{
-              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
-            }
-          }
-        },
         "properties": {
           "type": {
               "type": "string",
@@ -26,16 +17,18 @@
           },
           "gateType": {
             "type": "string",
-            "description": ": The type of the gate: specific values 'SLUICE-GATE' or 'RADIAL-GATE'",
-            "enum": ["Sluice Gate", "Radial Gate"]
+            "description": "Property. Enum:'SLUICE-GATE'. The type of the gate.",
+            "enum": ["Sluice Gate"]
           },
           "gateWidth": {
             "type": "number",
-            "description": "The width of the sluice gate (m)"
+            "minimum": "0",
+            "description": "The width of the sluice gate. Units: 'meters'"
           },
           "gateOpening": {
             "type": "number",
-            "description": "the height of gate opening (in meters or percentage)",
+            "minimum": "0",
+            "description": "Property. The height of gate opening. Units: ['meters', 'percentage']",
             "Unit": {
               "type": "string",
               "enum": ["m", "%"]
@@ -43,31 +36,36 @@
           },
           "gateBottomElevation": {
             "type": "number",
-            "description": "Elevation of the bottom (crest) of the gate"
+            "minimum": "0",
+            "description": "Property. Elevation of the bottom (crest) of the gate"
           },
           "gateDischargeCoefficient": {
             "type": "number",
-            "description": "Gate discharge coefficient (m0.5/s) accounts for energy losses as water passes under the gate"
+            "minimum": "0",
+            "description": "Gate discharge coefficient (m0.5/s) that accounts for energy losses as water passes under the gate"
           },
           "orificeDischargeCoefficient": {
             "type": "number",
-            "description": "Orifice discharge coefficient (m0.5/s) accounts for energy losses as water passes under the gate and the downstream tailwater increases to the point at which the gate is no longer flowing freely (downstream submergence is causing a greater upstream headwater for a given flow)"
+            "minimum": "0",
+            "description": "Orifice discharge coefficient (m0.5/s) that accounts for energy losses as water passes under the gate and the downstream tailwater increases to the point at which the gate is no longer flowing freely (downstream submergence is causing a greater upstream headwater for a given flow)"
           },
           "waterDischarge": {
             "type": "number",
-            "description": "the discharge that passes the weir (Q)"
+            "minimum": "0",
+            "description": "Property. The discharge that passes the weir (Q)"
           },
           "headDifference": {
             "type": "number",
-            "description": "the difference between the upstream depth and the depth just downstream"
+            "minimum": "0",
+            "description": "Property. The difference between the upstream depth and the depth just downstream"
           },
           "flowType": {
             "type": "string",
-            "enum": ["Overflow", "Free Flow", "Submerged Flow"],
-            "description": "It defines the flow conditions in the gate. It takes the values: 'OVERFLOW' (upstream water level exceeds the weir crest level), 'FREE-FLOW' (water level is lower than gate edge), 'SUBMERGED FLOW' (the rate of flow passing through the gate is regulated by the opening of the gate)"
+            "enum": ["Overflow", "Free-Flow", "Submerged Flow"],
+            "description": "It defines the flow conditions in the gate. It takes the values: 'Overflow' (upstream water level exceeds the weir crest level), 'Free-Flow' (water level is lower than gate edge), 'Submerged Flow' (the rate of flow passing through the gate is regulated by the opening of the gate)"
           }
         },
-        "upstreamControlPoint": {
+        "upstreamEndControlPoint": {
           "type": "object",
           "description": "Description of cross section just upstream of the sluice weir which controls the flow",
           "allOf":[
