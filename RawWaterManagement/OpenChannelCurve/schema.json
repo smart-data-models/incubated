@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/schema#",
     "$id": "# { todo } #",
     "title": "Open Channel Management - OpenChannelCurve",
-    "description": "[todo] made for Open Channel Management (raw-water systems)",
+    "description": "This entity contains a harmonised description of a generic curve made for open-channel management (raw-water systems).",
     "type": "object",
     "allOf": [
       {
@@ -12,22 +12,27 @@
             "enum": ["OpenChannelCurve"],
             "description": "NGSI-LD Entity Type"
           },
-          "dateCreated": {
-            "type": "datetime",
-            "description": "Entity creation timestamp. This will usually be allocated by the storage platform"
-          },
           "description": {
             "type": "string",
             "description": "An optional text that describes other significant information about the simulation scenario"
           },
-          "createdBy": {
-            "description": "todo!"
+          "tag": {
+              "$ref": "../RawWaterManagement-schema.json#/definitions/tag"
           },
-          "hasInputOpenChannelSystem": {
-            "$ref": "../OpenChannelSystem/schema.json"
+          "curveType":{
+            "type": "string",
+            "description": "Property. Enum:'DischargeCoefficient - RelativeOpening', 'Elevation - Discharge', 'C/Co - H/Ho', 'P/Ho', 'C – h/width of spillway'",
+            "enum": "['DischargeCoefficient - RelativeOpening', 'Elevation - Discharge', 'C/Co - H/Ho', 'P/Ho', 'C – h/width of spillway']"
           },
-          "computedBy": {
-            "$ref": "../HydraulicSimulation/schema.json"
+          "xData":{
+            "type": "number",
+            "minimum": "0",
+            "description": "X data points for the curve"
+          },
+          "yData":{
+            "type": "number",
+            "minimum": "0",
+            "description": "Y data points for the curve"
           }
         }
       }
@@ -35,6 +40,5 @@
     "required": [
       "id",
       "type",
-      "computedBy"
     ]
   }
