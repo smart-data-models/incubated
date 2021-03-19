@@ -17,7 +17,7 @@
           },
           "spillwayType": {
             "type": "string",
-            "description": "The type of the spillway. Enum:'Broad-Crested','Ogee','Sharp-Crested','Specified Spillway'. In the case of 'Specified Spillway' only 'elevation (m) – discharge (m3/s)' curve is required",
+            "description": "Property. The type of the spillway. Enum:'Broad-Crested, Ogee, Sharp-Crested, Specified Spillway'. In the case of 'Specified Spillway' only 'elevation (m) – discharge (m3/s)' curve is required",
             "enum": [
               "Broad-Crested", "Ogee", "Sharp-Crested", "Specified Spillway"
             ]
@@ -25,32 +25,32 @@
           "crestElevation": {
             "type": "number",
             "minimum": "0",
-            "description": "The crest elevation of the Spillway. Required only for 'Broad-Crested', 'Ogee' and 'Sharp-Crested'. Units:'meters'."
+            "description": "Property. The crest elevation of the Spillway. Required only for 'Broad-Crested', 'Ogee' and 'Sharp-Crested'. Units:'meters'."
           },
           "crestLength": {
             "type": "number",
             "minimum": "0",
-            "description": "The length of the Spillway equals to the total length through which water passes. Required only for 'Broad-Crested', 'Ogee' and 'Sharp-Crested'. Units:'meters'."
+            "description": "Property. The length of the Spillway equals to the total length through which water passes. Required only for 'Broad-Crested', 'Ogee' and 'Sharp-Crested'. Units:'meters'."
           },
           "spillwayWidth": {
             "type": "number",
             "minimum": "0",
-            "description": "The width of the spillway (m). Only for 'Broad-Crested' type"
+            "description": "Property. The width of the spillway (m). Only for 'Broad-Crested' type"
           },
           "numberAbutments": {
             "type": "number",
             "minimum": "0",
-            "description": "The number of abutments of an ogee spillway. Only for 'Ogee' type"
+            "description": "Property. The number of abutments of an ogee spillway. Only for 'Ogee' type"
           },
           "apronElevation": {
             "type": "number",
             "minimum": "0",
-            "description": "The elevation at the bottom of the ogee spillway structure (P), just upstream of the spillway"
+            "description": "Property. The elevation at the bottom of the ogee spillway structure (P), just upstream of the spillway"
           },
           "apronLength": {
             "type": "number",
             "minimum": "0",
-            "description": "The total length of the spillway bottom. Units:'meters'"
+            "description": "Property. The total length of the spillway bottom. Units:'meters'"
           },
           "dischargeCoefficient": {
             "type": "number",
@@ -65,21 +65,21 @@
           "designDischarge": {
             "type": "number",
             "minimum": "0",
-            "description": "The design discharge of the Spillway. Units: 'm^3/s'"
+            "description": "Property. The design discharge of the Spillway. Units: 'm^3/s'"
           },
           "designDischargeCoefficient": {
             "type": "number",
             "minimum": "0",
-            "description": "The discharge coefficient (Co) for the design discharge (Ho)"
+            "description": "Property. The discharge coefficient (Co) for the design discharge (Ho)"
           },
           "maxFloodElevation": {
             "type": "number",
             "minimum": "0",
-            "description": "The maximum elevation of water that can pass the spillway"
+            "description": "Property. The maximum elevation of water that can pass the spillway"
           },
           "controlCrossSection": {
             "type": "object",
-            "description": "A relationship indicating the ID of the cross section that controls the flow over the Spillway",
+            "description": "Relationship. A relationship indicating the ID of the cross section that controls the flow over the Spillway",
               "properties":{
                 "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
               }
@@ -88,16 +88,16 @@
         "curveElevationDischarge": {
           "type": "string",
           "format": "uri",
-          "description": "Property. Model:'../OpenChannelCurve/schema.json' A relationship to the ID label of the curve that represents the water elevation as a function of discharge"
+          "description": "Relationship. Model:'../OpenChannelCurve/schema.json' A relationship to the ID label of the curve that represents the water elevation as a function of discharge"
         },
         "curveDischargeCoefficient": {
           "type": "string",
           "format": "uri",
-          "description": "Property. Model:'../OpenChannelCurve/schema.json'. A relationship to the ID label of the curve that represents the discharge coefficient as a function of upstream head/depth and spillway geometry. For 'Broad-creasted' spillway, discharge coefficient as a function of upstream head over spillway width. For 'Ogee' spillway, C/Co over H/Ho."
+          "description": "Relationship. Model:'../OpenChannelCurve/schema.json'. A relationship to the ID label of the curve that represents the discharge coefficient as a function of upstream head/depth and spillway geometry. For 'Broad-creasted' spillway, discharge coefficient as a function of upstream head over spillway width. For 'Ogee' spillway, C/Co over H/Ho."
         },"curveDesignDischargeCoefficient":{
           "type": "string",
           "format": "uri",
-          "description": "Property. Model:'../OpenChannelCurve/schema.json'. A relationship to the ID label of the curve that represents the design discharge coefficient as a function of apron Elevation over design upstream head. Only for 'Ogee' (Co over P/ Ho)."
+          "description": "Relationship. Model:'../OpenChannelCurve/schema.json'. A relationship to the ID label of the curve that represents the design discharge coefficient as a function of apron Elevation over design upstream head. Only for 'Ogee' (Co over P/ Ho)."
         }
       }
     ],

@@ -14,43 +14,44 @@
           },
           "description": {
             "type": "string",
-            "description": "An optional text that describes other significant information about the simulation scenario"
+            "description": "Property. An optional text that describes other significant information about the simulation scenario"
           },
           "duration": {
             "type": "number",
-            "description": "Duration of the simulation, given in seconds"
+            "description": "Property. Duration of the simulation, given in seconds"
           },
           "hydraulicTimeStep": {
             "type": "number",
-            "description": "Determines how often the hydraulic state of the network is calculated. Given in seconds"
+            "description": "Property. Determines how often the hydraulic state of the network is calculated. Given in seconds"
           },
           "flowUnits": {
             "type": "string",
-            "description": "Units in which flow rates are expressed in the simulation",
+            "description": "Property. Units in which flow rates are expressed in the simulation. Enum:'CFS, GPM, MGD, IMGD, AFD, LPS, LPM, MLD, CMH, CMD'",
             "enum": ["CFS", "GPM", "MGD", "IMGD", "AFD", "LPS", "LPM", "MLD", "CMH", "CMD"]
           },
           "startSimulationTime": {
             "type": "datetime",
-            "description": "Time of day at which the simulation begins"
+            "description": "Property. Time of day at which the simulation begins"
           },
           "endSimulationTime": {
             "type": "datetime",
-            "description": "Time of day at which the simulation ends"
+            "description": "Property. Time of day at which the simulation ends"
           },
           "flowConvergenceAccuracy": {
             "type": "number",
-            "description": "Criterion to determine whether the target flow has been established (difference between the real and target flow"
+            "description": "Property. Criterion to determine whether the target flow has been established (difference between the real and target flow"
           },
           "modelParameters": {
             "type": "string",
-            "description": "Description of the set of modifications to be applied to the water system for the simulation"
+            "description": "Property. Description of the set of modifications to be applied to the water system for the simulation"
           },
           "targetValues": {
-            "description": "Description of the set of target values defined by the user before the simulation",
+            "description": "Relationship. Model:'../CrossSection/schema.json'. Description of the set of target values defined by the user before the simulation",
             "properties": {
               "waterAttribute": {
                 "type": "number",
-                "description": "A sub-property (e.g., flow). A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship. It contains the target values for specified properties, defined before the simulation"
+                "minimum": "0",
+                "description": "Property. A sub-property (e.g., flow). A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship. It contains the target values for specified properties, defined before the simulation"
               },
               "targetURI": {
                 "$ref": "../CrossSection/schema.json"
@@ -58,11 +59,12 @@
             }
           },
           "inputParameters": {
-            "description": "Description of the set of modifications to be applied to the water system for the simulation",
+            "description": "Relationship. Model:'../CrossSection/schema.json'.Description of the set of modifications to be applied to the water system for the simulation",
             "properties": {
               "waterAttribute": {
                 "type": "number",
-                "description": "A sub-property. A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship"
+                "minimum": "0",
+                "description": "Property. A sub-property. A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship"
               },
               "targetURI": {
                 "$ref": "../CrossSection/schema.json"
@@ -70,7 +72,7 @@
             }
           },
           "createdBy": {
-            "description": "todo"
+            "description": "[todo!]"
           },
           "hasInputOpenChannelSystem": {
             "$ref": "../OpenChannelSystem/schema.json"

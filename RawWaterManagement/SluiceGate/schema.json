@@ -23,7 +23,7 @@
           "gateWidth": {
             "type": "number",
             "minimum": "0",
-            "description": "The width of the sluice gate. Units: 'meters'"
+            "description": "Property. The width of the sluice gate. Units: 'meters'"
           },
           "gateOpening": {
             "type": "number",
@@ -42,12 +42,12 @@
           "gateDischargeCoefficient": {
             "type": "number",
             "minimum": "0",
-            "description": "Gate discharge coefficient (m0.5/s) that accounts for energy losses as water passes under the gate"
+            "description": "Property. Gate discharge coefficient (m0.5/s) that accounts for energy losses as water passes under the gate"
           },
           "orificeDischargeCoefficient": {
             "type": "number",
             "minimum": "0",
-            "description": "Orifice discharge coefficient (m0.5/s) that accounts for energy losses as water passes under the gate and the downstream tailwater increases to the point at which the gate is no longer flowing freely (downstream submergence is causing a greater upstream headwater for a given flow)"
+            "description": "Property. Orifice discharge coefficient (m0.5/s) that accounts for energy losses as water passes under the gate and the downstream tailwater increases to the point at which the gate is no longer flowing freely (downstream submergence is causing a greater upstream headwater for a given flow)"
           },
           "waterDischarge": {
             "type": "number",
@@ -62,18 +62,18 @@
           "flowType": {
             "type": "string",
             "enum": ["Overflow", "Free-Flow", "Submerged Flow"],
-            "description": "It defines the flow conditions in the gate. It takes the values: 'Overflow' (upstream water level exceeds the weir crest level), 'Free-Flow' (water level is lower than gate edge), 'Submerged Flow' (the rate of flow passing through the gate is regulated by the opening of the gate)"
+            "description": "Property. Enum:'Overflow, Free-Flow, Submerged Flow'. It defines the flow conditions in the gate. It takes the values: 'Overflow' (upstream water level exceeds the weir crest level), 'Free-Flow' (water level is lower than gate edge), 'Submerged Flow' (the rate of flow passing through the gate is regulated by the opening of the gate)"
           }
         },
         "upstreamEndControlPoint": {
           "type": "object",
-          "description": "A relationship indicating the ID of the cross section just upstream of the sluice gate",
+          "description": "Relationship. A relationship indicating the ID of the cross section just upstream of the sluice gate",
             "properties":{
               "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
             }
         },
         "downsreamEndControlPoint": {
-          "description": "A relationship indicating the ID of the cross section just downstream of the sluice gate",
+          "description": "Relationship. A relationship indicating the ID of the cross section just downstream of the sluice gate",
           "type": "object",
             "properties":{
               "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
@@ -81,7 +81,7 @@
         },
         "upstreamControlPoint": {
           "type": "object",
-          "description": "A relationship indicating the ID of the cross section in a distance where the flow conditions are permanent, upstream of the sluice gate",
+          "description": "Relationship. A relationship indicating the ID of the cross section in a distance where the flow conditions are permanent, upstream of the sluice gate",
             "properties":{
               "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
             }
@@ -95,11 +95,11 @@
         },
         "observedBy":{
           "type": "String",
-          "description": "Property. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'",
+          "description": "Relationship. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'",
           "format": "uri"
         },
         "curveDischargeCoefficient":{
-          "description": "Property. Model:'../OpenChannelCurve/schema.json'. The ID label of the curve that represents the discharge Coefficient as a function of relative weir opening (weir opening over upstream depth), Cd over a/H1",
+          "description": "Relationship. Model:'../OpenChannelCurve/schema.json'. The ID label of the curve that represents the discharge Coefficient as a function of relative weir opening (weir opening over upstream depth), Cd over a/H1",
           "type": "String",
           "format": "uri"
         }
