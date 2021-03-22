@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://gitlab.com/synchronicity-iot/synchronicity-data-models/raw/master/QueueMonitor/schema.json",
+  "title": "Smart Data Models - QueueMonitor schema",
+  "description": "An office counter queue system on a daily run. First Version from synchronicity project",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "QueueMonitor"
+          ],
+          "description": "Property. NGSI Entity type. It has to be QueueMonitor."
+        },
+        "localId": {
+          "type": "string",
+          "description": "Property. Unique identifier from the source data set."
+        },
+        "officeName": {
+          "type": "string",
+          "description": "Property.  name of the service provided at the counter. Model:'https://schema.org/Text'"
+        },
+        "serviceName": {
+          "type": "string",
+          "description": "Property. Unique identifier from the source data set. Model:'https://schema.org/Text'"
+        },
+        "serviceId": {
+          "type": "string",
+          "description": "Property. id of the service provided at the counter. The same service could be provided by many offices. Model:'https://schema.org/Text'"
+        },
+        "serviceStatus": {
+          "type": "string",
+          "enum": [
+            "Closed",
+            "Open",
+            "Suspended"
+          ],
+          "description": "Property. status of the service at timestamp time. Enum:'Closed, Open, Suspended'"
+        },
+        "serviceStatusNote": {
+          "type": "string",
+          "description": "Property. Additional note to the service status. Model:'https://schema.org/Text'"
+        },
+        "scheduleTime": {
+          "type": "string",
+          "description": "Property. Scheduled working time of the service. Model:'https://schema.org/DateTime'"
+        },
+        "queueLine": {
+          "type": "string",
+          "description": "Property. Description about the queue line associated to the service. The same office counter could serve different queue lines with different priority level. Model:'https://schema.org/Text'"
+        },
+        "linePriority": {
+          "type": "integer",
+          "description": "Property. Level of priority of this line at Counter Queue. Model:'https://schema.org/Integer'"
+        },
+        "lastTicketIssued": {
+          "type": "integer",
+          "description": "Property. Last ticket number issued or this line at Counter Queue. Model:'https://schema.org/Integer'"
+        },
+        "lastTicketIssuedLabel": {
+          "type": "string",
+          "description": "Property. Label associated to the lastTicketIssued. Model:'https://schema.org/Text'"
+        },
+        "ticketServed": {
+          "type": "integer",
+          "description": "Property. Ticket number currently served by this line at Counter Queue. Model:'https://schema.org/Integer'"
+        },
+        "ticketServedLabel": {
+          "type": "string",
+          "description": "Property. Unique identifier from the source data set. Model:'https://schema.org/Text'"
+        },
+        "ticketsToServe": {
+          "type": "integer",
+          "description": "Property. Unique identifier from the source data set. Model:'https://schema.org/Text'"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
