@@ -15,6 +15,18 @@
           "type": "string",
           "description": "Property. Model:'https://schema.org/Text'. enumeration"
         },
+        "algorithm": {
+          "type": "string",
+          "description": "Property. The algorithm used by the underlying ML model"
+        },
+        "mlFramework": {
+          "type": "string",
+          "description": "Property. The ML framework that has been used to prepare the model"
+        },
+        "version": {
+          "type": "string",
+          "description": "Property. Version of the model."
+        },
         "acceptableDataSources": {
           "type": "array",
           "description": "Property. Valid type of input data sources for running the Machine Learning Model",
@@ -28,6 +40,44 @@
           "items": {
             "type": "string",
             "format": "uri"
+          }
+        },
+        "inputDataSources": {
+          "type": "array",
+          "description": "Property. Comma-separated list of attributes names (that should have a given type by definition).",
+          "items": {
+            "type": "object",
+            "properties": {
+              "datasource": {
+                "type": "string",
+                "format": "uri"
+              },
+              "dataFormat": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "outputDataSources": {
+          "type": "array",
+          "description": "Property. Comma-separated list of attributes names used to publish the results.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "datasource": {
+                "type": "string",
+                "format": "uri"
+              },
+              "dataFormat": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
