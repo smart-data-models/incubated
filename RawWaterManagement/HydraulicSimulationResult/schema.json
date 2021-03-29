@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$id": "# { todo } #",
+    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/HydraulicSimulationResult/schema.json",
     "title": "Open Channel Management - HydraulicSimulationResult",
-    "description": "[todo] made for Open Channel Management (raw-water systems)",
+    "description": "Made for Open Channel Management (raw-water systems)",
     "type": "object",
     "allOf": [
       {
@@ -24,10 +24,14 @@
             "description": "Property. [todo!] Denotes the user who created this result"
           },
           "hasInputOpenChannelSystem": {
-            "$ref": "../OpenChannelSystem/schema.json"
+            "type": "string",
+            "format": "uri",
+            "description": "Property. The URI of the OpenChannelSystem this result is referring to"
           },
           "computedBy": {
-            "$ref": "../HydraulicSimulationScenario/schema.json"
+            "type": "string",
+            "format": "uri",
+            "description": "Property. the URI of the HydraulicSimulationScenario this result has been computed"
           }
         }
       }
@@ -35,6 +39,7 @@
     "required": [
       "id",
       "type",
+      "hasInputOpenChannelSystem",
       "computedBy"
     ]
   }
