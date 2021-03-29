@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$id": "# { todo } #",
+    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/OpenChannelSystem/schema.json",
     "title": "Open Channel Management - OpenChannelSystem",
     "description": "This entity contains a harmonised description of a generic water system made for Open Channel Management (raw-water systems). This entity represents either a system composed of different components (e.g., channels, junctions, cross-sections etc) or just a component (e.g., a SluiceGate)",
     "type": "object",
@@ -13,36 +13,38 @@
             "description": "NGSI-LD Entity Type"
           },
           "description": {
-            "type": "string",
-            "description": "Property. A free text description for the system"
-          },
-            "mostUpstreamPoint": {
-              "type": "object",
-              "description": "Relationship. Reference to the id of the most upstream point of the system",
-              "properties":{
-                "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
-              }
-            },"mostDownstreamPoint": {
-              "type": "object",
-              "description": "Relationship. Reference to the id of the most downstream point of the system",
-              "properties":{
-                "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
-              }
-          },
-          "isComposedOf": {
-            "type": "object",
-            "description": "Relationship. Reference to the ID of an entity of type Channel, cross-section, Junction, Regulation structure, SluiceGate, Spillway.",
-            "properties":{
-              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
-            }
-
-          },
-          "hasSubSystem": {
-            "type": "object",
-            "description": "Relationship. Reference to the ID of an Open Channel sub-system, considered as a system - an entity of type OpenChannelSystem.",
-            "properties":{
-              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
-            }
+            "description": "Property. A free text description for the system",
+            "type": "string"
+          }
+        }
+      },
+      {
+        "isComposedOf": {
+          "type": "object",
+          "description": "Relationship. Reference to the ID of an entity of type Channel, cross-section, Junction, Regulation structure, SluiceGate, Spillway.",
+          "properties":{
+            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+          }
+        },
+        "hasSubSystem": {
+          "type": "object",
+          "description": "Relationship. Reference to the ID of an Open Channel sub-system, considered as a system - an entity of type OpenChannelSystem.",
+          "properties":{
+            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+          }
+        },
+        "mostUpstreamPoint": {
+          "type": "object",
+          "description": "Relationship. Reference to the id of the most upstream point of the system",
+          "properties":{
+            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+          }
+        },
+        "mostDownstreamPoint": {
+          "type": "object",
+          "description": "Relationship. Reference to the id of the most downstream point of the system",
+          "properties":{
+            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
           }
         }
       }

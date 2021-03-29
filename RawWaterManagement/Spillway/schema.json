@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$id": "# { todo } #",
+    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/Spillway/schema.json",
     "title": "Open Channel Management - Spillway",
     "description": "This entity contains a harmonised desctiption for a generic Spillway made for Open Channel Management (raw-water systems)",
     "type": "object",
@@ -76,29 +76,31 @@
             "type": "number",
             "minimum": "0",
             "description": "Property. The maximum elevation of water that can pass the spillway"
-          },
-          "controlCrossSection": {
-            "type": "object",
-            "description": "Relationship. A relationship indicating the ID of the cross section that controls the flow over the Spillway",
-              "properties":{
-                "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
-              }
-            }
-        },
-        "curveElevationDischarge": {
-          "type": "string",
-          "format": "uri",
-          "description": "Relationship. Model:'../OpenChannelCurve/schema.json' A relationship to the ID label of the curve that represents the water elevation as a function of discharge"
-        },
-        "curveDischargeCoefficient": {
-          "type": "string",
-          "format": "uri",
-          "description": "Relationship. Model:'../OpenChannelCurve/schema.json'. A relationship to the ID label of the curve that represents the discharge coefficient as a function of upstream head/depth and spillway geometry. For 'Broad-creasted' spillway, discharge coefficient as a function of upstream head over spillway width. For 'Ogee' spillway, C/Co over H/Ho."
-        },"curveDesignDischargeCoefficient":{
-          "type": "string",
-          "format": "uri",
-          "description": "Relationship. Model:'../OpenChannelCurve/schema.json'. A relationship to the ID label of the curve that represents the design discharge coefficient as a function of apron Elevation over design upstream head. Only for 'Ogee' (Co over P/ Ho)."
+          }
         }
+      },
+      {
+        "controlCrossSection": {
+          "type": "object",
+          "description": "Relationship. A relationship indicating the ID of the cross section that controls the flow over the Spillway",
+            "properties":{
+              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+            }
+          },
+          "curveElevationDischarge": {
+            "type": "string",
+            "format": "uri",
+            "description": "Relationship. A relationship pointing to the ID label of the curve that represents the water elevation as a function of discharge"
+          },
+          "curveDischargeCoefficient": {
+            "type": "string",
+            "format": "uri",
+            "description": "Relationship. A relationship pointing to the ID label of the curve that represents the discharge coefficient as a function of upstream head/depth and spillway geometry. For 'Broad-creasted' spillway, discharge coefficient as a function of upstream head over spillway width. For 'Ogee' spillway, C/Co over H/Ho."
+          },"curveDesignDischargeCoefficient":{
+            "type": "string",
+            "format": "uri",
+            "description": "Relationship. A relationship pointing to the ID label of the curve that represents the design discharge coefficient as a function of apron Elevation over design upstream head. Only for 'Ogee' (Co over P/ Ho)."
+          }
       }
     ],
     "required": [

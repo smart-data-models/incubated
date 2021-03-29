@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$id": "# { todo } #",
+    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/SluiceGate/schema.json",
     "title": "Open Channel Management - SluiceGate ",
     "description": "This entity contains a harmonised description of a generic Sluice Gate made for Open Channel Management (raw-water systems).",
     "type": "object",
@@ -17,7 +17,7 @@
           },
           "gateType": {
             "type": "string",
-            "description": "Property. Enum:'SLUICE-GATE'. The type of the gate.",
+            "description": "Property. Enum:'Sluice Gate'. The type of the gate.",
             "enum": ["Sluice Gate"]
           },
           "gateWidth": {
@@ -64,7 +64,9 @@
             "enum": ["Overflow", "Free-Flow", "Submerged Flow"],
             "description": "Property. Enum:'Overflow, Free-Flow, Submerged Flow'. It defines the flow conditions in the gate. It takes the values: 'Overflow' (upstream water level exceeds the weir crest level), 'Free-Flow' (water level is lower than gate edge), 'Submerged Flow' (the rate of flow passing through the gate is regulated by the opening of the gate)"
           }
-        },
+        }
+      },
+      {
         "upstreamEndControlPoint": {
           "type": "object",
           "description": "Relationship. A relationship indicating the ID of the cross section just upstream of the sluice gate",
@@ -99,7 +101,7 @@
           "format": "uri"
         },
         "curveDischargeCoefficient":{
-          "description": "Relationship. Model:'../OpenChannelCurve/schema.json'. The ID label of the curve that represents the discharge Coefficient as a function of relative weir opening (weir opening over upstream depth), Cd over a/H1",
+          "description": "Relationship. The URI of the OpenChannelCurve that represents the discharge Coefficient as a function of relative weir opening (weir opening over upstream depth), Cd over a/H1",
           "type": "String",
           "format": "uri"
         }
