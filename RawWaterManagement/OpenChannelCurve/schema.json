@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$id": "# { todo } #",
+    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/OpenChannelCurve/schema.json",
     "title": "Open Channel Management - OpenChannelCurve",
     "description": "This entity contains a harmonised description of a generic curve made for open-channel management (raw-water systems).",
     "type": "object",
@@ -25,14 +25,18 @@
             "enum": "['DischargeCoefficient - RelativeOpening', 'Elevation - Discharge', 'C/Co - H/Ho', 'P/Ho', 'C – h/width of spillway']"
           },
           "xData":{
-            "type": "number",
-            "minimum": "0",
-            "description": "Property. X data points for the curve"
+            "description": "Property. X data points for the curve",
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
           },
           "yData":{
-            "type": "number",
-            "minimum": "0",
-            "description": "Property. Y data points for the curve"
+            "description": "Property. Y data points for the curve",
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
           }
         }
       }
