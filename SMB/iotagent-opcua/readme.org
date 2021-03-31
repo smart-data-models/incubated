@@ -1,0 +1,125 @@
+- missing certificate for opc
+
+
+cp /opt/iotagent-opcua/conf/dock2.json conf/config.json
+cp /opt/iotagent-opcua/conf/config.properties conf/config.properties
+cp /opt/iotagent-opcua/certificates/client_certificate2.pem certificates/client_certificate.pem 
+cp /opt/iotagent-opcua/certificates/client_private_key2.pem certificates/client_private_key.pem 
+
+
+
+curl -X GET \
+  'http://localhost:4001/iot/devices' \
+  -H 'fiware-service: openiot' \
+  -H 'fiware-servicepath: /'
+  
+curl -X GET \
+  http://localhost:1026/v2/entities \
+  -H 'fiware-service: openiot' \
+  -H 'fiware-servicepath: /'
+  
+curl http://localhost:4001/iot/devices \
+     -H "fiware-service: openiot" \
+     -H "fiware-servicepath: /" \
+     -H "Content-Type: application/json" \
+     -d @add_device.json
+curl http://localhost:4001/iot/devices \
+     -H "fiware-service: openiot" \
+     -H "fiware-servicepath: /" \
+     -H "Content-Type: application/json" \
+     -d @bak_device.json
+
+
+curl -X GET \
+  http://localhost:1026/v2/entities/plc_1/attrs/main \
+  -H 'fiware-service: openiot' \
+  -H 'fiware-servicepath: /'
+  
+  
+  
+curl -iX POST \
+  'http://localhost:1026/v2/subscriptions/' \
+  -H 'Content-Type: application/json' \
+  -H 'fiware-service: openiot' \
+  -H 'fiware-servicepath: /' \
+  -d '{
+  "description": "plc_id",
+  "subject": {
+    "entities": [
+      {
+        "idPattern": "plc_1"
+      }
+    ],
+    "condition": {
+      "attrs": [
+        "main"
+      ]
+    }
+  },
+  "notification": {
+    "http": {
+      "url": "http://quantumleap:8668/v2/notify"
+    },
+    "attrs": [
+      "main"
+    ],
+    "metadata": ["dateCreated", "dateModified"]
+  },
+  "throttling": 1
+}'
+
+
+curl -iX POST \
+  'http://localhost:1026/v2/subscriptions/' \
+  -H 'Content-Type: application/json' \
+  -H 'fiware-service: openiot' \
+  -H 'fiware-servicepath: /' \
+  -d '{
+  "description": "plc_id",
+  "subject": {
+    "entities": [
+      {
+        "idPattern": "plc_1"
+      }
+    ],
+    "condition": {
+      "attrs": [
+        "partsOK"
+      ]
+    }
+  },
+  "notification": {
+    "http": {
+      "url": "http://localhost:8668/v2/notify"
+    },
+    "attrs": [
+      "partsOK"
+    ],
+    "metadata": ["dateCreated", "dateModified"]
+  },
+  "throttling": 1
+}'
+
+
+
+
+
+curl -X GET \
+  http://localhost:1026/v2/subscriptions \
+  -H 'fiware-service: openiot' \
+  -H 'fiware-servicepath: /'
+  
+  
+  curl -X GET \
+  http://localhost:8668/v2/entities/plc \
+  -H 'Accept: application/json' \
+  -H 'Fiware-Service: openiot' \
+  -H 'Fiware-ServicePath: /'
+  
+    curl -X GET \
+  http://quantumleap:8668/v2/entities/plc \
+  -H 'Accept: application/json' \
+  -H 'Fiware-Service: openiot' \
+  -H 'Fiware-ServicePath: /'
+  
+  

@@ -1,0 +1,1974 @@
+{
+  "logLevel" : "DEBUG",
+  "contextBroker" : {
+    "host" : "orion",
+    "port" : 1026
+  },
+  "server" : {
+    "port" : 4001,
+    "baseRoot" : "/"
+  },
+  "deviceRegistry" : {
+    "type" : "memory"
+  },
+  "mongodb" : {
+    "host" : "iotmongo",
+    "port" : "27017",
+    "db" : "iotagent",
+    "retries" : 5,
+    "retryTime" : 5
+  },
+  "types" : {
+    "4:PLC1" : {
+      "service" : "opcua_car",
+      "subservice" : "/demo",
+      "active" : [ {
+        "name" : "2:DeviceManual",
+        "type" : "Text"
+      }, {
+        "name" : "2:DeviceRevision",
+        "type" : "Text"
+      }, {
+        "name" : "2:HardwareRevision",
+        "type" : "Text"
+      }, {
+        "name" : "2:Manufacturer",
+        "type" : "LocalizedText"
+      }, {
+        "name" : "2:Model",
+        "type" : "LocalizedText"
+      }, {
+        "name" : "2:RevisionCounter",
+        "type" : "Int32"
+      }, {
+        "name" : "2:SerialNumber",
+        "type" : "Text"
+      }, {
+        "name" : "2:SoftwareRevision",
+        "type" : "Text"
+      }, {
+        "name" : "4:DeviceState_4:DeviceState",
+        "type" : "5:AdsDeviceState"
+      }, {
+        "name" : "4:DeviceState_4:ErrorCode",
+        "type" : "UInt32"
+      }, {
+        "name" : "4:DeviceState_4:ErrorMessage",
+        "type" : "LocalizedText"
+      }, {
+        "name" : "4:DeviceState_4:FramesExceeded",
+        "type" : "UInt32"
+      } ],
+      "lazy" : [ ],
+      "commands" : [ ]
+    },
+    "3:SFCType" : {
+      "service" : "opcua_car",
+      "subservice" : "/demo",
+      "active" : [ ],
+      "lazy" : [ ],
+      "commands" : [ ]
+    },
+    "8:Configuration" : {
+      "service" : "opcua_car",
+      "subservice" : "/demo",
+      "active" : [ {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:Transfer_OpenCount",
+        "type" : "UInt16"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Size",
+        "type" : "UInt64"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:Transfer_UserWritable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Writable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Close_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:Transfer_GetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:Transfer_GetPosition_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Open_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Open_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Read_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Read_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:Transfer_SetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Write_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:validFrom",
+        "type" : "DateTime"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:validTo",
+        "type" : "DateTime"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:URI",
+        "type" : "Text"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:IPAddresses",
+        "type" : "Text"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:DNSNames",
+        "type" : "Text"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:IssuerCommonName",
+        "type" : "Text"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:SubjectCommonName",
+        "type" : "Text"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:CommonName",
+        "type" : "Text"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:ThumbPrint",
+        "type" : "Text"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:IsSelfSigned",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:Move_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Rejected_8:Transfer_OpenCount",
+        "type" : "UInt16"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Size",
+        "type" : "UInt64"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Rejected_8:Transfer_UserWritable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Writable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Close_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Rejected_8:Transfer_GetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Rejected_8:Transfer_GetPosition_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Open_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Open_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Read_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Read_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Rejected_8:Transfer_SetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Write_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaServerConfig.xml_OpenCount",
+        "type" : "UInt16"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaServerConfig.xml_Size",
+        "type" : "UInt64"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaServerConfig.xml_UserWritable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaServerConfig.xml_Writable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaServerConfig.xml_Close_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaServerConfig.xml_GetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaServerConfig.xml_GetPosition_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaServerConfig.xml_Open_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaServerConfig.xml_Open_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaServerConfig.xml_Read_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaServerConfig.xml_Read_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaServerConfig.xml_SetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaServerConfig.xml_Write_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaDaConfig.xml_OpenCount",
+        "type" : "UInt16"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaDaConfig.xml_Size",
+        "type" : "UInt64"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaDaConfig.xml_UserWritable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaDaConfig.xml_Writable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaDaConfig.xml_Close_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaDaConfig.xml_GetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaDaConfig.xml_GetPosition_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaDaConfig.xml_Open_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaDaConfig.xml_Open_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaDaConfig.xml_Read_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaDaConfig.xml_Read_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaDaConfig.xml_SetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaDaConfig.xml_Write_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaAcConfig.xml_OpenCount",
+        "type" : "UInt16"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaAcConfig.xml_Size",
+        "type" : "UInt64"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaAcConfig.xml_UserWritable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaAcConfig.xml_Writable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaAcConfig.xml_Close_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaAcConfig.xml_GetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaAcConfig.xml_GetPosition_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaAcConfig.xml_Open_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaAcConfig.xml_Open_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaAcConfig.xml_Read_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaAcConfig.xml_Read_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaAcConfig.xml_SetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaAcConfig.xml_Write_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaHaConfig.xml_OpenCount",
+        "type" : "UInt16"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaHaConfig.xml_Size",
+        "type" : "UInt64"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaHaConfig.xml_UserWritable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaHaConfig.xml_Writable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaHaConfig.xml_Close_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaHaConfig.xml_GetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaHaConfig.xml_GetPosition_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaHaConfig.xml_Open_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaHaConfig.xml_Open_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaHaConfig.xml_Read_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaHaConfig.xml_Read_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaHaConfig.xml_SetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaHaConfig.xml_Write_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_OpenCount",
+        "type" : "UInt16"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Size",
+        "type" : "UInt64"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_UserWritable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Writable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Close_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_GetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_GetPosition_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Open_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Open_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Read_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Read_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_SetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Write_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:Resources_8:Delete_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:Resources_8:Create_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:NodesetFiles_8:Delete_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:NodesetFiles_8:Create_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_OpenCount",
+        "type" : "UInt16"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Size",
+        "type" : "UInt64"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_UserWritable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Writable",
+        "type" : "Boolean"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Close_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_GetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_GetPosition_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Open_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Open_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Read_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Read_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_SetPosition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Write_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:SymbolFiles_8:Delete_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:ConfigFiles_8:SymbolFiles_8:Create_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:AlarmsConditions_8:CreateController_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:AlarmsConditions_8:DeleteController_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:AlarmsConditions_8:CreateOffNormalCondition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:AlarmsConditions_8:CreateLimitCondition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:AlarmsConditions_8:DeleteCondition_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:HistoricalAccess_8:AddNodeToHistorize_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:HistoricalAccess_8:AddNodeToHistorize_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:HistoricalAccess_8:RemoveNodeFromHistorize_InputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:HistoricalAccess_8:RemoveNodeFromHistorize_OutputArguments",
+        "type" : "Argument"
+      }, {
+        "name" : "8:TwinCATBootDirInfo_8:TcBootDir",
+        "type" : "Text"
+      }, {
+        "name" : "8:TwinCATBootDirInfo_8:TcBootDir_8:CurrentConfig",
+        "type" : "Text"
+      }, {
+        "name" : "8:TwinCATBootDirInfo_8:TcBootDir_8:Plc",
+        "type" : "Text"
+      }, {
+        "name" : "8:TwinCATBootDirInfo_8:TcBootDir_8:Plc_8:Port_851",
+        "type" : "Text"
+      }, {
+        "name" : "8:TwinCATBootDirInfo_8:TcBootDir_8:Plc_8:Port_851_8:Visu",
+        "type" : "Text"
+      }, {
+        "name" : "8:TwinCATBootDirInfo_8:TcBootDir_8:TcCom",
+        "type" : "Text"
+      } ],
+      "lazy" : [ ],
+      "commands" : [ ]
+    },
+    "3:CtrlTaskType" : {
+      "service" : "opcua_car",
+      "subservice" : "/demo",
+      "active" : [ {
+        "name" : "3:Interval",
+        "type" : "Text"
+      }, {
+        "name" : "3:Priority",
+        "type" : "UInt32"
+      }, {
+        "name" : "3:Single",
+        "type" : "Text"
+      } ],
+      "lazy" : [ ],
+      "commands" : [ ]
+    },
+    "8:CertificateType" : {
+      "service" : "opcua_car",
+      "subservice" : "/demo",
+      "active" : [ {
+        "name" : "8:validFrom",
+        "type" : "DateTime"
+      }, {
+        "name" : "8:validTo",
+        "type" : "DateTime"
+      }, {
+        "name" : "8:URI",
+        "type" : "Text"
+      }, {
+        "name" : "8:IPAddresses",
+        "type" : "Text"
+      }, {
+        "name" : "8:DNSNames",
+        "type" : "Text"
+      }, {
+        "name" : "8:IssuerCommonName",
+        "type" : "Text"
+      }, {
+        "name" : "8:SubjectCommonName",
+        "type" : "Text"
+      }, {
+        "name" : "8:CommonName",
+        "type" : "Text"
+      }, {
+        "name" : "8:ThumbPrint",
+        "type" : "Text"
+      }, {
+        "name" : "8:IsSelfSigned",
+        "type" : "Text"
+      } ],
+      "lazy" : [ ],
+      "commands" : [ {
+        "name" : "8:Delete",
+        "type" : "command"
+      }, {
+        "name" : "8:Move",
+        "type" : "command"
+      } ]
+    },
+    "6:HistoricalAccess" : {
+      "service" : "opcua_car",
+      "subservice" : "/demo",
+      "active" : [ ],
+      "lazy" : [ ],
+      "commands" : [ ]
+    },
+    "5:BkUaDeviceStateObjectType" : {
+      "service" : "opcua_car",
+      "subservice" : "/demo",
+      "active" : [ {
+        "name" : "5:DeviceState",
+        "type" : "5:AdsDeviceState"
+      }, {
+        "name" : "5:ErrorCode",
+        "type" : "UInt32"
+      }, {
+        "name" : "5:ErrorMessage",
+        "type" : "Text"
+      }, {
+        "name" : "5:FramesExceeded",
+        "type" : "UInt32"
+      } ],
+      "lazy" : [ ],
+      "commands" : [ ]
+    }
+  },
+  "browseServerOptions" : null,
+  "service" : "opcua_car",
+  "subservice" : "/demo",
+  "providerUrl" : "http://iotage:4001",
+  "pollingExpiration" : "200000",
+  "pollingDaemonFrequency" : "20000",
+  "deviceRegistrationDuration" : "P1M",
+  "defaultType" : null,
+  "contexts" : [ {
+    "id" : "age01_6:HistoricalAccess",
+    "type" : "6:HistoricalAccess",
+    "service" : "opcua_car",
+    "subservice" : "/demo",
+    "polling" : null,
+    "mappings" : [ ]
+  }, {
+    "id" : "age01_4:PLC1",
+    "type" : "4:PLC1",
+    "service" : "opcua_car",
+    "subservice" : "/demo",
+    "polling" : null,
+    "mappings" : [ {
+      "ocb_id" : "2:DeviceManual",
+      "opcua_id" : "ns=1;s=PLC1.DeviceManual",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "2:DeviceRevision",
+      "opcua_id" : "ns=1;s=PLC1.DeviceRevision",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "2:HardwareRevision",
+      "opcua_id" : "ns=1;s=PLC1.HardwareRevision",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "2:Manufacturer",
+      "opcua_id" : "ns=1;s=PLC1.Manufacturer",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "2:Model",
+      "opcua_id" : "ns=1;s=PLC1.Model",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "2:RevisionCounter",
+      "opcua_id" : "ns=1;s=PLC1.RevisionCounter",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "2:SerialNumber",
+      "opcua_id" : "ns=1;s=PLC1.SerialNumber",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "2:SoftwareRevision",
+      "opcua_id" : "ns=1;s=PLC1.SoftwareRevision",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "4:DeviceState_4:DeviceState",
+      "opcua_id" : "ns=4;i=1301",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "4:DeviceState_4:ErrorCode",
+      "opcua_id" : "ns=4;i=1302",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "4:DeviceState_4:ErrorMessage",
+      "opcua_id" : "ns=4;i=1303",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "4:DeviceState_4:FramesExceeded",
+      "opcua_id" : "ns=4;i=1304",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "8:Configuration",
+    "service" : "opcua_car",
+    "subservice" : "/demo",
+    "polling" : null,
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_OpenCount",
+      "opcua_id" : "ns=8;s=16777489.OpenCount",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Size",
+      "opcua_id" : "ns=8;s=16777489.Size",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_UserWritable",
+      "opcua_id" : "ns=8;s=16777489.UserWritable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Writable",
+      "opcua_id" : "ns=8;s=16777489.Writable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Close_InputArguments",
+      "opcua_id" : "ns=8;s=16777489.Close.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_GetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777489.GetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_GetPosition_OutputArguments",
+      "opcua_id" : "ns=8;s=16777489.GetPosition.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Open_InputArguments",
+      "opcua_id" : "ns=8;s=16777489.Open.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Open_OutputArguments",
+      "opcua_id" : "ns=8;s=16777489.Open.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Read_InputArguments",
+      "opcua_id" : "ns=8;s=16777489.Read.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Read_OutputArguments",
+      "opcua_id" : "ns=8;s=16777489.Read.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_SetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777489.SetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Write_InputArguments",
+      "opcua_id" : "ns=8;s=16777489.Write.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:validFrom",
+      "opcua_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der.validFrom",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:validTo",
+      "opcua_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der.validTo",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:URI",
+      "opcua_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der.URI",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:IPAddresses",
+      "opcua_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der.IPAddresses",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:DNSNames",
+      "opcua_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der.DNSNames",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:IssuerCommonName",
+      "opcua_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der.IssuerCommonName",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:SubjectCommonName",
+      "opcua_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der.SubjectCommonName",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:CommonName",
+      "opcua_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der.CommonName",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:ThumbPrint",
+      "opcua_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der.ThumbPrint",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:IsSelfSigned",
+      "opcua_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der.IsSelfSigned",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:Move_InputArguments",
+      "opcua_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der.Move.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_OpenCount",
+      "opcua_id" : "ns=8;s=16777505.OpenCount",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Size",
+      "opcua_id" : "ns=8;s=16777505.Size",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_UserWritable",
+      "opcua_id" : "ns=8;s=16777505.UserWritable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Writable",
+      "opcua_id" : "ns=8;s=16777505.Writable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Close_InputArguments",
+      "opcua_id" : "ns=8;s=16777505.Close.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_GetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777505.GetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_GetPosition_OutputArguments",
+      "opcua_id" : "ns=8;s=16777505.GetPosition.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Open_InputArguments",
+      "opcua_id" : "ns=8;s=16777505.Open.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Open_OutputArguments",
+      "opcua_id" : "ns=8;s=16777505.Open.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Read_InputArguments",
+      "opcua_id" : "ns=8;s=16777505.Read.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Read_OutputArguments",
+      "opcua_id" : "ns=8;s=16777505.Read.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_SetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777505.SetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Write_InputArguments",
+      "opcua_id" : "ns=8;s=16777505.Write.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_OpenCount",
+      "opcua_id" : "ns=8;s=16777728.OpenCount",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_Size",
+      "opcua_id" : "ns=8;s=16777728.Size",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_UserWritable",
+      "opcua_id" : "ns=8;s=16777728.UserWritable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_Writable",
+      "opcua_id" : "ns=8;s=16777728.Writable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_Close_InputArguments",
+      "opcua_id" : "ns=8;s=16777728.Close.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_GetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777728.GetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_GetPosition_OutputArguments",
+      "opcua_id" : "ns=8;s=16777728.GetPosition.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_Open_InputArguments",
+      "opcua_id" : "ns=8;s=16777728.Open.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_Open_OutputArguments",
+      "opcua_id" : "ns=8;s=16777728.Open.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_Read_InputArguments",
+      "opcua_id" : "ns=8;s=16777728.Read.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_Read_OutputArguments",
+      "opcua_id" : "ns=8;s=16777728.Read.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_SetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777728.SetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_Write_InputArguments",
+      "opcua_id" : "ns=8;s=16777728.Write.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_OpenCount",
+      "opcua_id" : "ns=8;s=16777733.OpenCount",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_Size",
+      "opcua_id" : "ns=8;s=16777733.Size",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_UserWritable",
+      "opcua_id" : "ns=8;s=16777733.UserWritable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_Writable",
+      "opcua_id" : "ns=8;s=16777733.Writable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_Close_InputArguments",
+      "opcua_id" : "ns=8;s=16777733.Close.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_GetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777733.GetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_GetPosition_OutputArguments",
+      "opcua_id" : "ns=8;s=16777733.GetPosition.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_Open_InputArguments",
+      "opcua_id" : "ns=8;s=16777733.Open.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_Open_OutputArguments",
+      "opcua_id" : "ns=8;s=16777733.Open.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_Read_InputArguments",
+      "opcua_id" : "ns=8;s=16777733.Read.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_Read_OutputArguments",
+      "opcua_id" : "ns=8;s=16777733.Read.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_SetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777733.SetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_Write_InputArguments",
+      "opcua_id" : "ns=8;s=16777733.Write.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_OpenCount",
+      "opcua_id" : "ns=8;s=16777744.OpenCount",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_Size",
+      "opcua_id" : "ns=8;s=16777744.Size",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_UserWritable",
+      "opcua_id" : "ns=8;s=16777744.UserWritable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_Writable",
+      "opcua_id" : "ns=8;s=16777744.Writable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_Close_InputArguments",
+      "opcua_id" : "ns=8;s=16777744.Close.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_GetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777744.GetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_GetPosition_OutputArguments",
+      "opcua_id" : "ns=8;s=16777744.GetPosition.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_Open_InputArguments",
+      "opcua_id" : "ns=8;s=16777744.Open.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_Open_OutputArguments",
+      "opcua_id" : "ns=8;s=16777744.Open.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_Read_InputArguments",
+      "opcua_id" : "ns=8;s=16777744.Read.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_Read_OutputArguments",
+      "opcua_id" : "ns=8;s=16777744.Read.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_SetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777744.SetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_Write_InputArguments",
+      "opcua_id" : "ns=8;s=16777744.Write.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_OpenCount",
+      "opcua_id" : "ns=8;s=16777776.OpenCount",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_Size",
+      "opcua_id" : "ns=8;s=16777776.Size",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_UserWritable",
+      "opcua_id" : "ns=8;s=16777776.UserWritable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_Writable",
+      "opcua_id" : "ns=8;s=16777776.Writable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_Close_InputArguments",
+      "opcua_id" : "ns=8;s=16777776.Close.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_GetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777776.GetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_GetPosition_OutputArguments",
+      "opcua_id" : "ns=8;s=16777776.GetPosition.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_Open_InputArguments",
+      "opcua_id" : "ns=8;s=16777776.Open.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_Open_OutputArguments",
+      "opcua_id" : "ns=8;s=16777776.Open.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_Read_InputArguments",
+      "opcua_id" : "ns=8;s=16777776.Read.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_Read_OutputArguments",
+      "opcua_id" : "ns=8;s=16777776.Read.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_SetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777776.SetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_Write_InputArguments",
+      "opcua_id" : "ns=8;s=16777776.Write.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_OpenCount",
+      "opcua_id" : "ns=8;s=16777781.OpenCount",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Size",
+      "opcua_id" : "ns=8;s=16777781.Size",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_UserWritable",
+      "opcua_id" : "ns=8;s=16777781.UserWritable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Writable",
+      "opcua_id" : "ns=8;s=16777781.Writable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Close_InputArguments",
+      "opcua_id" : "ns=8;s=16777781.Close.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_GetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777781.GetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_GetPosition_OutputArguments",
+      "opcua_id" : "ns=8;s=16777781.GetPosition.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Open_InputArguments",
+      "opcua_id" : "ns=8;s=16777781.Open.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Open_OutputArguments",
+      "opcua_id" : "ns=8;s=16777781.Open.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Read_InputArguments",
+      "opcua_id" : "ns=8;s=16777781.Read.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Read_OutputArguments",
+      "opcua_id" : "ns=8;s=16777781.Read.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_SetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777781.SetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Write_InputArguments",
+      "opcua_id" : "ns=8;s=16777781.Write.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:Resources_8:Delete_InputArguments",
+      "opcua_id" : "ns=8;s=16777792.Delete.InArgs",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:Resources_8:Create_InputArguments",
+      "opcua_id" : "ns=8;s=16777792.Create.InArgs",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:NodesetFiles_8:Delete_InputArguments",
+      "opcua_id" : "ns=8;s=16777808.Delete.InArgs",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:NodesetFiles_8:Create_InputArguments",
+      "opcua_id" : "ns=8;s=16777808.Create.InArgs",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_OpenCount",
+      "opcua_id" : "ns=8;s=16777824.OpenCount",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Size",
+      "opcua_id" : "ns=8;s=16777824.Size",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_UserWritable",
+      "opcua_id" : "ns=8;s=16777824.UserWritable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Writable",
+      "opcua_id" : "ns=8;s=16777824.Writable",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Close_InputArguments",
+      "opcua_id" : "ns=8;s=16777824.Close.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_GetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777824.GetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_GetPosition_OutputArguments",
+      "opcua_id" : "ns=8;s=16777824.GetPosition.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Open_InputArguments",
+      "opcua_id" : "ns=8;s=16777824.Open.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Open_OutputArguments",
+      "opcua_id" : "ns=8;s=16777824.Open.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Read_InputArguments",
+      "opcua_id" : "ns=8;s=16777824.Read.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Read_OutputArguments",
+      "opcua_id" : "ns=8;s=16777824.Read.OutputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_SetPosition_InputArguments",
+      "opcua_id" : "ns=8;s=16777824.SetPosition.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Write_InputArguments",
+      "opcua_id" : "ns=8;s=16777824.Write.InputArguments",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:SymbolFiles_8:Delete_InputArguments",
+      "opcua_id" : "ns=8;s=16778240.Delete.InArgs",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:ConfigFiles_8:SymbolFiles_8:Create_InputArguments",
+      "opcua_id" : "ns=8;s=16778240.Create.InArgs",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:AlarmsConditions_8:CreateController_InputArguments",
+      "opcua_id" : "ns=8;i=3011",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:AlarmsConditions_8:DeleteController_InputArguments",
+      "opcua_id" : "ns=8;i=3021",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:AlarmsConditions_8:CreateOffNormalCondition_InputArguments",
+      "opcua_id" : "ns=8;i=3031",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:AlarmsConditions_8:CreateLimitCondition_InputArguments",
+      "opcua_id" : "ns=8;i=3036",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:AlarmsConditions_8:DeleteCondition_InputArguments",
+      "opcua_id" : "ns=8;i=3041",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:HistoricalAccess_8:AddNodeToHistorize_InputArguments",
+      "opcua_id" : "ns=8;i=16778017",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:HistoricalAccess_8:AddNodeToHistorize_OutputArguments",
+      "opcua_id" : "ns=8;i=16778018",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:HistoricalAccess_8:RemoveNodeFromHistorize_InputArguments",
+      "opcua_id" : "ns=8;i=16778033",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:HistoricalAccess_8:RemoveNodeFromHistorize_OutputArguments",
+      "opcua_id" : "ns=8;i=16778034",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:TwinCATBootDirInfo_8:TcBootDir",
+      "opcua_id" : "ns=8;i=800",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:TwinCATBootDirInfo_8:TcBootDir_8:CurrentConfig",
+      "opcua_id" : "ns=8;s=800.CurrentConfig",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:TwinCATBootDirInfo_8:TcBootDir_8:Plc",
+      "opcua_id" : "ns=8;s=800.Plc",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:TwinCATBootDirInfo_8:TcBootDir_8:Plc_8:Port_851",
+      "opcua_id" : "ns=8;s=800.Plc.Port_851",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:TwinCATBootDirInfo_8:TcBootDir_8:Plc_8:Port_851_8:Visu",
+      "opcua_id" : "ns=8;s=800.Plc.Port_851.Visu",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "8:TwinCATBootDirInfo_8:TcBootDir_8:TcCom",
+      "opcua_id" : "ns=8;s=800.TcCom",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    } ]
+  } ],
+  "contextSubscriptions" : [ {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:RestartServer",
+      "opcua_id" : "ns=8;s=272.RestartServer",
+      "object_id" : "ns=8;i=272",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:ShutdownServer",
+      "opcua_id" : "ns=8;s=272.ShutdownServer",
+      "object_id" : "ns=8;i=272",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Close",
+      "opcua_id" : "ns=8;s=16777489.Close",
+      "object_id" : "ns=8;i=16777489",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_GetPosition",
+      "opcua_id" : "ns=8;s=16777489.GetPosition",
+      "object_id" : "ns=8;i=16777489",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Open",
+      "opcua_id" : "ns=8;s=16777489.Open",
+      "object_id" : "ns=8;i=16777489",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Read",
+      "opcua_id" : "ns=8;s=16777489.Read",
+      "object_id" : "ns=8;i=16777489",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_SetPosition",
+      "opcua_id" : "ns=8;s=16777489.SetPosition",
+      "object_id" : "ns=8;i=16777489",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:Transfer_Write",
+      "opcua_id" : "ns=8;s=16777489.Write",
+      "object_id" : "ns=8;i=16777489",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:Delete",
+      "opcua_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der.Delete",
+      "object_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Trusted_8:NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der_8:Move",
+      "opcua_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der.Move",
+      "object_id" : "ns=8;s=TrustedCertificates|NodeOPCUA [08BA398AB6859C7AAFEA83730E98949567993077].der",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Close",
+      "opcua_id" : "ns=8;s=16777505.Close",
+      "object_id" : "ns=8;i=16777505",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_GetPosition",
+      "opcua_id" : "ns=8;s=16777505.GetPosition",
+      "object_id" : "ns=8;i=16777505",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Open",
+      "opcua_id" : "ns=8;s=16777505.Open",
+      "object_id" : "ns=8;i=16777505",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Read",
+      "opcua_id" : "ns=8;s=16777505.Read",
+      "object_id" : "ns=8;i=16777505",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_SetPosition",
+      "opcua_id" : "ns=8;s=16777505.SetPosition",
+      "object_id" : "ns=8;i=16777505",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:Server_8:Certificates_8:Rejected_8:Transfer_Write",
+      "opcua_id" : "ns=8;s=16777505.Write",
+      "object_id" : "ns=8;i=16777505",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_Close",
+      "opcua_id" : "ns=8;s=16777728.Close",
+      "object_id" : "ns=8;i=16777728",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_GetPosition",
+      "opcua_id" : "ns=8;s=16777728.GetPosition",
+      "object_id" : "ns=8;i=16777728",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_Open",
+      "opcua_id" : "ns=8;s=16777728.Open",
+      "object_id" : "ns=8;i=16777728",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_Read",
+      "opcua_id" : "ns=8;s=16777728.Read",
+      "object_id" : "ns=8;i=16777728",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_SetPosition",
+      "opcua_id" : "ns=8;s=16777728.SetPosition",
+      "object_id" : "ns=8;i=16777728",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaServerConfig.xml_Write",
+      "opcua_id" : "ns=8;s=16777728.Write",
+      "object_id" : "ns=8;i=16777728",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_Close",
+      "opcua_id" : "ns=8;s=16777733.Close",
+      "object_id" : "ns=8;i=16777733",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_GetPosition",
+      "opcua_id" : "ns=8;s=16777733.GetPosition",
+      "object_id" : "ns=8;i=16777733",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_Open",
+      "opcua_id" : "ns=8;s=16777733.Open",
+      "object_id" : "ns=8;i=16777733",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_Read",
+      "opcua_id" : "ns=8;s=16777733.Read",
+      "object_id" : "ns=8;i=16777733",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_SetPosition",
+      "opcua_id" : "ns=8;s=16777733.SetPosition",
+      "object_id" : "ns=8;i=16777733",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaDaConfig.xml_Write",
+      "opcua_id" : "ns=8;s=16777733.Write",
+      "object_id" : "ns=8;i=16777733",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_Close",
+      "opcua_id" : "ns=8;s=16777744.Close",
+      "object_id" : "ns=8;i=16777744",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_GetPosition",
+      "opcua_id" : "ns=8;s=16777744.GetPosition",
+      "object_id" : "ns=8;i=16777744",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_Open",
+      "opcua_id" : "ns=8;s=16777744.Open",
+      "object_id" : "ns=8;i=16777744",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_Read",
+      "opcua_id" : "ns=8;s=16777744.Read",
+      "object_id" : "ns=8;i=16777744",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_SetPosition",
+      "opcua_id" : "ns=8;s=16777744.SetPosition",
+      "object_id" : "ns=8;i=16777744",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaAcConfig.xml_Write",
+      "opcua_id" : "ns=8;s=16777744.Write",
+      "object_id" : "ns=8;i=16777744",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_Close",
+      "opcua_id" : "ns=8;s=16777776.Close",
+      "object_id" : "ns=8;i=16777776",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_GetPosition",
+      "opcua_id" : "ns=8;s=16777776.GetPosition",
+      "object_id" : "ns=8;i=16777776",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_Open",
+      "opcua_id" : "ns=8;s=16777776.Open",
+      "object_id" : "ns=8;i=16777776",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_Read",
+      "opcua_id" : "ns=8;s=16777776.Read",
+      "object_id" : "ns=8;i=16777776",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_SetPosition",
+      "opcua_id" : "ns=8;s=16777776.SetPosition",
+      "object_id" : "ns=8;i=16777776",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaHaConfig.xml_Write",
+      "opcua_id" : "ns=8;s=16777776.Write",
+      "object_id" : "ns=8;i=16777776",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Close",
+      "opcua_id" : "ns=8;s=16777781.Close",
+      "object_id" : "ns=8;i=16777781",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_GetPosition",
+      "opcua_id" : "ns=8;s=16777781.GetPosition",
+      "object_id" : "ns=8;i=16777781",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Open",
+      "opcua_id" : "ns=8;s=16777781.Open",
+      "object_id" : "ns=8;i=16777781",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Read",
+      "opcua_id" : "ns=8;s=16777781.Read",
+      "object_id" : "ns=8;i=16777781",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_SetPosition",
+      "opcua_id" : "ns=8;s=16777781.SetPosition",
+      "object_id" : "ns=8;i=16777781",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaSecurityConfig.xml_Write",
+      "opcua_id" : "ns=8;s=16777781.Write",
+      "object_id" : "ns=8;i=16777781",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:Resources_8:Delete",
+      "opcua_id" : "ns=8;s=16777792.Delete",
+      "object_id" : "ns=8;i=16777792",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:Resources_8:Create",
+      "opcua_id" : "ns=8;s=16777792.Create",
+      "object_id" : "ns=8;i=16777792",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:Resources_8:Reload",
+      "opcua_id" : "ns=8;s=16777792.Reload",
+      "object_id" : "ns=8;i=16777792",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:NodesetFiles_8:Delete",
+      "opcua_id" : "ns=8;s=16777808.Delete",
+      "object_id" : "ns=8;i=16777808",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:NodesetFiles_8:Create",
+      "opcua_id" : "ns=8;s=16777808.Create",
+      "object_id" : "ns=8;i=16777808",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:NodesetFiles_8:Reload",
+      "opcua_id" : "ns=8;s=16777808.Reload",
+      "object_id" : "ns=8;i=16777808",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Close",
+      "opcua_id" : "ns=8;s=16777824.Close",
+      "object_id" : "ns=8;i=16777824",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_GetPosition",
+      "opcua_id" : "ns=8;s=16777824.GetPosition",
+      "object_id" : "ns=8;i=16777824",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Open",
+      "opcua_id" : "ns=8;s=16777824.Open",
+      "object_id" : "ns=8;i=16777824",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Read",
+      "opcua_id" : "ns=8;s=16777824.Read",
+      "object_id" : "ns=8;i=16777824",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_SetPosition",
+      "opcua_id" : "ns=8;s=16777824.SetPosition",
+      "object_id" : "ns=8;i=16777824",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:TcUaNodesetConfig.xml_Write",
+      "opcua_id" : "ns=8;s=16777824.Write",
+      "object_id" : "ns=8;i=16777824",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:SymbolFiles_8:Delete",
+      "opcua_id" : "ns=8;s=16778240.Delete",
+      "object_id" : "ns=8;i=16778240",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:SymbolFiles_8:Create",
+      "opcua_id" : "ns=8;s=16778240.Create",
+      "object_id" : "ns=8;i=16778240",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:ConfigFiles_8:SymbolFiles_8:Reload",
+      "opcua_id" : "ns=8;s=16778240.Reload",
+      "object_id" : "ns=8;i=16778240",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:AlarmsConditions_8:CreateController",
+      "opcua_id" : "ns=8;i=3010",
+      "object_id" : "ns=8;i=3000",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:AlarmsConditions_8:DeleteController",
+      "opcua_id" : "ns=8;i=3020",
+      "object_id" : "ns=8;i=3000",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:AlarmsConditions_8:CreateOffNormalCondition",
+      "opcua_id" : "ns=8;i=3030",
+      "object_id" : "ns=8;i=3000",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:AlarmsConditions_8:CreateLimitCondition",
+      "opcua_id" : "ns=8;i=3035",
+      "object_id" : "ns=8;i=3000",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:AlarmsConditions_8:DeleteCondition",
+      "opcua_id" : "ns=8;i=3040",
+      "object_id" : "ns=8;i=3000",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:AlarmsConditions_8:CommitConfig",
+      "opcua_id" : "ns=8;i=3050",
+      "object_id" : "ns=8;i=3000",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:HistoricalAccess_8:AddNodeToHistorize",
+      "opcua_id" : "ns=8;i=16778016",
+      "object_id" : "ns=8;i=16777984",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:HistoricalAccess_8:RemoveNodeFromHistorize",
+      "opcua_id" : "ns=8;i=16778032",
+      "object_id" : "ns=8;i=16777984",
+      "inputArguments" : [ ]
+    } ]
+  }, {
+    "id" : "age01_8:Configuration",
+    "type" : "() FolderType",
+    "mappings" : [ {
+      "ocb_id" : "8:HistoricalAccess_8:CommitConfig",
+      "opcua_id" : "ns=8;i=16778048",
+      "object_id" : "ns=8;i=16777984",
+      "inputArguments" : [ ]
+    } ]
+  } ]
+}

@@ -1,0 +1,109 @@
+{
+  "logLevel" : "DEBUG",
+  "contextBroker" : {
+    "host" : "orion",
+    "port" : 1026
+  },
+  "server" : {
+    "port" : 4001,
+    "baseRoot" : "/"
+  },
+  "deviceRegistry" : {
+    "type" : "memory"
+  },
+  "mongodb" : {
+    "host" : "iotmongo",
+    "port" : "27017",
+    "db" : "iotagent",
+    "retries" : 5,
+    "retryTime" : 5
+  },
+  "types" : {
+    "plc" : {
+      "service" : "openiot",
+      "subservice" : "/",
+      "active" : [{
+        "name" : "main",
+        "type" : "Int16"
+      }, {
+        "name" : "Gripper_active",
+        "type" : "Boolean"
+      }, {
+        "name" : "Assembly_speed",
+        "type" : "Int16"
+      }, {
+        "name" : "running_hours",
+        "type" : "Int16"
+      }, {
+        "name" : "busy",
+        "type" : "Boolean"
+      }, {
+        "name" : "servos_active",
+        "type" : "Boolean"
+      }, {
+        "name" : "partsOK",
+        "type" : "Int16"
+      }, {
+        "name" : "partsNOK",
+        "type" : "Int16"
+      }],
+      "lazy" : [ ],
+      "commands" : [ ]
+    }
+  },
+  "browseServerOptions" : null,
+  "service" : "openiot",
+  "subservice" : "/",
+  "providerUrl" : "http://iotage:4001",
+  "pollingExpiration" : "200000",
+  "pollingDaemonFrequency" : "20000",
+  "deviceRegistrationDuration" : "P1M",
+  "defaultType" : null,
+  "contexts" : [ {
+    "id" : "plc_1",
+    "type" : "plc",
+    "service" : "openiot",
+    "subservice" : "/",
+    "polling" : false,
+    "mappings" : [ {
+      "ocb_id" : "main",
+      "opcua_id" : "ns=4;s=MAIN.mainVar",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "Gripper_active",
+      "opcua_id" : "ns=4;s=MAIN.Gripper_active",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "Assembly_speed",
+      "opcua_id" : "ns=4;s=MAIN.Assembly_speed",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "running_hours",
+      "opcua_id" : "ns=4;s=MAIN.running_hours",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "busy",
+      "opcua_id" : "ns=4;s=MAIN.busy",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "servos_active",
+      "opcua_id" : "ns=4;s=MAIN.servos_active",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "partsOK",
+      "opcua_id" : "ns=4;s=MAIN.partsOK",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "partsNOK",
+      "opcua_id" : "ns=4;s=MAIN.partsNOK",
+      "object_id" : null,
+      "inputArguments" : [ ]
+  }]
+  }]}

@@ -1,0 +1,72 @@
+{
+  "logLevel" : "DEBUG",
+  "contextBroker" : {
+    "host" : "orion",
+    "port" : 1026
+  },
+  "server" : {
+    "port" : 4001,
+    "baseRoot" : "/"
+  },
+  "deviceRegistry" : {
+    "type" : "memory"
+  },
+  "mongodb" : {
+    "host" : "iotmongo",
+    "port" : "27017",
+    "db" : "iotagent",
+    "retries" : 5,
+    "retryTime" : 5
+  },
+  "types" : {
+    "plc" : {
+      "service" : "openiot",
+      "subservice" : "/",
+      "active" : [{
+        "name" : "main",
+        "type" : "Int16"
+      },
+      {
+        "name" : "test1",
+        "type" : "Int16"
+      }, {
+        "name" : "test2",
+        "type" : "Int16"
+      }
+      ],
+      "lazy" : [ ],
+      "commands" : [ ]
+    }
+  },
+  "browseServerOptions" : null,
+  "service" : "openiot",
+  "subservice" : "/openiot",
+  "providerUrl" : "http://iotage:4001",
+  "pollingExpiration" : "200000",
+  "pollingDaemonFrequency" : "20000",
+  "deviceRegistrationDuration" : "P1M",
+  "defaultType" : null,
+  "contexts" : [ {
+    "id" : "plc_1",
+    "type" : "plc",
+    "service" : "openiot",
+    "subservice" : "/",
+    "polling" : false,
+    "mappings" : [ {
+      "ocb_id" : "test1",
+      "opcua_id" : "ns=4;s=test.TestVar.test1",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "test2",
+      "opcua_id" : "ns=4;s=test.TestVar.test2",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }, {
+      "ocb_id" : "main",
+      "opcua_id" : "ns=4;s=MAIN.mainVar",
+      "object_id" : null,
+      "inputArguments" : [ ]
+    }]
+  }]
+}
