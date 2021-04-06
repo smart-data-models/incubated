@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/StopMessageROS/schema.json",
+  "title": " Smart Data Models- Stop Message for ROS system",
+  "description": "A stop message sent to a ROS system",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "StopMessageROS"
+          ],
+          "description": "Property. NGSI Entity type. It has to be MessageROS"
+        },
+        "robotType": {
+          "type": "string",
+          "description": "Property. Type of Robot or autonomous mobile vehicle"
+        },
+        "time": {
+          "$ref": "https://smart-data-models.github.io/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/time"
+        },
+        "stopCommand": {
+          "$ref": "https://smart-data-models.github.io/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/stopCommand"
+        },
+        "receivedTime": {
+          "$ref": "https://smart-data-models.github.io/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/receivedTime"
+        },
+        "receivedStopCommand": {
+          "$ref": "https://smart-data-models.github.io/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/command"
+        },
+        "result": {
+          "$ref": "https://smart-data-models.github.io/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/result"
+        },
+        "errors": {
+          "$ref": "https://smart-data-models.github.io/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/errors"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
