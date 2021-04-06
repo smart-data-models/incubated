@@ -1,0 +1,34 @@
+{
+  "header": {
+    "type": "Header",
+    "description": "Property. Separate header for compatibility with current TimeSynchronizer. Likely to be removed in a later release, use image.header instead. "
+  },
+  "image": {
+    "type": "sensor_msgs/Image",
+    "description": "Property. Floating point disparity image. The disparities are pre-adjusted for any x-offset between the principal points of the two cameras (in the case that they are verged). That is: d = x_l - x_r - (cx_l - cx_r) "
+  },
+  "f": {
+    "type": "number",
+    "description": "Property. Stereo geometry. For disparity d, the depth from the camera is Z = fT/d.  Focal length, pixels "
+  },
+  "T": {
+    "type": "number",
+    "description": "Property.  Baseline, world units "
+  },
+  "valid_window": {
+    "type": "sensor_msgs/RegionOfInterest",
+    "description": "Property. Subwindow of (potentially) valid disparity values. "
+  },
+  "min_disparity": {
+    "type": "number",
+    "description": "Property. The range of disparities searched. In the disparity image, any disparity less than min_disparity is invalid. The disparity search range defines the horopter, or 3D volume that the stereo algorithm can \"see\". Points with Z outside of:     Z_min = fT / max_disparity     Z_max = fT / min_disparity could not be found. "
+  },
+  "max_disparity": {
+    "type": "number",
+    "description": "Property. "
+  },
+  "delta_d": {
+    "type": "number",
+    "description": "Property. Smallest allowed disparity increment. The smallest achievable depth range resolution is delta_Z = (Z^2/fT)*delta_d. "
+  }
+}
