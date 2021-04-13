@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.Device/SmartMeteringObservation/schema.json",
+  "title": " Smart Data Models - Smart Metering Observation",
+  "description": "This entity contains a harmonised description of a Smart Meter Observation, generally applicable for Smart Homes, Industry, Cities and Agriculture.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "SmartMeteringObservation"
+          ],
+          "description": "Property. It has to be SmartMeteringObservation. NGSI entity type"
+        },
+        "payloadVersion": {
+          "type": "string",
+          "enum": [
+            "NGSIv2",
+            "NGSI-LD"
+          ],
+          "description": "Property. Model:'https://schema.org/Text'. The entity specification version. A version number of 2.0 or later denotes the entity is represented using NGSI-LD"
+        },
+        "measurement": {
+          "type": "array",
+          "description": "Property. Array describing the different measurements",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "Property. The value of the measurement"
+              },
+              "observationTime": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Property. The instant of the measurement"
+              },
+              "refDevice": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  }
+                ],
+                "description": "Property. Unique identifier of the entity"
+              },
+              "controlledAttribute": {
+                "type": "string",
+                "description": "Property. The controlled attribute."
+              }
+            }
+          }
+        },
+        "image": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/PhysicalObject-Commons/properties/image"
+        }
+      }
+    }
+  ]
+}
