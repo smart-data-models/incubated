@@ -29,36 +29,47 @@
           ],
           "description": "Property. Model:'https://schema.org/Text'. The entity specification version. A version number of 2.0 or later denotes the entity is represented using NGSI-LD"
         },
-        "refDevice": {
-          "type": "string",
-          "format": "uri",
-          "description": "Relationship. Model:'https://schema.org/URL'. Reference to the Smart Meter that this observation relates to."
-        },
-        "dateObserved": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Property. Model:'https://schema.org/DateTime'. Indicates the date/time the most recent observation was recorded."
-        },
-        "consumption": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. The total amount of product supplied as recorded by the meter since installation. The relevant unitCode should be specified such as KWH (Kilo Watt Hours) for Electricity, LTR (Litre) or MTQ (Cubic Metre) for gases or liquids."
+        "measurement": {
+          "type": "array",
+          "description": "Property. Array describing the different measurements",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "Property. The value of the measurement"
+              },
+              "observationTime": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Property. The instant of the measurement"
+              },
+              "refDevice": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  }
+                ],
+                "description": "Property. Unique identifier of the entity"
+              },
+              "controlledAttribute": {
+                "type": "string",
+                "description": "Property. The controlled attribute."
+              }
+            }
+          }
         },
         "image": {
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/PhysicalObject-Commons/properties/image"
-        },
-        "peakConsumption": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. The total amount of product supplied during 'peak' hours (particularly relevant to Electricity supply) as recorded by the meter since installation. The relevant unitCode should be specified such as KWH (Kilo Watt Hours) for Electricity, LTR (Litre) or MTQ (Cubic Metre) for gases or liquids."
-        },
-        "offPeakConsumption": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. The total amount of product supplied during 'off-peak' hours (particularly relevant to Electricity supply) as recorded by the meter since installation. The relevant unitCode should be specified such as KWH (Kilo Watt Hours) for Electricity, LTR (Litre) or MTQ (Cubic Metre) for gases or liquids."
-        },
-        "powerFactor": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Relevant to 3-Phase electricity supplies often used in industry - the power factor ranges from -1 to +1 depending on the net balance between capacitive and inductive loads. If used this measures the average power factor since meter installation.",
-          "maximum": 1,
-          "minimum": -1
         }
       }
     }
