@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$id": "# { todo } #",
-    "title": "Greek National Water Company - Water Management System - PointfMeasurement",
-    "description": "This entity contains temporal data",
+    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/ObservedAsset/schema.json",
+    "title": "Open Channel Management - ObservedAsset",
+    "description": "This entity contains temporal data made for Open Channel Management (raw-water systems)",
     "type": "object",
     "allOf": [
         {
@@ -15,25 +15,31 @@
                     "enum": ["ObservedAsset"],
                     "description": "NGSI-LD Entity Type"
                 },
-                "description": {
-                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
+                "observedBy": {
+                  "type": "String",
+                  "description": "Relationship. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'",
+                  "format": "uri"
                 },
-                "id": {
-                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                },
-                "observedAt": {
-                    "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                },
-                "observedBy":{
-                  "type": "Relationship",
-                  "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json",
+                "monitoredProperty": {
+                  "type": "string",
+                  "enum": [
+                    "Water level",
+                    "Gate Opening",
+                    "Water flow",
+                    "Water temperature",
+                    "Average Velocity",
+                    "Specific Conductivity",
+                    "Turbidity",
+                    "Battery supply",
+                    "Water velocity"
+                  ]
                 }
             }
         }
     ],
     "required": [
         "id",
-        "name",
+        "monitoredProperty",
         "location",
         "observedAt",
         "observedBy"

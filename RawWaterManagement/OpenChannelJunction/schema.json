@@ -1,0 +1,76 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/OpenChannelJunction/schema.json",
+    "title": "Open Channel Management - OpenChannelJunction",
+    "description": "This entity contains a harmonised description of a generic junction made for open-channel management (raw-water systems). Junction defines a location where the characteristics of the channel changes, two or more channels come together or split apart, amounts of water are abstracted or inserted to the system",
+    "type": "object",
+    "allOf": [
+      {
+        "position": {
+          "description": "Description of relevant position of a cross section from a reference point (e.g., the most upstream point of the system)",
+          "allOf":[
+            {
+              "type": "number"
+            },
+            {
+              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+            }
+          ]
+        },
+        "downstream":{
+          "type": "object",
+          "description": "Relationship. A relationship indicating the ID of the downstream entity (channel, junction, spillway, sluice gate)",
+          "properties":{
+            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+          }
+        },
+        "upstream":{
+          "type": "object",
+          "description": "Relationship. A relationship indicating the ID of the upstream entity (channel, junction, spillway, sluice gate)",
+          "properties":{
+            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+          }
+        },
+        "observedBy": {
+          "description": "Relationship. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'",
+          "type": "String",
+          "format": "uri"
+        }
+      },
+      {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["OpenChannelJunction"],
+            "description": "NGSI-LD Entity Type"
+          },
+          "uniqueName": {
+            "type": "string",
+            "description": "Property. The name of the junction"
+          },
+          "description": {
+            "type": "string",
+            "description": "Property. An optional text that describes other significant information"
+          },
+          "tag": {
+              "$ref": "../RawWaterManagement-schema.json#/definitions/tag"
+          },
+          "waterOutflow": {
+            "type": "number",
+            "minimum": "0",
+            "description": "Property. Water diverted from the junction to another source. Units:'m^3/s'"
+          },
+          "waterInflow": {
+            "type": "number",
+            "minimum": "0",
+            "description": "Property. Water inserted to the junction from another source. Units:'m^3/s'"
+          }
+        }
+      }
+    ],
+    "required": [
+      "id",
+      "type",
+      "uniqueName"
+    ]
+  }

@@ -35,44 +35,40 @@
                 "modifiedAt": {
                     "type": "string",
                     "format": "date-time"
+                },
+                "tag":{
+                  "$ref": "../RawWaterManagement-schema.json#/definitions/tag"
                 }
-            },
-            "required": [
-                "type",
-                "value"
-            ]
+            }
         },
         "ngsildRelationship": {
             "type": "object",
+            "description": "Generic relationship between different Entities",
             "properties": {
                 "type": {
                     "type": "string",
-                    "enum": [
-                        "Relationship"
-                    ]
+                    "enum": ["Relationship"]
                 },
-                "object": {
-                    "type": [
-                        "string"
-                    ],
+                "targetURI": {
+                    "type": ["string"],
                     "format": "uri"
                 },
-                "createdAt": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "observedAt": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "modifiedAt": {
-                    "type": "string",
-                    "format": "date-time"
+                "target":{
+                    "enum": [
+                      "Channel",
+                      "CrossSection",
+                      "SluiceGate",
+                      "regulationStructure",
+                      "Spillway",
+                      "OpenChannelCurve",
+                      "OpenChannelJunction",
+                      "HydraulicSimulation",
+                      "OpenChannelSystem",
+                      "HydraulicSimulationResult"]
                 }
             },
-            "required": [
-                "type",
-                "object"
+            "required":[
+              "type", "object"
             ]
         }
     }

@@ -1,89 +1,106 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$id": "# { todo } #",
-    "title": "Greek National Water Company - Water Management System - HydraulicSimulationScenario",
-    "description": "This entity contains a harmonised description of a simulation scenario for the estimation of the optimal regulation gate settings in a raw-water system",
+    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/HydraulicSimulationScenario/schema.json",
+    "title": "Open Channel Management - HydraulicSimulationScenario",
+    "description": "Made for Open Channel Management (raw-water systems)",
     "type": "object",
     "allOf": [
       {
-        "properties": {
-          "type": {
+        "hasInputOpenChannelSystem": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. The URI of the OpenChannelSystem this result is referring to"
+        },
+        "hasSimulationResult": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. the URI of the HydraulicSimulationScenario this result has been computed"
+        },
+        "targetValues": {
+          "description": "Property. The set of target values defined by the user before the simulation",
+          "properties": {
+            "waterAttribute": {
+              "description": "Property. A sub-property (e.g., flow). A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship. It contains the target values for specified properties, defined before the simulation",
+              "type": "number",
+              "minimum": "0"
+            },
+            "targetURI": {
+              "description": "Relationship. The CrossSection these target values refer to",
+              "type":"string",
+              "format": "uri"
+            }
+          }
+        },
+        "inputParameters": {
+          "description": "Property. The set of modifications to be applied to the water system for the simulation",
+          "properties": {
+            "waterAttribute": {
+              "description": "Property. A sub-property. A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship",
+              "type": "number",
+              "minimum": "0"
+            },
+            "targetURI": {
+              "description": "Relationship. The CrossSection these target values refer to",
+              "type":"string",
+              "format": "uri"
+            }
+          }
+        }
+      },
+      {
+        "type": {
             "type": "string",
-            "enum": ["HydraulicSimulationScenario"]
+            "enum": ["HydraulicSimulationScenario"],
             "description": "NGSI-LD Entity Type"
-          },
-          {
-          "description": {
-            "type": "string",
-            "description": "An optional text that describes other significant information about the simulation scenario"
-          },
-          "duration": {
-            "type": "number",
-            "description": "Duration of the simulation, given in seconds"
-          },
-          "hydraulicTimeStep": {
-            "type": "number",
-            "description": "Determines how often the hydraulic state of the network is calculated. Given in seconds"
-          },
-          "flowUnits": {
-            "type": "string",
-            "description": "Units in which flow rates are expressed in the simulation",
-            "enum": ["CFS", "GPM", "MGD", "IMGD", "AFD", "LPS", "LPM", "MLD", "CMH", "CMD".]
-          },
-          "startSimulationTime": {
-            "type": "datetime",
-            "description": "Time of day at which the simulation begins"
-          },
-          "endSimulationTime": {
-            "type": "datetime",
-            "description": "Time of day at which the simulation ends"
-          },
-          "flowConvergenceAccuracy": {
-            "type": "number",
-            "description": "Criterion to determine whether the target flow has been established (difference between the real and target flow"
-          },
-          "modelParameters": {
-            "type": "string",
-            "description": "Description of the set of modifications to be applied to the water system for the simulation"
-          },
-          "targetValues": {
-            "description": "Description of the set of target values defined by the user before the simulation",
-            "properties": {
-              "waterAttribute": {
-                "type": "number",
-                "description": "A sub-property (e.g., flow). A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship. It contains the target values for specified properties, defined before the simulation"
-              },
-              "targetURI": {
-                "$ref": "../CrossSection/schema.json"
-              }
+        },
+        "createdBy": {
+          "description": "Property. The user created this HydraulicSimulationScenario",
+          "anyOf":{
+            "UniqueID":{
+              "type": "string"
+            },
+            "fullName":{
+              "type": "string"
             }
-          },
-          "inputParameters": {
-            "description": "Description of the set of modifications to be applied to the water system for the simulation",
-            "properties": {
-              "waterAttribute": {
-                "type": "number",
-                "description": "A sub-property. A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship"
-              },
-              "targetURI": {
-                "$ref": "../CrossSection/schema.json"
-              }
-            }
-          },
-          "createdBy": {
-            "[todo]"
-          },
-          "hasInputWaterSystem": {
-            "$ref": "../WaterSystem/schema.json"
-          },
-          "hasSimulationResult": {
-            "$ref": "../HydraulicSimulationResult/schema.json"
-          },
+          }
+        },
+        "description": {
+          "type": "string",
+          "description": "Property. An optional text that describes other significant information about the simulation scenario"
+        },
+        "duration": {
+          "type": "number",
+          "description": "Property. Duration of the simulation, given in seconds"
+        },
+        "hydraulicTimeStep": {
+          "type": "number",
+          "description": "Property. Determines how often the hydraulic state of the network is calculated. Given in seconds"
+        },
+        "flowUnits": {
+          "type": "string",
+          "description": "Property. Units in which flow rates are expressed in the simulation. Enum:'CFS, GPM, MGD, IMGD, AFD, LPS, LPM, MLD, CMH, CMD'",
+          "enum": ["CFS", "GPM", "MGD", "IMGD", "AFD", "LPS", "LPM", "MLD", "CMH", "CMD"]
+        },
+        "startSimulationTime": {
+          "type": "datetime",
+          "description": "Property. Time of day at which the simulation begins"
+        },
+        "endSimulationTime": {
+          "type": "datetime",
+          "description": "Property. Time of day at which the simulation ends"
+        },
+        "flowConvergenceAccuracy": {
+          "type": "number",
+          "description": "Property. Criterion to determine whether the target flow has been established (difference between the real and target flow"
+        },
+        "modelParameters": {
+          "type": "string",
+          "description": "Property. Description of the set of modifications to be applied to the water system for the simulation"
         }
       }
     ],
     "required": [
       "id",
-      "type",
+      "type"
     ]
   }

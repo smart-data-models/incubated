@@ -1,39 +1,45 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$id": "# { todo } #",
-    "title": "Greek National Water Company - Water Management System - HydraulicSimulationResult",
-    "description": "",
+    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/HydraulicSimulationResult/schema.json",
+    "title": "Open Channel Management - HydraulicSimulationResult",
+    "description": "Made for Open Channel Management (raw-water systems)",
     "type": "object",
     "allOf": [
       {
         "properties": {
           "type": {
             "type": "string",
-            "enum": ["HydraulicSimulationResult"]
+            "enum": ["HydraulicSimulationResult"],
             "description": "NGSI-LD Entity Type"
           },
           "dateCreated": {
             "type": "datetime",
-            "description": "Entity creation timestamp. This will usually be allocated by the storage platform"
+            "description": "Property. Entity creation timestamp. This will usually be allocated by the storage platform"
           },
           "description": {
             "type": "string",
-            "description": "An optional text that describes other significant information about the simulation scenario"
+            "description": "Property. An optional text that describes other significant information about the simulation scenario"
           },
           "createdBy": {
-            "[todo]"
+            "description": "Property. [todo!] Denotes the user who created this result"
           },
-          "hasInputWaterSystem": {
-            "$ref": "../WaterSystem/schema.json"
+          "hasInputOpenChannelSystem": {
+            "type": "string",
+            "format": "uri",
+            "description": "Property. The URI of the OpenChannelSystem this result is referring to"
           },
           "computedBy": {
-            "$ref": "../HydraulicSimulation/schema.json"
-          },
+            "type": "string",
+            "format": "uri",
+            "description": "Property. the URI of the HydraulicSimulationScenario this result has been computed"
+          }
         }
       }
     ],
     "required": [
       "id",
       "type",
+      "hasInputOpenChannelSystem",
+      "computedBy"
     ]
   }

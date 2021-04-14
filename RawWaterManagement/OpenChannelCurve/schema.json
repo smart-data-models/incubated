@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/OpenChannelCurve/schema.json",
+    "title": "Open Channel Management - OpenChannelCurve",
+    "description": "This entity contains a harmonised description of a generic curve made for open-channel management (raw-water systems).",
+    "type": "object",
+    "allOf": [
+      {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["OpenChannelCurve"],
+            "description": "NGSI-LD Entity Type"
+          },
+          "description": {
+            "type": "string",
+            "description": "Property. An optional text that describes other significant information about the simulation scenario"
+          },
+          "tag": {
+              "$ref": "../RawWaterManagement-schema.json#/definitions/tag"
+          },
+          "curveType":{
+            "type": "string",
+            "description": "Property. Enum:'DischargeCoefficient - RelativeOpening, Elevation - Discharge, C/Co - H/Ho, P/Ho, C – h/width of spillway'",
+            "enum": "['DischargeCoefficient - RelativeOpening', 'Elevation - Discharge', 'C/Co - H/Ho', 'P/Ho', 'C – h/width of spillway']"
+          },
+          "xData":{
+            "description": "Property. X data points for the curve",
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "yData":{
+            "description": "Property. Y data points for the curve",
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    ],
+    "required": [
+      "id",
+      "type"
+    ]
+  }

@@ -1,92 +1,67 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$id": "# { todo } #",
-    "title": "Greek National Water Company - Water Management System - Junction ",
-    "description": "This entity contains a harmonised description of a generic “regulation structure” made for raw-water supply management domain. Regulation structure consists a junction type object, controlling flow in a channel",
+    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/RegulationStructure/schema.json",
+    "title": "Open Channel Management - RegulationStructure",
+    "description": "This entity contains a harmonised description of a generic regulation structure made for Open Channel Management (raw-water systems). Regulation structure consists a junction type object, controlling the water flow in a channel",
     "type": "object",
     "allOf": [
-              "location": {
-                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-              },
-              "position": {
-                  "type": "number",
-                  "measuredFrom":{
-                    "type": "Relationship",
-                    "description": ": A sub-Relationship to the ID of a node (e.g., Junction, Sluice gate, Reservoir) from which the relevant position of the cross section is measured",
-                    "oneOf":[
-                      "$ref": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Junction/schema.json",
-                      "$ref": "../SluiceGate/schema.json",
-                      "$ref": "../Reservoir/schema.json",
-                    ]
-                  }
-              },
-              {
-              "properties": {
-                  "type": {
-                      "type": "string",
-                      "enum": ["regulationStructure"],
-                      "description": "NGSI-LD Entity Type"
-                  },
-                  "tag": {
-                    "type": "string",
-                    "description": "An optional text used to assign the junction to a category, perhaps one based on age or the served area",
-                  },
-                  "numberOfGates": {
-                    "type": "number",
-                    "description": "Water abstracted (or diverted) from the junction to another source (m3/s)",
-                  },
-                  "numberOfSpillways": {
-                    "type": "number",
-                    "description": "An integer value defining the number of spillways attached to the regulation structure",
-                  },
-                  "telecommand": {
-                    "type": "boolean",
-                    "description": "Define whether the regulation structure is controlled remotely or manually. True/False value",
-                  },
-                  "description": {
-                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                  },
-                  "id": {
-                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                  },
-                  "cross-section": {
-                      "$ref": "../RawWaterManagement-schema.json#/definitions/ngsildProperty"
-                  }
-              }
+      {
+        "properties": {
+            "type": {
+                "type": "string",
+                "enum": ["regulationStructure"],
+                "description": "NGSI-LD Entity Type"
+            },
+            "tag": {
+              "$ref": "../RawWaterManagement-schema.json#/definitions/tag"
+            },
+            "numberOfGates": {
+              "type": "number",
+              "minimum": "0",
+              "description": "Property. An integer value defining the number of gates attached to the regulation structure"
+            },
+            "numberOfSpillways": {
+              "type": "number",
+              "minimum": "0",
+              "description": "Property. An integer value defining the number of spillways attached to the regulation structure"
+            },
+            "telecommand": {
+              "type": "boolean",
+              "description": "Property. Define whether the regulation structure is controlled remotely or manually. True/False value"
+            }
+        }
+      },
+      {
+        "hasSluiceGate":{
+          "description": "Relationship. A relationship to the ID label of the Sluice gate",
+          "type": "object",
+          "properties":{
+            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+          }
+        },
+        "hasSpillway":{
+          "description": "Relationship. A relationship to the ID label of the spillway",
+          "type": "object",
+          "properties":{
+            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+          }
+        },
+        "position": {
+          "allOf":[
+            {
+              "type": "number",
+              "description": "Property. The distance between this CrossSection and a reference point (e.g., the most upstream point of the system)"
             },
             {
-              "downstreamNode": {
-                "type": "Relationship",
-                "oneOf": [
-                  "$ref": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Junction/schema.json",
-                  "$ref": "../Channel/schema.json",
-                  "$ref": "../Spillway/schema.json",
-                  "$ref": "../SluiceGate/schema.json",
-                ]
-              },
-              "upstreamNode": {
-                "type": "Relationship",
-                "oneOf": [
-                  "$ref": "https://smart-data-models.github.io/data-models/specs/WaterNetwork/Junction/schema.json",
-                  "$ref": "../Channel/schema.json",
-                  "$ref": "../Spillway/schema.json",
-                  "$ref": "../SluiceGate/schema.json",
-                ]
-              },"hasGate":{
-                "type": "Relationship",
-                "description": "A relationship to the ID label of the gate",
-                "$ref": "../RegulationGate/schema.json",
-              },
-              "hasSpillway":{
-                "type": "Relationship",
-                "description": "A relationship to the ID label of the spillway",
-                "$ref": "../Spillway/schema.json",
-              }
+              "description": "Relationship. The reference point distance is count from",
+              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
             }
-          ],
+          ]
+        }
+      }
+    ],
     "required": [
         "id",
-        "name",
-        "location",
+        "name"
     ]
 }
