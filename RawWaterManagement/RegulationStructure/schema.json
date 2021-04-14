@@ -1,67 +1,109 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/RegulationStructure/schema.json",
-    "title": "Open Channel Management - RegulationStructure",
-    "description": "This entity contains a harmonised description of a generic regulation structure made for Open Channel Management (raw-water systems). Regulation structure consists a junction type object, controlling the water flow in a channel",
-    "type": "object",
-    "allOf": [
-      {
-        "properties": {
-            "type": {
-                "type": "string",
-                "enum": ["regulationStructure"],
-                "description": "NGSI-LD Entity Type"
-            },
-            "tag": {
-              "$ref": "../RawWaterManagement-schema.json#/definitions/tag"
-            },
-            "numberOfGates": {
-              "type": "number",
-              "minimum": "0",
-              "description": "Property. An integer value defining the number of gates attached to the regulation structure"
-            },
-            "numberOfSpillways": {
-              "type": "number",
-              "minimum": "0",
-              "description": "Property. An integer value defining the number of spillways attached to the regulation structure"
-            },
-            "telecommand": {
-              "type": "boolean",
-              "description": "Property. Define whether the regulation structure is controlled remotely or manually. True/False value"
-            }
-        }
-      },
-      {
-        "hasSluiceGate":{
-          "description": "Relationship. A relationship to the ID label of the Sluice gate",
-          "type": "object",
-          "properties":{
-            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
-          }
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/RegulationStructure/schema.json",
+  "title": "Open Channel Management - RegulationStructure",
+  "description": "This entity contains a harmonised description of a generic regulation structure made for Open Channel Management (raw-water systems). Regulation structure consists a junction type object, controlling the water flow in a channel",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "RegulationStructure"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It has to be RegulationStructure"
         },
-        "hasSpillway":{
-          "description": "Relationship. A relationship to the ID label of the spillway",
-          "type": "object",
-          "properties":{
-            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
-          }
+        "tag": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/tag"
+        },
+        "numberOfGates": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. An integer value defining the number of gates attached to the regulation structure"
+        },
+        "numberOfSpillways": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. An integer value defining the number of spillways attached to the regulation structure"
+        },
+        "teleCommand": {
+          "type": "boolean",
+          "description": "Property. Define whether the regulation structure is controlled remotely or manually. True/False value"
+        },
+        "hasSluiceGate": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship to the ID label of the Sluice gate"
+        },
+        "hasSpillway": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship to the ID label of the spillway"
         },
         "position": {
-          "allOf":[
-            {
+          "type": "object",
+          "description": "Property. Object providing information about the distance with the rest of the elements and a relationship with them.",
+          "properties": {
+            "distance": {
               "type": "number",
-              "description": "Property. The distance between this CrossSection and a reference point (e.g., the most upstream point of the system)"
+              "description": "Property. The distance between this Entity and a reference point (e.g., the most upstream point of the system)"
             },
-            {
-              "description": "Relationship. The reference point distance is count from",
-              "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
+            "refPoint": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256,
+                  "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                  "description": "Property. Identifier format of any NGSI entity"
+                },
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Property. Identifier format of any NGSI entity"
+                }
+              ],
+              "description": "Relationship. The reference point distance is count from"
             }
-          ]
+          }
         }
       }
-    ],
-    "required": [
-        "id",
-        "name"
-    ]
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name"
+  ]
 }
