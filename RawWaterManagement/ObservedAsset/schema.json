@@ -1,47 +1,52 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/ObservedAsset/schema.json",
-    "title": "Open Channel Management - ObservedAsset",
-    "description": "This entity contains temporal data made for Open Channel Management (raw-water systems)",
-    "type": "object",
-    "allOf": [
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/ObservedAsset/schema.json",
+  "title": "Open Channel Management - ObservedAsset",
+  "description": "This entity contains temporal data made for Open Channel Management (raw-water systems)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "ObservedAsset"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It has to be ObservedAsset"
         },
-        {
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": ["ObservedAsset"],
-                    "description": "NGSI-LD Entity Type"
-                },
-                "observedBy": {
-                  "type": "String",
-                  "description": "Relationship. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'",
-                  "format": "uri"
-                },
-                "monitoredProperty": {
-                  "type": "string",
-                  "enum": [
-                    "Water level",
-                    "Gate Opening",
-                    "Water flow",
-                    "Water temperature",
-                    "Average Velocity",
-                    "Specific Conductivity",
-                    "Turbidity",
-                    "Battery supply",
-                    "Water velocity"
-                  ]
-                }
-            }
+        "observedBy": {
+          "type": "String",
+          "description": "Relationship. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'",
+          "format": "uri"
+        },
+        "monitoredProperty": {
+          "type": "string",
+          "enum": [
+            "Water level",
+            "Gate Opening",
+            "Water flow",
+            "Water temperature",
+            "Average Velocity",
+            "Specific Conductivity",
+            "Turbidity",
+            "Battery supply",
+            "Water velocity"
+          ]
         }
-    ],
-    "required": [
-        "id",
-        "monitoredProperty",
-        "location",
-        "observedAt",
-        "observedBy"
-    ]
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "monitoredProperty",
+    "location",
+    "observedAt",
+    "observedBy"
+  ]
 }
