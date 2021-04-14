@@ -1,100 +1,143 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/PhotovoltaicDevice/schema.json",
-    "title": "Open Channel Management - Channel",
-    "description": "This entity contains a harmonised description of a generic channel made for Open Channel Management (raw-water systems)",
-    "type": "object",
-    "allOf":[
-      {
-        "downstreamNode": {
-          "description": "Relationship. A relationship indicating the ID of the downstream node (junction, regulation structure) – where a channel ends",
-          "type": "object",
-          "properties":{
-            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
-          }
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/PhotovoltaicDevice/schema.json",
+  "title": "Open Channel Management - Channel",
+  "description": "This entity contains a harmonised description of a generic channel made for Open Channel Management (raw-water systems)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Channel"
+          ],
+          "description": "NGSI-LD Entity Type"
         },
-        "upstreamNode": {
-          "description": "Relationship. A relationship indicating the ID of the upstream node (junction, regulation structure) – where a channel begins",
-          "type": "object",
-          "properties":{
-            "$ref": "../RawWaterManagement-schema.json#/ngsildRelationship/properties"
-          }
+        "downstreamNode": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the downstream node (junction, regulation structure) – where a channel ends"
         }
       },
-      {
-        "properties": {
-          "type": {
+      "upstreamNode": {
+        "anyOf": [
+          {
             "type": "string",
-            "enum": ["Channel"],
-            "description": "NGSI-LD Entity Type"
+            "minLength": 1,
+            "maxLength": 256,
+            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+            "description": "Property. Identifier format of any NGSI entity"
           },
-          "tag": {
-              "$ref": "../RawWaterManagement-schema.json#/definitions/tag"
+          {
+            "type": "string",
+            "format": "uri",
+            "description": "Property. Identifier format of any NGSI entity"
+          }
+        ],
+        "description": "Relationship. A relationship indicating the ID of the upstream node (junction, regulation structure) – where a channel begins"
+      },
+      "tag": {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/tag"
+      },
+      "geometry": {
+        "description": "Description of the geometry of a channel.",
+        "type": "object",
+        "properties": {
+          "geometryType": {
+            "description": "Property. Text defining the geometry of a channel. Enum:'Trapezoidal, Circular']",
+            "type": "string",
+            "enum": [
+              "Trapezoidal",
+              "Circular"
+            ]
           },
-          "geometry": {
-            "description": "Description of the geometry of a channel.",
-            "type": "object",
-            "properties": {
-                "geometryType":{
-                  "description": "Property. Text defining the geometry of a channel. Enum:'Trapezoidal, Circular']",
-                  "type": "string",
-                  "enum": ["Trapezoidal", "Circular"]
-                },"bottomSlope": {
-                  "type": "number",
-                  "minimum" : "0",
-                  "description": "Property. The bottom slope of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
-                },"leftSideSlope": {
-                    "type": "number",
-                    "minimum" : "0",
-                    "description": "Property. The slope of the left bank of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
-                },"rightSideSlope": {
-                    "type": "number",
-                    "minimum" : "0",
-                    "description": "Property. The slope of the right bank of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
-                },"bottomWidth": {
-                    "type": "number",
-                    "minimum" : "0",
-                    "description": "Property. The bottom width of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
-                },"diameter": {
-                    "type": "number",
-                    "minimum" : "0",
-                    "description": "Property. The diameter of a circular channel"
-                },"maxWaterDepth": {
-                    "type": "number",
-                    "minimum" : "0",
-                    "description": "Property. The maximum allowable water depth of the channel. All units are accepted in CEFACT code"
-                },"roughnessCoefficient": {
-                    "type": "number",
-                    "minimum" : "0",
-                    "description": "Property. The Manning’s roughness coefficient for free surface flow"
-                },"flowType": {
-                    "type": "string",
-                    "description": "Enum:'Free-Surface flow'. Text defining the type of flow in the channel",
-                    "enum": ["Free-Surface flow"]
-                },"celerity": {
-                    "type": "number",
-                    "minimum" : "0",
-                    "description": "Property. Velocity of a surge propagated along the channel after the opening or close of a sluice gate"
-                },"travelDuration": {
-                    "type": "number",
-                    "minimum" : "0",
-                    "description": "Property. The duration of the surge which travels from the downstream junction (sluice gate) to the upstream junction (sluice gate)"
-                },"waterLoss": {
-                    "type": "number",
-                    "minimum" : "0",
-                    "description": "Property. Water leakages/losses - a flow number or a percentage of flow"
-                },"length": {
-                    "type": "number",
-                    "minimum" : "0",
-                    "description": "Property. The length of the channel. All units are accepted in CEFACT code"
-                }
-              }
-            }
+          "bottomSlope": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Property. The bottom slope of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
+          },
+          "leftSideSlope": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Property. The slope of the left bank of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
+          },
+          "rightSideSlope": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Property. The slope of the right bank of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
+          },
+          "bottomWidth": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Property. The bottom width of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
+          },
+          "diameter": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Property. The diameter of a circular channel"
+          },
+          "maxWaterDepth": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Property. The maximum allowable water depth of the channel. All units are accepted in CEFACT code"
+          },
+          "roughnessCoefficient": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Property. The Manning’s roughness coefficient for free surface flow"
+          },
+          "flowType": {
+            "type": "string",
+            "description": "Enum:'Free-Surface flow'. Text defining the type of flow in the channel",
+            "enum": [
+              "Free-Surface flow"
+            ]
+          },
+          "celerity": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Property. Velocity of a surge propagated along the channel after the opening or close of a sluice gate"
+          },
+          "travelDuration": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Property. The duration of the surge which travels from the downstream junction (sluice gate) to the upstream junction (sluice gate)"
+          },
+          "waterLoss": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Property. Water leakages/losses - a flow number or a percentage of flow"
+          },
+          "length": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Property. The length of the channel. All units are accepted in CEFACT code"
+          }
         }
       }
-    ],
-    "required":[
-      "id",
-      "type"
-    ]
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
 }
