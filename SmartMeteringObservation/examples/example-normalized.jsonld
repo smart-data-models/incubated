@@ -1,128 +1,65 @@
 {
-  "id": "urn:ngsi-ld:dataModel:id:HRGF:06972822",
-  "dateCreated": {
-    "type": "Property",
-    "value": {
-      "@type": "DateTime",
-      "@value": "2020-11-02T00:47:59Z"
-    }
-  },
-  "dateModified": {
-    "type": "Property",
-    "value": {
-      "@type": "DateTime",
-      "@value": "2020-11-03T00:47:59Z"
-    }
-  },
+  "@context": [
+    "https://smartdatamodels.org/context.jsonld"
+  ],
+  "id": "urn:ngsi-ld:SmartMeter:8ac0db56-9adf-11e8-ad67-e7308e2e8b15",
+  "type": "SmartMeteringObservation",
   "source": {
     "type": "Property",
-    "value": ""
-  },
-  "name": {
-    "type": "Property",
-    "value": ""
-  },
-  "alternateName": {
-    "type": "Property",
-    "value": ""
-  },
-  "description": {
-    "type": "Property",
-    "value": "Measurement of a device multisensor"
+    "value": "https://source.example.com"
   },
   "dataProvider": {
     "type": "Property",
-    "value": ""
+    "value": "https://provider.example.com"
   },
-  "owner": {
+  "entityVersion": {
     "type": "Property",
-    "value": [
-      "urn:ngsi-ld:dataModel:items:GVUC:27586595",
-      "urn:ngsi-ld:dataModel:items:CLYU:07491984"
-    ]
+    "value": 2.0
   },
-  "seeAlso": {
+  "meterType": {
     "type": "Property",
-    "value": [
-      "urn:ngsi-ld:dataModel:items:NEVI:05730577",
-      "urn:ngsi-ld:dataModel:items:OXTY:73412918"
-    ]
+    "value": "Electricity"
+  },
+  "refDevice": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:Device:7a0708f6-9668-11e8-8f77-abc2b62ebaac"
   },
   "location": {
-    "type": "Property",
+    "type": "GeoProperty",
     "value": {
       "type": "Point",
       "coordinates": [
-        -11.349967,
-        -15.765581
+        -103.9904,
+        39.7564
       ]
     }
+  },
+  "image": {
+    "type": "Property",
+    "value": "iVBORw0KGgoAAAANSUhEUgAAAGcAAABkCAIAAAAUt...ErkJggg=="
   },
   "address": {
     "type": "Property",
     "value": {
-      "streetAddress": "Franklinstrasse 10",
-      "addressLocality": "Berlin",
-      "addressRegion": "Berlin",
-      "addressCountry": "Germany",
-      "postalCode": "10587",
-      "postOfficeBoxNumber": "",
-      "areaServed": ""
+      "addressLocality": "London",
+      "postalCode": "EC4N 8AF",
+      "streetAddress": "25 Walbrook"
     }
   },
-  "areaServed": {
+  "totalConsumption": {
     "type": "Property",
-    "value": ""
+    "value": 7.0
   },
-  "type": "SmartMeteringObservation",
-  "payloadVersion": {
+  "peakConsumption": {
     "type": "Property",
-    "value": "NGSI-LD"
+    "value": 9.3
   },
-  "measurement": {
+  "offPeakConsumption": {
     "type": "Property",
-    "value": [
-      {
-        "value": 3,
-        "observationTime": {
-          "@type": "DateTime",
-          "@value": "2020-11-03T00:47:59Z"
-        },
-        "refDevice": "urn:ngsi-ld:dataModel:refDevice:VZYP:04677985",
-        "controlledAttribute": "consumption"
-      },
-      {
-        "value": 23,
-        "observationTime": {
-          "@type": "DateTime",
-          "@value": "2020-11-03T00:47:59Z"
-        },
-        "refDevice": "urn:ngsi-ld:dataModel:refDevice:TWMQ:46475580",
-        "controlledAttribute": "peakConsumption"
-      },
-      {
-        "value": 16,
-        "observationTime": {
-          "@type": "DateTime",
-          "@value": "2020-11-03T00:47:59Z"
-        },
-        "refDevice": "urn:ngsi-ld:dataModel:refDevice:TWMQ:46475580",
-        "controlledAttribute": "offPeakConsumption"
-      },
-      {
-        "value": 0.16,
-        "observationTime": {
-          "@type": "DateTime",
-          "@value": "2020-11-03T00:47:59Z"
-        },
-        "refDevice": "urn:ngsi-ld:dataModel:refDevice:TWMQ:46475580",
-        "controlledAttribute": "powerFactor"
-      }
-    ]
+    "value": 8.0
   },
-  "image": {
+  "powerFactor": {
     "type": "Property",
-    "value": "urn:ngsi-ld:dataModel:image:VMCH:73040297"
+    "value": 0.98
   }
 }
-

@@ -21,29 +21,37 @@
           ],
           "description": "Property. It has to be SmartMeteringObservation. NGSI entity type"
         },
-        "payloadVersion": {
-          "type": "string",
-          "enum": [
-            "NGSIv2",
-            "NGSI-LD"
-          ],
-          "description": "Property. Model:'https://schema.org/Text'. The entity specification version. A version number of 2.0 or later denotes the entity is represented using NGSI-LD"
-        },
-        "image": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/PhysicalObject-Commons/properties/image"
-        },
         "entityVersion": {
           "type": "string",
           "enum": [
-            "NGSIv2",
-            "NGSI-LD"
+            "2.0",
+            "LD"
           ],
-          "description": "Property. The entity specification version as a number. A version number of 2.0 or later denotes the entity is represented using NGSI-LD"
+          "description": "Property. Model:'https://schema.org/Text'. The entity specification version. A version number of 2.0 or later denotes the entity is represented using NGSI-LD"
         },
-        "observedAt": {
+        "meterType": {
           "type": "string",
-          "format": "date-time",
-          "description": "Property. Indicates the date/time the most recent observation was recorded."
+          "description": "Property. The type of supply being metered e.g.: Electricity, Gasoline, Water, Methane, Diesel."
+        },
+        "refDevice": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Unique identifier of the entity"
+        },
+        "image": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/PhysicalObject-Commons/properties/image"
         },
         "totalConsumption": {
           "type": "number",
@@ -60,10 +68,6 @@
         "powerFactor": {
           "type": "number",
           "description": "Property. Relevant to 3-Phase electricity supplies often used in industry - the power factor ranges from -1 to +1 depending on the net balance between capacitive and inductive loads. If used this measures the average power factor since meter installation."
-        },
-        "meterType": {
-          "type": "string",
-          "description": "Property. The type of supply being metered e.g.: Electricity, Gasoline, Water, Methane, Diesel."
         }
       }
     }
