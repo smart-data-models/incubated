@@ -21,22 +21,35 @@
           "description": "Property. NGSI-LD Entity Type. It has to be ObservedAsset"
         },
         "observedBy": {
-          "type": "String",
-          "description": "Relationship. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'",
-          "format": "uri"
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Device observing the values. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'"
         },
         "monitoredProperty": {
           "type": "string",
+          "description": "Property. Monitored properties. Enum:'AverageVelocity, BatterySupply, GateOpening, SpecificConductivity, Turbidity, WaterFlow, WaterLevel, WaterTemperature, WaterVelocity'",
           "enum": [
-            "Water level",
-            "Gate Opening",
-            "Water flow",
-            "Water temperature",
-            "Average Velocity",
-            "Specific Conductivity",
+            "AverageVelocity",
+            "BatterySupply",
+            "GateOpening",
+            "SpecificConductivity",
             "Turbidity",
-            "Battery supply",
-            "Water velocity"
+            "WaterFlow",
+            "WaterLevel",
+            "WaterTemperature",
+            "WaterVelocity"
           ]
         }
       }
@@ -44,9 +57,8 @@
   ],
   "required": [
     "id",
+    "type",
     "monitoredProperty",
-    "location",
-    "observedAt",
-    "observedBy"
+    "location"
   ]
 }
