@@ -1,1 +1,101 @@
-{"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "height": {"type": "integer", "minimum": 0, "description": "Property.  Header frame_id should be optical frame of camera  origin of frame should be optical center of camera  +x should point to the right in the image  +y should point down in the image  +z should point into the plane of the image ######################################################################  Calibration Parameters # ######################################################################  These are fixed during camera calibration. Their values will be the #  same in all messages until the camera is recalibrated. Note that #  self-calibrating systems may \"recalibrate\" frequently. #  #  The internal parameters can be used to warp a raw (distorted) image #  to: #  1. An undistorted image (requires D and K) #  2. A rectified image (requires D, K, R) #  The projection matrix P projects 3D points into the rectified image.# ######################################################################  The image dimensions with which the camera was calibrated. Normally  this will be the full camera resolution in pixels. "}, "width": {"type": "integer", "minimum": 0, "description": "Property. "}, "distortion_model": {"type": "string", "description": "Property.  The distortion model used. Supported models are listed in  sensor_msgs/distortion_models.h. For most cameras, \"plumb_bob\" - a  simple model of radial and tangential distortion - is sufficient. "}, "D": {"type": "array", "items": {"type": "number"}}, "K": {"type": "array", "items": {"type": "number"}, "maxitems": 9}, "R": {"type": "array", "items": {"type": "number"}, "maxitems": 9}, "P": {"type": "array", "items": {"type": "number"}, "maxitems": 12}, "binning_x": {"type": "integer", "minimum": 0, "description": "Property. ######################################################################  Operational Parameters # ######################################################################  These define the image region actually captured by the camera #  driver. Although they affect the geometry of the output image, they #  may be changed freely without recalibrating the camera. # ######################################################################  Binning refers here to any camera setting which combines rectangular  neighborhoods of pixels into larger \"super-pixels.\" It reduces the  resolution of the output image to  (width / binning_x) x (height / binning_y).  The default values binning_x = binning_y = 0 is considered the same  as binning_x = binning_y = 1 (no subsampling). "}, "binning_y": {"type": "integer", "minimum": 0, "description": "Property. "}, "roi": {"type": "object", "properties": {"x_offset": {"type": "integer", "minimum": 0, "description": "Property.  This message is used to specify a region of interest within an image.   When used to specify the ROI setting of the camera when the image was  taken, the height and width fields should either match the height and  width fields for the associated image; or height = width = 0  indicates that the full resolution image was captured.  Leftmost pixel of the ROI "}, "y_offset": {"type": "integer", "minimum": 0, "description": "Property.  (0 if the ROI includes the left edge of the image)  Topmost pixel of the ROI "}, "height": {"type": "integer", "minimum": 0, "description": "Property.  (0 if the ROI includes the top edge of the image)  Height of ROI "}, "width": {"type": "integer", "minimum": 0, "description": "Property.  Width of ROI "}, "do_rectify": {"type": "boolean", "description": "Property.  True if a distinct rectified ROI should be calculated from the \"raw\"  ROI in this message. Typically this should be False if the full image  is captured (ROI not used), and True if a subwindow is captured (ROI  used). "}}}}
+{
+  "header": {
+    "type": "object",
+    "properties": {
+      "seq": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+      },
+      "stamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+      },
+      "frame_id": {
+        "type": "string",
+        "description": "Property. Frame this data is associated with "
+      }
+    }
+  },
+  "height": {
+    "type": "integer",
+    "minimum": 0,
+    "description": "Property.  Header frame_id should be optical frame of camera  origin of frame should be optical center of camera  +x should point to the right in the image  +y should point down in the image  +z should point into the plane of the image ######################################################################  Calibration Parameters # ######################################################################  These are fixed during camera calibration. Their values will be the #  same in all messages until the camera is recalibrated. Note that #  self-calibrating systems may \"recalibrate\" frequently. #  #  The internal parameters can be used to warp a raw (distorted) image #  to: #  1. An undistorted image (requires D and K) #  2. A rectified image (requires D, K, R) #  The projection matrix P projects 3D points into the rectified image.# ######################################################################  The image dimensions with which the camera was calibrated. Normally  this will be the full camera resolution in pixels. "
+  },
+  "width": {
+    "type": "integer",
+    "minimum": 0,
+    "description": "Property. "
+  },
+  "distortion_model": {
+    "type": "string",
+    "description": "Property.  The distortion model used. Supported models are listed in  sensor_msgs/distortion_models.h. For most cameras, \"plumb_bob\" - a  simple model of radial and tangential distortion - is sufficient. "
+  },
+  "D": {
+    "type": "array",
+    "items": {
+      "type": "number"
+    }
+  },
+  "K": {
+    "type": "array",
+    "items": {
+      "type": "number"
+    },
+    "maxitems": 9
+  },
+  "R": {
+    "type": "array",
+    "items": {
+      "type": "number"
+    },
+    "maxitems": 9
+  },
+  "P": {
+    "type": "array",
+    "items": {
+      "type": "number"
+    },
+    "maxitems": 12
+  },
+  "binning_x": {
+    "type": "integer",
+    "minimum": 0,
+    "description": "Property. ######################################################################  Operational Parameters # ######################################################################  These define the image region actually captured by the camera #  driver. Although they affect the geometry of the output image, they #  may be changed freely without recalibrating the camera. # ######################################################################  Binning refers here to any camera setting which combines rectangular  neighborhoods of pixels into larger \"super-pixels.\" It reduces the  resolution of the output image to  (width / binning_x) x (height / binning_y).  The default values binning_x = binning_y = 0 is considered the same  as binning_x = binning_y = 1 (no subsampling). "
+  },
+  "binning_y": {
+    "type": "integer",
+    "minimum": 0,
+    "description": "Property. "
+  },
+  "roi": {
+    "type": "object",
+    "properties": {
+      "x_offset": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Property.  This message is used to specify a region of interest within an image.   When used to specify the ROI setting of the camera when the image was  taken, the height and width fields should either match the height and  width fields for the associated image; or height = width = 0  indicates that the full resolution image was captured.  Leftmost pixel of the ROI "
+      },
+      "y_offset": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Property.  (0 if the ROI includes the left edge of the image)  Topmost pixel of the ROI "
+      },
+      "height": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Property.  (0 if the ROI includes the top edge of the image)  Height of ROI "
+      },
+      "width": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Property.  Width of ROI "
+      },
+      "do_rectify": {
+        "type": "boolean",
+        "description": "Property.  True if a distinct rectified ROI should be calculated from the \"raw\"  ROI in this message. Typically this should be False if the full image  is captured (ROI not used), and True if a subwindow is captured (ROI  used). "
+      }
+    }
+  }
+}

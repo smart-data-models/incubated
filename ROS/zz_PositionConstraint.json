@@ -1,1 +1,207 @@
-{"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "link_name": {"type": "string", "description": "Property.  The robot link this constraint refers to "}, "target_point_offset": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "constraint_region": {"type": "object", "properties": {"primitives": {"type": "array", "items": {"type": "object", "properties": {"type": {"type": "integer", "minimum": 0, "maximum": 255, "description": "Property.  Define box, sphere, cylinder, cone  All shapes are defined to have their bounding boxes centered around 0,0,0.  The type of the shape "}, "dimensions": {"type": "array", "items": {"type": "number"}}}}}, "primitive_poses": {"type": "array", "items": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}, "meshes": {"type": "array", "items": {"type": "object", "properties": {"triangles": {"type": "array", "items": {"type": "object", "properties": {"vertex_indices": {"type": "array", "items": {"type": "integer", "minimum": 0}, "maxitems": 3}}}}, "vertices": {"type": "array", "items": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}}}}}, "mesh_poses": {"type": "array", "items": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}}}, "weight": {"type": "number", "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "}}
+{
+  "header": {
+    "type": "object",
+    "properties": {
+      "seq": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+      },
+      "stamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+      },
+      "frame_id": {
+        "type": "string",
+        "description": "Property. Frame this data is associated with "
+      }
+    }
+  },
+  "link_name": {
+    "type": "string",
+    "description": "Property.  The robot link this constraint refers to "
+  },
+  "target_point_offset": {
+    "type": "object",
+    "properties": {
+      "x": {
+        "type": "number",
+        "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+      },
+      "y": {
+        "type": "number",
+        "description": "Property. "
+      },
+      "z": {
+        "type": "number",
+        "description": "Property. "
+      }
+    }
+  },
+  "constraint_region": {
+    "type": "object",
+    "properties": {
+      "primitives": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255,
+              "description": "Property.  Define box, sphere, cylinder, cone  All shapes are defined to have their bounding boxes centered around 0,0,0.  The type of the shape "
+            },
+            "dimensions": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      },
+      "primitive_poses": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "position": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "description": "Property.  This contains the position of a point in free space "
+                },
+                "y": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "z": {
+                  "type": "number",
+                  "description": "Property. "
+                }
+              }
+            },
+            "orientation": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "description": "Property.  This represents an orientation in free space in quaternion form. "
+                },
+                "y": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "z": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "w": {
+                  "type": "number",
+                  "description": "Property. "
+                }
+              }
+            }
+          }
+        }
+      },
+      "meshes": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "triangles": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vertex_indices": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "maxitems": 3
+                  }
+                }
+              }
+            },
+            "vertices": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "description": "Property.  This contains the position of a point in free space "
+                  },
+                  "y": {
+                    "type": "number",
+                    "description": "Property. "
+                  },
+                  "z": {
+                    "type": "number",
+                    "description": "Property. "
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "mesh_poses": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "position": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "description": "Property.  This contains the position of a point in free space "
+                },
+                "y": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "z": {
+                  "type": "number",
+                  "description": "Property. "
+                }
+              }
+            },
+            "orientation": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "description": "Property.  This represents an orientation in free space in quaternion form. "
+                },
+                "y": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "z": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "w": {
+                  "type": "number",
+                  "description": "Property. "
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "weight": {
+    "type": "number",
+    "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "
+  }
+}

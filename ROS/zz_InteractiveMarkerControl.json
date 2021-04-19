@@ -1,1 +1,262 @@
-{"name": {"type": "string", "description": "Property.  Represents a control that is to be displayed together with an interactive marker  Identifying string for this control.  You need to assign a unique value to this to receive feedback from the GUI  on what actions the user performs on this control (e.g. a button click). "}, "orientation": {"type": "string", "enum": ["0", "1", "2"]}, "orientation_mode": {"type": "string", "enum": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]}, "interaction_mode": {"type": "integer", "minimum": 0, "maximum": 255, "description": "Property.  Interaction mode for this control   NONE: This control is only meant for visualization; no context menu.  MENU: Like NONE, but right-click menu is active.  BUTTON: Element can be left-clicked.  MOVE_AXIS: Translate along local x-axis.  MOVE_PLANE: Translate in local y-z plane.  ROTATE_AXIS: Rotate around local x-axis.  MOVE_ROTATE: Combines MOVE_PLANE and ROTATE_AXIS.  \"3D\" interaction modes work with the mouse+SHIFT+CTRL or with 3D cursors.  MOVE_3D: Translate freely in 3D space.  ROTATE_3D: Rotate freely in 3D space about the origin of parent frame.  MOVE_ROTATE_3D: Full 6-DOF freedom of translation and rotation about the cursor origin. "}, "always_visible": {"type": "boolean", "description": "Property.  If true, the contained markers will also be visible  when the gui is not in interactive mode. "}, "markers": {"type": "array", "items": {"type": "object", "properties": {"shape": {"type": "string", "enum": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]}, "operation": {"type": "string", "enum": ["0", "0", "2", "3"]}, "header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "ns": {"type": "string", "description": "Property.  Namespace to place this object in... used in conjunction with id to create a unique name for the object "}, "id": {"type": "integer", "description": "Property.  object ID useful in conjunction with the namespace for manipulating and deleting the object later "}, "type": {"type": "integer", "description": "Property.  Type of object "}, "action": {"type": "integer", "description": "Property.  0 add/modify an object, 1 (deprecated), 2 deletes an object, 3 deletes all objects "}, "pose": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}, "scale": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "color": {"type": "object", "properties": {"r": {"type": "number", "description": "Property. "}, "g": {"type": "number", "description": "Property. "}, "b": {"type": "number", "description": "Property. "}, "a": {"type": "number", "description": "Property. "}}}, "lifetime": {"type": "string", "format": "date-time", "description": "Property.  How long the object should last before being automatically deleted. 0 means forever "}, "frame_locked": {"type": "boolean", "description": "Property.  If this marker should be frame-locked, i.e. retransformed into its frame every timestep "}, "points": {"type": "array", "items": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}}, "colors": {"type": "array", "items": {"type": "object", "properties": {"r": {"type": "number", "description": "Property. "}, "g": {"type": "number", "description": "Property. "}, "b": {"type": "number", "description": "Property. "}, "a": {"type": "number", "description": "Property. "}}}}, "text": {"type": "string", "description": "Property.  NOTE: only used for text markers "}, "mesh_resource": {"type": "string", "description": "Property.  NOTE: only used for MESH_RESOURCE markers "}, "mesh_use_embedded_materials": {"type": "boolean", "description": "Property. "}}}}, "independent_marker_orientation": {"type": "boolean", "description": "Property.  In VIEW_FACING mode, set this to true if you don't want the markers  to be aligned with the camera view point. The markers will show up  as in INHERIT mode. "}, "description": {"type": "string", "description": "Property.  Short description (< 40 characters) of what this control does,  e.g. \"Move the robot\".  Default: A generic description based on the interaction mode "}}
+{
+  "name": {
+    "type": "string",
+    "description": "Property.  Represents a control that is to be displayed together with an interactive marker  Identifying string for this control.  You need to assign a unique value to this to receive feedback from the GUI  on what actions the user performs on this control (e.g. a button click). "
+  },
+  "orientation": {
+    "type": "string",
+    "enum": [
+      "0",
+      "1",
+      "2"
+    ]
+  },
+  "orientation_mode": {
+    "type": "string",
+    "enum": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ]
+  },
+  "interaction_mode": {
+    "type": "integer",
+    "minimum": 0,
+    "maximum": 255,
+    "description": "Property.  Interaction mode for this control   NONE: This control is only meant for visualization; no context menu.  MENU: Like NONE, but right-click menu is active.  BUTTON: Element can be left-clicked.  MOVE_AXIS: Translate along local x-axis.  MOVE_PLANE: Translate in local y-z plane.  ROTATE_AXIS: Rotate around local x-axis.  MOVE_ROTATE: Combines MOVE_PLANE and ROTATE_AXIS.  \"3D\" interaction modes work with the mouse+SHIFT+CTRL or with 3D cursors.  MOVE_3D: Translate freely in 3D space.  ROTATE_3D: Rotate freely in 3D space about the origin of parent frame.  MOVE_ROTATE_3D: Full 6-DOF freedom of translation and rotation about the cursor origin. "
+  },
+  "always_visible": {
+    "type": "boolean",
+    "description": "Property.  If true, the contained markers will also be visible  when the gui is not in interactive mode. "
+  },
+  "markers": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "shape": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11"
+          ]
+        },
+        "operation": {
+          "type": "string",
+          "enum": [
+            "0",
+            "0",
+            "2",
+            "3"
+          ]
+        },
+        "header": {
+          "type": "object",
+          "properties": {
+            "seq": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+            },
+            "stamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+            },
+            "frame_id": {
+              "type": "string",
+              "description": "Property. Frame this data is associated with "
+            }
+          }
+        },
+        "ns": {
+          "type": "string",
+          "description": "Property.  Namespace to place this object in... used in conjunction with id to create a unique name for the object "
+        },
+        "id": {
+          "type": "integer",
+          "description": "Property.  object ID useful in conjunction with the namespace for manipulating and deleting the object later "
+        },
+        "type": {
+          "type": "integer",
+          "description": "Property.  Type of object "
+        },
+        "action": {
+          "type": "integer",
+          "description": "Property.  0 add/modify an object, 1 (deprecated), 2 deletes an object, 3 deletes all objects "
+        },
+        "pose": {
+          "type": "object",
+          "properties": {
+            "position": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "description": "Property.  This contains the position of a point in free space "
+                },
+                "y": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "z": {
+                  "type": "number",
+                  "description": "Property. "
+                }
+              }
+            },
+            "orientation": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "description": "Property.  This represents an orientation in free space in quaternion form. "
+                },
+                "y": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "z": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "w": {
+                  "type": "number",
+                  "description": "Property. "
+                }
+              }
+            }
+          }
+        },
+        "scale": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+            },
+            "y": {
+              "type": "number",
+              "description": "Property. "
+            },
+            "z": {
+              "type": "number",
+              "description": "Property. "
+            }
+          }
+        },
+        "color": {
+          "type": "object",
+          "properties": {
+            "r": {
+              "type": "number",
+              "description": "Property. "
+            },
+            "g": {
+              "type": "number",
+              "description": "Property. "
+            },
+            "b": {
+              "type": "number",
+              "description": "Property. "
+            },
+            "a": {
+              "type": "number",
+              "description": "Property. "
+            }
+          }
+        },
+        "lifetime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property.  How long the object should last before being automatically deleted. 0 means forever "
+        },
+        "frame_locked": {
+          "type": "boolean",
+          "description": "Property.  If this marker should be frame-locked, i.e. retransformed into its frame every timestep "
+        },
+        "points": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "description": "Property.  This contains the position of a point in free space "
+              },
+              "y": {
+                "type": "number",
+                "description": "Property. "
+              },
+              "z": {
+                "type": "number",
+                "description": "Property. "
+              }
+            }
+          }
+        },
+        "colors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "r": {
+                "type": "number",
+                "description": "Property. "
+              },
+              "g": {
+                "type": "number",
+                "description": "Property. "
+              },
+              "b": {
+                "type": "number",
+                "description": "Property. "
+              },
+              "a": {
+                "type": "number",
+                "description": "Property. "
+              }
+            }
+          }
+        },
+        "text": {
+          "type": "string",
+          "description": "Property.  NOTE: only used for text markers "
+        },
+        "mesh_resource": {
+          "type": "string",
+          "description": "Property.  NOTE: only used for MESH_RESOURCE markers "
+        },
+        "mesh_use_embedded_materials": {
+          "type": "boolean",
+          "description": "Property. "
+        }
+      }
+    }
+  },
+  "independent_marker_orientation": {
+    "type": "boolean",
+    "description": "Property.  In VIEW_FACING mode, set this to true if you don't want the markers  to be aligned with the camera view point. The markers will show up  as in INHERIT mode. "
+  },
+  "description": {
+    "type": "string",
+    "description": "Property.  Short description (< 40 characters) of what this control does,  e.g. \"Move the robot\".  Default: A generic description based on the interaction mode "
+  }
+}

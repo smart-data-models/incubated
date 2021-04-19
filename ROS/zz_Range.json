@@ -1,1 +1,44 @@
-{"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "radiation_type": {"type": "string", "enum": ["0", "1"]}, "field_of_view": {"type": "number", "description": "Property.  (sound, IR, etc) [enum]  the size of the arc that the distance reading is "}, "min_range": {"type": "number", "description": "Property.  valid for [rad]  the object causing the range reading may have  been anywhere within -field_of_view/2 and  field_of_view/2 at the measured range.  0 angle corresponds to the x-axis of the sensor.  minimum range value [m] "}, "max_range": {"type": "number", "description": "Property.  maximum range value [m] "}, "range": {"type": "number", "description": "Property.  Fixed distance rangers require min_range = = max_range  range data [m] "}}
+{
+  "header": {
+    "type": "object",
+    "properties": {
+      "seq": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+      },
+      "stamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+      },
+      "frame_id": {
+        "type": "string",
+        "description": "Property. Frame this data is associated with "
+      }
+    }
+  },
+  "radiation_type": {
+    "type": "string",
+    "enum": [
+      "0",
+      "1"
+    ]
+  },
+  "field_of_view": {
+    "type": "number",
+    "description": "Property.  (sound, IR, etc) [enum]  the size of the arc that the distance reading is "
+  },
+  "min_range": {
+    "type": "number",
+    "description": "Property.  valid for [rad]  the object causing the range reading may have  been anywhere within -field_of_view/2 and  field_of_view/2 at the measured range.  0 angle corresponds to the x-axis of the sensor.  minimum range value [m] "
+  },
+  "max_range": {
+    "type": "number",
+    "description": "Property.  maximum range value [m] "
+  },
+  "range": {
+    "type": "number",
+    "description": "Property.  Fixed distance rangers require min_range = = max_range  range data [m] "
+  }
+}

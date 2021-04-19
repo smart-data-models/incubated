@@ -1,1 +1,68 @@
-{"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "status": {"type": "object", "properties": {"status": {"type": "string", "enum": ["-1", "0", "1", "2"]}, "service": {"type": "integer", "minimum": 0, "maximum": 65535, "description": "Property.  unable to fix position  unaugmented fix  with satellite-based augmentation  with ground-based augmentation  Bits defining which Global Navigation Satellite System signals were  used by the receiver. "}}}, "latitude": {"type": "number", "description": "Property.  Latitude [degrees]. Positive is north of equator; negative is south. "}, "longitude": {"type": "number", "description": "Property.  Longitude [degrees]. Positive is east of prime meridian; negative is west. "}, "altitude": {"type": "number", "description": "Property.  Altitude [m]. Positive is above the WGS 84 ellipsoid  (quiet NaN if no altitude is available). "}, "position_covariance": {"type": "string", "enum": ["0", "1", "2", "3"]}, "position_covariance_type": {"type": "integer", "minimum": 0, "maximum": 255, "description": "Property.  If the covariance of the fix is known, fill it in completely. If the  GPS receiver provides the variance of each measurement, put them  along the diagonal. If only Dilution of Precision is available,  estimate an approximate covariance from that. "}}
+{
+  "header": {
+    "type": "object",
+    "properties": {
+      "seq": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+      },
+      "stamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+      },
+      "frame_id": {
+        "type": "string",
+        "description": "Property. Frame this data is associated with "
+      }
+    }
+  },
+  "status": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string",
+        "enum": [
+          "-1",
+          "0",
+          "1",
+          "2"
+        ]
+      },
+      "service": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 65535,
+        "description": "Property.  unable to fix position  unaugmented fix  with satellite-based augmentation  with ground-based augmentation  Bits defining which Global Navigation Satellite System signals were  used by the receiver. "
+      }
+    }
+  },
+  "latitude": {
+    "type": "number",
+    "description": "Property.  Latitude [degrees]. Positive is north of equator; negative is south. "
+  },
+  "longitude": {
+    "type": "number",
+    "description": "Property.  Longitude [degrees]. Positive is east of prime meridian; negative is west. "
+  },
+  "altitude": {
+    "type": "number",
+    "description": "Property.  Altitude [m]. Positive is above the WGS 84 ellipsoid  (quiet NaN if no altitude is available). "
+  },
+  "position_covariance": {
+    "type": "string",
+    "enum": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  "position_covariance_type": {
+    "type": "integer",
+    "minimum": 0,
+    "maximum": 255,
+    "description": "Property.  If the covariance of the fix is known, fill it in completely. If the  GPS receiver provides the variance of each measurement, put them  along the diagonal. If only Dilution of Precision is available,  estimate an approximate covariance from that. "
+  }
+}

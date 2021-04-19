@@ -1,1 +1,2533 @@
-{"req": {"type": "object", "properties": {"workspace_parameters": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "min_corner": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "max_corner": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}}}, "start_state": {"type": "object", "properties": {"joint_state": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "name": {"type": "array", "items": {"type": "string"}}, "position": {"type": "array", "items": {"type": "number"}}, "velocity": {"type": "array", "items": {"type": "number"}}, "effort": {"type": "array", "items": {"type": "number"}}}}, "multi_dof_joint_state": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "joint_names": {"type": "array", "items": {"type": "string"}}, "transforms": {"type": "array", "items": {"type": "object", "properties": {"translation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "rotation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}, "twist": {"type": "array", "items": {"type": "object", "properties": {"linear": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "angular": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}}}}, "wrench": {"type": "array", "items": {"type": "object", "properties": {"force": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "torque": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}}}}}}, "attached_collision_objects": {"type": "array", "items": {"type": "object", "properties": {"link_name": {"type": "string", "description": "Property.  The CollisionObject will be attached with a fixed joint to this link "}, "object": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "pose": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}, "id": {"type": "string", "description": "Property.  The id of the object (name used in MoveIt) "}, "type": {"type": "object", "properties": {"key": {"type": "string", "description": "Property. ################################################# OBJECT ID #########################################################  Contains information about the type of a found object. Those two sets of parameters together uniquely define an  object  The key of the found object: the unique identifier in the given db "}, "db": {"type": "string", "description": "Property.  The db parameters stored as a JSON/compressed YAML string. An object id does not make sense without the corresponding  database. E.g., in object_recognition, it can look like: \"{'type':'CouchDB', 'root':'http://localhost'}\"  There is no conventional format for those parameters and it's nice to keep that flexibility.  The object_recognition_core as a generic DB type that can read those fields  Current examples:  For CouchDB:  type: 'CouchDB'  root: 'http://localhost:5984'  collection: 'object_recognition'  For SQL household database:  type: 'SqlHousehold'  host: 'wgs36'  port: 5432  user: 'willow'  password: 'willow'  name: 'household_objects'  module: 'tabletop' "}}}, "primitives": {"type": "array", "items": {"type": "object", "properties": {"type": {"type": "integer", "minimum": 0, "maximum": 255, "description": "Property.  Define box, sphere, cylinder, cone  All shapes are defined to have their bounding boxes centered around 0,0,0.  The type of the shape "}, "dimensions": {"type": "array", "items": {"type": "number"}}}}}, "primitive_poses": {"type": "array", "items": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}, "meshes": {"type": "array", "items": {"type": "object", "properties": {"triangles": {"type": "array", "items": {"type": "object", "properties": {"vertex_indices": {"type": "array", "items": {"type": "integer", "minimum": 0}, "maxitems": 3}}}}, "vertices": {"type": "array", "items": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}}}}}, "mesh_poses": {"type": "array", "items": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}, "planes": {"type": "array", "items": {"type": "object", "properties": {"coef": {"type": "array", "items": {"type": "number"}, "maxitems": 4}}}}, "plane_poses": {"type": "array", "items": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}, "subframe_names": {"type": "array", "items": {"type": "string"}}, "subframe_poses": {"type": "array", "items": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}, "operation": {"type": "integer", "minimum": 0, "maximum": 255, "description": "Property.  Operation to be performed "}}}, "touch_links": {"type": "array", "items": {"type": "string"}}, "detach_posture": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "joint_names": {"type": "array", "items": {"type": "string"}}, "points": {"type": "array", "items": {"type": "object", "properties": {"positions": {"type": "array", "items": {"type": "number"}}, "velocities": {"type": "array", "items": {"type": "number"}}, "accelerations": {"type": "array", "items": {"type": "number"}}, "effort": {"type": "array", "items": {"type": "number"}}, "time_from_start": {"type": "string", "format": "date-time", "description": "Property. "}}}}}}, "weight": {"type": "number", "description": "Property.  The weight of the attached object, if known "}}}}, "is_diff": {"type": "boolean", "description": "Property.  Flag indicating whether this scene is to be interpreted as a diff with respect to some other scene  This is mostly important for handling the attached bodies (whether or not to clear the attached bodies  of a moveit::core::RobotState before updating it with this message) "}}}, "goal_constraints": {"type": "array", "items": {"type": "object", "properties": {"name": {"type": "string", "description": "Property.  This message contains a list of motion planning constraints.  All constraints must be satisfied for a goal to be considered valid "}, "joint_constraints": {"type": "array", "items": {"type": "object", "properties": {"joint_name": {"type": "string", "description": "Property.  Constrain the position of a joint to be within a certain bound "}, "position": {"type": "number", "description": "Property.  the bound to be achieved is [position - tolerance_below, position + tolerance_above] "}, "tolerance_above": {"type": "number", "description": "Property. "}, "tolerance_below": {"type": "number", "description": "Property. "}, "weight": {"type": "number", "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "}}}}, "position_constraints": {"type": "array", "items": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "link_name": {"type": "string", "description": "Property.  The robot link this constraint refers to "}, "target_point_offset": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "constraint_region": {"type": "object", "properties": {"primitives": {"type": "array", "items": {"type": "object", "properties": {"type": {"type": "integer", "minimum": 0, "maximum": 255, "description": "Property.  Define box, sphere, cylinder, cone  All shapes are defined to have their bounding boxes centered around 0,0,0.  The type of the shape "}, "dimensions": {"type": "array", "items": {"type": "number"}}}}}, "primitive_poses": {"type": "array", "items": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}, "meshes": {"type": "array", "items": {"type": "object", "properties": {"triangles": {"type": "array", "items": {"type": "object", "properties": {"vertex_indices": {"type": "array", "items": {"type": "integer", "minimum": 0}, "maxitems": 3}}}}, "vertices": {"type": "array", "items": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}}}}}, "mesh_poses": {"type": "array", "items": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}}}, "weight": {"type": "number", "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "}}}}, "orientation_constraints": {"type": "array", "items": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}, "link_name": {"type": "string", "description": "Property.  The robot link this constraint refers to "}, "absolute_x_axis_tolerance": {"type": "number", "description": "Property.  Tolerance on the three vector components of the orientation error (optional) "}, "absolute_y_axis_tolerance": {"type": "number", "description": "Property. "}, "absolute_z_axis_tolerance": {"type": "number", "description": "Property. "}, "parameterization": {"type": "string", "enum": ["0", "1"]}, "weight": {"type": "number", "description": "Property.  The different options for the orientation error parameterization  - Intrinsic xyz Euler angles (default value)  - A rotation vector. This is similar to the angle-axis representation,  but the magnitude of the vector represents the rotation angle.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "}}}}, "visibility_constraints": {"type": "array", "items": {"type": "object", "properties": {"target_radius": {"type": "number", "description": "Property.  The constraint is useful to maintain visibility to a disc (the target) in a particular frame.  This disc forms the base of a visibiliy cone whose tip is at the origin of the sensor.  Maintaining visibility is done by ensuring the robot does not obstruct the visibility cone.  Note:  This constraint does NOT enforce minimum or maximum distances between the sensor  and the target, nor does it enforce the target to be in the field of view of  the sensor. A PositionConstraint can (and probably should) be used for such purposes.  The radius of the disc that should be maintained visible "}, "target_pose": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "pose": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}}, "cone_sides": {"type": "integer", "description": "Property.  From the sensor origin towards the target, the disc forms a visibility cone  This cone is approximated using many sides. For example, when using 4 sides,  that in fact makes the visibility region be a pyramid.  This value should always be 3 or more. "}, "sensor_pose": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "pose": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}}, "max_view_angle": {"type": "number", "description": "Property.  Even though the disc is maintained visible, the visibility cone can be very small  because of the orientation of the disc with respect to the sensor. It is possible  for example to view the disk almost from a side, in which case the visibility cone  can end up having close to 0 volume. The view angle is defined to be the angle between  the normal to the visibility disc and the direction vector from the sensor origin.  The value below represents the minimum desired view angle. For a perfect view,  this value will be 0 (the two vectors are exact opposites). For a completely obstructed view  this value will be Pi/2 (the vectors are perpendicular). This value defined below  is the maximum view angle to be maintained. This should be a value in the open interval  (0, Pi/2). If 0 is set, the view angle is NOT enforced. "}, "max_range_angle": {"type": "number", "description": "Property.  This angle is used similarly to max_view_angle but limits the maximum angle  between the sensor origin direction vector and the axis that connects the  sensor origin to the target frame origin. The value is again in the range (0, Pi/2)  and is NOT enforced if set to 0. "}, "sensor_view_direction": {"type": "string", "enum": ["0", "1", "2"]}, "weight": {"type": "number", "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "}}}}}}}, "path_constraints": {"type": "object", "properties": {"name": {"type": "string", "description": "Property.  This message contains a list of motion planning constraints.  All constraints must be satisfied for a goal to be considered valid "}, "joint_constraints": {"type": "array", "items": {"type": "object", "properties": {"joint_name": {"type": "string", "description": "Property.  Constrain the position of a joint to be within a certain bound "}, "position": {"type": "number", "description": "Property.  the bound to be achieved is [position - tolerance_below, position + tolerance_above] "}, "tolerance_above": {"type": "number", "description": "Property. "}, "tolerance_below": {"type": "number", "description": "Property. "}, "weight": {"type": "number", "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "}}}}, "position_constraints": {"type": "array", "items": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "link_name": {"type": "string", "description": "Property.  The robot link this constraint refers to "}, "target_point_offset": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "constraint_region": {"type": "object", "properties": {"primitives": {"type": "array", "items": {"type": "object", "properties": {"type": {"type": "integer", "minimum": 0, "maximum": 255, "description": "Property.  Define box, sphere, cylinder, cone  All shapes are defined to have their bounding boxes centered around 0,0,0.  The type of the shape "}, "dimensions": {"type": "array", "items": {"type": "number"}}}}}, "primitive_poses": {"type": "array", "items": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}, "meshes": {"type": "array", "items": {"type": "object", "properties": {"triangles": {"type": "array", "items": {"type": "object", "properties": {"vertex_indices": {"type": "array", "items": {"type": "integer", "minimum": 0}, "maxitems": 3}}}}, "vertices": {"type": "array", "items": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}}}}}, "mesh_poses": {"type": "array", "items": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}}}, "weight": {"type": "number", "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "}}}}, "orientation_constraints": {"type": "array", "items": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}, "link_name": {"type": "string", "description": "Property.  The robot link this constraint refers to "}, "absolute_x_axis_tolerance": {"type": "number", "description": "Property.  Tolerance on the three vector components of the orientation error (optional) "}, "absolute_y_axis_tolerance": {"type": "number", "description": "Property. "}, "absolute_z_axis_tolerance": {"type": "number", "description": "Property. "}, "parameterization": {"type": "string", "enum": ["0", "1"]}, "weight": {"type": "number", "description": "Property.  The different options for the orientation error parameterization  - Intrinsic xyz Euler angles (default value)  - A rotation vector. This is similar to the angle-axis representation,  but the magnitude of the vector represents the rotation angle.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "}}}}, "visibility_constraints": {"type": "array", "items": {"type": "object", "properties": {"target_radius": {"type": "number", "description": "Property.  The constraint is useful to maintain visibility to a disc (the target) in a particular frame.  This disc forms the base of a visibiliy cone whose tip is at the origin of the sensor.  Maintaining visibility is done by ensuring the robot does not obstruct the visibility cone.  Note:  This constraint does NOT enforce minimum or maximum distances between the sensor  and the target, nor does it enforce the target to be in the field of view of  the sensor. A PositionConstraint can (and probably should) be used for such purposes.  The radius of the disc that should be maintained visible "}, "target_pose": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "pose": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}}, "cone_sides": {"type": "integer", "description": "Property.  From the sensor origin towards the target, the disc forms a visibility cone  This cone is approximated using many sides. For example, when using 4 sides,  that in fact makes the visibility region be a pyramid.  This value should always be 3 or more. "}, "sensor_pose": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "pose": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}}, "max_view_angle": {"type": "number", "description": "Property.  Even though the disc is maintained visible, the visibility cone can be very small  because of the orientation of the disc with respect to the sensor. It is possible  for example to view the disk almost from a side, in which case the visibility cone  can end up having close to 0 volume. The view angle is defined to be the angle between  the normal to the visibility disc and the direction vector from the sensor origin.  The value below represents the minimum desired view angle. For a perfect view,  this value will be 0 (the two vectors are exact opposites). For a completely obstructed view  this value will be Pi/2 (the vectors are perpendicular). This value defined below  is the maximum view angle to be maintained. This should be a value in the open interval  (0, Pi/2). If 0 is set, the view angle is NOT enforced. "}, "max_range_angle": {"type": "number", "description": "Property.  This angle is used similarly to max_view_angle but limits the maximum angle  between the sensor origin direction vector and the axis that connects the  sensor origin to the target frame origin. The value is again in the range (0, Pi/2)  and is NOT enforced if set to 0. "}, "sensor_view_direction": {"type": "string", "enum": ["0", "1", "2"]}, "weight": {"type": "number", "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "}}}}}}, "trajectory_constraints": {"type": "object", "properties": {"constraints": {"type": "array", "items": {"type": "object", "properties": {"name": {"type": "string", "description": "Property.  This message contains a list of motion planning constraints.  All constraints must be satisfied for a goal to be considered valid "}, "joint_constraints": {"type": "array", "items": {"type": "object", "properties": {"joint_name": {"type": "string", "description": "Property.  Constrain the position of a joint to be within a certain bound "}, "position": {"type": "number", "description": "Property.  the bound to be achieved is [position - tolerance_below, position + tolerance_above] "}, "tolerance_above": {"type": "number", "description": "Property. "}, "tolerance_below": {"type": "number", "description": "Property. "}, "weight": {"type": "number", "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "}}}}, "position_constraints": {"type": "array", "items": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "link_name": {"type": "string", "description": "Property.  The robot link this constraint refers to "}, "target_point_offset": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "constraint_region": {"type": "object", "properties": {"primitives": {"type": "array", "items": {"type": "object", "properties": {"type": {"type": "integer", "minimum": 0, "maximum": 255, "description": "Property.  Define box, sphere, cylinder, cone  All shapes are defined to have their bounding boxes centered around 0,0,0.  The type of the shape "}, "dimensions": {"type": "array", "items": {"type": "number"}}}}}, "primitive_poses": {"type": "array", "items": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}, "meshes": {"type": "array", "items": {"type": "object", "properties": {"triangles": {"type": "array", "items": {"type": "object", "properties": {"vertex_indices": {"type": "array", "items": {"type": "integer", "minimum": 0}, "maxitems": 3}}}}, "vertices": {"type": "array", "items": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}}}}}, "mesh_poses": {"type": "array", "items": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}}}, "weight": {"type": "number", "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "}}}}, "orientation_constraints": {"type": "array", "items": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}, "link_name": {"type": "string", "description": "Property.  The robot link this constraint refers to "}, "absolute_x_axis_tolerance": {"type": "number", "description": "Property.  Tolerance on the three vector components of the orientation error (optional) "}, "absolute_y_axis_tolerance": {"type": "number", "description": "Property. "}, "absolute_z_axis_tolerance": {"type": "number", "description": "Property. "}, "parameterization": {"type": "string", "enum": ["0", "1"]}, "weight": {"type": "number", "description": "Property.  The different options for the orientation error parameterization  - Intrinsic xyz Euler angles (default value)  - A rotation vector. This is similar to the angle-axis representation,  but the magnitude of the vector represents the rotation angle.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "}}}}, "visibility_constraints": {"type": "array", "items": {"type": "object", "properties": {"target_radius": {"type": "number", "description": "Property.  The constraint is useful to maintain visibility to a disc (the target) in a particular frame.  This disc forms the base of a visibiliy cone whose tip is at the origin of the sensor.  Maintaining visibility is done by ensuring the robot does not obstruct the visibility cone.  Note:  This constraint does NOT enforce minimum or maximum distances between the sensor  and the target, nor does it enforce the target to be in the field of view of  the sensor. A PositionConstraint can (and probably should) be used for such purposes.  The radius of the disc that should be maintained visible "}, "target_pose": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "pose": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}}, "cone_sides": {"type": "integer", "description": "Property.  From the sensor origin towards the target, the disc forms a visibility cone  This cone is approximated using many sides. For example, when using 4 sides,  that in fact makes the visibility region be a pyramid.  This value should always be 3 or more. "}, "sensor_pose": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "pose": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}}}, "max_view_angle": {"type": "number", "description": "Property.  Even though the disc is maintained visible, the visibility cone can be very small  because of the orientation of the disc with respect to the sensor. It is possible  for example to view the disk almost from a side, in which case the visibility cone  can end up having close to 0 volume. The view angle is defined to be the angle between  the normal to the visibility disc and the direction vector from the sensor origin.  The value below represents the minimum desired view angle. For a perfect view,  this value will be 0 (the two vectors are exact opposites). For a completely obstructed view  this value will be Pi/2 (the vectors are perpendicular). This value defined below  is the maximum view angle to be maintained. This should be a value in the open interval  (0, Pi/2). If 0 is set, the view angle is NOT enforced. "}, "max_range_angle": {"type": "number", "description": "Property.  This angle is used similarly to max_view_angle but limits the maximum angle  between the sensor origin direction vector and the axis that connects the  sensor origin to the target frame origin. The value is again in the range (0, Pi/2)  and is NOT enforced if set to 0. "}, "sensor_view_direction": {"type": "string", "enum": ["0", "1", "2"]}, "weight": {"type": "number", "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "}}}}}}}}}, "reference_trajectories": {"type": "array", "items": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "joint_trajectory": {"type": "array", "items": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "joint_names": {"type": "array", "items": {"type": "string"}}, "points": {"type": "array", "items": {"type": "object", "properties": {"positions": {"type": "array", "items": {"type": "number"}}, "velocities": {"type": "array", "items": {"type": "number"}}, "accelerations": {"type": "array", "items": {"type": "number"}}, "effort": {"type": "array", "items": {"type": "number"}}, "time_from_start": {"type": "string", "format": "date-time", "description": "Property. "}}}}}}}, "cartesian_trajectory": {"type": "array", "items": {"type": "object", "properties": {"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "tracked_frame": {"type": "string", "description": "Property.  The name of the Cartesian frame being tracked with respect to the base frame provided in header.frame_id "}, "points": {"type": "array", "items": {"type": "object", "properties": {"point": {"type": "object", "properties": {"pose": {"type": "object", "properties": {"position": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This contains the position of a point in free space "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "orientation": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents an orientation in free space in quaternion form. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}, "w": {"type": "number", "description": "Property. "}}}}}, "velocity": {"type": "object", "properties": {"linear": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "angular": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}}}, "acceleration": {"type": "object", "properties": {"linear": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}, "angular": {"type": "object", "properties": {"x": {"type": "number", "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "}, "y": {"type": "number", "description": "Property. "}, "z": {"type": "number", "description": "Property. "}}}}}}}, "time_from_start": {"type": "string", "format": "date-time", "description": "Property. "}}}}}}}}}}, "pipeline_id": {"type": "string", "description": "Property.  The name of the planning pipeline to use. If no name is specified,  the configured planning pipeline will be used "}, "planner_id": {"type": "string", "description": "Property.  The name of the planning algorithm to use. If no name is specified,  the default planner of the planning pipeline will be used "}, "group_name": {"type": "string", "description": "Property.  The name of the group of joints on which this planner is operating "}, "num_planning_attempts": {"type": "integer", "description": "Property.  The number of times this plan is to be computed. Shortest solution  will be reported. "}, "allowed_planning_time": {"type": "number", "description": "Property.  The maximum amount of time the motion planner is allowed to plan for (in seconds) "}, "max_velocity_scaling_factor": {"type": "number", "description": "Property.  Scaling factors for optionally reducing the maximum joint velocities and  accelerations. Allowed values are in (0,1]. The maximum joint velocity and  acceleration specified in the robot model are multiplied by thier respective  factors. If either are outside their valid ranges (importantly, this  includes being set to 0.0), the factor is set to the default value of 1.0  internally (i.e., maximum joint velocity or maximum joint acceleration). "}, "max_acceleration_scaling_factor": {"type": "number", "description": "Property. "}, "cartesian_speed_end_effector_link": {"type": "string", "description": "Property.  Maximum cartesian speed for the given end effector.  If max_cartesian_speed <= 0 the trajectory is not modified.  These fields require the following planning request adapter: default_planner_request_adapters/SetMaxCartesianEndEffectorSpeed "}, "max_cartesian_speed": {"type": "number", "description": "Property.  m/s "}}}, "blend_radius": {"type": "number", "description": "Property.  To blend between sequence items, the motion may be smoothed using a circular motion.  The blend radius of the circle between this and the next command, where 0 means no blending. "}}
+{
+  "req": {
+    "type": "object",
+    "properties": {
+      "workspace_parameters": {
+        "type": "object",
+        "properties": {
+          "header": {
+            "type": "object",
+            "properties": {
+              "seq": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+              },
+              "stamp": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+              },
+              "frame_id": {
+                "type": "string",
+                "description": "Property. Frame this data is associated with "
+              }
+            }
+          },
+          "min_corner": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+              },
+              "y": {
+                "type": "number",
+                "description": "Property. "
+              },
+              "z": {
+                "type": "number",
+                "description": "Property. "
+              }
+            }
+          },
+          "max_corner": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+              },
+              "y": {
+                "type": "number",
+                "description": "Property. "
+              },
+              "z": {
+                "type": "number",
+                "description": "Property. "
+              }
+            }
+          }
+        }
+      },
+      "start_state": {
+        "type": "object",
+        "properties": {
+          "joint_state": {
+            "type": "object",
+            "properties": {
+              "header": {
+                "type": "object",
+                "properties": {
+                  "seq": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                  },
+                  "stamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                  },
+                  "frame_id": {
+                    "type": "string",
+                    "description": "Property. Frame this data is associated with "
+                  }
+                }
+              },
+              "name": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "position": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "velocity": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "effort": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "multi_dof_joint_state": {
+            "type": "object",
+            "properties": {
+              "header": {
+                "type": "object",
+                "properties": {
+                  "seq": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                  },
+                  "stamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                  },
+                  "frame_id": {
+                    "type": "string",
+                    "description": "Property. Frame this data is associated with "
+                  }
+                }
+              },
+              "joint_names": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "transforms": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "translation": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "z": {
+                          "type": "number",
+                          "description": "Property. "
+                        }
+                      }
+                    },
+                    "rotation": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "Property.  This represents an orientation in free space in quaternion form. "
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "z": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "w": {
+                          "type": "number",
+                          "description": "Property. "
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "twist": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "linear": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "z": {
+                          "type": "number",
+                          "description": "Property. "
+                        }
+                      }
+                    },
+                    "angular": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "z": {
+                          "type": "number",
+                          "description": "Property. "
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "wrench": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "force": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "z": {
+                          "type": "number",
+                          "description": "Property. "
+                        }
+                      }
+                    },
+                    "torque": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "z": {
+                          "type": "number",
+                          "description": "Property. "
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "attached_collision_objects": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "link_name": {
+                  "type": "string",
+                  "description": "Property.  The CollisionObject will be attached with a fixed joint to this link "
+                },
+                "object": {
+                  "type": "object",
+                  "properties": {
+                    "header": {
+                      "type": "object",
+                      "properties": {
+                        "seq": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                        },
+                        "stamp": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                        },
+                        "frame_id": {
+                          "type": "string",
+                          "description": "Property. Frame this data is associated with "
+                        }
+                      }
+                    },
+                    "pose": {
+                      "type": "object",
+                      "properties": {
+                        "position": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "type": "number",
+                              "description": "Property.  This contains the position of a point in free space "
+                            },
+                            "y": {
+                              "type": "number",
+                              "description": "Property. "
+                            },
+                            "z": {
+                              "type": "number",
+                              "description": "Property. "
+                            }
+                          }
+                        },
+                        "orientation": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "type": "number",
+                              "description": "Property.  This represents an orientation in free space in quaternion form. "
+                            },
+                            "y": {
+                              "type": "number",
+                              "description": "Property. "
+                            },
+                            "z": {
+                              "type": "number",
+                              "description": "Property. "
+                            },
+                            "w": {
+                              "type": "number",
+                              "description": "Property. "
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "Property.  The id of the object (name used in MoveIt) "
+                    },
+                    "type": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string",
+                          "description": "Property. ################################################# OBJECT ID #########################################################  Contains information about the type of a found object. Those two sets of parameters together uniquely define an  object  The key of the found object: the unique identifier in the given db "
+                        },
+                        "db": {
+                          "type": "string",
+                          "description": "Property.  The db parameters stored as a JSON/compressed YAML string. An object id does not make sense without the corresponding  database. E.g., in object_recognition, it can look like: \"{'type':'CouchDB', 'root':'http://localhost'}\"  There is no conventional format for those parameters and it's nice to keep that flexibility.  The object_recognition_core as a generic DB type that can read those fields  Current examples:  For CouchDB:  type: 'CouchDB'  root: 'http://localhost:5984'  collection: 'object_recognition'  For SQL household database:  type: 'SqlHousehold'  host: 'wgs36'  port: 5432  user: 'willow'  password: 'willow'  name: 'household_objects'  module: 'tabletop' "
+                        }
+                      }
+                    },
+                    "primitives": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 255,
+                            "description": "Property.  Define box, sphere, cylinder, cone  All shapes are defined to have their bounding boxes centered around 0,0,0.  The type of the shape "
+                          },
+                          "dimensions": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "primitive_poses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "position": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This contains the position of a point in free space "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          },
+                          "orientation": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This represents an orientation in free space in quaternion form. "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "w": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "meshes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "triangles": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "vertex_indices": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "integer",
+                                    "minimum": 0
+                                  },
+                                  "maxitems": 3
+                                }
+                              }
+                            }
+                          },
+                          "vertices": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "type": "number",
+                                  "description": "Property.  This contains the position of a point in free space "
+                                },
+                                "y": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                },
+                                "z": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "mesh_poses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "position": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This contains the position of a point in free space "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          },
+                          "orientation": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This represents an orientation in free space in quaternion form. "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "w": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "planes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "coef": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "maxitems": 4
+                          }
+                        }
+                      }
+                    },
+                    "plane_poses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "position": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This contains the position of a point in free space "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          },
+                          "orientation": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This represents an orientation in free space in quaternion form. "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "w": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "subframe_names": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "subframe_poses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "position": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This contains the position of a point in free space "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          },
+                          "orientation": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This represents an orientation in free space in quaternion form. "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "w": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "operation": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 255,
+                      "description": "Property.  Operation to be performed "
+                    }
+                  }
+                },
+                "touch_links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "detach_posture": {
+                  "type": "object",
+                  "properties": {
+                    "header": {
+                      "type": "object",
+                      "properties": {
+                        "seq": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                        },
+                        "stamp": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                        },
+                        "frame_id": {
+                          "type": "string",
+                          "description": "Property. Frame this data is associated with "
+                        }
+                      }
+                    },
+                    "joint_names": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "points": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "positions": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          },
+                          "velocities": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          },
+                          "accelerations": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          },
+                          "effort": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          },
+                          "time_from_start": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Property. "
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "weight": {
+                  "type": "number",
+                  "description": "Property.  The weight of the attached object, if known "
+                }
+              }
+            }
+          },
+          "is_diff": {
+            "type": "boolean",
+            "description": "Property.  Flag indicating whether this scene is to be interpreted as a diff with respect to some other scene  This is mostly important for handling the attached bodies (whether or not to clear the attached bodies  of a moveit::core::RobotState before updating it with this message) "
+          }
+        }
+      },
+      "goal_constraints": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Property.  This message contains a list of motion planning constraints.  All constraints must be satisfied for a goal to be considered valid "
+            },
+            "joint_constraints": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "joint_name": {
+                    "type": "string",
+                    "description": "Property.  Constrain the position of a joint to be within a certain bound "
+                  },
+                  "position": {
+                    "type": "number",
+                    "description": "Property.  the bound to be achieved is [position - tolerance_below, position + tolerance_above] "
+                  },
+                  "tolerance_above": {
+                    "type": "number",
+                    "description": "Property. "
+                  },
+                  "tolerance_below": {
+                    "type": "number",
+                    "description": "Property. "
+                  },
+                  "weight": {
+                    "type": "number",
+                    "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "
+                  }
+                }
+              }
+            },
+            "position_constraints": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "header": {
+                    "type": "object",
+                    "properties": {
+                      "seq": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                      },
+                      "stamp": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                      },
+                      "frame_id": {
+                        "type": "string",
+                        "description": "Property. Frame this data is associated with "
+                      }
+                    }
+                  },
+                  "link_name": {
+                    "type": "string",
+                    "description": "Property.  The robot link this constraint refers to "
+                  },
+                  "target_point_offset": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                      },
+                      "y": {
+                        "type": "number",
+                        "description": "Property. "
+                      },
+                      "z": {
+                        "type": "number",
+                        "description": "Property. "
+                      }
+                    }
+                  },
+                  "constraint_region": {
+                    "type": "object",
+                    "properties": {
+                      "primitives": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 255,
+                              "description": "Property.  Define box, sphere, cylinder, cone  All shapes are defined to have their bounding boxes centered around 0,0,0.  The type of the shape "
+                            },
+                            "dimensions": {
+                              "type": "array",
+                              "items": {
+                                "type": "number"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "primitive_poses": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "position": {
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "type": "number",
+                                  "description": "Property.  This contains the position of a point in free space "
+                                },
+                                "y": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                },
+                                "z": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                }
+                              }
+                            },
+                            "orientation": {
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "type": "number",
+                                  "description": "Property.  This represents an orientation in free space in quaternion form. "
+                                },
+                                "y": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                },
+                                "z": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                },
+                                "w": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "meshes": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "triangles": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "vertex_indices": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "integer",
+                                      "minimum": 0
+                                    },
+                                    "maxitems": 3
+                                  }
+                                }
+                              }
+                            },
+                            "vertices": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "x": {
+                                    "type": "number",
+                                    "description": "Property.  This contains the position of a point in free space "
+                                  },
+                                  "y": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                  },
+                                  "z": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "mesh_poses": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "position": {
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "type": "number",
+                                  "description": "Property.  This contains the position of a point in free space "
+                                },
+                                "y": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                },
+                                "z": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                }
+                              }
+                            },
+                            "orientation": {
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "type": "number",
+                                  "description": "Property.  This represents an orientation in free space in quaternion form. "
+                                },
+                                "y": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                },
+                                "z": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                },
+                                "w": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "weight": {
+                    "type": "number",
+                    "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "
+                  }
+                }
+              }
+            },
+            "orientation_constraints": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "header": {
+                    "type": "object",
+                    "properties": {
+                      "seq": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                      },
+                      "stamp": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                      },
+                      "frame_id": {
+                        "type": "string",
+                        "description": "Property. Frame this data is associated with "
+                      }
+                    }
+                  },
+                  "orientation": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "description": "Property.  This represents an orientation in free space in quaternion form. "
+                      },
+                      "y": {
+                        "type": "number",
+                        "description": "Property. "
+                      },
+                      "z": {
+                        "type": "number",
+                        "description": "Property. "
+                      },
+                      "w": {
+                        "type": "number",
+                        "description": "Property. "
+                      }
+                    }
+                  },
+                  "link_name": {
+                    "type": "string",
+                    "description": "Property.  The robot link this constraint refers to "
+                  },
+                  "absolute_x_axis_tolerance": {
+                    "type": "number",
+                    "description": "Property.  Tolerance on the three vector components of the orientation error (optional) "
+                  },
+                  "absolute_y_axis_tolerance": {
+                    "type": "number",
+                    "description": "Property. "
+                  },
+                  "absolute_z_axis_tolerance": {
+                    "type": "number",
+                    "description": "Property. "
+                  },
+                  "parameterization": {
+                    "type": "string",
+                    "enum": [
+                      "0",
+                      "1"
+                    ]
+                  },
+                  "weight": {
+                    "type": "number",
+                    "description": "Property.  The different options for the orientation error parameterization  - Intrinsic xyz Euler angles (default value)  - A rotation vector. This is similar to the angle-axis representation,  but the magnitude of the vector represents the rotation angle.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "
+                  }
+                }
+              }
+            },
+            "visibility_constraints": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "target_radius": {
+                    "type": "number",
+                    "description": "Property.  The constraint is useful to maintain visibility to a disc (the target) in a particular frame.  This disc forms the base of a visibiliy cone whose tip is at the origin of the sensor.  Maintaining visibility is done by ensuring the robot does not obstruct the visibility cone.  Note:  This constraint does NOT enforce minimum or maximum distances between the sensor  and the target, nor does it enforce the target to be in the field of view of  the sensor. A PositionConstraint can (and probably should) be used for such purposes.  The radius of the disc that should be maintained visible "
+                  },
+                  "target_pose": {
+                    "type": "object",
+                    "properties": {
+                      "header": {
+                        "type": "object",
+                        "properties": {
+                          "seq": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                          },
+                          "stamp": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                          },
+                          "frame_id": {
+                            "type": "string",
+                            "description": "Property. Frame this data is associated with "
+                          }
+                        }
+                      },
+                      "pose": {
+                        "type": "object",
+                        "properties": {
+                          "position": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This contains the position of a point in free space "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          },
+                          "orientation": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This represents an orientation in free space in quaternion form. "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "w": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "cone_sides": {
+                    "type": "integer",
+                    "description": "Property.  From the sensor origin towards the target, the disc forms a visibility cone  This cone is approximated using many sides. For example, when using 4 sides,  that in fact makes the visibility region be a pyramid.  This value should always be 3 or more. "
+                  },
+                  "sensor_pose": {
+                    "type": "object",
+                    "properties": {
+                      "header": {
+                        "type": "object",
+                        "properties": {
+                          "seq": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                          },
+                          "stamp": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                          },
+                          "frame_id": {
+                            "type": "string",
+                            "description": "Property. Frame this data is associated with "
+                          }
+                        }
+                      },
+                      "pose": {
+                        "type": "object",
+                        "properties": {
+                          "position": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This contains the position of a point in free space "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          },
+                          "orientation": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This represents an orientation in free space in quaternion form. "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "w": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "max_view_angle": {
+                    "type": "number",
+                    "description": "Property.  Even though the disc is maintained visible, the visibility cone can be very small  because of the orientation of the disc with respect to the sensor. It is possible  for example to view the disk almost from a side, in which case the visibility cone  can end up having close to 0 volume. The view angle is defined to be the angle between  the normal to the visibility disc and the direction vector from the sensor origin.  The value below represents the minimum desired view angle. For a perfect view,  this value will be 0 (the two vectors are exact opposites). For a completely obstructed view  this value will be Pi/2 (the vectors are perpendicular). This value defined below  is the maximum view angle to be maintained. This should be a value in the open interval  (0, Pi/2). If 0 is set, the view angle is NOT enforced. "
+                  },
+                  "max_range_angle": {
+                    "type": "number",
+                    "description": "Property.  This angle is used similarly to max_view_angle but limits the maximum angle  between the sensor origin direction vector and the axis that connects the  sensor origin to the target frame origin. The value is again in the range (0, Pi/2)  and is NOT enforced if set to 0. "
+                  },
+                  "sensor_view_direction": {
+                    "type": "string",
+                    "enum": [
+                      "0",
+                      "1",
+                      "2"
+                    ]
+                  },
+                  "weight": {
+                    "type": "number",
+                    "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "path_constraints": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Property.  This message contains a list of motion planning constraints.  All constraints must be satisfied for a goal to be considered valid "
+          },
+          "joint_constraints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "joint_name": {
+                  "type": "string",
+                  "description": "Property.  Constrain the position of a joint to be within a certain bound "
+                },
+                "position": {
+                  "type": "number",
+                  "description": "Property.  the bound to be achieved is [position - tolerance_below, position + tolerance_above] "
+                },
+                "tolerance_above": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "tolerance_below": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "weight": {
+                  "type": "number",
+                  "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "
+                }
+              }
+            }
+          },
+          "position_constraints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "header": {
+                  "type": "object",
+                  "properties": {
+                    "seq": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                    },
+                    "stamp": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                    },
+                    "frame_id": {
+                      "type": "string",
+                      "description": "Property. Frame this data is associated with "
+                    }
+                  }
+                },
+                "link_name": {
+                  "type": "string",
+                  "description": "Property.  The robot link this constraint refers to "
+                },
+                "target_point_offset": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                    },
+                    "y": {
+                      "type": "number",
+                      "description": "Property. "
+                    },
+                    "z": {
+                      "type": "number",
+                      "description": "Property. "
+                    }
+                  }
+                },
+                "constraint_region": {
+                  "type": "object",
+                  "properties": {
+                    "primitives": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 255,
+                            "description": "Property.  Define box, sphere, cylinder, cone  All shapes are defined to have their bounding boxes centered around 0,0,0.  The type of the shape "
+                          },
+                          "dimensions": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "primitive_poses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "position": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This contains the position of a point in free space "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          },
+                          "orientation": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This represents an orientation in free space in quaternion form. "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "w": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "meshes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "triangles": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "vertex_indices": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "integer",
+                                    "minimum": 0
+                                  },
+                                  "maxitems": 3
+                                }
+                              }
+                            }
+                          },
+                          "vertices": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "type": "number",
+                                  "description": "Property.  This contains the position of a point in free space "
+                                },
+                                "y": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                },
+                                "z": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "mesh_poses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "position": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This contains the position of a point in free space "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          },
+                          "orientation": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This represents an orientation in free space in quaternion form. "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "w": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "weight": {
+                  "type": "number",
+                  "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "
+                }
+              }
+            }
+          },
+          "orientation_constraints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "header": {
+                  "type": "object",
+                  "properties": {
+                    "seq": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                    },
+                    "stamp": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                    },
+                    "frame_id": {
+                      "type": "string",
+                      "description": "Property. Frame this data is associated with "
+                    }
+                  }
+                },
+                "orientation": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "description": "Property.  This represents an orientation in free space in quaternion form. "
+                    },
+                    "y": {
+                      "type": "number",
+                      "description": "Property. "
+                    },
+                    "z": {
+                      "type": "number",
+                      "description": "Property. "
+                    },
+                    "w": {
+                      "type": "number",
+                      "description": "Property. "
+                    }
+                  }
+                },
+                "link_name": {
+                  "type": "string",
+                  "description": "Property.  The robot link this constraint refers to "
+                },
+                "absolute_x_axis_tolerance": {
+                  "type": "number",
+                  "description": "Property.  Tolerance on the three vector components of the orientation error (optional) "
+                },
+                "absolute_y_axis_tolerance": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "absolute_z_axis_tolerance": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "parameterization": {
+                  "type": "string",
+                  "enum": [
+                    "0",
+                    "1"
+                  ]
+                },
+                "weight": {
+                  "type": "number",
+                  "description": "Property.  The different options for the orientation error parameterization  - Intrinsic xyz Euler angles (default value)  - A rotation vector. This is similar to the angle-axis representation,  but the magnitude of the vector represents the rotation angle.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "
+                }
+              }
+            }
+          },
+          "visibility_constraints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "target_radius": {
+                  "type": "number",
+                  "description": "Property.  The constraint is useful to maintain visibility to a disc (the target) in a particular frame.  This disc forms the base of a visibiliy cone whose tip is at the origin of the sensor.  Maintaining visibility is done by ensuring the robot does not obstruct the visibility cone.  Note:  This constraint does NOT enforce minimum or maximum distances between the sensor  and the target, nor does it enforce the target to be in the field of view of  the sensor. A PositionConstraint can (and probably should) be used for such purposes.  The radius of the disc that should be maintained visible "
+                },
+                "target_pose": {
+                  "type": "object",
+                  "properties": {
+                    "header": {
+                      "type": "object",
+                      "properties": {
+                        "seq": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                        },
+                        "stamp": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                        },
+                        "frame_id": {
+                          "type": "string",
+                          "description": "Property. Frame this data is associated with "
+                        }
+                      }
+                    },
+                    "pose": {
+                      "type": "object",
+                      "properties": {
+                        "position": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "type": "number",
+                              "description": "Property.  This contains the position of a point in free space "
+                            },
+                            "y": {
+                              "type": "number",
+                              "description": "Property. "
+                            },
+                            "z": {
+                              "type": "number",
+                              "description": "Property. "
+                            }
+                          }
+                        },
+                        "orientation": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "type": "number",
+                              "description": "Property.  This represents an orientation in free space in quaternion form. "
+                            },
+                            "y": {
+                              "type": "number",
+                              "description": "Property. "
+                            },
+                            "z": {
+                              "type": "number",
+                              "description": "Property. "
+                            },
+                            "w": {
+                              "type": "number",
+                              "description": "Property. "
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "cone_sides": {
+                  "type": "integer",
+                  "description": "Property.  From the sensor origin towards the target, the disc forms a visibility cone  This cone is approximated using many sides. For example, when using 4 sides,  that in fact makes the visibility region be a pyramid.  This value should always be 3 or more. "
+                },
+                "sensor_pose": {
+                  "type": "object",
+                  "properties": {
+                    "header": {
+                      "type": "object",
+                      "properties": {
+                        "seq": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                        },
+                        "stamp": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                        },
+                        "frame_id": {
+                          "type": "string",
+                          "description": "Property. Frame this data is associated with "
+                        }
+                      }
+                    },
+                    "pose": {
+                      "type": "object",
+                      "properties": {
+                        "position": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "type": "number",
+                              "description": "Property.  This contains the position of a point in free space "
+                            },
+                            "y": {
+                              "type": "number",
+                              "description": "Property. "
+                            },
+                            "z": {
+                              "type": "number",
+                              "description": "Property. "
+                            }
+                          }
+                        },
+                        "orientation": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "type": "number",
+                              "description": "Property.  This represents an orientation in free space in quaternion form. "
+                            },
+                            "y": {
+                              "type": "number",
+                              "description": "Property. "
+                            },
+                            "z": {
+                              "type": "number",
+                              "description": "Property. "
+                            },
+                            "w": {
+                              "type": "number",
+                              "description": "Property. "
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "max_view_angle": {
+                  "type": "number",
+                  "description": "Property.  Even though the disc is maintained visible, the visibility cone can be very small  because of the orientation of the disc with respect to the sensor. It is possible  for example to view the disk almost from a side, in which case the visibility cone  can end up having close to 0 volume. The view angle is defined to be the angle between  the normal to the visibility disc and the direction vector from the sensor origin.  The value below represents the minimum desired view angle. For a perfect view,  this value will be 0 (the two vectors are exact opposites). For a completely obstructed view  this value will be Pi/2 (the vectors are perpendicular). This value defined below  is the maximum view angle to be maintained. This should be a value in the open interval  (0, Pi/2). If 0 is set, the view angle is NOT enforced. "
+                },
+                "max_range_angle": {
+                  "type": "number",
+                  "description": "Property.  This angle is used similarly to max_view_angle but limits the maximum angle  between the sensor origin direction vector and the axis that connects the  sensor origin to the target frame origin. The value is again in the range (0, Pi/2)  and is NOT enforced if set to 0. "
+                },
+                "sensor_view_direction": {
+                  "type": "string",
+                  "enum": [
+                    "0",
+                    "1",
+                    "2"
+                  ]
+                },
+                "weight": {
+                  "type": "number",
+                  "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "
+                }
+              }
+            }
+          }
+        }
+      },
+      "trajectory_constraints": {
+        "type": "object",
+        "properties": {
+          "constraints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Property.  This message contains a list of motion planning constraints.  All constraints must be satisfied for a goal to be considered valid "
+                },
+                "joint_constraints": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "joint_name": {
+                        "type": "string",
+                        "description": "Property.  Constrain the position of a joint to be within a certain bound "
+                      },
+                      "position": {
+                        "type": "number",
+                        "description": "Property.  the bound to be achieved is [position - tolerance_below, position + tolerance_above] "
+                      },
+                      "tolerance_above": {
+                        "type": "number",
+                        "description": "Property. "
+                      },
+                      "tolerance_below": {
+                        "type": "number",
+                        "description": "Property. "
+                      },
+                      "weight": {
+                        "type": "number",
+                        "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "
+                      }
+                    }
+                  }
+                },
+                "position_constraints": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "header": {
+                        "type": "object",
+                        "properties": {
+                          "seq": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                          },
+                          "stamp": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                          },
+                          "frame_id": {
+                            "type": "string",
+                            "description": "Property. Frame this data is associated with "
+                          }
+                        }
+                      },
+                      "link_name": {
+                        "type": "string",
+                        "description": "Property.  The robot link this constraint refers to "
+                      },
+                      "target_point_offset": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                          },
+                          "y": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "z": {
+                            "type": "number",
+                            "description": "Property. "
+                          }
+                        }
+                      },
+                      "constraint_region": {
+                        "type": "object",
+                        "properties": {
+                          "primitives": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "integer",
+                                  "minimum": 0,
+                                  "maximum": 255,
+                                  "description": "Property.  Define box, sphere, cylinder, cone  All shapes are defined to have their bounding boxes centered around 0,0,0.  The type of the shape "
+                                },
+                                "dimensions": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "primitive_poses": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "position": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number",
+                                      "description": "Property.  This contains the position of a point in free space "
+                                    },
+                                    "y": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    },
+                                    "z": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    }
+                                  }
+                                },
+                                "orientation": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number",
+                                      "description": "Property.  This represents an orientation in free space in quaternion form. "
+                                    },
+                                    "y": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    },
+                                    "z": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    },
+                                    "w": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "meshes": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "triangles": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "vertex_indices": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "integer",
+                                          "minimum": 0
+                                        },
+                                        "maxitems": 3
+                                      }
+                                    }
+                                  }
+                                },
+                                "vertices": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "x": {
+                                        "type": "number",
+                                        "description": "Property.  This contains the position of a point in free space "
+                                      },
+                                      "y": {
+                                        "type": "number",
+                                        "description": "Property. "
+                                      },
+                                      "z": {
+                                        "type": "number",
+                                        "description": "Property. "
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "mesh_poses": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "position": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number",
+                                      "description": "Property.  This contains the position of a point in free space "
+                                    },
+                                    "y": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    },
+                                    "z": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    }
+                                  }
+                                },
+                                "orientation": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number",
+                                      "description": "Property.  This represents an orientation in free space in quaternion form. "
+                                    },
+                                    "y": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    },
+                                    "z": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    },
+                                    "w": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "weight": {
+                        "type": "number",
+                        "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "
+                      }
+                    }
+                  }
+                },
+                "orientation_constraints": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "header": {
+                        "type": "object",
+                        "properties": {
+                          "seq": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                          },
+                          "stamp": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                          },
+                          "frame_id": {
+                            "type": "string",
+                            "description": "Property. Frame this data is associated with "
+                          }
+                        }
+                      },
+                      "orientation": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "description": "Property.  This represents an orientation in free space in quaternion form. "
+                          },
+                          "y": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "z": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "w": {
+                            "type": "number",
+                            "description": "Property. "
+                          }
+                        }
+                      },
+                      "link_name": {
+                        "type": "string",
+                        "description": "Property.  The robot link this constraint refers to "
+                      },
+                      "absolute_x_axis_tolerance": {
+                        "type": "number",
+                        "description": "Property.  Tolerance on the three vector components of the orientation error (optional) "
+                      },
+                      "absolute_y_axis_tolerance": {
+                        "type": "number",
+                        "description": "Property. "
+                      },
+                      "absolute_z_axis_tolerance": {
+                        "type": "number",
+                        "description": "Property. "
+                      },
+                      "parameterization": {
+                        "type": "string",
+                        "enum": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "weight": {
+                        "type": "number",
+                        "description": "Property.  The different options for the orientation error parameterization  - Intrinsic xyz Euler angles (default value)  - A rotation vector. This is similar to the angle-axis representation,  but the magnitude of the vector represents the rotation angle.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "
+                      }
+                    }
+                  }
+                },
+                "visibility_constraints": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "target_radius": {
+                        "type": "number",
+                        "description": "Property.  The constraint is useful to maintain visibility to a disc (the target) in a particular frame.  This disc forms the base of a visibiliy cone whose tip is at the origin of the sensor.  Maintaining visibility is done by ensuring the robot does not obstruct the visibility cone.  Note:  This constraint does NOT enforce minimum or maximum distances between the sensor  and the target, nor does it enforce the target to be in the field of view of  the sensor. A PositionConstraint can (and probably should) be used for such purposes.  The radius of the disc that should be maintained visible "
+                      },
+                      "target_pose": {
+                        "type": "object",
+                        "properties": {
+                          "header": {
+                            "type": "object",
+                            "properties": {
+                              "seq": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                              },
+                              "stamp": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                              },
+                              "frame_id": {
+                                "type": "string",
+                                "description": "Property. Frame this data is associated with "
+                              }
+                            }
+                          },
+                          "pose": {
+                            "type": "object",
+                            "properties": {
+                              "position": {
+                                "type": "object",
+                                "properties": {
+                                  "x": {
+                                    "type": "number",
+                                    "description": "Property.  This contains the position of a point in free space "
+                                  },
+                                  "y": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                  },
+                                  "z": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                  }
+                                }
+                              },
+                              "orientation": {
+                                "type": "object",
+                                "properties": {
+                                  "x": {
+                                    "type": "number",
+                                    "description": "Property.  This represents an orientation in free space in quaternion form. "
+                                  },
+                                  "y": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                  },
+                                  "z": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                  },
+                                  "w": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "cone_sides": {
+                        "type": "integer",
+                        "description": "Property.  From the sensor origin towards the target, the disc forms a visibility cone  This cone is approximated using many sides. For example, when using 4 sides,  that in fact makes the visibility region be a pyramid.  This value should always be 3 or more. "
+                      },
+                      "sensor_pose": {
+                        "type": "object",
+                        "properties": {
+                          "header": {
+                            "type": "object",
+                            "properties": {
+                              "seq": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                              },
+                              "stamp": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                              },
+                              "frame_id": {
+                                "type": "string",
+                                "description": "Property. Frame this data is associated with "
+                              }
+                            }
+                          },
+                          "pose": {
+                            "type": "object",
+                            "properties": {
+                              "position": {
+                                "type": "object",
+                                "properties": {
+                                  "x": {
+                                    "type": "number",
+                                    "description": "Property.  This contains the position of a point in free space "
+                                  },
+                                  "y": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                  },
+                                  "z": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                  }
+                                }
+                              },
+                              "orientation": {
+                                "type": "object",
+                                "properties": {
+                                  "x": {
+                                    "type": "number",
+                                    "description": "Property.  This represents an orientation in free space in quaternion form. "
+                                  },
+                                  "y": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                  },
+                                  "z": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                  },
+                                  "w": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "max_view_angle": {
+                        "type": "number",
+                        "description": "Property.  Even though the disc is maintained visible, the visibility cone can be very small  because of the orientation of the disc with respect to the sensor. It is possible  for example to view the disk almost from a side, in which case the visibility cone  can end up having close to 0 volume. The view angle is defined to be the angle between  the normal to the visibility disc and the direction vector from the sensor origin.  The value below represents the minimum desired view angle. For a perfect view,  this value will be 0 (the two vectors are exact opposites). For a completely obstructed view  this value will be Pi/2 (the vectors are perpendicular). This value defined below  is the maximum view angle to be maintained. This should be a value in the open interval  (0, Pi/2). If 0 is set, the view angle is NOT enforced. "
+                      },
+                      "max_range_angle": {
+                        "type": "number",
+                        "description": "Property.  This angle is used similarly to max_view_angle but limits the maximum angle  between the sensor origin direction vector and the axis that connects the  sensor origin to the target frame origin. The value is again in the range (0, Pi/2)  and is NOT enforced if set to 0. "
+                      },
+                      "sensor_view_direction": {
+                        "type": "string",
+                        "enum": [
+                          "0",
+                          "1",
+                          "2"
+                        ]
+                      },
+                      "weight": {
+                        "type": "number",
+                        "description": "Property.  A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important) "
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "reference_trajectories": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "header": {
+              "type": "object",
+              "properties": {
+                "seq": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                },
+                "stamp": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                },
+                "frame_id": {
+                  "type": "string",
+                  "description": "Property. Frame this data is associated with "
+                }
+              }
+            },
+            "joint_trajectory": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "header": {
+                    "type": "object",
+                    "properties": {
+                      "seq": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                      },
+                      "stamp": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                      },
+                      "frame_id": {
+                        "type": "string",
+                        "description": "Property. Frame this data is associated with "
+                      }
+                    }
+                  },
+                  "joint_names": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "points": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "positions": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        },
+                        "velocities": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        },
+                        "accelerations": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        },
+                        "effort": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        },
+                        "time_from_start": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Property. "
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "cartesian_trajectory": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "header": {
+                    "type": "object",
+                    "properties": {
+                      "seq": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                      },
+                      "stamp": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                      },
+                      "frame_id": {
+                        "type": "string",
+                        "description": "Property. Frame this data is associated with "
+                      }
+                    }
+                  },
+                  "tracked_frame": {
+                    "type": "string",
+                    "description": "Property.  The name of the Cartesian frame being tracked with respect to the base frame provided in header.frame_id "
+                  },
+                  "points": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "point": {
+                          "type": "object",
+                          "properties": {
+                            "pose": {
+                              "type": "object",
+                              "properties": {
+                                "position": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number",
+                                      "description": "Property.  This contains the position of a point in free space "
+                                    },
+                                    "y": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    },
+                                    "z": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    }
+                                  }
+                                },
+                                "orientation": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number",
+                                      "description": "Property.  This represents an orientation in free space in quaternion form. "
+                                    },
+                                    "y": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    },
+                                    "z": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    },
+                                    "w": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "velocity": {
+                              "type": "object",
+                              "properties": {
+                                "linear": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number",
+                                      "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                                    },
+                                    "y": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    },
+                                    "z": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    }
+                                  }
+                                },
+                                "angular": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number",
+                                      "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                                    },
+                                    "y": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    },
+                                    "z": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "acceleration": {
+                              "type": "object",
+                              "properties": {
+                                "linear": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number",
+                                      "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                                    },
+                                    "y": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    },
+                                    "z": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    }
+                                  }
+                                },
+                                "angular": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number",
+                                      "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                                    },
+                                    "y": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    },
+                                    "z": {
+                                      "type": "number",
+                                      "description": "Property. "
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "time_from_start": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Property. "
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "pipeline_id": {
+        "type": "string",
+        "description": "Property.  The name of the planning pipeline to use. If no name is specified,  the configured planning pipeline will be used "
+      },
+      "planner_id": {
+        "type": "string",
+        "description": "Property.  The name of the planning algorithm to use. If no name is specified,  the default planner of the planning pipeline will be used "
+      },
+      "group_name": {
+        "type": "string",
+        "description": "Property.  The name of the group of joints on which this planner is operating "
+      },
+      "num_planning_attempts": {
+        "type": "integer",
+        "description": "Property.  The number of times this plan is to be computed. Shortest solution  will be reported. "
+      },
+      "allowed_planning_time": {
+        "type": "number",
+        "description": "Property.  The maximum amount of time the motion planner is allowed to plan for (in seconds) "
+      },
+      "max_velocity_scaling_factor": {
+        "type": "number",
+        "description": "Property.  Scaling factors for optionally reducing the maximum joint velocities and  accelerations. Allowed values are in (0,1]. The maximum joint velocity and  acceleration specified in the robot model are multiplied by thier respective  factors. If either are outside their valid ranges (importantly, this  includes being set to 0.0), the factor is set to the default value of 1.0  internally (i.e., maximum joint velocity or maximum joint acceleration). "
+      },
+      "max_acceleration_scaling_factor": {
+        "type": "number",
+        "description": "Property. "
+      },
+      "cartesian_speed_end_effector_link": {
+        "type": "string",
+        "description": "Property.  Maximum cartesian speed for the given end effector.  If max_cartesian_speed <= 0 the trajectory is not modified.  These fields require the following planning request adapter: default_planner_request_adapters/SetMaxCartesianEndEffectorSpeed "
+      },
+      "max_cartesian_speed": {
+        "type": "number",
+        "description": "Property.  m/s "
+      }
+    }
+  },
+  "blend_radius": {
+    "type": "number",
+    "description": "Property.  To blend between sequence items, the motion may be smoothed using a circular motion.  The blend radius of the circle between this and the next command, where 0 means no blending. "
+  }
+}

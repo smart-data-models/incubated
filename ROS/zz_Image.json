@@ -1,1 +1,54 @@
-{"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "height": {"type": "integer", "minimum": 0, "description": "Property.  Header frame_id should be optical frame of camera  origin of frame should be optical center of camera  +x should point to the right in the image  +y should point down in the image  +z should point into to plane of the image  If the frame_id here and the frame_id of the CameraInfo  message associated with the image conflict  the behavior is undefined  image height, that is, number of rows "}, "width": {"type": "integer", "minimum": 0, "description": "Property.  image width, that is, number of columns "}, "encoding": {"type": "string", "description": "Property.  The legal values for encoding are in file src/image_encodings.cpp  If you want to standardize a new string format, join  ros-users@lists.sourceforge.net and send an email proposing a new encoding.  Encoding of pixels -- channel meaning, ordering, size "}, "is_bigendian": {"type": "integer", "minimum": 0, "maximum": 255, "description": "Property.  taken from the list of strings in include/sensor_msgs/image_encodings.h  is this data bigendian? "}, "step": {"type": "integer", "minimum": 0, "description": "Property.  Full row length in bytes "}, "data": {"type": "array", "items": {"type": "integer", "minimum": 0, "maximum": 255}}}
+{
+  "header": {
+    "type": "object",
+    "properties": {
+      "seq": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+      },
+      "stamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+      },
+      "frame_id": {
+        "type": "string",
+        "description": "Property. Frame this data is associated with "
+      }
+    }
+  },
+  "height": {
+    "type": "integer",
+    "minimum": 0,
+    "description": "Property.  Header frame_id should be optical frame of camera  origin of frame should be optical center of camera  +x should point to the right in the image  +y should point down in the image  +z should point into to plane of the image  If the frame_id here and the frame_id of the CameraInfo  message associated with the image conflict  the behavior is undefined  image height, that is, number of rows "
+  },
+  "width": {
+    "type": "integer",
+    "minimum": 0,
+    "description": "Property.  image width, that is, number of columns "
+  },
+  "encoding": {
+    "type": "string",
+    "description": "Property.  The legal values for encoding are in file src/image_encodings.cpp  If you want to standardize a new string format, join  ros-users@lists.sourceforge.net and send an email proposing a new encoding.  Encoding of pixels -- channel meaning, ordering, size "
+  },
+  "is_bigendian": {
+    "type": "integer",
+    "minimum": 0,
+    "maximum": 255,
+    "description": "Property.  taken from the list of strings in include/sensor_msgs/image_encodings.h  is this data bigendian? "
+  },
+  "step": {
+    "type": "integer",
+    "minimum": 0,
+    "description": "Property.  Full row length in bytes "
+  },
+  "data": {
+    "type": "array",
+    "items": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 255
+    }
+  }
+}

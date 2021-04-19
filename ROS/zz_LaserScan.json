@@ -1,1 +1,61 @@
-{"header": {"type": "object", "properties": {"seq": {"type": "integer", "minimum": 0, "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "}, "stamp": {"type": "string", "format": "date-time", "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "}, "frame_id": {"type": "string", "description": "Property. Frame this data is associated with "}}}, "angle_min": {"type": "number", "description": "Property.  the first ray in the scan.   in frame frame_id, angles are measured around  the positive Z axis (counterclockwise, if Z is up)  with zero angle being forward along the x axis  start angle of the scan [rad] "}, "angle_max": {"type": "number", "description": "Property.  end angle of the scan [rad] "}, "angle_increment": {"type": "number", "description": "Property.  angular distance between measurements [rad] "}, "time_increment": {"type": "number", "description": "Property.  time between measurements [seconds] - if your scanner "}, "scan_time": {"type": "number", "description": "Property.  is moving, this will be used in interpolating position  of 3d points  time between scans [seconds] "}, "range_min": {"type": "number", "description": "Property.  minimum range value [m] "}, "range_max": {"type": "number", "description": "Property.  maximum range value [m] "}, "ranges": {"type": "array", "items": {"type": "number"}}, "intensities": {"type": "array", "items": {"type": "number"}}}
+{
+  "header": {
+    "type": "object",
+    "properties": {
+      "seq": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+      },
+      "stamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+      },
+      "frame_id": {
+        "type": "string",
+        "description": "Property. Frame this data is associated with "
+      }
+    }
+  },
+  "angle_min": {
+    "type": "number",
+    "description": "Property.  the first ray in the scan.   in frame frame_id, angles are measured around  the positive Z axis (counterclockwise, if Z is up)  with zero angle being forward along the x axis  start angle of the scan [rad] "
+  },
+  "angle_max": {
+    "type": "number",
+    "description": "Property.  end angle of the scan [rad] "
+  },
+  "angle_increment": {
+    "type": "number",
+    "description": "Property.  angular distance between measurements [rad] "
+  },
+  "time_increment": {
+    "type": "number",
+    "description": "Property.  time between measurements [seconds] - if your scanner "
+  },
+  "scan_time": {
+    "type": "number",
+    "description": "Property.  is moving, this will be used in interpolating position  of 3d points  time between scans [seconds] "
+  },
+  "range_min": {
+    "type": "number",
+    "description": "Property.  minimum range value [m] "
+  },
+  "range_max": {
+    "type": "number",
+    "description": "Property.  maximum range value [m] "
+  },
+  "ranges": {
+    "type": "array",
+    "items": {
+      "type": "number"
+    }
+  },
+  "intensities": {
+    "type": "array",
+    "items": {
+      "type": "number"
+    }
+  }
+}
