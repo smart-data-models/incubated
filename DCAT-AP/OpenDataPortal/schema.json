@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "",
+  "title": "Open Data Portal candidate DCAT-AP 2.0 schema",
+  "description": "Open Data Portal Candidate data model for DCAT-AP 2.0 specification",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "OpenDataPortal"
+          ],
+          "description": "Property. NGSI Entity type. It has to be OpenDataPortal"
+        },
+        "portalId": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Global uri for the open data portal granted by MELODA.org"
+        },
+        "entityName": {
+          "type": "string",
+          "description": "Property. Entity supporting the open dat aportal"
+        },
+        "instance": {
+          "type": "array",
+          "description": "Property. Array of data services coming from this portal",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dateObserved": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "dataService": {
+                "$ref": "https://smart-data-models.github.io/dataModel.DCAT-AP/schema.json#/allOf/2/properties"
+              },
+              "contributor": {
+                "type": "string",
+                "description": "identification of the contributor of the data refered to the data service"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
