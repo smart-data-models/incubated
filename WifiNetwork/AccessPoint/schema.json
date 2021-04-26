@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/dataModel.WifiNetwork/AccessPoint/schema.json",
+  "title": "Access Point",
+  "description": "This entity describes an Access Point which is a networking hardware that generates a wireless network and allows other Wi-Fi devices to connect to it",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "AccessPoint"
+          ],
+          "description": "Property. NGSI Entity type. It has to be AccessPoint"
+        },
+        "apState": {
+          "type": "string",
+          "enum": [
+            "up",
+            "down"
+          ],
+          "description": "Property. Model:'https://schema.org/Text'. Enum:'up, down'. Status of availability "
+        },
+        "clientsConnected": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Number of people connected to the Access Point"
+        },
+        "ssid": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Text'. ",
+          "items": {
+            "type": "string"
+          }
+        },
+        "service": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Text'. ",
+          "items": {
+            "type": "string"
+          }
+        },
+        "refPointOfInterest": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Model:'https://schema.org/URL'. Reference to the point of interest"
+        },
+        "TimeInstant": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. "
+        },
+        "email": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/email"
+        },
+        "dateInstalled": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'."
+        },
+        "dateLastReboot": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'."
+        },
+        "dateLastValueReported": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'."
+        },
+        "firmwareVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
+        },
+        "hardwareVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
+        },
+        "ipAddress": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
+        },
+        "macAddress": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
+        },
+        "modelName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
+        },
+        "osVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
+        },
+        "serialNumber": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
+        },
+        "softwareVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name",
+    "address",
+    "location",
+    "clientsConnected"
+  ]
+}

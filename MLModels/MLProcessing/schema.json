@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.MLModel/MLModel/schema.json",
+  "title": " Smart Data Models - Machine Learning Processing",
+  "description": "Data model for compilation of the elements of a machine learning model.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "refMLModel": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to the Machine Learning model."
+        },
+        "refSubscriptionQuery": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Relationship targeting the subscription query to use by the ML model."
+        },
+        "connectionParameters": {
+          "type": "object",
+          "description": "Property. Parameters for running the connection with the system",
+          "properties": {
+            "server": {
+              "type": "string"
+            },
+            "port": {
+              "type": "number"
+            },
+            "user": {
+              "type": "string"
+            }
+          }
+        },
+        "objective": {
+          "type": "string",
+          "description": "Property. Objective of the processing"
+        },
+        "dueDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Expected data / time for running the processing"
+        }
+      }
+    }
+  ]
+}

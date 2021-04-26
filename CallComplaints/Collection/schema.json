@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "schemaVersion": "0.0",
+  "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.CallComplaints/master/Collection/schema.json",
+  "title": "Call Complaints - Collection",
+  "description": "This entity contains a harmonised description of a generic Collection made for the Call Complaints domain.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI-LD Entity Type. It must be equal to Collection.",
+          "enum": [
+            "Collection"
+          ]
+        },
+        "hasCategories": {
+          "type": "array",
+          "description": "Property, Array of Strings.  Model:'https://schema.org/Text'. Units:'No unit'. The categories of the Complaints that belong in this Collection.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "groupedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Time'. The time of grouping of the complaints that this Collection consists of."
+        },
+        "hasComplaints": {
+          "type": "array",
+          "description": "Relationship.  Model:'https://schema.org/Text'. Units:'No unit'. The IDs of the Complaints that belong in this Collection.",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

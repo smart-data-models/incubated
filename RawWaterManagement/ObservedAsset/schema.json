@@ -1,47 +1,69 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/ObservedAsset/schema.json",
-    "title": "Open Channel Management - ObservedAsset",
-    "description": "This entity contains temporal data made for Open Channel Management (raw-water systems)",
-    "type": "object",
-    "allOf": [
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/ObservedAsset/schema.json",
+  "title": "Open Channel Management - ObservedAsset",
+  "description": "This entity contains temporal data made for Open Channel Management (raw-water systems)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "ObservedAsset"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It has to be ObservedAsset"
         },
-        {
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": ["ObservedAsset"],
-                    "description": "NGSI-LD Entity Type"
-                },
-                "observedBy": {
-                  "type": "String",
-                  "description": "Relationship. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'",
-                  "format": "uri"
-                },
-                "monitoredProperty": {
-                  "type": "string",
-                  "enum": [
-                    "Water level",
-                    "Gate Opening",
-                    "Water flow",
-                    "Water temperature",
-                    "Average Velocity",
-                    "Specific Conductivity",
-                    "Turbidity",
-                    "Battery supply",
-                    "Water velocity"
-                  ]
-                }
+        "dateObserved": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. The date and time of this observation in ISO8601 UTCformat. Model:'https://schema.org/Datetime'"
+        },
+        "observedBy": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
             }
+          ],
+          "description": "Relationship. Device observing the values. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'"
+        },
+        "monitoredProperty": {
+          "type": "string",
+          "description": "Property. Monitored properties. Enum:'AverageVelocity, BatterySupply, GateOpening, SpecificConductivity, Turbidity, WaterFlow, WaterLevel, WaterTemperature, WaterVelocity'",
+          "enum": [
+            "AverageVelocity",
+            "BatterySupply",
+            "GateOpening",
+            "SpecificConductivity",
+            "Turbidity",
+            "WaterFlow",
+            "WaterLevel",
+            "WaterTemperature",
+            "WaterVelocity"
+          ]
         }
-    ],
-    "required": [
-        "id",
-        "monitoredProperty",
-        "location",
-        "observedAt",
-        "observedBy"
-    ]
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "monitoredProperty",
+    "location"
+  ]
 }

@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://github.com/smart-data-models/incubated/tree/master/DIH2/HWFlexCell/ProductionStatus/schema.json",
+    "type": "object",
+    "title": "The production status schema",
+    "description": "The production status schema comprises currently running or not production status values.",
+    "required": [
+        "id",
+        "active",
+        "product",
+        "progress",
+        "paused",
+        "type"
+    ],
+    "properties": {
+        "id": {
+            "$id": "#/properties/id",
+            "type": "string",
+            "description": "OCB object ID."
+        },
+        "active": {
+            "$id": "#/properties/active",
+            "type": "boolean",
+            "description": "Production is in progress.",
+            "default": false
+        },
+        "product": {
+            "$id": "#/properties/product",
+            "type": "string",
+            "description": "Current active production product.",
+            "default": ""
+        },
+        "progress": {
+            "$id": "#/properties/progress",
+            "type": "integer",
+            "description": "Progress of current active production.",
+            "default": 0
+        },
+        "paused": {
+            "$id": "#/properties/paused",
+            "type": "boolean",
+            "description": "Current production paused.",
+            "default": false
+        },
+        "type": {
+            "$id": "#/properties/type",
+            "type": "string"
+        }
+    },
+    "additionalProperties": true
+}

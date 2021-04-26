@@ -1,0 +1,71 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0",
+    "$id": "https://smart-data-models.github.io/dataModel.Forestry/ForestStatus/schema.json",
+    "title": "Fire Forest Status schema",
+    "description": "This entity describes the possible presence of smoke and/or fire in a forest.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "smokeDetected": {
+                    "type": "boolean",
+                    "description": "Property. Model:'https://schema.org/Boolean'. Presence of smoke detected by cameras."
+                },
+                "smokeDetectedConfidence": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum":1,
+                    "description": "Property. Model:'https://schema.org/Number'. Confidence in smoke detection by cameras."
+                },
+                "fireDetected": {
+                    "type": "boolean",
+                    "description": "Property. Model:'https://schema.org/Boolean'. Presence of a fire detected by cameras."
+                },
+                "fireDetectedConfidence": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum":1,
+                    "description": "Property. Model:'https://schema.org/Number'. Confidence in fire detection by cameras."
+                },
+                "fireRiskIndex": {
+                    "type": "number",
+                    "minimum":0,
+                    "description": "Property. Model:'https://schema.org/Number'. Risk of fire index."
+                },
+                "fireWeatherIndex ": {
+                    "type": "number",
+                    "minimum":0,
+                    "description": "Property. Model:'https://schema.org/Number'. Risk of fire based on weather conditions."
+                },
+                "fireForestDailyRiskIndex": {
+                    "type": "number",
+                    "minimum":0,
+                    "description": "Property. Model:'https://schema.org/Number'. Daily risk of fire. "
+                },
+                "litterCoverage": {
+                    "type": "number",
+                    "description": "Property. Percentage of surface with debris. Model:'https://schema.org/Number'.",
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "relativeHumidity": {
+                    "type": "number",
+                    "description": "Property. Relative Humidity a number between 0 and 1 representing the range of 0% to 100%. Model:'https://schema.org/Number'",
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "soilTemperature": {
+                    "type": "number",
+                    "description": "Property. The observed soil temperature in Celsius degrees. Model:'https://schema.org/Number'"
+                }
+            }
+        }
+    ]
+}

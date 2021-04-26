@@ -1,0 +1,1366 @@
+{
+  "planning_scene_diff": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Property.  name of planning scene "
+      },
+      "robot_state": {
+        "type": "object",
+        "properties": {
+          "joint_state": {
+            "type": "object",
+            "properties": {
+              "header": {
+                "type": "object",
+                "properties": {
+                  "seq": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                  },
+                  "stamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                  },
+                  "frame_id": {
+                    "type": "string",
+                    "description": "Property. Frame this data is associated with "
+                  }
+                }
+              },
+              "name": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "position": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "velocity": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "effort": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "multi_dof_joint_state": {
+            "type": "object",
+            "properties": {
+              "header": {
+                "type": "object",
+                "properties": {
+                  "seq": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                  },
+                  "stamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                  },
+                  "frame_id": {
+                    "type": "string",
+                    "description": "Property. Frame this data is associated with "
+                  }
+                }
+              },
+              "joint_names": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "transforms": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "translation": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "z": {
+                          "type": "number",
+                          "description": "Property. "
+                        }
+                      }
+                    },
+                    "rotation": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "Property.  This represents an orientation in free space in quaternion form. "
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "z": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "w": {
+                          "type": "number",
+                          "description": "Property. "
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "twist": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "linear": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "z": {
+                          "type": "number",
+                          "description": "Property. "
+                        }
+                      }
+                    },
+                    "angular": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "z": {
+                          "type": "number",
+                          "description": "Property. "
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "wrench": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "force": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "z": {
+                          "type": "number",
+                          "description": "Property. "
+                        }
+                      }
+                    },
+                    "torque": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "z": {
+                          "type": "number",
+                          "description": "Property. "
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "attached_collision_objects": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "link_name": {
+                  "type": "string",
+                  "description": "Property.  The CollisionObject will be attached with a fixed joint to this link "
+                },
+                "object": {
+                  "type": "object",
+                  "properties": {
+                    "header": {
+                      "type": "object",
+                      "properties": {
+                        "seq": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                        },
+                        "stamp": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                        },
+                        "frame_id": {
+                          "type": "string",
+                          "description": "Property. Frame this data is associated with "
+                        }
+                      }
+                    },
+                    "pose": {
+                      "type": "object",
+                      "properties": {
+                        "position": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "type": "number",
+                              "description": "Property.  This contains the position of a point in free space "
+                            },
+                            "y": {
+                              "type": "number",
+                              "description": "Property. "
+                            },
+                            "z": {
+                              "type": "number",
+                              "description": "Property. "
+                            }
+                          }
+                        },
+                        "orientation": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "type": "number",
+                              "description": "Property.  This represents an orientation in free space in quaternion form. "
+                            },
+                            "y": {
+                              "type": "number",
+                              "description": "Property. "
+                            },
+                            "z": {
+                              "type": "number",
+                              "description": "Property. "
+                            },
+                            "w": {
+                              "type": "number",
+                              "description": "Property. "
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "Property.  The id of the object (name used in MoveIt) "
+                    },
+                    "type": {
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string",
+                          "description": "Property. ################################################# OBJECT ID #########################################################  Contains information about the type of a found object. Those two sets of parameters together uniquely define an  object  The key of the found object: the unique identifier in the given db "
+                        },
+                        "db": {
+                          "type": "string",
+                          "description": "Property.  The db parameters stored as a JSON/compressed YAML string. An object id does not make sense without the corresponding  database. E.g., in object_recognition, it can look like: \"{'type':'CouchDB', 'root':'http://localhost'}\"  There is no conventional format for those parameters and it's nice to keep that flexibility.  The object_recognition_core as a generic DB type that can read those fields  Current examples:  For CouchDB:  type: 'CouchDB'  root: 'http://localhost:5984'  collection: 'object_recognition'  For SQL household database:  type: 'SqlHousehold'  host: 'wgs36'  port: 5432  user: 'willow'  password: 'willow'  name: 'household_objects'  module: 'tabletop' "
+                        }
+                      }
+                    },
+                    "primitives": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 255,
+                            "description": "Property.  Define box, sphere, cylinder, cone  All shapes are defined to have their bounding boxes centered around 0,0,0.  The type of the shape "
+                          },
+                          "dimensions": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "primitive_poses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "position": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This contains the position of a point in free space "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          },
+                          "orientation": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This represents an orientation in free space in quaternion form. "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "w": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "meshes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "triangles": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "vertex_indices": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "integer",
+                                    "minimum": 0
+                                  },
+                                  "maxitems": 3
+                                }
+                              }
+                            }
+                          },
+                          "vertices": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "type": "number",
+                                  "description": "Property.  This contains the position of a point in free space "
+                                },
+                                "y": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                },
+                                "z": {
+                                  "type": "number",
+                                  "description": "Property. "
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "mesh_poses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "position": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This contains the position of a point in free space "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          },
+                          "orientation": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This represents an orientation in free space in quaternion form. "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "w": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "planes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "coef": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "maxitems": 4
+                          }
+                        }
+                      }
+                    },
+                    "plane_poses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "position": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This contains the position of a point in free space "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          },
+                          "orientation": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This represents an orientation in free space in quaternion form. "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "w": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "subframe_names": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "subframe_poses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "position": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This contains the position of a point in free space "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          },
+                          "orientation": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "description": "Property.  This represents an orientation in free space in quaternion form. "
+                              },
+                              "y": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "z": {
+                                "type": "number",
+                                "description": "Property. "
+                              },
+                              "w": {
+                                "type": "number",
+                                "description": "Property. "
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "operation": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 255,
+                      "description": "Property.  Operation to be performed "
+                    }
+                  }
+                },
+                "touch_links": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "detach_posture": {
+                  "type": "object",
+                  "properties": {
+                    "header": {
+                      "type": "object",
+                      "properties": {
+                        "seq": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                        },
+                        "stamp": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                        },
+                        "frame_id": {
+                          "type": "string",
+                          "description": "Property. Frame this data is associated with "
+                        }
+                      }
+                    },
+                    "joint_names": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "points": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "positions": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          },
+                          "velocities": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          },
+                          "accelerations": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          },
+                          "effort": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          },
+                          "time_from_start": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Property. "
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "weight": {
+                  "type": "number",
+                  "description": "Property.  The weight of the attached object, if known "
+                }
+              }
+            }
+          },
+          "is_diff": {
+            "type": "boolean",
+            "description": "Property.  Flag indicating whether this scene is to be interpreted as a diff with respect to some other scene  This is mostly important for handling the attached bodies (whether or not to clear the attached bodies  of a moveit::core::RobotState before updating it with this message) "
+          }
+        }
+      },
+      "robot_model_name": {
+        "type": "string",
+        "description": "Property.  The name of the robot model this scene is for "
+      },
+      "fixed_frame_transforms": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "header": {
+              "type": "object",
+              "properties": {
+                "seq": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                },
+                "stamp": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                },
+                "frame_id": {
+                  "type": "string",
+                  "description": "Property. Frame this data is associated with "
+                }
+              }
+            },
+            "child_frame_id": {
+              "type": "string",
+              "description": "Property.  the frame id of the child frame "
+            },
+            "transform": {
+              "type": "object",
+              "properties": {
+                "translation": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "description": "Property.  This represents a vector in free space.  It is only meant to represent a direction. Therefore, it does not  make sense to apply a translation to it (e.g., when applying a  generic rigid transformation to a Vector3, tf2 will only apply the  rotation). If you want your data to be translatable too, use the  geometry_msgs/Point message instead. "
+                    },
+                    "y": {
+                      "type": "number",
+                      "description": "Property. "
+                    },
+                    "z": {
+                      "type": "number",
+                      "description": "Property. "
+                    }
+                  }
+                },
+                "rotation": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "description": "Property.  This represents an orientation in free space in quaternion form. "
+                    },
+                    "y": {
+                      "type": "number",
+                      "description": "Property. "
+                    },
+                    "z": {
+                      "type": "number",
+                      "description": "Property. "
+                    },
+                    "w": {
+                      "type": "number",
+                      "description": "Property. "
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "allowed_collision_matrix": {
+        "type": "object",
+        "properties": {
+          "entry_names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "entry_values": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "array",
+                  "items": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          },
+          "default_entry_names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "default_entry_values": {
+            "type": "array",
+            "items": {
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "link_padding": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "link_name": {
+              "type": "string",
+              "description": "Property. name for the link "
+            },
+            "padding": {
+              "type": "number",
+              "description": "Property.  padding to apply to the link "
+            }
+          }
+        }
+      },
+      "link_scale": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "link_name": {
+              "type": "string",
+              "description": "Property. name for the link "
+            },
+            "scale": {
+              "type": "number",
+              "description": "Property.  scaling to apply to the link "
+            }
+          }
+        }
+      },
+      "object_colors": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Property.  The object id for which we specify color "
+            },
+            "color": {
+              "type": "object",
+              "properties": {
+                "r": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "g": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "b": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "a": {
+                  "type": "number",
+                  "description": "Property. "
+                }
+              }
+            }
+          }
+        }
+      },
+      "world": {
+        "type": "object",
+        "properties": {
+          "collision_objects": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "header": {
+                  "type": "object",
+                  "properties": {
+                    "seq": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                    },
+                    "stamp": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                    },
+                    "frame_id": {
+                      "type": "string",
+                      "description": "Property. Frame this data is associated with "
+                    }
+                  }
+                },
+                "pose": {
+                  "type": "object",
+                  "properties": {
+                    "position": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "Property.  This contains the position of a point in free space "
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "z": {
+                          "type": "number",
+                          "description": "Property. "
+                        }
+                      }
+                    },
+                    "orientation": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "Property.  This represents an orientation in free space in quaternion form. "
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "z": {
+                          "type": "number",
+                          "description": "Property. "
+                        },
+                        "w": {
+                          "type": "number",
+                          "description": "Property. "
+                        }
+                      }
+                    }
+                  }
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Property.  The id of the object (name used in MoveIt) "
+                },
+                "type": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "description": "Property. ################################################# OBJECT ID #########################################################  Contains information about the type of a found object. Those two sets of parameters together uniquely define an  object  The key of the found object: the unique identifier in the given db "
+                    },
+                    "db": {
+                      "type": "string",
+                      "description": "Property.  The db parameters stored as a JSON/compressed YAML string. An object id does not make sense without the corresponding  database. E.g., in object_recognition, it can look like: \"{'type':'CouchDB', 'root':'http://localhost'}\"  There is no conventional format for those parameters and it's nice to keep that flexibility.  The object_recognition_core as a generic DB type that can read those fields  Current examples:  For CouchDB:  type: 'CouchDB'  root: 'http://localhost:5984'  collection: 'object_recognition'  For SQL household database:  type: 'SqlHousehold'  host: 'wgs36'  port: 5432  user: 'willow'  password: 'willow'  name: 'household_objects'  module: 'tabletop' "
+                    }
+                  }
+                },
+                "primitives": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 255,
+                        "description": "Property.  Define box, sphere, cylinder, cone  All shapes are defined to have their bounding boxes centered around 0,0,0.  The type of the shape "
+                      },
+                      "dimensions": {
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                },
+                "primitive_poses": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "position": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "description": "Property.  This contains the position of a point in free space "
+                          },
+                          "y": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "z": {
+                            "type": "number",
+                            "description": "Property. "
+                          }
+                        }
+                      },
+                      "orientation": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "description": "Property.  This represents an orientation in free space in quaternion form. "
+                          },
+                          "y": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "z": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "w": {
+                            "type": "number",
+                            "description": "Property. "
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "meshes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "triangles": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "vertex_indices": {
+                              "type": "array",
+                              "items": {
+                                "type": "integer",
+                                "minimum": 0
+                              },
+                              "maxitems": 3
+                            }
+                          }
+                        }
+                      },
+                      "vertices": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "type": "number",
+                              "description": "Property.  This contains the position of a point in free space "
+                            },
+                            "y": {
+                              "type": "number",
+                              "description": "Property. "
+                            },
+                            "z": {
+                              "type": "number",
+                              "description": "Property. "
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "mesh_poses": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "position": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "description": "Property.  This contains the position of a point in free space "
+                          },
+                          "y": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "z": {
+                            "type": "number",
+                            "description": "Property. "
+                          }
+                        }
+                      },
+                      "orientation": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "description": "Property.  This represents an orientation in free space in quaternion form. "
+                          },
+                          "y": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "z": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "w": {
+                            "type": "number",
+                            "description": "Property. "
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "planes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "coef": {
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxitems": 4
+                      }
+                    }
+                  }
+                },
+                "plane_poses": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "position": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "description": "Property.  This contains the position of a point in free space "
+                          },
+                          "y": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "z": {
+                            "type": "number",
+                            "description": "Property. "
+                          }
+                        }
+                      },
+                      "orientation": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "description": "Property.  This represents an orientation in free space in quaternion form. "
+                          },
+                          "y": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "z": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "w": {
+                            "type": "number",
+                            "description": "Property. "
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "subframe_names": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "subframe_poses": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "position": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "description": "Property.  This contains the position of a point in free space "
+                          },
+                          "y": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "z": {
+                            "type": "number",
+                            "description": "Property. "
+                          }
+                        }
+                      },
+                      "orientation": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "description": "Property.  This represents an orientation in free space in quaternion form. "
+                          },
+                          "y": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "z": {
+                            "type": "number",
+                            "description": "Property. "
+                          },
+                          "w": {
+                            "type": "number",
+                            "description": "Property. "
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "operation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 255,
+                  "description": "Property.  Operation to be performed "
+                }
+              }
+            }
+          },
+          "octomap": {
+            "type": "object",
+            "properties": {
+              "header": {
+                "type": "object",
+                "properties": {
+                  "seq": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                  },
+                  "stamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                  },
+                  "frame_id": {
+                    "type": "string",
+                    "description": "Property. Frame this data is associated with "
+                  }
+                }
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "position": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "description": "Property.  This contains the position of a point in free space "
+                      },
+                      "y": {
+                        "type": "number",
+                        "description": "Property. "
+                      },
+                      "z": {
+                        "type": "number",
+                        "description": "Property. "
+                      }
+                    }
+                  },
+                  "orientation": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "description": "Property.  This represents an orientation in free space in quaternion form. "
+                      },
+                      "y": {
+                        "type": "number",
+                        "description": "Property. "
+                      },
+                      "z": {
+                        "type": "number",
+                        "description": "Property. "
+                      },
+                      "w": {
+                        "type": "number",
+                        "description": "Property. "
+                      }
+                    }
+                  }
+                }
+              },
+              "octomap": {
+                "type": "object",
+                "properties": {
+                  "header": {
+                    "type": "object",
+                    "properties": {
+                      "seq": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+                      },
+                      "stamp": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+                      },
+                      "frame_id": {
+                        "type": "string",
+                        "description": "Property. Frame this data is associated with "
+                      }
+                    }
+                  },
+                  "binary": {
+                    "type": "boolean",
+                    "description": "Property.  Flag to denote a binary (only free/occupied) or full occupancy octree (.bt/.ot file) "
+                  },
+                  "id": {
+                    "type": "string",
+                    "description": "Property.  Class id of the contained octree "
+                  },
+                  "resolution": {
+                    "type": "number",
+                    "description": "Property.  Resolution (in m) of the smallest octree nodes "
+                  },
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "minimum": -127,
+                      "maximum": 128
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "is_diff": {
+        "type": "boolean",
+        "description": "Property.  Flag indicating whether this scene is to be interpreted as a diff with respect to some other scene "
+      }
+    }
+  },
+  "plan_only": {
+    "type": "boolean",
+    "description": "Property.  If this flag is set to true, the action  returns an executable plan in the response but does not attempt execution "
+  },
+  "look_around": {
+    "type": "boolean",
+    "description": "Property.  If this flag is set to true, the action of planning &  executing is allowed to look around (move sensors) if  it seems that not enough information is available about  the environment "
+  },
+  "look_around_attempts": {
+    "type": "integer",
+    "description": "Property.  If this value is positive, the action of planning & executing  is allowed to look around for a maximum number of attempts;  If the value is left as 0, the default value is used, as set  with dynamic_reconfigure "
+  },
+  "max_safe_execution_cost": {
+    "type": "number",
+    "description": "Property.  If set and if look_around is true, this value is used as  the maximum cost allowed for a path to be considered executable.  If the cost of a path is higher than this value, more sensing or  a new plan needed. If left as 0.0 but look_around is true, then  the default value set via dynamic_reconfigure is used "
+  },
+  "replan": {
+    "type": "boolean",
+    "description": "Property.  If the plan becomes invalidated during execution, it is possible to have  that plan recomputed and execution restarted. This flag enables this  functionality "
+  },
+  "replan_attempts": {
+    "type": "integer",
+    "description": "Property.  The maximum number of replanning attempts "
+  },
+  "replan_delay": {
+    "type": "number",
+    "description": "Property.  The amount of time to wait in between replanning attempts (in seconds) "
+  }
+}

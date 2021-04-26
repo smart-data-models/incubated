@@ -1,0 +1,91 @@
+{
+  "power_supply_status": {
+    "type": "integer",
+    "minimum": 0,
+    "maximum": 255,
+    "description": "Property.  The charging status as reported. Values defined above "
+  },
+  "power_supply_health": {
+    "type": "integer",
+    "minimum": 0,
+    "maximum": 255,
+    "description": "Property.  The battery health metric. Values defined above "
+  },
+  "power_supply_technology": {
+    "type": "integer",
+    "minimum": 0,
+    "maximum": 255,
+    "description": "Property.  The battery chemistry. Values defined above "
+  },
+  "header": {
+    "type": "object",
+    "properties": {
+      "seq": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+      },
+      "stamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+      },
+      "frame_id": {
+        "type": "string",
+        "description": "Property. Frame this data is associated with "
+      }
+    }
+  },
+  "voltage": {
+    "type": "number",
+    "description": "Property.  Voltage in Volts (Mandatory) "
+  },
+  "temperature": {
+    "type": "number",
+    "description": "Property.  Temperature in Degrees Celsius (If unmeasured NaN) "
+  },
+  "current": {
+    "type": "number",
+    "description": "Property.  Negative when discharging (A) (If unmeasured NaN) "
+  },
+  "charge": {
+    "type": "number",
+    "description": "Property.  Current charge in Ah (If unmeasured NaN) "
+  },
+  "capacity": {
+    "type": "number",
+    "description": "Property.  Capacity in Ah (last full capacity) (If unmeasured NaN) "
+  },
+  "design_capacity": {
+    "type": "number",
+    "description": "Property.  Capacity in Ah (design capacity) (If unmeasured NaN) "
+  },
+  "percentage": {
+    "type": "number",
+    "description": "Property.  Charge percentage on 0 to 1 range (If unmeasured NaN) "
+  },
+  "present": {
+    "type": "boolean",
+    "description": "Property.  True if the battery is present "
+  },
+  "cell_voltage": {
+    "type": "array",
+    "items": {
+      "type": "number"
+    }
+  },
+  "cell_temperature": {
+    "type": "array",
+    "items": {
+      "type": "number"
+    }
+  },
+  "location": {
+    "type": "string",
+    "description": "Property.  If individual temperatures unknown but number of cells known set each to NaN  The location into which the battery is inserted. (slot number or plug) "
+  },
+  "serial_number": {
+    "type": "string",
+    "description": "Property.  The best approximation of the battery serial number "
+  }
+}

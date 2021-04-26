@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "# { todo } #",
+  "title": "Sea Conditions schema",
+  "description": "This entity contains a harmonised geographic description of sea conditions",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "SeaConditions"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It has to be SeaConditions"
+        },
+        "waveLevel": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 9,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Douglas sea scale'. It indicates the height of the waves and also measures the swell of the sea."
+        },
+        "surfaceTemperature": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Celsius degrees'. Sea surface temperature."
+        },
+        "waveHeight": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Meters'. Height of the waves."
+        },
+        "wavePeriod": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Seconds'. Indicates the time between the crests of a wave."
+        },
+        "pH": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 14,
+          "description": "Property. Model:'https://schema.org/Number'. Acidity or basicity of an aqueous solution."
+        },
+        "salinity": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Parts per thousand'. Amount of salts dissolved in water."
+        },
+        "dateObserved":{
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

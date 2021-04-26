@@ -1,11 +1,25 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/HydraulicSimulationScenario/schema.json",
-    "title": "Open Channel Management - HydraulicSimulationScenario",
-    "description": "Made for Open Channel Management (raw-water systems)",
-    "type": "object",
-    "allOf": [
-      {
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/HydraulicSimulationScenario/schema.json",
+  "title": "Open Channel Management - HydraulicSimulationScenario",
+  "description": "Made for Open Channel Management (raw-water systems)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "HydraulicSimulationScenario"
+          ],
+          "description": "Property. it has to be HydraulicSimulationScenario. NGSI-LD Entity Type"
+        },
         "hasInputOpenChannelSystem": {
           "type": "string",
           "format": "uri",
@@ -17,90 +31,108 @@
           "description": "Property. the URI of the HydraulicSimulationScenario this result has been computed"
         },
         "targetValues": {
+          "type": "array",
           "description": "Property. The set of target values defined by the user before the simulation",
-          "properties": {
-            "waterAttribute": {
-              "description": "Property. A sub-property (e.g., flow). A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship. It contains the target values for specified properties, defined before the simulation",
-              "type": "number",
-              "minimum": "0"
-            },
-            "targetURI": {
-              "description": "Relationship. The CrossSection these target values refer to",
-              "type":"string",
-              "format": "uri"
+          "items": {
+            "type": "object",
+            "properties": {
+              "waterAttribute": {
+                "description": "Property. A sub-property (e.g., flow). A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship. It contains the target values for specified properties, defined before the simulation",
+                "type": "number",
+                "minimum": 0
+              },
+              "targetURI": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  }
+                ],
+                "description": "Relationship. The CrossSection these target values refer to"
+              }
             }
           }
         },
         "inputParameters": {
+          "type": "array",
           "description": "Property. The set of modifications to be applied to the water system for the simulation",
-          "properties": {
-            "waterAttribute": {
-              "description": "Property. A sub-property. A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship",
-              "type": "number",
-              "minimum": "0"
-            },
-            "targetURI": {
-              "description": "Relationship. The CrossSection these target values refer to",
-              "type":"string",
-              "format": "uri"
+          "items": {
+            "properties": {
+              "waterAttribute": {
+                "description": "Property. A sub-property. A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship",
+                "type": "number",
+                "minimum": 0
+              },
+              "targetURI": {
+                "description": "Relationship. The CrossSection these target values refer to",
+                "type": "string",
+                "format": "uri"
+              }
             }
           }
-        }
-      },
-      {
-        "type": {
-            "type": "string",
-            "enum": ["HydraulicSimulationScenario"],
-            "description": "NGSI-LD Entity Type"
         },
         "createdBy": {
-          "description": "Property. The user created this HydraulicSimulationScenario",
-          "anyOf":{
-            "UniqueID":{
-              "type": "string"
-            },
-            "fullName":{
-              "type": "string"
-            }
-          }
-        },
-        "description": {
-          "type": "string",
-          "description": "Property. An optional text that describes other significant information about the simulation scenario"
+          "description": "Property. The user created this HydraulicSimulationScenario. It can be a UniqueId or a fullName",
+          "type": "string"
         },
         "duration": {
           "type": "number",
-          "description": "Property. Duration of the simulation, given in seconds"
+          "minimum": 0,
+          "description": "Property. Duration of the simulation, given in seconds. Units:'seconds'"
         },
         "hydraulicTimeStep": {
           "type": "number",
-          "description": "Property. Determines how often the hydraulic state of the network is calculated. Given in seconds"
+          "minimum": 0,
+          "description": "Property. Determines how often the hydraulic state of the network is calculated. Given in seconds. Units:'seconds'"
         },
         "flowUnits": {
           "type": "string",
           "description": "Property. Units in which flow rates are expressed in the simulation. Enum:'CFS, GPM, MGD, IMGD, AFD, LPS, LPM, MLD, CMH, CMD'",
-          "enum": ["CFS", "GPM", "MGD", "IMGD", "AFD", "LPS", "LPM", "MLD", "CMH", "CMD"]
+          "enum": [
+            "AFD",
+            "CFS",
+            "CMH",
+            "CMD",
+            "GPM",
+            "IMGD",
+            "LPM",
+            "LPS",
+            "MGD",
+            "MLD"
+          ]
         },
         "startSimulationTime": {
-          "type": "datetime",
+          "type": "string",
+          "format": "date-time",
           "description": "Property. Time of day at which the simulation begins"
         },
         "endSimulationTime": {
-          "type": "datetime",
+          "type": "string",
+          "format": "date-time",
           "description": "Property. Time of day at which the simulation ends"
         },
         "flowConvergenceAccuracy": {
           "type": "number",
-          "description": "Property. Criterion to determine whether the target flow has been established (difference between the real and target flow"
+          "minimum": 0,
+          "description": "Property. Criterion to determine whether the target flow has been established (difference between the real and target flow)"
         },
         "modelParameters": {
           "type": "string",
           "description": "Property. Description of the set of modifications to be applied to the water system for the simulation"
         }
       }
-    ],
-    "required": [
-      "id",
-      "type"
-    ]
-  }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

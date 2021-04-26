@@ -1,0 +1,367 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "definitions": {
+    "dateTime": {
+      "allOf": [
+        {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+        },
+        {
+          "properties": {
+            "value": {
+              "properties": {
+                "@type": {
+                  "type": "string",
+                  "const": "DateTime"
+                },
+                "@value": {
+                  "value": "date-time"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "providedBy": {
+      "type": "array",
+      "items": {
+        "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Relationship"
+      }
+    },
+    "temperature": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+          },
+          {
+            "properties": {
+              "value": {
+                "type": [
+                  "number"
+                ]
+              },
+              "unitCode": {
+                "enum": [
+                  "CEL"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "relativeHumidity": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+          },
+          {
+            "properties": {
+              "value": {
+                "type": [
+                  "number"
+                ]
+              },
+              "unitCode": {
+                "enum": [
+                  "CEL"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "addressCountry": {
+      "allOf": [
+        {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "postalCode": {
+      "allOf": [
+        {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "addressLocality": {
+      "allOf": [
+        {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "addressType": {
+      "allOf": [
+        {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "WeatherForecast"
+      ]
+    },
+    "dataProvider": {
+      "allOf": [
+        {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        }
+      ],
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "temperature": {
+      "$ref": "#/definitions/temperature",
+      "required": [
+        "type",
+        "value",
+        "datasetId"
+      ]
+    },
+    "weatherType": {
+      "allOf": [
+        {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        }
+      ],
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "precipitationProbability": {
+      "allOf": [
+        {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": [
+                "number"
+              ]
+            }
+          }
+        }
+      ],
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "source": {
+      "allOf": [
+        {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        }
+      ],
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "windSpeed": {
+      "allOf": [
+        {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": [
+                "number"
+              ]
+            }
+          }
+        }
+      ],
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "validity": {
+      "allOf": [
+        {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        }
+      ],
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "address": {
+      "allOf": [
+        {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+        },
+        {
+          "properties": {
+            "addressCountry": {
+              "$ref": "#/definitions/addressCountry"
+            },
+            "postalCode": {
+              "$ref": "#/definitions/postalCode"
+            },
+            "addressLocality": {
+              "$ref": "#/definitions/addressLocality"
+            },
+            "addressType": {
+              "$ref": "#/definitions/addressType"
+            }
+          }
+        }
+      ],
+      "required": [
+        "type",
+        "value",
+        "addressCountry",
+        "postalCode",
+        "addressLocality",
+        "addressType"
+      ]
+    },
+    "providedBy": {
+      "$ref": "#/definitions/providedBy"
+    },
+    "relativeHumidity": {
+      "$ref": "#/definitions/relativeHumidity"
+    },
+    "uvIndexMax": {
+      "allOf": [
+        {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Entity.json#/definitions/Property"
+        },
+        {
+          "properties": {
+            "value": {
+              "type": [
+                "number"
+              ]
+            }
+          }
+        }
+      ],
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "validTo": {
+      "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/temporal/Entity_temporalValues.json#/definitions/PropertyTemporalValues"
+    },
+    "validFrom": {
+      "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/temporal/Entity_temporalValues.json#/definitions/PropertyTemporalValues"
+    },
+    "dateIssued": {
+      "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/temporal/Entity_temporalValues.json#/definitions/PropertyTemporalValues"
+    },
+    "dateRetrieved": {
+      "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/temporal/Entity_temporalValues.json#/definitions/PropertyTemporalValues"
+    },
+    "@context": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type"
+  ]
+}

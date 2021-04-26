@@ -1,0 +1,28 @@
+{
+  "array": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "2"
+          ]
+        },
+        "id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255,
+          "description": "Property.  This will hold an id number for each type of each feedback.  Example, the first led would be id=0, the second would be id=1 "
+        },
+        "intensity": {
+          "type": "number",
+          "description": "Property.  Intensity of the feedback, from 0.0 to 1.0, inclusive. If device is  actually binary, driver should treat 0<=x<0.5 as off, 0.5<=x<=1 as on. "
+        }
+      }
+    }
+  }
+}

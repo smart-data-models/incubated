@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.DCAT/CatalogueDCAT/schema.json",
+  "title": " Smart Data Models - CatalogueDCAT",
+  "description": "Catalogue of datasets compliant with DCAT specification.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "CatalogueDCAT"
+          ],
+          "description": "Property. Model:'https://schema.org/Text'. It has to be CatalogueDCAT"
+        },
+        "dataset": {
+          "type": "array",
+          "description": "Relationship. This property links the Catalogue with a Dataset that is part of the Catalogue. Model:'dcat:Dataset'",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "publisher": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. A property which is a string with the format date time. Model:'dct:publisher'"
+        },
+        "title": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/URL'. This property refers to an entity (organisation) responsible for making the Catalogue available.Model:'rdfs:Literal'",
+          "items": {
+            "type": "string"
+          }
+        },
+        "homepage": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Model:'foaf:homepage'. This property refers to a web page that acts as the main page for the Catalogue."
+        },
+        "language": {
+          "type": "array",
+          "description": "Property. Model:'dct:language'. This property refers to a language used in the textual metadata describing titles, descriptions, etc. of the Datasets in the Catalogue. This property can be repeated if the  metadata is provided in multiple languages.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "licence": {
+          "type": "string",
+          "description": "Property. Model:'dct:license'. This property contains the date of formal issuance (e.g., publication) of the Catalogue."
+        },
+        "releaseDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. This property contains the date of formal issuance (e.g., publication) of the Catalogue."
+        },
+        "spatial_geographic": {
+          "type": "array",
+          "description": "Geoproperty. This property refers to a geographical area covered by the Catalogue.",
+          "items": {
+            "$ref": "http://geojson.org/schema/Geometry.json"
+          }
+        },
+        "themes": {
+          "type": "array",
+          "description": "Property. Model:'dcat:themeTaxonomy'. This property refers to a knowledge organization system used to classify the Catalogue's Datasets.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "modificationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. This property contains the most recent date on which the Catalogue was modified."
+        },
+        "hasPart": {
+          "type": "array",
+          "description": "Relationship. Model:'https://schema.org/URL'. This property refers to a related Catalogue that is part of the described Catalogue",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "isPartOf": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. Model:'https://schema.org/URL'. This property refers to a related Catalogue in which the described Catalogue is physically or logically included."
+        },
+        "record": {
+          "type": "array",
+          "description": "Property. This property refers to a Catalogue Record that is part of the Catalogue",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "rights": {
+          "type": "string",
+          "description": "Property. Model:'dct:rights'. This property refers to a statement that specifies rights associated with the Catalogue."
+        },
+        "catalogue": {
+          "type": "array",
+          "description": "Property. Model:'dcat:catalog'. This property refers to a catalog whose contents are of interest in the context of this catalog",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "creator": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. This property refers to the entity primarily responsible for producing the catalogue"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "dataset",
+    "description",
+    "publisher",
+    "title"
+  ]
+}

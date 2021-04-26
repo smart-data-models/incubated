@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.Transportation/Vehicle/schema.json",
+  "title": " - ambulance - ",
+  "description": "This entity models a particular vehicle model, including all properties which are common to multiple vehicle instances belonging to such model.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Transportation/Vehicle/schema.json#/allOf/3/properties/previousLocation"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Transportation/Vehicle/schema.json#/allOf/3/properties/vehiclePlateIdentifier"
+    },
+    {
+      "type": {
+        "type": "string",
+        "enum": [
+          "Ambulance"
+        ]
+      },
+      "driver": {
+        "type": "string"
+      },
+      "patient": {
+        "type": "string"
+      }
+    }
+  ]
+}

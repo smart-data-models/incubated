@@ -1,0 +1,64 @@
+{
+  "header": {
+    "type": "object",
+    "properties": {
+      "seq": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Property.  Standard metadata for higher-level stamped data types.  This is generally used to communicate timestamped data  in a particular coordinate frame.   sequence ID: consecutively increasing ID "
+      },
+      "stamp": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Property. Two-integer timestamp that is expressed as:  * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')  * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')  time-handling sugar is provided by the client library "
+      },
+      "frame_id": {
+        "type": "string",
+        "description": "Property. Frame this data is associated with "
+      }
+    }
+  },
+  "joint_names": {
+    "type": "array",
+    "items": {
+      "type": "string"
+    }
+  },
+  "points": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "positions": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "velocities": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "accelerations": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "effort": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "time_from_start": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. "
+        }
+      }
+    }
+  }
+}

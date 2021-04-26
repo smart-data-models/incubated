@@ -1,0 +1,1 @@
+The data model for a part of a building. 
