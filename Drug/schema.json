@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema#",
   "$schemaVersion": "0.0",
   "$id": "https://smart-data-models.github.io/incubated/Drug/schema.json",
-  "title": "Smart Data Models - Drug",
+  "title": "Smart Data Models - Drug schema",
   "description": "A chemical or biologic substance, used as a medical therapy, that has a physiological effect on an organism. Here the term drug is used interchangeably with the term medicine although clinical knowledge make a clear difference between them.",
   "type": "object",
   "allOf": [
@@ -14,6 +14,13 @@
     },
     {
       "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Drug"
+          ],
+          "description": "Property. NGSI Entity type. It has to be Drug"
+        },
         "activeIngredient": {
           "type": "string",
           "description": "Property. Model: 'https://schema.org/Text. An active ingredient, typically chemical compounds and/or biologic substances."
@@ -33,6 +40,10 @@
         "breastfeedingWarning": {
           "type": "string",
           "description": "Property. Model: 'https://schema.org/Text. Any precaution, guidance, contraindication, etc. related to this drug's use by breastfeeding mothers."
+        },
+        "isAvailableGenerically": {
+          "type": "boolean",
+          "description": "Property. Model: 'https://schema.org/Boolean. True if the drug is available in a generic form (regardless of name)."
         }
       }
     }
