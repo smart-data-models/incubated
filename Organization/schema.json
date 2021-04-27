@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/DataModel.Organization/Organization/schema.json",
+  "title": " Smart Data Models - Organization",
+  "description": "An organization such as a school, NGO, corporation, club, etc.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "aggregateRating": {
+          "type": "object",
+          "description": "Property. The average rating based on multiple ratings or reviews. Privacy:'low'",
+          "properties": {
+            "itemReviewed": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256,
+                  "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                  "description": "Property. Identifier format of any NGSI entity"
+                },
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Property. Identifier format of any NGSI entity"
+                }
+              ],
+              "description": "Relationship. The item that is being reviewed/rated. "
+            },
+            "ratingCount": {
+              "type": "number",
+              "minimum": 0
+            },
+            "reviewCount": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "author": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. Model:'https://schema.org/URL'. The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably. "
+        },
+        "bestRating": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed. "
+        },
+        "reviewAspect": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. This Review or Rating is relevant to this part or facet of the itemReviewed"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
