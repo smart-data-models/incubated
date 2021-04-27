@@ -37,21 +37,19 @@
         },
         "touristType": {
           "type": "array",
+          "description": "Property. ",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/schema-org.json#/definitions/touristType"
           }
         },
-        "sameAs": {
-          "type": "string",
-          "format": "uri"
-        },
         "dateLastReported": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Last official update of the data in ISO 8601 format "
         },
         "refPointOfInterest": {
           "type": "array",
-          "description": "",
+          "description": "Relationship. Reference to all the Point Of interest [PointOfInterest](https://github.com/smart-data-models/dataModel.PointOfInterest/blob/master/PointOfInterest/doc/spec.md) included in the trips. The POI list does not have a chronological order.",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           }
@@ -340,7 +338,7 @@
         },
         "tripSchedule": {
           "type": "array",
-          "description": "Property. ",
+          "description": "Property. Trip Schedule. This allows a schedule to be set over a repeated period of time used to describe an Trip that occurs regularly. In example nota in the beginning of the section for restriction to use this attribute. ",
           "items": {
             "type": "object",
             "properties": {
@@ -522,15 +520,15 @@
         },
         "tripPriceFrom": {
           "type": "number",
-          "description": "Property. "
+          "description": "Property. Min Price. The unit code (text) of measurement is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **EUR** represents **€uro**."
         },
         "tripPriceTo": {
           "type": "number",
-          "description": "Property. "
+          "description": "Property. Max Price. The unit code (text) of measurement is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **EUR** represents **€uro**."
         },
         "priceSpecification": {
           "type": "object",
-          "description": "Property. ",
+          "description": "Property. A structured value representing a price or price range depending categories or public.",
           "items": {
             "properties": {
               "audience": {
@@ -556,6 +554,7 @@
         },
         "paymentAccepted": {
           "type": "array",
+          "description": "Property. Accepted payment if `TripFree` is False. A combination of a list of active codes defined in the model. Enum:'Cash, CreditCard, CryptoCurrency, other'. Model:'https://schema.org/paymentAccepted'",
           "items": {
             "type": "string",
             "enum": [
@@ -568,6 +567,7 @@
         },
         "currencyAccepted": {
           "type": "array",
+          "description": "Property. Currency accepted for payment if `TripFree` is False. A combination of a list of active codes defined in the model. Model:'https://schema.org/currenciesAccepted'. [Norme ISO 4217](http://en.wikipedia.org/wiki/ISO_4217), [Crypto Currencies](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) , [Exchange Trading System](https://en.wikipedia.org/wiki/Local_exchange_trading_system)",
           "items": {
             "type": "string",
             "enum": [
@@ -578,24 +578,26 @@
         },
         "routeType": {
           "type": "array",
+          "description": "Property. List of the urban transports (subway, Bus, Tram, ...) available near the Trip according to the GFTS standard [STOP](https://developers.google.com/transit/gtfs/reference/#stopstxt). A combination of values. Enum:' bus, cableCar, cableTram, ferry, funicular, monorail, subway, train, tram, trolleybus'",
           "items": {
             "type": "string",
             "enum": [
-              "tram",
+              "bus",
+              "cableCar",
+              "cableTram",
+              "ferry",
+              "funicular",
+              "monorail",
               "subway",
               "train",
-              "bus",
-              "ferry",
-              "cableTram",
-              "cableCar",
-              "funicular",
-              "trolleybus",
-              "monorail"
+              "tram",
+              "trolleybus"
             ]
           }
         },
         "transportServices": {
           "type": "array",
+          "description": "Property. List of private transport available near the Trip. In example taxi, uber, vtc, parkingShuttle ",
           "items": {
             "type": "string",
             "enum": [
@@ -607,11 +609,12 @@
         },
         "electricTransport": {
           "type": "array",
+          "description": "Property.  List of the different types of electric transport proposed by the city. A combination of. Enum:'electricBicycle, electricCar, electricMotorBike, electricScooter'",
           "items": {
             "type": "string",
             "enum": [
-              "electricCar",
               "electricBicycle",
+              "electricCar",
               "electricMotorBike",
               "electricScooter"
             ]
