@@ -1,0 +1,627 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/dataModel.TourismDestinations/TouristTrip/schema.json",
+  "title": "Smart Data Models - Tourist Trip",
+  "description": "A tourist trip. A created itinerary of visits to one or more places of interest (TouristAttraction/TouristDestination) often linked by a similar theme, geographic area, or interest to a particular touristType. The UNWTO defines tourism trip as the Trip taken by visitors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "url": {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Contact-Commons/properties/contactPoint/properties/url"
+      }
+    },
+    {
+      "image": {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/PhysicalObject-Commons/properties/image"
+      }
+    },
+    {
+      "video": {
+        "$ref": "https://smart-data-models.github.io/data-models/schema-org.json#/definitions/video"
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "TouristTrip"
+          ],
+          "description": "Property. It has to be TouristDestination. Model:'https://schema.org/TouristDestination'"
+        },
+        "touristType": {
+          "type": "array",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/schema-org.json#/definitions/touristType"
+          }
+        },
+        "sameAs": {
+          "type": "string",
+          "format": "uri"
+        },
+        "dateLastReported": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "refPointOfInterest": {
+          "type": "array",
+          "description": "",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          }
+        },
+        "itinerary": {
+          "type": "array",
+          "description": "Property. Destinations or places that make up a trip. For a trip where destination order is important use ItemList to specify that order included in the trips.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "position": {
+                "type": "Number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "streetAddress": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "image": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "accessPlan": {
+          "type": "string",
+          "description": "Property.  Text or Link to the access plan to the Trip."
+        },
+        "category": {
+          "type": "string",
+          "description": "Property. Category of the Trip. A combination of free text to remain flexible to a specific context is offered below as an initial repository or any other value needed by an application."
+        },
+        "subCategory": {
+          "type": "array",
+          "description": "Property. Sub-category of the `category` attribute. A combination of free text to remain flexible to a specific context is offered below as an initial example or any other value needed by an application. ",
+          "items": {
+            "type": "string",
+            "enum": [
+              "archaeology",
+              "contemporaryArt",
+              "modernArt",
+              "appliedArts",
+              "decorativeArts",
+              "scienceAndTechnology",
+              "fineArts",
+              "music",
+              "history",
+              "sacredArt",
+              "specials",
+              "literature",
+              "medicineAndPharmacy",
+              "maritime",
+              "transports",
+              "military",
+              "wax",
+              "popularArtsAndTraditions",
+              "numismatic",
+              "ceramics",
+              "sumptuaryArts",
+              "naturalScience",
+              "prehistoric",
+              "ethnology",
+              "railway",
+              "mining",
+              "textile",
+              "sculpture",
+              "multiDisciplinar",
+              "painting",
+              "paleonthology",
+              "thematic",
+              "architecture",
+              "museumHouse",
+              "universitary",
+              "bullfighting",
+              "sea",
+              "mountain",
+              "river",
+              "countryside",
+              "ancientCity",
+              "cultural",
+              "culinary",
+              "wineRoute",
+              "park",
+              "garden",
+              "fountain",
+              "church",
+              "cathedral",
+              "synagogue",
+              "mosque",
+              "buddhistTemple",
+              "hinduTemple",
+              "monastery",
+              "sanctuary",
+              "cemetery",
+              "sumptuar",
+              "castle",
+              "warMemorials",
+              "memorial",
+              "fortifiedCastles",
+              "archaeologicalSite",
+              "crypt",
+              "cave",
+              "departmentStore",
+              "luxuryStores",
+              "outlet",
+              "mall",
+              "clothing",
+              "mensClothing",
+              "womensClothing",
+              "childrenClothing",
+              "localProducts",
+              "souvenir",
+              "wine",
+              "pastry",
+              "chocolate",
+              "confectionery",
+              "jewelry",
+              "watch",
+              "shoe",
+              "perfume",
+              "cosmetics",
+              "press",
+              "sport",
+              "optics",
+              "leatherGoods",
+              "decoration",
+              "market",
+              "bike",
+              "book",
+              "computer",
+              "convenience",
+              "electronic",
+              "florist",
+              "furniture",
+              "garden",
+              "grocery",
+              "home",
+              "liquor",
+              "mobile",
+              "movierental",
+              "music",
+              "pawnShop",
+              "tire",
+              "toy",
+              "worldCuisine",
+              "traditional",
+              "provencal",
+              "mediterranean",
+              "greek",
+              "spanish",
+              "brazilian",
+              "lebanese",
+              "creole",
+              "mauritian",
+              "reunion",
+              "hawaiian",
+              "mexican",
+              "american",
+              "texMex",
+              "vegetarian",
+              "fish",
+              "seafood",
+              "indian",
+              "vietnamese",
+              "thai",
+              "laosian",
+              "cambodian",
+              "chinese",
+              "moroccan",
+              "tunisian",
+              "african",
+              "sushi",
+              "japanese",
+              "scandinavian",
+              "russian",
+              "pastry",
+              "wine",
+              "rafting",
+              "canyoning",
+              "aquatichiking",
+              "hiking",
+              "viaferrata",
+              "climbing",
+              "kitesurfing",
+              "canoeing",
+              "paddleboarding",
+              "jetSki",
+              "catamaran",
+              "sailing",
+              "surfing",
+              "deltaPlane",
+              "skiing",
+              "scooter",
+              "karting",
+              "spa",
+              "haman",
+              "jacuzzi",
+              "hotSpring",
+              "thalasso",
+              "bodyCare",
+              "swimmingPool",
+              "relaxationArea",
+              "massage",
+              "careCenter"
+            ]
+          }
+        },
+        "locationName": {
+          "type": "string",
+          "description": "Property. Name of the trip location."
+        },
+        "title": {
+          "type": "string",
+          "description": "Property.  Title of the Trip."
+        },
+        "slogan": {
+          "type": "string",
+          "description": "Property. Trip header line, matches the text hook. "
+        },
+        "language": {
+          "type": "array",
+          "description": "Property.  List of Formal language used during the Trip expressed from the IETF [BCP 47](https://tools.ietf.org/html/bcp47) standard. Model:'https://schema.org/language'",
+          "items": {
+            "type": "string"
+          }
+        },
+        "superTrip": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Property. Reference to the Major Trip that includes this Trip."
+        },
+        "subTrip": {
+          "type": "array",
+          "description": "Property. Reference to a list of Minor Trips that are part of this major Trip",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                "description": "Property. Identifier format of any NGSI entity"
+              },
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. Identifier format of any NGSI entity"
+              }
+            ]
+          }
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Start date and time in an ISO8601 UTC format. Model:'https://schema.org/DateTime'"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. End date and time in an ISO8601 UTC format. Model:'https://schema.org/DateTime'"
+        },
+        "openingHoursSpecification": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#definitions/DateTime-Commons/properties/openingHoursSpecification"
+        },
+        "tripSchedule": {
+          "type": "array",
+          "description": "Property. ",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dayOfWeek": {
+                "type": "string",
+                "enum": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                  "PublicHolidays"
+                ]
+              },
+              "byDay": {
+                "type": "string"
+              },
+              "byMonth": {
+                "type": "number"
+              },
+              "byMonthDay": {
+                "type": "number"
+              },
+              "byMonthWeek": {
+                "type": "number"
+              },
+              "exceptDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "duration": {
+                "type": "number"
+              },
+              "repeatFrequency": {
+                "type": "string"
+              },
+              "repeatCount": {
+                "type": "number"
+              },
+              "startDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "endDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "startTime": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "endTime": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        },
+        "duration": {
+          "type": "number",
+          "description": "Property. The duration of each show. The unit code (text) of measurement is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **HUR** represents **Hours**."
+        },
+        "pitch": {
+          "type": "object",
+          "description": "Property. Pitch of the Trip. Each items have the format based on the [Internationalization (i18N) - W3C recommandation for multilanguage](https://www.w3.org/TR/json-ld/#string-internationalization) integrating all items in a single property (ex number 71). Each item is represented by a string with Language Value : Article Value. ",
+          "properties": {
+            "language": {
+              "type": "string"
+            },
+            "article": {
+              "type": "string"
+            }
+          }
+        },
+        "webSite": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Link to the official website for more information."
+        },
+        "contentURL": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Specifies the URL to the official image or video of the Trip for more information."
+        },
+        "criticReview": {
+          "type": "object",
+          "description": "Property. Review written or published by a source that is recognized for its reviewing activities. Each items have the format based on the  [Internationalization (i18N) - W3C recommendation for multilanguage](https://www.w3.org/TR/json-ld/#string-internationalization) integrating all items in a single property (ex number 71). Each item is represented by a string with 'Language Value' : 'Article Value'",
+          "properties": {
+            "language": {
+              "type": "string"
+            },
+            "reviews": {
+              "type": "array",
+              "items": {
+                "article": {
+                  "type": "string"
+                },
+                "origin": {
+                  "type": "string"
+                },
+                "ratingValue": {
+                  "type": "number"
+                },
+                "starRating": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "ratingValueAverage": {
+          "type": "number",
+          "description": "Property. Rating value of Trips. Usage guidelines: Use values from 0 to 10 depending on your standard. this is the average value of all detailed scores of `starRatingDetailed` attribute"
+        },
+        "starRatingDetailed": {
+          "type": "object",
+          "description": "Property. Detailed star ratings which led to the average value expressed in the ratingValue. Instructions for use: A structured value from 1 to 10 occurrences (Stars) where each element is a string in the format: `NumberOfSTar`: Percent. ",
+          "properties": {
+            "10": {
+              "type": "number"
+            },
+            "9": {
+              "type": "number"
+            },
+            "8": {
+              "type": "number"
+            },
+            "7": {
+              "type": "number"
+            },
+            "6": {
+              "type": "number"
+            },
+            "5": {
+              "type": "number"
+            },
+            "4": {
+              "type": "number"
+            },
+            "3": {
+              "type": "number"
+            },
+            "2": {
+              "type": "number"
+            },
+            "1": {
+              "type": "number"
+            }
+          }
+        },
+        "audience": {
+          "type": "array",
+          "description": "Property. Type of public concerned by this Trip. A combination of Free text (family, adult, children, teenager, senior, allPublic, ...). Enum:'adult, allPublic, children, family, senior, teenager'",
+          "items": {
+            "type": "string",
+            "enum": [
+              "adult",
+              "allPublic",
+              "children",
+              "family",
+              "senior",
+              "teenager"
+            ]
+          }
+        },
+        "wheelChairAccessible": {
+          "type": "Boolean",
+          "description": "Property. Access possible for Person with Reduced Mobility."
+        },
+        "maximumAttendeeCapacity": {
+          "type": "number",
+          "description": "Property. The total number of people who can attend to the Trip at that location."
+        },
+        "isAccessibleForFree": {
+          "type": "Boolean",
+          "description": "Property. Free or paid Trip (True = Free / False = Paid)."
+        },
+        "tripPriceFrom": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "tripPriceTo": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "priceSpecification": {
+          "type": "object",
+          "description": "Property. ",
+          "items": {
+            "properties": {
+              "audience": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "eligibleQuantity": {
+                "type": "Number"
+              },
+              "price": {
+                "type": "Number"
+              },
+              "minPrice": {
+                "type": "Number"
+              },
+              "maxPrice": {
+                "type": "Number"
+              }
+            }
+          }
+        },
+        "paymentAccepted": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Cash",
+              "CreditCard",
+              "CryptoCurrency",
+              "other"
+            ]
+          }
+        },
+        "currencyAccepted": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "EUR",
+              "USD"
+            ]
+          }
+        },
+        "routeType": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "tram",
+              "subway",
+              "train",
+              "bus",
+              "ferry",
+              "cableTram",
+              "cableCar",
+              "funicular",
+              "trolleybus",
+              "monorail"
+            ]
+          }
+        },
+        "transportServices": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "taxi",
+              "uber",
+              "vtc"
+            ]
+          }
+        },
+        "electricTransport": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "electricCar",
+              "electricBicycle",
+              "electricMotorBike",
+              "electricScooter"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
