@@ -90,7 +90,18 @@
         },
         "category": {
           "type": "string",
-          "description": "Property. Category of the Trip. A combination of free text to remain flexible to a specific context is offered below as an initial repository or any other value needed by an application."
+          "description": "Property. Category of the Trip. A combination of free text to remain flexible to a specific context is offered below as an initial repository or any other value needed by an application. Enum:'shopping, gastronomy, museum, religiousWorship, parksAndGardens, history, outdoorActivities, excursion, wellness'",
+          "enum": [
+            "shopping",
+            "gastronomy",
+            "museum",
+            "religiousWorship",
+            "parksAndGardens",
+            "history",
+            "outdoorActivities",
+            "excursion",
+            "wellness"
+          ]
         },
         "subCategory": {
           "type": "array",
@@ -320,6 +331,23 @@
                 "format": "uri",
                 "description": "Property. Identifier format of any NGSI entity"
               }
+            ]
+          }
+        },
+        "tripStatus": {
+          "type": "array",
+          "description": "Property. Trip Status regarding this Trip.",
+          "items": {
+            "type": "string",
+            "enum": [
+              "opened",
+              "closed",
+              "suspended",
+              "cancelled",
+              "scheduled",
+              "finished",
+              "postponed",
+              "rescheduled"
             ]
           }
         },
