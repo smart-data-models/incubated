@@ -1,9 +1,9 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$schemaVersion": "0.0",
-    "$id": "https://smart-data-models.github.io/dataModel.Aeronautics/Airport/schema.json",
-    "title": "Smart Data models - Airport schema",
-    "description": "A description of a generic airport",
+    "$id": "https://smart-data-models.github.io/dataModel.Aeronautics/FlightNotification/schema.json",
+    "title": "Smart Data models - FlightNotification schema",
+    "description": "A description of a generic flight notification",
     "type": "object",
     "allOf": [
         {
@@ -17,19 +17,39 @@
                 "type": {
                     "type": "string",
                     "enum": [
-                        "Airport"
+                        "FlightNotification"
                     ],
-                    "description": "Property. NGSI Entity type. It has to be Airport"
+                    "description": "Property. NGSI Entity type. It has to be FlightNotification"
                 },
-                "codeIATA": {
+                "state": {
                     "type": "string",
-                    "pattern": "^[A-Z]{3}",
-                    "description": "Property. Model:'http://schema.org/Text'. IATA airport code"
+                    "enum": [
+                        "active",
+                        "inactive",
+                        "completed",
+                        "unknown"
+                    ],
+                    "description": "Property. Model:'http://schema.org/Text'. Current state of the flight notification. Enum:'active, inactive, completed, unknown'"
                 },
-                "codeICAO": {
+                "dateIssued": {
                     "type": "string",
-                    "pattern": "^[A-Z]{4}$",
-                    "description": "Property. Model:'http://schema.org/Text'. ICAO airport code"
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Date when the notification was created"
+                },
+                "belongsToFlight": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 256,
+                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    ],
+                    "description": "Relationship. Reference to the flight entity"
                 }
             }
         }
@@ -37,6 +57,8 @@
     "required": [
         "id",
         "type",
-        "name"
+        "belongsToFlight",
+        "dateIssued",
+        "description"
     ]
 }
