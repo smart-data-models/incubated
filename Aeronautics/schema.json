@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0",
+    "$id": "https://smart-data-models.github.io/dataModel.Aeronautics/Airport/schema.json",
+    "title": "Smart Data models - Airport schema",
+    "description": "A description of a generic airport",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons/properties"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Airport"
+                    ],
+                    "description": "Property. NGSI Entity type. It has to be Airport"
+                },
+                "codeIATA": {
+                    "type": "string",
+                    "pattern": "^[A-Z]{3}",
+                    "description": "Property. Model:'http://schema.org/Text'. IATA airport code"
+                },
+                "codeICAO": {
+                    "type": "string",
+                    "pattern": "^[A-Z]{4}$",
+                    "description": "Property. Model:'http://schema.org/Text'. ICAO airport code"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type",
+        "name"
+    ]
+}
