@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "schemaVersion": "0.0",
+  "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.RiskAssessment/master/Hazard/schema.json",
+  "title": "Risk Assessment - Hazard Entity",
+  "description": "This entity contains a harmonised description of a generic Hazard entity made for the Risk Assessment domain.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI-LD Entity Type. It must be equal to Hazard.",
+          "enum": [
+            "Hazard"
+          ]
+        },
+        "analyzedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Time'."
+        },
+        "analysisType": {
+          "type": "string",
+          "description": "Property. The type of analysis."
+        },
+        "contentInformation": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "value": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              }
+            }
+          },
+          "description": "Array of objects that describes the Hazard Map and contains its ids, values and colors."
+        },
+        "isAffectedByEO": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. The ID of the EOAnalysis that identified this hazard."
+        },
+        "isAffectedByGIS": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. The ID of the GISData that identified this hazard."
+        },
+        "createsLayers": {
+          "type": "array",
+          "description": "Relationship. Array of URIs of the layers created by this hazard.",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

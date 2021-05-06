@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "schemaVersion": "0.0",
+  "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.RiskAssessment/master/GISData/schema.json",
+  "title": "Risk Assessment Model - GISData Entity",
+  "description": "This entity contains a harmonised description of generic GISData made for the Risk Assessment domain.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI-LD Entity Type. It must be equal to GISData.",
+          "enum": [
+            "GISData"
+          ]
+        },
+        "provider": {
+          "type": "string",
+          "description": "Property.  Model:'https://schema.org/Text'. Units:'No unit'. The provider of the algorithm."
+        },
+        "analyzedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Time'. The time at which the analysis finished."
+        },
+        "identifiesVulnerability": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. The ID of the Vulnerability Entity that is identified by this data."
+        },
+		"isMappedBy": {
+          "type": "array",
+          "description": "Relationship. Array of URIs of the GeoDataLayers, which this GISData Entity employs.",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
