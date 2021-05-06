@@ -1,5 +1,5 @@
 # Incubated datamodels
-This folder is receiving the Pull requests with new data models thta cannot be classified yet
+This folder is receiving the Pull requests with new data models that cannot be classified yet
 
 Data models here will be progressively moved to new or to existing domains and subjects
 
