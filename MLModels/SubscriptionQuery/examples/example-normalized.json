@@ -1,0 +1,37 @@
+{
+  "id": "Subscription.01",
+  "type": "SubscriptionQuery",
+  "entities": {
+    "type": "StructuredValue",
+    "value": [
+      {
+        "type": "WaterConsumption"
+      }
+    ]
+  },
+  "watchedAttributes": {
+    "type": "StructuredValue",
+    "value": [
+      "consumptionNextDay",
+      "consumptionNextWeek"
+    ]
+  },
+  "q": {
+    "type": "Text",
+    "value": "refCity==urn:ngsi-ld:City:Valbonne"
+  },
+  "notification": {
+    "type": "StructuredValue",
+    "value": {
+      "attributes": [
+        "consumptionNextDay",
+        "consumptionNextWeek"
+      ],
+      "format": "keyValues",
+      "endpoint": {
+        "uri": "http://my-domain-name",
+        "accept": "application/json"
+      }
+    }
+  }
+}

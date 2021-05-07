@@ -1,0 +1,25 @@
+{
+  "id": "urn:ngsi-ld:Subscription:01",
+  "type": "SubscriptionQuery",
+  "entities": [
+    {
+      "type": "WaterConsumption"
+    }
+  ],
+  "watchedAttributes": [
+    "consumptionNextDay",
+    "consumptionNextWeek"
+  ],
+  "q": "refCity==urn:ngsi-ld:City:Valbonne",
+  "notification": {
+    "attributes": [
+      "consumptionNextDay",
+      "consumptionNextWeek"
+    ],
+    "format": "keyValues",
+    "endpoint": {
+      "uri": "http://my-domain-name",
+      "accept": "application/json"
+    }
+  }
+}

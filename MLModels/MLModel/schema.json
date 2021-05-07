@@ -17,11 +17,11 @@
         },
         "algorithm": {
           "type": "string",
-          "description": "Property. The algorithm used by the underlying ML model"
+          "description": "Property. The algorithm used by the underlying Machine Learning model (e.g. linear regression, k-means, SVM, MLP,...)"
         },
         "mlFramework": {
           "type": "string",
-          "description": "Property. The ML framework that has been used to prepare the model"
+          "description": "Property. The Machine Learning framework that has been used to prepare the model (e.g., scikit-learn, H2O, Spark MLib, etc)"
         },
         "version": {
           "type": "string",
@@ -34,6 +34,17 @@
             "type": "string"
           }
         },
+        "outputDataTypes": {
+          "type": "array",
+          "description": "Property. Type of output data produced by the Machine Learning Model",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dockerImage": {
+          "type": "string",
+          "description": "Property. Docker image containing the Machine Learning model"
+        },
         "refMLProcessing": {
           "type": "array",
           "description": "Property",
@@ -42,45 +53,25 @@
             "format": "uri"
           }
         },
-        "inputDataSources": {
+        "inputAttributes": {
           "type": "array",
           "description": "Property. Comma-separated list of attributes names (that should have a given type by definition).",
           "items": {
-            "type": "object",
-            "properties": {
-              "datasource": {
-                "type": "string",
-                "format": "uri"
-              },
-              "dataFormat": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
+            "type": "string"
           }
         },
-        "outputDataSources": {
+        "outputAttributes": {
           "type": "array",
           "description": "Property. Comma-separated list of attributes names used to publish the results.",
           "items": {
-            "type": "object",
-            "properties": {
-              "datasource": {
-                "type": "string",
-                "format": "uri"
-              },
-              "dataFormat": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
+            "type": "string"
           }
         }
       }
     }
+  ],
+  "required": [
+    "id",
+    "type"
   ]
 }
