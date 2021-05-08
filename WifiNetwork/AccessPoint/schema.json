@@ -29,23 +29,23 @@
             "up",
             "down"
           ],
-          "description": "Property. Model:'https://schema.org/Text'. Enum:'up, down'. Status of availability "
+          "description": "Property. Model:'https://schema.org/Text'. Enum:'up, down'. Indicates whether the access point is working (value: up), or it is not working or shut down (value: down). Model:'http://schema.org/Text'. Enum:'up, down'"
         },
         "clientsConnected": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Number of people connected to the Access Point"
+          "description": "Property. Model:'https://schema.org/Number'. Number of clients or users connected to the access point."
         },
         "ssid": {
           "type": "array",
-          "description": "Property. Model:'https://schema.org/Text'. ",
+          "description": "Property. Model:'https://schema.org/Text'. List of the names of the SSID (service set identifier) that the access point generates. One access point can generate one or several SSID.",
           "items": {
             "type": "string"
           }
         },
         "service": {
           "type": "array",
-          "description": "Property. Model:'https://schema.org/Text'. ",
+          "description": "Property. Model:'https://schema.org/Text'. This attribute is used to assign the access point to one or several municipal service departments that receive the wireless service. For example: Library, Museums, Social Services, Sports...",
           "items": {
             "type": "string"
           }
@@ -65,12 +65,12 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. Model:'https://schema.org/URL'. Reference to the point of interest"
+          "description": "Relationship. Model:'https://schema.org/URL'. The point of interest where the access point is located and provides the service."
         },
         "TimeInstant": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'https://schema.org/DateTime'. "
+          "description": "Property. Model:'https://schema.org/DateTime'. [Timestamp](https://github.com/telefonicaid/iotagent-node-lib#TimeInstant) saved by FIWARE's IoT Agent. Note: This attribute has not been harmonized to keep backwards compatibility with current FIWARE reference implementations."
         },
         "email": {
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/email"
@@ -78,49 +78,45 @@
         "dateInstalled": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'https://schema.org/DateTime'."
+          "description": "Property. Model:'https://schema.org/DateTime'. A timestamp which denotes when the device was installed (if it requires installation)."
         },
         "dateLastReboot": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'https://schema.org/DateTime'."
+          "description": "Property. Model:'https://schema.org/DateTime'. A timestamp which denotes the last time when the device was successfully rebooted."
         },
         "dateLastValueReported": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'https://schema.org/DateTime'."
+          "description": "Property. Model:'https://schema.org/DateTime'. A timestamp which denotes the last time when the device successfully reported data to the cloud."
         },
         "firmwareVersion": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'."
+          "description": "Property. Model:'https://schema.org/Text'. The firmware version of this device."
         },
         "hardwareVersion": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'."
+          "description": "Property. Model:'https://schema.org/Text'. The hardware version of this device."
         },
         "ipAddress": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'."
-        },
-        "macAddress": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'."
+          "description": "Property. Model:'https://schema.org/Text'. The IP address of the device."
         },
         "modelName": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'."
+          "description": "Property. Model:'https://schema.org/Text'. Device's model name."
         },
         "osVersion": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'."
+          "description": "Property. Model:'https://schema.org/Text'. The version of the host operating system device."
         },
         "serialNumber": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'."
+          "description": "Property. Model:'https://schema.org/serialNumber'. The serial number assigned by the manufacturer."
         },
         "softwareVersion": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'."
+          "description": "Property. Model:'https://schema.org/Text'. The software version of this device."
         }
       }
     }
