@@ -1,0 +1,71 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0",
+    "$id": "https://smart-data-models.github.io/DataModel.SmartDevice/SmartDevice/schema.json",
+    "title": " Smart Data Models - Smart Device",
+    "description": "A smart Device along with its cooked data.",
+    "type": "object",
+    "allOf": [
+        {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type":  {
+                    "type": "string",
+                    "description": "Property. Model:'http://schema.org/Text'. enum:'footwear, shirt, sofa', .Privacy: 'low'. Device type. This can be extended in the future",
+                    "enum": [
+                    "footwear, shirt, sofa"
+                    ]
+                },
+                "manufacturer": {
+                "type": "string",
+                "description": "Property. Model:'https://schema.org/Text'. The name of the company that manufactured the device."
+                },
+                "model": {
+                "type": "string",
+                "description": "Property. Model:'https://schema.org/Text'. The model of the device"
+                },
+                "dateAcquisition": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime'. Date when the device was registered"
+                },
+                "currentLocation": {
+                "$ref": "http://geojson.org/schema/Geometry.json",
+                "description": "Geoproperty. Model:'dct:Location'. Privacy:'high'. Current location of the device"
+                },
+                "ownedBy": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+                    "description": "Owner (Person or Organization) of the device"
+                },
+                "track": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                        "dateCapture": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Property. Model:'http://schema.org/DateTime'. Date when the location was captured"
+                        },
+                        "value": {
+                            "$ref": "http://geojson.org/schema/Geometry.json",
+                            "description": "Geoproperty. Model:'dct:Location'. Location of the device at the captured moment"
+                        }
+                        }
+                    },
+                    "description": "Property.  Privacy:'high'. Array of datetimes and the location of the device at that very moment"
+                }
+            }
+        }
+    ],
+    "required": [
+      "id",
+      "type",
+      "dateAcquisition"
+    ]
+  }
