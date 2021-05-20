@@ -1,0 +1,80 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/Provider/MedicalChecks/schema.json",
+    "title": " Smart Data Models - Smart Data Models - Smart Data Models - Health - Medical Checks / Provider",
+    "description": "The provider is the person who treats the patient.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Person-Commons"
+        },
+        {
+            "properties": {
+                "givenName": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Property. Model:'https://schema.org/Text'. Given name. In the U.S., the first name of a Person."
+                },
+                "familyName": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Property. Model:'https://schema.org/Text'. Family name. In the U.S., the last name of a Person."
+                },
+                "medicalSpecialty": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. A medical specialty of the provider. Model: 'https://schema.org/MedicalSpecialty'",
+                    "enum": ["Anesthesia",
+						"Cardiovascular",
+						"CommunityHealth",
+						"Dentistry",
+						"Dermatology",
+						"DietNutrition",
+						"Emergency",
+						"Endocrine",
+						"Gastroenterologic",
+						"Genetic",
+						"Geriatric",
+						"Gynecologic",
+						"Hematologic",
+						"Infectious",
+						"LaboratoryScience",
+						"Midwifery",
+						"Musculoskeletal",
+						"Neurologic",
+						"Nursing",
+						"Obstetric",
+						"Oncologic",
+						"Optometric",
+						"Otolaryngologic",
+						"Pathology",
+						"Pediatric",
+						"PharmacySpecialty",
+						"Physiotherapy",
+						"PlasticSurgery",
+						"Podiatric",
+						"PrimaryCare",
+						"Psychiatric",
+						"PublicHealth",
+						"Pulmonary",
+						"Radiography",
+						"Renal",
+						"RespiratoryTherapy",
+						"Rheumatologic",
+						"SpeechPathology",
+						"Surgical",
+						"Toxicologic",
+						"Urologic"
+					]
+                },
+                "hospital": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Model:'https://schema.org/URL'. Place where the physician works. Model:  'https://schema.org/Hospital'"
+                }
+            }
+        }
+    ],
+	"required":[
+		"id",
+		"hospital"
+	]
+}

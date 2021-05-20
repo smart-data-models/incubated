@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/MedicalCheck/MedicalChecks/schema.json",
+    "title": " Smart Data Models - Smart Data Models - Smart Data Models - Health - Medical Checks / MedicalCheck",
+    "description": "Periodical visits of the Patient.",
+    "type": "object",
+    "allOf": [
+        {
+            "properties": {
+                "date": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'https://schema.org/DateTime'. Date when the medical check takes place.  Model: 'https://schema.org/Date'"
+                },
+                "patient": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Model:'https://schema.org/URL'. Id of the patient"
+                },
+                "checkType": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Type of the visit",
+					"enum": [
+						"Induction treatment",
+						"Treatment (1 month)",
+						"Treatment (3 months)",
+						"Treatment (6 months)",
+						"Treatment (12 months)",
+						"Treatment (18 months)",
+						"Treatment (24 months)",
+						"Treatment (36 months)",
+						"Treatment (5 years)",
+					]
+                },
+                "drug": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Model:'https://schema.org/URL'. List of drugs which are taken by the patient. Model: 'https://schema.org/drug'"
+                },
+                "healthCondition": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Model:'https://schema.org/URL'. Specifying the health condition(s) of a patient, medical study, or other target audience. Model: 'https://schema.org/MedicalCondition' based on ICT10"
+                }
+            }
+        }
+    ]
+}
