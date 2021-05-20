@@ -13,7 +13,7 @@
                     "format": "date-time",
                     "description": "Property. Model:'https://schema.org/DateTime'. Date when the medical check takes place.  Model: 'https://schema.org/Date'"
                 },
-                "patient": {
+                "hasPatient": {
                     "type": "string",
                     "format": "uri",
                     "description": "Relationship. Model:'https://schema.org/URL'. Id of the patient"
@@ -33,17 +33,23 @@
 						"Treatment (5 years)",
 					]
                 },
-                "drug": {
-                    "type": "string",
+                "hasDrug": {
+                    "type": "array",
                     "format": "uri",
                     "description": "Relationship. Model:'https://schema.org/URL'. List of drugs which are taken by the patient. Model: 'https://schema.org/drug'"
                 },
-                "healthCondition": {
-                    "type": "string",
+                "hasHealthCondition": {
+                    "type": "array",
                     "format": "uri",
                     "description": "Relationship. Model:'https://schema.org/URL'. Specifying the health condition(s) of a patient, medical study, or other target audience. Model: 'https://schema.org/MedicalCondition' based on ICT10"
                 }
             }
         }
-    ]
+    ],
+	"required": [
+		"id",
+		"date",
+		"checkType",
+		"hasPatient"
+	]
 }
