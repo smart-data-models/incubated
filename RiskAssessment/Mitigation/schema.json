@@ -1,0 +1,113 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "schemaVersion": "0.0.1",
+    "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.RiskAssessment/master/Mitigation/schema.json",
+    "title": "Risk Assessment - Mitigation Entity",
+    "description": "The mitigation of consequences reduces the risk after an event has occurred. Therefore, this risk reduction measure is not suitable for the reduction of the likelihood of events but for the reduction of the negative consequences. Examples for consequence mitigation measures could be e.g. the construction of connection pipes to the neighbor water supplier(s) to get water from them in case of a breakdown of the own water supply, the construction of wells for an emergency supply or signing of contracts with organizations providing small mobile emergency water treatment plants.",
+    "type":"object",
+    "allOf":[
+        {
+            "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI-LD Entity Type. It must be equal to Risk.",
+                    "enum": [
+                      "Mitigation"
+                    ]
+                  },
+                "validTo":{
+                    "type": "string",
+                    "format":"date-time",
+                    "description": "Property. Model:'https://schema.org/Time'. The time at which the risk materialziation is started."
+                },
+                "validFrom":{
+                    "type":"string",
+                    "format":"date-time",
+                    "description": "Property. Model:'https://schema.org/Time'. The time at which the risk materialziation is finished."
+                },
+                "consequence":{
+                    "type":"string",
+                    "enum": [
+                        "quality",
+                        "reputation",
+                        "quantity"
+                      ],
+                    "description": "Property. The conseqence caused by a risk materialization"
+                },
+                "description":{
+                    "type":"string",
+                    "description": "Property. The risk description in a natural language"
+                },
+                "event":{
+                    "type":"string",
+                    "enum": [
+                        "manipulation",
+                        "pollution",
+                        "destruction",
+                        "interruption"
+                      ],
+                    "description":"Property. Occurrence or change of a particular set of circumstances"
+                },
+                "threat":{
+                    "type":"string",
+                    "enum": [
+                        "cyber",
+                        "physical",
+                        "cyber-physical"
+                      ],
+                    "description":"Property. The potential cause of an incident that may result in a breach of information security or compromise business operations."
+                },
+                "likelihood":{
+                    "type":"number",
+                    "description":"Property. Chance of something happening. In risk management terminology, the word \"likelihood\" is used to refer to the chance of something happening, whether defined, measured or determined objectively or subjectively, qualitatively or quantitatively, and described using general terms or mathematically (includes also the types of offered likelihood such as LoAH, LoAS, LoC)"
+                },
+                "affects": {
+                    "type":"array",
+                    "description":"Relationship. Array of URIs related to the area in which the risk could affect.",
+                    "items":{
+                        "anyOf": [
+                            {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 256,
+                              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                              "description": "Property. Identifier format of any NGSI entity"
+                            },
+                            {
+                              "type": "string",
+                              "format": "uri",
+                              "description": "Property. Identifier format of any NGSI entity"
+                            }
+                          ]
+                    }
+                },
+                "apply": {
+                    "type":"array",
+                    "description":"Relationship. Array of URIs related to Measures associated to the mitigation.",
+                    "items":{
+                        "anyOf": [
+                            {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 256,
+                              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                              "description": "Property. Identifier format of any NGSI entity"
+                            },
+                            {
+                              "type": "string",
+                              "format": "uri",
+                              "description": "Property. Identifier format of any NGSI entity"
+                            }
+                          ]
+                    }
+                } 
+            }
+        }
+    ]
+}

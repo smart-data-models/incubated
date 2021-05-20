@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "schemaVersion": "0.0.1",
+    "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.RiskAssessment/master/Measure/schema.json",
+    "title": "Risk Assessment - Measure Entity",
+    "description": "Specific measure translated into actions to be performed into the different systems", 
+    "type":"object",
+    "allOf":[
+        {
+            "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI-LD Entity Type. It must be equal to Risk.",
+                    "enum": [
+                      "Mitigation"
+                    ]
+                  },
+                "name":{
+                    "type":"string",
+                    "description":"Property. Name of the specific measure"
+                },
+                "description":{
+                    "type":"string",
+                    "description": "Property. The Measure description in a natural language"
+                },
+                "action":{
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "Property. Identifier format of any NGSI entity"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                }
+            }
+        }
+    ]
+}
