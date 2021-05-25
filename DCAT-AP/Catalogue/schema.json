@@ -17,9 +17,9 @@
         "type": {
           "type": "string",
           "enum": [
-            "CatalogueDCAT"
+            "CatalogueDCAT-AP"
           ],
-          "description": "Property. Model:'https://schema.org/Text'. It has to be CatalogueDCAT"
+          "description": "Property. Model:'https://schema.org/Text'. It has to be CatalogueDCAT-AP"
         },
         "dataset": {
           "type": "array",
@@ -31,11 +31,11 @@
         },
         "publisher": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. A property which is a string with the format date time. Model:'dct:publisher'"
+          "description": "Property. Model:'https://schema.org/Text'. This property refers to an entity (organisation) responsible for making the Catalogue available. Model:'dct:publisher'"
         },
         "title": {
           "type": "array",
-          "description": "Property. Model:'https://schema.org/URL'. This property refers to an entity (organisation) responsible for making the Catalogue available.Model:'rdfs:Literal'",
+          "description": "Property. Model:'https://schema.org/URL'. This property contains a name given to the Catalogue. This property can be repeated for parallel language versions of the name. Model:'rdfs:Literal'",
           "items": {
             "type": "string"
           }
@@ -54,7 +54,7 @@
         },
         "licence": {
           "type": "string",
-          "description": "Property. Model:'dct:license'. This property contains the date of formal issuance (e.g., publication) of the Catalogue."
+          "description": "Property. Model:'dct:license'. This property refers to the licence under which the Catalogue can be used or reused."
         },
         "releaseDate": {
           "type": "string",
@@ -63,7 +63,7 @@
         },
         "spatial_geographic": {
           "type": "array",
-          "description": "Geoproperty. This property refers to a geographical area covered by the Catalogue.",
+          "description": "Geoproperty. This property refers to a geographical area covered by the Catalogue. Model:'dct:spatial'",
           "items": {
             "$ref": "http://geojson.org/schema/Geometry.json"
           }
@@ -104,6 +104,13 @@
         "rights": {
           "type": "string",
           "description": "Property. Model:'dct:rights'. This property refers to a statement that specifies rights associated with the Catalogue."
+        },
+        "service": {
+          "type": "array",
+          "description": "Property. This property refers to a site or end-point that is listed in the catalog. Model:'dcat:DataService'",
+          "items": {
+            "type": "string"
+          }
         },
         "catalogue": {
           "type": "array",
