@@ -1,1 +1,0 @@
-folder for works related with cultural objects
