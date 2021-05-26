@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema#",
   "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/OpenChannelJunction/schema.json",
   "title": "Open Channel Management - OpenChannelJunction",
-  "description": "This entity contains a harmonised description of a generic junction made for open-channel management (raw-water systems). Junction defines a location where the characteristics of the channel changes, two or more channels come together or split apart, amounts of water are abstracted or inserted to the system",
+  "description": "This entity contains a harmonised description of a generic Junction made for Raw-Water (Open Channels) System Management domain. A Junction defines a location where the characteristics of the channel changes, two or more channels come together or split apart, amounts of water are abstracted or inserted to the system etc.",
   "type": "object",
   "allOf": [
     {
@@ -26,7 +26,7 @@
           "properties": {
             "distance": {
               "type": "number",
-              "description": "Property. The distance between this Entity and a reference point (e.g., the most upstream point of the system)"
+              "description": "Property. The distance between this Entity and a reference point (e.g., the most upstream point of the system)."
             },
             "refPoint": {
               "anyOf": [
@@ -35,15 +35,15 @@
                   "minLength": 1,
                   "maxLength": 256,
                   "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                  "description": "Property. Identifier format of any NGSI entity"
+                  "description": "Property. Identifier format of any NGSI entity."
                 },
                 {
                   "type": "string",
                   "format": "uri",
-                  "description": "Property. Identifier format of any NGSI entity"
+                  "description": "Property. Identifier format of any NGSI entity."
                 }
               ],
-              "description": "Relationship. The reference point distance is count from"
+              "description": "Relationship. The reference point distance is measured from."
             }
           }
         },
@@ -62,7 +62,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. A relationship indicating the ID of the downstream node (junction, regulation structure) – where a channel ends"
+          "description": "Relationship. A relationship indicating the ID of the downstream node (e.g., Junction, Regulation Structure), where the channel ends."
         },
         "upstreamNode": {
           "anyOf": [
@@ -79,7 +79,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. A relationship indicating the ID of the upstream node (junction, regulation structure) – where a channel begins"
+          "description": "Relationship. A relationship indicating the ID of the upstream node (e.g., Junction, Regulation Structure), where the channel begins."
         },
         "observedBy": {
           "anyOf": [
@@ -96,15 +96,15 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. Reference to the device providing data. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'"
+          "description": "Relationship. A relationship to the ID of the device that monitors raw-water properties. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'"
         },
         "uniqueName": {
           "type": "string",
-          "description": "Property. The name of the junction"
+          "description": "Property. The name of the junction."
         },
         "description": {
           "type": "string",
-          "description": "Property. An optional text that describes other significant information"
+          "description": "Property. An optional text that describes other significant information."
         },
         "tag": {
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/tag"
@@ -112,12 +112,12 @@
         "waterOutflow": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Water diverted from the junction to another source. Units:'m3/s'"
+          "description": "Property. Water flow abstracted from the junction or diverted to another source. Units:'m3/s'"
         },
         "waterInflow": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Water inserted to the junction from another source. Units:'m3/s'"
+          "description": "Property. Water flow inserted to the junction. Units:'m3/s'"
         }
       }
     }

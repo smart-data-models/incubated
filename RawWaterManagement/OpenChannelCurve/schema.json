@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema#",
   "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/OpenChannelCurve/schema.json",
   "title": "Open Channel Management - OpenChannelCurve",
-  "description": "This entity contains a harmonised description of a generic curve made for open-channel management (raw-water systems).",
+  "description": "This entity contains a harmonised description of a generic curve made for Raw-Water (Open Channels) System Management domain.",
   "type": "object",
   "allOf": [
     {
@@ -25,25 +25,25 @@
         },
         "curveType": {
           "type": "string",
-          "description": "Property. Type of curve for the channel. Enum:'DischargeCoefficient - RelativeOpening, Elevation - Discharge, C/Co - H/Ho, P/Ho, C – h/width of spillway'",
+          "description": "Property. Type of curve for spillways and regulation structures. It can be a curve representing: 1) the discharge coefficient (C) as a function of relative weir opening (a/H, a: sluice-gate opening, H: upstream head), 2) the discharge (Q) as a function of the water elevation (H), 3) the design discharge coefficient (Co) as a function of P/Ho, where P is the apron elevation of the OGEE spillway and Ho the design upstrean head, 4) discharge coefficient (C) as a function of H/L, where H is the upstream head and L the legnth of a BROAD-CRESTED spillway, 5) the function C/Co - H/Ho. Enum:'C - a/H, H - Q, Co - P/Ho, C – H/L, C/Co - H/Ho'",
           "enum": [
-            "DischargeCoefficient - RelativeOpening",
-            "Elevation - Discharge",
-            "C/Co - H/Ho",
-            "P/Ho",
-            "C – h/width of spillway"
+            "C ~ a/H",
+            "H ~ Q",
+			"Co ~ P/Ho",
+			"C ~ H/L",
+            "C/Co ~ H/Ho"
           ]
         },
         "xData": {
           "type": "array",
-          "description": "Property. X data points for the curve",
+          "description": "Property. X data points for the curve.",
           "items": {
             "type": "number"
           }
         },
         "yData": {
           "type": "array",
-          "description": "Property. Y data points for the curve",
+          "description": "Property. Y data points for the curve.",
           "items": {
             "type": "number"
           }

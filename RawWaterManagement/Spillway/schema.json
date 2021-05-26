@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema#",
   "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/Spillway/schema.json",
   "title": "Open Channel Management - Spillway",
-  "description": "This entity contains a harmonised desctiption for a generic Spillway made for Open Channel Management (raw-water systems)",
+  "description": "This entity contains a harmonised desctiption for a generic Spillway made for Raw-Water (Open Channels) System Management domain. Spillway represents a junction-type object, controlling the release of water from a dam or regulation structure downstream.",
   "type": "object",
   "allOf": [
     {
@@ -18,14 +18,14 @@
           "enum": [
             "Spillway"
           ],
-          "description": "Property. NGSI-LD Entity Type. It has to be Spillway"
+          "description": "Property. NGSI-LD Entity Type. It has to be Spillway."
         },
         "tag": {
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/tag"
         },
         "spillwayType": {
           "type": "string",
-          "description": "Property. The type of the spillway. Enum:'Broad-Crested, Ogee, Sharp-Crested, Specified Spillway'. In the case of 'Specified Spillway' only 'elevation (m) – discharge (m3/s)' curve is required",
+          "description": "Property. The type of the spillway. In the case of “Specified Spillway”, only “Elevation – discharge” curve is required. Enum:'Broad-Crested, Ogee, Sharp-Crested, Specified Spillway'.",
           "enum": [
             "Broad-Crested",
             "Ogee",
@@ -46,17 +46,17 @@
         "spillwayWidth": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The width of the spillway (m). Only for 'Broad-Crested' type. Units:'meters'"
+          "description": "Property. The width of the spillway (m). Only for 'Broad-Crested' type. Units:'meters'."
         },
         "numberAbutments": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The number of abutments of an ogee spillway. Only for 'Ogee' type"
+          "description": "Property. The number of abutments of an ogee spillway. Only for 'Ogee' type."
         },
         "apronElevation": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The elevation at the bottom of the ogee spillway structure (P), just upstream of the spillway"
+          "description": "Property. The elevation at the bottom of the ogee spillway structure (P), just upstream of the spillway."
         },
         "apronLength": {
           "type": "number",
@@ -66,27 +66,27 @@
         "dischargeCoefficient": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The discharge coefficient accounts for energy losses as water enters the spillway, flows through the spillway, and eventually exits the spillway. Units:'m^0.5/s'"
+          "description": "Property. The discharge coefficient for energy losses as water enters, flows amnd exits the spillway. Units:'m^0.5/s'."
         },
         "designHead": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The total upstream energy head, measured above the spillway crest, for which the spillway is designed (Ho) for 'Ogee Spillway'. Units:'meters'"
+          "description": "Property. The total upstream energy head for which the spillway is designed (Ho) for 'Ogee Spillway'. Units:'meters'."
         },
         "designDischarge": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The design discharge of the Spillway. Units: 'm^3/s'"
+          "description": "Property. The design discharge (Qo) of the Spillway. Units: 'm^3/s'."
         },
         "designDischargeCoefficient": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The discharge coefficient (Co) for the design discharge (Ho)"
+          "description": "Property. The discharge coefficient (Co) for energy losses for the design discharge (Ho)."
         },
         "maxFloodElevation": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The maximum elevation of water that can pass the spillway"
+          "description": "Property. The maximum elevation of water that can pass the spillway."
         },
         "controlCrossSection": {
           "anyOf": [
@@ -103,7 +103,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. A relationship indicating the ID of the cross section that controls the flow over the Spillway"
+          "description": "Relationship. A relationship indicating the ID of an entity of type Cross Section, indicating the cross section that controls the flow over the Spillway."
         },
         "curveElevationDischarge": {
           "anyOf": [
@@ -120,7 +120,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. A relationship pointing to the ID label of the curve that represents the water elevation as a function of discharge"
+          "description": "Relationship. The URI of an OpenChannelCurve entity that represents discharge (Q) as a function of water elevation (H)."
         },
         "curveDischargeCoefficient": {
           "anyOf": [
@@ -137,7 +137,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. A relationship pointing to the ID label of the curve that represents the discharge coefficient as a function of upstream head/depth and spillway geometry. For 'Broad-creasted' spillway, discharge coefficient as a function of upstream head over spillway width. For 'Ogee' spillway, C/Co over H/Ho."
+          "description": "Relationship. The URI of an OpenChannelCurve entity that represents the discharge coefficient (C) as a function of upstream head (H) and spillway geometry. For instance, discharge coefficient as a function of upstream head over spillway width (C ~ H/L), or C/Co ~ H/Ho."
         },
         "curveDesignDischargeCoefficient": {
           "anyOf": [
@@ -154,7 +154,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. A relationship pointing to the ID label of the curve that represents the design discharge coefficient as a function of apron Elevation over design upstream head. Only for 'Ogee' (Co over P/ Ho)."
+          "description": "Relationship. The URI of an OpenChannelCurve entity that represents the design discharge coefficient (Co) as a function of apron Elevation over design upstream head (Co ~ P/Ho)."
         }
       }
     }

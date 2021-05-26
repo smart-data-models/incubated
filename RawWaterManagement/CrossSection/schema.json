@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema#",
   "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/CrossSection/schema.json",
   "title": "Open Channel Management - CrossSection ",
-  "description": "This entity contains a harmonised description of a generic cross-section made for Open Channel Management (raw-water systems). CrossSection defines any point of the system where water-related properties are monitored or computed.",
+  "description": "This entity contains a harmonised description of a generic Cross-Section made for Raw-Water (Open Channels) System Management domain. A CrossSection defines any point of the system where raw-water properties are monitored by a device and/or computed via simulation.",
   "type": "object",
   "allOf": [
     {
@@ -18,7 +18,7 @@
           "enum": [
             "CrossSection"
           ],
-          "description": "Property. NGSI-LD Entity Type. It has to be CrossSection"
+          "description": "Property. NGSI-LD Entity Type. It has to be CrossSection."
         },
         "attachedTo": {
           "anyOf": [
@@ -35,7 +35,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. A relationship to the ID of the channel where the cross-section 'lives in'. Reference to an entity of type Channel"
+          "description": "Relationship. A relationship to the ID of the channel where the cross-section 'lives in'. Reference to an entity of type Channel."
         },
         "observedBy": {
           "anyOf": [
@@ -52,7 +52,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. Device for the value observations. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'"
+          "description": "Relationship. A relationship to the ID of the device that monitors raw-water properties. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'"
         },
         "tag": {
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/tag"
@@ -63,7 +63,7 @@
           "properties": {
             "distance": {
               "type": "number",
-              "description": "Property. The distance between this Entity and a reference point (e.g., the most upstream point of the system)"
+              "description": "Property. The distance between this Entity and a reference point (e.g., the most upstream point of the system)."
             },
             "refPoint": {
               "anyOf": [
@@ -72,50 +72,50 @@
                   "minLength": 1,
                   "maxLength": 256,
                   "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                  "description": "Property. Identifier format of any NGSI entity"
+                  "description": "Property. Identifier format of any NGSI entity."
                 },
                 {
                   "type": "string",
                   "format": "uri",
-                  "description": "Property. Identifier format of any NGSI entity"
+                  "description": "Property. Identifier format of any NGSI entity."
                 }
               ],
-              "description": "Relationship. The reference point distance is count from"
+              "description": "Relationship. The reference point distance is measured from."
             }
           }
         },
         "waterFlow": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Rate of water flow in the cross-section"
+          "description": "Property. Water flow at the cross-section."
         },
         "waterVelocity": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Velocity in the cross-section"
+          "description": "Property. Water Velocity at the cross-section."
         },
         "waterTemperature": {
           "type": "number",
-          "description": "Property. Quality parameter (temperature) in the cross-section"
+          "description": "Property. Water temperature at the cross-section."
         },
         "turbidity": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Quality parameter (turbidity) in the cross-section"
+          "description": "Property. Water turbidity at the cross-section."
         },
         "specificConductivity": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Quality parameter (conductivity) in the cross-section"
+          "description": "Property. Water conductivity at the cross-section."
         },
         "waterLevel": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Water level in the cross-section"
+          "description": "Property. Water level at the cross-section."
         },
         "energyHead": {
           "type": "number",
-          "description": "Property. The energy head in the cross-section"
+          "description": "Property. The total energy head at the cross-section."
         },
         "CrossSectionGeometry": {
           "type": "string",
@@ -123,39 +123,39 @@
             "Trapezoidal",
             "Circular"
           ],
-          "description": "Property. Description of the geometry of a cross-section. Text defining the geometry of a CrossSection. Enum:'Trapezoidal, Circular'."
+          "description": "Property. The geometry of the cross-section. Enum:'Trapezoidal, Circular'."
         },
         "bottomSlope": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The bottom slope of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
+          "description": "Property. The bottom slope of the channel where the cross-section 'lives in'. All units are accepted in CEFACT code."
         },
         "leftSideSlope": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The slope of the left bank of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
+          "description": "Property. The slope of the left bank of the cross-section (for 'Trapezoidal' geometry). All units are accepted in CEFACT code."
         },
         "rightSideSlope": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The slope of the right bank of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
+          "description": "Property. The slope of the right bank of the cross-section (for 'Trapezoidal' geometry). All units are accepted in CEFACT code."
         },
         "bottomWidth": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The bottom width of the channel in the case of 'Trapezoidal' type. All units are accepted in CEFACT code"
+          "description": "Property. The bottom width of the cross-section (for 'Trapezoidal' geometry). All units are accepted in CEFACT code."
         },
         "diameter": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The diameter of a circular channel"
+          "description": "Property. The diameter of a circular cross-section."
         },
         "maxWaterDepth": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The maximum allowable water depth of the channel. All units are accepted in CEFACT code"
+          "description": "Property. The maximum allowable water depth at the cross-section. All units are accepted in CEFACT code."
         },
-        "copiesFrom": {
+        "inheritsFrom": {
           "anyOf": [
             {
               "type": "string",
@@ -170,7 +170,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. URI of a Channel component from which the value of a property is obtained"
+          "description": "Relationship. URI of a Channel component from which the value of a property is obtained."
         }
       }
     }

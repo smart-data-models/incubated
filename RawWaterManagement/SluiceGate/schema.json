@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema#",
   "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/SluiceGate/schema.json",
   "title": "Open Channel Management - SluiceGate ",
-  "description": "This entity contains a harmonised description of a generic Sluice Gate made for Open Channel Management (raw-water systems).",
+  "description": "This entity contains a harmonised description of a generic Sluice Gate made for Raw-Water (Open Channels) System Management domain.",
   "type": "object",
   "allOf": [
     {
@@ -18,14 +18,14 @@
           "enum": [
             "SluiceGate"
           ],
-          "description": "Property. NGSI-LD Entity Type. It has to be SluiceGate"
+          "description": "Property. NGSI-LD Entity Type. It has to be SluiceGate."
         },
         "tag": {
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/tag"
         },
         "gateType": {
           "type": "string",
-          "description": "Property. Enum:'Sluice Gate'. The type of the gate.",
+          "description": "Property. The type of the gate. Enum:'Sluice Gate'.",
           "enum": [
             "Sluice Gate"
           ]
@@ -33,7 +33,7 @@
         "gateWidth": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The width of the sluice gate. Units: 'meters'"
+          "description": "Property. The width of the sluice gate. Units: 'meters'."
         },
         "gateOpening": {
           "type": "number",
@@ -43,27 +43,27 @@
         "gateBottomElevation": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Elevation of the bottom (crest) of the gate"
+          "description": "Property. Elevation of the bottom (crest) of the gate."
         },
         "gateDischargeCoefficient": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Gate discharge coefficient (m0.5/s) that accounts for energy losses as water passes under the gate"
+          "description": "Property. Discharge coefficient of the gate that accounts for energy losses as water passes under the gate."
         },
         "orificeDischargeCoefficient": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Orifice discharge coefficient (m0.5/s) that accounts for energy losses as water passes under the gate and the downstream tailwater increases to the point at which the gate is no longer flowing freely (downstream submergence is causing a greater upstream headwater for a given flow)"
+          "description": "Property. Orifice discharge coefficient that accounts for energy losses as water passes under the gate, and the downstream tailwater increases so that the gate is no longer flowing freely."
         },
         "waterDischarge": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The discharge that passes the weir (Q)"
+          "description": "Property. The discharge that passes the weir (Q)."
         },
         "headDifference": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. The difference between the upstream depth and the depth just downstream"
+          "description": "Property. The difference between the upstream depth and the depth just downstream."
         },
         "flowType": {
           "type": "string",
@@ -72,7 +72,7 @@
             "Overflow",
             "Submerged Flow"
           ],
-          "description": "Property. Enum:'Overflow, Free-Flow, Submerged Flow'. It defines the flow conditions in the gate. It takes the values: 'Overflow' (upstream water level exceeds the weir crest level), 'Free-Flow' (water level is lower than gate edge), 'Submerged Flow' (the rate of flow passing through the gate is regulated by the opening of the gate)"
+          "description": "Property. It defines the flow conditions in the gate. It takes the values: 'Overflow' (upstream water level exceeds the weir crest level), 'Free-Flow' (water level is lower than gate edge), 'Submerged Flow' (the rate of flow passing through the gate is regulated by the opening of the gate). Enum:'Overflow, Free-Flow, Submerged Flow'."
         },
         "upstreamEndControlPoint": {
           "anyOf": [
@@ -89,7 +89,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. A relationship indicating the ID of the cross section just upstream of the sluice gate"
+          "description": "Relationship. A relationship indicating the ID of an entity of type Cross Section, representing a cross section just upstream of the sluice gate."
         },
         "downstreamEndControlPoint": {
           "anyOf": [
@@ -106,7 +106,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. A relationship indicating the ID of the cross section just downstream of the sluice gate"
+          "description": "Relationship. A relationship indicating the ID of an entity of type Cross Section, representing a cross section just downstream of the sluice gate."
         },
         "upstreamControlPoint": {
           "anyOf": [
@@ -123,7 +123,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. A relationship indicating the ID of the cross section in a distance where the flow conditions are permanent, upstream of the sluice gate"
+          "description": "Relationship. A relationship indicating the ID of an entity of type Cross Section, representing a cross section in a distance where the flow conditions are permanent, upstream of the sluice gate."
         },
         "downstreamControlPoint": {
           "anyOf": [
@@ -140,7 +140,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. A relationship indicating the ID of the cross section in a distance where the flow conditions are permanent, downstream of the sluice gate"
+          "description": "Relationship. A relationship indicating the ID of an entity of type Cross Section, representing a cross section in a distance where the flow conditions are permanent, downstream of the sluice gate."
         },
         "observedBy": {
           "anyOf": [
@@ -157,7 +157,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. Device providing the data. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'",
+          "description": "Relationship. A relationship to the ID of the device that monitors raw-water properties. Model:'https://smart-data-models.github.io/dataModel.Device/device-schema.json'",
           "format": "uri"
         },
         "curveDischargeCoefficient": {
@@ -175,7 +175,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. The URI of the OpenChannelCurve that represents the discharge Coefficient as a function of relative weir opening (weir opening over upstream depth), Cd over a/H1"
+          "description": "Relationship. The URI of an OpenChannelCurve entity that represents the Discharge Coefficient (C) as a function of relative weir opening (weir opening (a) over upstream depth(H)), C over a/H."
         }
       }
     }
