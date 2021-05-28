@@ -1,8 +1,9 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/HydraulicSimulationScenario/schema.json",
+  "$schemaVersion": "0.0.1",
   "title": "Open Channel Management - HydraulicSimulationScenario",
-  "description": "Made for Open Channel Management (raw-water systems)",
+  "description": "Made for Raw-Water (Open Channels) System Management domain.",
   "type": "object",
   "allOf": [
     {
@@ -21,14 +22,33 @@
           "description": "Property. it has to be HydraulicSimulationScenario. NGSI-LD Entity Type"
         },
         "hasInputOpenChannelSystem": {
-          "type": "string",
-          "format": "uri",
-          "description": "Property. The URI of the OpenChannelSystem this result is referring to"
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. The URI of the OpenChannelSystem this result is referring to"
         },
         "hasSimulationResult": {
-          "type": "string",
-          "format": "uri",
-          "description": "Property. the URI of the HydraulicSimulationScenario this result has been computed"
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. the URI of the HydraulicSimulationScenario this result has been computed"
         },
         "targetValues": {
           "type": "array",
@@ -67,21 +87,21 @@
           "items": {
             "properties": {
               "waterAttribute": {
-                "description": "Property. A sub-property. A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship",
                 "type": "number",
-                "minimum": 0
+                "minimum": 0,
+                "description": "Property. A sub-property. A water attribute issued from the above data models. It follows fully this data model and it could be a property or a relationship"
               },
               "targetURI": {
-                "description": "Relationship. The CrossSection these target values refer to",
                 "type": "string",
-                "format": "uri"
+                "format": "uri",
+                "description": "Relationship. The CrossSection these target values refer to"
               }
             }
           }
         },
         "createdBy": {
-          "description": "Property. The user created this HydraulicSimulationScenario. It can be a UniqueId or a fullName",
-          "type": "string"
+          "type": "string",
+          "description": "Property. The user created this HydraulicSimulationScenario. It can be a UniqueId or a fullName"
         },
         "duration": {
           "type": "number",
