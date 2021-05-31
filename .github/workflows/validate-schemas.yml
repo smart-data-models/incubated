@@ -51,6 +51,8 @@ jobs:
         with:
           name: Schema-${{ steps.get-folder.outputs.folder }}
           path: ${{ steps.get-folder.outputs.folder }}-failure.json
+          if-no-files-found: ignore
+
 
       - name: Upload annotations
         if: failure()
@@ -58,6 +60,7 @@ jobs:
         with:
           name: Schema-${{ steps.get-folder.outputs.folder }}
           path: ${{ steps.get-folder.outputs.folder }}-annotation.json
+          if-no-files-found: ignore
 
   report:
     needs: validate-schemas
