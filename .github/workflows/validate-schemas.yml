@@ -11,11 +11,10 @@ jobs:
 
       - id: list-schema-files
         run: |
-          echo "::set-output name=matrix::$(find . -print | grep -i 'schema.json')"
-
+          echo "::set-output name=matrix::$(jq -ncR '[inputs]' <<< $(find . -print | grep -i 'schema.json'))"
 
     outputs:
-      matrix: ${{ fromJson(steps.list-schema-files.outputs.matrix) }}
+      matrix: ${{ steps.list-schema-files.outputs.matrix }}
 
   validate-schemas:
     needs: create-test-matrix
@@ -23,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        schema-file: ${{ needs.create-test-matrix.outputs.matrix }}
+        schema-file: ${{ fromJson(needs.create-test-matrix.outputs.matrix) }}
 
     steps:
       - uses: actions/checkout@v2
