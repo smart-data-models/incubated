@@ -40,6 +40,11 @@ jobs:
           failure-file: ${{ steps.get-folder.outputs.folder }}/failure.json
           annotations-file: ${{ steps.get-folder.outputs.folder }}/annotation.json
 
+    - if: failure()
+      id: doc
+      run: |
+        ls -R
+
       - name: Upload failure report
         if: failure()
         uses: actions/upload-artifact@v2
