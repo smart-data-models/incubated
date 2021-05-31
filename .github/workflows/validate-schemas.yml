@@ -41,14 +41,14 @@ jobs:
           annotations-file: ${{ steps.get-folder.outputs.folder }}/annotation.json
 
       - name: Upload failure report
-        if: failed()
+        if: failure()
         uses: actions/upload-artifact@v2
         with:
           name: ${{ steps.get-folder.outputs.folder }}
           path: ${{ steps.get-folder.outputs.folder }}/failure.json
 
       - name: Upload annotations
-        if: failed()
+        if: failure()
         uses: actions/upload-artifact@v2
         with:
           name: ${{ steps.get-folder.outputs.folder }}
