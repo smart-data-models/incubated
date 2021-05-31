@@ -29,19 +29,21 @@ jobs:
         name: Checkout
 
       - uses:  wistefan/validate-data-model@master
+        if: validate
         name: Validate
+        continue-on-error: true
         with:
           schema-file: ${{ matrix.schema-file }}
 
       - name: Upload failure report
-        if: always()
+        if: steps.validate.outcome == 'failure'
         uses: actions/upload-artifact@v2
         with:
           name: failure-result.json
           path: failure-result.json
 
       - name: Annotate
-        if: always()
+        if: steps.validate.outcome == 'failure'
         uses: yuzutech/annotations-action@v0.3.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
