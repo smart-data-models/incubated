@@ -11,8 +11,9 @@ jobs:
 
       - id: list-schema-files
         run: |
-          fileList=jq -ncR '[inputs]' <<< $(find . -print | grep -i 'schema.json')
-          echo "::set-output name=matrix::${fileList}"
+          fileList=$(find . -print | grep -i 'schema.json')
+          results=$(jq -ncR '[inputs]' <<< ${fileList})
+          echo "::set-output name=matrix::${results}"
 
 
     outputs:
