@@ -37,8 +37,8 @@ jobs:
         name: Validate
         with:
           schema-file: ${{ matrix.schema-file }}
-          failure-file: ${{ steps.get-folder.outputs.folder }}/failure.json
-          annotations-file: ${{ steps.get-folder.outputs.folder }}/annotation.json
+          failure-file: ${{ steps.get-folder.outputs.folder }}-failure.json
+          annotations-file: ${{ steps.get-folder.outputs.folder }}-annotation.json
 
       - if: failure()
         id: doc
@@ -50,14 +50,14 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{ steps.get-folder.outputs.folder }}
-          path: ${{ steps.get-folder.outputs.folder }}/failure.json
+          path: ${{ steps.get-folder.outputs.folder }}-failure.json
 
       - name: Upload annotations
         if: failure()
         uses: actions/upload-artifact@v2
         with:
           name: ${{ steps.get-folder.outputs.folder }}
-          path: ${{ steps.get-folder.outputs.folder }}/annotation.json
+          path: ${{ steps.get-folder.outputs.folder }}-annotation.json
 
   report:
     needs: validate-schemas
@@ -69,7 +69,7 @@ jobs:
 
       - id: prepare-annotations
         run: |
-          jq -s '[.[][0]]' ./results/**/annotation.json > annotations.json
+          jq -s '[.[][0]]' ./results/**/*-annotation.json > annotations.json
 
       - name: Annotate
         uses: yuzutech/annotations-action@v0.3.0
