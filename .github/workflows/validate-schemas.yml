@@ -23,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        schema-file: ${{fromJson(needs.create-test-matrix.outputs.matrix)}}
+        schema-file: ${{ needs.create-test-matrix.outputs.matrix }}
 
     steps:
       - uses: actions/checkout@v2
