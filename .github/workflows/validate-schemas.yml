@@ -37,18 +37,37 @@ jobs:
         name: Validate
         with:
           schema-file: ${{ matrix.schema-file }}
-          failure-file: ${{ steps.get-folder.outputs.folder }}-failure.json
-          annotations-file: ${{ steps.get-folder.outputs.folder }}-annotation.json
+          failure-file: ${{ steps.get-folder.outputs.folder }}/failure.json
+          annotations-file: ${{ steps.get-folder.outputs.folder }}/annotation.json
 
       - name: Upload failure report
-        if: always() && steps.validate.outcome == 'failure'
+        if: failed()
         uses: actions/upload-artifact@v2
         with:
-          path: ${{ steps.get-folder.outputs.folder }}-failure.json
+          name: ${{ steps.get-folder.outputs.folder }}
+          path: ${{ steps.get-folder.outputs.folder }}/failure.json
+
+      - name: Upload annotations
+        if: failed()
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ steps.get-folder.outputs.folder }}
+          path: ${{ steps.get-folder.outputs.folder }}/annotation.json
+
+  report:
+    needs: validate-schemas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          path: annotations
+
+      - id: prepare-annotations
+        run: |
+          jq -s '[.[][0]]' ./results/**/annotation.json > annotations.json
 
       - name: Annotate
-        if: always() && steps.validate.outcome == 'failure'
         uses: yuzutech/annotations-action@v0.3.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          input: ${{ steps.get-folder.outputs.folder }}-annotation.json
+          input: annotations.json
