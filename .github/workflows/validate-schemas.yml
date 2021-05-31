@@ -28,23 +28,29 @@ jobs:
       - uses: actions/checkout@v2
         name: Checkout
 
+      - id: get-folder
+        run: |
+          echo "::set-output name=folder::$(basename $(dirname ${{ matrix.schema-file }}))"
+
       - uses:  wistefan/validate-data-model@master
         id: validate
         name: Validate
         continue-on-error: true
         with:
           schema-file: ${{ matrix.schema-file }}
+          failure-file: ${{ steps.get-folder.outputs.folder }}-failure.json
+          annotations-file: ${{ steps.get-folder.outputs.folder }}-annotation.json
 
       - name: Upload failure report
         if: steps.validate.outcome == 'failure'
         uses: actions/upload-artifact@v2
         with:
-          name: failure-result.json
-          path: failure-result.json
+          name: ${{ steps.get-folder.outputs.folder }}-failure.json
+          path: ${{ steps.get-folder.outputs.folder }}-failure.json
 
       - name: Annotate
         if: steps.validate.outcome == 'failure'
         uses: yuzutech/annotations-action@v0.3.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          input: 'annotations.json'
+          input: ${{ steps.get-folder.outputs.folder }}-annotation.json
