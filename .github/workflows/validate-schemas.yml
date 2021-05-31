@@ -41,13 +41,13 @@ jobs:
           annotations-file: ${{ steps.get-folder.outputs.folder }}-annotation.json
 
       - name: Upload failure report
-        if: steps.validate.outcome == 'failure'
+        if: always() && steps.validate.outcome == 'failure'
         uses: actions/upload-artifact@v2
         with:
           path: ${{ steps.get-folder.outputs.folder }}-failure.json
 
       - name: Annotate
-        if: steps.validate.outcome == 'failure'
+        if: always() && steps.validate.outcome == 'failure'
         uses: yuzutech/annotations-action@v0.3.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
