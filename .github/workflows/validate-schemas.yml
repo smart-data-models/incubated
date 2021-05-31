@@ -49,14 +49,14 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ steps.get-folder.outputs.folder }}
+          name: Schema-${{ steps.get-folder.outputs.folder }}
           path: ${{ steps.get-folder.outputs.folder }}-failure.json
 
       - name: Upload annotations
         if: failure()
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ steps.get-folder.outputs.folder }}
+          name: Schema-${{ steps.get-folder.outputs.folder }}
           path: ${{ steps.get-folder.outputs.folder }}-annotation.json
 
   report:
