@@ -17,7 +17,7 @@ jobs:
 
       - id: filter-schema-json
         run: |
-          echo "::set-output name=matrix::$(jq '[.[]  | select(test("schema.json"))]' <<< '${{ steps.files.outputs.added_modified }}')"
+          echo "::set-output name=matrix::'$(jq '[.[]  | select(test("schema.json"))]' <<< '${{ steps.files.outputs.added_modified }}')'"
 
       - id: log
         run: |
