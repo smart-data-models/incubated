@@ -15,6 +15,10 @@ jobs:
         with:
           format: 'json'
 
+      - id: log
+        run: |
+          echo $(jq '.[]  | select(test("schema.json"))' <<< '${{ steps.files.outputs.added_modified }}')
+
       - id: filter-schema-json
         run: |
           echo "::set-output name=matrix::$(jq '.[]  | select(test("schema.json"))' <<< '${{ steps.files.outputs.added_modified }}')"
