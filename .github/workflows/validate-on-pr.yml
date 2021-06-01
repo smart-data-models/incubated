@@ -15,78 +15,78 @@ jobs:
         with:
           format: 'json'
 
-      - id: get-files
+      - id: filter-schema-json
         run: |
-          echo ${{ steps.files.outputs.added_modified }}
+          echo "::set-output name=matrix::$(${{ steps.files.outputs.added_modified }} | jq '.[]  | test("schema.json")')"
 
-#    outputs:
-#      matrix: ${{ steps.list-schema-files.outputs.matrix }}
-#
-#  validate-schemas:
-#    needs: create-test-matrix
-#    runs-on: ubuntu-latest
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        schema-file: ${{ fromJson(needs.create-test-matrix.outputs.matrix) }}
-#
-#    steps:
-#      - uses: actions/checkout@v2
-#        name: Checkout
-#
-#      - id: get-folder
-#        run: |
-#          echo "::set-output name=folder::$(basename $(dirname ${{ matrix.schema-file }}))"
-#
-#      - uses:  wistefan/validate-data-model@master
-#        id: validate
-#        name: Validate
-#        with:
-#          schema-file: ${{ matrix.schema-file }}
-#          failure-file: ${{ steps.get-folder.outputs.folder }}-failure.json
-#          annotations-file: ${{ steps.get-folder.outputs.folder }}-annotation.json
-#
-#      - if: failure()
-#        id: doc
-#        run: |
-#          ls -R
-#
-#      - name: Upload failure report
-#        if: failure()
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: Schema-${{ steps.get-folder.outputs.folder }}
-#          path: ${{ steps.get-folder.outputs.folder }}-failure.json
-#          if-no-files-found: ignore
-#
-#
-#      - name: Upload annotations
-#        if: failure()
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: Schema-${{ steps.get-folder.outputs.folder }}
-#          path: ${{ steps.get-folder.outputs.folder }}-annotation.json
-#          if-no-files-found: ignore
-#
-#  report:
-#    needs: validate-schemas
-#    runs-on: ubuntu-latest
-#    if: always()
-#    steps:
-#      - uses: actions/download-artifact@v2
-#        with:
-#          path: annotations
-#
-#      - id: prepare-annotations
-#        run: |
-#          jq -s '[.[][0]]' ./annotations/**/*-annotation.json > annotations.json
-#
-#      - id: logging
-#        run: |
-#          cat annotations.json
-#
-#      - name: Annotate
-#        uses: yuzutech/annotations-action@v0.3.0
-#        with:
-#          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-#          input: annotations.json
+    outputs:
+      matrix: ${{ steps.filter-schema-json.outputs.matrix }}
+
+  validate-schemas:
+    needs: create-test-matrix
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        schema-file: ${{ fromJson(needs.create-test-matrix.outputs.matrix) }}
+
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+
+      - id: get-folder
+        run: |
+          echo "::set-output name=folder::$(basename $(dirname ${{ matrix.schema-file }}))"
+
+      - uses:  wistefan/validate-data-model@master
+        id: validate
+        name: Validate
+        with:
+          schema-file: ${{ matrix.schema-file }}
+          failure-file: ${{ steps.get-folder.outputs.folder }}-failure.json
+          annotations-file: ${{ steps.get-folder.outputs.folder }}-annotation.json
+
+      - if: failure()
+        id: doc
+        run: |
+          ls -R
+
+      - name: Upload failure report
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: Schema-${{ steps.get-folder.outputs.folder }}
+          path: ${{ steps.get-folder.outputs.folder }}-failure.json
+          if-no-files-found: ignore
+
+
+      - name: Upload annotations
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: Schema-${{ steps.get-folder.outputs.folder }}
+          path: ${{ steps.get-folder.outputs.folder }}-annotation.json
+          if-no-files-found: ignore
+
+  report:
+    needs: validate-schemas
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          path: annotations
+
+      - id: prepare-annotations
+        run: |
+          jq -s '[.[][0]]' ./annotations/**/*-annotation.json > annotations.json
+
+      - id: logging
+        run: |
+          cat annotations.json
+
+      - name: Annotate
+        uses: yuzutech/annotations-action@v0.3.0
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          input: annotations.json
