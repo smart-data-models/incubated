@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/schema#",
   "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/RegulationStructure/schema.json",
   "title": "Open Channel Management - RegulationStructure",
-  "description": "This entity contains a harmonised description of a generic regulation structure made for Open Channel Management (raw-water systems). Regulation structure consists a junction type object, controlling the water flow in a channel",
+  "description": "This entity contains a harmonised description of a generic Regulation Structure made for Raw-Water (Open Channels) System Management domain. Regulation structure represents a junction-type object, controlling the water flow in the raw-water system.",
   "type": "object",
   "allOf": [
     {
@@ -26,16 +26,16 @@
         "numberOfGates": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. An integer value defining the number of gates attached to the regulation structure"
+          "description": "Property. An integer value defining the number of control gates attached to the regulation structure."
         },
         "numberOfSpillways": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. An integer value defining the number of spillways attached to the regulation structure"
+          "description": "Property. An integer value defining the number of spillways attached to the regulation structure."
         },
         "teleCommand": {
           "type": "boolean",
-          "description": "Property. Define whether the regulation structure is controlled remotely or manually. True/False value"
+          "description": "Property. Define whether the regulation structure is controlled remotely or manually. True/False value."
         },
         "hasSluiceGate": {
           "anyOf": [
@@ -52,7 +52,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. A relationship to the ID label of the Sluice gate"
+          "description": "Relationship. Reference to an entity of type Sluice gate."
         },
         "hasSpillway": {
           "anyOf": [
@@ -69,7 +69,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. A relationship to the ID label of the spillway"
+          "description": "Relationship. Reference to an entity of type Sluice gate Spillway."
         },
         "position": {
           "type": "object",
@@ -77,7 +77,7 @@
           "properties": {
             "distance": {
               "type": "number",
-              "description": "Property. The distance between this Entity and a reference point (e.g., the most upstream point of the system)"
+              "description": "Property. The distance between this Entity and a reference point (e.g., the most upstream point of the system)."
             },
             "refPoint": {
               "anyOf": [
@@ -86,15 +86,15 @@
                   "minLength": 1,
                   "maxLength": 256,
                   "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                  "description": "Property. Identifier format of any NGSI entity"
+                  "description": "Property. Identifier format of any NGSI entity."
                 },
                 {
                   "type": "string",
                   "format": "uri",
-                  "description": "Property. Identifier format of any NGSI entity"
+                  "description": "Property. Identifier format of any NGSI entity."
                 }
               ],
-              "description": "Relationship. The reference point distance is count from"
+              "description": "Relationship. The reference point distance is measured from."
             }
           }
         }
