@@ -46,11 +46,6 @@ jobs:
           failure-file: ${{ steps.get-folder.outputs.folder }}-failure.json
           annotations-file: ${{ steps.get-folder.outputs.folder }}-annotation.json
 
-      - if: failure()
-        id: doc
-        run: |
-          ls -R
-
       - name: Upload failure report
         if: failure()
         uses: actions/upload-artifact@v2
@@ -71,7 +66,8 @@ jobs:
   report:
     needs: validate-schemas
     runs-on: ubuntu-latest
-    if: always()
+    if: failure() || success()
+
     steps:
       - uses: actions/download-artifact@v2
         with:
