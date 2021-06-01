@@ -22,7 +22,6 @@ jobs:
   validate-schemas:
     needs: create-test-matrix
     runs-on: ubuntu-latest
-    if: ${{ needs.create-test-matrix.outputs.matrix != '[]' }}
     strategy:
       fail-fast: false
       matrix:
