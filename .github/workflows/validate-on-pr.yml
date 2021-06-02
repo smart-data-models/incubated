@@ -12,9 +12,9 @@ jobs:
       - id: files
         uses: jitterbit/get-changed-files@v1
 
-#      - id: filter-schema-json
-#        run: |
-#          echo "::set-output name=matrix::$(jq '[.[] | select(test("schema.json"))]' <<< '${{ steps.files.outputs.added_modified }}' | sed "s/\"/'/g")"
+      - id: filter-schema-json
+        run: |
+          echo "::set-output name=matrix::$(jq '[.[] | select(test("schema.json"))]' <<< '${{ steps.files.outputs.added_modified }}' | sed "s/\"/'/g")"
 
       - id: log
         run: |
