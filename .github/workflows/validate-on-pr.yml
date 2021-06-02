@@ -15,11 +15,13 @@ jobs:
           format: 'json'
 
       - id: filter-schema-json
+        if: failure()
         run: |
           matrix=$(jq -j '[.[] | select(test("schema.json"))]' <<< '${{ steps.files.outputs.added_modified }}' | sed "s/\"/'/g" | tr -d '\n')
           echo "::set-output name=matrix::${matrix}"
 
       - id: log
+        if: failure()
         run: |
           echo ${{ steps.filter-schema-json.outputs.matrix }}
 
