@@ -11,16 +11,14 @@ jobs:
 
       - id: files
         uses: jitterbit/get-changed-files@v1
-        with:
-          format: 'json'
 
-      - id: filter-schema-json
-        run: |
-          echo "::set-output name=matrix::$(jq '[.[] | select(test("schema.json"))]' <<< '${{ steps.files.outputs.added_modified }}' | sed "s/\"/'/g")"
+#      - id: filter-schema-json
+#        run: |
+#          echo "::set-output name=matrix::$(jq '[.[] | select(test("schema.json"))]' <<< '${{ steps.files.outputs.added_modified }}' | sed "s/\"/'/g")"
 
       - id: log
         run: |
-          echo ${{ steps.filter-schema-json.outputs.matrix }}
+          echo ${{ steps.files.outputs.added_modified }}
 
     outputs:
       matrix: ${{ steps.filter-schema-json.outputs.matrix }}
