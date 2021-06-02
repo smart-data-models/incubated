@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/RegulationStructure/schema.json",
+  "title": "Open Channel Management - RegulationStructure",
+  "description": "This entity contains a harmonised description of a generic Regulation Structure made for Raw-Water (Open Channels) System Management domain. Regulation structure represents a junction-type object, controlling the water flow in the raw-water system.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "RegulationStructure"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It has to be RegulationStructure"
+        },
+        "tag": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/tag"
+        },
+        "numberOfGates": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. An integer value defining the number of control gates attached to the regulation structure."
+        },
+        "numberOfSpillways": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. An integer value defining the number of spillways attached to the regulation structure."
+        },
+        "teleCommand": {
+          "type": "boolean",
+          "description": "Property. Define whether the regulation structure is controlled remotely or manually. True/False value."
+        },
+        "hasSluiceGate": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to an entity of type Sluice gate."
+        },
+        "hasSpillway": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to an entity of type Sluice gate Spillway."
+        },
+        "position": {
+          "type": "object",
+          "description": "Property. Object providing information about the distance with the rest of the elements and a relationship with them.",
+          "properties": {
+            "distance": {
+              "type": "number",
+              "description": "Property. The distance between this Entity and a reference point (e.g., the most upstream point of the system)."
+            },
+            "refPoint": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256,
+                  "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                  "description": "Property. Identifier format of any NGSI entity."
+                },
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Property. Identifier format of any NGSI entity."
+                }
+              ],
+              "description": "Relationship. The reference point distance is measured from."
+            }
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name"
+  ]
+}

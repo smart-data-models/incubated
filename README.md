@@ -1,4 +1,7 @@
 # Incubated datamodels
+We have just reorganized, partially, this folder so there are domain folders to allocate the directories where the data models are developed. 
+ 
+
 This folder is receiving the Pull requests with new data models that cannot be classified yet
 
 Data models here will be progressively moved to new or to existing domains and subjects

@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/PhotovoltaicDevice/schema.json",
+  "title": "Open Channel Management - Channel",
+  "description": "This entity contains a harmonised description of a generic Channel made for Raw-Water (Open Channels) System Management domain.",
+  "$schemaVersion": "0.0.1",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Channel"
+          ],
+          "description": "Property. NGSI-LD Entity Type. it has to be Channel"
+        },
+        "downstreamNode": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the downstream node (e.g., Junction, Regulation Structure), where the channel ends."
+        },
+        "upstreamNode": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the upstream node (e.g., Junction, Regulation Structure), where the channel begins."
+        },
+        "tag": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/tag"
+        },
+        "geometryType": {
+          "description": "Property. The geometry of the channel. Enum:'Trapezoidal, Circular'].",
+          "type": "string",
+          "enum": [
+            "Circular",
+            "Trapezoidal"
+          ]
+        },
+        "bottomSlope": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. The bottom slope of the channel. All units are accepted in CEFACT code."
+        },
+        "leftSideSlope": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. The slope of the left bank of the channel (for 'Trapezoidal' geometry). All units are accepted in CEFACT code."
+        },
+        "rightSideSlope": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. The slope of the right bank of the channel (for 'Trapezoidal' geometry). All units are accepted in CEFACT code."
+        },
+        "bottomWidth": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. The bottom width of the channel (for 'Trapezoidal' geometry). All units are accepted in CEFACT code."
+        },
+        "diameter": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. The diameter of a circular channel. All units are accepted in CEFACT code."
+        },
+        "maxWaterDepth": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. The maximum allowable water depth in the channel. All units are accepted in CEFACT code."
+        },
+        "roughnessCoefficient": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. The Manning’s roughness coefficient."
+        },
+        "flowType": {
+          "type": "string",
+          "description": "Property. Text defining the type of flow in the channel. Enum:'Free-Surface flow'.",
+          "enum": [
+            "Free-Surface flow"
+          ]
+        },
+        "celerity": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Velocity of a surge propagated along the channel after the opening or close of a sluice gate."
+        },
+        "travelDuration": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. The duration of the surge travelling from the downstream node (i.e., Regulation Structure) to the upstream node."
+        },
+        "waterLoss": {
+          "type": "object",
+          "minimum": 0,
+          "description": "Property. Water leakages/losses from the channel - percentage of flow of the channel or a number (flow)."
+        },
+        "length": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. The length of the channel. All units are accepted in CEFACT code."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
