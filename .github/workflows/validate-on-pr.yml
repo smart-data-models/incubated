@@ -17,7 +17,7 @@ jobs:
       - id: filter-schema-json
         run: |
           matrix=$(jq '[.[] | select(test("schema.json"))]' <<< '${{ steps.files.outputs.added_modified }}' | sed "s/\"/'/g")
-          echo ${matrix}
+          echo "The matrix: ${matrix}"
           echo "::set-output name=matrix::${matrix}"
 
       - id: log
