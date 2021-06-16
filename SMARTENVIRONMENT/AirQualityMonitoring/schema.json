@@ -14,43 +14,12 @@
     },
     {
       "properties": {
-        "refDevice": {
-          "anyOf": [
-            {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 256,
-              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-              "description": "Property. Identifier format of any NGSI entity"
-            },
-            {
-              "type": "string",
-              "format": "uri",
-              "description": "Property. Identifier format of any NGSI entity"
-            }
+        "type": {
+          "type": "string",
+          "enum": [
+            "AirQualityMonitoring"
           ],
-          "description": "Relationship. Unique identifier of the entity"
-        },
-        "observationDateTime": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Property. Model:'https://schema.org/DateTime'. Last reported time of observation."
-        },
-        "deviceStatus": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Indicates the status of physical device or devices.\n"
-        },
-        "atmosphericPressure": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Observed air (atmospheric or barometric) pressure."
-        },
-        "airQualityIndex": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Overall Air Quality Index (AQI) for the observed air quality."
-        },
-        "airQualityLevel": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Air Quality Category Indication. Qualitative level defined according to the local health agencies. For example, 'GOOD', 'MODERATE', 'POOR', 'UNHEALTHY', 'SEVERE', 'HAZARDOUS' etc."
+          "description": "Property. NGSI type. it has to be AirQualityMonitoring"
         },
         "airMajorPollutant": {
           "type": "string",
@@ -69,16 +38,19 @@
             "bap"
           ]
         },
-        "pollutants": {
+        "airParameters": {
           "type": "array",
           "description": "Property. Array of information about the pollutants",
           "items": {
             "type": "object",
             "properties": {
-              "pollutantName": {
+              "qualityParameter": {
                 "type": "string",
                 "enum": [
+                  "airTemperature",
+                  "ambientNoise",
                   "arsenic",
+                  "atmosphericPressure",
                   "bap",
                   "benzene",
                   "co2",
@@ -90,8 +62,10 @@
                   "o3",
                   "pm10",
                   "pm25",
+                  "relativeHumidity",
                   "so2",
-                  "pb"
+                  "pb",
+                  "uv"
                 ]
               },
               "avgOverTime": {
@@ -106,45 +80,79 @@
             }
           }
         },
-        "relativeHumidity": {
+        "airQualityIndex": {
           "type": "number",
-          "minimum": 0.0,
-          "maximum": 1.0,
-          "description": "Property. Model:'http://schema.org/Number'. Units:'Degrees centigrade'. The average greenhouse air temperature nominally in degrees centigrade."
+          "description": "Property. Model:'https://schema.org/Number'. Overall Air Quality Index (AQI) for the observed air quality."
+        },
+        "airQualityLevel": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Air Quality Category Indication. Qualitative level defined according to the local health agencies. For example, 'GOOD', 'MODERATE', 'POOR', 'UNHEALTHY', 'SEVERE', 'HAZARDOUS' etc."
+        },
+        "deviceState": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Indicates the status of physical device or devices.\n"
+        },
+        "device"
+        "illuminance": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Measured illuminance"
+        },
+        "observationDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. Last reported time of observation."
+        },
+        "precipitation": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Observed precipitation/rainfall level over a given duration."
+        },
+        "refDevice": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Unique identifier of the entity"
+        },
+        "solarRadiation": {
+          "type": "number",
+          "description": "Property. Model:'http://schema.org/Number'. Instantaneous solar radiation measured in kW/m2. Units:'kW/m2'"
+        },
+        "versionInfo": {
+          "type": "object",
+          "properties": {
+            "comments": {
+              "type": "string"
+            },
+            "endDateTime": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "startDateTime": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "versionName": {
+              "type": "string"
+            }
+          },
+          "description": "Property. Version information corresponding to this observation."
         }
-      },
-      "illuminance": {
-        "type": "number",
-        "minimum": 0,
-        "description": "Property. Measured illuminance"
-      },
-      "solarRadiation": {
-        "type": "number",
-        "description": "Property. Model:'http://schema.org/Number'. Instantaneous solar radiation measured in kW/m2. Units:'kW/m2'"
-      },
-      "noiseLevel": {
-        "type": "number",
-        "description": "Property. Sound Power level of the Device. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **2N** represents Decibel. Units:'dB'. Model:'http://schema.org/Number'"
-      },
-      "airTemperature": {
-        "type": "number",
-        "description": "Property. Temperature of the air"
-      },
-      "uv": {
-        "type": "object",
-        "description": "Property. Observed levels of UV radiation. Value is an object containing attributes representing statistical aggregates derived from past data.",
-        "properties": {}
-      },
-      "precipitation": {
-        "type": "number",
-        "description": "Property. Model:'https://schema.org/Number'. Observed precipitation/rainfall level over a given duration."
-      },
-      "versionInfo": {
-        "type": "object",
-        "description": "Property. Version information corresponding to this observation.",
-        "properties": {}
       }
     }
-    }
+  ],
+  "required": [
+    "id",
+    "type"
   ]
 }
