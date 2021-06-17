@@ -27,11 +27,22 @@
         },
         "alarmFlowPersistence": {
           "type": "string",
-          "description": "Property. XXX"
+          "description": "Property. Alarm signifying continuous water use",
+          "enum": [
+            "Nothing to report",
+            "No persistence",
+            "In progress impacting persistence",
+            "In progress persistence",
+            "Past Persistence during the period"
+          ]
         },
         "alarmInProgress": {
           "type": "integer",
-          "description": "Property. XXX"
+          "description": "Property. Indicates that one or more alarms are in progress",
+          "enum": [
+            0,
+            1
+          ]
         },
         "alarmMetrology": {
           "type": "integer",
@@ -39,7 +50,11 @@
         },
         "alarmStopsLeaks": {
           "type": "integer",
-          "description": "Property. XXX"
+          "description": "Property. Alarm signifying the potential for an intermittent leak",
+          "enum": [
+            0,
+            1
+          ]
         },
         "alarmSystem": {
           "type": "integer",
@@ -47,19 +62,27 @@
         },
         "alarmTamper": {
           "type": "integer",
-          "description": "Property. XXX"
+          "description": "Property. Alarm signifying the potential of mechanical tampering with the device",
+          "enum": [
+            0,
+            1
+          ]
         },
         "alarmWaterQuality": {
           "type": "integer",
-          "description": "Property. XXX"
+          "description": "Property. Alarm signifying the potential of backflows occurring",
+          "enum": [
+            0,
+            1
+          ]
         },
         "maxFlow": {
           "type": "integer",
-          "description": "Property. XXX"
+          "description": "Property. Maximum flow rate observed during the last week. Units:'litres/hour'"
         },
         "minFlow": {
           "type": "integer",
-          "description": "Property. XXX"
+          "description": "Property. Minimum flow rate observed during the last week. Units:'litres/hour'"
         },
         "moduleTampered": {
           "type": "integer",
@@ -67,11 +90,26 @@
         },
         "persistenceFlowDuration": {
           "type": "string",
-          "description": "Property. XXX"
+          "description": "Property. The duration that persistence flow (continuous flow) is recorded by the meter. Text  field showing durations in minutes (m), hours (h) or days (d).",
+          "enum": [
+            "15m < 60m",
+            "60m < 3h",
+            "3h < 6h",
+            "6h < 12h",
+            "12h < 24h",
+            "24h < 2d",
+            "2d < 4d",
+            "4d < 8d",
+            "8d < 15d",
+            "15d < 30d",
+            "30d < 90d",
+            "90d < 180d",
+            "> 180d"
+          ]
         },
         "waterConsumption": {
           "type": "integer",
-          "description": "Property. XXX"
+          "description": "Property. The water meter reading. Note – this is total volume passed through the meter and is therefore a cumulative total at the time. Units:'Cubic meters'"
         }
       }
     }
