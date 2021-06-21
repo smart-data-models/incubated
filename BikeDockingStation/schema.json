@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Transportation/BikeDockingStation/schema.json",
+  "title": "Smart Data models -BikeDockingStation schema\",",
+  "description": "description of a generic airport",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref1": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref2": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "freeSlotNumber": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The number of bike racks or docking slots available for returning and parking bikes in the bike docking station corresponding to this observation."
+        },
+        "availableBikeNumber": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The number of bikes available in the bike hire docking station to be hired by users."
+        },
+        "totalSlotNumber": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The total number of bike racks or docking slots in bike docking station corresponding to this observation."
+        },
+        "outOfServiceSlotNumber": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The number of bike racks or docking slots that are out of order and cannot be used to hire or park a bike in the bike docking station corresponding to this observation."
+        },
+        "stationName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The name of the bike hire docking station corresponding to this observation."
+        },
+        "mediaURL": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. URL providing further information of any image(s) or media of the complaint or place."
+        },
+        "agency_url": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The agency_url field contains the URL of the transit agency. SameAs: 'agency_url' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt)"
+        },
+        "agency_name": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The agency_name field contains the full name of the transit agency. SameAs: 'agency_name' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt)"
+        },
+        "stationCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The station number or station code of the bike hire docking station corresponding to the observation."
+        },
+        "observationDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Last reported time of observation."
+        }
+      }
+    }
+  ]
+}
