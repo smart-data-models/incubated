@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "schemaVersion": "0.0",
+  "schemaVersion": "0.0.1",
   "$id": "https://smart-data-models.github.io/data-models.Energy/TechnicalCabinetDevice/schema.json",
   "title": "TechnicalCabinetDevice schema",
   "description": "Technical Cabinet Device Data Model is intended to to describe the technical characteristics of the Device, designed to be placed in an urban or interurban environment. The main objective of these cabinets for this Data Model is to protect the electrical equipment necessary for the control, surveillance, reading and management of urban lighting, signaling, video and electrical distribution. The scope of use of some of these cabinets can extend to an additional protection for installations of modular apparatuses of telephony, data processing, meteorological stations, photo-voltaic stations, wind turbines stations, telecommunications, networks, data, bre Optics , etc. *Remark* : This Data Model can be used directly as a main entity to describe the device `Technical Cabinet`  or as a sub-entity of the Data Model  `DEVICE` using a reference by the `refDevice` attribute. It can also refer to the list of all the components it contains, with the `refDeviceList` attribute, using the Data Model  `DEVICE`",
@@ -19,297 +19,360 @@
           "enum": [
             "TechnicalCabinetDevice"
           ],
-          "description": "NGSI Entity type"
+          "description": "Property. NGSI Entity type. It has to be TechnicalCabinetDevice"
         },
         "refDevice": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. The device used to obtain the data expressed by this record"
         },
         "refDeviceList": {
           "type": "array",
+          "description": "Relationship. A list of reference to the [Devices](https://github.com/smart-data-models/dataModel.Device/blob/master/Device/doc/spec.md) which are inside the technical Cabinet Device.",
           "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                "description": "Property. Identifier format of any NGSI entity"
+              },
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. Identifier format of any NGSI entity"
+              }
+            ]
           }
         },
         "refPointOfInterest": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to a [PointOfInterest](https://github.com/smart-data-models/dataModel.PointOfInterest/blob/master/PointOfInterest/doc/spec.md) linked with the observation."
         },
         "dateLastReported": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. A timestamp which denotes the last time when the device successfully reported data. Date and time in an ISO8601 UTCformat. Model:'https://schema.org/DateTime'"
         },
         "brandName": {
-          "type": "string"
+          "type": "string",
+          "description": "Property. Name of the brand. Model:'https://schema.org/brand'"
         },
         "modelName": {
-          "type": "string"
+          "type": "string",
+          "description": "Property. Name of the model as given by the manufacturer."
         },
         "manufacturerName": {
-          "type": "string"
+          "type": "string",
+          "description": "Property. Name of the manufacturer. Model:'https://schema.org/manufacturer'"
         },
         "serialNumber": {
-          "type": "string"
+          "type": "string",
+          "description": "Property. Serial number of the container. Model:'https://schema.org/serialNumber'"
         },
         "application": {
           "type": "array",
+          "description": "Property. Target application of the Device regarding the environment. A combination of these values. Enum:'commercial, distributionService, industrial, other, publicWorks, road, tertiary, urbanService'",
           "items": {
             "type": "string",
             "enum": [
               "commercial",
-              "industrial",
-              "tertiary",
-              "road",
-              "publicWorks",
-              "urbanService",
               "distributionService",
-              "other"
+              "industrial",
+              "other",
+              "publicWorks",
+              "road",
+              "tertiary",
+              "urbanService"
             ]
           }
         },
         "typeOfUse": {
           "type": "string",
+          "description": "Property. Accepted use regarding its positioning in an indoor / outdoor environment. A unique value of these values. Enum:'indoor, mixed, outdoor, other'",
           "enum": [
             "indoor",
-            "outdoor",
             "mixed",
+            "outdoor",
             "other"
           ]
         },
         "installationMode": {
           "type": "string",
+          "description": "Property. Positioning of the device in relation to a ground reference system. Model:'https://schema.org/Text'. Enum:'aerial, ground, other, pole, roofing, underground, wall'",
           "enum": [
-            "ground",
-            "underGround",
             "aerial",
-            "wall",
+            "ground",
+            "other",
             "pole",
             "roofing",
-            "other"
+            "underground",
+            "wall"
           ]
         },
         "installationCondition": {
           "type": "array",
+          "description": "Property. Condition and possibility of use in the following environments. A combination of these values. Enum:'desert, dust, extremeCold, extremeClimate, extremeHeat, extremeHumidity, marine, none, other, saline, seismic, sand'",
           "items": {
             "type": "string",
             "enum": [
-              "extremeHeat",
+              "desert",
+              "dust",
               "extremeCold",
               "extremeClimate",
+              "extremeHeat",
               "extremeHumidity",
-              "desert",
-              "sand",
               "marine",
+              "none",
+              "other",
               "saline",
-              "dust",
               "seismic",
-              "other"
+              "sand"
             ]
           }
         },
         "possibilityOfUse": {
           "type": "string",
+          "description": "Property. Possibility of use. A unique value. Enum:'mixed, mobile, other, stationary'",
           "enum": [
-            "stationary",
-            "mobile",
             "mixed",
-            "other"
+            "mobile",
+            "other",
+            "stationary"
           ]
         },
         "documentation": {
-          "type": "string"
+          "type": "string",
+          "format": "uri",
+          "description": "Property. A link to device's documentation. Model:'https://schema.org/URL'"
         },
-        "owner": {
+        "dimension": {
+          "type": "object",
+          "description": "Property. The format is structured by a sub-property of 3 items. The unit code (text) of measurement  is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **CMT** represents Centimeter.",
+          "properties": {
+            "height": {
+              "type": "number",
+              "minimum": 0
+            },
+            "width": {
+              "type": "number",
+              "description": "Property. ",
+              "minimum": 0
+            },
+            "depth": {
+              "type": "number",
+              "description": "Property. ",
+              "minimum": 0
+            }
+          }
+        },
+        "weight": {
+          "type": "number",
+          "description": "Property. Weight of the item. The unit code (text) of measurement  is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **KGM** represents Kilograms. Model:'https://schema.org/weigth'",
+          "minimum": 0
+        },
+        "internalDimension": {
+          "type": "object",
+          "description": "Property. Internal dimension corresponding to the place to work inside the technical cabinet. The format is structured by a sub-property of 3 items. The unit code (text) of measurement  is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **CMT** represents Centimeter. Model:'https://schema.org/StructuredValue'",
+          "properties": {
+            "height": {
+              "type": "number",
+              "minimum": 0
+            },
+            "width": {
+              "type": "number",
+              "minimum": 0
+            },
+            "depth": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "protectionIP": {
+          "type": "string",
+          "description": "Property. IP 'Ingress Protection' for the Junction Box. This is the level classifies and rates the degree of protection provided by mechanical casings and electrical enclosures against intrusion, dust, accidental contact, and water according to International Electrotechnical Commission standard (EN 60-529). First digit: Solid particle protection (Single numeral: 06 or 'X'). Second digit: Liquid ingress protection (Single numeral: 09 or 'X' ).Third digit: Personal Protection against access to dangerous parts (optional additional letter). Fourth digit: Other protections (optional additional letter)"
+        },
+        "protectionIK": {
+          "type": "number",
+          "description": "Property. IK '*Mecanic Protection*' level relating to numeric classification for the degrees of protection provided by enclosures for electrical equipment against external mechanical impacts, according to International Electro technical Commission standard (EN 62-262). - IK varies from 0 (minimum resistance) to 10 (maximum resistance) which represents an Impact Energy (Unit Joule)"
+        },
+        "maximumSystemVoltage": {
+          "type": "number",
+          "description": "Property. Maximum system voltage permitted for the **module**. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **VLT** represents Volt",
+          "minimum": 0
+        },
+        "operatingTemperature": {
+          "type": "object",
+          "description": "Property. Ambient operating temperature range. This is the minimum and maximum resistance to cold and heat. The format is structured by a sub-property of 2 items. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **CEL** represents Degree Celsius.",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": -80
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "protectionOthers": {
           "type": "array",
+          "description": "Property. Others protection of the technical cabinet. A combination of these values. Enum:'abrasion, basement, dampProof, display, doorTearing, dust, forcedOpening, graffiti, insect, other, roofOverload, saltSpray, shielding, solar, vandalism, water'",
           "items": {
-            "type": "string"
-          },
-          "dimension": {
-            "type": "object",
-            "properties": {
-              "height": {
-                "type": "number",
-                "minimum": 0
-              },
-              "width": {
-                "type": "number",
-                "minimum": 0
-              },
-              "depth": {
-                "type": "number",
-                "minimum": 0
-              }
-            }
-          },
-          "weight": {
-            "type": "number",
-            "minimum": 0
-          },
-          "internalDimension": {
-            "type": "object",
-            "properties": {
-              "height": {
-                "type": "number",
-                "minimum": 0
-              },
-              "width": {
-                "type": "number",
-                "minimum": 0
-              },
-              "depth": {
-                "type": "number",
-                "minimum": 0
-              }
-            }
-          },
-          "protectionIP": {
-            "type": "string"
-          },
-          "protectionIK": {
-            "type": "number"
-          },
-          "maximumSystemVoltage": {
-            "type": "number",
-            "minimum": 0
-          },
-          "operatingTemperature": {
-            "type": "object",
-            "properties": {
-              "min": {
-                "type": "number",
-                "minimum": 0
-              },
-              "max": {
-                "type": "number",
-                "minimum": 0
-              }
-            }
-          },
-          "protectionOthers": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "basement",
-                "shielding",
-                "solar",
-                "water",
-                "dust",
-                "dampProof",
-                "insect",
-                "forcedOpening",
-                "saltSpray",
-                "abrasion",
-                "doorTearing",
-                "roofOverload",
-                "vandalism",
-                "graffiti",
-                "display",
-                "other"
-              ]
-            }
-          },
-          "doorCount": {
-            "type": "number",
-            "minimum": 0,
-            "maximum": 4
-          },
-          "doorType": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "solid",
-                "transparent",
-                "mixed",
-                "other"
-              ]
-            }
-          },
-          "doorOpeningAngle": {
-            "type": "number",
-            "minimum": 0
-          },
-          "doorClosingMode": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "revolvingHandle",
-                "fixedHandle",
-                "triangleHandle",
-                "other"
-              ]
-            }
-          },
-          "designMaterials": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "stainlessSteel",
-                "galvanizedSteel",
-                "aluminum",
-                "ABS-Plastic",
-                "fiberGlass",
-                "polyester",
-                "other"
-              ]
-            }
-          },
-          "interiorCoating": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "heatInsulating",
-                "polyesterResin",
-                "fiberGlass",
-                "polyester",
-                "plastic",
-                "Steel",
-                "other"
-              ]
-            }
-          },
-          "exteriorCoating": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "polyesterResin",
-                "fiberGlass",
-                "polyester",
-                "plastic",
-                "Steel",
-                "other"
-              ]
-            }
-          },
-          "exteriorFinish": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "textured",
-                "smooth",
-                "roughcast",
-                "raised",
-                "graffiti",
-                "other"
-              ]
-            }
-          },
-          "ventilationMode": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "selfVentilatedGills",
-                "airConditioners",
-                "dehumidifier",
-                "none",
-                "other"
-              ]
-            }
+            "type": "string",
+            "enum": [
+              "abrasion",
+              "basement",
+              "dampProof",
+              "display",
+              "doorTearing",
+              "dust",
+              "forcedOpening",
+              "graffiti",
+              "insect",
+              "other",
+              "roofOverload",
+              "saltSpray",
+              "shielding",
+              "solar",
+              "vandalism",
+              "water"
+            ]
+          }
+        },
+        "doorCount": {
+          "type": "number",
+          "description": "Property. Count of doors of the technical Cabinet."
+        },
+        "doorType": {
+          "type": "string",
+          "description": "Property. Type of door of the technical Cabinet. A unique value of these values. Enum:'mixed, other, solid, transparent'",
+          "enum": [
+            "mixed",
+            "other",
+            "solid",
+            "transparent"
+          ]
+        },
+        "doorOpeningAngle": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Door opening angle expressed in decimal degrees with a range from 0 to 180 degree. The unit code (text) of measurement  is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **DD** represents Decimal Degrees."
+        },
+        "doorClosingMode": {
+          "type": "array",
+          "description": "Property. Door closing mode. A unique value of these values. Enum:'fixedHandle, other, revolvingHandle, triangleHandle'",
+          "items": {
+            "type": "string",
+            "enum": [
+              "fixedHandle",
+              "other",
+              "revolvingHandle",
+              "triangleHandle"
+            ]
+          }
+        },
+        "designMaterials": {
+          "type": "array",
+          "description": "Property. Design materials to build the cabinet. A combination of  these values. Enum:'ABS-Plastic, aluminum, fiberGlass, galvanizedSteel, other, polyester, stainlessSteel'",
+          "items": {
+            "type": "string",
+            "enum": [
+              "ABS-Plastic",
+              "aluminum",
+              "fiberGlass",
+              "galvanizedSteel",
+              "other",
+              "polyester",
+              "stainlessSteel"
+            ]
+          }
+        },
+        "interiorCoating": {
+          "type": "array",
+          "description": "Property. Interior Coating. A combination of these values. Enum:'fiberGlass, heatInsulating, other, plastic, polyester, polyesterResin, steel'",
+          "items": {
+            "type": "string",
+            "enum": [
+              "fiberGlass",
+              "heatInsulating",
+              "other",
+              "plastic",
+              "polyester",
+              "polyesterResin",
+              "steel"
+            ]
+          }
+        },
+        "exteriorCoating": {
+          "type": "array",
+          "description": "Property. Interior Coating. A combination of these values. Enum:'fiberGlass, other, plastic, polyester, polyesterResin, steel",
+          "items": {
+            "type": "string",
+            "enum": [
+              "fiberGlass",
+              "other",
+              "plastic",
+              "polyester",
+              "polyesterResin",
+              "steel"
+            ]
+          }
+        },
+        "exteriorFinish": {
+          "type": "array",
+          "description": "Property. Exterior finish. A combination of these values. Enum:'graffiti, other, raised, roughcast, smooth, textured'",
+          "items": {
+            "type": "string",
+            "enum": [
+              "graffiti",
+              "other",
+              "raised",
+              "roughcast",
+              "smooth",
+              "textured"
+            ]
+          }
+        },
+        "ventilationMode": {
+          "type": "array",
+          "description": "Property. Ventilation mode. A combination of these values. Enum:'airConditioners, dehumidifier, none, other, selfVentilatedGills'",
+          "items": {
+            "type": "string",
+            "enum": [
+              "airConditioners",
+              "dehumidifier",
+              "none",
+              "other",
+              "selfVentilatedGills"
+            ]
           }
         }
       }
