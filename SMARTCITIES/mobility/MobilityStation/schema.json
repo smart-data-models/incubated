@@ -1,0 +1,47 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.UrbanMobility/MobilityStation/schema.json",
+    "title": " Smart Data Models - MobilityStation",
+    "description": "A MobilityStation is a place where several mobility offers come together, thus facilitating the transfer between means of transport, individual transport and public transport..",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. id"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. type"
+                },
+                "category": {
+                    "type": "array",
+                    "description": "Property. category",
+                    "items": {}
+                },
+                "location": {
+                    "$ref": "http://geojson.org/schema/Geometry.json"
+                },
+                "refMobilityRegion": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Model:'https://schema.org/URL'. refMobilityRegion"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type",
+        "location",
+        "name"
+    ]
+}
