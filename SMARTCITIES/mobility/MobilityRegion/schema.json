@@ -1,0 +1,37 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.UrbanMobility/MobilityRegion/schema.json",
+    "title": " Smart Data Models - MobilityRegion",
+    "description": "A MobilityRegion is a coherent region in which people prefer to move, a transport association is a city with its catchment area or a district.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. description"
+                },
+                "location": {
+                    "$ref": "http://geojson.org/schema/Geometry.json"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. name"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type",
+        "location",
+        "name"
+    ]    
+}
