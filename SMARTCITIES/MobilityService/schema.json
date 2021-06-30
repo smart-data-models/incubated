@@ -14,7 +14,7 @@
     },
     {
       "properties": {
-        "category": {
+        "serviceCategory": {
           "type": "array",
           "description": "Property. Category",
           "items": {}
@@ -37,8 +37,20 @@
           "description": "Relationship. Model:'https://schema.org/URL'. Reference to the MobilityStation this service si assigned"
         },
         "refServiceProvider": {
-          "type": "string",
-          "format": "uri",
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
           "description": "Relationship. Model:'https://schema.org/URL'. Reference to the entity provides the necessary information for this service."
         },
         "service": {
