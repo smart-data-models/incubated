@@ -1,6 +1,6 @@
 {
   "id": "FlowObserved:BFO-NCE-MNCA-SP-001",
-  "type": "itemFlowObserved",
+  "type": "ItemFlowObserved",
   "name": {
     "type": "Property",
     "value": "BFO-NCE-MNCA-SP-001"
@@ -32,8 +32,11 @@
     "value": "Nice Harbor"
   },
   "dateObserved": {
-    "type": "DateTime",
-    "value": "2020-03-20T16:30:00Z"
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2020-03-20T16:30:00Z"
+    }
   },
   "dateObservedFrom": {
     "type": "Property",
@@ -51,14 +54,18 @@
   },
   "refDevice": {
     "type": "Relationship",
-    "object": "Device:BFO-NCE-MNCA-SP-001-Dev-02"
+    "object": "urn:ngsi-ld:Device:BFO-NCE-MNCA-SP-001-Dev-02"
   },
-  "entityType": {
+  "itemType": {
     "type": "Property",
-    "value": "yacht"
+    "value": "yatching"
+  },
+  "itemSubType": {
+    "type": "Property",
+    "value": "monoHull"
   },
   "laneId": {
-    "type": "Integer",
+    "type": "Property",
     "value": 1
   },
   "laneDirection": {
@@ -66,7 +73,7 @@
     "value": "outbound"
   },
   "reverseLane": {
-    "type": "Boolean",
+    "type": "Property",
     "value": false
   },
   "intensity": {
@@ -78,34 +85,41 @@
     "value": 0.1562
   },
   "congested": {
-    "type": "Boolean",
+    "type": "Property",
     "value": false
   },
   "averageSpeed": {
     "type": "Property",
-    "value": 2.7
+    "value": 2.7,
+    "unitCode": "KNT"
   },
   "averageLength": {
     "type": "Property",
-    "value": 7.44
+    "value": 7.44,
+    "unitCode": "MTR"
   },
   "averageHeadwayTime": {
     "type": "Property",
-    "value": 156
+    "value": 156,
+    "unitCode": "SEC"
   },
   "averageGapDistance": {
     "type": "Property",
-    "value": 35.28
+    "value": 35.28,
+    "unitCode": "MTR"
   },
   "minSpeed": {
     "type": "Property",
-    "value": 2.6
+    "value": 2.6,
+    "unitCode": "KNT"
   },
   "maxSpeed": {
     "type": "Property",
-    "value": 3.8
+    "value": 3.8,
+    "unitCode": "KNT"
   },
   "@context": [
-    "https://smartdatamodels.org/context.jsonld"
+    "https://smartdatamodels.org/context.jsonld",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
   ]
 }

@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "schemaVersion": "0.0",
-  "$id": "https://smart-data-models.github.io/data-models/Transportation/ObjectFlowObserved/schema.json",
+  "schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/data-models/Transportation/ItemFlowObserved/schema.json",
   "title": "Flow Observed schema",
-  "description": "The data model intended to measure an observation linked to the movement of an object at a certain location and over a given period. This Data Model proposes an evolution of two Data Model by merging them and integrating all the attributes of the initial version of [TrafficFlowObserved] and [CrowFlowObserved] and by extension any type of object that we want to analyze the movements. The value of the attribute `Type` can have different values corresponding to the `ObjectType` and the Flow Observed (Traffic, Crow, Bike, Boat, ...). The attribute `vehicleType` and `vehicleSubType` are modified to become a generic relations `itemType` and `itemSubType` or list of possible values. The relation will be directly defined by the 'urn:ngsi-ld':'itemType':xxxxxx' or 'urn: ngsi-ld:'itemSubType': xxxxxx' or list of data regarding standard for.",
+  "description": "The data model intended to measure an observation linked to the movement of an item at a certain location and over a given period. This Data Model proposes an evolution of two Data Model by merging them and integrating all the attributes of the initial version of [TrafficFlowObserved] and [CrowFlowObserved] and by extension any type of item that we want to analyze the movements. Attributes `vehicleType` and `vehicleSubType` are removed from the initial data Model in order to become generic `itemType` and `itemSubType` of possible values. (people, Type of vehicle, Type of boat, Type of plane, ...).",
   "type": "object",
   "allOf": [
     {
@@ -17,9 +17,9 @@
         "type": {
           "type": "string",
           "enum": [
-            "ObjectFlowObserved"
+            "ItemFlowObserved"
           ],
-          "description": "Property. NGSI Entity type. It has to be ObjectFlowObserved"
+          "description": "Property. NGSI Entity type. It has to be ItemFlowObserved"
         },
         "refDevice": {
           "anyOf": [
@@ -76,11 +76,11 @@
             "vehicle",
             "yacht"
           ],
-          "description": "Property. Reference to an [item Type](https://github.com/smart-data-models/dataModel.XXX/blob/master/XXX/doc/spec.md) allowed to complete the information if needed. Enum:'people, ship, vehicle'"
+          "description": "Property. Reference to an identifier of an existing 'Type' attribute of an NGSI entity (Vehicle / BoatType / Person) or of a future entity listing an item 'Type' to be counted. Enum:'people, ship, vehicle, yacht'"
         },
         "itemSubType": {
           "type": "string",
-          "description": "Property. Reference to an [Item Sub Type](https://github.com/smart-data-models/dataModel.&Domain/blob/master/&EntytySubType/doc/spec.md) allowed to complete the information if needed."
+          "description": "Property. Reference to an identifier of an existing 'subType' attribute of an NGSI entity (Vehicle / BoatType / Person ) or of a future entity listing an item 'subType' to be counted."
         },
         "laneId": {
           "type": "integer",
@@ -112,7 +112,7 @@
           "type": "number",
           "minimum": 0,
           "maximum": 1,
-          "description": "Property. Fraction of the observation time where a vehicle has been occupying the observed lane"
+          "description": "Property. Fraction of the observation time where a item has been occupying the observed lane"
         },
         "congested": {
           "type": "boolean",
@@ -121,12 +121,12 @@
         "averageSpeed": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Average speed of detected objects transiting during the observation period. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . Depending the type of Flow, the value can be **KMH** f(vehicule, pedestrian, etc.) represents Kilometer per hour (km/h) or **KNT** represents Knot (Boat)."
+          "description": "Property. Average speed of detected items transiting during the observation period. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . Depending the type of Flow, the value can be **KMH** f(vehicule, pedestrian, etc.) represents Kilometer per hour (km/h) or **KNT** represents Knot (Boat)."
         },
         "averageLength": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Average length of detected objects transiting during the observation period. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . For instance, **MTR** represents Meter."
+          "description": "Property. Average length of detected items transiting during the observation period. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . For instance, **MTR** represents Meter."
         },
         "averageHeadwayTime": {
           "type": "number",
