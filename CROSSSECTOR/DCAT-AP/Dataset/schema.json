@@ -2,8 +2,8 @@
   "$schema": "http://json-schema.org/schema#",
   "$schemaVersion": "0.0.1",
   "$id": "https://github.com/smart-data-models/",
-  "title": "Distribution DCAT-AP 2.0 schema",
-  "description": "Distribution Schema meeting DCAT-AP 2.0 specification",
+  "title": "Dataset DCAT-AP 2.0 schema",
+  "description": "Dataset Schema meeting DCAT-AP 2.0 specification",
   "type": "object",
   "allOf": [
     {
@@ -16,25 +16,32 @@
           "enum": [
             "Dataset"
           ],
-          "description": "Property. It has to be Dataset"
+          "description": "Property. NGSI type. It has to be Dataset"
+        },
+        "datasetDescription": {
+          "type": "array",
+          "description": "Property. This property contains a free-text account of the Dataset. It corresponds with the 'description' mandatory property of DCAT-AP 2.0.1. This property can be repeated for parallel language versions of the description.",
+          "items": {
+            "type": "string"
+          }
         },
         "title": {
           "type": "array",
-          "description": "Property. This property contains a name given to the Dataset. This property can be repeated for parallel language versions of the name.",
+          "description": "Property. This property contains a name given to the Dataset. It corresponds with the 'Title' mandatory property of DCAT-AP 2.0.1. This property can be repeated for parallel language versions of the name.",
           "items": {
             "type": "string"
           }
         },
         "contactPoint": {
           "type": "array",
-          "description": "Property. Model:'vcard:Kind'. This property contains contact information that can be used for sending comments about the Dataset.",
+          "description": "Property. Model:'vcard:Kind'. It corresponds with the 'contact point' mandatory property of DCAT-AP 2.0.1. This property contains contact information that can be used for sending comments about the Dataset.",
           "items": {
             "type": "string"
           }
         },
-        "distribution": {
+        "datasetDistribution": {
           "type": "array",
-          "description": "Property. This property links the Dataset to an available Distribution. Model:'dcat:distribution'",
+          "description": "Property. This property links the Dataset to an available Distributions. It corresponds with the 'dataset distribution' mandatory property of DCAT-AP 2.0.1. Model:'dcat:distribution'",
           "items": {
             "type": "string",
             "format": "uri"
@@ -55,7 +62,7 @@
           "description": "Geoproperty. Model:'dct:Location'. This property refers to a geographic region that is covered by the Dataset",
           "type": "array",
           "items": {
-            "$ref": "http://geojson.org/schema/Geometry.json#"
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
           }
         },
         "temporal": {
@@ -220,7 +227,7 @@
         },
         "datasetType": {
           "type": "string",
-          "description": "Property. Model:'dct:type'. This property refers to the type of the Dataset. A controlled vocabulary for the values has not been established."
+          "description": "Property. Model:'dct:type'. This property refers to the type of the Dataset. It corresponds to the property 'Type' of the DCAT 2.0.1. A controlled vocabulary for the values has not been established."
         },
         "updateDate": {
           "type": "string",
@@ -251,7 +258,7 @@
   "required": [
     "id",
     "type",
-    "description",
+    "datasetDescription",
     "title"
   ]
 }
