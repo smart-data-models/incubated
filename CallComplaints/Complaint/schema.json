@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "schemaVersion": "0.0",
+  "schemaVersion": "0.0.1",
   "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.CallComplaints/master/Complaint/schema.json",
   "title": "Call Complaints - Complaint",
   "description": "This entity contains a harmonised description of a generic Complaint made for the Call Complaints domain.",
@@ -35,21 +35,59 @@
           "description": "Property.  Model:'https://schema.org/Text'. Units:'No unit'. The category of the Complaint.Examples:Brown water, Particles, Odor / Taste, Illness, Meter leak, Network leak, No water, Low pressure, High pressure, Broken switch, Water quality, Waste of water, Broken meter, Meter repositioning, Sidewalk repair, Pavement repair."
         },
         "isMadeBy": {
-          "type": "string",
-          "format": "uri",
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
           "description": "Relationship. The ID of the User that made this Complaint."
         },
         "isPartOf": {
           "type": "array",
           "description": "Array of Strings (Relationships between Entities). The IDs of the Collections, that this Complaint is part of.",
           "items": {
-            "type": "string",
-            "format": "uri"
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                "description": "Property. Identifier format of any NGSI entity"
+              },
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. Identifier format of any NGSI entity"
+              }
+            ],
+            "description": "Property. Unique identifier of the entity"
           }
         },
         "isFiledTo": {
-          "type": "string",
-          "format": "uri",
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Property. Unique identifier of the entity",
           "description": "Relationship. The ID of the Organization (e.g., Complaints Department), that this Complaint is filed to."
         }
       }

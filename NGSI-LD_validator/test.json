@@ -1,0 +1,223 @@
+{
+  "title": "NGSI-LD Entity",
+  "description": "NGSI-LD Entity",
+  "definitions": {
+    "datasetId": {
+      "type": "string",
+      "format": "uri"
+    },
+    "instanceId": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Property": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["Property"]
+        },
+        "oneOf": [
+          {
+            "value": {
+              "type": "string"
+            }
+          },
+          {
+            "value": {
+              "type": "number"
+            }
+          },
+          {
+            "value": {
+              "type": "boolean"
+            }
+          },
+          {
+            "value": {
+              "type": "array"
+            }
+          },
+          {
+            "value": {
+              "type": "object"
+            }
+          }
+        ],
+        "observedAt": {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/common.json#/definitions/observedAt"
+        },
+        "createdAt": {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/common.json#/definitions/createdAt"
+        },
+        "modifiedAt": {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/common.json#/definitions/modifiedAt"
+        },
+        "datasetId": {
+          "$ref": "#/definitions/datasetId"
+        },
+        "instanceId": {
+          "$ref": "#/definitions/instanceId"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Property"
+          },
+          {
+            "$ref": "#/definitions/Relationship"
+          }
+        ]
+      }
+    },
+    "Relationship": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["Relationship"]
+        },
+        "object": {
+          "type": "string",
+          "format": "uri"
+        },
+        "observedAt": {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/common.json#/definitions/observedAt"
+        },
+        "createdAt": {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/common.json#/definitions/createdAt"
+        },
+        "modifiedAt": {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/common.json#/definitions/modifiedAt"
+        },
+        "datasetId": {
+          "$ref": "#/definitions/datasetId"
+        },
+        "instanceId": {
+          "$ref": "#/definitions/instanceId"
+        }
+      },
+      "required": [
+        "type",
+        "object"
+      ],
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Property"
+          },
+          {
+            "$ref": "#/definitions/Relationship"
+          }
+        ]
+      }
+    },
+    "GeoProperty": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum":  ["GeoProperty"]
+        },
+        "value": {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/Geometry.json#/definitions/Geometry"
+        },
+        "observedAt": {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/common.json#/definitions/observedAt"
+        },
+        "createdAt": {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/common.json#/definitions/createdAt"
+        },
+        "modifiedAt": {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/common.json#/definitions/modifiedAt"
+        },
+        "datasetId": {
+          "$ref": "#/definitions/datasetId"
+        },
+        "instanceId": {
+          "$ref": "#/definitions/instanceId"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Property"
+          },
+          {
+            "$ref": "#/definitions/Relationship"
+          }
+        ]
+      }
+    },
+    "EntityFragment": {
+      "type": "object",
+      "properties": {
+        "@context": {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/common.json#/definitions/LdContext"
+        },
+        "location": {
+          "$ref": "#/definitions/GeoProperty"
+        },
+        "observationSpace": {
+          "$ref": "#/definitions/GeoProperty"
+        },
+        "operationSpace": {
+          "$ref": "#/definitions/GeoProperty"
+        },
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/common.json#/definitions/Name"
+        },
+        "createdAt": {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/common.json#/definitions/createdAt"
+        },
+        "modifiedAt": {
+          "$ref": "https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/schema/common.json#/definitions/modifiedAt"
+        }
+      },
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Property"
+          },
+          {
+            "$ref": "#/definitions/Relationship"
+          },
+          {
+            "$ref": "#/definitions/GeoProperty"
+          }
+        ]
+      }
+    },
+    "Entity": {
+      "allOf": [
+        {
+          "required": [
+            "id",
+            "type"
+          ]
+        },
+        {
+          "$ref": "#/definitions/EntityFragment"
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "#/definitions/Entity"
+    }
+  ]
+}

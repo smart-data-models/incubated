@@ -1,0 +1,1 @@
+Directory to work on the adaptation of DDI-CDI statistical standard to smart data models. 
