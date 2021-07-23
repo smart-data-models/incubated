@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.WasteManagement/WmgmtBin/schema.json",
+  "title": "Smart Data models -WmgmtBin schema",
+  "description": "Data model for solid waste management bins.",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+              "WmgmtBin"
+          ],
+          "description": "Property. NGSI Entity type. Data model for solid waste management bins."
+      },
+        "binCapacity": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Total capacity in terms of the volume of waste the bin can hold."
+        },
+        "binColor": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Color of the bin. Could be used for indicating the type of waste. The color coding should follow the conventions applicable to the geographical area the bins are located."
+        },
+        "binClearedTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Time when the bin was last cleared."
+        },
+        "wardID": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text. Ward ID of the entity corresponding to this observation."
+        },
+        "binCategory": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text. Category/type of the waste container bin. It can be a household bin or a dumpster or any other pre-defined category/type."
+        },
+        "license_plate": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text. Gives the License Plate number of the vehice. SameAs: 'license_plate' field from GTFS Realtime message-VehicleDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicledescriptor)"
+        },
+        "RFID": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text. Gives the ID of the RFID reader."
+        },
+        "binFillingLevel": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Current level of waste in the bin. Typically, the level is specified in terms of percentage volume filled."
+        },
+        "binFullnessThreshold": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The fullness threshold level of the bin defined as the level (in terms of percentage) when the bin full alert or notification will be generated."
+        },
+        "binRecommendedLoad": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Recommended load (weight) that the waste bin corresponding to this observation can hold."
+        },
+        "binID": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text. ID of the waste carrying bin"
+        },
+        "binMaxLoad": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Maximum load (weight) that the waste bin can hold."
+        },
+        "binLoggedTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Time when the bin's level was last logged."
+        }
+      }
+    }
+  ]
+}
