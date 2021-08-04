@@ -20,9 +20,9 @@ def open_jsonref(fileUrl):
         file = open(fileUrl, "r")
         return jsonref.loads(file.read())
 
-fileToConvert = "./CSVDialect/original_schema.json"
-dataModelName = "CSVDialectFrictionlessData"
-outputFile = "./CSVDialect/schema.json"
+fileToConvert = "./TableSchema/original_schema.json"
+dataModelName = "TableSchemaFrictionlessData"
+outputFile = "./TableSchema/schema.json"
 
 originalSchema = open_jsonref(fileToConvert)
 convertedSchema = {}
