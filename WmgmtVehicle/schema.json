@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.WasteManagement/WmgmtVehicle/schema.json",
+  "title": "Smart Data models -WmgmtVehicle schema",
+  "description": "Data model for solid waste management vehicles.",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+      "type": {
+          "type": "string",
+          "enum": [
+              "WmgmtVehicle"
+          ],
+          "description": "Property. NGSI Entity type. Data model for solid waste management vehicles."
+      },
+        "bearing": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Gives the vehicle GPS angle measured in a clockwise direction from the True North. SameAs 'bearing' field from GTFS Realtime message-Position(https://developers.google.com/transit/gtfs-realtime/reference#message-position)"
+        },
+        "fuelEfficiency": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The distance traveled per unit of fuel used, commonly in kilometers per liter (km/L)."
+        },
+        "fuelType": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The type of fuel suitable for the engine or engines of the vehicle corresponding to this observation."
+        },
+        "fuelFilled": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Amount of fuel filled in liters to the vehicle corresponding to this observation."
+        },
+        "tripNetWeightCollected": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The net weight of garbage collected by the SWM vehicle corresponding to this observation at the end of the trip."
+        },
+        "vehicleTrackerDevice": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Installation status of the GPS device or the tracking device fitted to the vehicle corresponding to this observation."
+        },
+        "wardID": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Ward ID of the entity corresponding to this observation."
+        },
+        "license_plate": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Gives the License Plate number of the vehice. SameAs: 'license_plate' field from GTFS Realtime message-VehicleDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicledescriptor)"
+        },
+        "vehicleType": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Describes the type of vehicle corresponding to this observation, could be hopper, compactor, tipper, dumper in case of solid waste management vehicles, BRT mini bus, BRT bus, city bus in case of ITMS vehicles and Moped/Scooter, Motor Cycle, Autorickshaw, Private car/ Jeep car, Tempo, Bus, E-Moped/E-Scooter/E-Motor Cycle, Public motor in case of vehicle registration."
+        },
+        "speed": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Gives the Speed of the vehicle.SameAs 'speed' field from GTFS Realtime message-Position(https://developers.google.com/transit/gtfs-realtime/reference#message-position)"
+        },
+        "currentTripCount": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The current count of trips made by the vehicle corresponding to this observation on the given day of operation."
+        },
+        "reportID": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Unique ID assigned for the issue or report or feedback or transaction corresponding to this observation."
+        },
+        "zoneName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Zone name of the entity corresponding to this observation."
+        },
+        "vehicleAltitude": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Gives the current altitude of the vehicle using GPS"
+        },
+        "deviceSimNumber": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Gives the sim number of the device in the waste management vehicle."
+        },
+        "wardName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Ward name of the entity corresponding to this observation."
+        },
+        "deviceBatteryStatus": {
+          "type": "string",
+          "enum": [
+            "Connected",
+            "Disconnected"
+          ],
+          "description": "Property. Model:'https://schema.org/Text'. Gives the Battery charging status of the reporting device(Connected, Disconnected)."
+        },
+        "ignitionStatus": {
+          "type": "string",
+          "enum": [
+            "Y",
+            "N"
+          ],
+          "description": "Property. Model:'https://schema.org/Text'. Gives the ignition status of the vehicle.(Y, N)"
+        },
+        "vehicleRunningStatus": {
+          "type": "string",
+          "enum": [
+            "running",
+            "waiting",
+            "stopped"
+          ],
+          "description": "Property. Model:'https://schema.org/Text'. Moving status of the vehicle, one of running, waiting, stopped."
+        },
+        "observationDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Last reported time of observation."
+        }
+      }
+    }
+  ]
+}
