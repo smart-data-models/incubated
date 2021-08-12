@@ -5,10 +5,6 @@
   "$schema": "http://json-schema.org/schema",
   "id": "https://smart-data-models.github.io/dataModel.FrictionlessData/CSVDialectFrictionlessData/schema.json",
   "type": "object",
-  "required": [
-    "delimiter",
-    "doubleQuote"
-  ],
   "properties": {
     "csvddfVersion": {
       "type": "number",
@@ -16,7 +12,7 @@
     },
     "delimiter": {
       "type": "string",
-      "description": "Property. Delimiter. . A character sequence to use as the field separator"
+      "description": "Property. Delimiter. A character sequence to use as the field separator"
     },
     "doubleQuote": {
       "type": "boolean",
@@ -24,35 +20,39 @@
     },
     "lineTerminator": {
       "type": "string",
-      "description": "Property. Line Terminator. . Specifies the character sequence that must be used to terminate rows"
+      "description": "Property. Line Terminator. Specifies the character sequence that must be used to terminate rows"
     },
     "nullSequence": {
       "type": "string",
-      "description": "Property. Null Sequence. . Specifies the null sequence, for example, `\\N`"
+      "description": "Property. Null Sequence. Specifies the null sequence, for example, `\N`"
     },
     "quoteChar": {
       "type": "string",
-      "description": "Property. Quote Character. . Specifies a one-character string to use as the quoting character"
+      "description": "Property. Quote Character. Specifies a one-character string to use as the quoting character"
     },
     "escapeChar": {
       "type": "string",
-      "description": "Property. Escape Character. . Specifies a one-character string to use as the escape character"
+      "description": "Property. Escape Character. Specifies a one-character string to use as the escape character"
     },
     "skipInitialSpace": {
       "type": "boolean",
-      "description": "Property. Skip Initial Space. . Specifies the interpretation of whitespace immediately following a delimiter. If false, whitespace immediately after a delimiter should be treated as part of the subsequent field"
+      "description": "Property. Skip Initial Space. Specifies the interpretation of whitespace immediately following a delimiter. If false, whitespace immediately after a delimiter should be treated as part of the subsequent field"
     },
     "header": {
       "type": "boolean",
-      "description": "Property. Header. . Specifies if the file includes a header row, always as the first row in the file"
+      "description": "Property. Header. Specifies if the file includes a header row, always as the first row in the file"
     },
     "commentChar": {
       "type": "string",
-      "description": "Property. Comment Character. . Specifies that any row beginning with this one-character string, without preceeding whitespace, causes the entire line to be ignored"
+      "description": "Property. Comment Character. Specifies that any row beginning with this one-character string, without preceeding whitespace, causes the entire line to be ignored"
     },
     "caseSensitiveHeader": {
       "type": "boolean",
       "description": "Property. Case Sensitive Header. Use of case in source CSV files is not always an intentional decision. For example, should \"CAT\" and \"Cat\" be considered to have the same meaning. Specifies if the case of headers is meaningful"
     }
-  }
+  },
+  "required": [
+    "delimiter",
+    "doubleQuote"
+  ]
 }
