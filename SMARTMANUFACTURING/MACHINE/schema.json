@@ -1,0 +1,216 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Machine/Machine/schema.json",
+  "title": "Smart Data models - Machine dataModel schema,",
+  "description": "description of a generic machine",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. NGSI entity type. It has to be Machine.",
+          "enum": [
+            "Machine"
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Indicates the date/ time that the instance of the entity was created in ISO 8601 format. The value of this will be set by the server when the entity was created."
+        },
+        "modifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Indicates the date/ time when the entity was last modified in ISO 8601 format. The value of this will be set by the server when the entity was modified, if the entity has not been modified it may have a null value."
+        },
+        "machineModel": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A reference to the associated Machine Model for this machine."
+        },
+        "serialNumber": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The serial number assigned by the manufacturer."
+        },
+        "assetIdentifier": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. An asset identifier (e.g. asset tag number) assigned by the owner."
+        },
+        "supplierName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The name of the supplier of this machine."
+        },
+        "countryOfManufacture": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The country where this machine was manufactured."
+        },
+        "factory": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The factory name/code manufacturing this machine."
+        },
+        "firstUsedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Indicates the date/time at which date and time the machine was first used (nominally in UTC)."
+        },
+        "installedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Indicates the date/time at which date and time the machine was installed (nominally in UTC)."
+        },
+        "manufacturedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Indicates the date/time at which date and time the machine was manufactured (nominally in UTC)."
+        },
+        "machineOwner": {
+          "type": "array",
+          "description": "Relationship. Reference to the owner or owners of the machine as either a Schema.org person or organization.",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                "description": "Property. Identifier format of any NGSI entity"
+              },
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. Identifier format of any NGSI entity"
+              }
+            ]
+          }
+        },
+        "hardwareVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The (manufacturer specific) hardware version of this machine."
+        },
+        "firmwareVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The (manufacturer specific) firmware version of this machine."
+        },
+        "softwareVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The (manufacturer specific) software version of this machine."
+        },
+        "osVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The (manufacturer specific) operating system version of this machine"
+        },
+        "supportedProtocols": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Text'. A list of communications protocols supported by the machine.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "building": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to the building entity instance into which this machine is installed"
+        },
+        "subscriptionServices": {
+          "type": "array",
+          "description": "Relationship. Reference to service subscriptions related to this machine e.g. energy supplies, Internet Service Providers etc, maintenance",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                "description": "Property. Identifier format of any NGSI entity"
+              },
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. Identifier format of any NGSI entity"
+              }
+            ]
+          }
+        }
+      },
+      "online": {
+        "type": "boolean",
+        "description": "Property. Model:'https://schema.org/Boolean'. The communication status of this machine. A logical representation of Offline (false) or Online (true)."
+      },
+      "status": {
+        "type": "string",
+        "description": "Property. Model:'https://schema.org/Text'. Text formatted (current) machine status code or description. Expected to be the manufacturer or machine specific status code generated by the machine."
+      },
+      "batteryLevel": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1,
+        "description": "Property. Model:'https://schema.org/Number'. Battery level. It must be equal to: 1.0 When the battery charge is full. 0.0 When the battery charge empty. Null when it cannot be determined."
+      },
+      "installationNotes": {
+        "type": "object",
+        "properties": {
+          "docUri": {
+            "type": "string",
+            "format": "uri"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "description": "Property. Model:'https://schema.org/Text'. Notes relating to this machine installation."
+      },
+      "voltage": {
+        "type": "number",
+        "description": "Property. Model:'https://schema.org/Number'. The nominal required supply voltage, in volts. Units:'Volts"
+      },
+      "current": {
+        "type": "number",
+        "description": "Property. Model:'https://schema.org/Number'. The nominal required supply current (at the nominal supply voltage), in amps. Units:'Amps"
+      },
+      "power": {
+        "type": "number",
+        "description": "Property. Model:'https://schema.org/Number'. The nominal rated power consumption of the machine in kW. Units:'Kw"
+      },
+      "rotationalSpeed": {
+        "type": "number",
+        "description": "Property. Model:'https://schema.org/Number'.  \tThe maximum rotational speed in rpm (for machines such as drills, lathes). Units:'rpm"
+      }
+    }
+  ]
+}
