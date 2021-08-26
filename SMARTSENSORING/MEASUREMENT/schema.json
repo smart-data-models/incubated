@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Device/Mesurement/schema.json",
+  "title": "Smart Data models -measurement schema",
+  "description": "description of a Measurement from a sensor.",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "batteryVoltage": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The voltage levels within the battery"
+        },
+        "powerStatus": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Status of the battery during the measurement( giving or not energy)"
+        },
+        "temperature": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The voltage levels within the battery"
+        },
+        "level": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'."
+        },
+        "levelStatus": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'."
+        },
+        "frameCount": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'."
+        }
+      }
+    }
+  ]
+}
