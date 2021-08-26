@@ -16,7 +16,7 @@
       "properties": {
         "type": {
           "type": "string",
-          "description": "Property. NGSI-LD Entity Type. It must be equal to Complaint.",
+          "description": "Property. NGSI Entity Type. It must be equal to Complaint.",
           "enum": [
             "Complaint"
           ]
@@ -28,11 +28,11 @@
         "timestamp": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'https://schema.org/Time'. The timestamp of the Complaint."
+          "description": "Property. Model:'https://schema.org/DateTime'. The timestamp of the Complaint."
         },
         "category": {
           "type": "string",
-          "description": "Property.  Model:'https://schema.org/Text'. Units:'No unit'. The category of the Complaint.Examples:Brown water, Particles, Odor / Taste, Illness, Meter leak, Network leak, No water, Low pressure, High pressure, Broken switch, Water quality, Waste of water, Broken meter, Meter repositioning, Sidewalk repair, Pavement repair."
+          "description": "Property. Model:'https://schema.org/Text'. The category of the Complaint. Examples:Brown water, Particles, Odor / Taste, Illness, Meter leak, Network leak, No water, Low pressure, High pressure, Broken switch, Water quality, Waste of water, Broken meter, Meter repositioning, Sidewalk repair, Pavement repair."
         },
         "isMadeBy": {
           "anyOf": [
@@ -49,7 +49,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Relationship. The ID of the User that made this Complaint."
+          "description": "Relationship. The Id of the User that made this Complaint."
         },
         "isPartOf": {
           "type": "array",
@@ -87,7 +87,6 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "Property. Unique identifier of the entity",
           "description": "Relationship. The ID of the Organization (e.g., Complaints Department), that this Complaint is filed to."
         }
       }
@@ -95,9 +94,9 @@
   ],
   "required": [
     "id",
-    "type",
+    "category",
     "location",
     "timestamp",
-    "category"
+    "type"
   ]
 }
