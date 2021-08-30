@@ -29,8 +29,8 @@ for file in onlyFiles:
         print(dataModelName)
         print(schemaDict["properties"][prop])
         schemaDict["properties"][prop]["description"] = "Property. " + schemaDict["properties"][prop]["description"]
-    schemaDict["properties"]["id"] = {"$ref": "https://github.com/smart-data-models/data-models/blob/master/common-schema.json#/definitions/EntityIdentifierType"}
-    schemaDict["properties"]["type"] = {"type": "string", "descripton": "Property. NGSI entity type. It has to be " + dataModelName}
+    schemaDict["properties"]["id"] = {"$ref": "https://github.com/smart-data-models/data-models/raw/master/common-schema.json#/definitions/EntityIdentifierType"}
+    schemaDict["properties"]["type"] = {"type": "string", "description": "Property. NGSI entity type. It has to be " + dataModelName}
     try:
         directoryName = localDirectory + "/" + dataModelName
         mkdir(directoryName)
