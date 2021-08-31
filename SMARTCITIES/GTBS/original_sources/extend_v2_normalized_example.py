@@ -99,18 +99,24 @@ def extend_v2_normalized_example(repoName, dataModel, globalUser, token):
     # gather the example
     g = Github(token)
     repo = g.get_organization(globalUser).get_repo(repoName)
-    exampleV2NormalizedStr = repo.get_contents(dataModel + "/example-normalized.json")
-    exampleV2NormalizedDict = json.loads(exampleV2NormalizedStr)
+    exampleV2NormalizedStr = repo.get_contents(dataModel + "/examples/example-normalized.json").decoded_content.decode()
+    print("original normalized V2")
     print(exampleV2NormalizedStr)
+    exampleV2NormalizedDict = json.loads(exampleV2NormalizedStr)
+
 
     # create the key values format V2
     exampleV2KeyvaluesDict = normalized2keyvalues(exampleV2NormalizedStr)
     exampleV2KeyvaluesStr = json.dumps(exampleV2KeyvaluesDict, indent=4)
+    print("derivative key values V2")
+    print(exampleV2KeyvaluesStr)
 
     # create the key values format LD
     exampleLDKeyvaluesDict = exampleV2KeyvaluesDict.copy()
     exampleLDKeyvaluesDict["@context"] = ["https://smartdatamodels.org/context.jsonld"]
     exampleLDKeyvaluesStr = json.dumps(exampleLDKeyvaluesDict, indent=4)
+    print("derivative key values LD")
+    print(exampleLDKeyvaluesStr)
 
     # create the Ld normalized version
     payload = exampleV2NormalizedDict.copy()
@@ -130,7 +136,10 @@ def extend_v2_normalized_example(repoName, dataModel, globalUser, token):
 
     payload["@context"] = ["https://smartdatamodels.org/context.jsonld"]
     exampleLDNormalizedStr = json.dumps(payload, indent=4)
+    print("derivative normalized LD")
+    print(exampleLDNormalizedStr)
 
+    print("_____________________________________-")
     message = "Key values V2 Example generated from normalized v2 example automatically"
     print(exampleV2KeyvaluesStr)
     github_push_from_variable(exampleV2KeyvaluesStr, repoName, dataModel + "/examples/example.json", message, globalUser, token)
@@ -143,6 +152,8 @@ def extend_v2_normalized_example(repoName, dataModel, globalUser, token):
     print(exampleLDNormalizedStr)
     github_push_from_variable(exampleLDNormalizedStr, repoName, dataModel + "/examples/example-normalized.jsonld", message, globalUser, token)
 
+    return True
+
 
 credentialsFile = "/home/aabella/transparentia/CLIENTES/EU/FIWARE/credentials.json"
 # credentials = "/home/fiware/credentials.json
@@ -152,6 +163,6 @@ globalUser = credentials["globalUser"]
 
 repoName = "incubated"
 dataModel = "SMARTCITIES/GTBS/original_sources/free_bike_status"
-output = "don't know"
-output = create_examples_payloads(repoName, dataModel, globalUser, token, "schema")
+output = extend_v2_normalized_example(repoName, dataModel, globalUser, token)
+
 print(output)
