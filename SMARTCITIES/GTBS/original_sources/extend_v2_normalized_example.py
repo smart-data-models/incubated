@@ -168,8 +168,8 @@ globalUser = credentials["globalUser"]
 
 repoName = "incubated"
 dataModel = "SMARTCITIES/GTBS/original_sources/free_bike_status"
-# output = extend_v2_normalized_example(repoName, dataModel, globalUser, token)
-exampleV2normalized = open_json("https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/GTBS/original_sources/free_bike_status/examples/example-normalized.json")
-print("----------------------------------------------------")
-output = normalized2keyvalues(json.dumps(exampleV2normalized))
+output = extend_v2_normalized_example(repoName, dataModel, globalUser, token)
+# exampleV2normalized = open_json("https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/GTBS/original_sources/free_bike_status/examples/example-normalized.json")
+# print("----------------------------------------------------")
+# output = normalized2keyvalues(json.dumps(exampleV2normalized))
 print(output)
