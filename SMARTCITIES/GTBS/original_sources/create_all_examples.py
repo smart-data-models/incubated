@@ -84,35 +84,39 @@ def create_examples_payloads(repoName, dataModel, globalUser, token, *options):
     else:
         mode = options[0]
 
-    serviceNGSIKeyvaluesExample = "https://smartdatamodels.org/extra/ngsi-ld_generator_keyvalues_v0.92.php"
-    serviceNGSINormalizedExample = "https://smartdatamodels.org/extra/ngsi-ld_generator_v0.92.php"
+    serviceNGSIKeyvaluesExample = "https://smartdatamodels.org/extra/ngsi-ld_generator_keyvalues_v0.95.php"
+    serviceNGSINormalizedExample = "https://smartdatamodels.org/extra/ngsi-ld_generator_v0.95.php"
     g = Github(token)
     repo = g.get_organization(globalUser).get_repo(repoName)
     if mode == "schema":
-        try:
-            path = dataModel + "/schema.json"
-            print(path)
-            file = repo.get_contents(path)
-        except:
-            return "cannot get repo schema. Wrong path / repo?"
         urlSchema = "https://raw.githubusercontent.com/smart-data-models/" + repoName + "/master/" + dataModel + "/schema.json"
         urlToRequestNormalized = serviceNGSINormalizedExample + "?schemaUrl=" + urlSchema + "&email=alberto.abella@fiware.org"
         urlToRequestKeyvalues = serviceNGSIKeyvaluesExample + "?schemaUrl=" + urlSchema + "&email=alberto.abella@fiware.org"
         try:
             print(urlToRequestKeyvalues)
-            pointer = requests.get(urlToRequestKeyvalues)
-            keyvaluesLDPayload = dict(pointer.content.decode('utf-8'))
+            pointer = requests.get(urlToRequestKeyvalues, timeout=10)
+            keyvaluesLDPayload = pointer.content.decode('utf-8').replace("False", "false").replace("True", "true")
+            keyvaluesLDPayloadDict = json.loads(keyvaluesLDPayload)
+            keyvaluesLDPayload = json.dumps(keyvaluesLDPayloadDict, indent=4)  # just formatting
+            print(keyvaluesLDPayload)
         except:
             return "Problem with keyvalues example"
         try:
             print(urlToRequestNormalized)
-            pointer = requests.get(urlToRequestNormalized)
-            normalizedLDPayload = dict(pointer.content.decode('utf-8'))
+            pointer2 = requests.get(urlToRequestNormalized, timeout=10)
+            print(pointer2)
+            content = pointer2.content.decode('utf-8').replace("False", "false").replace("True", "true")
+            print(type(content))
+            print(content)
+            normalizedLDPayloadDict = json.loads(content)
+            normalizedLDPayload = json.dumps(normalizedLDPayloadDict, indent=4)
         except:
             return "Problem with normalized example"
         keyvaluesV2Payload = keyvaluesLDPayload
-        contextUrl = keyvaluesV2Payload.pop("@context", None)
-        normalizedV2Payload = keyvalues2normalized(keyvaluesV2Payload)
+        keyvaluesV2PayloadDict = json.loads(keyvaluesV2Payload)
+        contextUrl = keyvaluesV2PayloadDict.pop("@context", None)
+        keyvaluesV2Payload = json.dumps(keyvaluesV2PayloadDict, indent=4)
+        normalizedV2Payload = json.dumps(keyvalues2normalized(keyvaluesV2Payload), indent=4)
         # write the examples in the directory
         message = "Key values V2 Example generated automatically"
         print(keyvaluesV2Payload)
