@@ -85,6 +85,7 @@ def normalized2keyvalues(normalizedPayload):
     output = {}
     # print(normalizedDict)
     for element in normalizedDict:
+        print(element)
         print(normalizedDict[element])
         try:
             value = normalizedDict[element]["value"]
@@ -142,19 +143,23 @@ def extend_v2_normalized_example(repoName, dataModel, globalUser, token):
     print("_____________________________________-")
     message = "Key values V2 Example generated from normalized v2 example automatically"
     print(exampleV2KeyvaluesStr)
-    github_push_from_variable(exampleV2KeyvaluesStr, repoName, dataModel + "/examples/example.json", message, globalUser, token)
+    if not test:
+        github_push_from_variable(exampleV2KeyvaluesStr, repoName, dataModel + "/examples/example.json", message, globalUser, token)
 
     message = "Key values LD Example generated from normalized v2 example automatically"
     print(exampleLDKeyvaluesStr)
-    github_push_from_variable(exampleLDKeyvaluesStr, repoName, dataModel + "/examples/example.jsold", message, globalUser, token)
+    if not test:
+        github_push_from_variable(exampleLDKeyvaluesStr, repoName, dataModel + "/examples/example.jsonld", message, globalUser, token)
 
     message = "Normalized LD Example generated from normalized v2 example automatically"
     print(exampleLDNormalizedStr)
-    github_push_from_variable(exampleLDNormalizedStr, repoName, dataModel + "/examples/example-normalized.jsonld", message, globalUser, token)
+    if not test:
+        github_push_from_variable(exampleLDNormalizedStr, repoName, dataModel + "/examples/example-normalized.jsonld", message, globalUser, token)
 
     return True
 
 
+test = True
 credentialsFile = "/home/aabella/transparentia/CLIENTES/EU/FIWARE/credentials.json"
 # credentials = "/home/fiware/credentials.json
 credentials = open_json(credentialsFile)
@@ -163,6 +168,8 @@ globalUser = credentials["globalUser"]
 
 repoName = "incubated"
 dataModel = "SMARTCITIES/GTBS/original_sources/free_bike_status"
-output = extend_v2_normalized_example(repoName, dataModel, globalUser, token)
-
+# output = extend_v2_normalized_example(repoName, dataModel, globalUser, token)
+exampleV2normalized = open_json("https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/GTBS/original_sources/free_bike_status/examples/example-normalized.json")
+print("----------------------------------------------------")
+output = normalized2keyvalues(json.dumps(exampleV2normalized))
 print(output)
