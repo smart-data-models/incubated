@@ -1,0 +1,57 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.UrbanMobility/MobilityService/schema.json",
+    "title": " Smart Data Models - MobilityService",
+    "description": "A mobility service is a service that can be used at a mobility station..",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. name"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. description"
+                },
+                "category": {
+                    "type": "array",
+                    "description": "Property. category",
+                    "items": {}
+                },
+                "location": {
+                    "$ref": "http://geojson.org/schema/Geometry.json"
+                },
+                "refMobilityStation": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Model:'https://schema.org/URL'. To which MobilityStation is this service assigned?"
+                },
+                "refServiceProvider": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Model:'https://schema.org/URL'. Which entity provides the necessary information for this service."
+                },
+                "service": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. The API endpoint for the service"
+                }
+        }}
+    ],
+    "required": [
+        "id",
+        "type",
+        "name",
+	"refServiceProvider",
+        "refMobilityStation",
+        "service"
+    ]
+}

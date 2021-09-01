@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://smart-data-models.github.io/dataModel.GBFS/gbfs/schema.json",
+  "description": "Auto-discovery file that links to all of the other files published by the system. According to the Standard GBFS 2.2",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "https://github.com/smart-data-models/data-models/raw/master/common-schema.json#/definitions/EntityIdentifierType"
+    },
+    "type": {
+      "type": "string",
+      "description": "Property. NGSI entity type. It has to be gbfs",
+      "enum": [
+        "gbfs"
+      ]
+    },
+    "last_updated": {
+      "description": "Property. Last time the data in the feed was updated in POSIX time.",
+      "type": "integer",
+      "minimum": 1450155600
+    },
+    "ttl": {
+      "description": "Property. Number of seconds before the data in the feed will be updated again (0 if the data should always be refreshed).",
+      "type": "integer",
+      "minimum": 0
+    },
+    "version": {
+      "description": "Property. GBFS version number to which the feed conforms, according to the versioning framework (added in v1.1).",
+      "type": "string",
+      "enum": [
+        "2.1-RC",
+        "2.1-RC2",
+        "2.1",
+        "2.2",
+        "3.0-RC",
+        "3.0"
+      ]
+    },
+    "data": {
+      "description": "Property. Response data in the form of name:value pairs.",
+      "type": "object",
+      "patternProperties": {
+        "^[a-z]{2,3}(-[A-Z]{2})?$": {
+          "type": "object",
+          "properties": {
+            "feeds": {
+              "description": "An array of all of the feeds that are published by the auto-discovery file. Each element in the array is an object with the keys below.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Key identifying the type of feed this is. The key must be the base file name defined in the spec for the corresponding feed type.",
+                    "type": "string",
+                    "enum": [
+                      "gbfs",
+                      "gbfs_versions",
+                      "system_information",
+                      "vehicle_types",
+                      "station_information",
+                      "station_status",
+                      "free_bike_status",
+                      "system_hours",
+                      "system_alerts",
+                      "system_calendar",
+                      "system_regions",
+                      "system_pricing_plans",
+                      "geofencing_zones"
+                    ]
+                  },
+                  "url": {
+                    "description": "URL for the feed.",
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "name",
+                  "url"
+                ]
+              }
+            },
+            "required": true
+          }
+        },
+        "required": true
+      },
+      "additionalProperties": false
+    },
+    "id": {
+      "$ref": "https://github.com/smart-data-models/data-models/raw/master/common-schema.json#/definitions/EntityIdentifierType"
+    },
+    "type": {
+      "type": "string",
+      "description": "Property. NGSI entity type. It has to be gbfs"
+    }
+  },
+  "required": [
+    "last_updated",
+    "ttl",
+    "version",
+    "data",
+    "id",
+    "type"
+  ],
+  "$schemaVersion": "0.0.1",
+  "title": "Smart Data Models adaptation of GBFS standard data model gbfs"
+}

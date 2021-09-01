@@ -1,1 +1,0 @@
-ths directory is dedicated to the potential mapping between [frictionless data]() and Smart Data Models.

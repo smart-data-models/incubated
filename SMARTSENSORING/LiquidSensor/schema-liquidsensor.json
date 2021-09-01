@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Device/LiquidSensor/schema.json",
+  "title": "Smart Data models -measurement schema",
+  "description": "Description of a filling Level Sensor",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "batteryVoltage": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The voltage levels within the battery"
+        },
+        "powerStatus": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Status of the battery during the measurement(giving or not energy)"
+        },
+        "temperature": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The temperature in the item"
+        },
+        "fillingLevel": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Filling level percentage of the device",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "fillingLevelStatus": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Number'. It indicates if the liquid of the dispenser should be refilled"
+        }
+      }
+    }
+  ]
+}

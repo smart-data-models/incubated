@@ -1,0 +1,204 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.6",
+  "$id": "https://smart-data-models.github.io/dataModel.Device/Device/schema.json",
+  "title": " Smart Data Models - Device schema",
+  "description": "An apparatus (hardware + software + firmware) intended to accomplish a particular task (sensing the environment, actuating, etc.).",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Device"
+          ],
+          "description": "Property. NGSI Entity type. It has to be Device"
+        },
+        "controlledAsset": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Text'. List of the asset(s) (building, object, etc.) controlled by the device.",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uri"
+              },
+              {
+                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+              }
+            ]
+          }
+        },
+        "mnc": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. This property identifies the Mobile Network Code (MNC) of the network the device is attached to. The MNC is used in combination with a Mobile Country Code (MCC) (also known as a 'MCC / MNC tuple') to uniquely identify a mobile phone operator/carrier using the GSM, CDMA, iDEN, TETRA and 3G / 4G public land mobile networks and some satellite mobile networks."
+        },
+        "mcc": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. This property identifies the Mobile Country Code"
+        },
+        "ipAddress": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Text'. List of IP address of the device. It can be a comma separated list of values if the device has more than one IP address.",
+          "items": {
+            "type": "string",
+            "oneOf": [
+              {
+                "format": "ipv4"
+              },
+              {
+                "format": "ipv6"
+              }
+            ]
+          }
+        },
+        "configuration": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/StructuredValue'. Device's technical configuration. This attribute is intended to be a array properties and their values which capture parameters which have to do with the configuration of a device (timeouts, reporting periods, etc.) and which are not currently covered by the standard attributes defined by this model.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "parameter": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "dateInstalled": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. A timestamp which denotes when the device was installed (if it requires installation)."
+        },
+        "dateFirstUsed": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. A timestamp which denotes when the device was first used."
+        },
+        "dateManufactured": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. A timestamp which denotes when the device was manufactured."
+        },
+        "hardwareVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The hardware version of this device."
+        },
+        "softwareVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The software version of this device."
+        },
+        "firmwareVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The firmware version of this device."
+        },
+        "osVersion": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The version of the host operating system device."
+        },
+        "distance": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Distance'. Location of this device represented by a distance from a starting point. All units are accepted in [CEFACT](https://www.unece.org/cefact.html) code"
+        },
+        "dstAware": {
+          "type": "boolean",
+          "description": "Property. Indicates a device which is Daylight Savings Time Aware (True). In case it is then the Timestamp is automatically adjusted by the device to reflect DST changes. If not (False) the time adjustments must be taken care of by the user."
+        },
+        "depth": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/depth'. Location of this device represented by a depth from a starting point. All units are accepted in [CEFACT](https://www.unece.org/cefact.html) code"
+        },
+        "relativePosition": {
+          "type": "string",
+          "description": "Property. Location of this device in a coordinate system according to its local emplacement."
+        },
+        "direction": {
+          "type": "string",
+          "enum": [
+            "Inlet",
+            "Outlet",
+            "Entry",
+            "Exit"
+          ],
+          "description": "Property. Enum:'Inlet, Outlet, Entry, Exit'.  Model:'https://schema.org/DateTime'. A timestamp which denotes when the device was installed (if it requires installation)."
+        },
+        "dateLastCalibration": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. A timestamp which denotes when the last calibration of the device happened."
+        },
+        "serialNumber": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/serialNumber'. The serial number assigned by the manufacturer."
+        },
+        "provider": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/provider'. The provider of the device."
+        },
+        "refDeviceModel": {
+          "description": "Relationship. Model of the device",
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+            }
+          ]
+        },
+        "batteryLevel": {
+          "description": "Property. Model:'https://schema.org/Number'. Device battery level. It must be equal to 1.0 when battery is full. 0.0 when battery is empty. -1 when transiently cannot be determined.",
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "number",
+              "const": -1
+            }
+          ]
+        },
+        "rssi": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Received signal strength indicator for a wireless enabled device. It must be expressed in dBm or mW, use unitcode to set it out. "
+        },
+        "deviceState": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. State of this device from an operational point of view. Its value can be vendor dependent."
+        },
+        "dateLastValueReported": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. A timestamp which denotes the last time when the device successfully reported data to the cloud."
+        },
+        "value": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/QuantitativeValue'. A observed or reported value. For actuator devices, it is an attribute that allows a controlling application to change the actuation setting. For instance, a switch device which is currently _on_ can report a value 'on' of type 'Text'. Obviously, in order to toggle the referred switch, this attribute value will have to be changed to 'off'."
+        },
+        "dateObserved": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/dateObserved"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "controlledProperty"
+  ]
+}
