@@ -159,15 +159,15 @@ def extend_v2_normalized_example(repoName, dataModel, globalUser, token):
     return True
 
 
-test = True
+test = False
 credentialsFile = "/home/aabella/transparentia/CLIENTES/EU/FIWARE/credentials.json"
 # credentials = "/home/fiware/credentials.json
 credentials = open_json(credentialsFile)
 token = credentials["token"]
 globalUser = credentials["globalUser"]
 
-repoName = "incubated"
-dataModel = "SMARTCITIES/GTBS/original_sources/free_bike_status"
+repoName = "dataModel.Transportation"
+dataModel = "BikeHireDockingStation"
 output = extend_v2_normalized_example(repoName, dataModel, globalUser, token)
 # exampleV2normalized = open_json("https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/GTBS/original_sources/free_bike_status/examples/example-normalized.json")
 # print("----------------------------------------------------")
