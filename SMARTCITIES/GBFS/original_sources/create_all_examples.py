@@ -145,7 +145,7 @@ token = credentials["token"]
 globalUser = credentials["globalUser"]
 
 repoName = "incubated"
-dataModel = "SMARTCITIES/GTBS/original_sources/free_bike_status"
+dataModel = "SMARTSENSORING/MEASUREMENT"
 output = "don't know"
 output = create_examples_payloads(repoName, dataModel, globalUser, token, "schema")
 print(output)
