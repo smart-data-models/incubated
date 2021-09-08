@@ -1,0 +1,145 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/RegulationStructureSimulation/schema.json",
+  "$schemaVersion": "0.0.1",
+  "title": "Smart Data Models - RegulationStructureSimulation",
+  "description": "This entity contains a harmonised description of a data model for regulation structure simulation, for Raw-Water (Open Channels) System Management domain.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "RegulationStructureSimulation"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It has to be RegulationStructureSimulation."
+        },
+        "startSimulationTime":{
+          "type": "string",
+          "description": "Property. Time of day in ISO8601 UTCformat at which the simulation begins."
+        },
+        "endSimulationTime":{
+          "type": "string",
+          "description": "Property. Time of day in ISO8601 UTCformat at which the simulation ends."
+        },
+        "modelError":{
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Property. Percentage error between observed and simulated discharge."
+        },
+        "targetDischarge":{
+          "type": "number",
+          "description": "Property. Desirable discharge to be established in the channel, defined by the utility’s operators."
+        },
+        "modelledDischarge":{
+          "type": "number",
+          "description": "Property. Discharge estimated from the simulation model."
+        },
+        "spillwayFlow":{
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Property. Ratio of the spillway discharge to the new total discharge"
+        },
+        "estimatedGateDischargeCoefficient":{
+          "type": "number",
+          "description": "Property. Calibrated discharge coefficient of the sluice gate."
+        },
+        "equivalentSluiceOpening":{
+          "type": "number",
+          "description": "Property. Equivalent sluice gate opening in the case of multiple sluice gates, estimated as the mean value of the different openings."
+        },
+        "simulationOutput":{
+          "properties": {
+            "waterAttribute": {
+              "type": "string"
+              "description": "Property: An attribute issued from the data models for Open Channel Management. It follows fully this data model and it could be a property or a relationship. It contains the values for specified properties, as derive from the simulation."
+            },
+            "targetURI":{
+              "anyOf": [
+                  {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 256,
+                      "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                      "description": "Property. Identifier format of any NGSI entity"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  }
+              ],
+              "description": "Relationship. A relationship indicating the network component with a simulated property value."
+            }
+          }
+          "description": "Property. Description of the set of results of simulation of the regulation structure."
+        },
+        "inputParameters":{
+          "properties": {
+            "waterAttribute": {
+              "type": "string"
+              "description": "Property: An attribute issued from the data models for Open Channel Management. It follows fully this data model and it could be a property or a relationship. It contains the values for specified properties, as derive from the simulation."
+            },
+            "targetURI":{
+              "anyOf": [
+                  {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 256,
+                      "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                      "description": "Property. Identifier format of any NGSI entity"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  }
+              ],
+              "description": "Relationship. A relationship indicating the network component with a simulated property value."
+            }
+          }
+          "description": "Property. Description of the set of modifications to be applied to the open channel system for the simulation."
+        },
+        "initalConditions":{
+          "properties": {
+            "waterAttribute": {
+              "type": "string"
+              "description": "Property: An attribute issued from the data models for Open Channel Management. It follows fully this data model and it could be a property or a relationship. It contains the values for specified properties, as derive from the simulation."
+            },
+            "targetURI":{
+              "anyOf": [
+                  {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 256,
+                      "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                      "description": "Property. Identifier format of any NGSI entity"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  }
+              ],
+              "description": "Relationship. A relationship indicating the network component with a simulated property value."
+            }
+          }
+          "description": "Property. Description of the set of initial conditions (discharge, water-level etc.) of the open channel system just before the simulation."
+        }
+      } // properties
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

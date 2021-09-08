@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/data-models.OpenChannelManagement/OpenChannelFlowRegulation/schema.json",
+  "$schemaVersion": "0.0.1",
+  "title": "Smart Data Models - OpenChannelFlowRegulation",
+  "description": "This entity contains a harmonised description of a generic simulation of a series of independent regulation structures to establish specific flow conditions in the conveyance system. It is made for Raw-Water (Open Channels) System Management domain.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "OpenChannelFlowRegulation"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It has to be OpenChannelFlowRegulation."
+        },
+        "hasRegulationStructures":{
+          "anyOf": [
+              {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256,
+                  "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                  "description": "Property. Identifier format of any NGSI entity"
+              },
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. Identifier format of any NGSI entity"
+              }
+          ],
+          "description": "Relationship. Reference to the ID of an entity of type Regulation structure"
+        },
+        "hasStructuresSimulations":{
+          "anyOf": [
+              {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256,
+                  "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                  "description": "Property. Identifier format of any NGSI entity"
+              },
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. Identifier format of any NGSI entity"
+              }
+          ],
+          "description": "Relationship. Reference to the ID of an entity of type Regulation Structure Simulation"
+        },
+        "runBy":{
+          "anyOf": [
+              {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256,
+                  "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                  "description": "Property. Identifier format of any NGSI entity"
+              },
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. Identifier format of any NGSI entity"
+              }
+          ],
+          "description": "Relationship. The ID of who created/triggered the simulation. Reference to an entity of type User"
+        }
+      } // properties
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
