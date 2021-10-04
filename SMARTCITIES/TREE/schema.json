@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "$id": "https://smart-data-models.github.io/XXXSubjectXXX/XXXDataModelXXX/schema.json",
+  "title": "Smart Data models -XXXdataModelXXX schema\",",
+  "description": "description of a generic entity. You have to change this.",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "field1XXX": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Property. Model:'https://schema.org/Number'. Example of definition of a numerical attribute"
+        },
+        "field2XXX": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Example of definition of a numerical attribute"
+        },
+        "field3XXX": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Example of definition of a date-time attribute"
+        },
+        "relationship1XX": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to the other entity"
+        },
+        "field4XXX": {
+          "type": "string",
+          "enum": [
+            "val1",
+            "val2",
+            "val3"
+          ],
+          "description": "Property. Model:'https://schema.org/Text. Example of definition of a enumeration of strings"
+        },
+        "field5XXX": {
+          "type": "string",
+          "enum": [
+            1,
+            2,
+            3
+          ],
+          "description": "Property. Model:'https://schema.org/Text. Example of definition of a enumeration of numbers"
+        },
+        "field6XXX": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/Text. Example of definition of a enumeration of objects",
+          "properties": {
+            "subproperty1XXX": {
+              "type": "string"
+            },
+            "subproperty2XXX": {
+              "type": "number"
+            }
+          }
+        },
+        "field7XXX": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Text. Example of definition of a arrayof strings",
+          "items": {
+            "type": "string",
+            "minitems": 3
+          }
+        },
+        "field8XXX": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Text. Example of definition of a array of numbers",
+          "items": {
+            "type": "number",
+            "minitems": 1
+          }
+        },
+        "field9XXX": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Example of definition of a boolean attribute"
+        }
+      }
+    }
+  ]
+}
