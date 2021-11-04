@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "modelTags": "FIWARE4WATER",
+  "$id": "https://smart-data-models.github.io/data-model.UAV/UAV_video/schema.json",
+  "title": "Unmanned autonomous vehicle Video",
+  "description": "This entity contains a harmonised description of a media captured byt a UAV ",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "UAV_video"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It has to be UAV_video"
+        },
+        "fileName": {
+          "type": "string",
+          "description": "Property. Model:'https://schame.org/Text'"
+        },
+        "mediaWidth": {
+          "type": "number",
+          "description": "Property. Model:'https://schame.org/Number'"
+        },
+        "mediaHeight": {
+          "type": "number",
+          "description": "Property. Model:'https://schame.org/Number'"
+        },
+        "mediaFramesPerSecond": {
+          "type": "number",
+          "description": "Property. Model:'https://schame.org/Number'"
+        },
+        "target": {
+          "type": "object",
+          "description": "Property. ",
+          "properties": {
+            "droneId": {
+              "type": "string",
+              "format": "uri"
+            },
+            "droneType": {
+              "type": "string",
+              "enum": [
+                "boat"
+              ]
+            },
+            "trajectory": {
+              "type": "array",
+              "description": "Property. ",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "frameNum": {
+                    "type": "number"
+                  },
+                  "timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "left": {
+                    "type": "number"
+                  },
+                  "top": {
+                    "type": "number"
+                  },
+                  "width": {
+                    "type": "number"
+                  },
+                  "height": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
