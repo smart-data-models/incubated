@@ -2,7 +2,8 @@
   "$schema": "http://json-schema.org/schema",
   "$schemaVersion": "0.0.1",
   "$id": "https://smart-data-models.github.io/SmartWater/WaterDistributionNetwork/schema.json",
-  "title": "Smart Data models -WaterDistributionNetwork schema\",",
+  "modelTags": "IUDX",
+  "title": "Smart Data models -WaterDistributionNetwork schema",
   "description": "A Data Model for water supply network in a city.",
   "type": "object",
   "required": [
@@ -18,6 +19,13 @@
     },
     {
       "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "WaterDistributionNetwork"
+          ],
+          "description": "Property. NGSI entity type. It has to be WaterDistributionNetwork"
+        },
         "tankDiameter": {
           "type": "number",
           "description": "Property. Model:'https://schema.org/Number'. Diameter of Cylindrical or Spherical water storage tanks."
@@ -42,7 +50,7 @@
           "type": "number",
           "description": "Property. Model:'https://schema.org/Number'. Depth of the water storage tank corresponding to this observation."
         },
-        "flowrate": {
+        "flowRate": {
           "type": "number",
           "description": "Property. Model:'https://schema.org/Number'. Volume of water flowing in/out of the water storage tank corresponding to this observation."
         },
@@ -80,7 +88,7 @@
             }
           }
         },
-        "cl": {
+        "clTSA": {
           "type": "object",
           "description": "Property. Model:'https://schema.org/Text. Concentration of chlorides in the water.",
           "properties": {
