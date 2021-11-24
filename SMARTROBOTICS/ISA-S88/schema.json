@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "DIH2",
+  "$id": "https://smart-data-models.github.io/dataModel.XXXX/Pen/schema.json",
+  "title": " Smart Data models - ISA S88 object schema",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI entity type. It has to be ISA-S88",
+          "enum": [
+            "ISA-S88"
+          ]
+        },
+        "processCell": {
+          "type": "array",
+          "description": "Property.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "refArea": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  }
+                ],
+                "description": "Relationship. Reference to the Area that the process cell depends on"
+              }
+            }
+          }
+        },
+        "unit": {
+          "type": "array",
+          "description": "Property.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "refProcessCell": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  }
+                ],
+                "description": "Relationship. Reference to the Area that the process cell depends on"
+              }
+            }
+          }
+        },
+        "equipmentModule": {
+          "type": "array",
+          "description": "Property.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "refUnit": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  }
+                ],
+                "description": "Relationship. Reference to the Area that the process cell depends on"
+              }
+            }
+          }
+        },
+        "controlModule": {
+          "type": "array",
+          "description": "Property.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "refEquipmentModule": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  }
+                ],
+                "description": "Relationship. Reference to the Area that the process cell depends on"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
