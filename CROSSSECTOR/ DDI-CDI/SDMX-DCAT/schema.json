@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "id": "https://smart-data-models.github.io/dataModel.Multimedia/MediaEvent/schema.json",
+  "title": "Smart Data Models - sdmx object",
+  "description": "TBD",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "dataAttributes": {
+          "type": "array",
+          "description": "Property. ",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. unique identifier of the attribute"
+              },
+              "descriptor": {
+                "type": "string",
+                "description": "Property. string with the name of the attribute"
+              },
+              "dataType": {
+                "type": "string",
+                "description": "Property. *** which one do we use ***",
+                "enum": [
+                  "string",
+                  "number",
+                  "object",
+                  "array",
+                  "boolean"
+                ]
+              },
+              "refEnumeration": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  }
+                ],
+                "description": "Relationship. Reference to the Area that the process cell depends on"
+              },
+              "parentAttribute": {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. Reference to the parent attribute. It has to be equal to the id of the parent attribute "
+              },
+              "unit": {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. Units for the attribute. It is a reference to the array of units. It has to be the same to the id"
+              }
+            }
+          }
+        },
+        "enumerations": {
+          "type": "array",
+          "description": "Property",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. unique identifier of the attribute"
+              },
+              "identifier": {
+                "type": "string"
+              },
+              "values": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "units": {
+          "type": "array",
+          "description": "Property. units for some fields",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. unique identifier of the attribute"
+              },
+              "identifier": {
+                "type": "string",
+                "description": "Property. Descripton of the unit"
+              },
+              "acronym": {
+                "type": "string",
+                "description": "Property. Abbreviated format of the unit"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
