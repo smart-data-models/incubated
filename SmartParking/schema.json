@@ -1,0 +1,170 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Parking/SmartParking/schema.json",
+  "title": "Smart Data models -SmartParking schema",
+  "modelTags": "",
+  "description": "A parking facility Data Model.",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "averageSpotWidth": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The average width of parking spots in the parking site corresponding to this observation."
+        },
+        "maximumAllowedHeight": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Maximum allowed height for vehicles using the parking site corresponding to this observation."
+        },
+        "maximumParkingDuration": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The maximum amount of time for which a vehicle can be parked in the parking site corresponding to this observation."
+        },
+        "totalSlotNumber": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The total number of bike racks/bike-docking slots or parking slots in the bike docking station or the parking site corresponding to this observation."
+        },
+        "maximumAllowedWidth": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Maximum allowed width for vehicles using the parking site corresponding to this observation."
+        },
+        "outOfServiceSlotNumber": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The number of bike racks/bike-docking slots or parking slots that are out of order and cannot be used to hire or park a bike in the bike docking station or parking site corresponding to this observation."
+        },
+        "averageSpotLength": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. The average length of parking spots in the parking site corresponding to this observation."
+        },
+        "parkingMode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Parking mode followed in the parking site corresponding to this observation. ENUM [parallel parking, perpendicular parking, angle parking]."
+        },
+        "parkingSiteName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Name of the parking site or parking lot corresponding to this observation."
+        },
+        "parkingSiteID": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The unique ID of the parking site or parking lot corresponding to this observation."
+        },
+        "observationDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Last reported time of observation."
+        },
+        "fourWheelerSlots": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/Text. Four wheeler parking spot availability status in parking site corresponding to this observation.",
+          "properties": {
+            "availableSpotNumber": {
+              "type": "number",
+              "description": "Property. Model:'https://schema.org/Number'. Number of parking spots available for use in the smart parking site corresponding to this observation. This must a positve number lower than or equal to the totalSpotNumber."
+            },
+            "totalSpotNumber": {
+              "type": "number",
+              "description": "Property. Model:'https://schema.org/Number'. The total number of spots offered by the parking site corresponding to this observation."
+            },
+            "occupiedSpotNumber": {
+              "type": "number",
+              "description": "Property. Model:'https://schema.org/Number'. Number of parking spots occupied in the smart parking site corresponding to this observation. This must a positve number lower than or equal to the totalSpotNumber."
+            }
+          }
+        },
+        "unclassifiedSlots": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/Text. Unclassified vehicles or other vehicles parking spot availability status in parking site corresponding to this observation.",
+          "properties": {
+            "availableSpotNumber": {
+              "type": "number",
+              "description": "Property. Model:'https://schema.org/Number'. Number of parking spots available for use in the smart parking site corresponding to this observation. This must a positve number lower than or equal to the totalSpotNumber."
+            },
+            "totalSpotNumber": {
+              "type": "number",
+              "description": "Property. Model:'https://schema.org/Number'. The total number of spots offered by the parking site corresponding to this observation."
+            },
+            "occupiedSpotNumber": {
+              "type": "number",
+              "description": "Property. Model:'https://schema.org/Number'. Number of parking spots occupied in the smart parking site corresponding to this observation. This must a positve number lower than or equal to the totalSpotNumber."
+            }
+          }
+        },
+        "twoWheelerSlots": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/Text. Two wheeler parking spot availability status in parking site corresponding to this observation.",
+          "properties": {
+            "availableSpotNumber": {
+              "type": "number",
+              "description": "Property. Model:'https://schema.org/Number'. Number of parking spots available for use in the smart parking site corresponding to this observation. This must a positve number lower than or equal to the totalSpotNumber."
+            },
+            "totalSpotNumber": {
+              "type": "number",
+              "description": "Property. Model:'https://schema.org/Number'. The total number of spots offered by the parking site corresponding to this observation."
+            },
+            "occupiedSpotNumber": {
+              "type": "number",
+              "description": "Property. Model:'https://schema.org/Number'. Number of parking spots occupied in the smart parking site corresponding to this observation. This must a positve number lower than or equal to the totalSpotNumber."
+            }
+          }
+        },
+        "municipalityInfo": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/Text. Municipality information corresponding to this observation.",
+          "properties": {
+            "district": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. District name corresponding to this observation."
+            },
+            "ulbName": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. Name of the Urban Local Body corresponding to this observation."
+            },
+            "cityID": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. City ID corresponding to this observation."
+            },
+            "wardID": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. Ward ID corresponding to this observation."
+            },
+            "stateName": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. Name of the state corresponding to this observation."
+            },
+            "cityName": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. City name corresponding to this observation"
+            },
+            "zoneName": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. Zone name corresponding to this observation."
+            },
+            "zoneID": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. Zone ID corresponding to this observation."
+            },
+            "wardName": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. Ward name corresponding to this observation."
+            },
+            "wardNum": {
+              "type": "number",
+              "description": "Property. Model:'https://schema.org/Number'. Ward number corresponding to this observation."
+            }
+          }
+        }
+      }
+    }
+  ]
+}
