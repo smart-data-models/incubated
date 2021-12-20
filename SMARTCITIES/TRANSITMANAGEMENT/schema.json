@@ -1,0 +1,159 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Transportation/TransitManagement/schema.json",
+  "title": "Smart Data models -Transit Management",
+  "modelTags": "",
+  "description": "A public transit system Data Model. Coming from IUDX use cases",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "vehicleType": {
+          "type": "string",
+          "description": "Property. Describes the type of vehicle corresponding to this observation, could be hopper, compactor, tipper, dumper in case of solid waste management vehicles, BRT mini bus, BRT bus, city bus in case of ITMS vehicles, Ambulance, Fire tender, Police van etc, in case of emergency vehicles and Moped/Scooter, Motor Cycle, Autorickshaw, Private car/ Jeep car, Tempo, Bus, E-Moped/E-Scooter/E-Motor Cycle, Public motor in case of vehicle registration.Type of vehicle from the point of view of its structural characteristics. This is different than the vehicle category . Model:'https://schema.org/Text'.",
+          "enum": [
+            "hopper",
+            "compactor",
+            "tipper",
+            "dumper",
+            "BRTminiBus",
+            "BRTBus",
+            "cityBus",
+            "Ambulance",
+            "FireTender",
+            "PoliceVan",
+            "Moped",
+            "Scooter",
+            "MotorCycle",
+            "Autorickshaw",
+            "PrivateCar",
+            "JeepCar",
+            "Tempo",
+            "Bus",
+            "E-Moped",
+            "E-Scooter",
+            "E-MotorCycle"
+          ]
+        },
+        "tripDetails": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. A descriptor of realtime update on the schedule of a vehicle along a trip."
+        },
+        "tripDelay": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. This can be positive and negative in seconds and shows how much the vehicle deviates from the planned one. SameAs: 'delay' field from GTFS Realtime message-StopTimeEvent (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeevent)"
+        },
+        "depotName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Describes the depot name of the bus depot corresponding to this observation."
+        },
+        "routeUrl": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. This can be positive and negative in seconds and shows how much the vehicle deviates from the planned one. SameAs: 'delay' field from GTFS Realtime message-StopTimeEvent (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeevent)"
+        },
+        "travelTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Number'. The time taken to travel between the origin bus stop and the destination bus stop corresponding to this observation in HH:MM:SS format(HH:MM:SS is also accepted, if the hour begins with 0)."
+        },
+        "directionId": {
+          "type": "",
+          "description": "Property. Indicates the direction of travel of the vehicle corresponding to this observation, can be referenced from the GTFS static feed trips.txt. SameAs: 'direction_id' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)"
+        },
+        "field1XXX": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Property. Model:'https://schema.org/Number'. Example of definition of a numerical attribute"
+        },
+        "field2XXX": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Example of definition of a numerical attribute"
+        },
+        "field3XXX": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Example of definition of a date-time attribute"
+        },
+        "relationship1XX": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to the other entity"
+        },
+        "field4XXX": {
+          "type": "string",
+          "enum": [
+            "val1",
+            "val2",
+            "val3"
+          ],
+          "description": "Property. Model:'https://schema.org/Text. Example of definition of a enumeration of strings"
+        },
+        "field5XXX": {
+          "type": "string",
+          "enum": [
+            1,
+            2,
+            3
+          ],
+          "description": "Property. Model:'https://schema.org/Text. Example of definition of a enumeration of numbers"
+        },
+        "field6XXX": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/Text. Example of definition of a enumeration of objects",
+          "properties": {
+            "subproperty1XXX": {
+              "type": "string"
+            },
+            "subproperty2XXX": {
+              "type": "number"
+            }
+          }
+        },
+        "field7XXX": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Text. Example of definition of a arrayof strings",
+          "items": {
+            "type": "string",
+            "minitems": 3
+          }
+        },
+        "field8XXX": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Text. Example of definition of a array of numbers",
+          "items": {
+            "type": "number",
+            "minitems": 1
+          }
+        },
+        "field9XXX": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Example of definition of a boolean attribute"
+        }
+      }
+    }
+  ]
+}
