@@ -90,7 +90,39 @@
               "values": {
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "annotation": {
+                      "type": "string"
+                    },
+                    "label": {
+                      "type": "object",
+                      "properties": { // cambiarlo a patternProperties
+                        "en": {
+                          "type": "string"
+                        },
+                        "es": {
+                          "type": "string"
+                        },
+                        "ja": {
+                          "type": "string"
+                        },
+                        "it": {
+                          "type": "string"
+                        },
+                        "fr": {
+                          "type": "string"
+                        },
+                        "de": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }

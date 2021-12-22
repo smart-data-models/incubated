@@ -1,0 +1,294 @@
+##############
+# Components #
+##############
+
+SDMX
+----
+# NUTS3 attribute
+isc:att-nuts3
+    a             qb:CodedProperty , qb:AttributeProperty ;
+    rdfs:label   "NUTS 3"@en , "NUTS 3"@fr ;
+    rdfs:range   isc:nuts3 ;
+    qb:codeList  isc:cl-nuts3 ;
+    qb:concept   sdmx-concept:refArea .
+
+JSON-LD
+-------
+{
+  "id": "urn:ngsi-ld:AttributeProperty:att-nuts3",
+  "type": ["qb:CodedProperty", "qb:DimensionProperty"],
+  "rdfs:label": {
+      "type": "LanguageProperty",
+      "LanguageMap": {
+          "en": "NUTS 3",
+          "fr": "NUTS 3"
+      }
+  },
+  "rdfs:range": {
+      "type": "Relationship",
+      "value": "urn:ngsi-ld:Range:nuts3"
+  },
+  "qb:codeList": {
+      "type": "Relationship",
+      "value": "urn:ngsi-ld:ConceptSchema:cl-nuts3"
+  },
+  "qb:concept": {
+      "type": "Property",
+      "value": "sdmx-concept:refArea"
+  },
+  "@context": {
+      "https://smartdatamodels.org/context.jsonld",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "qb": "http://purl.org/linked-data/cube#",
+      "sdmx-concept": "http://purl.org/linked-data/sdmx/2009/concept#",
+      "isc": "http://id.cef-interstat.eu/sc/"
+  }
+}
+
+##############
+# Code lists #
+##############
+
+SDMX
+----
+
+- It is missing the definition of the isc:nuts3...
+
+
+JSON-LD
+-------
+{
+  ...
+}
+
+SDMX
+----
+- it is missing the definition of the isc:cl-nuts3
+
+# NUTS3 code list (extract)
+# Extracted from https://op.europa.eu/o/opportal-service/euvoc-download-handler?cellarURI=http%3A%2F%2Fpublications.europa.eu%2Fresource%2Fcellar%2F7180b976-bc48-11ea-811c-01aa75ed71a1.0001.03%2FDOC_1&fileName=nuts-skos-ap-eu.rdf and converted to Turtle
+
+<http://data.europa.eu/nuts/scheme/2016>
+  a skos:ConceptScheme ;
+  skos:prefLabel "NUTS 2016" .
+
+Missing content here:
+    skos:hasTopConcept  FR101, FR102, FR103, FRY40, FRY50, FRZZZ  ;
+
+    where each of them should be something like <http://data.europa.eu/nuts/code/FR101>
+
+JSON-LD
+-------
+{
+        "id": "urn:ngsi-ld:ConceptSchema:nuts-scheme-2016",
+        "type": "skos:ConceptScheme",
+        "skos:hasTopConcept": {
+            "type": "Property",
+            "value": [
+                "urn:ngsi-ld:Concept:nuts-code-FR101",
+                "urn:ngsi-ld:Concept:nuts-code-FR102",
+                "urn:ngsi-ld:Concept:nuts-code-FR103",
+                "urn:ngsi-ld:Concept:nuts-code-FRY40",
+                "urn:ngsi-ld:Concept:nuts-code-FRY50",
+                "urn:ngsi-ld:Concept:nuts-code-FRZZZ"
+            ]
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "NUTS 2016"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
+
+
+SDMX
+----
+
+<http://data.europa.eu/nuts/code/FR101>
+  a skos:Concept ;
+  skos:prefLabel "Paris" ;
+  skos:inScheme <http://data.europa.eu/nuts/scheme/2016> ;
+  skos:notation "FR101" .
+
+<http://data.europa.eu/nuts/code/FR102>
+  a skos:Concept ;
+  skos:prefLabel "Seine-et-Marne" ;
+  skos:inScheme <http://data.europa.eu/nuts/scheme/2016> ;
+  skos:notation "FR102" .
+
+<http://data.europa.eu/nuts/code/FR103>
+  a skos:Concept ;
+  skos:prefLabel "Yvelines" ;
+  skos:inScheme <http://data.europa.eu/nuts/scheme/2016> ;
+  skos:notation "FR103" .
+
+<http://data.europa.eu/nuts/code/FRY40>
+  a skos:Concept ;
+  skos:prefLabel "La Réunion" ;
+  skos:inScheme <http://data.europa.eu/nuts/scheme/2016> ;
+  skos:notation "FRY40" .
+
+<http://data.europa.eu/nuts/code/FRY50>
+  a skos:Concept ;
+  skos:prefLabel "Mayotte " ;
+  skos:inScheme <http://data.europa.eu/nuts/scheme/2016> ;
+  skos:notation "FRY50" .
+
+<http://data.europa.eu/nuts/code/FRZZZ>
+  a skos:Concept ;
+  skos:prefLabel "Extra-Regio NUTS 3" ;
+  skos:inScheme <http://data.europa.eu/nuts/scheme/2016> ;
+  skos:notation "FRZZZ" .
+
+JSON-LD
+-------
+{
+        "id": "urn:ngsi-ld:Concept:nuts-code-FR101",
+        "type": "Concept",     // skos:Concept
+        "skos:inScheme": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:nuts-scheme-2016",
+        },
+        "skos:notation": {
+            "type": "Property",
+            "value": "FR101"
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "Paris"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
+
+{
+        "id": "urn:ngsi-ld:Concept:nuts-code-FR102",
+        "type": "Concept",     // skos:Concept
+        "skos:inScheme": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:nuts-scheme-2016",
+        },
+        "skos:notation": {
+            "type": "Property",
+            "value": "FR102"
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "Seine-et-Marne"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
+
+{
+        "id": "urn:ngsi-ld:Concept:nuts-code-FR103",
+        "type": "Concept",     // skos:Concept
+        "skos:inScheme": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:nuts-scheme-2016",
+        },
+        "skos:notation": {
+            "type": "Property",
+            "value": "FR103"
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "Yvelines"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
+
+{
+        "id": "urn:ngsi-ld:Concept:nuts-code-FRY40",
+        "type": "Concept",     // skos:Concept
+        "skos:inScheme": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:nuts-scheme-2016",
+        },
+        "skos:notation": {
+            "type": "Property",
+            "value": "FRY40"
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "La Réunion"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
+
+{
+        "id": "urn:ngsi-ld:Concept:nuts-code-FRY50",
+        "type": "Concept",     // skos:Concept
+        "skos:inScheme": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:nuts-scheme-2016",
+        },
+        "skos:notation": {
+            "type": "Property",
+            "value": "FRY50"
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "Mayotte"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
+
+{
+        "id": "urn:ngsi-ld:Concept:nuts-code-FRZZZ",
+        "type": "Concept",     // skos:Concept
+        "skos:inScheme": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:nuts-scheme-2016",
+        },
+        "skos:notation": {
+            "type": "Property",
+            "value": "FRZZZ"
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "Extra-Regio NUTS 3"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}

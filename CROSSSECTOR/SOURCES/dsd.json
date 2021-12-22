@@ -1,0 +1,104 @@
+##################################################################################
+#             Data Structure Definitions for the Interstat SEP pilot             #
+##################################################################################
+
+# This DSD will be used for the DDI-CDI/NGSI-LD interoperability test
+# It is a simple municipalitiy x sex x age group 3 dimensional cube
+
+SDMX
+----
+isc:dsd1
+    a             qb:DataStructureDefinition ;
+    rdfs:label    "Population by sex, age and local administrative unit"@en , "Population par sexe, âge et unité administrative locale"@fr ;
+    qb:component  [ a                       qb:ComponentSpecification ;
+                    qb:attribute            sdmx-attribute:unitMeasure ;
+                    qb:componentAttachment  qb:DataSet
+                  ] ;
+    qb:component  [ a                       qb:ComponentSpecification ;
+                    qb:attribute            isc:att-nuts3 ;
+                    qb:componentAttachment  qb:Observation
+                  ] ;
+    qb:component  [ a             qb:ComponentSpecification ;
+                    qb:dimension  isc:dim-age
+                  ] ;
+    qb:component  [ a             qb:ComponentSpecification ;
+                    qb:dimension  isc:dim-sex
+                   ] ;
+    qb:component  [ a             qb:ComponentSpecification ;
+                    qb:dimension  isc:dim-lau
+                   ] ;
+    qb:component  [ a             qb:ComponentSpecification ;
+                    qb:measure    sdmx-measure:obsValue
+                   ] .
+
+Idea -> Transform the DSD into Dataset in statDACT-AP
+  - qb:DataStructureDefinition -> Dataset
+  - rdfs:label -> dct:description -> datasetDescription | description
+  - qb:component -> stat:dimension  URI of qb:DimensionProperty
+                    stat:attribute  URI of qb:AttributeProperty
+                    sdmx-attribute:unitMeasure -> stat:unitMeasure ? It is not defined in the example
+
+  - What about qb:measure?
+  - Do we need the isc prefix?
+
+(Check https://github.com/w3c/dxwg/issues/88 for description of the data model)
+
+JSON-LD
+-------
+{
+    "id": "urn:ngsi-ld:Dataset:id:isc:dsd1",
+    "type": "Dataset",
+    "title": {
+        "type": "Property",
+        "value": "dsd1"
+    },
+    "language": {
+        "type": "Property",
+        "value": [
+            "EN",
+            "FR"
+        ]
+    },
+    "datasetDescription": {     // what is the difference between description and datasetDescription
+        "type": "Property",
+        "value": [
+            "Population by sex, age and local administrative unit",
+            "Population par sexe, âge et unité administrative locale"
+        ]
+    },
+    "stat:dimansion": {
+       "type": "Property",
+        "value": [
+            "urn:ngsi-ld:DimensionProperty:dim-age",
+            "urn:ngsi-ld:DimensionProperty:dim-sex",
+            "urn:ngsi-ld:DimensionProperty:dim-lau"
+        ]
+    },
+    "stat:attribute": {
+       "type": "Property",  // Property or relationship
+        "value": [
+            "urn:ngsi-ld:Dataset:items:isc:att-nuts3"
+        ]
+    },
+    "stat:unitMeasure": {
+      "type": "Property",
+      "value": [
+            // Range of skos:Concept, missing in the example
+      ]
+    },
+  "@context": {
+      "https://smartdatamodels.org/context.jsonld",
+      "stat": "...",
+      "isc": "http://id.cef-interstat.eu/sc/"
+  }
+}
+
+
+##############
+# Components #
+##############
+
+# Age dimension defined in data-age-dim.json
+# Sex dimension define in data-sex-dim.json
+# LAU dimension defined in data-lau-dim.json
+# NUTS3 attribute defined in data-nuts-attr.json

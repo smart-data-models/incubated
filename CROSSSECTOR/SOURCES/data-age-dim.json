@@ -1,0 +1,206 @@
+##############
+# Components #
+##############
+
+SDMX
+----
+isc:dim-age
+    a             qb:CodedProperty , qb:DimensionProperty ;
+    rdfs:label    "Five-year age group"@en , "Âge quinquennal"@fr ;
+    rdfs:range    isc:age ;
+    qb:codeList   isc:cl-age ;
+    qb:concept    sdmx-concept:age .
+
+JSON-LD
+-------
+{
+  "id": "urn:ngsi-ld:DimensionProperty:dim-age",
+  "type": ["qb:CodedProperty", "qb:DimensionProperty"],
+  "rdfs:label": {
+      "type": "LanguageProperty",
+      "LanguageMap": {
+          "en": "Five-year age group",
+          "fr": "Âge quinquennal"
+      }
+  },
+  "rdfs:range": {
+      "type": "Relationship",
+      "value": "isc:age"   // Should be a entity id in the format of urn:ngsi-ld:Range:age  (Range -> Class)
+  },
+  "qb:codeList": {
+      "type": "Relationship",
+      "value": "isc:cl-age"  // Should be a entity id in the format of urn:ngsi-ld:CodeList:cl-age (CodeList -> ConceptSchema)
+  },
+  "qb:concept": {
+      "type": "Property",
+      "value": "sdmx-concept:age"
+  },
+  "@context": {
+      "https://smartdatamodels.org/context.jsonld",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "qb": "http://purl.org/linked-data/cube#",
+      "sdmx-concept": "http://purl.org/linked-data/sdmx/2009/concept#",
+      "isc": "http://id.cef-interstat.eu/sc/"
+  }
+}
+
+##############
+# Code lists #
+##############
+
+SDMX
+----
+isc:age
+    a                rdfs:Class , owl:Class ;
+    rdfs:seeAlso     isc:cl-age ;
+    rdfs:subClassOf  skos:Concept ;
+    skos:prefLabel   "Five-year age group"@en , "Âge quinquennal"@fr .
+
+JSON-LD
+-------
+{
+        "id": "urn:ngsi-ld:Range:age",
+        "type": ["rdfs:Class", "owl:Class"],
+        "rdfs:seeAlso": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:cl-age"
+        },
+        "rdfs:subClassOf": {
+            "type": "Property",
+            "value": "skos:Concept"
+        },
+        "skos:prefLabel": {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "en": "Five-year age group",
+                "fr": "Âge quinquennal"
+           }
+        },
+        "@context": {
+            "https://smartdatamodels.org/context.jsonld",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+            "owl": "http://www.w3.org/2002/07/owl#",
+            "isc": "http://id.cef-interstat.eu/sc/",
+            "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
+
+SDMX
+----
+isc:cl-age
+    a                   skos:ConceptScheme ;
+    rdfs:seeAlso        isc:age ;
+    skos:hasTopConcept  isc:age-Y_LT5 , isc:age-Y5-9;
+    skos:prefLabel      "Five-year age group"@en , "Âge quinquennal"@fr .
+
+JSON-LD
+-------
+{
+        "id": "urn:ngsi-ld:ConceptSchema:cl-age",
+        "type": "skos:ConceptScheme",
+        "rdfs:seeAlso": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:Range:age"
+        },
+        "skos:hasTopConcept": {
+            "type": "Property",
+            "value": [
+              "urn:ngsi-ld:Concept:age-Y_LT5",
+              "urn:ngsi-ld:Concept:age-Y5-9"
+            ]
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "en": "Five-year age group",
+                "fr": "Âge quinquennal"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
+
+
+SDMX
+----
+isc:age-Y_LT5
+    a                  isc:age ;
+    skos:inScheme      isc:cl-age ;
+    skos:topConceptOf  isc:cl-age ;
+    skos:notation      "Y_LT5" ;
+    skos:prefLabel     "under 5 years"@en , "moins de 5 ans"@fr .
+
+JSON-LD
+-------
+{
+        "id": "urn:ngsi-ld:Concept:age-Y_LT5",
+        "type": "Concept",     // skos:Concept
+        "skos:inScheme": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:CodeList:cl-age",         // urn:ngsi-ld:ConceptSchema:cl-age ?"
+        },
+        "skos:topConceptOf": {    // Doubt: what is the difference between inScheme and topConceptOf?
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:CodeList:cl-age"         // urn:ngsi-ld:ConceptSchema:cl-age ?"
+        },
+        "skos:notation": {
+            "type": "Property",
+            "value": "Y_LT5"
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "en": "under 5 years",
+                "fr": "moins de 5 ans"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
+
+SDMX
+----
+isc:age-Y5-9
+    a                  isc:age ;
+    skos:inScheme      isc:cl-age ;
+    skos:topConceptOf  isc:cl-age ;
+    skos:notation      "Y5-9" ;
+    skos:prefLabel     "5 to 9 years"@en , "5 à 9 ans"@fr .
+
+JSON-LD
+-------
+{
+        "id": "urn:ngsi-ld:Concept:age-Y5-9",
+        "type": "Concept",       // skos:Concept
+        "skos:inScheme": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:CodeList:cl-age"         // urn:ngsi-ld:ConceptSchema:cl-age ?"
+        },
+        "skos:topConceptOf": {    // Doubt: what is the difference between inScheme and topConceptOf?
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:CodeList:cl-age"         // urn:ngsi-ld:ConceptSchema:cl-age ?"
+        },
+        "skos:notation": {
+            "type": "Property",
+            "value": "Y5-9"
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "en": "5 to 9 years",
+                "fr": "5 à 9 ans"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}

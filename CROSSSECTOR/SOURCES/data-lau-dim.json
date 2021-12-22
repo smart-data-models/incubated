@@ -1,0 +1,281 @@
+##############
+# Components #
+##############
+
+SDMX
+----
+# LAU dimension
+isc:dim-lau
+    a             qb:CodedProperty , qb:DimensionProperty ;
+    rdfs:label    "Local Administrative Unit"@en , "Unité Administrative Locale"@fr ;
+    rdfs:range    isc:lau ;
+    qb:codeList   isc:cl-lau ;
+    qb:concept    sdmx-concept:refArea .
+
+JSON-LD
+-------
+{
+  "id": "urn:ngsi-ld:DimensionProperty:dim-lau",
+  "type": ["qb:CodedProperty", "qb:DimensionProperty"],
+  "rdfs:label": {
+      "type": "LanguageProperty",
+      "LanguageMap": {
+          "en": "Local Administrative Unit",
+          "fr": "Unité Administrative Locale"
+      }
+  },
+  "rdfs:range": {
+      "type": "Relationship",
+      "value": "urn:ngsi-ld:Range:lau"
+  },
+  "qb:codeList": {
+      "type": "Relationship",
+      "value": "urn:ngsi-ld:ConceptSchema:cl-lau"  // Should be a entity id in the format of  (CodeList -> )
+  },
+  "qb:concept": {
+      "type": "Property",
+      "value": "sdmx-concept:refArea"
+  },
+  "@context": {
+      "https://smartdatamodels.org/context.jsonld",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "qb": "http://purl.org/linked-data/cube#",
+      "sdmx-concept": "http://purl.org/linked-data/sdmx/2009/concept#",
+      "isc": "http://id.cef-interstat.eu/sc/"
+  }
+}
+
+##############
+# Code lists #
+##############
+
+SDMX
+----
+isc:lau
+    a                rdfs:Class , owl:Class ;
+    rdfs:seeAlso     isc:cl-lau ;
+    rdfs:subClassOf  skos:Concept ;
+    skos:prefLabel   "Local Administrative Unit"@en , "Unité Administrative Locale"@fr .
+
+JSON-LD
+-------
+{
+        "id": "urn:ngsi-ld:Range:lau",
+        "type": ["rdfs:Class", "owl:Class"],
+        "rdfs:seeAlso": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:cl-lau"
+        },
+        "rdfs:subClassOf": {
+            "type": "Property",
+            "value": "skos:Concept"
+        },
+        "skos:prefLabel": {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "en": "Local Administrative Unit",
+                "fr": "Unité Administrative Locale"
+           }
+        },
+        "@context": {
+            "https://smartdatamodels.org/context.jsonld",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+            "owl": "http://www.w3.org/2002/07/owl#",
+            "isc": "http://id.cef-interstat.eu/sc/",
+            "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
+
+SDMX
+----
+isc:cl-lau
+    a                   skos:ConceptScheme ;
+    rdfs:seeAlso        isc:lau ;
+    skos:hasTopConcept  isc:lau-01001 , isc:lau-97617 , isc:lau-001001 , isc:lau-111107 ;
+    skos:prefLabel      "Local Administrative Unit"@en , "Unité Administrative Locale"@fr .
+
+JSON-LD
+-------
+{
+        "id": "urn:ngsi-ld:ConceptSchema:cl-lau",
+        "type": "skos:ConceptScheme",
+        "rdfs:seeAlso": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:Range:lau"
+        },
+        "skos:hasTopConcept": {
+            "type": "Property",
+            "value": [
+                "urn:ngsi-ld:Concept:lau-01001",
+                "urn:ngsi-ld:Concept:lau-97617",
+                "urn:ngsi-ld:Concept:lau-001001",
+                "urn:ngsi-ld:Concept:lau-111107"
+            ]
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "en": "Local Administrative Unit",
+                "fr": "Unité Administrative Locale"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
+
+
+SDMX
+----
+isc:lau-01001
+    a                  isc:lau ;
+    skos:inScheme      isc:cl-lau ;
+    skos:topConceptOf  isc:cl-lau ;
+    skos:notation      "01001" ;
+    skos:prefLabel     "L'Abergement-Clémenciat" .
+
+isc:lau-97617
+    a                  isc:lau ;
+    skos:inScheme      isc:cl-lau ;
+    skos:topConceptOf  isc:cl-lau ;
+    skos:notation      "97617" ;
+    skos:prefLabel     "Tsingoni" .
+
+isc:lau-001001
+    a                  isc:lau ;
+    skos:inScheme      isc:cl-lau ;
+    skos:topConceptOf  isc:cl-lau ;
+    skos:notation      "001001" ;
+    skos:prefLabel     "Agliè" .
+
+isc:lau-111107
+    a                  isc:lau ;
+    skos:inScheme      isc:cl-lau ;
+    skos:topConceptOf  isc:cl-lau ;
+    skos:notation      "111107" ;
+    skos:prefLabel     "Villaspeciosa" .
+
+- In this case, prefLabel has only one value, therefore, should it be defined as?:
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "L'Abergement-Clémenciat"
+           }
+        },
+
+JSON-LD
+-------
+{
+        "id": "urn:ngsi-ld:Concept:lau-01001",
+        "type": "Concept",     // skos:Concept
+        "skos:inScheme": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:cl-lau",
+        },
+        "skos:topConceptOf": {    // Doubt: what is the difference between inScheme and topConceptOf?
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:cl-lau"
+        },
+        "skos:notation": {
+            "type": "Property",
+            "value": "01001"
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "fr": "L'Abergement-Clémenciat"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
+
+{
+        "id": "urn:ngsi-ld:Concept:lau-97617",
+        "type": "Concept",     // skos:Concept
+        "skos:inScheme": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:cl-lau",
+        },
+        "skos:topConceptOf": {    // Doubt: what is the difference between inScheme and topConceptOf?
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:cl-lau"
+        },
+        "skos:notation": {
+            "type": "Property",
+            "value": "97617"
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "fr": "Tsingoni"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
+
+{
+        "id": "urn:ngsi-ld:Concept:lau-001001",
+        "type": "Concept",     // skos:Concept
+        "skos:inScheme": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:cl-lau",
+        },
+        "skos:topConceptOf": {    // Doubt: what is the difference between inScheme and topConceptOf?
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:cl-lau"
+        },
+        "skos:notation": {
+            "type": "Property",
+            "value": "001001"
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "fr": "Agliè"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
+
+{
+        "id": "urn:ngsi-ld:Concept:lau-111107",
+        "type": "Concept",     // skos:Concept
+        "skos:inScheme": {
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:cl-lau",
+        },
+        "skos:topConceptOf": {    // Doubt: what is the difference between inScheme and topConceptOf?
+            "type": "Relationship",
+            "value": "urn:ngsi-ld:ConceptSchema:cl-lau"
+        },
+        "skos:notation": {
+            "type": "Property",
+            "value": "111107"
+        },
+        "skos:prefLabel":  {
+            "type": "LanguageProperty",
+            "LanguageMap": {
+                "fr": "Villaspeciosa"
+           }
+        },
+        "@context": {
+           "https://smartdatamodels.org/context.jsonld",
+           "isc": "http://id.cef-interstat.eu/sc/",
+           "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+}
