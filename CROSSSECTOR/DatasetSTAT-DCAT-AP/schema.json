@@ -17,17 +17,21 @@
         },
         "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons/properties/id",
         "description": {
-          "type": "array",
+          "type": "object",
           "description": "Property. Model:'dct:description'. This property contains a free-text account of the Dataset. This property can be repeated for parallel language versions of the description.",
-          "items": {
-            "type": "string"
+          "patternProperties": {
+            "^[a-z]{2}$": {
+              "type": "string"
+            }
           }
         },
         "title": {
-          "type": "array",
+          "type": "object",
           "description": "Property. Model:'dct:title'. This property contains a name given to the Dataset.  This property can be repeated for parallel language versions of the name.",
-          "items": {
-            "type": "string"
+          "patternProperties": {
+            "^[a-z]{2}$": {
+              "type": "string"
+            }
           }
         },
         "contactPoint": {
@@ -203,10 +207,12 @@
           "description": "Property. Model:'owl:versionInfo'. This property contains a version number or other version designation of the Dataset"
         },
         "versionNotes": {
-          "type": "array",
+          "type": "object",
           "description": "Property. Model:'adms:versionNotes'. This property contains a description of the differences between this version and a previous version of the Dataset. This property can be repeated for parallel language versions of the version notes.",
-          "items": {
-            "type": "string"
+          "patternProperties": {
+            "^[a-z]{2}$": {
+              "type": "string"
+            }
           }
         },
         "attribute": {
@@ -241,7 +247,6 @@
             "type": "string"
           }
         },
-
         "spatialResolution": {
           "type": "array",
           "description": "Property. Model:'dcat:spatialResolutionIn Meters'. This property refers to the minimum spatial separation resolvable in a dataset, measured in meters. It is part of DCAT 2.0.1 standard",
