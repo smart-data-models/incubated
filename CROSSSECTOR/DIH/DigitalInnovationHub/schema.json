@@ -1,144 +1,131 @@
 {
-	"$schema": "http://json-schema.org/schema#",
-	"$schemaVersion": "0.0.2",
-	"$id": "https://smart-data-models.github.io/dataModel.DIH/DigitalInnovationHub/schema.json",
-	"title": "Sample DIH",
-	"description": "Digital Innovation Hubs are one-stop-shops that help companies to become more competitive with regard to their business/production processes.",
-	"type": "object",
-	"modelTags": "DIH",
-	"allOf": [{
-			"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
-		},
-		{
-			"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-		},
-		{
-			"properties": {
-				"website": {
-					"type": "string",
-					"description": "Property. [URL](https://schema.org/URL). Website of the Digital Innovation Hub."
-				},
-				"logo": {
-					"type": "object",
-					"description": "Property. [StructuredValue](https://schema.org/StructuredValue). Logo of the Digital Innovation Hub.",
-					"properties": {
-						"base64Data": {
-							"type": "string"
-						},
-						"filename": {
-							"type": "string"
-						}
-					},
-					"required": [
-						"base64Data",
-						"filename"
-					]
-				},
-				"address": {
-					"type": "object",
-					"description": "Property. [PostalAddress](https://schema.org/PostalAddress). Address of the Digital Innovation Hub.",
-					"properties": {
-						"streetAddress": {
-							"type": "string"
-						},
-						"addressRegion": {
-							"type": "string"
-						},
-						"postalCode": {
-							"type": "string"
-						},
-						"addressCountry": {
-							"type": "string"
-						},
-						"addressLocality": {
-							"type": "string"
-						}
-					},
-					"required": [
-						"streetAddress",
-						"addressRegion",
-						"postalCode",
-						"addressCountry",
-						"addressLocality"
-					]
-				},
-				"representatives": {
-					"type": "array",
-					"description": "Property. [StructuredValue](https://schema.org/StructuredValue). Representatives of the Digital Innovation Hub.",
-					"items": [{
-						"type": "object",
-						"properties": {
-							"name": {
-								"type": "string"
-							},
-							"surname": {
-								"type": "string"
-							},
-							"email": {
-								"type": "string"
-							},
-							"role": {
-								"type": "string"
-							},
-							"responsibilities": {
-								"type": "string"
-							}
-						},
-						"required": [
-							"name",
-							"surname",
-							"email",
-							"role",
-							"responsibilities"
-						]
-					}]
-				},
-				"domain": {
-					"type": "array",
-					"description": "Property. [StructuredValue](https://schema.org/StructuredValue). Domain of the Digital Innovation Hub.",
-					"items": [{
-						"type": "string"
-					}]
-				},
-				"competences": {
-					"type": "array",
-					"description": "Property. [StructuredValue](https://schema.org/StructuredValue). Competences of the Digital Innovation Hub.",
-					"items": [{
-						"type": "string"
-					}]
-				},
-				"socialAccounts": {
-					"type": "object",
-					"description": "Property. [StructuredValue](https://schema.org/StructuredValue). SocialAccounts of the Digital Innovation Hub.",
-					"properties": {
-						"linkedin": {
-							"type": "string"
-						},
-						"facebook": {
-							"type": "string"
-						},
-						"twitter": {
-							"type": "string"
-						},
-						"instagram": {
-							"type": "string"
-						}
-					}
-				},
-				"relation": {
-					"type": "object",
-					"description": "Property. [StructuredValue](https://schema.org/StructuredValue). Relation of the Digital Innovation Hub.",
-					"properties": {
-						"sampleReference": {
-							"type": "string"
-						}
-					}
-				}
-			}
-		}
-	],
-	"required": [
-		"id",
-		"type"
-	]
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "$id": "https://smart-data-models.github.io/dataModel.DIH/DigitalInnovationHub/schema.json",
+  "title": "Sample DIH",
+  "description": "Digital Innovation Hubs are one-stop-shops that help companies to become more competitive with regard to their business/production processes.",
+  "type": "object",
+  "modelTags": "DIH",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI entity type. It has to be DigitalInnovationHub",
+          "enum": [
+            "DigitalInnovationHub"
+          ]
+        },
+        "website": {
+          "type": "string",
+          "description": "Property. [URL](https://schema.org/URL). Website of the Digital Innovation Hub."
+        },
+        "logo": {
+          "type": "object",
+          "description": "Property. [StructuredValue](https://schema.org/StructuredValue). Logo of the Digital Innovation Hub.",
+          "properties": {
+            "base64Data": {
+              "type": "string"
+            },
+            "filename": {
+              "type": "string"
+            }
+          }
+        },
+        "representatives": {
+          "type": "array",
+          "description": "Property. [StructuredValue](https://schema.org/StructuredValue). Representatives of the Digital Innovation Hub.",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "surname": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "responsibilities": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "domain": {
+          "type": "array",
+          "description": "Property. [StructuredValue](https://schema.org/StructuredValue). Domain of the Digital Innovation Hub.",
+          "items": [
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "competences": {
+          "type": "array",
+          "description": "Property. [StructuredValue](https://schema.org/StructuredValue). Competences of the Digital Innovation Hub.",
+          "items": [
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "socialAccounts": {
+          "type": "object",
+          "description": "Property. [StructuredValue](https://schema.org/StructuredValue). SocialAccounts of the Digital Innovation Hub.",
+          "properties": {
+            "linkedin": {
+              "type": "string"
+            },
+            "facebook": {
+              "type": "string"
+            },
+            "twitter": {
+              "type": "string"
+            },
+            "instagram": {
+              "type": "string"
+            }
+          }
+        },
+        "relation": {
+          "type": "array",
+          "description": "Property. [StructuredValue](https://schema.org/StructuredValue). Relations of the Digital Innovation Hub.",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "relationType": {
+                  "type": "string"
+                },
+                "relationIdentifier": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "relationType",
+                "relationIdentifier"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
 }

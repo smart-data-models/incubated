@@ -1,132 +1,118 @@
 {
-	"$schema": "http://json-schema.org/schema#",
-	"$schemaVersion": "0.0.2",
-	"$id": "https://smart-data-models.github.io/dataModel.DIH/DigitalInnovationHubService/schema.json",
-	"title": "Sample DIH Service",
-	"description": "Provision of insights and trend on markets to companies to stimulate their internal innovation.",
-	"type": "object",
-	"modelTags": "DIH",
-	"allOf": [{
-			"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
-		},
-		{
-			"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-		},
-		{
-			"properties": {
-				"serviceImage": {
-					"type": "object",
-					"description": "Property. [StructuredValue](https://schema.org/StructuredValue). Image of the Digital Innovation Hub Service.",
-					"properties": {
-						"base64Data": {
-							"type": "string"
-						},
-						"filename": {
-							"type": "string"
-						}
-					},
-					"required": [
-						"base64Data",
-						"filename"
-					]
-				},
-				"category": {
-					"type": "string",
-					"description": "Property. [Text](https://schema.org/Text). Category of the Digital Innovation Hub Service."
-				},
-				"serviceType": {
-					"type": "string",
-					"description": "Property. [Text](https://schema.org/Text). ServiceType of the Digital Innovation Hub Service."
-				},
-				"service": {
-					"type": "string",
-					"description": "Property. [Text](https://schema.org/Text). Service of the Digital Innovation Hub Service."
-				},
-				"target": {
-					"type": "array",
-					"description": "Property. [StructuredValue](https://schema.org/StructuredValue). Targets of the Digital Innovation Hub Service.",
-					"items": [{
-							"type": "string"
-						},
-						{
-							"type": "string"
-						}
-					]
-				},
-				"url": {
-					"type": "string",
-					"description": "Property. [URL](https://schema.org/URL). URL of the Digital Innovation Hub Service."
-				},
-				"additionalmaterial": {
-					"type": "array",
-					"description": "Property. [StructuredValue](https://schema.org/StructuredValue). Additional Materials of the Digital Innovation Hub.",
-					"items": [{
-						"type": "object",
-						"properties": {
-							"label": {
-								"type": "string"
-							},
-							"url": {
-								"type": "string"
-							}
-						},
-						"required": [
-							"label",
-							"url"
-						]
-					}]
-				},
-				"contacts": {
-					"type": "array",
-					"description": "Property. [StructuredValue](https://schema.org/StructuredValue). Contacts of the Digital Innovation Hub.",
-					"items": [{
-						"type": "object",
-						"properties": {
-							"name": {
-								"type": "string"
-							},
-							"email": {
-								"type": "string"
-							}
-						},
-						"required": [
-							"name",
-							"email"
-						]
-					}]
-				},
-				"author": {
-					"type": "string",
-					"description": "Property. [Text](https://schema.org/Text). Author of the Digital Innovation Hub Service."
-				},
-				"relation": {
-					"type": "object",
-					"description": "Property. [StructuredValue](https://schema.org/StructuredValue). Relation of the Digital Innovation Hub.",
-					"properties": {
-						"dih": {
-							"type": "array",
-							"items": [{
-								"type": "object",
-								"properties": {
-									"to": {
-										"type": "string"
-									}
-								},
-								"required": [
-									"to"
-								]
-							}]
-						}
-					},
-					"required": [
-						"dih"
-					]
-				}
-			}
-		}
-	],
-	"required": [
-		"id",
-		"type"
-	]
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "$id": "https://smart-data-models.github.io/dataModel.DIH/DigitalInnovationHubService/schema.json",
+  "title": "Sample DIH Service",
+  "description": "Provision of insights and trend on markets to companies to stimulate their internal innovation.",
+  "type": "object",
+  "modelTags": "DIH",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI entity type. It has to be DigitalInnovationHubService",
+          "enum": [
+            "DigitalInnovationHubService"
+          ]
+        },
+        "serviceImage": {
+          "type": "object",
+          "description": "Property. [StructuredValue](https://schema.org/StructuredValue). Image of the Digital Innovation Hub Service.",
+          "properties": {
+            "base64Data": {
+              "type": "string"
+            },
+            "fileName": {
+              "type": "string"
+            }
+          }
+        },
+        "category": {
+          "type": "string",
+          "description": "Property. [Text](https://schema.org/Text). Category of the Digital Innovation Hub Service."
+        },
+        "serviceType": {
+          "type": "string",
+          "description": "Property. [Text](https://schema.org/Text). ServiceType of the Digital Innovation Hub Service."
+        },
+        "serviceSubType": {
+          "type": "string",
+          "description": "Property. [Text](https://schema.org/Text). ServiceSubType of the Digital Innovation Hub Service."
+        },
+        "target": {
+          "type": "array",
+          "description": "Property. [StructuredValue](https://schema.org/StructuredValue). Targets of the Digital Innovation Hub Service.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "url": {
+          "type": "string",
+          "description": "Property. [URL](https://schema.org/URL). URL of the Digital Innovation Hub Service."
+        },
+        "additionalMaterial": {
+          "type": "array",
+          "description": "Property. [StructuredValue](https://schema.org/StructuredValue). Additional Materials of the Digital Innovation Hub.",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "contacts": {
+          "type": "array",
+          "description": "Property. [StructuredValue](https://schema.org/StructuredValue). Contacts of the Digital Innovation Hub.",
+          "items": [
+            {
+              "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Contact-Commons"
+            }
+          ]
+        },
+        "author": {
+          "type": "string",
+          "description": "Property. [Text](https://schema.org/Text). Author of the Digital Innovation Hub Service."
+        },
+        "relation": {
+          "type": "array",
+          "description": "Property. [StructuredValue](https://schema.org/StructuredValue). Relations of the Digital Innovation Hub Service.",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "relationType": {
+                  "type": "string"
+                },
+                "relationIdentifier": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "relationType",
+                "relationIdentifier"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
 }
