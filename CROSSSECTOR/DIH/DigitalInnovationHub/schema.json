@@ -33,7 +33,7 @@
             "base64Data": {
               "type": "string"
             },
-            "filename": {
+            "fileName": {
               "type": "string"
             }
           }
@@ -101,13 +101,25 @@
           }
         },
         "relation": {
-          "type": "object",
-          "description": "Property. [StructuredValue](https://schema.org/StructuredValue). Relation of the Digital Innovation Hub.",
-          "properties": {
-            "sampleReference": {
-              "type": "string"
+          "type": "array",
+          "description": "Property. [StructuredValue](https://schema.org/StructuredValue). Relations of the Digital Innovation Hub.",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "relationType": {
+                  "type": "string"
+                },
+                "relationIdentifier": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "relationType",
+                "relationIdentifier"
+              ]
             }
-          }
+          ]
         }
       }
     }
