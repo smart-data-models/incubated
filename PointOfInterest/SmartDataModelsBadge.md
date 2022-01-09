@@ -6,16 +6,20 @@ Information on the current activity performed by an anonymized user in a given p
 
 ## Source to embed the badge
 
+To embed this badge
 
 <a href="https://github.com/smart-data-models/dataModel.User/blob/master/Activity/SmartDataModelBadge.md"><img src ="https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/Activity/SmartDataModelBadge.png"></a>
 
-```bash
-<a href="https://github.com/smart-data-models/dataModel.User/blob/master/Activity/SmartDataModelBadge.md">
+ You can use this source code
+
+```bash<a href="https://github.com/smart-data-models/dataModel.User/blob/master/Activity/SmartDataModelBadge.md">
 
 <img src ="https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/Activity/SmartDataModelBadge.png">
 
 </a>
+
 ```
+
 ## Contributors of the data model (CONTRIBUTORS.yaml)
 
 <a href="https://github.com/smart-data-models/dataModel.User/blob/master/CONTRIBUTORS.yaml">Link to contributors of the subject's data models</a><br>
