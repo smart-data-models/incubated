@@ -8,13 +8,13 @@ Information on the current activity performed by an anonymized user in a given p
 
 <a href="https://github.com/smart-data-models/dataModel.User/blob/master/Activity/SmartDataModelBadge.md"><img src ="https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/Activity/SmartDataModelBadge.png"></a>
 
-<pre><a href="https://github.com/smart-data-models/dataModel.User/blob/master/Activity/SmartDataModelBadge.md"><img src ="https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/Activity/SmartDataModelBadge.png"></a></pre>
+<code><a href="https://github.com/smart-data-models/dataModel.User/blob/master/Activity/SmartDataModelBadge.md"><img src ="https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/Activity/SmartDataModelBadge.png"></a></code>
 
-## Collaborators
+## Contributors of the data model (CONTRIBUTORS.yaml)
 
-<a href="https://github.com/smart-data-models/dataModel.User/blob/master/CONTRIBUTORS.yaml">Link to collaborators of the subject's data models</a><br>
+<a href="https://github.com/smart-data-models/dataModel.User/blob/master/CONTRIBUTORS.yaml">Link to contributors of the subject's data models</a><br>
 
-To collaborate with the data model Activity of the subject dataModel.User you can launch a Pull request in <a href="https://github.com/smart-data-models/dataModel.User/compare">this link</a> 
+To contribute with the data model Activity of the subject dataModel.User you can launch a Pull Request in <a href="https://github.com/smart-data-models/dataModel.User/compare">this link</a> 
 
 ## Link to the current adopters of the data Model (ADOPTERS.yaml)
 
@@ -23,3 +23,4 @@ To collaborate with the data model Activity of the subject dataModel.User you ca
 Form to add your use case to the ADOPTERS.yaml
 
 <a href="https://smartdatamodels.org/index.php/instructions-to-be-listed-as-a-data-model-adopter-of-smart-data-models/">Link to the form </a><br>
+
