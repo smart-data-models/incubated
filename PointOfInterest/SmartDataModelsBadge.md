@@ -8,9 +8,11 @@ Information on the current activity performed by an anonymized user in a given p
 
 <a href="https://github.com/smart-data-models/dataModel.User/blob/master/Activity/SmartDataModelBadge.md"><img src ="https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/Activity/SmartDataModelBadge.png"></a>
 
-<code><a href="https://github.com/smart-data-models/dataModel.User/blob/master/Activity/SmartDataModelBadge.md"><img src ="https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/Activity/SmartDataModelBadge.png"></a></code>
+<a href="https://github.com/smart-data-models/dataModel.User/blob/master/Activity/SmartDataModelBadge.md">
 
-## Contributors of the data model (CONTRIBUTORS.yaml)
+<img src ="https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/Activity/SmartDataModelBadge.png">
+
+</a>## Contributors of the data model (CONTRIBUTORS.yaml)
 
 <a href="https://github.com/smart-data-models/dataModel.User/blob/master/CONTRIBUTORS.yaml">Link to contributors of the subject's data models</a><br>
 
