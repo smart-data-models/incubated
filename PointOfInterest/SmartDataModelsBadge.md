@@ -12,7 +12,9 @@ To embed this badge
 
  You can use this source code
 
-```bash<a href="https://github.com/smart-data-models/dataModel.User/blob/master/Activity/SmartDataModelBadge.md">
+```bash
+
+<a href="https://github.com/smart-data-models/dataModel.User/blob/master/Activity/SmartDataModelBadge.md">
 
 <img src ="https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/Activity/SmartDataModelBadge.png">
 
