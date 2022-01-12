@@ -1,0 +1,2242 @@
+{
+  "@graph": [
+    {
+      "@id": "iudx:TransitManagement",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "A public transit system Data Model.",
+      "rdfs:label": "TransitManagement",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "iudx:UrbanMobility"
+      }
+    },
+    {
+      "@id": "iudx:UrbanMobility",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "Data models that pertain to the urban mobility domain",
+      "rdfs:label": "UrbanMobility",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "iudx:DataModel"
+      }
+    },
+    {
+      "@id": "iudx:DataModel",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "Class of all Data Models.",
+      "rdfs:label": "DataModel",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "iudx:Thing"
+      }
+    },
+    {
+      "@id": "iudx:Thing",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "Most generic IUDX object.",
+      "rdfs:label": "Thing",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "skos:exactMatch": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "iudx:description",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Description for an IUDX thing.",
+      "rdfs:label": "description",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:Thing"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      }
+    },
+    {
+      "@id": "iudx:dataDescriptor",
+      "@type": [
+        "iudx:Relationship"
+      ],
+      "rdfs:comment": "URI pointing to the data-descriptor entity",
+      "rdfs:label": "dataDescriptor",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:ResourceGroup"
+        },
+        {
+          "@id": "iudx:Resource"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@type": "@id",
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:RelationshipValue"
+        },
+        {
+          "@id": "iudx:DataModel"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:vehicleType",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Describes the type of vehicle corresponding to this observation, could be hopper, compactor, tipper, dumper in case of solid waste management vehicles, BRT mini bus, BRT bus, city bus in case of ITMS vehicles, Ambulance, Fire tender, Police van etc, in case of emergency vehicles and Moped/Scooter, Motor Cycle,  Autorickshaw, Private car/ Jeep car, Tempo, Bus, E-Moped/E-Scooter/E-Motor Cycle, Public motor in case of vehicle registration.",
+      "rdfs:label": "vehicleType",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WmgmtVehicle"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:RevenueCollection"
+        },
+        {
+          "@id": "iudx:EmergencyVehicle"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:trip_details",
+      "@type": [
+        "iudx:StructuredProperty"
+      ],
+      "rdfs:comment": "A descriptor of realtime update on the schedule of a vehicle along a trip.",
+      "rdfs:label": "trip_details",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:TripDetails"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:position",
+      "@type": [
+        "iudx:StructuredProperty"
+      ],
+      "rdfs:comment": "Deccribes the current position of the vehicle corresponding to this observation. SameAs:'position' field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)",
+      "rdfs:label": "position",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:VehiclePosition"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:GeoCoordinates"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:trip_delay",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "This can be positive and negative in seconds and shows how much the vehicle deviates from the planned one. SameAs: 'delay' field from GTFS Realtime message-StopTimeEvent (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeevent)",
+      "rdfs:label": "trip_delay",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: delay"
+      }
+    },
+    {
+      "@id": "iudx:route_url",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Contains the URL of a web page about that particular route and is different from the agency_url. SameAs: 'route_url' field from GTFS Static Field definitions-routes.txt (https://developers.google.com/transit/gtfs/reference#routestxt)",
+      "rdfs:label": "route_url",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: route_url"
+      }
+    },
+    {
+      "@id": "iudx:agency_lang",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Contains a two-letter ISO 639-1 code for the primary language used by this transit agency. The language code is case-insensitive (both en and EN are accepted). SameAs: 'agency_lang' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt)",
+      "rdfs:label": "agency_lang",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: agency_lang"
+      }
+    },
+    {
+      "@id": "iudx:depot_name",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Describes the depot name of the bus depot corresponding to this observation.",
+      "rdfs:label": "depot_name",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:travelTime",
+      "@type": [
+        "iudx:TimeProperty"
+      ],
+      "rdfs:comment": "The time taken to travel between the orgin bus stop and the destination bus stop corresponding to this observation in HH:MM:SS format(HH:MM:SS is also accepted, if the hour begins with 0).",
+      "rdfs:label": "travelTime",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:direction_id",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Indicates the direction of travel of the vehicle corresponding to this observation, can be referenced from the GTFS static feed trips.txt. SameAs: 'direction_id' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)",
+      "rdfs:label": "direction_id",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:TripDescriptor"
+        },
+        {
+          "@id": "iudx:FareCollectionSystem"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:schedule_relationship",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Describes if the Route/Trip has been scheduled. SameAs: 'schedule_relationship' field from enumScheduleRelationship (https://developers.google.com/transit/gtfs-realtime/reference#enum-schedulerelationship-2)",
+      "rdfs:label": "schedule_relationship",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:TripDescriptor"
+        },
+        {
+          "@id": "iudx:StopTimeUpdate"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS:schedule_relationship"
+      }
+    },
+    {
+      "@id": "iudx:stop_sequence_detail",
+      "@type": [
+        "iudx:StructuredProperty"
+      ],
+      "rdfs:comment": "Describes the stop sequence for a trip in the designated route made by the public transit vehicle. SameAs: 'stop_sequence' field from GTFS Static Field definitions-stop_times.txt (https://developers.google.com/transit/gtfs/reference#stop_timestxt)",
+      "rdfs:label": "stop_sequence_detail",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Sequence"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: stop_sequence"
+      }
+    },
+    {
+      "@id": "iudx:stop_time_update",
+      "@type": [
+        "iudx:StructuredProperty"
+      ],
+      "rdfs:comment": "Updated sorted stop sequence for the trip made by the vehicle corresponding to this observation, not to be considered if schedule_realtionship is \"CANCELED\". SameAs: 'stop_time_update' field from GTFS Realtime message-TripUpdate (https://developers.google.com/transit/gtfs-realtime/reference#message-tripupdate)",
+      "rdfs:label": "stop_time_update",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:TripUpdate"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:StopTimeUpdate"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:trip_update",
+      "@type": [
+        "iudx:StructuredProperty"
+      ],
+      "rdfs:comment": "Describes the trip information like delay, departures, etc., for a trip made by the vehicle corresponding to this observation.SameAs:'trip_update' field from GTFS Realtime message-FeedEntity(https://developers.google.com/transit/gtfs-realtime/reference#message-feedentity)",
+      "rdfs:label": "trip_update",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:FeedEntity"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:TripUpdate"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:vehicle_id",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Unique ID assigned to the vehicle corresponding to this observation, used in internal system identification. SameAs: 'id' field from GTFS Realtime message-VehicleDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicledescriptor)",
+      "rdfs:label": "vehicle_id",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:VehicleDescriptor"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:agency_fare_url",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "URL of a web page that contains the details of the fares and also could allow to purchase tickets for that agency online. SameAs: 'agency_fare_url' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt)",
+      "rdfs:label": "agency_fare_url",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:BikeDockingStation"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: agency_fare_url"
+      }
+    },
+    {
+      "@id": "iudx:actual_trip_end_time",
+      "@type": [
+        "iudx:TimeProperty"
+      ],
+      "rdfs:comment": "This field specifies the time at which service or trip corresponding to this observation is scheduled to end.",
+      "rdfs:label": "actual_trip_end_time",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:DateTime"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:last_tracked_time",
+      "@type": [
+        "iudx:TimeProperty"
+      ],
+      "rdfs:comment": "Gives the time at which the vehicle was last tracked.",
+      "rdfs:label": "last_tracked_time",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:DateTime"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:standing_capacity",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Describes the passenger standing capacity of the vehicle corresponding to this observation.",
+      "rdfs:label": "standing_capacity",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:last_stop_arrival_time",
+      "@type": [
+        "iudx:TimeProperty"
+      ],
+      "rdfs:comment": "Specifies the arrival time at the previous stop for a specific trip on a route. Times must be eight digits in HH:MM:SS format (H:MM:SS is also accepted, if the hour begins with 0). \nNote: Trips that span multiple dates will have stop times greater than 24:00:00. For example, if a trip begins at 10:30:00 p.m. and ends at 2:15:00 a.m. on the following day, the stop times would be 22:30:00 and 26:15:00. Entering those stop times as 22:30:00 and 02:15:00 would not produce the desired results. This is SameAs: absolute 'time'(StopTimeEvent) in the 'arrival' field of the stop_time_update (StopTimeUpdate) message of the GTFS Realtime message-TripUpdate (https://developers.google.com/transit/gtfs-realtime/reference#message-tripupdate)",
+      "rdfs:label": "last_stop_arrival_time",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: arrival_time"
+      }
+    },
+    {
+      "@id": "iudx:agency_id",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "ID that uniquely identifies a transit agency. A transit feed may represent data from more than one agency. The agency_id is dataset unique. This field is optional for transit feeds that only contain data for a single agency. SameAs: 'agency_id' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt)",
+      "rdfs:label": "agency_id",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: agency_id"
+      }
+    },
+    {
+      "@id": "iudx:arrival",
+      "@type": [
+        "iudx:StructuredProperty"
+      ],
+      "rdfs:comment": "If schedule_relationship is empty or SCHEDULED, either arrival or departure must be provided within a StopTimeUpdate. SameAs: 'arrival' field from GTFS Realtime message-StopTimeUpdate (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeupdate)",
+      "rdfs:label": "arrival",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:StopTimeUpdate"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:StopTimeEvent"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:current_status",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Describes the status of the vehicle w.r.t the stop corresponding to this observation ENUM: [INCOMING_AT, STOPPED_AT, IN_TRANSIT_TO]. SameAs:'current_status' field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)",
+      "rdfs:label": "current_status",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:VehiclePosition"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:route_type",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Number indicating the type of transport-\n1 - Subway, Metro. Any underground rail system within a metropolitan area.\n2 - Rail. Used for intercity or long-distance travel.\n3 - Bus. Used for short- and long-distance bus routes. \nSameAs: 'route_type' field from GTFS Static Field definitions-routes.txt (https://developers.google.com/transit/gtfs/reference#routestxt)",
+      "rdfs:label": "route_type",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS:route_type"
+      }
+    },
+    {
+      "@id": "iudx:speed",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Gives the Speed  of the vehicle.SameAs 'speed' field from GTFS Realtime message-Position(https://developers.google.com/transit/gtfs-realtime/reference#message-position)",
+      "rdfs:label": "speed",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        },
+        {
+          "@id": "iudx:EmergencyVehicle"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS:speed"
+      }
+    },
+    {
+      "@id": "iudx:route_id",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Route ID assigned to the route on which the bus/vehicle corresponding to the bus in this observation is currently plying on. SameAs: 'route_id' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)",
+      "rdfs:label": "route_id",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:TripDescriptor"
+        },
+        {
+          "@id": "iudx:FareCollectionSystem"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:seating_capacity",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Describes the passenger seating capacity of the vehicle corresponding to this observation.",
+      "rdfs:label": "seating_capacity",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:stop_headsign",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "This field contains the text that appears on a sign that identifies the trip’s destination to passengers. SameAs: 'stop_headsign' field from GTFS Static Field definitions-stop_times.txt (https://developers.google.com/transit/gtfs/reference#stop_timestxt)",
+      "rdfs:label": "stop_headsign",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TripDetails"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: stop_headsign"
+      }
+    },
+    {
+      "@id": "iudx:vehicle_label",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "User visible label, i.e., something that must be shown to the passenger to help identify the correct vehicle. SameAs: 'label' field from GTFS Realtime message-VehicleDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicledescriptor)",
+      "rdfs:label": "vehicle_label",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:VehicleDescriptor"
+        },
+        {
+          "@id": "iudx:FareCollectionSystem"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:entity_id",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Feed unique ID for the entity coressponding to this observation.SameAs:'entity_id' field from GTFS Realtime message-FeedEntity(https://developers.google.com/transit/gtfs-realtime/reference#message-feedentity)",
+      "rdfs:label": "entity_id",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:FeedEntity"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:timestamp",
+      "@type": [
+        "iudx:TimeProperty"
+      ],
+      "rdfs:comment": "Last reported time of observation from the vehicle. SameAs: 'timestamp' field from GTFS Realtime message-Vehicleposition (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)",
+      "rdfs:label": "timestamp",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:VehiclePosition"
+        },
+        {
+          "@id": "iudx:TripUpdate"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:DateTime"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS:timestamp"
+      }
+    },
+    {
+      "@id": "iudx:arrival_time",
+      "@type": [
+        "iudx:TimeProperty"
+      ],
+      "rdfs:comment": "Specifies the arrival time at a specific stop for a specific trip on a route. Times must be eight digits in HH:MM:SS format (HH:MM:SS is also accepted, if the hour begins with 0). \nNote: Trips that span multiple dates will have stop times greater than 24:00:00. For example, if a trip begins at 10:30:00 p.m. and ends at 2:15:00 a.m. on the following day, the stop times would be 22:30:00 and 26:15:00. Entering those stop times as 22:30:00 and 02:15:00 would not produce the desired results. SameAs: 'arrival_time' field from GTFS Static Field definitions-stop_times.txt (https://developers.google.com/transit/gtfs/reference#stop_timestxt)",
+      "rdfs:label": "arrival_time",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TripDetails"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: arrival_time"
+      }
+    },
+    {
+      "@id": "iudx:stop_desc",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "This field contains a description of a stop. SameAs: 'stop_desc' field from GTFS Static Field definitions-stops.txt (https://developers.google.com/transit/gtfs/reference#stopstxt)",
+      "rdfs:label": "stop_desc",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: stop_desc"
+      }
+    },
+    {
+      "@id": "iudx:vehicleDesc",
+      "@type": [
+        "iudx:StructuredProperty"
+      ],
+      "rdfs:comment": "Describes the additional information of the vehicle corresponding to this observation. SameAs:'vehicle' field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)/(https://developers.google.com/transit/gtfs-realtime/reference#message-tripupdate)",
+      "rdfs:label": "vehicleDesc",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:VehiclePosition"
+        },
+        {
+          "@id": "iudx:TripUpdate"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:VehicleDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS:VehiclePosition:vehicle"
+      }
+    },
+    {
+      "@id": "iudx:route_long_name",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Full name of a route. This name is more descriptive than the routeShortName and often includes the route's destination or stop. This mostly includes the to and from destination names of the route. SameAs: 'route_long_name' field from GTFS Static Field definitions-routes.txt (https://developers.google.com/transit/gtfs/reference#routestxt)",
+      "rdfs:label": "route_long_name",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS:route_long_name"
+      }
+    },
+    {
+      "@id": "iudx:agency_timezone",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Timezone field contains the timezone where the transit agency is located. SameAs: 'agency_timezone' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt)",
+      "rdfs:label": "agency_timezone",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS:agency_timezone"
+      }
+    },
+    {
+      "@id": "iudx:stop_code",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "This field contains short text or a number that uniquely identifies the stop for passengers. Can be same as stop_id if it is for public. SameAs: 'stop_code' field from GTFS Static Field definitions-stops.txt (https://developers.google.com/transit/gtfs/reference#stopstxt)",
+      "rdfs:label": "stop_code",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: stop_code"
+      }
+    },
+    {
+      "@id": "iudx:tripDetails",
+      "@type": [
+        "iudx:StructuredProperty"
+      ],
+      "rdfs:comment": "A descriptor of realtime update on the schedule of a vehicle along a trip.",
+      "rdfs:label": "tripDetails",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:TripDetails"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:agency_name",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "The agency_name field contains the full name of the transit agency. SameAs: 'agency_name' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt)",
+      "rdfs:label": "agency_name",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:BikeDockingStation"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: agency_name"
+      }
+    },
+    {
+      "@id": "iudx:route_desc",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Description of the route. This can include the entire route details including to and from destination and timing information in a text description form. SameAs: 'route_desc' field from GTFS Static Field definitions-routes.txt (https://developers.google.com/transit/gtfs/reference#routestxt)",
+      "rdfs:label": "route_desc",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS:route_desc"
+      }
+    },
+    {
+      "@id": "iudx:vehicle_position",
+      "@type": [
+        "iudx:StructuredProperty"
+      ],
+      "rdfs:comment": "Describes the realtime position of the vehicle corresponding to this observation. SameAs:'vehicle' field from GTFS Realtime message-FeedEntity(https://developers.google.com/transit/gtfs-realtime/reference#message-feedentity)",
+      "rdfs:label": "vehicle_position",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:FeedEntity"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:VehiclePosition"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:license_plate",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Gives the License Plate number of the vehice. SameAs: 'license_plate' field from GTFS Realtime message-VehicleDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicledescriptor)",
+      "rdfs:label": "license_plate",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:WmgmtBin"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        },
+        {
+          "@id": "iudx:VehicleDescriptor"
+        },
+        {
+          "@id": "iudx:EmergencyVehicle"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:stop_id",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Stop ID/Stop name of the bus stops corresponding to the bus in this observation. SameAs: 'stop_id' field from GTFS Realtime message-Vehicleposition (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)",
+      "rdfs:label": "stop_id",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:VehiclePosition"
+        },
+        {
+          "@id": "iudx:StopTimeUpdate"
+        },
+        {
+          "@id": "iudx:TripDetails"
+        },
+        {
+          "@id": "iudx:Sequence"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS:stop_id"
+      }
+    },
+    {
+      "@id": "iudx:uncertainity",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "If uncertainty is omitted, it is interpreted as unknown. To specify a completely certain prediction, set its uncertainty to 0.SameAs: 'uncertainity' field from GTFS Realtime message-StopTimeEvent (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeevent)",
+      "rdfs:label": "uncertainity",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:StopTimeEvent"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:route_color",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "If assigned, this field defines a color that corresponds to a route. The color must be provided as a six-character hexadecimal number, for example, 00FFFF. If no color is specified, the default route color is white (FFFFFF). SameAs: 'route_color' field from GTFS Static Field definitions-routes.txt (https://developers.google.com/transit/gtfs/reference#routestxt)",
+      "rdfs:label": "route_color",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: route_color"
+      }
+    },
+    {
+      "@id": "iudx:travelDistance",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "The distance between the orgin bus stop and the destination bus stop or the total distance travelled corresponding to this observation.",
+      "rdfs:label": "travelDistance",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:FareCollectionSystem"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:actual_trip_start_time",
+      "@type": [
+        "iudx:TimeProperty"
+      ],
+      "rdfs:comment": "This field specifies the time at which service actually began.  This is SameAs: absolute 'time'(StopTimeEvent) in the 'arrival' field of the stop_time_update (StopTimeUpdate) message of the GTFS Realtime message-TripUpdate (https://developers.google.com/transit/gtfs-realtime/reference#message-tripupdate)",
+      "rdfs:label": "actual_trip_start_time",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:DateTime"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:bearing",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Gives the vehicle GPS angle measured in a clockwise direction from the True North. SameAs 'bearing' field from GTFS Realtime message-Position(https://developers.google.com/transit/gtfs-realtime/reference#message-position)",
+      "rdfs:label": "bearing",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        },
+        {
+          "@id": "iudx:EmergencyVehicle"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS:bearing"
+      }
+    },
+    {
+      "@id": "iudx:stop_sequence",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Indicates the stop sequencel of the vehicle corresponding to this observation, can be referenced from the GTFS static feed stop_times.txt. SameAs: 'stop_sequence' field from GTFS Realtime message-StopTimeUpdate (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeupdate)",
+      "rdfs:label": "stop_sequence",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:StopTimeUpdate"
+        },
+        {
+          "@id": "iudx:TripDetails"
+        },
+        {
+          "@id": "iudx:Sequence"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:start_date",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Describes the initial scheduled date of the trip corresponding to the vehicle this observation. An example format for this field - YYYYMMDD. SameAs: 'start_date' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)",
+      "rdfs:label": "start_date",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:TripDescriptor"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:current_stop_sequence",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Gives the stop sequence index of the current stop. This is determined by considering current_status, if current_status is missing IN_TRANSIT_TO is assumed. SameAs:'current_stop_sequence' field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)",
+      "rdfs:label": "current_stop_sequence",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:VehiclePosition"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:start_time",
+      "@type": [
+        "iudx:TimeProperty"
+      ],
+      "rdfs:comment": "Describes the initial scheduled start time of the trip corresponding to the vehicle this observation. An example format for this field - 11:15:35 or 25:15:35. SameAs: 'start_time' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)",
+      "rdfs:label": "start_time",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:TripDescriptor"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:trip_id",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Trip ID/Trip name alloted to the bus corresponding to this observation, in consideration to the time of the day and the direction of the trip on the given routeId. SameAs: 'trip_id' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)",
+      "rdfs:label": "trip_id",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:TripDescriptor"
+        },
+        {
+          "@id": "iudx:FareCollectionSystem"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:route_text_color",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "This field can be used to specify a legible color to use for text drawn against a background of route_color. The color must be provided as a six-character hexadecimal number, for example, FFD700. If no color is specified, the default text color is black (000000). SameAs: 'route_text_color' field from GTFS Static Field definitions-routes.txt (https://developers.google.com/transit/gtfs/reference#routestxt)",
+      "rdfs:label": "route_text_color",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: route_text_color"
+      }
+    },
+    {
+      "@id": "iudx:stop_url",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "This field contains the URL of a web page about a particular stop and is different from the agency_url and the route_url fields. SameAs: 'stop_url' field from GTFS Static Field definitions-stops.txt (https://developers.google.com/transit/gtfs/reference#stopstxt)",
+      "rdfs:label": "stop_url",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: stop_url"
+      }
+    },
+    {
+      "@id": "iudx:departure",
+      "@type": [
+        "iudx:StructuredProperty"
+      ],
+      "rdfs:comment": "If schedule_relationship is empty or SCHEDULED, either arrival or departure must be provided within a StopTimeUpdate. SameAs: 'departure' field from GTFS Realtime message-StopTimeUpdate (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeupdate)",
+      "rdfs:label": "departure",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:StopTimeUpdate"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:StopTimeEvent"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:ac_available",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Describes the presence of air conditioning option in the vehicle corresponding to this observation.",
+      "rdfs:label": "ac_available",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:tripDirection",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Gives the direction in which the vehicle is travelling in ENUM[UP,DN]",
+      "rdfs:label": "tripDirection",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:agency_url",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "The agency_url field contains the URL of the transit agency. SameAs: 'agency_url' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt)",
+      "rdfs:label": "agency_url",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:BikeDockingStation"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: agency_url"
+      }
+    },
+    {
+      "@id": "iudx:routeStopSequence",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Gives the stop IDs/stop codes or station IDs/station codes in the right sequence for the route or line corresponding to this observation.",
+      "rdfs:label": "routeStopSequence",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@container": "@list",
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:trip_direction",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Gives the direction in which the vehicle is travelling. SameAs: 'direction_id' field from GTFS Realtime message-TripDescriptor but is represented in the form of an ENUM[UP,DN] in place of [0,1] as seen in 'direction_id' (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor).",
+      "rdfs:label": "trip_direction",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: direction_id"
+      }
+    },
+    {
+      "@id": "iudx:departure_time",
+      "@type": [
+        "iudx:TimeProperty"
+      ],
+      "rdfs:comment": "Specifies the departure time from a specific stop for a specific trip on a route. Times must be eight digits in HH:MM:SS format (HH:MM:SS is also accepted, if the hour begins with 0). \nNote: Trips that span multiple dates will have stop times greater than 24:00:00. For example, if a trip begins at 10:30:00 p.m. and ends at 2:15:00 a.m. on the following day, the stop times would be 22:30:00 and 26:15:00. Entering those stop times as 22:30:00 and 02:15:00 would not produce the desired results. SameAs: 'departure_time' field from GTFS Static Field definitions-stop_times.txt (https://developers.google.com/transit/gtfs/reference#stop_timestxt)",
+      "rdfs:label": "departure_time",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TripDetails"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS: departure_time"
+      }
+    },
+    {
+      "@id": "iudx:trip",
+      "@type": [
+        "iudx:StructuredProperty"
+      ],
+      "rdfs:comment": "Describes the trip the vehicle corresponding to this observation is making. SameAs:'trip' field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)(https://developers.google.com/transit/gtfs-realtime/reference#message-tripupdate)",
+      "rdfs:label": "trip",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:VehiclePosition"
+        },
+        {
+          "@id": "iudx:TripUpdate"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:TripDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS:VehiclePosition:trip"
+      }
+    },
+    {
+      "@id": "iudx:last_stop_id",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Stop ID/Stop name of the previous bus stop corresponding to the bus in this observation. SameAs: 'stop_id' field from GTFS Realtime message-VehiclePosition (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)",
+      "rdfs:label": "last_stop_id",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:route_short_name",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Short name of a route. This will often be the transit vehicle's board name like \"402D\",  or \"Green\" that riders use to identify a route. SameAs: 'route_short_name' field from GTFS Static Field definitions-routes.txt (https://developers.google.com/transit/gtfs/reference#routestxt)",
+      "rdfs:label": "route_short_name",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS:route_short_name"
+      }
+    },
+    {
+      "@id": "iudx:stop_name",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Describes the name of the Bus Stop. SameAs: 'stop_name' field from GTFS Static Field definitions-stops.txt (https://developers.google.com/transit/gtfs/reference#stopstxt)",
+      "rdfs:label": "stop_name",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "GTFS:stop_name"
+      }
+    },
+    {
+      "@id": "iudx:depot_id",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Describes the unique id of the bus depot corresponding to this observation.",
+      "rdfs:label": "depot_id",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:deviceInfo",
+      "@type": [
+        "iudx:StructuredProperty"
+      ],
+      "rdfs:comment": "Information about the device associated with the observations.",
+      "rdfs:label": "deviceInfo",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:EnvAQM"
+        },
+        {
+          "@id": "iudx:EnvFlood"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Device"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:observationDateTime",
+      "@type": [
+        "iudx:TimeProperty"
+      ],
+      "rdfs:comment": "Last reported time of observation.",
+      "rdfs:label": "observationDateTime",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:EnvAQM"
+        },
+        {
+          "@id": "iudx:EnvFlood"
+        },
+        {
+          "@id": "iudx:EnvWeather"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        },
+        {
+          "@id": "iudx:SafetiPin"
+        },
+        {
+          "@id": "iudx:IssueReporting"
+        },
+        {
+          "@id": "iudx:FareCollectionSystem"
+        },
+        {
+          "@id": "iudx:EmployeeDetails"
+        },
+        {
+          "@id": "iudx:TrafficViolations"
+        },
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:BikeDockingStation"
+        },
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        },
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        },
+        {
+          "@id": "iudx:SmartParking"
+        },
+        {
+          "@id": "iudx:EmergencyVehicle"
+        },
+        {
+          "@id": "iudx:GISData"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:DateTime"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:geoCovers",
+      "@type": [
+        "iudx:GeoProperty"
+      ],
+      "rdfs:comment": "Represents the coverage relationship between two geometries/places.",
+      "rdfs:label": "geoCovers",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:Place"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:GeoJSONGeometry"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      }
+    },
+    {
+      "@id": "iudx:latitude",
+      "@type": [
+        "iudx:GeoProperty"
+      ],
+      "rdfs:comment": "Latitude of a place. Specified in WGS 84 CRS (https://en.wikipedia.org/wiki/World_Geodetic_System)",
+      "rdfs:label": "latitude",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:GeoCoordinates"
+        },
+        {
+          "@id": "iudx:Place"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:Text"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "schema:latitude"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      }
+    },
+    {
+      "@id": "iudx:location",
+      "@type": [
+        "iudx:GeoProperty"
+      ],
+      "rdfs:comment": "Location associated with a resource Item (a spatial point), a group of resource items (a spatial region) or even an observation in case of a mobile sensor.",
+      "rdfs:label": "location",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:Resource"
+        },
+        {
+          "@id": "iudx:ResourceGroup"
+        },
+        {
+          "@id": "iudx:Provider"
+        },
+        {
+          "@id": "iudx:ResourceServer"
+        },
+        {
+          "@id": "iudx:Organization"
+        },
+        {
+          "@id": "iudx:EnvAQM"
+        },
+        {
+          "@id": "iudx:EnvFlood"
+        },
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:WmgmtBin"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:PointOfInterest"
+        },
+        {
+          "@id": "iudx:SafetiPin"
+        },
+        {
+          "@id": "iudx:IssueReporting"
+        },
+        {
+          "@id": "iudx:TrafficViolations"
+        },
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:BikeDockingStation"
+        },
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        },
+        {
+          "@id": "iudx:Camera"
+        },
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        },
+        {
+          "@id": "iudx:SmartParking"
+        },
+        {
+          "@id": "iudx:EmergencyVehicle"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Point"
+        },
+        {
+          "@id": "iudx:GeoJSONGeometry"
+        },
+        {
+          "@id": "iudx:Place"
+        },
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "skos:exactMatch": {
+        "@id": "schema:location"
+      }
+    },
+    {
+      "@id": "iudx:longitude",
+      "@type": [
+        "iudx:GeoProperty"
+      ],
+      "rdfs:comment": "Longitude of a place. Specified in WGS 84 CRS (https://en.wikipedia.org/wiki/World_Geodetic_System)",
+      "rdfs:label": "longitude",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:GeoCoordinates"
+        },
+        {
+          "@id": "iudx:Place"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:Text"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "schema:longitude"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      }
+    }
+  ],
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "iudx": "https://voc.iudx.org.in/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "schema": "http://schema.org/"
+  }
+}

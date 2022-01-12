@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "modelTags": "IUDX",
+  "$id": "https://smart-data-models.github.io/dataModel.UrbanMobility/TransitManagement/schema.json",
+  "title": "GISData",
+  "$schemaVersion": "0.0.1",
+  "description": "Smart Data Models - A Data Model Geographic Information System data.",
+  "derivedFrom": "https://voc.iudx.org.in/GISData",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": [
+        {
+          "description": {
+            "type": "string",
+            "description": "Property. Description for an IUDX thing."
+          }
+        },
+        {
+          "dataDescriptor": {
+            "type": "Relationship",
+            "description": "Relationship. URI pointing to the data-descriptor entity"
+          }
+        },
+        {
+          "gisAccessToken": {
+            "type": "string",
+            "description": "Property. A string of encrypted information that contains the user's name, the token expiration time, and some proprietary information, which is used to access the secured GIS services from the GIS Server."
+          }
+        },
+        {
+          "gisServerURL": {
+            "type": "string",
+            "description": "Property. The Geographic Information System (GIS) Server's URL, used for capturing, storing, and displaying data on positions on the earth's surface."
+          }
+        },
+        {
+          "gisLayers": {
+            "type": "string",
+            "description": "Property. The GIS data layers stored in the GIS Server corresponding to this observation."
+          }
+        },
+        {
+          "observationDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Property. Last reported time of observation."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,819 @@
+{
+  "@graph": [
+    {
+      "@id": "iudx:WasteWaterMgmt",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "Data model for waste water treatment plant.",
+      "rdfs:label": "WasteWaterMgmt",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "iudx:WasteManagement"
+      }
+    },
+    {
+      "@id": "iudx:pH",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Acidity level or basicity level obsevered in the water.",
+      "rdfs:label": "pH",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        },
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:TimeSeriesAggregation"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "Fiware: WaterQualityObserved.pH"
+      }
+    },
+    {
+      "@id": "iudx:WasteManagement",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "Data models that pertain to the waste management domain",
+      "rdfs:label": "WasteManagement",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "iudx:DataModel"
+      }
+    },
+    {
+      "@id": "iudx:DataModel",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "Class of all Data Models.",
+      "rdfs:label": "DataModel",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "iudx:Thing"
+      }
+    },
+    {
+      "@id": "iudx:Thing",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "Most generic IUDX object.",
+      "rdfs:label": "Thing",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "skos:exactMatch": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "iudx:description",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Description for an IUDX thing.",
+      "rdfs:label": "description",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:Thing"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      }
+    },
+    {
+      "@id": "iudx:dataDescriptor",
+      "@type": [
+        "iudx:Relationship"
+      ],
+      "rdfs:comment": "URI pointing to the data-descriptor entity",
+      "rdfs:label": "dataDescriptor",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:ResourceGroup"
+        },
+        {
+          "@id": "iudx:Resource"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@type": "@id",
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:RelationshipValue"
+        },
+        {
+          "@id": "iudx:DataModel"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:treatmentPlantCode",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Unique code for the waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "treatmentPlantCode",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:inFlow",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "In-flow amount into the treatment plant/reservoir corresponding to this observation.",
+      "rdfs:label": "inFlow",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:cod",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Chemical Oxygen Demand concentration measured in the waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "cod",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "fiware:cod"
+      }
+    },
+    {
+      "@id": "iudx:no3",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Nitrate concentration measured in waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "no3",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "fiware:no3"
+      }
+    },
+    {
+      "@id": "iudx:tn",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Total Nitrogen concentration measured in waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "tn",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "fiware:tn"
+      }
+    },
+    {
+      "@id": "iudx:tss",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Total suspended solids concentration measured in a waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "tss",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "fiware:tss"
+      }
+    },
+    {
+      "@id": "iudx:treatmentPlantName",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Name of the waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "treatmentPlantName",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:tic",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Total Inorganic Carbon concentration measured in the waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "tic",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "fiware:tic"
+      }
+    },
+    {
+      "@id": "iudx:redox",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Reduction potential or oxidation measured in waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "redox",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "fiware:redox"
+      }
+    },
+    {
+      "@id": "iudx:do",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Dissolved oxygen measured in the waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "do",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "fiware:do"
+      }
+    },
+    {
+      "@id": "iudx:po4",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Ortho-phosphate concentration measured in the waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "po4",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "fiware:po4"
+      }
+    },
+    {
+      "@id": "iudx:outFlow",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Out-flow amount into the treatment plant/reservoir corresponding to this observation.",
+      "rdfs:label": "outFlow",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:toc",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Total Organic Carbon concentration measured in the waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "toc",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "fiware:toc"
+      }
+    },
+    {
+      "@id": "iudx:treatmentPlantCapacity",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Handling capacity of the waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "treatmentPlantCapacity",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:nh4",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Ammonium concentration measured in the waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "nh4",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "fiware:nh4"
+      }
+    },
+    {
+      "@id": "iudx:treatmentPlantID",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Unique identification number for the waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "treatmentPlantID",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:bod",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Biological Oxygen Demand concentration measured in the waste-water treatment plant corresponding to this observation.",
+      "rdfs:label": "bod",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "fiware:bod"
+      }
+    },
+    {
+      "@id": "iudx:municipalityInfo",
+      "@type": [
+        "iudx:StructuredProperty"
+      ],
+      "rdfs:comment": "Municipality information corresponding to this observation.",
+      "rdfs:label": "municipalityInfo",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:RevenueCollection"
+        },
+        {
+          "@id": "iudx:EmployeeDetails"
+        },
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        },
+        {
+          "@id": "iudx:SmartParking"
+        },
+        {
+          "@id": "iudx:EmergencyVehicle"
+        },
+        {
+          "@id": "iudx:WmgmtBin"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        },
+        {
+          "@id": "iudx:PointOfInterest"
+        },
+        {
+          "@id": "iudx:IssueReporting"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:MunicipalityDesc"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:observationDateTime",
+      "@type": [
+        "iudx:TimeProperty"
+      ],
+      "rdfs:comment": "Last reported time of observation.",
+      "rdfs:label": "observationDateTime",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:EnvAQM"
+        },
+        {
+          "@id": "iudx:EnvFlood"
+        },
+        {
+          "@id": "iudx:EnvWeather"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        },
+        {
+          "@id": "iudx:SafetiPin"
+        },
+        {
+          "@id": "iudx:IssueReporting"
+        },
+        {
+          "@id": "iudx:FareCollectionSystem"
+        },
+        {
+          "@id": "iudx:EmployeeDetails"
+        },
+        {
+          "@id": "iudx:TrafficViolations"
+        },
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:BikeDockingStation"
+        },
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        },
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        },
+        {
+          "@id": "iudx:SmartParking"
+        },
+        {
+          "@id": "iudx:EmergencyVehicle"
+        },
+        {
+          "@id": "iudx:GISData"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:DateTime"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:location",
+      "@type": [
+        "iudx:GeoProperty"
+      ],
+      "rdfs:comment": "Location associated with a resource Item (a spatial point), a group of resource items (a spatial region) or even an observation in case of a mobile sensor.",
+      "rdfs:label": "location",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:Resource"
+        },
+        {
+          "@id": "iudx:ResourceGroup"
+        },
+        {
+          "@id": "iudx:Provider"
+        },
+        {
+          "@id": "iudx:ResourceServer"
+        },
+        {
+          "@id": "iudx:Organization"
+        },
+        {
+          "@id": "iudx:EnvAQM"
+        },
+        {
+          "@id": "iudx:EnvFlood"
+        },
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:WmgmtBin"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:PointOfInterest"
+        },
+        {
+          "@id": "iudx:SafetiPin"
+        },
+        {
+          "@id": "iudx:IssueReporting"
+        },
+        {
+          "@id": "iudx:TrafficViolations"
+        },
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:BikeDockingStation"
+        },
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        },
+        {
+          "@id": "iudx:Camera"
+        },
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        },
+        {
+          "@id": "iudx:SmartParking"
+        },
+        {
+          "@id": "iudx:EmergencyVehicle"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Point"
+        },
+        {
+          "@id": "iudx:GeoJSONGeometry"
+        },
+        {
+          "@id": "iudx:Place"
+        },
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "skos:exactMatch": {
+        "@id": "schema:location"
+      }
+    }
+  ],
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "iudx": "https://voc.iudx.org.in/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "schema": "http://schema.org/",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  }
+}

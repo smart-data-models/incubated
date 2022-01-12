@@ -1,0 +1,783 @@
+{
+  "@graph": [
+    {
+      "@id": "iudx:WaterDistributionNetwork",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "A Data Model for water supply network in a city.",
+      "rdfs:label": "WaterDistributionNetwork",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "iudx:Civic"
+      }
+    },
+    {
+      "@id": "iudx:Civic",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "Data models that pertain to the citizen issues/civic domain",
+      "rdfs:label": "Civic",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "iudx:DataModel"
+      }
+    },
+    {
+      "@id": "iudx:DataModel",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "Class of all Data Models.",
+      "rdfs:label": "DataModel",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "iudx:Thing"
+      }
+    },
+    {
+      "@id": "iudx:Thing",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "Most generic IUDX object.",
+      "rdfs:label": "Thing",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "skos:exactMatch": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "iudx:description",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Description for an IUDX thing.",
+      "rdfs:label": "description",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:Thing"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      }
+    },
+    {
+      "@id": "iudx:dataDescriptor",
+      "@type": [
+        "iudx:Relationship"
+      ],
+      "rdfs:comment": "URI pointing to the data-descriptor entity",
+      "rdfs:label": "dataDescriptor",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:ResourceGroup"
+        },
+        {
+          "@id": "iudx:Resource"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@type": "@id",
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:RelationshipValue"
+        },
+        {
+          "@id": "iudx:DataModel"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:waterPressure",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Pressure of water flowing from the water storage tank corresponding to this observation.",
+      "rdfs:label": "waterPressure",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:tankCapacity",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Maximum amount of water the water storage tank corresponding to this observation can hold.",
+      "rdfs:label": "tankCapacity",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:tankName",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Name of the water storage tank corresponding to this observation.",
+      "rdfs:label": "tankName",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:turbidity",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Measurement of the amount of light that is scattered by material in the water when a light is shined through the water.",
+      "rdfs:label": "turbidity",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:TimeSeriesAggregation"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "Fiware: WaterQualityObserved.turbidity"
+      }
+    },
+    {
+      "@id": "iudx:pH",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Acidity level or basicity level obsevered in the water.",
+      "rdfs:label": "pH",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        },
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:TimeSeriesAggregation"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "Fiware: WaterQualityObserved.pH"
+      }
+    },
+    {
+      "@id": "iudx:tankDiameter",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Diameter of Cylindrical or Spherical water storage tanks.",
+      "rdfs:label": "tankDiameter",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:tankShape",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Physical shape of the water storage tank corresponding to this observation. ENUM: [Cylindrical, Conical, Cuboid, Spherical]",
+      "rdfs:label": "tankShape",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:waterFlow",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Flow or current of water flowing from the water storage tank corresponding to this observation.",
+      "rdfs:label": "waterFlow",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:waterLevel",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Current water level in the water storage tank corresponding to this observation.",
+      "rdfs:label": "waterLevel",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:tankBreadth",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Breadth of the Cuboid shaped water storage tank.",
+      "rdfs:label": "tankBreadth",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:totalML",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Total MLDs of water discharged from the water storage tank corresponding to this observation.",
+      "rdfs:label": "totalML",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:flowrate",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Volume of water flowing in/out of the water storage tank corresponding to this observation.",
+      "rdfs:label": "flowrate",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "Fiware: WasteWaterJunction.flowrate"
+      }
+    },
+    {
+      "@id": "iudx:cl",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Concentration of chlorides in the water.",
+      "rdfs:label": "cl",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:TimeSeriesAggregation"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "Fiware: WaterQualityObserved.Cl"
+      }
+    },
+    {
+      "@id": "iudx:waterTemperature",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Water temperature in the water storage tank corresponding to this observation.",
+      "rdfs:label": "waterTemperature",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:tankDepth",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Depth of the water storage tank corresponding to this observation.",
+      "rdfs:label": "tankdepth",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:tankLength",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Length of the Cuboid shaped water storage tank.",
+      "rdfs:label": "tankLength",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:deviceInfo",
+      "@type": [
+        "iudx:StructuredProperty"
+      ],
+      "rdfs:comment": "Information about the device associated with the observations.",
+      "rdfs:label": "deviceInfo",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:EnvAQM"
+        },
+        {
+          "@id": "iudx:EnvFlood"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Device"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:observationDateTime",
+      "@type": [
+        "iudx:TimeProperty"
+      ],
+      "rdfs:comment": "Last reported time of observation.",
+      "rdfs:label": "observationDateTime",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:EnvAQM"
+        },
+        {
+          "@id": "iudx:EnvFlood"
+        },
+        {
+          "@id": "iudx:EnvWeather"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        },
+        {
+          "@id": "iudx:SafetiPin"
+        },
+        {
+          "@id": "iudx:IssueReporting"
+        },
+        {
+          "@id": "iudx:FareCollectionSystem"
+        },
+        {
+          "@id": "iudx:EmployeeDetails"
+        },
+        {
+          "@id": "iudx:TrafficViolations"
+        },
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:BikeDockingStation"
+        },
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        },
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        },
+        {
+          "@id": "iudx:SmartParking"
+        },
+        {
+          "@id": "iudx:EmergencyVehicle"
+        },
+        {
+          "@id": "iudx:GISData"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:DateTime"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:location",
+      "@type": [
+        "iudx:GeoProperty"
+      ],
+      "rdfs:comment": "Location associated with a resource Item (a spatial point), a group of resource items (a spatial region) or even an observation in case of a mobile sensor.",
+      "rdfs:label": "location",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:Resource"
+        },
+        {
+          "@id": "iudx:ResourceGroup"
+        },
+        {
+          "@id": "iudx:Provider"
+        },
+        {
+          "@id": "iudx:ResourceServer"
+        },
+        {
+          "@id": "iudx:Organization"
+        },
+        {
+          "@id": "iudx:EnvAQM"
+        },
+        {
+          "@id": "iudx:EnvFlood"
+        },
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:WmgmtBin"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:PointOfInterest"
+        },
+        {
+          "@id": "iudx:SafetiPin"
+        },
+        {
+          "@id": "iudx:IssueReporting"
+        },
+        {
+          "@id": "iudx:TrafficViolations"
+        },
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:BikeDockingStation"
+        },
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        },
+        {
+          "@id": "iudx:Camera"
+        },
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        },
+        {
+          "@id": "iudx:SmartParking"
+        },
+        {
+          "@id": "iudx:EmergencyVehicle"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Point"
+        },
+        {
+          "@id": "iudx:GeoJSONGeometry"
+        },
+        {
+          "@id": "iudx:Place"
+        },
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "skos:exactMatch": {
+        "@id": "schema:location"
+      }
+    },
+    {
+      "@id": "iudx:address",
+      "@type": [
+        "iudx:GeoProperty"
+      ],
+      "rdfs:comment": "Physical address of a place.",
+      "rdfs:label": "address",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:Place"
+        },
+        {
+          "@id": "iudx:PointOfInterest"
+        },
+        {
+          "@id": "iudx:IssueReporting"
+        },
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:BikeDockingStation"
+        },
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        },
+        {
+          "@id": "iudx:RevenueCollection"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "skos:exactMatch": {
+        "@id": "schema:address"
+      }
+    }
+  ],
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "iudx": "https://voc.iudx.org.in/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "http://schema.org/",
+    "geojson": "https://purl.org/geojson/vocab#"
+  }
+}

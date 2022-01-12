@@ -1,0 +1,663 @@
+{
+  "@graph": [
+    {
+      "@id": "iudx:SolarEnergy",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "A Data Model for Solar Energy generation.",
+      "rdfs:label": "SolarEnergy",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "iudx:Energy"
+      }
+    },
+    {
+      "@id": "iudx:totalActivePower",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Total active power consumed by all phases.",
+      "rdfs:label": "totalActivePower",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "Fiware:totalActivePower"
+      }
+    },
+    {
+      "@id": "iudx:phaseCurrent",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Current per phase. Ordered triple comprising of active power from three phases in the following order: [R Y B]",
+      "rdfs:label": "phaseCurrent",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:NumericArray"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:reactivePower",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Reactive power consumed per phase. Ordered triple comprising of active power from three phases in the following order: [R Y B]",
+      "rdfs:label": "reactivePower",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:NumericArray"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "Fiware:reactivePower"
+      }
+    },
+    {
+      "@id": "iudx:voltage",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "The value of Voltage in the entity corresponding to this observation.",
+      "rdfs:label": "voltage",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:powerFactor",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Power factor or the ratio of working power of the entity corresponding to this observation.",
+      "rdfs:label": "powerFactor",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "Fiware:powerFactor"
+      }
+    },
+    {
+      "@id": "iudx:current",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "The value of Current in the entity corresponding to this observation.",
+      "rdfs:label": "current",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:totalReactivePower",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Total reactive power for all phases.",
+      "rdfs:label": "totalReactivePower",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "Fiware:totalReactivePower"
+      }
+    },
+    {
+      "@id": "iudx:phaseVoltage",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Voltage per phase. Ordered triple comprising of active power from three phases in the following order: [R Y B]",
+      "rdfs:label": "phaseVoltage",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:NumericArray"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "Fiware:voltage"
+      }
+    },
+    {
+      "@id": "iudx:activePower",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Active power consumed per phase. Ordered triple comprising of active power from three phases in the following order: [R Y B]",
+      "rdfs:label": "activePower",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:NumericArray"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "Fiware:activePower"
+      }
+    },
+    {
+      "@id": "iudx:Energy",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "Data models that pertain to the energy domain",
+      "rdfs:label": "Energy",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "iudx:DataModel"
+      }
+    },
+    {
+      "@id": "iudx:DataModel",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "Class of all Data Models.",
+      "rdfs:label": "DataModel",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "rdfs:subClassOf": {
+        "@id": "iudx:Thing"
+      }
+    },
+    {
+      "@id": "iudx:Thing",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "rdfs:comment": "Most generic IUDX object.",
+      "rdfs:label": "Thing",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "skos:exactMatch": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "iudx:description",
+      "@type": [
+        "iudx:TextProperty"
+      ],
+      "rdfs:comment": "Description for an IUDX thing.",
+      "rdfs:label": "description",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:Thing"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Text"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      }
+    },
+    {
+      "@id": "iudx:dataDescriptor",
+      "@type": [
+        "iudx:Relationship"
+      ],
+      "rdfs:comment": "URI pointing to the data-descriptor entity",
+      "rdfs:label": "dataDescriptor",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:ResourceGroup"
+        },
+        {
+          "@id": "iudx:Resource"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@type": "@id",
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:RelationshipValue"
+        },
+        {
+          "@id": "iudx:DataModel"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:energyGenerated",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Energy generated over a specific time range from the energy resource corresponding to this observation.",
+      "rdfs:label": "energyGenerated",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:maxSolarPowerMeasure",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "A measure of maximum solar energy that can be generated.",
+      "rdfs:label": "maxSolarPowerMeasure",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:frequency",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Frequency observed from the entity corresponding to this observation.",
+      "rdfs:label": "frequency",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "Fiware:frequency"
+      }
+    },
+    {
+      "@id": "iudx:totalEnergyGenerated",
+      "@type": [
+        "iudx:QuantitativeProperty"
+      ],
+      "rdfs:comment": "Total energy generated by the energy resource corresponding to this observation.",
+      "rdfs:label": "totalEnergyGenerated",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Number"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:observationDateTime",
+      "@type": [
+        "iudx:TimeProperty"
+      ],
+      "rdfs:comment": "Last reported time of observation.",
+      "rdfs:label": "observationDateTime",
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:EnvAQM"
+        },
+        {
+          "@id": "iudx:EnvFlood"
+        },
+        {
+          "@id": "iudx:EnvWeather"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        },
+        {
+          "@id": "iudx:SafetiPin"
+        },
+        {
+          "@id": "iudx:IssueReporting"
+        },
+        {
+          "@id": "iudx:FareCollectionSystem"
+        },
+        {
+          "@id": "iudx:EmployeeDetails"
+        },
+        {
+          "@id": "iudx:TrafficViolations"
+        },
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:BikeDockingStation"
+        },
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        },
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        },
+        {
+          "@id": "iudx:SmartParking"
+        },
+        {
+          "@id": "iudx:EmergencyVehicle"
+        },
+        {
+          "@id": "iudx:GISData"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:DateTime"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ]
+    },
+    {
+      "@id": "iudx:location",
+      "@type": [
+        "iudx:GeoProperty"
+      ],
+      "rdfs:comment": "Location associated with a resource Item (a spatial point), a group of resource items (a spatial region) or even an observation in case of a mobile sensor.",
+      "rdfs:label": "location",
+      "iudx:domainIncludes": [
+        {
+          "@id": "iudx:Resource"
+        },
+        {
+          "@id": "iudx:ResourceGroup"
+        },
+        {
+          "@id": "iudx:Provider"
+        },
+        {
+          "@id": "iudx:ResourceServer"
+        },
+        {
+          "@id": "iudx:Organization"
+        },
+        {
+          "@id": "iudx:EnvAQM"
+        },
+        {
+          "@id": "iudx:EnvFlood"
+        },
+        {
+          "@id": "iudx:StreetLightFeeder"
+        },
+        {
+          "@id": "iudx:WmgmtBin"
+        },
+        {
+          "@id": "iudx:WmgmtVehicle"
+        },
+        {
+          "@id": "iudx:TransitManagement"
+        },
+        {
+          "@id": "iudx:PointOfInterest"
+        },
+        {
+          "@id": "iudx:SafetiPin"
+        },
+        {
+          "@id": "iudx:IssueReporting"
+        },
+        {
+          "@id": "iudx:TrafficViolations"
+        },
+        {
+          "@id": "iudx:Streetlight"
+        },
+        {
+          "@id": "iudx:BikeDockingStation"
+        },
+        {
+          "@id": "iudx:WaterDistributionNetwork"
+        },
+        {
+          "@id": "iudx:Camera"
+        },
+        {
+          "@id": "iudx:WasteWaterMgmt"
+        },
+        {
+          "@id": "iudx:SmartParking"
+        },
+        {
+          "@id": "iudx:EmergencyVehicle"
+        },
+        {
+          "@id": "iudx:SolarEnergy"
+        }
+      ],
+      "iudx:rangeIncludes": [
+        {
+          "@id": "iudx:Point"
+        },
+        {
+          "@id": "iudx:GeoJSONGeometry"
+        },
+        {
+          "@id": "iudx:Place"
+        },
+        {
+          "@id": "iudx:Text"
+        },
+        {
+          "@id": "iudx:ValueDescriptor"
+        }
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "iudx:"
+      },
+      "skos:exactMatch": {
+        "@id": "schema:location"
+      }
+    }
+  ],
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "iudx": "https://voc.iudx.org.in/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "schema": "http://schema.org/",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  }
+}
