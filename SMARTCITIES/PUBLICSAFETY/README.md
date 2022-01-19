@@ -1,1 +1,0 @@
-Modeling data associated with Public Safety aspects such as fire engines, fire houses, missions, etc.
