@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/Lock/schema.json",
+  "title": "Lock",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. The Resource describing a lock.\nThe Property \"lockState\" is a string. The value 'Locked' indicates that the door is Locked.\nThe value 'Unlocked' indicates that the door is Unlocked.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. Resource Type",
+      "items": {
+        "enum": [
+          "oic.r.lock.status"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "lockState": {
+      "description": "Property. The state of the lock.",
+      "enum": [
+        "Locked",
+        "Unlocked"
+      ],
+      "type": "string"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.a",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Lock"
+      ],
+      "description": "Property. NGSI entity type. It has to be Lock"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/LockResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

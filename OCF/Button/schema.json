@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/Button/schema.json",
+  "title": "Button Switch",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes the operation of a button style switch.\nThe Property \"value\" is a boolean.\nA value of 'true' means that the button is being pushed/pressed.\nA value of 'false' means that the button is not being pushed/pressed.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.button"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "value": {
+      "description": "Property. The status of the button",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.s",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Button"
+      ],
+      "description": "Property. NGSI entity type. It has to be Button"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/ButtonResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

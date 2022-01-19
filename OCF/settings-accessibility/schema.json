@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/settings-accessibility/schema.json",
+  "title": "Device Settings Accessibility Resource Type",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. Gets current device accessibility settings.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type of Device Settings for accessibility",
+      "items": {
+        "enum": [
+          "oic.r.settings.accessibility"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "if": {
+      "items": {
+        "enum": [
+          "oic.if.rw",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "voice-guide": {
+      "description": "Property. Turns on or off voice guide.",
+      "type": "boolean"
+    },
+    "video-description": {
+      "description": "Property. Turns on or off video description.",
+      "type": "boolean"
+    },
+    "caption": {
+      "description": "Property. Turns on or off accessibility caption.",
+      "type": "boolean"
+    },
+    "caption-mode": {
+      "description": "Property. Accessibility Caption Mode. Client can change caption-mode using supported-caption-modes property.",
+      "type": "string"
+    },
+    "supported-caption-modes": {
+      "description": "Property. The array of possible caption modes the device supports. This property should be added if caption-mode is supported.",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "minItems": 1,
+      "type": "array"
+    },
+    "high-contrast": {
+      "description": "Property. Turns on or off high contrast.",
+      "type": "boolean"
+    },
+    "enlarge": {
+      "description": "Property. Turns on or off print enlargement.",
+      "type": "boolean"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "settings-accessibility"
+      ],
+      "description": "Property. NGSI entity type. It has to be settings-accessibility"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/settings-accessibilityResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

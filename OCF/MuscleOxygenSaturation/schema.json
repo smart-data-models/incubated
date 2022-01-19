@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/MuscleOxygenSaturation/schema.json",
+  "title": "Muscle Oxygen Saturation",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes the muscle oxygen saturation (SmO2), which is the percentage of hemoglobin that is saturated with oxygen in the capillaries of a muscle.\n The unit is percentage.\n The smo2 Property is a read-only value that is provided by the server.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "muscleoxygensaturation": {
+      "description": "Property. This Property describes the muscle oxygen saturation (SmO2), which is the percentage of hemoglobin that is saturated with oxygen in the capillaries of a muscle. The unit is percentage.",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "readOnly": true
+    },
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.muscleoxygensaturation"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.s",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "MuscleOxygenSaturation"
+      ],
+      "description": "Property. NGSI entity type. It has to be MuscleOxygenSaturation"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/MuscleOxygenSaturationResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

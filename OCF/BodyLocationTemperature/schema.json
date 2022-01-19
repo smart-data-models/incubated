@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/BodyLocationTemperature/schema.json",
+  "title": "Body Location Temperature",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes the Properties associated with body location for temperature measurement of a person.\nThe bloc Property is a read-only value that is provided by the Server.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. Resource Type",
+      "items": {
+        "enum": [
+          "oic.r.body.location.temperature"
+        ],
+        "type": "string",
+        "maxLength": 64
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "bloc": {
+      "description": "Property. A list specific to temperature site",
+      "enum": [
+        "axillary",
+        "body",
+        "ear",
+        "finger",
+        "gitract",
+        "mouth",
+        "rectum",
+        "toe",
+        "tympanum"
+      ],
+      "readOnly": true,
+      "type": "string"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource",
+      "items": {
+        "enum": [
+          "oic.if.s",
+          "oic.if.baseline"
+        ],
+        "type": "string",
+        "maxLength": 64
+      },
+      "minItems": 1,
+      "readOnly": true,
+      "uniqueItems": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "BodyLocationTemperature"
+      ],
+      "description": "Property. NGSI entity type. It has to be BodyLocationTemperature"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/BodyLocationTemperatureResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

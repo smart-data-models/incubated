@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/Media/schema.json",
+  "title": "Media",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource specifies the media types that an OCF Server supports.\nThe resource is an array of media elements.  Each element contains:\n    A URL at which the specified media type can be accessed.\n    A string array containing the definition of the media using SDP.\n    Each entry in the sdp array is an SDP line.\n    Each line shall follow the SDP description syntax as defined in the SDP specification.\nThe SDP specification can be found at http://tools.ietf.org/html/rfc4566.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.media"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "media": {
+      "items": {
+        "properties": {
+          "sdp": {
+            "description": "The array of strings, one per SDP line.",
+            "items": {
+              "description": "SDP media or attribute line",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "url": {
+            "description": "The url for the media instance.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.a",
+          "oic.if.s",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Media"
+      ],
+      "description": "Property. NGSI entity type. It has to be Media"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/MediaResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

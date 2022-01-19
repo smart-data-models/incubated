@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/heartRateZone/schema.json",
+  "title": "Heart Rate Zone",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes a measured heart rate by the current Zone using the Zoladz method. The Zoladz method defines Zones based on maximum heart rate; Zone 1 is the lowest, Zone 5 is the highest.\nThe heartRateZone is an enumeration containing one of: \"Zone1\", \"Zone2\", \"Zone3\", \"Zone4\", and \"Zone5\".\n",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. Resource Type",
+      "items": {
+        "enum": [
+          "oic.r.sensor.heart.zone"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "readOnly": true,
+      "uniqueItems": true,
+      "type": "array"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "heartRateZone": {
+      "description": "Property. Current heart rate zone based on the Zoladz system.",
+      "enum": [
+        "Zone1",
+        "Zone2",
+        "Zone3",
+        "Zone4",
+        "Zone5"
+      ],
+      "readOnly": true,
+      "type": "string"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource",
+      "items": {
+        "enum": [
+          "oic.if.s",
+          "oic.if.baseline"
+        ],
+        "type": "string",
+        "maxLength": 64
+      },
+      "minItems": 1,
+      "readOnly": true,
+      "uniqueItems": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "heartRateZone"
+      ],
+      "description": "Property. NGSI entity type. It has to be heartRateZone"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/heartRateZoneResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

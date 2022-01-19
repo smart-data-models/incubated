@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/Clock/schema.json",
+  "title": "Clock",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes the properties associated with clock and time.\nClock is a time information.\nThe Property \"datetime\" is using RFC3339 datetime format (e.g: \"2007-04-05T14:30Z\") (Time+Date+Timezone)\nThe Property \"countdown\" is the desired total seconds for countdown.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.clock"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "readOnly": true,
+      "type": "array"
+    },
+    "countdown": {
+      "description": "Property. The desired total seconds for countdown.",
+      "minimum": 0,
+      "type": "number"
+    },
+    "datetime": {
+      "description": "Property. Rhe date time using RFC3339 datetime format (e.g: 2007-04-05T14:30:00Z, 2007-04-05T14:30:00+09:00).",
+      "type": "string",
+      "format": "date-time"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.a",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Clock"
+      ],
+      "description": "Property. NGSI entity type. It has to be Clock"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/ClockResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

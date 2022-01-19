@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/AutomaticDocumentFeeder/schema.json",
+  "title": "Automatic Document Feeder",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes the state of an automatic document feeder, typically used with a scanner.\nThe Property \"adfstates\" and \"currentAdfState\" are read only.\nThe Property \"adfStates\" is an array of the possible operational states.\nThe Property \"adfProcessing\" is the OK state, other states are errors or require 'user attention'.\nThe currentAdfState is the current value of the ADF state on the device.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.automaticdocumentfeeder"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "adfStates": {
+      "description": "Property. The array of the possible adf states.",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "uniqueItems": true,
+      "type": "array"
+    },
+    "currentAdfState": {
+      "description": "Property. The current adf state.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.s",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "AutomaticDocumentFeeder"
+      ],
+      "description": "Property. NGSI entity type. It has to be AutomaticDocumentFeeder"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/AutomaticDocumentFeederResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

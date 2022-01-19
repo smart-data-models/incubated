@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/SpO2/schema.json",
+  "title": "SpO2 for Pulse Oximeter",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes the Properties associated with a person's blood oxygen saturation level.\n The spo2 and perfusion Properties are read-only value that is provided by the server.\n When range (from \"oic.r.baseresource\") is omitted the default is 0 to +MAXFLOAT.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "spo2": {
+      "description": "Property. This Property describes the estimation of the oxygen saturation level in percentage.",
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 100.0,
+      "readOnly": true
+    },
+    "perfusion": {
+      "description": "Property. This Property describes the ratio of AC over DC of PPG.",
+      "type": "number",
+      "minimum": 0.0,
+      "readOnly": true
+    },
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.spo2"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.s",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "spo2_range": {
+      "type": "array",
+      "description": "Property. Property. The valid range for the Property in the Resource as a number. The first value in the array is the minimum value, the second value in the array is the maximum value.",
+      "readOnly": true,
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "number"
+      }
+    },
+    "perfusion_range": {
+      "type": "array",
+      "description": "Property. Property. The valid range for the Property in the Resource as a number. The first value in the array is the minimum value, the second value in the array is the maximum value.",
+      "readOnly": true,
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "number"
+      }
+    },
+    "spo2_step": {
+      "description": "Property. Property. Step value across the defined range an integer when the range is a number.  This is the increment for valid values across the range; so if range is 0.0..10.0 and step is 2.5 then valid values are 0.0,2.5,5.0,7.5,10.0.",
+      "readOnly": true,
+      "type": "number"
+    },
+    "perfusion_step": {
+      "description": "Property. Property. Step value across the defined range an integer when the range is a number.  This is the increment for valid values across the range; so if range is 0.0..10.0 and step is 2.5 then valid values are 0.0,2.5,5.0,7.5,10.0.",
+      "readOnly": true,
+      "type": "number"
+    },
+    "spo2_precision": {
+      "type": "number",
+      "readOnly": true,
+      "description": "Property. Property. When exposed the value in 'precision' provides a +/- tolerance against the Properties in the Resource. Thus if a Property is UPDATED to a value and that Property then RETRIEVED, the RETRIEVED value is valid if in the range of the set value +/- precision"
+    },
+    "perfusion_precision": {
+      "type": "number",
+      "readOnly": true,
+      "description": "Property. Property. When exposed the value in 'precision' provides a +/- tolerance against the Properties in the Resource. Thus if a Property is UPDATED to a value and that Property then RETRIEVED, the RETRIEVED value is valid if in the range of the set value +/- precision"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "SpO2"
+      ],
+      "description": "Property. NGSI entity type. It has to be SpO2"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/SpO2ResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

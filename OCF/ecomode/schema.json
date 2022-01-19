@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/ecomode/schema.json",
+  "title": "Eco Mode",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource specifies the supported and currently active Eco Mode of a Device\nThe Resource is a deriviative of the Mode Resource (oic.r.mode) with a restriction that the population of supportedmodes and modes Properties is restricted to the set of values:\n\"disabled\",\"enabled\",\"notsupported\".\nThe adminforced Property indicates that the value has been set by another party (e.g. via some offboard Smart Energy interaction)\n",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.ecomode"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "modes": {
+      "description": "Property. The array of the currently active mode(s).",
+      "items": {
+        "enum": [
+          "disabled",
+          "enabled",
+          "notsupported"
+        ],
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "type": "array"
+    },
+    "supportedModes": {
+      "description": "Property. The array of possible modes the device supports.",
+      "items": {
+        "enum": [
+          "disabled",
+          "enabled",
+          "notsupported"
+        ],
+        "type": "string"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "adminforced": {
+      "description": "Property. The indicator that the current mode of operation has been forced by admin action.",
+      "readOnly": true,
+      "type": "boolean"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.a",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "ecomode"
+      ],
+      "description": "Property. NGSI entity type. It has to be ecomode"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/ecomodeResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/consumable/schema.json",
+  "title": "Consumable",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource specifies a thing that can be consumed such as filter material, printer toner etc\nThe Propert \"typeofconsumable\" is an enumeration defining the thing being consumed as defined by the Smart Home Device Specification\nThe Property \"remaining\" is an integer capturing the percentatge remaining life\nThe Property \"orderpercentage\" is an integer capturing the percentage life at which replacement or replenishment is recommended by the manufacturer\nThe Property \"url\" is a string containing a URL at which further information may be obtained with respect to the consumable.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.consumable"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "remaining": {
+      "description": "Property. The percentage remaining lifespan.",
+      "maximum": 100,
+      "minimum": 0,
+      "readOnly": true,
+      "type": "integer"
+    },
+    "typeofconsumable": {
+      "description": "Property. The thing that is being consumed.",
+      "readOnly": true,
+      "type": "string"
+    },
+    "url": {
+      "description": "Property. The URL at which additional ordering information may be found.",
+      "format": "uri",
+      "readOnly": true,
+      "type": "string"
+    },
+    "orderpercentage": {
+      "description": "Property. The percentage at which re-ordering is recommended by the manufacturer.",
+      "maximum": 100,
+      "minimum": 0,
+      "readOnly": true,
+      "type": "integer"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.s",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "consumable"
+      ],
+      "description": "Property. NGSI entity type. It has to be consumable"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/consumableResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

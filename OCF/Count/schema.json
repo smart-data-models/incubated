@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/Count/schema.json",
+  "title": "Activity Count",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource specifies an activity count.\nThe Resource can be readonly (oic.if.s interface) in which instance it represents a count.\nThe Resource can be readwrite (oic.if.a interface) in which instance it represents a goal or target for a count.\nThe Property \"count\" is an integer representing either the current count or goal value.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "maxLength": 64,
+        "type": "string",
+        "enum": [
+          "oic.r.sensor.activity.count"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "count": {
+      "description": "Property. The current or Target count.",
+      "type": "integer"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "range": {
+      "type": "array",
+      "description": "Property. The valid range for the Property in the Resource as an integer. The first value in the array is the minimum value, the second value in the array is the maximum value.",
+      "readOnly": true,
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "integer"
+      }
+    },
+    "step": {
+      "description": "Property. Step value across the defined range when the range is an integer.  This is the increment for valid values across the range; so if range is 0..10 and step is 2 then valid values are 0,2,4,6,8,10.",
+      "readOnly": true,
+      "type": "integer"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.a",
+          "oic.if.s",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "readOnly": true,
+      "uniqueItems": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Count"
+      ],
+      "description": "Property. NGSI entity type. It has to be Count"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/CountResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/Speech/schema.json",
+  "title": "Speech Synthesis-TTS",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource may be created on the OCF Server that is capable of rendering speech by an OCF Client and allows the client to provide an SSML document with text to render\n or may be created on the OIC Server by some resident application.\nThe audio rendered is at this stage local to the Server (i.e. not streamed).\nThe utterance is an SSML document.\nThe supportedLanguages is an array of the RFC5646 defined language tags that are supported.\nThe supportedVoices is an SSML document fragment indicating the voices that are supported.\nUtterance in the example shall be a properly escaped (JSON rules) SSML document. An example:\n  \"<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n\r\n  <speak version=\"1.1\" xmlns=\"http://www.w3.org/2001/10/synthesis\"\n\r\n  \txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n\r\n  \txsi:schemaLocation=\"http://www.w3.org/2001/10/synthesis\n\r\n  \thttp://www.w3.org/TR/speech-synthesis11/synthesis.xsd\"\n\r\n  \txml:lang=\"en-US\">\n\r\n  \n\r\n  \tThe title of the movie is:\n\r\n  \t\"Monty Pythons The Meaning of Life\"\n\r\n  \twhich is directed by Terry Jones.\n\r\n  </speak\"\n",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.speech.tts"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "supportedLanguages": {
+      "description": "Property. The array of supported language tags.",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "supportedVoices": {
+      "description": "Property. The SSML document fragment indicating supported voices.",
+      "readOnly": true,
+      "maxLength": 1024,
+      "type": "string"
+    },
+    "utterance": {
+      "description": "Property. The SSML document including the speech body.",
+      "maxLength": 1024,
+      "type": "string"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.a",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Speech"
+      ],
+      "description": "Property. NGSI entity type. It has to be Speech"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/SpeechResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

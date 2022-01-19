@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/ColourChroma/schema.json",
+  "title": "Colour Chroma",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes the colour using chroma conventions.\nProperties are \"hue\", \"saturation\", \"csc\", and \"ct\".\nThe Property \"hue\" is the hue angle, it is an integer value as defined by the CIECAM02 model definition (see reference [CIE CIE159:2004]).\nThe Property \"saturation\" is an integer value as defined by the CIECAM02 model definition (see reference [CIE CIE159:2004]).\nThe Property \"maximumsaturation\" is the upper bound on the saturation supported by the Device.\nIf not present the maximum value for \"saturation\" is 32767.\nThe Property \"csc\" is the colour space coordinates in CIE colour space.\n  The first item in the array is the X coordinate.\n  The second item in the array is the Y coordinate.\nThe Property \"nct\" is the Mired colour temperature.\nThe Resource provides the colour using chroma conventions.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.colour.chroma"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "ct": {
+      "description": "Property. The Mired colour temperature.",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "hue": {
+      "description": "Property. The hue angle as defined by the CIECAM02 model definition.",
+      "maximum": 360.0,
+      "minimum": 0.0,
+      "type": "number"
+    },
+    "saturation": {
+      "description": "Property. The saturation as defined by the CIECAM02 model definition.",
+      "maximum": 32767,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "maximumsaturation": {
+      "description": "Property. The maximum supported value of \"saturation\" for this Device.",
+      "maximum": 32767,
+      "minimum": 0,
+      "readOnly": true,
+      "type": "integer"
+    },
+    "csc": {
+      "description": "Property. The X and Y coordinates of the colour in CIE colour space",
+      "items": {
+        "maximum": 1,
+        "minimum": 0,
+        "type": "number"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.a",
+          "oic.if.baseline"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "ColourChroma"
+      ],
+      "description": "Property. NGSI entity type. It has to be ColourChroma"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/ColourChromaResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

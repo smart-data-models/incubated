@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/PrintQueue/schema.json",
+  "title": "Print Queue",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes the items in a Printer Queue. The Properties \"uri\" and \"status\" are read only items that cannot be changed through this resource.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.printer.queue"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "queue": {
+      "description": "Property. The array of queue items for the printer.",
+      "items": {
+        "properties": {
+          "status": {
+            "description": "The status of the queue item.",
+            "enum": [
+              "Printing",
+              "Pending",
+              "Paused",
+              "Error",
+              "Unknown"
+            ],
+            "readOnly": true,
+            "type": "string"
+          },
+          "uri": {
+            "description": "The uri of the queue item (i.e. the actual file).",
+            "format": "uri",
+            "maxLength": 256,
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "required": [
+          "uri",
+          "status"
+        ],
+        "type": "object"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.r",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "PrintQueue"
+      ],
+      "description": "Property. NGSI entity type. It has to be PrintQueue"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/PrintQueueResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

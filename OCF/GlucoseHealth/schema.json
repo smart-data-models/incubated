@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/GlucoseHealth/schema.json",
+  "title": "Context Health for Glucose Meter",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes the Properties associated with context health.\nThe health Property is a read-only value that is provided by the Server where\nminor and major are related to the general health or the level of illness of the person;\nmenses refers to the female menstrual cycle;\nstress refers to physiological or psychological stress.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. Resource Type",
+      "items": {
+        "enum": [
+          "oic.r.glucose.health"
+        ],
+        "type": "string",
+        "maxLength": 64
+      },
+      "minItems": 1,
+      "readOnly": true,
+      "type": "array"
+    },
+    "health": {
+      "description": "Property. The various levels of health a person feels when taking a glucose.",
+      "enum": [
+        "minor",
+        "major",
+        "menses",
+        "stress",
+        "none"
+      ],
+      "readOnly": true,
+      "type": "string"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource",
+      "items": {
+        "enum": [
+          "oic.if.s",
+          "oic.if.baseline"
+        ],
+        "type": "string",
+        "maxLength": 64
+      },
+      "minItems": 1,
+      "readOnly": true,
+      "uniqueItems": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "GlucoseHealth"
+      ],
+      "description": "Property. NGSI entity type. It has to be GlucoseHealth"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/GlucoseHealthResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

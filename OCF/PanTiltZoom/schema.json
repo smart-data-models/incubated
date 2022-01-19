@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/PanTiltZoom/schema.json",
+  "title": "Pan Tilt Zoom Movement",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource specifies the pan tilt and zoom capabilities of a device.\nThe Resource Type is dynamic and reflects whether the values apply to\n  physical movement of the device or digital/virtual enhancements to the image.\nFor physical movement the Resource Type is \"oic.r.movement.ptz\".\nFor digital/virtual image enhancements the Resource Type is \"oic.r.image.ptz\".\nThe Properties \"pan\" and \"tilt\" are specified in degrees.\nThe Property \"zoomFactor\" is a value in the range 1-100 for linear (optical) zoom.\nThe zoom factor is a value in the range [1x, 2x, 4x, 8x, 16x, 32x] for digital zoom.\nIf there is no zoom value to set the zoom factor shall be '1x'.\nThe value 0 degrees means neutral, this is a vendor defined setting.\nNote that this resource also can be used to create an offset for physical movement.\nWhen that is the case, the Resource Type value is: \"oic.r.movement.offset.ptz\"\nNote that this resource also can be used to create an offset for image movement.\nWhen that is the case, the Resource Type value is: \"oic.r.image.offset.ptz\".\nWhen the Property \"pan_range\" value is omitted, then the range is [-180.0,180.0].\nIf \"pan\" is not supported then the range shall be [0.0,0.0]\nWhen the Property \"tilt_range\" value is omitted, then the range is [-180.0,180.0].\nIf \"tilt\" is not supported then the range shall be [0.0,0.0].",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.ptz"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "tilt_range": {
+      "type": "array",
+      "description": "Property. Property. The valid range for the Property in the Resource as a number. The first value in the array is the minimum value, the second value in the array is the maximum value.",
+      "readOnly": true,
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "number"
+      }
+    },
+    "zoomFactor": {
+      "description": "Property. The zoom factor value.",
+      "type": "string"
+    },
+    "tilt": {
+      "description": "Property. The vertical tilt in degrees.",
+      "type": "number"
+    },
+    "precision": {
+      "type": "number",
+      "readOnly": true,
+      "description": "Property. When exposed the value in 'precision' provides a +/- tolerance against the Properties in the Resource. Thus if a Property is UPDATED to a value and that Property then RETRIEVED, the RETRIEVED value is valid if in the range of the set value +/- precision"
+    },
+    "pan_range": {
+      "type": "array",
+      "description": "Property. Property. The valid range for the Property in the Resource as a number. The first value in the array is the minimum value, the second value in the array is the maximum value.",
+      "readOnly": true,
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "number"
+      }
+    },
+    "zoomFactorRange": {
+      "description": "Property. The allowed Zoom Factor values. Linear equates to a 1-100 min/max.",
+      "enum": [
+        "linear",
+        "1x",
+        "2x",
+        "4x",
+        "8x",
+        "16x",
+        "32x"
+      ],
+      "readOnly": true,
+      "type": "string"
+    },
+    "pan": {
+      "description": "Property. The horizontal pan in degrees.",
+      "type": "number"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.a",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "PanTiltZoom"
+      ],
+      "description": "Property. NGSI entity type. It has to be PanTiltZoom"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/PanTiltZoomResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

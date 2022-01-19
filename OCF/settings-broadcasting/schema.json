@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/settings-broadcasting/schema.json",
+  "title": "Device Settings Broadcasting Resource Type",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. Gets current device broadcasting settings.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type of Device Settings for broadcasting",
+      "items": {
+        "enum": [
+          "oic.r.settings.broadcasting"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "if": {
+      "items": {
+        "enum": [
+          "oic.if.rw",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "antenna": {
+      "description": "Property. Type of antenna",
+      "type": "string"
+    },
+    "supported-antennas": {
+      "description": "Property. The array of possible antennas the device supports. This property should be added if antenna is supported.",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "minItems": 1,
+      "type": "array"
+    },
+    "location-info": {
+      "description": "Property. Location information of the broadcast system.",
+      "type": "string"
+    },
+    "carrier-info": {
+      "description": "Property. Carrier information of the broadcast system.",
+      "type": "string"
+    },
+    "auto-program": {
+      "description": "Property. Scan for channels using Auto Program.",
+      "type": "boolean"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "settings-broadcasting"
+      ],
+      "description": "Property. NGSI entity type. It has to be settings-broadcasting"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/settings-broadcastingResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

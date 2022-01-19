@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/GlucoseSampleLocation/schema.json",
+  "title": "Context Sample Location for Glucose Meter",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes the Properties associated with context sample Location.\nAST means Alternative Site Test specifying that the location of test performed was from an alternative site on the body.\nThe samplelocation Property is a read-only value that is provided by the Server.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. Resource Type",
+      "items": {
+        "enum": [
+          "oic.r.glucose.samplelocation"
+        ],
+        "type": "string",
+        "maxLength": 64
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "samplelocation": {
+      "description": "Property. The possible blood locations where the blood sample may be taken.",
+      "enum": [
+        "finger",
+        "ast",
+        "earlobe",
+        "ctrlsolution"
+      ],
+      "readOnly": true,
+      "type": "string"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource",
+      "items": {
+        "enum": [
+          "oic.if.r",
+          "oic.if.baseline"
+        ],
+        "type": "string",
+        "maxLength": 64
+      },
+      "minItems": 1,
+      "readOnly": true,
+      "uniqueItems": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "GlucoseSampleLocation"
+      ],
+      "description": "Property. NGSI entity type. It has to be GlucoseSampleLocation"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/GlucoseSampleLocationResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

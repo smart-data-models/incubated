@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/settings-support/schema.json",
+  "title": "Device Settings Support Resource Type",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. Gets current device support settings.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type of Device Settings for support",
+      "items": {
+        "enum": [
+          "oic.r.settings.support"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "if": {
+      "items": {
+        "enum": [
+          "oic.if.rw",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "remote-management": {
+      "description": "Property. Allows support remote access so support can control user setting and troubleshoot problem.",
+      "type": "boolean"
+    },
+    "software-auto-update": {
+      "description": "Property. Software - Auto Update.",
+      "type": "boolean"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "settings-support"
+      ],
+      "description": "Property. NGSI entity type. It has to be settings-support"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/settings-supportResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

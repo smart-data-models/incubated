@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/ColourHS/schema.json",
+  "title": "Colour Hue and Saturation",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes the colour using hue-saturation conventions.\nThe Property \"hue\" is the hue angle, it is a number value as defined by the CIECAM02 model definition (see reference [CIE CIE159:2004]).\nA Device that does not support fractional hue angles can provide integer values.\nIf Property \"precision\" is provided it applies to the hue angle.\nThe Property \"saturation\" is an integer value as defined by the CIECAM02 model definition (see reference [CIE CIE159:2004]).\n The Property \"saturation\" can be converted to a percentage by saturation/maximumsaturation X 100; where maximumsaturation is 32767 if the Property itself is not present.\nThe Property \"maximumsaturation\" is the upper bound on the saturation supported by the Device.\nIf not present the maximum value for saturation is 32767.\nThe Resource provides the colour using hue and saturation conventions.\n",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.colour.hs"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "hue": {
+      "description": "Property. The hue angle as defined by the CIECAM02 model definition.",
+      "maximum": 360.0,
+      "minimum": 0.0,
+      "type": "number"
+    },
+    "saturation": {
+      "description": "Property. The saturation as defined by the CIECAM02 model definition.",
+      "maximum": 32767,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "maximumsaturation": {
+      "description": "Property. The maximum supported value of \"saturation\" for this Device.",
+      "maximum": 32767,
+      "minimum": 0,
+      "readOnly": true,
+      "type": "integer"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "precision": {
+      "type": "number",
+      "readOnly": true,
+      "description": "Property. When exposed the value in 'precision' provides a +/- tolerance against the Properties in the Resource. Thus if a Property is UPDATED to a value and that Property then RETRIEVED, the RETRIEVED value is valid if in the range of the set value +/- precision"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.a",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "ColourHS"
+      ],
+      "description": "Property. NGSI entity type. It has to be ColourHS"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/ColourHSResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

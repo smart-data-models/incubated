@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/Deodorization/schema.json",
+  "title": "Deodorization",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes a deodorization function, which can be supported by controlling on air filter. \n The Property \"mode\" is a mode of the deodorization function. The supported modes are defined by the enumeration [\"off\", \"on\", \"auto\"]. \n\"off\" means that the deodorization function is not enabled.\n\"on\" means that the deodorization function is active.\n\"auto\" means that the deodorization function is automatically controlled depending on sensed air condition in the device inside. \nThe Property \"currentstate\" is the current state of the deodorization function. In the case of \"auto\" mode, if the sensed air condition is determined to be bad, the function will be \"on\". Then, \"mode\" value is \"auto\" and \"currentstate\" value is \"on\". If not, the function is remaining \"off\" state. Then, \"currentstate\" value is \"off\".",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.deodorization"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "mode": {
+      "description": "Property. The modes of the Deodorization function.",
+      "enum": [
+        "off",
+        "on",
+        "auto"
+      ],
+      "type": "string"
+    },
+    "currentstate": {
+      "description": "Property. The current state of the Deodorization function.",
+      "enum": [
+        "off",
+        "on"
+      ],
+      "readOnly": true,
+      "type": "string"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.a",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Deodorization"
+      ],
+      "description": "Property. NGSI entity type. It has to be Deodorization"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/DeodorizationResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

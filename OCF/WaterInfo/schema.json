@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/WaterInfo/schema.json",
+  "title": "Water Info",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes the water information to indicate type of water currently provided by the device. The water type can be read or set.\nThe Property \"supportedwatertypes\" is an array of the possible water types are defined by the enumeration [\"cold\", \"hot\", \"ambient\", \"ice\"].\nThe Property \"supportedadditivetypes\" is an array of the possible additive types for water. The additive types mean optional types that can be added to the specific water type according to Client's preference and are defined by the enumeration [\"none\", \"soda\", \"mineral\"]. If absent, the default value is \"none\". \nThe Property \"currentwatertype\" is the currently desired water type. \nThe Property \"currentadditivetypes\" is the currently desired additive type(s). \nFor example, if \"cold\" is selected with the \"currentwatertype\", \"soda\" and \"mineral\" or both can be selected as \"currentadditivetypes\". Note that if \"hot\" is selected with the \"currentwatertype\", \"soda\" and \"mineral\" may be restricted for the \"currentadditivetypes\".",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.waterinfo"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "supportedwatertypes": {
+      "description": "Property. The array of the possible water types.",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "supportedadditivetypes": {
+      "description": "Property. The array of the possible additive types.",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "currentwatertype": {
+      "description": "Property.  The currently desired water type.",
+      "type": "string"
+    },
+    "currentadditivetypes": {
+      "description": "Property. The currently desired additive type(s) according to Client's preference.",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.rw",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "WaterInfo"
+      ],
+      "description": "Property. NGSI entity type. It has to be WaterInfo"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/WaterInfoResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

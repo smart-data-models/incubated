@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/SelectableLevels/schema.json",
+  "title": "Selectable Levels",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource provides a set of device defined levels that can be selected for an operation.\nFor example where a humidifier has a discrete set that model different humidity levels that can be set.\nThe Property \"availablelevels\" is an array of the levels that can be selected, these can be a number or an integer (as subset of integer).\nThe Property \"targetlevel\" is the level that has currently been selected and is written to in order to select a new level.\nWhen retrieved the targetlevel provides the actual value that has been selected.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. The Resource Type.",
+      "items": {
+        "enum": [
+          "oic.r.selectablelevels"
+        ],
+        "maxLength": 64,
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "targetlevel": {
+      "description": "Property. The target level from the available selectable set.",
+      "type": "number"
+    },
+    "availablelevels": {
+      "description": "Property. The set of levels to select from.",
+      "items": {
+        "type": "number"
+      },
+      "readOnly": true,
+      "type": "array"
+    },
+    "if": {
+      "description": "Property. The OCF Interface set supported by this Resource.",
+      "items": {
+        "enum": [
+          "oic.if.a",
+          "oic.if.baseline"
+        ],
+        "type": "string"
+      },
+      "minItems": 2,
+      "uniqueItems": true,
+      "readOnly": true,
+      "type": "array"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "SelectableLevels"
+      ],
+      "description": "Property. NGSI entity type. It has to be SelectableLevels"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/SelectableLevelsResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}

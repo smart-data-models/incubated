@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OCF",
+  "$id": "https://smart-data-models.github.io/dataModel.IoTDataModels/Calorific/schema.json",
+  "title": "Calorific Value",
+  "description": "Smart Data Models Program adaptation of the original IoTData data Models. This Resource describes Properties associated with the energy associated with the consumption of different fuels (including natural gas)\nThe calorific value is a number\nthe calorific value is a measure of the available heat energy, used as part of the calculation to convert a volume of a fuel (e.g. m3) to an energy value (e.g. KWh).\n",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    }
+  ],
+  "properties": {
+    "rt": {
+      "description": "Property. Resource Type",
+      "items": {
+        "maxLength": 64,
+        "type": "string",
+        "enum": [
+          "oic.r.calorificvalue"
+        ]
+      },
+      "minItems": 1,
+      "readOnly": true,
+      "uniqueItems": true,
+      "type": "array"
+    },
+    "if": {
+      "description": "Property. The OCF Interfaces supported by this Resource",
+      "items": {
+        "enum": [
+          "oic.if.baseline",
+          "oic.if.r"
+        ],
+        "type": "string",
+        "maxLength": 64
+      },
+      "minItems": 2,
+      "readOnly": true,
+      "uniqueItems": true,
+      "type": "array"
+    },
+    "n": {
+      "type": "string",
+      "maxLength": 64,
+      "readOnly": true,
+      "description": "Property. Friendly name of the Resource"
+    },
+    "precision": {
+      "description": "Property. Accuracy granularity of the exposed value",
+      "readOnly": true,
+      "type": "number"
+    },
+    "calorific": {
+      "description": "Property. Calorific value of fuel",
+      "readOnly": true,
+      "type": "number",
+      "minimum": 0,
+      "exclusiveMinimum": true
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Calorific"
+      ],
+      "description": "Property. NGSI entity type. It has to be Calorific"
+    }
+  },
+  "derivedFrom": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/CalorificResURI.swagger.json",
+  "license": "https://github.com/OpenInterConnect/IoTDataModels/blob/master/README.md",
+  "required": [
+    "id",
+    "type"
+  ]
+}
