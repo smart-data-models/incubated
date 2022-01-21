@@ -1,0 +1,1 @@
+Readme for the repout ouranos-ws data model
