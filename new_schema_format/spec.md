@@ -1,4 +1,5 @@
-[![alt text](https://smartdatamodels.org/wp-content/uploads/2021/09/cropped-Logo_SmartDataModels_reduced.png "Logo")](https://smartdatamodels.org)
+[![Smart Data Models](https://smartdatamodels.org/wp-content/uploads/2022/01/SmartDataModels_logo.png "Logo")](https://smartdatamodels.org)
+
 
 Entity: Aircraft  
 ================
