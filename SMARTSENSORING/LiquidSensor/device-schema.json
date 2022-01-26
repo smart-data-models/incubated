@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/dataModel.Device/device-schema.json",
+  "$schemaVersion": "0.0.2",
+  "title": " - Device  Commons schema",
+  "description": "Common definitions to describe Device and Device Model schemas.",
+  "definitions": {
+    "MacAddressType": {
+      "type": "string",
+      "pattern": "^([[:xdigit:]]{2}[:.-]?){5}[[:xdigit:]]{2}$",
+      "description": "Property. Model:'https://schema.org/Text'. The MAC address of the device."
+    },
+    "CategoryType": {
+      "type": "array",
+      "description": "Property. Model:'https://schema.org/Text'. Sensor: A device that detects and responds to events or changes in the physical environment such as light, motion, or temperature changes. https://w3id.org/saref#Sensor. actuator : A device responsible for moving or controlling a mechanism or system. https://w3id.org/saref#Actuator. Meter : A device built to accurately detect and display a quantity in a form readable by a human being. Partially defined by SAREF. HVAC : Heating, Ventilation and Air Conditioning (HVAC) device that provides indoor environmental comfort. https://w3id.org/saref#HVAC. Network : A device used to connect other devices in a network, such as hub, switch or router in a LAN or Sensor network. (https://w3id.org/saref#Network. Multimedia : A device designed to display, store, record or play multimedia content such as audio, images, animation, video. Enum:'actuator, beacon, endgun, HVAC, implement, irrSection, irrSystem, meter, multimedia, network, sensor'",
+      "items": {
+        "type": "string",
+        "enum": [
+          "actuator",
+          "beacon",
+          "endgun",
+          "HVAC",
+          "implement",
+          "irrSection",
+          "irrSystem",
+          "meter",
+          "multimedia",
+          "network",
+          "sensor"
+        ]
+      }
+    },
+    "ControlledPropertyType": {
+      "type": "array",
+      "description": "Property. Model:'https://schema.org/Text'. Anything that can be sensed, measured or controlled by. Enum:'airPollution, atmosphericPressure, averageVelocity, batteryLife, batterySupply, cdom, conductance, conductivity, depth, eatingActivity, eatingActivity, electricityConsumption, energy, fillingLevel, freeChlorine, gasConsumption, gateOpening, heading, humidity, light, location, milking, motion, movementActivity, noiseLevel, occupancy, orp, pH, power, precipitation, pressure, refractiveIndex, salinity, smoke, soilMoisture, solarRadiation, speed, tds, temperature, trafficFlow, tss, turbidity, waterConsumption, waterFlow, waterLevel, waterPollution, weatherConditions, weight, windDirection, windSpeed'",
+      "items": {
+        "type": "string",
+        "enum": [
+          "airPollution",
+          "atmosphericPressure",
+          "averageVelocity",
+          "batteryLife",
+          "batterySupply",
+          "cdom",
+          "conductance",
+          "conductivity",
+          "depth",
+          "eatingActivity",
+          "eatingActivity",
+          "electricityConsumption",
+          "energy",
+          "fillingLevel",
+          "freeChlorine",
+          "gasConsumption",
+          "gateOpening",
+          "heading",
+          "humidity",
+          "light",
+          "location",
+          "milking",
+          "motion",
+          "movementActivity",
+          "noiseLevel",
+          "occupancy",
+          "orp",
+          "pH",
+          "power",
+          "precipitation",
+          "pressure",
+          "refractiveIndex",
+          "salinity",
+          "smoke",
+          "soilMoisture",
+          "solarRadiation",
+          "speed",
+          "tds",
+          "temperature",
+          "trafficFlow",
+          "tss",
+          "turbidity",
+          "waterConsumption",
+          "waterFlow",
+          "waterLevel",
+          "waterPollution",
+          "weatherConditions",
+          "weight",
+          "windDirection",
+          "windSpeed"
+        ]
+      }
+    },
+    "SupportedProtocolType": {
+      "type": "array",
+      "description": "Property. Model:'https://schema.org/Text'. Supported protocol(s) or networks. Model:'3g, bluetooth, bluetooth LE, cat-m, coap, ec-gsm-iot, gprs, http, lwm2m, lora, lte-m, mqtt, nb-iot, onem2m, sigfox, ul20, websocket'",
+      "items": {
+        "type": "string",
+        "enum": [
+          "3g",
+          "bluetooth",
+          "bluetooth LE",
+          "cat-m",
+          "coap",
+          "ec-gsm-iot",
+          "gprs",
+          "http",
+          "lwm2m",
+          "lora",
+          "lte-m",
+          "mqtt",
+          "nb-iot",
+          "onem2m",
+          "sigfox",
+          "ul20",
+          "websocket"
+        ]
+      }
+    },
+    "Device-Commons": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/CategoryType"
+        },
+        "controlledProperty": {
+          "$ref": "#/definitions/ControlledPropertyType"
+        },
+        "supportedProtocol": {
+          "$ref": "#/definitions/SupportedProtocolType"
+        },
+        "macAddress": {
+          "$ref": "#/definitions/MacAddressType"
+        }
+      }
+    }
+  }
+}

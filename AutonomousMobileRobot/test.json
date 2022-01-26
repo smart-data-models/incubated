@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/incubated/AutonomousMobileRobot/ReturnMessage/schema.json",
+  "title": " Smart Data Models- Return Message for robotic system",
+  "description": "A message sent to ta robotic system",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "ReturnMessage"
+          ],
+          "description": "Property. NGSI Entity type. It has to be Message"
+        },
+        "robotType": {
+          "type": "string",
+          "description": "Property. Type of Robot or autonomous mobile vehicle"
+        },
+        "time": {
+          "$ref": "https://smart-data-models.github.io/incubated/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/time"
+        },
+        "receivedTime": {
+          "$ref": "https://smart-data-models.github.io/incubated/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/time"
+        },
+        "receivedCommand": {
+          "$ref": "https://smart-data-models.github.io/incubated/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/command"
+        },
+        "receivedWaypoints": {
+          "$ref": "https://smart-data-models.github.io/incubated/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/waypoints"
+        },
+        "result": {
+          "$ref": "https://smart-data-models.github.io/incubated/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/result"
+        },
+        "errors": {
+          "$ref": "https://smart-data-models.github.io/incubated/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/errors"
+        },
+        "receiveDestination": {
+          "$ref": "https://smart-data-models.github.io/incubated/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/destination"
+        }
+      }
+    }
+  ]
+}
