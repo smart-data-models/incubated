@@ -1,0 +1,260 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "type": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "issuer": {
+      "type": "string"
+    },
+    "issuanceDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expirationDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "credentialStatus": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Disputed"
+          ]
+        },
+        "statusReason": {
+          "type": "string"
+        }
+      }
+    },
+    "credentialSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "refreshService": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "holder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "issued": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "termsOfUse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string"
+        },
+        "profile": {
+          "type": "string"
+        },
+        "prohibition": {
+          "type": "object",
+          "properties": {
+            "assigner": {
+              "type": "string"
+            },
+            "assignee": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            },
+            "action": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string"
+        },
+        "verifier": {
+          "type": "string"
+        },
+        "evidenceDocument": {
+          "type": "string"
+        },
+        "subjectPresence": {
+          "type": "string"
+        },
+        "documentPresence": {
+          "type": "string"
+        },
+        "licenseNumber": {
+          "type": "string"
+        }
+      },
+      "proof": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "proofPurpose": {
+            "type": "string"
+          },
+          "verificationMethod": {
+            "type": "string"
+          },
+          "issuerData": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "string"
+          },
+          "signature": {
+            "type": "string"
+          },
+          "signatureCorrectnessProof": {
+            "type": "string"
+          },
+          "jws": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "created",
+          "proofPurpose",
+          "verificationMethod",
+          "jws"
+        ]
+      }
+    },
+    "proof": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "validFrom": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "validUntil": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "required": [
+      "@context",
+      "id",
+      "type",
+      "issuer",
+      "issuanceDate",
+      "credentialSubject"
+    ]
+  }
+}
