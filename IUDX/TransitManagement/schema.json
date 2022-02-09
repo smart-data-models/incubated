@@ -18,90 +18,131 @@
           "description": {
             "type": "string",
             "description": "Property. Description for an IUDX thing."
-          }
-        },
-        {
+          },
           "dataDescriptor": {
             "type": "Relationship",
             "description": "Relationship. URI pointing to the data-descriptor entity"
-          }
-        },
-        {
+          },
           "vehicleType": {
             "type": "string",
             "description": "Property. Describes the type of vehicle corresponding to this observation, could be hopper, compactor, tipper, dumper in case of solid waste management vehicles, BRT mini bus, BRT bus, city bus in case of ITMS vehicles, Ambulance, Fire tender, Police van etc, in case of emergency vehicles and Moped/Scooter, Motor Cycle,  Autorickshaw, Private car/ Jeep car, Tempo, Bus, E-Moped/E-Scooter/E-Motor Cycle, Public motor in case of vehicle registration."
-          }
-        },
-        {
+          },
           "trip_details": {
             "type": "object",
             "description": "Property. A descriptor of realtime update on the schedule of a vehicle along a trip.",
             "properties": {}
-          }
-        },
-        {
+          },
           "position": {
             "type": "object",
-            "description": "Property. Deccribes the current position of the vehicle corresponding to this observation. SameAs:'position' field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)",
-            "properties": {}
-          }
-        },
-        {
+            "description": "Property. Describes the current position of the vehicle corresponding to this observation. SameAs:'position' field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)",
+            "properties": {
+              "latitude": {
+                "type": "number",
+                "description": "Property. Degrees North, in the WGS-84 coordinate system."
+              },
+              "longitude": {
+                "type": "number",
+                "description": "Property. Degrees East, in the WGS-84 coordinate system."
+              },
+              "bearing": {
+                "type": "number",
+                "description": "Property. Bearing, in degrees, clockwise from True North, i.e., 0 is North and 90 is East. This can be the compass bearing, or the direction towards the next stop or intermediate location. This should not be deduced from the sequence of previous positions, which clients can compute from previous data"
+              },
+              "odometer": {
+                "type": "number",
+                "description": "Property. Odometer value, in meters. Units:'meters'"
+              },
+              "speed": {
+                "type": "number",
+                "description": "Property. Momentary speed measured by the vehicle, in meters per second. Units:'meters per second'"
+              }
+            }
+          },
           "trip_delay": {
             "type": "number",
             "description": "Property. This can be positive and negative in seconds and shows how much the vehicle deviates from the planned one. SameAs: 'delay' field from GTFS Realtime message-StopTimeEvent (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeevent)"
-          }
-        },
-        {
+          },
           "route_url": {
             "type": "string",
             "description": "Property. Contains the URL of a web page about that particular route and is different from the agency_url. SameAs: 'route_url' field from GTFS Static Field definitions-routes.txt (https://developers.google.com/transit/gtfs/reference#routestxt)"
-          }
-        },
-        {
+          },
           "agency_lang": {
             "type": "string",
             "description": "Property. Contains a two-letter ISO 639-1 code for the primary language used by this transit agency. The language code is case-insensitive (both en and EN are accepted). SameAs: 'agency_lang' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt)"
-          }
-        },
-        {
+          },
           "depot_name": {
             "type": "string",
             "description": "Property. Describes the depot name of the bus depot corresponding to this observation."
-          }
-        },
-        {
+          },
           "travelTime": {
             "type": "string",
             "format": "date-time",
-            "description": "Property. The time taken to travel between the orgin bus stop and the destination bus stop corresponding to this observation in HH:MM:SS format(HH:MM:SS is also accepted, if the hour begins with 0)."
-          }
-        },
-        {
+            "description": "Property. The time taken to travel between the origin bus stop and the destination bus stop corresponding to this observation in HH:MM:SS format(HH:MM:SS is also accepted, if the hour begins with 0)."
+          },
           "direction_id": {
             "type": "number",
             "description": "Property. Indicates the direction of travel of the vehicle corresponding to this observation, can be referenced from the GTFS static feed trips.txt. SameAs: 'direction_id' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)"
-          }
-        },
-        {
+          },
           "schedule_relationship": {
             "type": "string",
             "description": "Property. Describes if the Route/Trip has been scheduled. SameAs: 'schedule_relationship' field from enumScheduleRelationship (https://developers.google.com/transit/gtfs-realtime/reference#enum-schedulerelationship-2)"
-          }
+
         },
-        {
           "stop_sequence_detail": {
-            "type": "object",
+            "type": "number",
             "description": "Property. Describes the stop sequence for a trip in the designated route made by the public transit vehicle. SameAs: 'stop_sequence' field from GTFS Static Field definitions-stop_times.txt (https://developers.google.com/transit/gtfs/reference#stop_timestxt)",
-            "properties": {}
-          }
+            "minimum": 0
         },
-        {
+
           "stop_time_update": {
             "type": "object",
-            "description": "Property. Updated sorted stop sequence for the trip made by the vehicle corresponding to this observation, not to be considered if schedule_realtionship is \"CANCELED\". SameAs: 'stop_time_update' field from GTFS Realtime message-TripUpdate (https://developers.google.com/transit/gtfs-realtime/reference#message-tripupdate)",
-            "properties": {}
+            "description": "Property. Updated sorted stop sequence for the trip made by the vehicle corresponding to this observation, not to be considered if schedule_relationship is 'CANCELED'. SameAs: 'stop_time_update' field from GTFS Realtime message-TripUpdate (https://developers.google.com/transit/gtfs-realtime/reference#message-tripupdate)",
+            "properties": {
+            "trip":{
+              "type": "string",
+              "description": "Property. The Trip that this message applies to. There can be at most one TripUpdate entity for each actual trip instance. If there is none, that means there is no prediction information available. It does not mean that the trip is progressing according to schedule."
+            },
+              "vehicle": {
+                "type": "string",
+                "description": "Property. Additional information on the vehicle that is serving this trip."
+              },
+               "stop_time_update": {
+                "type": "object",
+                "description": "Property. Additional information on the vehicle that is serving this trip.",
+                 "properties": {
+                   "stop_sequence": {
+                     "type": "number",
+                     "description": "Property. Must be the same as in stop_times.txt in the corresponding GTFS feed. Either stop_sequence or stop_id must be provided within a StopTimeUpdate - both fields cannot be empty. stop_sequence is required for trips that visit the same stop_id more than once (e.g., a loop) to disambiguate which stop the prediction is for."
+                   },
+                   "stop_id": {
+                     "type": "string",
+                     "description": "Property. Must be the same as in stops.txt in the corresponding GTFS feed. Either stop_sequence or stop_id must be provided within a StopTimeUpdate - both fields cannot be empty."
+                   },
+                   "arrival": {
+                     "type": "object",
+                     "description": "Property. If schedule_relationship is empty or SCHEDULED, either arrival or departure must be provided within a StopTimeUpdate - both fields cannot be empty. arrival and departure may both be empty when schedule_relationship is SKIPPED. If schedule_relationship is NO_DATA, arrival and departure must be empty.",
+                     "properties": {
+                       "delay": {
+                         "type": "number"
+                       },
+                       "time": {
+                         "type": "string",
+                         "format": "number"
+                       }
+                     }
+                   },
+                   "schedule_relationship": {
+                     "type": "string",
+                     "description": "Property. Enum:'SCHEDULED, SKIPPED, NO_DATA'. SCHEDULED means that the vehicle is proceeding in accordance with its static schedule of stops, although not necessarily according to the times of the schedule. This is the default behavior. At least one of arrival and departure must be provided. SKIPPED means that The stop is skipped, i.e., the vehicle will not stop at this stop. The arrival and departure fields are optional. NO_DATA means that no data is given for this stop. It indicates that there is no realtime information available. When set NO_DATA is propagated through subsequent stops so this is the recommended way of specifying from which stop you do not have realtime information. When NO_DATA is set neither arrival nor departure should be supplied.",
+                     "enum": [
+                       "SCHEDULED", "SKIPPED", "NO_DATA"
+                     ]
+                   }
+                 }
+              }
+            }
           }
+
         },
         {
           "trip_update": {
