@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/XXXSubjectXXX/XXXDataModelXXX/schema.json",
+  "title": "Smart Data models - CloudRegion schema",
+  "modelTags": "",
+  "description": "Cloud region description.",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Name assigned to the corresponding region."
+        },
+        "contactPoint": {
+          "type": "array",
+          "description": "Property. This property contains contact information that can be used for sending comments about the Dataset.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "version": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Corresponding Cloud version of the region."
+        },
+        "location": {
+          "type": "object",
+          "description": "Geoproperty. Geojson reference to the item. Point",
+          "properties": {
+            "coordinates": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "number"
+              }
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "Point"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "coordinates"
+          ]
+        },
+        "tests": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Model:'https://schema.org/Text'. Identification of the tests executed."
+        }
+      }
+    }
+  ]
+}

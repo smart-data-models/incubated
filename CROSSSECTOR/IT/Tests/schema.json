@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/Testing/Tests/schema.json",
+  "title": "Smart Data models - Testing schema",
+  "modelTags": "",
+  "description": "This is the data model for representing the result of testing procedures.",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "properties": {
+        "timestamp": {
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 1,
+          "description": "Property. Model:'https://schema.org/Number'. EPOCH timestamp measures in milliseconds corresponding to the starting point of the execution of the tests."
+        },
+        "elapsedTime": {
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 1,
+          "description": "Property. Model:'https://schema.org/Number'. Elapsed time since the beginning of the execution of the tests. It measures in milliseconds the duration of the execution of the tests."
+        },
+        "status": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Overall status of the execution of the tests: OK, all the tests passed; NOK, there is at least some tests that failed; POK, it is possible that some tests are marked as optionals, therefore it they fails the overall status is not NOK but POK.",
+          "enum": [
+            "OK",
+            "NOK",
+            "POK"
+          ]
+        },
+        "component": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Identifier format of any NGSI entity corresponding to the Software or component to be tested."
+        },
+        "tests": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Text'. Status of the execution of each of the tests.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Property. Model:'https://schema.org/Text'. The name or identification to the test executed."
+              },
+              "result": {
+                "type": "string",
+                "description": "Property. Model:'https://schema.org/Text'. The result of the execution of the test. it could be:OK, the test passed; NOK, the test failed; N/A, the test was not executed due to it was not applicable for the corresponding software or component; DISMISS, the test could not be executed due to a previous error in other test.",
+                "enum": [
+                  "OK",
+                  "NOK",
+                  "N/A",
+                  "DISMISS"
+                ]
+              }
+            },
+            "required": [
+              "name",
+              "result"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
