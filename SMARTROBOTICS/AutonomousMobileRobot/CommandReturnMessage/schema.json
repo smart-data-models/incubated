@@ -2,41 +2,34 @@
   "$schema": "http://json-schema.org/schema#",
   "$id": "https://smart-data-models.github.io/datamodel.AutonomousMobileRobot/Command/ReturnMessage/schema.json",
   "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json#/definitions/commandTime"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/commandReceivedTime"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/receivedWaypoints"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/results"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/errors"
+    }
+  ],
   "properties": {
     "type": {
       "type": "object",
-      "description": "Relationship. NGSI Entity type. It has to be AutonomousMobileRobot",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json#/definitions/type"
-    },
-    "time": {
-      "type": "object",
-      "description": "Relationship. The time when the return message was sent.",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json#/definitions/time"
-    },
-    "receivedTime": {
-      "type": "object",
-      "description": "Relationship. The time when the robot received the command.",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/time"
+      "description": "Property. NGSI Entity type. It has to be CommandMessageReturn",
+      "enum": [
+        "CommandMessageReturn"
+      ]
     },
     "receivedCommand": {
-      "type": "object",
-      "description": "Relationship. The command which the robot received.",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/command"
-    },
-    "receivedWaypoints": {
-      "type": "object",
-      "description": "Relationship. The waypoints which the robot received.",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/waypoints"
-    },
-    "result": {
-      "type": "object",
-      "description": "Relationship. The result of the robot received the command.",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/results"
-    },
-    "errors": {
-      "type": "object",
-      "description": "Relationship. Describes the errors that occurred in the robot.",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/errors"
+      "type": "string",
+      "description": "Property. The command which the robot received"
     }
   },
   "required": [
@@ -48,6 +41,5 @@
     "receivedWaypoints",
     "result",
     "errors"
-  ],
-  "additionalProperties": true
+  ]
 }

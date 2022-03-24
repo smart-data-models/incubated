@@ -7,28 +7,24 @@
       "type": "string",
       "enum": [
         "CommandMessage"
-      ]
+      ],
+      "description": "Property. NGSI Entity type. It has to be CommandMessage"
     },
-    "description": "Relationship. NGSI Entity type. It has to be CommandMessage"
+    "commandTime": {
+      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/commandTime"
+    },
+    "command": {
+      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/command"
+    },
+    "waypoints": {
+      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/waypoints"
+    }
   },
-  "commandTime": {
-    "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/time"
-  },
-  "command": {
-    "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/command"
-  },
-  "waypoints": {
-    "type": "object",
-    "description": "Relationship. The waypoints which the robot moves according to.",
-    "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/waypoints"
-  }
-},
-"required": [
-"id",
-"type",
-"time",
-"command",
-"waypoints"
-],
-"additionalProperties": true
+  "required": [
+    "id",
+    "type",
+    "time",
+    "command",
+    "waypoints"
+  ]
 }

@@ -10,6 +10,11 @@
       "format": "date-time",
       "description": "Property. Sent time to the robot"
     },
+     "receivedTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Property. Command received time to the robot"
+    },
     "command": {
       "type": "string",
       "description": "Property. Command sent to the robot"
@@ -37,6 +42,7 @@
     },
     "results": {
       "type": "string",
+      "description": "Property. The result of the robot received the command.",
       "enum": [
         "ack",
         "ignore",
@@ -45,6 +51,7 @@
     },
     "errors": {
       "type": "array",
+      "description": "Property. Describes the errors that occurred in the robot.",
       "items": {
         "type": "string"
       }
@@ -172,6 +179,37 @@
     "waypoints": {
       "type": "array",
       "description": "Property. List of waypoints.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mapId": {
+            "$ref": "#/definitions/mapId"
+          },
+          "point2D": {
+            "$ref": "#/definitions/point2D"
+          },
+          "point3D": {
+            "$ref": "#/definitions/point3D"
+          },
+          "orientation2D": {
+            "$ref": "#/definitions/orientation2D"
+          },
+          "orientation3D": {
+            "$ref": "#/definitions/orientation3D"
+          },
+          "geographicPoint": {
+            "$ref": "#/definitions/geographicPoint"
+          },
+          "speed": {
+            "$ref": "#/definitions/speed"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "receivedWaypoints": {
+      "type": "array",
+      "description": "Property. The waypoints which the robot received.",
       "items": {
         "type": "object",
         "properties": {
