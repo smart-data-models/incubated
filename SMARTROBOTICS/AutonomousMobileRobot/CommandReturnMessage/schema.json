@@ -13,25 +13,27 @@
       "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/receivedWaypoints"
     },
     {
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/results"
+      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/result"
     },
     {
       "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/errors"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be CommandMessageReturn",
+          "enum": [
+            "CommandMessageReturn"
+          ]
+        },
+        "receivedCommand": {
+          "type": "string",
+          "description": "Property. The command which the robot received"
+        }
+      }
     }
   ],
-  "properties": {
-    "type": {
-      "type": "string",
-      "description": "Property. NGSI Entity type. It has to be CommandMessageReturn",
-      "enum": [
-        "CommandMessageReturn"
-      ]
-    },
-    "receivedCommand": {
-      "type": "string",
-      "description": "Property. The command which the robot received"
-    }
-  },
   "required": [
     "id",
     "type",
