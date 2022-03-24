@@ -104,12 +104,13 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 keyvaluesPayload = """
-{
+ {
   "id": "mega_rover_01",
-  "type": "CommandMessage",
-  "time": "2019-06-07T08:39:40.064+09:00",
-  "command": "navi",
-  "waypoints": [
+  "type": "CommandMessageReturn",
+  "commandTime": "2019-06-07T08:39:42.921+09:00",
+  "receivedTime": "2019-06-07T08:39:40.064+09:00",
+  "receivedCommand": "navi",
+  "receivedWaypoints": [
     {
       "point2D": {
         "x": 0.503,
@@ -132,9 +133,8 @@ keyvaluesPayload = """
       }
     }
   ],
-  "@context": [
-    "https://raw.githubusercontent.com/smart-data-models/dataModel.AutonomousMobileRobot/master/context.jsonld"
-  ]
+  "result": "ack",
+  "errors": [""]
 }
 """
 
