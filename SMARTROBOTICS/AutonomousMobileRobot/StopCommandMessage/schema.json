@@ -1,24 +1,29 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$id": "https://smart-data-models.github.io/datamodel.AutonomousMobileRobot/EmergencyCommand/Message/schema.json",
+  "$id": "https://smart-data-models.github.io/incubated/SMARTROBOTICS/AutonomousMobileRobot/StopCommandMessage/schema.json",
   "type": "object",
+  "$schemaVersion": "0.0.1",
+  "description": "Stop Command message",
+  "modelTags": "",
   "properties": {
     "type": {
-      "type": "object",
-      "description": "Relationship. NGSI Entity type. It has to be AutonomousMobileRobot",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json#/definitions/type"
+      "type": "string",
+      "description": "Property. NGSI Entity type. It has to be StopCommandMessage",
+      "enum": [
+        "StopCommandMessage"
+      ]
     },
-    "time": {
-      "type": "object",
-      "description": "Relationship. The time when the command was sent.",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json#/definitions/time"
+    "commandTime": {
+      "$ref": "https://smart-data-models.github.io/incubated/SMARTROBOTICS/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/commandTime"
     },
     "stopCommand": {
-      "type": "object",
-      "description": "Relationship. The stop command to the robot.",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/stopCommand"
+      "$ref": "https://smart-data-models.github.io/incubated/SMARTROBOTICS/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/stopCommand"
     }
   },
-  "required": ["id", "type", "time", "stopCommand"],
-  "additionalProperties": true
+  "required": [
+    "id",
+    "commandTime",
+    "stopCommand",
+    "type"
+  ]
 }
