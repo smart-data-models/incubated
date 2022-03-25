@@ -106,36 +106,75 @@ def keyvalues2normalized(keyvaluesPayload):
 keyvaluesPayload = """
  {
   "id": "mega_rover_01",
-  "type": "CommandMessageReturn",
-  "commandTime": "2019-06-07T08:39:42.921+09:00",
-  "receivedTime": "2019-06-07T08:39:40.064+09:00",
-  "receivedCommand": "navi",
-  "receivedWaypoints": [
-    {
-      "point2D": {
-        "x": 0.503,
-        "y": 0.0
-      }
+  "type": "StateMessage",
+  "commandTime": "2019-06-07T08:39:40.064+09:00",
+  "mode": "navi",
+  "errors": [],
+  "pose": {
+    "point2D": {
+      "x": 3.402,
+      "y": 1.015
     },
-    {
-      "point2D": {
-        "x": 3.411,
-        "y": 0.0
-      }
-    },
-    {
-      "point2D": {
-        "x": 3.411,
-        "y": 2.81
-      },
-      "orientation2D": {
-        "theta": 0.0
-      }
+    "orientation2D": {
+      "theta": 0.0
     }
-  ],
-  "result": "ack",
-  "errors": [""]
+  },
+  "destination": {
+    "point2D": {
+      "x": 3.411,
+      "y": 2.81
+    },
+    "orientation2D": {
+      "theta": 0.0
+    },
+    "mapId": "2345:ae43"
+  },
+  "accuracy": {
+    "covariance": [
+      0.1,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.7976931348623157e308,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.7976931348623157e308,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.7976931348623157e308,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.05
+    ]
+  },
+  "battery": {
+    "remainingPercentage": 75.4
+  },
+  "@context": ["https://raw.githubusercontent.com/smart-data-models/dataModel.AutonomousMobileRobot/master/context.jsonld"]
 }
+
 """
 
 
