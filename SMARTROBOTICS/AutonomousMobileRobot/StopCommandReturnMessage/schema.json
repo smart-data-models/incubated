@@ -2,46 +2,44 @@
   "$schema": "http://json-schema.org/schema#",
   "$id": "https://smart-data-models.github.io/datamodel.AutonomousMobileRobot/EmergencyCommand/ReturnMessage/schema.json",
   "type": "object",
+  "$schemaVersion": "0.0.1",
+  "description": "Stop Command Return Message",
+  "modelTags": "",
   "properties": {
     "type": {
-      "type": "object",
-      "description": "Relationship. NGSI Entity type. It has to be AutonomousMobileRobot",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json#/definitions/type"
+      "type": "string",
+      "description": "Property. NGSI Entity type. It has to be StopCommandReturnMessage",
+      "enum": [
+        "StopCommandReturnMessage"
+      ]
     },
-    "time": {
-      "type": "object",
-      "description": "Relationship. The time when the command was sent.",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json#/definitions/time"
+    "commandTime": {
+      "$ref": "https://smart-data-models.github.io/incubated/SMARTROBOTICS/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/commandTime"
     },
     "receivedTime": {
-      "type": "object",
-      "description": "Relationship. The time when the robot received the stop command.",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/time"
+      "$ref": "https://smart-data-models.github.io/incubated/SMARTROBOTICS/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/receivedTime"
     },
     "receivedStopCommand": {
-      "type": "object",
-      "description": "Relationship. The stop command which the robot received.",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/stopCommand"
+      "type": "string",
+      "description": "Property. The stop command which the robot received.",
+      "enum": [
+        "stop"
+      ]
     },
-    "result": {
-      "type": "object",
-      "description": "Relationship. The result of the robot received the stop command.",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/resultsOfStopCommand"
+    "resultsOfStopCommand": {
+      "$ref": "https://smart-data-models.github.io/incubated/SMARTROBOTICS/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/resultsOfStopCommand"
     },
     "errors": {
-      "type": "object",
-      "description": "Relationship. Describes the errors that occurred in the robot.",
-      "$ref": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/schema.json/schema.json#/definitions/errors"
+      "$ref": "https://smart-data-models.github.io/incubated/SMARTROBOTICS/AutonomousMobileRobot/AutonomousMobileRobot-schema.json#/definitions/errors"
     }
   },
   "required": [
+    "commandTime",
+    "errors",
     "id",
-    "type",
-    "time",
-    "receivedTime",
     "receivedStopCommand",
+    "receivedTime",
     "result",
-    "errors"
-  ],
-  "additionalProperties": true
+    "type"
+  ]
 }

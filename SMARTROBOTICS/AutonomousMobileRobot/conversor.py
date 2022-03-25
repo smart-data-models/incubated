@@ -105,11 +105,16 @@ def keyvalues2normalized(keyvaluesPayload):
 
 keyvaluesPayload = """
 {
-  "id": "mega_rover_01",
-  "type": "StopCommandMessage",
-  "commandTime": "2019-06-07T08:39:40.064+09:00",
-  "stopCommand": "stop",
-  "@context": ["https://raw.githubusercontent.com/smart-data-models/dataModel.AutonomousMobileRobot/master/context.jsonld"]
+  "id": "urn:ngsi-ld:mega_rover_01",
+  "type": "StopCommandReturnMessage",
+  "commandTime": "2019-06-07T08:39:42.921+09:00",
+  "receivedTime": "2019-06-07T08:39:40.064+09:00",
+  "receivedStopCommand": "stop",
+  "result": "ack",
+  "errors": [],
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.AutonomousMobileRobot/master/context.jsonld"
+  ]
 }
 """
 
