@@ -17,7 +17,8 @@
     },
     "angle": {
       "type": "number",
-      "default": 0.0
+      "default": 0.0,
+      "description": "Property. Simple measurement of an angle"
     },
     "battery": {
       "type": "object",
@@ -66,18 +67,20 @@
     },
     "coordinate": {
       "type": "number",
-      "default": 0.0
+      "default": 0.0,
+      "description": "Property. Simple coordinate of a point"
     },
     "covariance": {
       "type": "array",
       "items": {
         "type": "number"
       },
-      "description": "Error covariance matrix of estimated position"
+      "description": "Property. Error covariance matrix of estimated position"
     },
     "current": {
-      "type": "number"
-    },
+      "type": "number",
+      "description": "Property. Current of the mobile element. Units:'Ampere'. Model: 'https:/schema.org/Number'"
+  },
     "destination": {
       "type": "object",
       "description": "Property. Current destination of the robot. Basically, it is the same as one of the waypoints",
@@ -165,15 +168,16 @@
         "longitude",
         "altitude"
       ],
-      "additionalProperties": true
+      "additionalProperties": true,
+      "description": "Property. Point in geographic coordinates"
     },
     "mapId": {
       "type": "string",
-      "description": "Map ID"
+      "description": "Property. Map ID"
     },
     "mode": {
       "type": "string",
-      "description": "Property. The status of the robot.",
+      "description": "Property. Enum:'error, navi, standby'. Navigational status of the robot.",
       "enum": [
         "error",
         "navi",
@@ -190,7 +194,8 @@
       "required": [
         "theta"
       ],
-      "additionalProperties": true
+      "additionalProperties": true,
+      "description": "Property. 2D Angle of an element"
     },
     "orientation3D": {
       "type": "object",
@@ -210,7 +215,8 @@
         "pitch",
         "yaw"
       ],
-      "additionalProperties": true
+      "additionalProperties": true,
+      "description": "Property. 3D Angles of an element"
     },
     "point2D": {
       "type": "object",
@@ -226,8 +232,9 @@
         "x",
         "y"
       ],
-      "additionalProperties": true
-    },
+      "additionalProperties": true,
+      "description": "Property. Point in 2D as a two simple coordinates x and y"
+  },
     "point3D": {
       "type": "object",
       "properties": {
@@ -246,8 +253,9 @@
         "y",
         "z"
       ],
-      "additionalProperties": true
-    },
+      "additionalProperties": true,
+      "description": "Property. Point in 3D as a three simple coordinates x, y and z"
+  },
     "pose": {
       "type": "object",
       "description": "Property. Current position of the robot.",
@@ -312,16 +320,18 @@
     },
     "remainingTime": {
       "type": "string",
-      "format": "time"
-    },
+      "format": "time",
+      "description": "Property. Expected lifespan of a battery. Model: 'https:/schema.org/DateTime'"
+  },
     "remainingPercentage": {
       "type": "number",
       "minimum": 0,
-      "maximum": 100
+      "maximum": 100,
+      "description": "Property. Remaining battery charge"
     },
     "resultsOfStopCommand": {
       "type": "string",
-      "description": "Property. The result of the robot received the stop command.",
+      "description": "Property. Enum:'ack, error'. The result of the robot received the stop command.",
       "enum": [
         "ack",
         "error"
@@ -329,7 +339,7 @@
     },
     "result": {
       "type": "string",
-      "description": "Property. The result of the robot received the command.",
+      "description": "Property. Enum:'ack, error, ignore'. The result of the robot received the command.",
       "enum": [
         "ack",
         "ignore",
@@ -338,18 +348,19 @@
     },
     "speed": {
       "type": "number",
-      "description": "Robot speed between coordinates of waypoints[m/s]"
+      "description": "Property. Robot speed between coordinates of waypoints[m/s]"
     },
     "stopCommand": {
       "type": "string",
-      "description": "Property. The stop command to the robot.",
+      "description": "Property. Enum:'stop'. The stop command to the robot.",
       "enum": [
         "stop"
       ]
     },
     "voltage": {
-      "type": "number"
-    },
+      "type": "number",
+      "description": "Property. Voltage of the mobile element. Units:'Volt'. Model: 'https:/schema.org/Number'"
+  },
     "waypoints": {
       "type": "array",
       "description": "Property. List of waypoints.",
