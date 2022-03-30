@@ -1,0 +1,194 @@
+{
+  "AgriVineyardBlock": {
+    "description": "This entity contains a harmonised description of a vineyard block (uniform zone of the vineyard). ",
+    "properties": {
+      "agroVocConcept": {
+        "description": "Reference to the agrovoc term associated with this item",
+        "format": "uri",
+        "type": "string",
+        "x-ngsi": {
+          "model": "http://schema.org/URL",
+          "type": "Relationship"
+        }
+      },
+      "alternateName": {
+        "description": "An alternative name for this item",
+        "type": "string"
+      },
+      "dataProvider": {
+        "description": "A sequence of characters identifying the provider of the harmonised data entity.",
+        "type": "string"
+      },
+      "dateCreated": {
+        "description": "Entity creation timestamp. This will usually be allocated by the storage platform.",
+        "format": "date-time",
+        "type": "string"
+      },
+      "dateModified": {
+        "description": "Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.",
+        "format": "date-time",
+        "type": "string"
+      },
+      "description": {
+        "description": "A description of this item",
+        "type": "string"
+      },
+      "id": {
+        "description": "Unique identifier of the entity"
+      },
+      "isOrganic": {
+        "description": "True if vineyard zone is treated with organic products only, otherwise false",
+        "type": "boolean"
+      },
+      "name": {
+        "description": "The name of this vineyard block.",
+        "type": "string",
+        "x-ngsi": {
+          "type": "Property"
+        }
+      },
+      "address": {
+        "description": "The physical address of this block or nearest building to this block",
+        "type": "string",
+        "subproperties": {
+          "zone": {
+            "description": "winegrowing zone of the world?",
+            "type": "string",
+            "x-ngsi": {
+              "type": "Property"
+            }
+          },
+          "country": {
+            "description": "Country of this vineyard block",
+            "type": "string"
+          },
+          "descriptiveRegion": {
+            "description": "Descriptive region of this vineyard block",
+            "type": "string"
+          },
+          "descriptiveVillage": {
+            "description": "Descriptive village of this vineyard block",
+            "type": "string"
+          }
+        }
+      },
+      "alignment": {
+        "description": "direction of vineyard block’s rows if vineyard block is planted in rows",
+        "enum": [
+          "N-S",
+          "NE-SW",
+          "E-W",
+          "SE-NW"
+        ],
+        "type": "string"
+      },
+      "inclination": {
+        "subproperties": {
+          "aspect": {
+            "description": "‘aspect of the inclination’",
+            "enum": [
+              "N",
+              "NE",
+              "E",
+              "SE",
+              "S",
+              "SW",
+              "W",
+              "NW"
+            ],
+            "type": "string"
+          },
+          "slope": {
+            "description": "‘slope in degrees’",
+            "type": "string"
+          }
+        }
+      },
+      "rowSpacing": {
+        "description": "Row spacing in centimeters",
+        "type": "integer"
+      },
+      "vineSpacing": {
+        "description": "Vine spacing in centimeters",
+        "type": "integer"
+      },
+      "plantingStyle": {
+        "description": "Vineyard planting style’",
+        "enum": [
+          "freeForm",
+          "rows"
+        ],
+        "type": "string",
+        "x-ngsi": {
+          "type": "Property"
+        }
+      },
+      "owner": {
+        "description": "A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)",
+        "items": {
+          "description": "Property. Unique identifier of the entity"
+        },
+        "type": "array",
+        "x-ngsi": {
+          "type": "Property"
+        }
+      },
+      "relatedSource": {
+        "description": "List of IDs the current entity may have in external applications",
+        "items": [
+          {
+            "type": "object",
+            "values": {
+              "application": {
+                "description": "Property. Unique identifier of the entity"
+              },
+              "applicationEntityId": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "type": "array"
+      },
+      "seeAlso": {
+        "description": "list of uri pointing to additional resources about the item",
+        "oneOf": [
+          {
+            "items": {
+              "format": "uri",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          {
+            "format": "uri",
+            "type": "string"
+          }
+        ]
+      },
+      "source": {
+        "description": "A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.",
+        "type": "string"
+      },
+      "type": {
+        "description": "NGSI Entity Type: It has to be AgriVineyardBlock",
+        "enum": [
+          "AgriVineyardBlock"
+        ],
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "type",
+      "name"
+    ],
+    "type": "object",
+    "x-derived-from": "",
+    "x-disclaimer": "Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2021 Contributors to Smart Data Models Program",
+    "x-model-schema": "url-here",
+    "x-model-tags": "",
+    "x-version": "0.0.1"
+  }
+}
