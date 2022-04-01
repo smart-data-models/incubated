@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.2",
+    "$id": "https://smart-data-models.github.io/dataModel.Logistics/Hub/schema.json",
+    "title": "Smart Data Models - Logistics / Hub",
+    "description": "A Hub describing a logistic hub where orders are managed",
+    "type": "object",
+    "required": [
+       "id",
+       "type",
+       "location"
+    ],
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Hub"
+                    ],
+                    "description": "Property. Model:'https://schema.org/Text'. A Hub describing a logistic hub where orders are managed"
+                }
+            }, 
+            "name": {
+                "type": "string",
+                "description": "Property. Model:'https://schema.org/Text'. Name of the hub (aka hub_name)"
+            },
+            "earlyTime": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Property. Model:'https://schema.org/DateTime'. Early pickup time"
+            },
+            "lateTime": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Property. Model:'https://schema.org/DateTime'. Late pickup time"
+            }
+        }
+    ],
+    "derivedFrom": "",
+    "license": ""
+}
