@@ -1,0 +1,72 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.2",
+    "$id": "https://smart-data-models.github.io/incubated/SMARTLOGISTICS/GS1/Order/schema.json",
+    "title": "Smart Data Models - Logistics / Order",
+    "description": "An order describing an order of a good to be delivered from an origin to a destination",
+    "type": "object",
+    "required": [
+       "id",
+       "type",
+       "location"
+    ],
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Order"
+                    ],
+                    "description": "Property. Model:'https://schema.org/Text'. An order describing an order of a good to be delivered from an origin to a destination"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Name of the order (aka order_name)"
+                },
+                "mode": {
+                    "type": "string",
+                    "enum": [
+                        "delivery", 
+                        "pickup"
+                    ],
+                    "description": "Property. Model:'https://schema.org/Text'. Kind of operation of the order (delivery, pickup) (aka order_mode)"
+                },
+                "refHub": {
+                        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+                        "description": "Relationship. Hub where the order is located."
+                },
+                "earlyTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'https://schema.org/DateTime'. Early pickup time"
+                },
+                "lateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'https://schema.org/DateTime'. Late pickup time"
+                },
+                "numberItems": {
+                   "type": "number",
+                   "minimum": 1,
+                   "maximum": 999,
+                   "format": "integer",
+                   "description": "Property. Model:'https://schema.org/Integer'. Number of items in the order"
+                },
+                "weight": {
+                   "type": "number",
+                   "format": "float",
+                   "description": "Property. Model:'https://schema.org/Float'. Total weight of the order"
+                },
+            }
+        }
+    ],
+    "derivedFrom": "",
+    "license": ""
+}
