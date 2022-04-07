@@ -263,6 +263,42 @@
       "maxProperties": 3,
       "additionalProperties": false
     },
+    "receivedTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Property. Command received time to the robot"
+    },
+    "receivedWaypoints": {
+      "type": "array",
+      "description": "Property. The waypoints which the robot received.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mapId": {
+            "$ref": "#/definitions/mapId"
+          },
+          "point2D": {
+            "$ref": "#/definitions/point2D"
+          },
+          "point3D": {
+            "$ref": "#/definitions/point3D"
+          },
+          "orientation2D": {
+            "$ref": "#/definitions/orientation2D"
+          },
+          "orientation3D": {
+            "$ref": "#/definitions/orientation3D"
+          },
+          "geographicPoint": {
+            "$ref": "#/definitions/geographicPoint"
+          },
+          "speed": {
+            "$ref": "#/definitions/speed"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
     "remainingTime": {
       "type": "string",
       "format": "time",
