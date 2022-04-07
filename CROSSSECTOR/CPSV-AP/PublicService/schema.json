@@ -12,7 +12,7 @@
     "id",
     "type",
     "identifier",
-    "title",
+    "name",
     "description",
     "hasCompetentAuthority"
   ],
@@ -30,16 +30,13 @@
           "description": "Property. Model:'https://schema.org/Text'. It has to be PublicService.",
           "enum": [
             "PublicService"
-          ],
-          "items": {
-            "type": "string"
-          }
+          ]
         },
         "identifier": {
           "type": "string",
           "description": "Property. Model:'dct:identifier'. This property represents a formally-issued Identifier for the Public Service."
         },
-        "title": {
+        "name": {
           "type": "string",
           "description": "Property. Model:'dct:title'. This property represents the official Name of the Public Service."
         },
@@ -54,18 +51,6 @@
             "type": "string"
           }
         },
-        "language": {
-          "type": "array",
-          "description": "Property. Model:'dct:language'. This property represents the language(s) in which the Public Service is available. This could be one language or multiple languages, for instance in countries with more than one official language. The possible values for this property are described in a controlled vocabulary (European Publications Office's Languages Named Authority List (NAL)),",
-          "items": {
-            "type": "string"
-          }
-        },
-        "processingTime": {
-          "type": "string",
-          "description": "Property. Model:'cv:processingTime'. The value of this property is the (estimated) time needed for executing a Public Service. The actual information is provided using the ISO8601 syntax for durations.",
-          "examples": "[P5Y, P1M, P3D, P2DT4H]"
-        },
         "sector": {
           "type": "array",
           "description": "Property. Model:'cv:sector'. This property represents the industry or sector a Public Service relates to, or is intended for. For example: environment, safety, housing. Note that a single Public Service may relate to multiple sectors. The possible values for this property are provided as a controlled vocabulary (List of NACE codes:https://ec.europa.eu/competition/mergers/cases/index/nace_all.html).",
@@ -73,9 +58,33 @@
             "type": "string"
           }
         },
-        "spatial": {
+        "thematicArea": {
           "type": "array",
-          "description": "Property. Model:'cv:spatial'. The possible values for this property are provided as a controlled vocabulary (MDR Continents Named Authority List , MDR Countries Named Authority List, MDR Places Named Authority List, Geonames: http://sws.geonames.org).",
+          "description": "Property. Model:'cv:thematicArea'. This property represents the Thematic Area of a Public Service as described in a controlled vocabulary, for instance social protection, health, recreation, culture and religion, family, traveling economic affairs, tax, staff, environment...",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dct:type": {
+          "type": "array",
+          "description": "Property. Model:'dct:type'. This property represents the Type of a Public Service as described in a controlled vocabulary. For the indicating the Type, we are referring to the functions of government to indicate the purpose of a government activity, which the public service is intended for.",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Administrative formality",
+              "Public Service",
+              "Business Lifecycle",
+              "Business Event",
+              "Key Business Event",
+              "Public Service Portfolio",
+              "Catalogue of Public Services",
+              "Competent Authority"
+            ]
+          }
+        },
+        "language": {
+          "type": "array",
+          "description": "Property. Model:'dct:language'. This property represents the language(s) in which the Public Service is available. This could be one language or multiple languages, for instance in countries with more than one official language. The possible values for this property are described in a controlled vocabulary (European Publications Office's Languages Named Authority List (NAL)),",
           "items": {
             "type": "string"
           }
@@ -90,12 +99,16 @@
             "Withdrawn"
           ]
         },
-        "thematicArea": {
+        "spatial": {
           "type": "array",
-          "description": "Property. Model:'cv:thematicArea'. This property represents the Thematic Area of a Public Service as described in a controlled vocabulary, for instance social protection, health, recreation, culture and religion, family, traveling economic affairs, tax, staff, environment...",
+          "description": "Property. Model:'cv:spatial'. The possible values for this property are provided as a controlled vocabulary (MDR Continents Named Authority List , MDR Countries Named Authority List, MDR Places Named Authority List, Geonames: http://sws.geonames.org).",
           "items": {
             "type": "string"
           }
+        },
+        "processingTime": {
+          "type": "string",
+          "description": "Property. Model:'cv:processingTime'. The value of this property is the (estimated) time needed for executing a Public Service. The actual information is provided using the ISO8601 syntax for durations. Examples: [5 years -> P5Y, 1 month -> P1M, 3 days -> P3D, 2 days 4 hours -> P2DT4H]."
         },
         "isGroupedBy": {
           "anyOf": [
