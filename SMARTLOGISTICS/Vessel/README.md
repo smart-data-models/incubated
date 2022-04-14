@@ -1,0 +1,1 @@
+directory for the creation of data models for Vessel's Operation schema, Vessel Engine Operation, port that a Vessel begins VesselConsumption and Vessel Emitted data.

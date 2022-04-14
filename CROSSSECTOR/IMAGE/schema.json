@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Energy/ThreePhaseAcMeasurement/schema.json",
+  "title": "Smart Data Models - Energy / Three Phase AC Measurement",
+  "description": "An electrical  measurement from a system that uses three phase alternating current.",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.Energy/ThreePhaseAcMeasurement/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "imageXXX"
+          ],
+          "description": "Property. It must be equal to `imageXXX`."
+        },
+        "detectedObject": {
+          "type": "array",
+          "description": "Property. ",
+          "items": {
+            "type": "object",
+            "properties": {
+              "boundingBox": {
+                "type": "goejson polygon"
+              },
+              "typeXXX": {
+                "type": "string"
+              },
+              "probability": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          }
+        }
+      },
+      "refCamera": {
+        "type": "string",
+        "format": "uri",
+        "description": "Relationship. XXX"
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
