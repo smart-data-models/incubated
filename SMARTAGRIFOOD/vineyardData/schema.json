@@ -1,79 +1,63 @@
 {
-  "AgriVineyardBlock": {
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.3",
+    "modelTags": "",
+    "$id": "https://github.com/smart-data-models/incubated/SMARTAGRIFOOD/vineyardData/schema.json",
+    "title": "Smart Data Models - Vineyard Block",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/AgriFood-Commons"
+        },
+    { 
     "description": "This entity contains a harmonised description of a vineyard block (uniform zone of the vineyard). ",
     "properties": {
       "agroVocConcept": {
-        "description": "Reference to the agrovoc term associated with this item",
+        "description": "Relationship. Reference to the agrovoc term associated with this item",
         "format": "uri",
         "type": "string",
-        "x-ngsi": {
-          "model": "http://schema.org/URL",
-          "type": "Relationship"
-        }
       },
       "alternateName": {
-        "description": "An alternative name for this item",
+        "description": "Property. An alternative name for this item",
         "type": "string"
       },
       "dataProvider": {
-        "description": "A sequence of characters identifying the provider of the harmonised data entity.",
+        "description": "Property. A sequence of characters identifying the provider of the harmonised data entity.",
         "type": "string"
       },
       "dateCreated": {
-        "description": "Entity creation timestamp. This will usually be allocated by the storage platform.",
+        "description": "Property. Entity creation timestamp. This will usually be allocated by the storage platform.",
         "format": "date-time",
         "type": "string"
       },
       "dateModified": {
-        "description": "Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.",
+        "description": "Property. Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.",
         "format": "date-time",
         "type": "string"
       },
       "description": {
-        "description": "A description of this item",
+        "description": "Property. A description of this item",
         "type": "string"
       },
       "id": {
-        "description": "Unique identifier of the entity"
+        "description": "Property. Unique identifier of the entity"
       },
       "isOrganic": {
-        "description": "True if vineyard zone is treated with organic products only, otherwise false",
+        "description": "Property. True if vineyard zone is treated with organic products only, otherwise false",
         "type": "boolean"
       },
       "name": {
-        "description": "The name of this vineyard block.",
-        "type": "string",
-        "x-ngsi": {
-          "type": "Property"
-        }
-      },
-      "address": {
-        "description": "The physical address of this block or nearest building to this block",
-        "type": "string",
-        "subproperties": {
-          "zone": {
-            "description": "winegrowing zone of the world?",
-            "type": "string",
-            "x-ngsi": {
-              "type": "Property"
-            }
-          },
-          "country": {
-            "description": "Country of this vineyard block",
-            "type": "string"
-          },
-          "descriptiveRegion": {
-            "description": "Descriptive region of this vineyard block",
-            "type": "string"
-          },
-          "descriptiveVillage": {
-            "description": "Descriptive village of this vineyard block",
-            "type": "string"
-          }
-        }
+        "description": "Property. The name of this vineyard block.",
+        "type": "string"
       },
       "alignment": {
-        "description": "direction of vineyard block’s rows if vineyard block is planted in rows",
+        "description": "Property. Direction of vineyard block’s rows if vineyard block is planted in rows",
         "enum": [
           "N-S",
           "NE-SW",
@@ -84,7 +68,7 @@
       },
       "inclination": {
           "aspect": {
-            "description": "‘aspect of the inclination’",
+            "description": "‘Property. Aspect of the inclination’",
             "enum": [
               "N",
               "NE",
@@ -98,41 +82,35 @@
             "type": "string"
           },
           "slope": {
-            "description": "‘slope in degrees’",
+            "description": "‘Property. Slope in degrees’",
             "type": "string"
           }
       },
       "rowSpacing": {
-        "description": "Row spacing in centimeters",
+        "description": "Property. Row spacing in centimeters",
         "type": "integer"
       },
       "vineSpacing": {
-        "description": "Vine spacing in centimeters",
+        "description": "Property. Vine spacing in centimeters",
         "type": "integer"
       },
       "plantingStyle": {
-        "description": "Vineyard planting style’",
+        "description": "Property. Vineyard planting style’",
         "enum": [
           "freeForm",
           "rows"
         ],
-        "type": "string",
-        "x-ngsi": {
-          "type": "Property"
-        }
+        "type": "string"
       },
       "owner": {
-        "description": "A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)",
+        "description": "Relationship. A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)",
         "items": {
           "description": "Property. Unique identifier of the entity"
         },
-        "type": "array",
-        "x-ngsi": {
-          "type": "Property"
-        }
+        "type": "array"
       },
       "relatedSource": {
-        "description": "List of IDs the current entity may have in external applications",
+        "description": "Relationship. List of IDs the current entity may have in external applications",
         "items": [
           {
             "type": "object",
@@ -149,7 +127,7 @@
         "type": "array"
       },
       "seeAlso": {
-        "description": "list of uri pointing to additional resources about the item",
+        "description": "Relationship. List of uri pointing to additional resources about the item",
         "oneOf": [
           {
             "items": {
@@ -166,27 +144,22 @@
         ]
       },
       "source": {
-        "description": "A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.",
+        "description": "Property. A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.",
         "type": "string"
       },
       "type": {
-        "description": "NGSI Entity Type: It has to be AgriVineyardBlock",
+        "description": "Property. NGSI Entity Type: It has to be AgriVineyardBlock",
         "enum": [
           "AgriVineyardBlock"
         ],
         "type": "string"
       }
-    },
-    "required": [
-      "id",
-      "type",
-      "name"
+    }
+    }
     ],
-    "type": "object",
-    "x-derived-from": "",
-    "x-disclaimer": "Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2021 Contributors to Smart Data Models Program",
-    "x-model-schema": "url-here",
-    "x-model-tags": "",
-    "x-version": "0.0.1"
-  }
+    "required": [
+        "id",
+        "type"
+    ]
+
 }
