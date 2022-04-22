@@ -12,7 +12,6 @@ Global description: **A description of a generic aircraft model**
 
 version: 0.0.1  
 
-<!-- Start. List_of_properties ->
 ## List of properties  
 
 
