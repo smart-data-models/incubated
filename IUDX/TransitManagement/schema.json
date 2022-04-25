@@ -14,9 +14,10 @@
     },
     {
       "properties": {
-        "description": {
+        "type": {
           "type": "string",
-          "description": "Property. Description for an IUDX thing."
+          "enum": ["TransitManagement"],
+          "description": "Property. NGSI Entity type. It has to be TransitManagement"
         },
         "dataDescriptor": {
           "type": "Relationship",
@@ -323,19 +324,15 @@
         "format": "date-time",
         "description": "Property. Specifies the arrival time at a specific stop for a specific trip on a route. Times must be eight digits in HH:MM:SS format (HH:MM:SS is also accepted, if the hour begins with 0). Note: Trips that span multiple dates will have stop times greater than 24:00:00. For example, if a trip begins at 10:30:00 p.m. and ends at 2:15:00 a.m. on the following day, the stop times would be 22:30:00 and 26:15:00. Entering those stop times as 22:30:00 and 02:15:00 would not produce the desired results. SameAs: 'arrival_time' field from GTFS Static Field definitions-stop_times.txt (https://developers.google.com/transit/gtfs/reference#stop_timestxt)"
       },
-
       "stop_desc": {
         "type": "string",
         "description": "Property. This field contains a description of a stop. SameAs: 'stop_desc' field from GTFS Static Field definitions-stops.txt (https://developers.google.com/transit/gtfs/reference#stopstxt)"
-
-    },
-
+      },
       "vehicleDesc": {
         "type": "object",
         "description": "Property. Describes the additional information of the vehicle corresponding to this observation. SameAs:'vehicle' field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)/(https://developers.google.com/transit/gtfs-realtime/reference#message-tripupdate)",
         "properties": {}
-
-    },
+      },
     {
       "route_long_name": {
         "type": "string",
