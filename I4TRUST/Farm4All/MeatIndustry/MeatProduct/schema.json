@@ -1,12 +1,12 @@
 {
     "$schema": "http://json-schema.org/schema",
     "$schemaVersion": "0.0.1",
-    "$id": "https://smart-data-models.github.io/dataModel.Agrifood/Carcass/schema.json",
+    "$id": "https://smart-data-models.github.io/dataModel.Agrifood/MeatProduct/schema.json",
     "title": "Carcass Data Model FarmData4All i4Trust",
     "modelTags": "",
-    "description": "Object modelling a carcass of an animal for a livestock farm. Proposed by SensoWave within the i4Trust project.",
+    "description": "Object modelling a meat product for a livestock farm. Proposed by SensoWave within the i4Trust project.",
     "type": "object",
-    "required":["id","type","animal"],
+    "required":["id","type","carcass"],
     "allOf": [
       {
         "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -16,23 +16,23 @@
       },
       {
         "properties": {
-          "initialWeight": {
-            "type": "integer",
-            "description": "Property. Initial weight of the carcass"
+          "name": {
+            "type": "string",
+            "description": "Property. Name of the product"
           },
           "weight": {
             "type": "integer",
-            "description": "Property. Weight of the carcass"
+            "description": "Property. Weight of the product"
           },
           "date": {
             "type": "string",
             "format": "date-time",
             "description": "Property. Date of application"
           },
-          "animal": {
+          "carcass": {
             "type": "string",
             "format": "uri",
-            "description": "Relationship. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/Animal/schema.json"
+            "description": "Relationship. Model https://github.com/smart-data-models/incubated/blob/master/I4TRUST/Farm4All/MeatIndustry/Carcass/schema.json"
           }
         }
       }
