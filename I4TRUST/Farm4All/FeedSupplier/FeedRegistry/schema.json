@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.Agrifood/FeedRegistry/schema.json",
+    "title": "Feed Registry FarmData4All i4Trust",
+    "modelTags": "",
+    "description": "Object modelling a feed registry for a livestock farm. Proposed by SensoWave within the i4Trust project.",
+    "type": "object",
+    "required":["id","type","name"],
+    "allOf": [
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      },
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+      },
+      {
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Property. Feed registy"
+          },
+          "amount": {
+            "type": "integer",
+            "description": "Property. Amount of feed provided"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Property. Date of application"
+          },
+          "supplier": {
+            "type": "string",
+            "description": "Property. Supplier of the feed"
+          },
+          "deliveryNote": {
+            "type": "string",
+            "description": "Property. Description of the feed registry"
+          },
+          "farm": {
+            "type": "string",
+            "format": "uri",
+            "description": "Relationship. https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriFarm/schema.json"
+          }
+        }
+      }
+    ]
+  }
