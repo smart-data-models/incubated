@@ -1,15 +1,11 @@
 {
-  "$schema": "http://json-schema.org/schema",
+  "$schema": "http://json-schema.org/schema#",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.Transportation/TransitManagement/schema.json",
-  "title": "Smart Data models -Transit Management",
   "modelTags": "IUDX",
-  "description": "A public transit system Data Model. Coming from IUDX use cases",
+  "$id": "https://smart-data-models.github.io/data./XXXdataModelXXX/schema.json",
+  "title": "",
+  "description": "",
   "type": "object",
-  "required": [
-    "id",
-    "type"
-  ],
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -19,141 +15,234 @@
     },
     {
       "properties": {
-        "vehicleType": {
+        "id": {
           "type": "string",
-          "description": "Property. Describes the type of vehicle corresponding to this observation, could be hopper, compactor, tipper, dumper in case of solid waste management vehicles, BRT mini bus, BRT bus, city bus in case of ITMS vehicles, Ambulance, Fire tender, Police van etc, in case of emergency vehicles and Moped/Scooter, Motor Cycle, Autorickshaw, Private car/ Jeep car, Tempo, Bus, E-Moped/E-Scooter/E-Motor Cycle, Public motor in case of vehicle registration.Type of vehicle from the point of view of its structural characteristics. This is different than the vehicle category . Model:'https://schema.org/Text'.",
+          "description": "Property. Unique identifier of the entity"
+        },
+        "@context": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be TransitManagement",
           "enum": [
-            "hopper",
-            "compactor",
-            "tipper",
-            "dumper",
-            "BRTminiBus",
-            "BRTBus",
-            "cityBus",
-            "Ambulance",
-            "FireTender",
-            "PoliceVan",
-            "Moped",
-            "Scooter",
-            "MotorCycle",
-            "Autorickshaw",
-            "PrivateCar",
-            "JeepCar",
-            "Tempo",
-            "Bus",
-            "E-Moped",
-            "E-Scooter",
-            "E-MotorCycle"
+            "TransitManagement"
           ]
         },
-        "tripDetails": {
+        "vehicleType": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. A descriptor of realtime update on the schedule of a vehicle along a trip."
+          "description": "Property. Attribute present in data model TrafficFlowObserved of subject dataModel.Transportation with the description Type of vehicle from the point of view of its structural characteristics. Attribute present in data model VehicleModel of subject dataModel.Transportation with the description Type of vehicle from the point of view of its structural characteristics. This is different than the vehicle category . The following values defined by _VehicleTypeEnum_ and _VehicleTypeEnum2_, [DATEX 2 version 2.3](http://d2docs.ndwcloud.nu/_static/umlmodel/v2.3/index.htm). Attribute present in data model VehicleFault of subject dataModel.Transportation with the description The vehicle type identifier.. Attribute present in data model RevenueCollection of subject dataModel.PublicAccountability with the description Type of vehicle from the point of view of its structural characteristics. This is different than the vehicle category . The following values defined by _VehicleTypeEnum_ and _VehicleTypeEnum2_, [DATEX 2 version 2.3](http://d2docs.ndwcloud.nu/_static/umlmodel/v2.3/index.htm). Attribute present in data model Vehicle of subject dataModel.Transportation with the description Type of vehicle from the point of view of its structural characteristics. This is different than the vehicle category . Enum:'agriculturalVehicle, anyVehicle, articulatedVehicle, bicycle, binTrolley, bus, car, caravan, carOrLightVehicle, carWithCaravan, carWithTrailer, cleaningTrolley, constructionOrMaintenanceVehicle, fourWheelDrive, highSidedVehicle, lorry, minibus, moped, motorcycle, motorcycleWithSideCar, motorscooter, sweepingMachine, tanker, threeWheeledVehicle, trailer, tram, twoWheeledVehicle, trolley, van, vehicleWithoutCatalyticConverter, vehicleWithCaravan, vehicleWithTrailer, withEvenNumberedRegistrationPlates, withOddNumberedRegistrationPlates, other'. The following values defined by _VehicleTypeEnum_ and _VehicleTypeEnum2_, [DATEX 2 version 2.3](http://d2docs.ndwcloud.nu/_static/umlmodel/v2.3/index.htm) and extended for other uses. "
         },
-        "tripDelay": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. This can be positive and negative in seconds and shows how much the vehicle deviates from the planned one. SameAs: 'delay' field from GTFS Realtime message-StopTimeEvent (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeevent)"
-        },
-        "depotName": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Describes the depot name of the bus depot corresponding to this observation."
-        },
-        "routeUrl": {
+        "trip_delay": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. This can be positive and negative in seconds and shows how much the vehicle deviates from the planned one. SameAs: 'delay' field from GTFS Realtime message-StopTimeEvent (https://developers.google.com/transit/gtfs-realtime/reference#message-stoptimeevent)"
+          "description": "Property. "
+        },
+        "agency_lang": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "depot_name": {
+          "type": "string",
+          "description": "Property. "
         },
         "travelTime": {
           "type": "string",
-          "format": "date-time",
-          "description": "Property. Model:'https://schema.org/Number'. The time taken to travel between the origin bus stop and the destination bus stop corresponding to this observation in HH:MM:SS format(HH:MM:SS is also accepted, if the hour begins with 0)."
+          "description": "Property. "
         },
-        "directionId": {
-          "type": "",
-          "description": "Property. Indicates the direction of travel of the vehicle corresponding to this observation, can be referenced from the GTFS static feed trips.txt. SameAs: 'direction_id' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)"
-        },
-        "field1XXX": {
+        "direction_id": {
           "type": "number",
-          "minimum": 0,
-          "maximum": 1,
-          "description": "Property. Model:'https://schema.org/Number'. Example of definition of a numerical attribute"
+          "description": "Property. Attribute present in data model FareCollectionSystem of subject dataModel.Transportation with the description Indicates the direction of travel of the vehicle corresponding to this observation, can be referenced from the GTFS static feed trips.txt. SameAs: 'direction_id' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor). "
         },
-        "field2XXX": {
+        "schedule_relationship": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Example of definition of a numerical attribute"
+          "description": "Property. "
         },
-        "field3XXX": {
+        "vehicle_id": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "agency_fare_url": {
+          "type": "string",
+          "description": "Property. Attribute present in data model BikeHireDockingStation of subject dataModel.Transportation with the description URL of a web page that contains the details of the fares and also could allow to purchase tickets for that agency online. SameAs: 'agency_fare_url' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt) . "
+        },
+        "actual_trip_end_time": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "last_tracked_time": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "standing_capacity": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "last_stop_arrival_time": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "agency_id": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "current_status": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "route_type": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "speed": {
+          "type": "number",
+          "description": "Property. Attribute present in data model Aircraft of subject dataModel.Aeronautics with the description Current aircraft speed in kilometres per hour. Attribute present in data model Pump of subject dataModel.WaterDistributionManagementEPANET with the description The relative speed setting of the Pump. All units are accepted in [CEFACT](https://www.unece.org/cefact.html) code.. Attribute present in data model FleetVehicleStatus of subject dataModel.Transportation with the description The current speed of the fleet vehicle (km/h). The timestamp element of the attribute should indicate when the reading was obtained. Attribute present in data model Vehicle of subject dataModel.Transportation with the description Denotes the magnitude of the horizontal component of the vehicle's current velocity and is specified in Kilometers per Hour. If provided, the value of the speed attribute must be a non-negative real number. `-1` MAY be used if speed is transiently unknown for some reason. Attribute present in data model Geolocation of subject dataModel.OCF with the description The Device's current velocity (metres per second).. Attribute present in data model AirFlow of subject dataModel.OCF with the description The current speed level.. Attribute present in data model Speed of subject dataModel.OCF with the description This Property describes the speed of an object in metre per second (SI Unit). It should be noted, however, that the most common unit of speed everyday usage is the kilometre per hour or, in the US and the UK, miles per hour.. "
+        },
+        "route_id": {
+          "type": "string",
+          "description": "Property. Attribute present in data model FareCollectionSystem of subject dataModel.Transportation with the description Route Id assigned to the route on which the bus/vehicle corresponding to the bus in this observation is currently plying on. SameAs: 'route_id' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor). "
+        },
+        "seating_capacity": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "vehicle_label": {
+          "type": "string",
+          "description": "Property. Attribute present in data model FareCollectionSystem of subject dataModel.Transportation with the description User visible label, i.e., something that must be shown to the passenger to help identify the correct vehicle. SameAs: 'label' field from GTFS Realtime message-VehicleDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicledescriptor). "
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Property. Attribute present in data model Complaint of subject dataModel.CallComplaints with the description The timestamp of the Complaint.. Attribute present in data model CircuitBreaker of subject dataModel.OCF with the description An RFC3339 formatted time indicating when the data was observed (e.g.: 2016-02-15T09:19Z, 1996-12-19T16:39:57-08:00). Note that 1/100 time resolution should be used.. Attribute present in data model Inverter of subject dataModel.OCF with the description An RFC3339 formatted time indicating when the data was observed (e.g.: 2016-02-15T09:19Z, 1996-12-19T16:39:57-08:00). Resolution in 1/100 second.. Attribute present in data model PVArrayConnectionTerminal of subject dataModel.OCF with the description An RFC3339 formatted time indicating when the data was observed (e.g.: 2016-02-15T09:19Z, 1996-12-19T16:39:57-08:00). Note that 1/100 time resolution should be used.. Attribute present in data model TimeStamp of subject dataModel.OCF with the description An RFC3339 formated time indicating when the data was observed (e.g.: 2016-02-15T09:19Z, 1996-12-19T16:39:57-08:00).. Attribute present in data model ITTests of subject dataModel.IT with the description EPOCH timestamp measures in milliseconds corresponding to the starting point of the execution of the tests.. "
+        },
+        "arrival_time": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "route_long_name": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "agency_timezone": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "stop_code": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "agency_name": {
+          "type": "string",
+          "description": "Property. Attribute present in data model BikeHireDockingStation of subject dataModel.Transportation with the description The agency_name field contains the full name of the transit agency. SameAs: 'agency_name' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt). "
+        },
+        "route_desc": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "license_plate": {
+          "type": "string",
+          "description": "Property. Attribute present in data model WasteContainer of subject dataModel.WasteManagement with the description Gives the License Plate number of the vehicle. SameAs: 'license_plate' field from GTFS Realtime message-VehicleDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicledescriptor). Attribute present in data model Vehicle of subject dataModel.Transportation with the description Gives the License Plate number of the vehicle. SameAs: license_plate field from GTFS Realtime message-VehicleDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-vehicledescriptor)'. "
+        },
+        "stop_id": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "uncertainity": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "route_color": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "travelDistance": {
+          "type": "number",
+          "description": "Property. Attribute present in data model FareCollectionSystem of subject dataModel.Transportation with the description The distance between the origin bus stop and the destination bus stop corresponding to this observation.. "
+        },
+        "actual_trip_start_time": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "bearing": {
+          "type": "number",
+          "description": "Property. Attribute present in data model FleetVehicleStatus of subject dataModel.Transportation with the description The current bearing of the fleet vehicle in degrees relative to North. The timestamp element of the attribute should indicate when the reading was obtained.. Attribute present in data model Vehicle of subject dataModel.Transportation with the description Gives the vehicle GPS angle measured in a clockwise direction from the True North. SameAs 'bearing' field from GTFS Realtime message-Position(https://developers.google.com/transit/gtfs-realtime/reference#message-position). "
+        },
+        "stop_sequence": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "start_date": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'https://schema.org/Text'. Example of definition of a date-time attribute"
+          "description": "Property. "
         },
-        "relationship1XX": {
-          "anyOf": [
-            {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 256,
-              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-              "description": "Property. Identifier format of any NGSI entity"
-            },
-            {
-              "type": "string",
-              "format": "uri",
-              "description": "Property. Identifier format of any NGSI entity"
-            }
-          ],
-          "description": "Relationship. Reference to the other entity"
+        "current_stop_sequence": {
+          "type": "number",
+          "description": "Property. "
         },
-        "field4XXX": {
+        "start_time": {
           "type": "string",
-          "enum": [
-            "val1",
-            "val2",
-            "val3"
-          ],
-          "description": "Property. Model:'https://schema.org/Text. Example of definition of a enumeration of strings"
+          "description": "Property. "
         },
-        "field5XXX": {
+        "trip_id": {
+          "type": "number",
+          "description": "Property. Attribute present in data model FareCollectionSystem of subject dataModel.Transportation with the description Trip Id/Trip name alloted to the bus corresponding to this observation, in consideration to the time of the day and the direction of the trip on the given routeId. SameAs: 'trip_id' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor). "
+        },
+        "route_text_color": {
           "type": "string",
-          "enum": [
-            1,
-            2,
-            3
-          ],
-          "description": "Property. Model:'https://schema.org/Text. Example of definition of a enumeration of numbers"
+          "description": "Property. "
         },
-        "field6XXX": {
-          "type": "object",
-          "description": "Property. Model:'https://schema.org/Text. Example of definition of a enumeration of objects",
-          "properties": {
-            "subproperty1XXX": {
-              "type": "string"
-            },
-            "subproperty2XXX": {
-              "type": "number"
-            }
-          }
+        "ac_available": {
+          "type": "string",
+          "description": "Property. "
         },
-        "field7XXX": {
+        "tripDirection": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "agency_url": {
+          "type": "string",
+          "description": "Property. Attribute present in data model BikeHireDockingStation of subject dataModel.Transportation with the description The agency_url field contains the URL of the transit agency. SameAs: 'agency_url' field from GTFS Static Field Definition - agency.txt (https://developers.google.com/transit/gtfs/reference#agencytxt). "
+        },
+        "routeStopSequence": {
           "type": "array",
-          "description": "Property. Model:'https://schema.org/Text. Example of definition of a arrayof strings",
           "items": {
-            "type": "string",
-            "minitems": 3
-          }
+            "type": "number"
+          },
+          "description": "Property. "
         },
-        "field8XXX": {
-          "type": "array",
-          "description": "Property. Model:'https://schema.org/Text. Example of definition of a array of numbers",
-          "items": {
-            "type": "number",
-            "minitems": 1
-          }
+        "trip_direction": {
+          "type": "string",
+          "description": "Property. "
         },
-        "field9XXX": {
-          "type": "boolean",
-          "description": "Property. Model:'https://schema.org/Boolean'. Example of definition of a boolean attribute"
+        "departure_time": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "last_stop_id": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "route_short_name": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "stop_name": {
+          "type": "string",
+          "description": "Property. "
+        },
+        "depot_id": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "observationDateTime": {
+          "type": "string",
+          "description": "Property. Attribute present in data model FloodMonitoring of subject dataModel.Environment with the description Last reported time of observation.. Attribute present in data model AirQualityMonitoring of subject dataModel.Environment with the description Last reported time of observation.. Attribute present in data model FareCollectionSystem of subject dataModel.Transportation with the description Last reported time of observation.. Attribute present in data model BikeHireDockingStation of subject dataModel.Transportation with the description Last reported time of observation.. Attribute present in data model IssueReporting of subject dataModel.IssueTracking with the description Last reported time of observation.. Attribute present in data model TrafficViolation of subject dataModel.Transportation with the description Last reported time of observation.. Attribute present in data model StreetlightFeeder of subject dataModel.Streetlighting with the description Last reported time of observation.. Attribute present in data model Vehicle of subject dataModel.Transportation with the description Last reported time of observation. Attribute present in data model OnStreetParking of subject dataModel.Parking with the description Last reported time of observation.. Attribute present in data model OffStreetParking of subject dataModel.Parking with the description Last reported time of observation.. Attribute present in data model WasteWaterPlant of subject dataModel.WasteWater with the description Last reported time of observation.. Attribute present in data model Streetlight of subject dataModel.Streetlighting with the description Last reported time of observation.. Attribute present in data model SolarEnergy of subject dataModel.Energy with the description Last reported time of observation.. "
         }
       }
     }
+  ],
+  "required": [
+    "id",
+    "type"
   ]
 }

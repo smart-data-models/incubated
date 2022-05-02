@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EBSI Verifiable Accreditation Record",
+  "description": "Attestation data model based on EBSI Verifiable Accreditation",
+  "modelTags": "EBSI",
+  "license": "https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12",
+  "derivedFrom": "https://ec.europa.eu/digital-building-blocks/code/projects/EBSI/repos/json-schema/browse/schemas/ebsi-accreditation/2022-03/schema.json",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://ec.europa.eu/digital-building-blocks/code/projects/EBSI/repos/json-schema/raw/schemas/ebsi-attestation/2022-02/schema.json"
+    },
+    {
+      "properties": {
+        "termsOfUse": {
+          "description": "Property. Contains accreditation information about the Verifiable Accreditation",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "References the Verifiable Accreditation stored as an attribute on the Trusted Issuer Registry (TIR)",
+                "type": "string",
+                "format": "uri"
+              },
+              "type": {
+                "description": "Defines type",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "type"
+            ]
+          }
+        },
+        "credentialSubject": {
+          "description": "Property. Defines additional information about the subject that is described by the Verifiable Accreditation",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "Defines a unique identifier of the Verifiable Attestation",
+              "type": "string",
+              "format": "uri"
+            },
+            "authorisationClaims": {
+              "description": "Defines a list of claims that define/determine the authorisation of an Issuer to issue certain types of VCs",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "authorisedSchemaId": {
+                    "description": "Schema, registered in Trusted  Schemas Registry, which the accredited organisation is allowed to issue, as per their accreditation",
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "limitJurisdiction": {
+                    "description": "Defines the jurisdiction for which the accreditation is valid",
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "authorisedSchemaId"
+                ]
+              }
+            }
+          },
+          "required": [
+            "id",
+            "authorisationClaims"
+          ]
+        }
+      },
+      "required": [
+        "expirationDate",
+        "credentialSubject",
+        "termsOfUse"
+      ]
+    }
+  ]
+}
