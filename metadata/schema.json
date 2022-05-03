@@ -1,0 +1,806 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "$id": "https://github.com/smart-data-models/dataModel.DCAT-AP/blob/master/Dataset/schema.json",
+  "title": "Metadata for Data sources",
+  "description": "Metadata for Data sources extending DCAT-AP 2.0 schema",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Metadata"
+          ],
+          "description": "Property. NGSI type. It has to be Metadata"
+        },
+        "datasetDescription": {
+          "type": "array",
+          "description": "Property. This property contains a free-text account of the Dataset. It corresponds with the 'description' mandatory property of DCAT-AP 2.0.1. This property can be repeated for parallel language versions of the description.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "title": {
+          "type": "array",
+          "description": "Property. This property contains a name given to the Dataset. It corresponds with the 'Title' mandatory property of DCAT-AP 2.0.1. This property can be repeated for parallel language versions of the name.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contactPoint": {
+          "type": "array",
+          "description": "Property. Model:'vcard:Kind'. It corresponds with the 'contact point' mandatory property of DCAT-AP 2.0.1. This property contains contact information that can be used for sending comments about the Dataset.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "datasetDistribution": {
+          "type": "array",
+          "description": "Property. This property links the Dataset to an available Distributions. It corresponds with the 'dataset distribution' mandatory property of DCAT-AP 2.0.1. Model:'dcat:distribution'",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "keyword": {
+          "type": "array",
+          "description": "Property. This property contains a keyword or tag, describing the Dataset. Model:'dcat:keyword'",
+          "items": {
+            "type": "string"
+          }
+        },
+        "publisher": {
+          "description": "Property. Model:'foaf:Agent'. This property refers to an entity (organisation) responsible for making the Dataset available",
+          "type": "string"
+        },
+        "spatial": {
+          "description": "Geoproperty. Model:'dct:Location'. This property refers to a geographic region that is covered by the Dataset",
+          "type": "array",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
+          }
+        },
+        "temporal": {
+          "description": "Property. This property refers to a temporal period that the Dataset covers. Model:'dct:PeriodOfTime'",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "theme": {
+          "description": "Property. Model:'dcat:theme'. This property refers to a category of the Dataset. A Dataset may be associated with multiple themes",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "accessRights": {
+          "type": "string",
+          "description": "Property. Model:'foaf:Agent'. This property refers to information that indicates whether the Dataset is open data, has access restrictions or is not public. A controlled vocabulary with three members (:public, :restricted, :non-public) will be created and maintained by the Publications Office of the EU. Enum:'public, restricted, non-public'",
+          "enum": [
+            "public",
+            "restricted",
+            "non-public"
+          ]
+        },
+        "creator": {
+          "type": "string",
+          "description": "Property. Model:'dct:creator'. This property refers to the entity primarily responsible for producing the catalogue"
+        },
+        "documentation": {
+          "description": "Property. Model:'foaf:Document'. This property refers to a page or document about this Dataset",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "frequency": {
+          "type": "string",
+          "description": "Property. Model:'dct:Frequency'. This property refers to the frequency at which the Dataset is updated."
+        },
+        "hasVersion": {
+          "type": "array",
+          "description": "Property. This property refers to a related Dataset that is a version, edition, or adaptation of the described Dataset.",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "identifier": {
+          "type": "array",
+          "description": "Property. Model:'dct:identifier'. This property contains the main identifier for the Dataset, e.g. the URI or other unique identifier in the context of the Catalogue",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "isReferencedBy": {
+          "type": "array",
+          "description": "Property. Model:'dct:isVersionOf'. This property refers to a related Dataset of which the described Dataset is a version, edition, or adaptation",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "isVersionOf": {
+          "type": "array",
+          "description": "Property. Model:'dct:identifier'. This property contains the main identifier for the Dataset, e.g. the URI or other unique identifier in the context of the Catalogue",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "landingPage": {
+          "description": "Property. Model:'dcat:landingPage'. This property refers to a web page that provides access to the Dataset, its Distributions and/or additional information. It is intended to point to a landing page at the original data provider, not to a page on a site of a third party, such as an aggregator.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "language": {
+          "type": "array",
+          "description": "Property. Model:'dct:LinguisticSystem'. This property refers to a language of the Dataset. This property can be repeated if there are multiple languages in the Dataset.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "otherIdentifier": {
+          "type": "array",
+          "description": "Property. Model:'dct:identifier'. This property refers to a secondary identifier of the Dataset, such as MAST/ADS, DataCite, DOI, EZID or W3ID.",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "provenance": {
+          "type": "array",
+          "description": "Property. Model:'dct:ProvenanceStatement'. This property contains a statement about the lineage of a Dataset.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qualifiedAttribution": {
+          "type": "array",
+          "description": "Property. Model:'prov:qualifiedAttribution'. This property is about a related resource, such as a publication, that references, cites, or otherwise points to the dataset.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qualifiedRelation": {
+          "type": "array",
+          "description": "Property. Model:'dcat:Relationship'. This property is about a related resource, such as a publication, that references, cites, or otherwise points to the dataset",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "relatedResource": {
+          "type": "array",
+          "description": "Property. Model:'rdfs:Resource'. This property refers to a related resource",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "releaseDate": {
+          "type": "string",
+          "description": "Property. Model:'dct:issued'. This property contains the date of formal issuance (e.g., publication) of the Dataset.",
+          "format": "date-time"
+        },
+        "sample": {
+          "type": "array",
+          "description": "Property. Model:'rdfs:Resource'. This property refers to a sample distribution of the dataset",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "datasetSource": {
+          "type": "array",
+          "description": "Property. Model:'rdfs:Resource'. It corresponds with the property 'source' from DCAT-AP 2.0.1. This property refers to a related Dataset from which the described Dataset is derived.",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "spatialResolution": {
+          "type": "array",
+          "description": "Property. Model:'dcat:spatialResolutionIn Meters'. This property refers to the minimum spatial separation resolvable in a dataset, measured in meters",
+          "items": {
+            "type": "number"
+          }
+        },
+        "temporalResolution": {
+          "type": "array",
+          "description": "Property. Model:'dcat:temporalResolution'. This property refers to the minimum time period resolvable in the dataset.",
+          "items": {
+            "type": "number"
+          }
+        },
+        "datasetType": {
+          "type": "string",
+          "description": "Property. Model:'dct:type'. This property refers to the type of the Dataset. It corresponds to the property 'Type' of the DCAT 2.0.1. A controlled vocabulary for the values has not been established."
+        },
+        "updateDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'dct:modified'. This property contains the most recent date on which the Dataset was changed or modified."
+        },
+        "version": {
+          "type": "string",
+          "description": "Property. Model:'owl:versionInfo'. This property contains a version number or other version designation of the Dataset"
+        },
+        "versionNotes": {
+          "type": "array",
+          "description": "Property. Model:'adms:versionNotes'. This property contains a description of the differences between this version and a previous version of the Dataset. This property can be repeated for parallel language versions of the version notes.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "wasGeneratedBy": {
+          "description": "Property. Model:'prov:wasGeneratedBy'. This property contains a description of the differences between this version and a previous version of the Dataset. This property can be repeated for parallel language versions of the version notes.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "license": {
+          "type": "string",
+          "description": "Property. id of the license according to the enumerated values. It is extracted from the id of the SPDX standard. Enum:'0BSD, AAL, Abstyles, Adobe-2006, Adobe-Glyph, ADSL, AFL-1.1, AFL-1.2, AFL-2.0, AFL-2.1, AFL-3.0, Afmparse, AGPL-1.0, AGPL-1.0-only, AGPL-1.0-or-later, AGPL-3.0, AGPL-3.0-only, AGPL-3.0-or-later, Aladdin, AMDPLPA, AML, AMPAS, ANTLR-PD, ANTLR-PD-fallback, Apache-1.0, Apache-1.1, Apache-2.0, APAFML, APL-1.0, App-s2p, APSL-1.0, APSL-1.1, APSL-1.2, APSL-2.0, Arphic-1999, Artistic-1.0, Artistic-1.0-cl8, Artistic-1.0-Perl, Artistic-2.0, Baekmuk, Bahyph, Barr, Beerware, BitTorrent-1.0, BitTorrent-1.1, blessing, BlueOak-1.0.0, Borceux, BSD-1-Clause, BSD-2-Clause, BSD-2-Clause-FreeBSD, BSD-2-Clause-NetBSD, BSD-2-Clause-Patent, BSD-2-Clause-Views, BSD-3-Clause, BSD-3-Clause-Attribution, BSD-3-Clause-Clear, BSD-3-Clause-LBNL, BSD-3-Clause-Modification, BSD-3-Clause-No-Military-License, BSD-3-Clause-No-Nuclear-License, BSD-3-Clause-No-Nuclear-License-2014, BSD-3-Clause-No-Nuclear-Warranty, BSD-3-Clause-Open-MPI, BSD-4-Clause, BSD-4-Clause-Shortened, BSD-4-Clause-UC, BSD-Protection, BSD-Source-Code, BSL-1.0, BUSL-1.1, bzip2-1.0.5, bzip2-1.0.6, C-UDA-1.0, CAL-1.0, CAL-1.0-Combined-Work-Exception, Caldera, CATOSL-1.1, CC-BY-1.0, CC-BY-2.0, CC-BY-2.5, CC-BY-2.5-AU, CC-BY-3.0, CC-BY-3.0-AT, CC-BY-3.0-DE, CC-BY-3.0-NL, CC-BY-3.0-US, CC-BY-4.0, CC-BY-NC-1.0, CC-BY-NC-2.0, CC-BY-NC-2.5, CC-BY-NC-3.0, CC-BY-NC-3.0-DE, CC-BY-NC-4.0, CC-BY-NC-ND-1.0, CC-BY-NC-ND-2.0, CC-BY-NC-ND-2.5, CC-BY-NC-ND-3.0, CC-BY-NC-ND-3.0-DE, CC-BY-NC-ND-3.0-IGO, CC-BY-NC-ND-4.0, CC-BY-NC-SA-1.0, CC-BY-NC-SA-2.0, CC-BY-NC-SA-2.0-FR, CC-BY-NC-SA-2.0-UK, CC-BY-NC-SA-2.5, CC-BY-NC-SA-3.0, CC-BY-NC-SA-3.0-DE, CC-BY-NC-SA-3.0-IGO, CC-BY-NC-SA-4.0, CC-BY-ND-1.0, CC-BY-ND-2.0, CC-BY-ND-2.5, CC-BY-ND-3.0, CC-BY-ND-3.0-DE, CC-BY-ND-4.0, CC-BY-SA-1.0, CC-BY-SA-2.0, CC-BY-SA-2.0-UK, CC-BY-SA-2.1-JP, CC-BY-SA-2.5, CC-BY-SA-3.0, CC-BY-SA-3.0-AT, CC-BY-SA-3.0-DE, CC-BY-SA-4.0, CC-PDDC, CC0-1.0, CDDL-1.0, CDDL-1.1, CDL-1.0, CDLA-Permissive-1.0, CDLA-Permissive-2.0, CDLA-Sharing-1.0, CECILL-1.0, CECILL-1.1, CECILL-2.0, CECILL-2.1, CECILL-B, CECILL-C, CERN-OHL-1.1, CERN-OHL-1.2, CERN-OHL-P-2.0, CERN-OHL-S-2.0, CERN-OHL-W-2.0, ClArtistic, CNRI-Jython, CNRI-Python, CNRI-Python-GPL-Compatible, COIL-1.0, Community-Spec-1.0, Condor-1.1, copyleft-next-0.3.0, copyleft-next-0.3.1, CPAL-1.0, CPL-1.0, CPOL-1.02, Crossword, CrystalStacker, CUA-OPL-1.0, Cube, curl, D-FSL-1.0, diffmark, DL-DE-BY-2.0, DOC, Dotseqn, DRL-1.0, DSDP, dvipdfm, ECL-1.0, ECL-2.0, eCos-2.0, EFL-1.0, EFL-2.0, eGenix, Elastic-2.0, Entessa, EPICS, EPL-1.0, EPL-2.0, ErlPL-1.1, etalab-2.0, EUDatagrid, EUPL-1.0, EUPL-1.1, EUPL-1.2, Eurosym, Fair, FDK-AAC, Frameworx-1.0, FreeBSD-DOC, FreeImage, FSFAP, FSFUL, FSFULLR, FTL, GD, GFDL-1.1, GFDL-1.1-invariants-only, GFDL-1.1-invariants-or-later, GFDL-1.1-no-invariants-only, GFDL-1.1-no-invariants-or-later, GFDL-1.1-only, GFDL-1.1-or-later, GFDL-1.2, GFDL-1.2-invariants-only, GFDL-1.2-invariants-or-later, GFDL-1.2-no-invariants-only, GFDL-1.2-no-invariants-or-later, GFDL-1.2-only, GFDL-1.2-or-later, GFDL-1.3, GFDL-1.3-invariants-only, GFDL-1.3-invariants-or-later, GFDL-1.3-no-invariants-only, GFDL-1.3-no-invariants-or-later, GFDL-1.3-only, GFDL-1.3-or-later, Giftware, GL2PS, Glide, Glulxe, GLWTPL, gnuplot, GPL-1.0, GPL-1.0-only, GPL-1.0-or-later, GPL-1.0+, GPL-2.0, GPL-2.0-only, GPL-2.0-or-later, GPL-2.0-with-autoconf-exception, GPL-2.0-with-bison-exception, GPL-2.0-with-classpath-exception, GPL-2.0-with-font-exception, GPL-2.0-with-GCC-exception, GPL-2.0+, GPL-3.0, GPL-3.0-only, GPL-3.0-or-later, GPL-3.0-with-autoconf-exception, GPL-3.0-with-GCC-exception, GPL-3.0+, gSOAP-1.3b, HaskellReport, Hippocratic-2.1, HPND, HPND-sell-variant, HTMLTIDY, IBM-pibs, ICU, IJG, ImageMagick, iMatix, Imlib2, Info-ZIP, Intel, Intel-ACPI, Interbase-1.0, IPA, IPL-1.0, ISC, Jam, JasPer-2.0, JPNIC, JSON, KiCad-libraries-exception, LAL-1.2, LAL-1.3, Latex2e, Leptonica, LGPL-2.0, LGPL-2.0-only, LGPL-2.0-or-later, LGPL-2.0+, LGPL-2.1, LGPL-2.1-only, LGPL-2.1-or-later, LGPL-2.1+, LGPL-3.0, LGPL-3.0-only, LGPL-3.0-or-later, LGPL-3.0+, LGPLLR, Libpng, libpng-2.0, libselinux-1.0, libtiff, LiLiQ-P-1.1, LiLiQ-R-1.1, LiLiQ-Rplus-1.1, Linux-man-pages-copyleft, Linux-OpenIB, LPL-1.0, LPL-1.02, LPPL-1.0, LPPL-1.1, LPPL-1.2, LPPL-1.3a, LPPL-1.3c, MakeIndex, MirOS, MIT, MIT-0, MIT-advertising, MIT-CMU, MIT-enna, MIT-feh, MIT-Modern-Variant, MIT-open-group, MITNFA, Motosoto, mpich2, MPL-1.0, MPL-1.1, MPL-2.0, MPL-2.0-no-copyleft-exception, mplus, MS-PL, MS-RL, MTLL, MulanPSL-1.0, MulanPSL-2.0, Multics, Mup, NAIST-2003, NASA-1.3, Naumen, NBPL-1.0, NCGL-UK-2.0, NCSA, Net-SNMP, NetCDF, Newsletr, NGPL, NIST-PD, NIST-PD-fallback, NLOD-1.0, NLOD-2.0, NLPL, Nokia, NOSL, Noweb, NPL-1.0, NPL-1.1, NPOSL-3.0, NRL, NTP, NTP-0, Nunit, O-UDA-1.0, OCCT-PL, OCLC-2.0, ODbL-1.0, ODC-By-1.0, OFL-1.0, OFL-1.0-no-RFN, OFL-1.0-RFN, OFL-1.1, OFL-1.1-no-RFN, OFL-1.1-RFN, OGC-1.0, OGDL-Taiwan-1.0, OGL-Canada-2.0, OGL-UK-1.0, OGL-UK-2.0, OGL-UK-3.0, OGTSL, OLDAP-1.1, OLDAP-1.2, OLDAP-1.3, OLDAP-1.4, OLDAP-2.0, OLDAP-2.0.1, OLDAP-2.1, OLDAP-2.2, OLDAP-2.2.1, OLDAP-2.2.2, OLDAP-2.3, OLDAP-2.4, OLDAP-2.5, OLDAP-2.6, OLDAP-2.7, OLDAP-2.8, OML, OpenSSL, OPL-1.0, OPUBL-1.0, OSET-PL-2.1, OSL-1.0, OSL-1.1, OSL-2.0, OSL-2.1, OSL-3.0, Parity-6.0.0, Parity-7.0.0, PDDL-1.0, PHP-3.0, PHP-3.01, Plexus, PolyForm-Noncommercial-1.0.0, PolyForm-Small-Business-1.0.0, PostgreSQL, PSF-2.0, psfrag, psutils, Python-2.0, Qhull, QPL-1.0, Rdisc, RHeCos-1.1, RPL-1.1, RPL-1.5, RPSL-1.0, RSA-MD, RSCPL, Ruby, SAX-PD, Saxpath, SCEA, SchemeReport, Sendmail, Sendmail-8.23, SGI-B-1.0, SGI-B-1.1, SGI-B-2.0, SHL-0.5, SHL-0.51, SimPL-2.0, SISSL, SISSL-1.2, Sleepycat, SMLNJ, SMPPL, SNIA, Spencer-86, Spencer-94, Spencer-99, SPL-1.0, SSH-OpenSSH, SSH-short, SSPL-1.0, StandardML-NJ, SugarCRM-1.1.3, SWL, TAPR-OHL-1.0, TCL, TCP-wrappers, TMate, TORQUE-1.1, TOSL, TU-Berlin-1.0, TU-Berlin-2.0, UCL-1.0, Unicode-DFS-2015, Unicode-DFS-2016, Unicode-TOU, Unlicense, UPL-1.0, Vim, VOSTROM, VSL-1.0, W3C, W3C-19980720, W3C-20150513, Watcom-1.0, Wsuipa, WTFPL, wxWindows, X11, X11-distribute-modifications-variant, Xerox, XFree86-1.1, xinetd, Xnet, xpp, XSkat, YPL-1.0, YPL-1.1, Zed, Zend-2.0, Zimbra-1.3, Zimbra-1.4, Zlib, zlib-acknowledgement, ZPL-1.1, ZPL-2.0, ZPL-2.1'",
+          "enum": [
+            "0BSD",
+            "AAL",
+            "Abstyles",
+            "Adobe-2006",
+            "Adobe-Glyph",
+            "ADSL",
+            "AFL-1.1",
+            "AFL-1.2",
+            "AFL-2.0",
+            "AFL-2.1",
+            "AFL-3.0",
+            "Afmparse",
+            "AGPL-1.0",
+            "AGPL-1.0-only",
+            "AGPL-1.0-or-later",
+            "AGPL-3.0",
+            "AGPL-3.0-only",
+            "AGPL-3.0-or-later",
+            "Aladdin",
+            "AMDPLPA",
+            "AML",
+            "AMPAS",
+            "ANTLR-PD",
+            "ANTLR-PD-fallback",
+            "Apache-1.0",
+            "Apache-1.1",
+            "Apache-2.0",
+            "APAFML",
+            "APL-1.0",
+            "App-s2p",
+            "APSL-1.0",
+            "APSL-1.1",
+            "APSL-1.2",
+            "APSL-2.0",
+            "Arphic-1999",
+            "Artistic-1.0",
+            "Artistic-1.0-cl8",
+            "Artistic-1.0-Perl",
+            "Artistic-2.0",
+            "Baekmuk",
+            "Bahyph",
+            "Barr",
+            "Beerware",
+            "BitTorrent-1.0",
+            "BitTorrent-1.1",
+            "blessing",
+            "BlueOak-1.0.0",
+            "Borceux",
+            "BSD-1-Clause",
+            "BSD-2-Clause",
+            "BSD-2-Clause-FreeBSD",
+            "BSD-2-Clause-NetBSD",
+            "BSD-2-Clause-Patent",
+            "BSD-2-Clause-Views",
+            "BSD-3-Clause",
+            "BSD-3-Clause-Attribution",
+            "BSD-3-Clause-Clear",
+            "BSD-3-Clause-LBNL",
+            "BSD-3-Clause-Modification",
+            "BSD-3-Clause-No-Military-License",
+            "BSD-3-Clause-No-Nuclear-License",
+            "BSD-3-Clause-No-Nuclear-License-2014",
+            "BSD-3-Clause-No-Nuclear-Warranty",
+            "BSD-3-Clause-Open-MPI",
+            "BSD-4-Clause",
+            "BSD-4-Clause-Shortened",
+            "BSD-4-Clause-UC",
+            "BSD-Protection",
+            "BSD-Source-Code",
+            "BSL-1.0",
+            "BUSL-1.1",
+            "bzip2-1.0.5",
+            "bzip2-1.0.6",
+            "C-UDA-1.0",
+            "CAL-1.0",
+            "CAL-1.0-Combined-Work-Exception",
+            "Caldera",
+            "CATOSL-1.1",
+            "CC-BY-1.0",
+            "CC-BY-2.0",
+            "CC-BY-2.5",
+            "CC-BY-2.5-AU",
+            "CC-BY-3.0",
+            "CC-BY-3.0-AT",
+            "CC-BY-3.0-DE",
+            "CC-BY-3.0-NL",
+            "CC-BY-3.0-US",
+            "CC-BY-4.0",
+            "CC-BY-NC-1.0",
+            "CC-BY-NC-2.0",
+            "CC-BY-NC-2.5",
+            "CC-BY-NC-3.0",
+            "CC-BY-NC-3.0-DE",
+            "CC-BY-NC-4.0",
+            "CC-BY-NC-ND-1.0",
+            "CC-BY-NC-ND-2.0",
+            "CC-BY-NC-ND-2.5",
+            "CC-BY-NC-ND-3.0",
+            "CC-BY-NC-ND-3.0-DE",
+            "CC-BY-NC-ND-3.0-IGO",
+            "CC-BY-NC-ND-4.0",
+            "CC-BY-NC-SA-1.0",
+            "CC-BY-NC-SA-2.0",
+            "CC-BY-NC-SA-2.0-FR",
+            "CC-BY-NC-SA-2.0-UK",
+            "CC-BY-NC-SA-2.5",
+            "CC-BY-NC-SA-3.0",
+            "CC-BY-NC-SA-3.0-DE",
+            "CC-BY-NC-SA-3.0-IGO",
+            "CC-BY-NC-SA-4.0",
+            "CC-BY-ND-1.0",
+            "CC-BY-ND-2.0",
+            "CC-BY-ND-2.5",
+            "CC-BY-ND-3.0",
+            "CC-BY-ND-3.0-DE",
+            "CC-BY-ND-4.0",
+            "CC-BY-SA-1.0",
+            "CC-BY-SA-2.0",
+            "CC-BY-SA-2.0-UK",
+            "CC-BY-SA-2.1-JP",
+            "CC-BY-SA-2.5",
+            "CC-BY-SA-3.0",
+            "CC-BY-SA-3.0-AT",
+            "CC-BY-SA-3.0-DE",
+            "CC-BY-SA-4.0",
+            "CC-PDDC",
+            "CC0-1.0",
+            "CDDL-1.0",
+            "CDDL-1.1",
+            "CDL-1.0",
+            "CDLA-Permissive-1.0",
+            "CDLA-Permissive-2.0",
+            "CDLA-Sharing-1.0",
+            "CECILL-1.0",
+            "CECILL-1.1",
+            "CECILL-2.0",
+            "CECILL-2.1",
+            "CECILL-B",
+            "CECILL-C",
+            "CERN-OHL-1.1",
+            "CERN-OHL-1.2",
+            "CERN-OHL-P-2.0",
+            "CERN-OHL-S-2.0",
+            "CERN-OHL-W-2.0",
+            "ClArtistic",
+            "CNRI-Jython",
+            "CNRI-Python",
+            "CNRI-Python-GPL-Compatible",
+            "COIL-1.0",
+            "Community-Spec-1.0",
+            "Condor-1.1",
+            "copyleft-next-0.3.0",
+            "copyleft-next-0.3.1",
+            "CPAL-1.0",
+            "CPL-1.0",
+            "CPOL-1.02",
+            "Crossword",
+            "CrystalStacker",
+            "CUA-OPL-1.0",
+            "Cube",
+            "curl",
+            "D-FSL-1.0",
+            "diffmark",
+            "DL-DE-BY-2.0",
+            "DOC",
+            "Dotseqn",
+            "DRL-1.0",
+            "DSDP",
+            "dvipdfm",
+            "ECL-1.0",
+            "ECL-2.0",
+            "eCos-2.0",
+            "EFL-1.0",
+            "EFL-2.0",
+            "eGenix",
+            "Elastic-2.0",
+            "Entessa",
+            "EPICS",
+            "EPL-1.0",
+            "EPL-2.0",
+            "ErlPL-1.1",
+            "etalab-2.0",
+            "EUDatagrid",
+            "EUPL-1.0",
+            "EUPL-1.1",
+            "EUPL-1.2",
+            "Eurosym",
+            "Fair",
+            "FDK-AAC",
+            "Frameworx-1.0",
+            "FreeBSD-DOC",
+            "FreeImage",
+            "FSFAP",
+            "FSFUL",
+            "FSFULLR",
+            "FTL",
+            "GD",
+            "GFDL-1.1",
+            "GFDL-1.1-invariants-only",
+            "GFDL-1.1-invariants-or-later",
+            "GFDL-1.1-no-invariants-only",
+            "GFDL-1.1-no-invariants-or-later",
+            "GFDL-1.1-only",
+            "GFDL-1.1-or-later",
+            "GFDL-1.2",
+            "GFDL-1.2-invariants-only",
+            "GFDL-1.2-invariants-or-later",
+            "GFDL-1.2-no-invariants-only",
+            "GFDL-1.2-no-invariants-or-later",
+            "GFDL-1.2-only",
+            "GFDL-1.2-or-later",
+            "GFDL-1.3",
+            "GFDL-1.3-invariants-only",
+            "GFDL-1.3-invariants-or-later",
+            "GFDL-1.3-no-invariants-only",
+            "GFDL-1.3-no-invariants-or-later",
+            "GFDL-1.3-only",
+            "GFDL-1.3-or-later",
+            "Giftware",
+            "GL2PS",
+            "Glide",
+            "Glulxe",
+            "GLWTPL",
+            "gnuplot",
+            "GPL-1.0",
+            "GPL-1.0-only",
+            "GPL-1.0-or-later",
+            "GPL-1.0+",
+            "GPL-2.0",
+            "GPL-2.0-only",
+            "GPL-2.0-or-later",
+            "GPL-2.0-with-autoconf-exception",
+            "GPL-2.0-with-bison-exception",
+            "GPL-2.0-with-classpath-exception",
+            "GPL-2.0-with-font-exception",
+            "GPL-2.0-with-GCC-exception",
+            "GPL-2.0+",
+            "GPL-3.0",
+            "GPL-3.0-only",
+            "GPL-3.0-or-later",
+            "GPL-3.0-with-autoconf-exception",
+            "GPL-3.0-with-GCC-exception",
+            "GPL-3.0+",
+            "gSOAP-1.3b",
+            "HaskellReport",
+            "Hippocratic-2.1",
+            "HPND",
+            "HPND-sell-variant",
+            "HTMLTIDY",
+            "IBM-pibs",
+            "ICU",
+            "IJG",
+            "ImageMagick",
+            "iMatix",
+            "Imlib2",
+            "Info-ZIP",
+            "Intel",
+            "Intel-ACPI",
+            "Interbase-1.0",
+            "IPA",
+            "IPL-1.0",
+            "ISC",
+            "Jam",
+            "JasPer-2.0",
+            "JPNIC",
+            "JSON",
+            "KiCad-libraries-exception",
+            "LAL-1.2",
+            "LAL-1.3",
+            "Latex2e",
+            "Leptonica",
+            "LGPL-2.0",
+            "LGPL-2.0-only",
+            "LGPL-2.0-or-later",
+            "LGPL-2.0+",
+            "LGPL-2.1",
+            "LGPL-2.1-only",
+            "LGPL-2.1-or-later",
+            "LGPL-2.1+",
+            "LGPL-3.0",
+            "LGPL-3.0-only",
+            "LGPL-3.0-or-later",
+            "LGPL-3.0+",
+            "LGPLLR",
+            "Libpng",
+            "libpng-2.0",
+            "libselinux-1.0",
+            "libtiff",
+            "LiLiQ-P-1.1",
+            "LiLiQ-R-1.1",
+            "LiLiQ-Rplus-1.1",
+            "Linux-man-pages-copyleft",
+            "Linux-OpenIB",
+            "LPL-1.0",
+            "LPL-1.02",
+            "LPPL-1.0",
+            "LPPL-1.1",
+            "LPPL-1.2",
+            "LPPL-1.3a",
+            "LPPL-1.3c",
+            "MakeIndex",
+            "MirOS",
+            "MIT",
+            "MIT-0",
+            "MIT-advertising",
+            "MIT-CMU",
+            "MIT-enna",
+            "MIT-feh",
+            "MIT-Modern-Variant",
+            "MIT-open-group",
+            "MITNFA",
+            "Motosoto",
+            "mpich2",
+            "MPL-1.0",
+            "MPL-1.1",
+            "MPL-2.0",
+            "MPL-2.0-no-copyleft-exception",
+            "mplus",
+            "MS-PL",
+            "MS-RL",
+            "MTLL",
+            "MulanPSL-1.0",
+            "MulanPSL-2.0",
+            "Multics",
+            "Mup",
+            "NAIST-2003",
+            "NASA-1.3",
+            "Naumen",
+            "NBPL-1.0",
+            "NCGL-UK-2.0",
+            "NCSA",
+            "Net-SNMP",
+            "NetCDF",
+            "Newsletr",
+            "NGPL",
+            "NIST-PD",
+            "NIST-PD-fallback",
+            "NLOD-1.0",
+            "NLOD-2.0",
+            "NLPL",
+            "Nokia",
+            "NOSL",
+            "Noweb",
+            "NPL-1.0",
+            "NPL-1.1",
+            "NPOSL-3.0",
+            "NRL",
+            "NTP",
+            "NTP-0",
+            "Nunit",
+            "O-UDA-1.0",
+            "OCCT-PL",
+            "OCLC-2.0",
+            "ODbL-1.0",
+            "ODC-By-1.0",
+            "OFL-1.0",
+            "OFL-1.0-no-RFN",
+            "OFL-1.0-RFN",
+            "OFL-1.1",
+            "OFL-1.1-no-RFN",
+            "OFL-1.1-RFN",
+            "OGC-1.0",
+            "OGDL-Taiwan-1.0",
+            "OGL-Canada-2.0",
+            "OGL-UK-1.0",
+            "OGL-UK-2.0",
+            "OGL-UK-3.0",
+            "OGTSL",
+            "OLDAP-1.1",
+            "OLDAP-1.2",
+            "OLDAP-1.3",
+            "OLDAP-1.4",
+            "OLDAP-2.0",
+            "OLDAP-2.0.1",
+            "OLDAP-2.1",
+            "OLDAP-2.2",
+            "OLDAP-2.2.1",
+            "OLDAP-2.2.2",
+            "OLDAP-2.3",
+            "OLDAP-2.4",
+            "OLDAP-2.5",
+            "OLDAP-2.6",
+            "OLDAP-2.7",
+            "OLDAP-2.8",
+            "OML",
+            "OpenSSL",
+            "OPL-1.0",
+            "OPUBL-1.0",
+            "OSET-PL-2.1",
+            "OSL-1.0",
+            "OSL-1.1",
+            "OSL-2.0",
+            "OSL-2.1",
+            "OSL-3.0",
+            "Parity-6.0.0",
+            "Parity-7.0.0",
+            "PDDL-1.0",
+            "PHP-3.0",
+            "PHP-3.01",
+            "Plexus",
+            "PolyForm-Noncommercial-1.0.0",
+            "PolyForm-Small-Business-1.0.0",
+            "PostgreSQL",
+            "PSF-2.0",
+            "psfrag",
+            "psutils",
+            "Python-2.0",
+            "Qhull",
+            "QPL-1.0",
+            "Rdisc",
+            "RHeCos-1.1",
+            "RPL-1.1",
+            "RPL-1.5",
+            "RPSL-1.0",
+            "RSA-MD",
+            "RSCPL",
+            "Ruby",
+            "SAX-PD",
+            "Saxpath",
+            "SCEA",
+            "SchemeReport",
+            "Sendmail",
+            "Sendmail-8.23",
+            "SGI-B-1.0",
+            "SGI-B-1.1",
+            "SGI-B-2.0",
+            "SHL-0.5",
+            "SHL-0.51",
+            "SimPL-2.0",
+            "SISSL",
+            "SISSL-1.2",
+            "Sleepycat",
+            "SMLNJ",
+            "SMPPL",
+            "SNIA",
+            "Spencer-86",
+            "Spencer-94",
+            "Spencer-99",
+            "SPL-1.0",
+            "SSH-OpenSSH",
+            "SSH-short",
+            "SSPL-1.0",
+            "StandardML-NJ",
+            "SugarCRM-1.1.3",
+            "SWL",
+            "TAPR-OHL-1.0",
+            "TCL",
+            "TCP-wrappers",
+            "TMate",
+            "TORQUE-1.1",
+            "TOSL",
+            "TU-Berlin-1.0",
+            "TU-Berlin-2.0",
+            "UCL-1.0",
+            "Unicode-DFS-2015",
+            "Unicode-DFS-2016",
+            "Unicode-TOU",
+            "Unlicense",
+            "UPL-1.0",
+            "Vim",
+            "VOSTROM",
+            "VSL-1.0",
+            "W3C",
+            "W3C-19980720",
+            "W3C-20150513",
+            "Watcom-1.0",
+            "Wsuipa",
+            "WTFPL",
+            "wxWindows",
+            "X11",
+            "X11-distribute-modifications-variant",
+            "Xerox",
+            "XFree86-1.1",
+            "xinetd",
+            "Xnet",
+            "xpp",
+            "XSkat",
+            "YPL-1.0",
+            "YPL-1.1",
+            "Zed",
+            "Zend-2.0",
+            "Zimbra-1.3",
+            "Zimbra-1.4",
+            "Zlib",
+            "zlib-acknowledgement",
+            "ZPL-1.1",
+            "ZPL-2.0",
+            "ZPL-2.1"
+          ]
+        },
+        "geolocation": {
+          "type": "boolean",
+          "description": "Property. Defines if the data stream has geolocation, (coordinates) in any of its attributes"
+        },
+        "addressesAvailable": {
+          "type": "boolean",
+          "description": "Property. Defines if the data stream has postal addresses to identify the elements in the dataset"
+        },
+        "accessMechanism": {
+          "type": "string",
+          "description": "Property. Access level according to the 3 levels of MELODA 5 metric. Level1AccessMechanism: Web access or unique URL parameters to dataset, Level2AccessMechanism: . Web Access unique with parameters to single data, Level3AccessMechanism: API or query language",
+          "enum": [
+            "Level1AccessMechanism",
+            "Level2AccessMechanism",
+            "Level3AccessMechanism"
+          ]
+        },
+        "standardization": {
+          "type": "string",
+          "description": "Property. type of standardization followed by the dataset. Level1Standardization: data model standardized by the publisher without releasing the documentation, Level3Standardization: data model standardized by the published releasing the documentation, Level3Standardization: data model using a local standard (national or smaller regional scope), Level4Standardization: data model using an international standard",
+          "enum": [
+            "Level1Standardization",
+            "Level2Standardization",
+            "Level3Standardization",
+            "Level4Standardization"
+          ]
+        },
+        "standardizationSource": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. URI/URL to the source where the definitions of the attributes can be read"
+        },
+        "validationSchema": {
+          "type": "string",
+          "format": "uri",
+          "description": "P"
+        },
+        "communicationOrganization": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. URI to the organization which is responsible for dissemination activities related to the dataset. It matches the dimension communication of MELODA 5"
+        },
+        "reputationOrganization": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. URI to the organization which is responsible for the publication of the dataset in terms of reputation. It matches the dimension reputation of MELODA 5 adn it allows to retrieve their prestige from the ranking"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "datasetDescription",
+    "title"
+  ]
+}

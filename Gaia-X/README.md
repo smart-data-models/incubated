@@ -1,0 +1,1 @@
+Test for the implementation of the different elements defined in Gaia-X self descriptions

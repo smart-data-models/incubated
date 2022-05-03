@@ -1,0 +1,53 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.Agrifood/AnimalDisease/schema.json",
+    "title": "Animal Disease FarmData4All i4Trust",
+    "modelTags": "",
+    "description": "Object modelling an animal disease for a livestock farm. Proposed by SensoWave within the i4Trust project.",
+    "type": "object",
+    "required":["id","type","disease"],
+    "allOf": [
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      },
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+      },
+      {
+        "properties": {
+          "disease": {
+            "type": "string",
+            "description": "Property. Animal disease"
+          },
+          "diagnosticTest": {
+            "type": "string",
+            "description": "Property. Diagnostic test performed in the animals"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Property. Date of application"
+          },
+          "veterinarianTreatment": {
+            "type": "string",
+            "format": "uri",
+            "description": "Relationship. https://github.com/smart-data-models/incubated/blob/master/I4TRUST/Farm4All/veterinarian/VeterinarianTreatment/schema.json"
+          },
+          "animals": {
+            "type": "array",
+            "description": "Relationship. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/Animal/schema.json",
+            "items":{
+              "type":"string",
+              "format":"uri"
+            }
+          },
+          "veterinarian": {
+            "type": "string",
+            "format": "uri",
+            "description": "Relationship. Relationship to the prescribing veterinarian"
+          }
+        }
+      }
+    ]
+  }
