@@ -18,25 +18,25 @@
         "properties": {
           "disease": {
             "type": "string",
-            "description": "Property. Animal disease"
+            "description": "Property. Animal disease. Indicates the disease the animal has as diagnosed by a veterinarian. https://www.mapa.gob.es/es/ganaderia/temas/sanidad-animal-higiene-ganadera/sanidad-animal/enfermedades/"
           },
           "diagnosticTest": {
             "type": "string",
-            "description": "Property. Diagnostic test performed in the animals"
+            "description": "Property. Diagnostic test performed in the animals for the determination of the disease by a veterinarian."
           },
           "date": {
             "type": "string",
             "format": "date-time",
-            "description": "Property. Date of application"
+            "description": "Property. Date of diagnosis of the disease by a veterinarian."
           },
           "veterinarianTreatment": {
             "type": "string",
             "format": "uri",
-            "description": "Relationship. https://github.com/smart-data-models/incubated/blob/master/I4TRUST/Farm4All/veterinarian/VeterinarianTreatment/schema.json"
+            "description": "Relationship. Medical treatment diagnosed by the veterinarian to treat the disease. https://github.com/smart-data-models/incubated/blob/master/I4TRUST/Farm4All/veterinarian/VeterinarianTreatment/schema.json"
           },
           "animals": {
             "type": "array",
-            "description": "Relationship. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/Animal/schema.json",
+            "description": "Relationship. Animals or list of animals diagnosed with the disease. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/Animal/schema.json",
             "items":{
               "type":"string",
               "format":"uri"
@@ -45,7 +45,7 @@
           "veterinarian": {
             "type": "string",
             "format": "uri",
-            "description": "Relationship. Relationship to the prescribing veterinarian"
+            "description": "Relationship. Diagnostic veterinarian. Relationship to the prescribing veterinarian"
           }
         }
       }
