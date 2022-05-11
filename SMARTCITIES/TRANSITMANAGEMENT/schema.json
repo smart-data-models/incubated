@@ -18,11 +18,7 @@
         "id": {
           "type": "string",
           "description": "Property. Unique identifier of the entity"
-        },
-        "@context": {
-          "type": "string",
-          "description": "Property. "
-        },
+        }
         "type": {
           "type": "string",
           "description": "Property. NGSI Entity type. It has to be TransitManagement",
@@ -32,7 +28,59 @@
         },
         "vehicleType": {
           "type": "string",
-          "description": "Property. Attribute present in data model TrafficFlowObserved of subject dataModel.Transportation with the description Type of vehicle from the point of view of its structural characteristics. Attribute present in data model VehicleModel of subject dataModel.Transportation with the description Type of vehicle from the point of view of its structural characteristics. This is different than the vehicle category . The following values defined by _VehicleTypeEnum_ and _VehicleTypeEnum2_, [DATEX 2 version 2.3](http://d2docs.ndwcloud.nu/_static/umlmodel/v2.3/index.htm). Attribute present in data model VehicleFault of subject dataModel.Transportation with the description The vehicle type identifier.. Attribute present in data model RevenueCollection of subject dataModel.PublicAccountability with the description Type of vehicle from the point of view of its structural characteristics. This is different than the vehicle category . The following values defined by _VehicleTypeEnum_ and _VehicleTypeEnum2_, [DATEX 2 version 2.3](http://d2docs.ndwcloud.nu/_static/umlmodel/v2.3/index.htm). Attribute present in data model Vehicle of subject dataModel.Transportation with the description Type of vehicle from the point of view of its structural characteristics. This is different than the vehicle category . Enum:'agriculturalVehicle, anyVehicle, articulatedVehicle, bicycle, binTrolley, bus, car, caravan, carOrLightVehicle, carWithCaravan, carWithTrailer, cleaningTrolley, constructionOrMaintenanceVehicle, fourWheelDrive, highSidedVehicle, lorry, minibus, moped, motorcycle, motorcycleWithSideCar, motorscooter, sweepingMachine, tanker, threeWheeledVehicle, trailer, tram, twoWheeledVehicle, trolley, van, vehicleWithoutCatalyticConverter, vehicleWithCaravan, vehicleWithTrailer, withEvenNumberedRegistrationPlates, withOddNumberedRegistrationPlates, other'. The following values defined by _VehicleTypeEnum_ and _VehicleTypeEnum2_, [DATEX 2 version 2.3](http://d2docs.ndwcloud.nu/_static/umlmodel/v2.3/index.htm) and extended for other uses. "
+          "description": "Property. Attribute present in data model TrafficFlowObserved of subject dataModel.Transportation with the description Type of vehicle from the point of view of its structural characteristics. Attribute present in data model VehicleModel of subject dataModel.Transportation with the description Type of vehicle from the point of view of its structural characteristics. This is different than the vehicle category . The following values defined by _VehicleTypeEnum_ and _VehicleTypeEnum2_, [DATEX 2 version 2.3](http://d2docs.ndwcloud.nu/_static/umlmodel/v2.3/index.htm). Attribute present in data model VehicleFault of subject dataModel.Transportation with the description The vehicle type identifier.. Attribute present in data model RevenueCollection of subject dataModel.PublicAccountability with the description Type of vehicle from the point of view of its structural characteristics. This is different than the vehicle category . The following values defined by _VehicleTypeEnum_ and _VehicleTypeEnum2_, [DATEX 2 version 2.3](http://d2docs.ndwcloud.nu/_static/umlmodel/v2.3/index.htm). Attribute present in data model Vehicle of subject dataModel.Transportation with the description Type of vehicle from the point of view of its structural characteristics. This is different than the vehicle category . Enum:'agriculturalVehicle, anyVehicle, articulatedVehicle, bicycle, binTrolley, bus, car, caravan, carOrLightVehicle, carWithCaravan, carWithTrailer, cleaningTrolley, constructionOrMaintenanceVehicle, fourWheelDrive, highSidedVehicle, lorry, minibus, moped, motorcycle, motorcycleWithSideCar, motorscooter, sweepingMachine, tanker, threeWheeledVehicle, trailer, tram, twoWheeledVehicle, trolley, van, vehicleWithoutCatalyticConverter, vehicleWithCaravan, vehicleWithTrailer, withEvenNumberedRegistrationPlates, withOddNumberedRegistrationPlates, other'. The following values defined by _VehicleTypeEnum_ and _VehicleTypeEnum2_, [DATEX 2 version 2.3](http://d2docs.ndwcloud.nu/_static/umlmodel/v2.3/index.htm) and extended for other uses. ",
+          "enum": [
+            "agriculturalVehicle",
+            "ambulance",
+            "anyVehicle",
+            "articulatedVehicle",
+            "autorickshaw",
+            "bicycle",
+            "binTrolley",
+            "BRT mini bus·",
+            "BRT bus",
+            "bus",
+            "car",
+            "caravan",
+            "carOrLightVehicle",
+            "carWithCaravan",
+            "carWithTrailer",
+            "cleaningTrolley",
+            "compactor",
+            "constructionOrMaintenanceVehicle",
+            "dumper",
+            "e-moped",
+            "e-scooter",
+            "e-motorcycle",
+            "fireTender",
+            "fourWheelDrive",
+            "highSidedVehicle",
+            "hopper",
+            "lorry",
+            "minibus",
+            "moped",
+            "motorcycle",
+            "motorcycleWithSideCar",
+            "motorscooter",
+            "policeVan",
+            "publicMotor",
+            "sweepingMachine",
+            "tanker",
+            "tempo",
+            "threeWheeledVehicle",
+            "tipper",
+            "trailer",
+            "tram",
+            "trolley",
+            "twoWheeledVehicle",
+            "van",
+            "vehicleWithoutCatalyticConverter",
+            "vehicleWithCaravan",
+            "vehicleWithTrailer",
+            "withEvenNumberedRegistrationPlates",
+            "withOddNumberedRegistrationPlates",
+            "other"
+          ]
         },
         "trip_delay": {
           "type": "number",
@@ -56,7 +104,8 @@
         },
         "schedule_relationship": {
           "type": "string",
-          "description": "Property. "
+          "description": "Property. Defined at GTFS standard. The relation between this trip and the static schedule. If TripDescriptor is provided in an Alert EntitySelector, the schedule_relationship field is ignored by consumers when they identify the matching trip instance.",
+          "enum": ["SCHEDULED", "ADDED", "UNSCHEDULED", "CANCELED"]
         },
         "vehicle_id": {
           "type": "string",
@@ -146,7 +195,7 @@
           "type": "string",
           "description": "Property. "
         },
-        "uncertainity": {
+        "uncertainty": {
           "type": "number",
           "description": "Property. "
         },
@@ -172,7 +221,7 @@
         },
         "start_date": {
           "type": "string",
-          "format": "date-time",
+          "format": "date",
           "description": "Property. "
         },
         "current_stop_sequence": {
