@@ -1,40 +1,44 @@
 {
-    "$schema": "http://json-schema.org/schema",
-    "$schemaVersion": "0.0.1",
-    "$id": "https://smart-data-models.github.io/dataModel.Agrifood/MeatProduct/schema.json",
-    "title": "Meat Product Data Model FarmData4All i4Trust",
-    "modelTags": "",
-    "description": "Object modelling a meat product for a livestock farm. Proposed by SensoWave within the i4Trust project.",
-    "type": "object",
-    "required":["id","type","carcass"],
-    "allOf": [
-      {
-        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
-      },
-      {
-        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-      },
-      {
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Property. Name of the product"
-          },
-          "weight": {
-            "type": "integer",
-            "description": "Property. Weight of the product"
-          },
-          "date": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Property. Date of application"
-          },
-          "carcass": {
-            "type": "string",
-            "format": "uri",
-            "description": "Relationship. Model https://github.com/smart-data-models/incubated/blob/master/I4TRUST/Farm4All/MeatIndustry/Carcass/schema.json"
-          }
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Agrifood/MeatProduct/schema.json",
+  "title": "Meat Product Data Model ",
+  "modelTags": "I4Trust",
+  "description": "Object modelling a meat product for a livestock farm.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "carcass"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Property. Name of the product"
+        },
+        "weight": {
+          "type": "integer",
+          "description": "Property. Weight of the product"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date of application"
+        },
+        "carcass": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. Model https://github.com/smart-data-models/incubated/blob/master/I4TRUST/Farm4All/MeatIndustry/Carcass/schema.json"
         }
       }
-    ]
-  }
+    }
+  ]
+}

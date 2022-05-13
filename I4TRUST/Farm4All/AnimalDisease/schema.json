@@ -1,53 +1,57 @@
 {
-    "$schema": "http://json-schema.org/schema",
-    "$schemaVersion": "0.0.1",
-    "$id": "https://smart-data-models.github.io/dataModel.Agrifood/AnimalDisease/schema.json",
-    "title": "Animal Disease FarmData4All i4Trust",
-    "modelTags": "",
-    "description": "Object modelling an animal disease for a livestock farm. Proposed by SensoWave within the i4Trust project.",
-    "type": "object",
-    "required":["id","type","disease"],
-    "allOf": [
-      {
-        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
-      },
-      {
-        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-      },
-      {
-        "properties": {
-          "disease": {
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Agrifood/AnimalDisease/schema.json",
+  "title": "Animal Disease FarmData4All i4Trust",
+  "modelTags": "I4Tust",
+  "description": "Object modelling an animal disease for a livestock farm.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "disease"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "disease": {
+          "type": "string",
+          "description": "Property. Animal disease. Indicates the disease the animal has as diagnosed by a veterinarian. https://www.mapa.gob.es/es/ganaderia/temas/sanidad-animal-higiene-ganadera/sanidad-animal/enfermedades/"
+        },
+        "diagnosticTest": {
+          "type": "string",
+          "description": "Property. Diagnostic test performed in the animals for the determination of the disease by a veterinarian."
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date of diagnosis of the disease by a veterinarian."
+        },
+        "veterinarianTreatment": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. Medical treatment diagnosed by the veterinarian to treat the disease. https://github.com/smart-data-models/incubated/blob/master/I4TRUST/Farm4All/veterinarian/VeterinarianTreatment/schema.json"
+        },
+        "animals": {
+          "type": "array",
+          "description": "Relationship. Animals or list of animals diagnosed with the disease. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/Animal/schema.json",
+          "items": {
             "type": "string",
-            "description": "Property. Animal disease. Indicates the disease the animal has as diagnosed by a veterinarian. https://www.mapa.gob.es/es/ganaderia/temas/sanidad-animal-higiene-ganadera/sanidad-animal/enfermedades/"
-          },
-          "diagnosticTest": {
-            "type": "string",
-            "description": "Property. Diagnostic test performed in the animals for the determination of the disease by a veterinarian."
-          },
-          "date": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Property. Date of diagnosis of the disease by a veterinarian."
-          },
-          "veterinarianTreatment": {
-            "type": "string",
-            "format": "uri",
-            "description": "Relationship. Medical treatment diagnosed by the veterinarian to treat the disease. https://github.com/smart-data-models/incubated/blob/master/I4TRUST/Farm4All/veterinarian/VeterinarianTreatment/schema.json"
-          },
-          "animals": {
-            "type": "array",
-            "description": "Relationship. Animals or list of animals diagnosed with the disease. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/Animal/schema.json",
-            "items":{
-              "type":"string",
-              "format":"uri"
-            }
-          },
-          "veterinarian": {
-            "type": "string",
-            "format": "uri",
-            "description": "Relationship. Diagnostic veterinarian. Relationship to the prescribing veterinarian"
+            "format": "uri"
           }
+        },
+        "veterinarian": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. Diagnostic veterinarian. Relationship to the prescribing veterinarian"
         }
       }
-    ]
-  }
+    }
+  ]
+}

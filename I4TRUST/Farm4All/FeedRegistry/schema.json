@@ -1,48 +1,52 @@
 {
-    "$schema": "http://json-schema.org/schema",
-    "$schemaVersion": "0.0.1",
-    "$id": "https://smart-data-models.github.io/dataModel.Agrifood/FeedRegistry/schema.json",
-    "title": "Feed Registry FarmData4All i4Trust",
-    "modelTags": "",
-    "description": "Object modelling a feed registry for a livestock farm. Proposed by SensoWave within the i4Trust project.",
-    "type": "object",
-    "required":["id","type","name"],
-    "allOf": [
-      {
-        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
-      },
-      {
-        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-      },
-      {
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Property. Feed registy. Name of the animal food product."
-          },
-          "amount": {
-            "type": "integer",
-            "description": "Property. Amount of feed supplied to animals."
-          },
-          "date": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Property. Date of supply of food to animals"
-          },
-          "supplier": {
-            "type": "string",
-            "description": "Property. Supplier of the feed"
-          },
-          "deliveryNote": {
-            "type": "string",
-            "description": "Property. Description of the feed registry"
-          },
-          "farm": {
-            "type": "string",
-            "format": "uri",
-            "description": "Relationship. Farm where the operation is carried out. https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriFarm/schema.json"
-          }
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Agrifood/FeedRegistry/schema.json",
+  "title": "Feed Registry",
+  "modelTags": "I4Trust",
+  "description": "Object modelling a feed registry for a livestock farm.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "name"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Property. Feed registy. Name of the animal food product."
+        },
+        "amount": {
+          "type": "integer",
+          "description": "Property. Amount of feed supplied to animals."
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date of supply of food to animals"
+        },
+        "supplier": {
+          "type": "string",
+          "description": "Property. Supplier of the feed"
+        },
+        "deliveryNote": {
+          "type": "string",
+          "description": "Property. Description of the feed registry"
+        },
+        "farm": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. Farm where the operation is carried out. https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriFarm/schema.json"
         }
       }
-    ]
-  }
+    }
+  ]
+}

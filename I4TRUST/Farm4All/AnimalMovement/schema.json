@@ -1,54 +1,58 @@
 {
-    "$schema": "http://json-schema.org/schema",
-    "$schemaVersion": "0.0.1",
-    "$id": "https://smart-data-models.github.io/dataModel.Agrifood/AnimalMovement/schema.json",
-    "title": "Animal Movement FarmData4All i4Trust",
-    "modelTags": "",
-    "description": "Object modelling an animal movement for a livestock farm. Proposed by SensoWave within the i4Trust project.",
-    "type": "object",
-    "required":["id","type","animal"],
-    "allOf": [
-      {
-        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
-      },
-      {
-        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-      },
-      {
-        "properties": {
-          "date": {
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Agrifood/AnimalMovement/schema.json",
+  "title": "Animal Movement",
+  "modelTags": "",
+  "description": "Object modelling of an animal movement for a livestock farm.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "animal"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date of animal movement."
+        },
+        "animal": {
+          "type": "array",
+          "description": "Relationship. List of animals subject to the movement. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/Animal/schema.json",
+          "items": {
             "type": "string",
-            "format": "date-time",
-            "description": "Property. Date of animal movement."
-          },
-          "animal": {
-            "type": "array",
-            "description": "Relationship. List of animals subject to the movement. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/Animal/schema.json",
-            "items":{
-              "type":"string",
-              "format":"uri"
-            }
-          },
-          "movement": {
-            "type": "string",
-            "description": "Property. Type of movement: input/output. Input means that animals enter the farm/enclosure, while output means that they leave."
-          },
-          "farm": {
-            "type": "string",
-            "format": "uri",
-            "description": "Relationship. Farm object of the movement. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriFarm/schema.json"
-          },
-          "parcel": {
-            "type": "string",
-            "format": "uri",
-            "description": "Relationship. Parcel object of the movement. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriParcel/schema.json"
-          },
-          "pen": {
-            "type": "string",
-            "format": "uri",
-            "description": "Relationship. Pen object of the movement. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/Pen/schema.json"
+            "format": "uri"
           }
+        },
+        "movement": {
+          "type": "string",
+          "description": "Property. Type of movement: input/output. Input means that animals enter the farm/enclosure, while output means that they leave."
+        },
+        "farm": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. Farm object of the movement. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriFarm/schema.json"
+        },
+        "parcel": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. Parcel object of the movement. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriParcel/schema.json"
+        },
+        "pen": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. Pen object of the movement. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/Pen/schema.json"
         }
       }
-    ]
-  }
+    }
+  ]
+}

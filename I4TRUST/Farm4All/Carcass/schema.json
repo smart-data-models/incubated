@@ -1,40 +1,44 @@
 {
-    "$schema": "http://json-schema.org/schema",
-    "$schemaVersion": "0.0.1",
-    "$id": "https://smart-data-models.github.io/dataModel.Agrifood/Carcass/schema.json",
-    "title": "Carcass Data Model FarmData4All i4Trust",
-    "modelTags": "",
-    "description": "Object modelling a carcass of an animal for a livestock farm. Proposed by SensoWave within the i4Trust project.",
-    "type": "object",
-    "required":["id","type","animal"],
-    "allOf": [
-      {
-        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
-      },
-      {
-        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-      },
-      {
-        "properties": {
-          "initialWeight": {
-            "type": "integer",
-            "description": "Property. Initial weight of the carcass"
-          },
-          "weight": {
-            "type": "integer",
-            "description": "Property. Weight of the carcass"
-          },
-          "date": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Property. Carcass modification date."
-          },
-          "animal": {
-            "type": "string",
-            "format": "uri",
-            "description": "Relationship. Animal origin of the carcass. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/Animal/schema.json"
-          }
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Agrifood/Carcass/schema.json",
+  "title": "Carcass Data Model",
+  "modelTags": "I4Trust",
+  "description": "Object modelling a carcass of an animal for a livestock farm.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "animal"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "initialWeight": {
+          "type": "integer",
+          "description": "Property. Initial weight of the carcass"
+        },
+        "weight": {
+          "type": "integer",
+          "description": "Property. Weight of the carcass"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Carcass modification date."
+        },
+        "animal": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. Animal origin of the carcass. Model https://github.com/smart-data-models/dataModel.Agrifood/blob/master/Animal/schema.json"
         }
       }
-    ]
-  }
+    }
+  ]
+}
