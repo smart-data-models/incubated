@@ -20,9 +20,12 @@
     },
     {
       "properties": {
-        "name": {
+        "type": {
           "type": "string",
-          "description": "Property. Name of the product"
+          "enum": [
+            "MeatProduct"
+          ],
+          "description": "Property. NGSI entity type. It has to be MeatProduct"
         },
         "weight": {
           "type": "integer",
@@ -36,7 +39,7 @@
         "carcass": {
           "type": "string",
           "format": "uri",
-          "description": "Relationship. Model https://github.com/smart-data-models/incubated/blob/master/I4TRUST/Farm4All/MeatIndustry/Carcass/schema.json"
+          "description": "Relationship. Relationship to the entity storing the carcass origin of the meat product. Model:'https://github.com/smart-data-models/incubated/blob/master/I4TRUST/Farm4All/MeatIndustry/Carcass/schema.json'"
         }
       }
     }

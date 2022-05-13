@@ -3,7 +3,7 @@
   "$schemaVersion": "0.0.1",
   "$id": "https://smart-data-models.github.io/dataModel.Agrifood/AnimalDisease/schema.json",
   "title": "Animal Disease FarmData4All i4Trust",
-  "modelTags": "I4Tust",
+  "modelTags": "I4Trust",
   "description": "Object modelling an animal disease for a livestock farm.",
   "type": "object",
   "required": [
@@ -20,9 +20,16 @@
     },
     {
       "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "AnimalDisease"
+          ],
+          "description": "Property. NGSI entity type. It has to be AnimalDisease"
+        },
         "disease": {
           "type": "string",
-          "description": "Property. Animal disease. Indicates the disease the animal has as diagnosed by a veterinarian. https://www.mapa.gob.es/es/ganaderia/temas/sanidad-animal-higiene-ganadera/sanidad-animal/enfermedades/"
+          "description": "Property. Animal disease. Indicates the disease the animal has as diagnosed by a veterinarian. Spanish source of diseases https://www.mapa.gob.es/es/ganaderia/temas/sanidad-animal-higiene-ganadera/sanidad-animal/enfermedades/"
         },
         "diagnosticTest": {
           "type": "string",
@@ -36,7 +43,7 @@
         "veterinarianTreatment": {
           "type": "string",
           "format": "uri",
-          "description": "Relationship. Medical treatment diagnosed by the veterinarian to treat the disease. https://github.com/smart-data-models/incubated/blob/master/I4TRUST/Farm4All/veterinarian/VeterinarianTreatment/schema.json"
+          "description": "Relationship. Medical treatment diagnosed by the veterinarian to treat the disease. https://github.com/smart-data-models/dataModel.Agrifood/blob/master/VeterinarianTreatment/schema.json"
         },
         "animals": {
           "type": "array",
