@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.CPSV-AP/Evidence/schema.json",
+  "title": "Smart Data models - Evidence schema",
+  "modelTags": "",
+  "description": "The Evidence class is defined in the Core Criterion and Core Evidence vocabulary (CCCEV) as any resource that can document or support a criterion response. It contains information that proves that a criterion requirement exists or is true, in particular evidences are used to prove that a specific criterion is met. Although the wording of the definition is different, the semantics are an exact match for CPSV's Input class which it replaces. Evidence can be any resource - document, artefact – anything needed for executing the Public Service. In the context of Public Services, Evidence is usually administrative documents or completed application forms. A specific Public Service may require the presence of certain Evidence or combinations of Evidence in order to be delivered. In some cases, the Output of one service will be Evidence for another service. Such relationships should be described in the associated Rule(s).",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.CPSV-AP/Evidence/LICENSE.md",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "identifier",
+    "name"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. It has to be Evidence.",
+          "enum": [
+            "Evidence"
+          ]
+        },
+        "identifier": {
+          "type": "string",
+          "description": "Property. Model:'dct:identifier'. This property represents an Identifier for the piece of Evidence."
+        },
+        "name": {
+          "type": "string",
+          "description": "Property. Model:'dct:title'.This property represents the official Name of the piece of Evidence."
+        },
+        "description": {
+          "type": "string",
+          "description": "Property. Model:'dct:description'. This property represents a free text Description of the piece of Evidence."
+        },
+        "dct:type": {
+          "type": "string",
+          "description": "Property. Model:'dct:type'. This property represents the type of Evidence as described in a controlled vocabulary."
+        },
+        "relatedDocumentation": {
+          "type": "array",
+          "description": "property. Model: 'foaf:page'. This property represents documentation that contains information related to the Evidence, for instance a particular template for an administrative document, an application or a guide on formatting the Input.",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "language": {
+          "type": "array",
+          "description": "Property. Model:'dct:language'. This property represents the language(s) in which the Evidence is available. This could be one or multiple languages, for instance in countries with more than one official language. The possible values for this property are described in a controlled vocabulary. European Publications Office's Languages Named Authority List (NAL), http://publications.europa.eu/mdr/authority/language/index.html",
+          "items": {
+            "type": "string",
+            "description": "Model: 'dct:LinguisticSystem"
+          }
+        }
+      }
+    }
+  ]
+}
