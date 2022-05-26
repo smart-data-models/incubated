@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "refI4AssetId": {
+      "type": "string"
+    },
+    "refI4AASId": {
+      "type": "string"
+    },
+    "refI4SubmodelId": {
+      "type": "string"
+    },
+    "idShort": {
+      "type": "string"
+    },
+    "valueType": {
+      "type": "object",
+      "properties": {
+        "dataObjectType": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      },
+      "required": [
+        "dataObjectType"
+      ]
+    },
+    "semanticId": {
+      "type": "object",
+      "properties": {
+        "keys": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "local": {
+                  "type": "boolean"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "index": {
+                  "type": "integer"
+                },
+                "idType": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "local",
+                "value",
+                "index",
+                "idType"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "keys"
+      ]
+    },
+    "constraints": {
+      "type": "array",
+      "items": {}
+    },
+    "hasDataSpecification": {
+      "type": "array",
+      "items": {}
+    },
+    "category": {
+      "type": "string"
+    },
+    "modelType": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "kind": {
+      "type": "string"
+    },
+    "descriptions": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "language": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "language",
+            "text"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "refI4AssetId",
+    "refI4AASId",
+    "refI4SubmodelId",
+    "idShort",
+    "semanticId",
+    "hasDataSpecification",
+    "category",
+    "modelType",
+    "kind",
+    "descriptions"
+  ]
+}
