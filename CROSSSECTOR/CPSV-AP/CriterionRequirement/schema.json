@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.CPSV-AP/CriterionRequirement/schema.json",
+  "title": "Smart Data models - CriterionRequirement schema",
+  "modelTags": "",
+  "description": "Not all public services are needed or usable by everyone. For example, the visa service operated by European countries is not needed by European citizens but is needed by some citizens from elsewhere, or public services offering unemployment benefits and grants are targeting specific societal groups. The CPSV reuses the Core Criterion and Core Evidence Vocabulary (CCCEV - https://joinup.ec.europa.eu/release/core-criterion-and-core-evidence-vocabulary-v100) for this class. The CCCEV provides more details but the Criterion Requirement class has three mandatory properties.",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.CPSV-AP/CriterionRequirement/LICENSE.md",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "identifier",
+    "description",
+    "criterionReqType"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. It has to be CriterionRequirement.",
+          "enum": [
+            "CriterionRequirement"
+          ]
+        },
+        "identifier": {
+          "type": "string",
+          "description": "Property. Model:'dct:identifier'. This property represents an Identifier for the Criterion Requirement."
+        },
+        "name": {
+          "type": "string",
+          "description": "Property. Model:'dct:title'. This property represents the official Name of the Criterion Requirement."
+        },
+        "criterionReqType": {
+          "type": "array",
+          "description": "Property. Model:'dct:type'. This property represents the type of Criterion Requirement as described in a controlled vocabulary (TBC).",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}
