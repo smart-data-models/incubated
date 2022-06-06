@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.CPSV-AP/OpeningHoursSpecification/schema.json",
+  "title": "Smart Data models - OpeningHoursSpecification schema",
+  "modelTags": "",
+  "description": "The CPSV-AP makes use of schema.org’s openingHours property to provide details of regular operations. The Opening Hours Specification class can be used to provide details of exceptional circumstances, such as being closed on public holidays. More specific closures can be indicated by including the schema:validFrom and schema:validThrough properties.",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.CPSV-AP/OpeningHoursSpecification/LICENSE.md",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "opens",
+    "closes"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. It has to be LifeEvent.",
+          "enum": [
+            "OpeningHoursSpecification"
+          ]
+        },
+        "closes": {
+          "type": "string",
+          "description": "Property. Model:'http://schema.org/Time'. The closing hour of the place or service on the given day(s) of the week. A point in time recurring on multiple days in the form hh:mm:ss[Z|(+|-)hh:mm].",
+          "format": "time",
+          "pattern": "^(2[0-3]|[01][0-9]):?([0-5][0-9]):?([0-5][0-9])(\\.[0-9]*)?(Z|[+-](?:2[0-3]|[01][0-9])(?::?(?:[0-5][0-9]))?)$"
+        },
+        "dayOfWeek": {
+          "type": "string",
+          "description": "Property. Model:'http://schema.org/dayOfWeek'. The day of the week for which these opening hours are valid. URLs from GoodRelations (http://purl.org/goodrelations/v1) are used (for Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday plus a special entry for PublicHolidays).",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "Property. Array of days of the week.",
+              "enum": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+                "PublicHolidays"
+              ]
+            },
+            {
+              "type": "string",
+              "description": "Property. Array of days of the week.",
+              "enum": [
+                "https://schema.org/Monday",
+                "https://schema.org/Tuesday",
+                "https://schema.org/Wednesday",
+                "https://schema.org/Thursday",
+                "https://schema.org/Friday",
+                "https://schema.org/Saturday",
+                "https://schema.org/Sunday",
+                "https://schema.org/PublicHolidays"
+              ]
+            }
+          ]
+        },
+        "opens": {
+          "type": "string",
+          "description": "Property. Model:'http://schema.org/Time'. The opening hour of the place or service on the given day(s) of the week. A point in time recurring on multiple days in the form hh:mm:ss[Z|(+|-)hh:mm].",
+          "format": "time",
+          "pattern": "^(2[0-3]|[01][0-9]):?([0-5][0-9]):?([0-5][0-9])(\\.[0-9]*)?(Z|[+-](?:2[0-3]|[01][0-9])(?::?(?:[0-5][0-9]))?)$"
+        },
+        "validFrom": {
+          "type": "string",
+          "description": "Property. The date when the item becomes valid. A date value in the form CCYY-MM-DD or a combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] in ISO 8601 date format.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "Property. Model:'http://schema.org/Date.",
+              "pattern": "^([0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])$"
+            },
+            {
+              "type": "string",
+              "description": "Property. Model:'http://schema.org/DateTime.",
+              "pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+            }
+          ]
+        },
+        "validThrough": {
+          "type": "string",
+          "description": "Property. The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours. A date value in the form CCYY-MM-DD or a combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] in ISO 8601 date format.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "Property. Model:'http://schema.org/Date.",
+              "pattern": "^([0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])$"
+            },
+            {
+              "type": "string",
+              "description": "Property. Model:'http://schema.org/DateTime.",
+              "pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

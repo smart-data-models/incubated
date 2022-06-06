@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.CPSV-AP/Rule/schema.json",
+  "title": "Smart Data models - Rule schema",
+  "modelTags": "",
+  "description": "The Rule class represents a document that sets out the specific rules, guidelines or procedures that the Public Service follows. It includes the terms of service, licence, and authentication requirements of the Public Service.",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.CPSV-AP/Rule/LICENSE.md",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "identifier",
+    "description",
+    "name"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. It has to be Rule.",
+          "enum": [
+            "Rule"
+          ]
+        },
+        "identifier": {
+          "type": "string",
+          "description": "Property. Model:'dct:identifier'. This property represents an Identifier for the Rule."
+        },
+        "description": {
+          "type": "string",
+          "description": "Property. Model:'dct:description'. This property represents a free text Description of the Rule."
+        },
+        "name": {
+          "type": "string",
+          "description": "Property. Model:'dct:title'. This property represents the name of the Rule."
+        },
+        "language": {
+          "type": "array",
+          "description": "Property. Model:'dct:language'. This property represents the language(s) in which the Rule is available. This could be one or multiple languages, for instance in countries with more than one official language. The possible values for this property are described in a controlled vocabulary. European Publications Office's Languages Named Authority List (NAL), http://publications.europa.eu/mdr/authority/language/index.html",
+          "items": {
+            "type": "string"
+          }
+        },
+        "implements": {
+          "anyOf": [
+            {
+              "type": "array",
+              "description": "Property. Array of identifiers format of any NGSI entity.",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+              }
+            },
+            {
+              "type": "array",
+              "description": "Property. Array of URIs format of any NGSI entity.",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          ],
+          "description": "Relationship. Model:'cpsv:implements'. The Implements property links a Rule to relevant legislation or policy documents i.e. the Legal Resource under which the Rules are being defined."
+        }
+      }
+    }
+  ]
+}

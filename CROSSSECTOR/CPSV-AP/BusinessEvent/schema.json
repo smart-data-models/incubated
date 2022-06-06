@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.CPSV-AP/BusinessEvent/schema.json",
+  "title": "Smart Data models - BusinessEvent schema",
+  "modelTags": "",
+  "description": "This class represents a Business Event, which specialises Event. A Business Event is a specific situation or event in the lifecycle of a business that fulfils one or more needs or (legal) obligations of that business at this specific point in time. A Business Event requires a set of public services to be delivered and consumed in order for the associated business need(s) or obligation(s) to be fulfilled. Business Events are defined within the context of a particular Member State. In other words, a Business Event groups together a number of public services that need to be delivered for completing that particular event.",
+  "derivedFrom": "Event",
+  "license": "https://smart-data-models.github.io/dataModel.CPSV-AP/BusinessEvent/LICENSE.md",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "identifier",
+    "name"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. It has to be BusinessEvent.",
+          "enum": [
+            "BusinessEvent"
+          ]
+        },
+        "identifier": {
+          "type": "string",
+          "description": "Property. Model:'dct:identifier'. This property represents an Identifier for the Event."
+        },
+        "name": {
+          "type": "string",
+          "description": "Property. Model:'dct:title'. This property represents the Name (or title) of the Event."
+        },
+        "description": {
+          "type": "string",
+          "description": "Property. Model:'dct:description'. This property represents a free text description of the Event. The description is likely to be the text that a business or citizen sees for that specific Event when looking for relevant Public Services. Public administrations are therefore encouraged to include a reasonable level of detail in the description."
+        },
+        "eventType": {
+          "type": "array",
+          "description": "Property. Model:'dct:type'. The type property links an Event to a controlled vocabulary of event types and it is the nature of those controlled vocabularies that is the major difference between a business event, such as creating the business in the first place and a life event, such as the birth of a child.",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Registering a company",
+              "Needing a licence, permit or certificate to start or continue an activity",
+              "Registering Intellectual Property",
+              "Registering a branch",
+              "Starting a new activity",
+              "Financing a company",
+              "Hiring an employee",
+              "Registering a cross-border business",
+              "Registering a branch",
+              "Financing a company",
+              "Needing a licence, permit or certificate to start or continue an activity",
+              "Registering Intellectual Property",
+              "Hiring an employee",
+              "Participating in public procurement",
+              "Notifying and reporting to authorities",
+              "Starting a new activity",
+              "Registering a branch",
+              "Having problems in paying creditors",
+              "Restructuring of a company",
+              "Dissolution of a company"
+            ]
+          }
+        },
+        "relatedService": {
+          "description": "Relationship. Model:'dct:relation'. Range: PublicService. This property links an event directly to a public service that is related to it.",
+          "anyOf": [
+            {
+              "type": "array",
+              "description": "Property. Array of identifiers format of any NGSI entity.",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+              }
+            },
+            {
+              "type": "array",
+              "description": "Property. Array of URIs format of any NGSI entity.",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
