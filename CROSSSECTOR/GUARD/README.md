@@ -1,1 +1,1 @@
-Directory for description of the data models related to IT comi9ng from project guard.
+Directory for description of the data models related to IT coming from project guard. 
