@@ -1,24 +1,35 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schemaVersion": "0.1.0",
+  "description": "Maps a RAMI4.0 SubmodelElement representing a PROPERTY of a referrenced Asset Administration Shell. RAMI4.0 Standard ",
   "type": "object",
   "properties": {
     "id": {
       "type": "string"
     },
     "type": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "I4SubmodelElementProperty"
+      ],
+      "description": "Property. NGSI Entity type. It has to be I4SubmodelElementProperty"
     },
     "refI4AssetId": {
-      "type": "string"
+      "type": "string",
+      "description": "Property. References the root Asset which this Submodel belongs to"
     },
     "refI4AASId": {
-      "type": "string"
+      "type": "string",
+      "description": "Property. References the root Asset Administration Shell which this Submodel belongs to"
     },
     "refI4SubmodelId": {
-      "type": "string"
+      "type": "string",
+      "description": "Property. References the root Submodel which this Submodel belongs to"
     },
     "idShort": {
-      "type": "string"
+      "type": "string",
+      "description": "Property. RAMI4.0 ID for this SubmodelElement"
+
     },
     "valueType": {
       "type": "object",
