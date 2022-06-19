@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schemaVersion": "0.1.0",
+  "description": "Maps a RAMI4.0 SubmodelElement representing a PROPERTY of a referrenced Asset Administration Shell. RAMI4.0 Standard ",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "I4SubmodelElementProperty"
+      ],
+      "description": "Property. NGSI Entity type. It has to be I4SubmodelElementProperty"
+    },
+    "refI4AssetId": {
+      "type": "string",
+      "description": "Property. References the root Asset which this Submodel belongs to"
+    },
+    "refI4AASId": {
+      "type": "string",
+      "description": "Property. References the root Asset Administration Shell which this Submodel belongs to"
+    },
+    "refI4SubmodelId": {
+      "type": "string",
+      "description": "Property. References the root Submodel which this Submodel belongs to"
+    },
+    "idShort": {
+      "type": "string",
+      "description": "Property. RAMI4.0 ID for this SubmodelElement"
+
+    },
+    "valueType": {
+      "type": "object",
+      "properties": {
+        "dataObjectType": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      },
+      "required": [
+        "dataObjectType"
+      ]
+    },
+    "semanticId": {
+      "type": "object",
+      "properties": {
+        "keys": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "local": {
+                  "type": "boolean"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "index": {
+                  "type": "integer"
+                },
+                "idType": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "local",
+                "value",
+                "index",
+                "idType"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "keys"
+      ]
+    },
+    "constraints": {
+      "type": "array",
+      "items": {}
+    },
+    "hasDataSpecification": {
+      "type": "array",
+      "items": {}
+    },
+    "category": {
+      "type": "string"
+    },
+    "modelType": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "kind": {
+      "type": "string"
+    },
+    "descriptions": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "language": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "language",
+            "text"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "refI4AssetId",
+    "refI4AASId",
+    "refI4SubmodelId",
+    "idShort",
+    "semanticId",
+    "hasDataSpecification",
+    "category",
+    "modelType",
+    "kind",
+    "descriptions"
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "hasDataSpecification": {
+      "type": "array",
+      "items": {}
+    },
+    "assetIdentificationModelRef": {
+      "type": "object",
+      "properties": {
+        "keys": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "local": {
+                  "type": "boolean"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "index": {
+                  "type": "integer"
+                },
+                "idType": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "local",
+                "value",
+                "index",
+                "idType"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "keys"
+      ]
+    },
+    "billOfMaterialRef": {
+      "type": "object",
+      "properties": {
+        "keys": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "local": {
+                  "type": "boolean"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "index": {
+                  "type": "integer"
+                },
+                "idType": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "local",
+                "value",
+                "index",
+                "idType"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "keys"
+      ]
+    },
+    "identification": {
+      "type": "object",
+      "properties": {
+        "idType": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "idType",
+        "id"
+      ]
+    },
+    "administration": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "version",
+        "revision"
+      ]
+    },
+    "idShort": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "modelType": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "kind": {
+      "type": "string"
+    },
+    "descriptions": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "language": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "language",
+            "text"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "hasDataSpecification",
+    "assetIdentificationModelRef",
+    "billOfMaterialRef",
+    "identification",
+    "administration",
+    "idShort",
+    "category",
+    "modelType",
+    "kind",
+    "descriptions"
+  ]
+}
