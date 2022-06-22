@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://github.com/smart-data-models/incubated/tree/master/SMARTCITIES/AnonymousId",
+  "title": "Anonymous Id",
+  "modelTags": "",
+  "description": "Anonymized identifier for flow monitoring. Includes an origin and destiny property to map its path.",
+  "type": "object",
+  "required": [
+    "anonymized_id",
+    "type",
+    "date",
+    "dest",
+    "algorithm"
+  ],
+  "allOf": [
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "AnonymousId"
+          ],
+          "description": "Property. NGSI entity type. It has to be AnonymousId"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date of the detected anonymous identifier."
+        },
+        "orig": {
+          "type": "string",
+          "description": "String value of origin id, last entity where the anonymous id was detected."
+        },
+        "dest": {
+          "type": "string",
+          "description": "String value of destination id, actual entity where the anonymous id was detected."
+        },
+        "coords_lat": {
+          "type": "number",
+          "description": "Decimal latitude of the anonymous id."
+        },
+        "coords_lon": {
+          "type": "number",
+          "description": "Decimal longitude of the anonymous id."
+        },
+        "anonymized_id": {
+          "type": "string",
+          "description": "Anonymized identifier"
+        },
+        "source": {
+          "type": "string",
+          "description": "String value of source of this AnonymousId, eg. (ALPR, People Monitoring, Face Recognition, etc...)"
+        },
+        "algorithm": {
+          "type": "string",
+          "description": "Name of the algorithm used to anonymize the Id"
+        }
+      }
+    }
+  ]
+}

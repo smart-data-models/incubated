@@ -1,1 +1,0 @@
-Directory for Farm4all data models creation
