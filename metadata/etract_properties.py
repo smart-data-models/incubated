@@ -24,6 +24,7 @@ for element in properties["properties"]:
 
     if "description" in properties["properties"][element]:
         print(element + ": " + properties["properties"][element]["description"])
+        # print(element)
     else:
         print("missing description")
     # print()

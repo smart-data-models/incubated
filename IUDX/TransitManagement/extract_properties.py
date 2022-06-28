@@ -16,6 +16,8 @@ def open_json(fileUrl):
             return json.loads(file.read())
         except:
             return None
+
+
 locationSchema = "https://raw.githubusercontent.com/smart-data-models/dataModel.DCAT-AP/master/Dataset/schema.json"
 schema = open_json(locationSchema)
 for element in schema["allOf"][1]["properties"]:
@@ -26,4 +28,3 @@ for element in schema["allOf"][1]["properties"]:
     else:
         print("missing description")
     # print()
-
