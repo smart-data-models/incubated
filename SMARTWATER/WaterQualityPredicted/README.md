@@ -1,1 +1,0 @@
-This directory is for creation of water quality prediction data model 

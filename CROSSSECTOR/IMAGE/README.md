@@ -1,1 +1,0 @@
-Directory for creation of image and associated objects
