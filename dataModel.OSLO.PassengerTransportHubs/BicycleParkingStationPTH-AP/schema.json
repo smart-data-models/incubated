@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/schema#",
     "$schemaVersion": "0.0.1",
     "modelTags": "",
-    "$id": "https://github.com/brechtvdv/dataModel.OSLO.PassengerTransportHubs/raw/master/BicycleParkingStationPTH-AP/schema.json",
+    "$id": "https://github.com/smart-data-models/incubated/dataModel.OSLO.PassengerTransportHubs/raw/master/BicycleParkingStationPTH-AP/schema.json",
     "title": "Bicycle Parking Station PTH-AP schema",
     "description": "Bicycle Parking Station Schema meeting Passenger Transport Hubs AP Schema specification",
     "type": "object",
@@ -27,46 +27,41 @@
                     "description": "Property. Model:'http://schema.mobivoc.org/#capacity'. ",
                     "properties": {
                         "type": {
-			    "type": "string",
-			    "enum": [
-				"RealTimeCapacity"
-			    ]
-			},
-			"RealTimeCapacity.freePlaces": {
-			    "type": "number",
-			    "description": "Property. Model: 'http://schema.mobivoc.org/#currentValue'. Indicates the current value of the real-time capacity"
-			},
-			"Capacity.total": {
-			    "type": "number",
-			    "description": "Property. Model: 'http://schema.mobivoc.org/#totalCapacity'. Indicates the capacity of a resource."
-                    	}
-		    },
-		    "required": [
-			    "type",
-			    "RealTimeCapacity.freePlaces",
-			    "Capacity.total"
-		    ]
+                          "type": "string",
+                          "enum": [
+                            "Capacity"
+                          ]
+                        },
+                    "Capacity.total": {
+                        "type": "number",
+                        "description": "Property. Model: 'http://schema.mobivoc.org/#totalCapacity'. Indicates the capacity of a resource."
+                                }
+                    },
+                    "required": [
+                        "type",
+                        "Capacity.total"
+                    ]
                 },
                 "geometry": {
                     "type": "object",
                     "description": "Property. Model:'http://www.w3.org/ns/locn#geometry'. The geometry corresponding to the infrastructure element.",
-		    "properties": {
-		        "type": {
-				"type": "string",
-				"description": "Property. Model: 'http://www.w3.org/ns/locn#Geometry'",
-				"enum": [
-					"Geometry"
-				]
-			},
-			"wkt": {
-				"type": "string",
-				"description": "Property. Model:'http://www.opengis.net/ont/geosparql#asWKT'. Geometry expressed in wkt format."
-			}
-		    },
-		    "required": [
-		    	"type",
-			"wkt"
-		    ]
+                    "properties": {
+                        "type": {
+                          "type": "string",
+                          "description": "Property. Model: 'http://www.w3.org/ns/locn#Geometry'",
+                          "enum": [
+                              "Geometry"
+                          ]
+                        },
+                        "wkt": {
+                            "type": "string",
+                            "description": "Property. Model:'http://www.opengis.net/ont/geosparql#asWKT'. Geometry expressed in wkt format."
+                        }
+                    },
+                    "required": [
+                      "type",
+                      "wkt"
+                    ]
                 }
             }
         }
@@ -74,8 +69,8 @@
     "required": [
         "id",
         "type",
-	"ParkingFacility.^capacity",
+	    "ParkingFacility.^capacity",
         "geometry",
-	"location"
+	    "location"
     ]
 }

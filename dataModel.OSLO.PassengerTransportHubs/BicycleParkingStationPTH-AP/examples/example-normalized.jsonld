@@ -1,39 +1,48 @@
 {
-  "id": "https://data.velopark.be/data/NMBS_17",
+  "id": "https://blue-bike.be/stations/141",
   "type": "BicycleParkingStation",
   "ParkingFacility.^capacity": {
 	"type": "Relationship",
 	"object": {
-    		"type": "RealTimeCapacity",
-    		"RealTimeCapacity.freePlaces": {
-			"type": "Property",
-			"value": "10"
-		},
-    		"Capacity.total": {
-			"type": "Property",
-			"value": "20"
-		}
+	    "type": "Capacity",
+        "Capacity.total": {
+            "type": "Property",
+            "value": "20"
+        },
+        "Capacity.vehicletype": {
+            "type": "Relationship",
+            "object": {
+                "type": "VehicleType",
+                "VehicleType.prefLabel": "bicycle"
+            }
+        }
  	}
   },
-  "geometry": {
+  "InfrastructureElement.geometry": {
 	"type": "Relationship",
 	"object": {
 		"type": "Geometry",
 		"Geometry.wkt": {
 			"type": "Property",
-			"value": "POINT(-84.5898 37.07855)"
+			"value": "POINT(3.313743000000 50.855703000000)"
 		}
 	}
   },
   "location": {
         "type": "Point",
         "coordinates": [
-          -84.5898,
-          37.07855
+          3.313743000000,
+          50.855703000000
         ]
   },
   "@context": [
-    "https://github.com/brechtvdv/dataModel.OSLO.PassengerTransportHubs/raw/master/context.jsonld",
+    "https://brechtvdv.github.io/demo-data/OSLO-PassengerTransportHubs-AP_en.jsonld",
+    {
+        "VehicleType.preferredLabel": {
+          "@id": "http://www.w3.org/2004/02/skos/core#prefLabel",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        }
+    },
     "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
   ]
 }

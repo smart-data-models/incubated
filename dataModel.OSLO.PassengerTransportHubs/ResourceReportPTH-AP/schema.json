@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "$id": "https://github.com/smart-data-models/incubated/dataModel.OSLO.PassengerTransportHubs/raw/master/BicycleParkingStationPTH-AP/schema.json",
+  "title": "Resource Report PTH-AP schema",
+  "description": "Resource Report Schema meeting Passenger Transport Hubs AP Schema specification",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "ResourceReport"
+          ],
+          "description": "Property. NGSI Entity type. It has to be ResourceReport. A summary of resources connected to mobility services based on defined filters by the person requesting the report."
+        },
+        "ResourceReport.actuator": {
+          "type": "object",
+          "description": "Property. Model:'https://purl.eu/ns/mobility/passenger-transport-hubs#actuator'. Engine of the means of transport.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "ActuatorType"
+              ]
+            },
+            "ActuatorType.preferredLabel": {
+              "type": "string",
+              "description": "Property. Model: 'http://www.w3.org/2004/02/skos/core#prefLabel'. Preferred label.",
+              "enum": [
+                "human",
+                "electricWithSupport",
+                "electric",
+                "combustionEngine"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "ActuatorType.preferredLabel"
+          ]
+        },
+        "ResourceReport.location": {
+          "type": "object",
+          "description": "Property. Model:'https://purl.eu/ns/mobility/passenger-transport-hubs#location'. Location of the Resource. This could be a bike parking station or the real-time location of the vehicle, e.g. in free-floating part transport."
+        },
+        "ResourceReport.meansOfTransport": {
+          "type": "object",
+          "description": "Property. Model:'https://purl.eu/ns/mobility/passenger-transport-hubs#Mobiliteitsdienst.vervoermiddel'. The type of means of transport of the Resource.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "MeansOfTransport"
+              ]
+            },
+            "MeansOfTransport.preferredLabel": {
+              "type": "string",
+              "description": "Property. Model: 'http://www.w3.org/2004/02/skos/core#prefLabel'. Preferred label.",
+              "enum": [
+                "car",
+                "bicycle",
+                "onFoot",
+                "airplane",
+                "boat",
+                "train",
+                "subway",
+                "tram",
+                "bus",
+                "step",
+                "motorcycle",
+                "truck",
+                "lift",
+                "escalator",
+                "treadmill",
+                "pedelec",
+                "scooter",
+                "skateboard"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "MeansOfTransport.preferredLabel"
+          ]
+        },
+        "ResourceReport.number": {
+          "type": "integer",
+          "description": "Property. Model:'https://purl.eu/ns/mobility/passenger-transport-hubs#number'. The number of resources."
+        },
+        "ResourceReport.service": {
+          "type": "object",
+          "description": "Property. Model:'https://purl.eu/ns/mobility/passenger-transport-hubs#service'. The MobilityService used within the ResourceReport."
+        },
+        "ResourceReport.status": {
+          "type": "object",
+          "description": "Property. Model:'https://purl.eu/ns/mobility/passenger-transport-hubs#status'. State of a Resource. E.g. reserved, inactive, available. Determines whether a resource can be used.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "ResourceStatus"
+              ]
+            },
+            "ResourceStatus.preferredLabel": {
+              "type": "string",
+              "description": "Property. Model: 'http://www.w3.org/2004/02/skos/core#prefLabel'. Preferred label.",
+              "enum": [
+                "inactive",
+                "deleted",
+                "relocated",
+                "available",
+                "unavailable",
+                "reserved",
+                "inUse"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "ResourceStatus.preferredLabel"
+          ]
+        },
+        "ResourceReport.type": {
+          "type": "object",
+          "description": "Property. Model:'http://purl.org/dc/terms/type'. Nature of the Resource.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "ResourceType"
+              ]
+            },
+            "ResourceType.preferredLabel": {
+              "type": "string",
+              "description": "Property. Model: 'http://www.w3.org/2004/02/skos/core#prefLabel'. Preferred label.",
+              "enum": [
+                "seating",
+                "vehicle",
+                "parkingSpace",
+                "room",
+                "chargingStation"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "ResourceType.preferredLabel"
+          ]
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "number"
+  ]
+}
