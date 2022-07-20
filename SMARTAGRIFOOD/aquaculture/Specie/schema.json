@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "$id": "https://smart-data-models.github.io/dataModel.Aquaculture/Specie/schema.json",
+  "title": " Specie",
+  "description": "Spiece of the animal",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/AgriFood-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Specie"
+          ],
+          "description": "Property. NGSI Entity Type"
+        },
+        "absorptionRatio": {
+          "type": "number",
+          "description": "Property."
+        },
+        "stomachCapacity": {
+          "type": "number",
+          "description": "Property."
+        },
+        "waterUptake": {
+          "type": "number",
+          "description": "Property."
+        },
+        "midgutMaxdur": {
+          "type": "number",
+          "description": "Property."
+        },
+        "ingestionDelay": {
+          "type": "number",
+          "description": "Property."
+        },
+        "transportPattern": {
+          "type": "number",
+          "description": "Property."
+        },
+        "appetiteFactor": {
+          "type": "number",
+          "description": "Property."
+        },
+        "midgutVolume": {
+          "type": "number",
+          "description": "Property."
+        },
+        "digestionDelay": {
+          "type": "number",
+          "description": "Property."
+        },
+        "hasFishPopulation": {
+          "type": "string",
+          "description": "Relationship."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "hasFishPopulation"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "$id": "https://smart-data-models.github.io/dataModel.Aquaculture/Sump/schema.json",
+  "title": "Sump",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/AgriFood-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Sump"
+          ],
+          "description": "Property. NGSI Entity Type"
+        },
+        "co2": {
+          "type": "number",
+          "description": "Property. Model:'http://schema.org/Number'. Units:'mg/L'. The measured dissolved C02 concentration."
+        },
+        "pH": {
+          "type": "number",
+          "description": "Property. Model: https://schema.org/Number. Water pH level measured."
+        },
+        "processes": {
+          "type": "array",
+          "description": "Property. ",
+          "items": {
+            "type": "string"
+          }
+        },
+        "redoxPotential": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "refFishContainment": {
+          "type": "array",
+          "description": "Relationship. References to the related FishContainments",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifyerType"
+          }
+        },
+        "totalGasPressure": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "waterConsumption": {
+          "type": "number",
+          "description": "Property. Units:'liters'"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
