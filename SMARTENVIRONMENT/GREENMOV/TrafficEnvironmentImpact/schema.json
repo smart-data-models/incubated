@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "$id": "https://smart-data-models.github.io/dataModel.Environment/TrafficEnvironmentImpact/schema.json",
+  "title": "Smart Data Models - Traffic Environment Impact",
+  "description": "Environmental Impact of traffic based on the vehicles traffic and their emission characteristics",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "TrafficEnvironmentImpact"
+          ],
+          "description": "Property. NGSI type. it has to be TrafficEnvironmentImpact"
+        },
+        "co2": {
+          "type": "number",
+          "description": "Property. The measured C02 emission concentration. Units:'mg/L'"
+        },
+        "dateObservedFrom": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date of the start of measurement (timestamp) in ISO 8601"
+        },
+        "dateObservedTo": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date of the end of measurement (timestamp) in ISO 8601"
+        },
+        "traffic": {
+          "type": "array",
+          "description": "property",
+          "items": {
+            "type": "object",
+            "properties": {
+              "vehicleClass": {
+                "type": "string",
+                "description": "Property. enumeration of the vehicle classes"
+              },
+              "trafficIntensity": {
+                "type": "number",
+                "description": "Property. Total number of vehicle of emission range defined by the vehicle class"
+              },
+              "averageVehicleSpeed": {
+                "type": "number",
+                "description": "Property. Total number of vehicle of emission range defined by the vehicle class"
+              },
+              "averageOccupancy": {
+                "type": "number",
+                "description": "Property. The average number of people in vehicles of emission range defined by  the vehicle class"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "$id": "https://smart-data-models.github.io/dataModel.Environment/NoisePollutionForecast/schema.json",
+  "title": "Smart Data Models - Noise Pollution Forecast",
+  "description": "Noise Pollution forecast stores the expectation about noise pollution based on some input elements and the noise elements present.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "NoisePollutionForecast"
+          ],
+          "description": "Property. NGSI type. it has to be NoisePollutionForecast"
+        },
+        "noiseAnnoyanceIndex": {
+          "type": "number",
+          "description": "Property. Index (1 to 10) according to noise annoyance level",
+          "min": 1,
+          "max": 10
+        },
+        "LANight": {
+          "type": "number",
+          "description": "Property. Average sound level recorded during the night (8h)"
+        },
+        "LAmax2": {
+          "type": "number",
+          "description": "Property. Maximum sound level recorded for the last 2 hours"
+        },
+        "LAeq2": {
+          "type": "number",
+          "description": "Property. Average sound level over the last 2 hours"
+        },
+        "noiseOrigin": {
+          "type": "string",
+          "description": "Property. Main origin (source) of the recorded noise at installation of the sensor"
+        },
+        "LAeq": {
+          "type": "number",
+          "description": "Property. Average sound level (equivalent) recorded during the measuring time"
+        },
+        "LAeq_d": {
+          "type": "number",
+          "description": "Property. Average sound level during the day (8h)"
+        },
+        "LAmax": {
+          "type": "number",
+          "description": "Property. Maximum sound level recorded during the measuring time"
+        },
+        "validFrom": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. The start of the validity period for this forecast as a ISO8601 format"
+        },
+        "validTo": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. The end of the validity period for this forecast as a ISO8601 format"
+        },
+        "validity": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Includes the validity period for this forecast as a ISO8601 time interval."
+        },
+        "dateIssued": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. The date and time the forecast was issued by the service provider in ISO8601 UTC format."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
