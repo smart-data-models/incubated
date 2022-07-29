@@ -1,0 +1,211 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "",
+    "derivedFrom": "",
+    "license": "",
+    "$id": "https://gitlab.com/hiades/fiware/smart-data-models/-/raw/main/dataModel.Vessel/schema.json",
+    "title": "Smart Data models Vessel schema",
+    "description": "The data model is intended to provide information about vessels. It allows to represent the properties of each vessel: static and dynamic information",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Property. Unique identifier of the entity"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI Entity type. It has to be Vessel",
+                    "enum": [
+                        "Vessel"
+                    ]
+                },
+                "location": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string"
+                        },
+                        "coordinates": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        }
+                    },
+                    "description": "Geoproperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygoProperty."
+                },
+                "imo": {
+                    "type": "number",
+                    "description": "Property. Model:'https://schema.org/Number'. International Maritime Organization Number (a global forever UID)"
+                },
+                "mmsi": {
+                    "type": "number",
+                    "description": "Property. Model:'https://schema.org/Number'. Marine Mobile Service Identity Number (a temporarily assigned UID, issued by that object's current flag state)"
+                },
+                "callSign": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Maritime call signs are call signs assigned as unique identifiers to vessels"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Vessel Name"
+                },
+                "speedOverGround": {
+                    "type": "number",
+                    "description": "Property. Model:'https://schema.org/Number'. Units: 'meters per second'. Speed Over Ground (SOG)."
+                },
+                "courseOverGround": {
+                    "type": "number",
+                    "description": "Property. Model:'https://schema.org/Number'. Units: 'degree'. Course Over Ground (COG)."
+                },
+                "heading": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 511,
+                    "description": "Property. Model:'https://schema.org/Number'. Units: 'degree'. Heading of the Vessel (HDG)."
+                },
+                "rateOfTurn": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 708,
+                    "description": "Property. Model:'https://schema.org/Number'. Units: 'degree'. Rate of Turn (ROT)."
+                },
+                "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'https://schema.org/Text'. Date and time of creation of the entity represented by an ISO 8601 UTC format."
+                },
+                "modifiedAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'https://schema.org/Text'. Date and time of last modification of the entity represented by an ISO 8601 UTC format."
+                },
+                "observedAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'https://schema.org/Text'. Date and time of this observation represented by an ISO 8601 UTC format."
+                },
+                "flagCode": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. International Flag Code"
+                },
+                "vesselType": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 99,
+                    "description": "Property. Model:'https://schema.org/Number'. Code for vessel type"
+                },
+                "vesselSubType": {
+                    "type": "number",
+                    "description": "Property. Model:'https://schema.org/Number'. Code for vessel Sub-Type"
+                },
+                "grossTonnage": {
+                    "type": "number",
+                    "description": "Property. Model:'https://schema.org/Number'. Units: 'moorson tons'. Gross Tonnage (GT)."
+                },
+                "beam": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1000,
+                    "description": "Property. Model:'https://schema.org/Number'. Units: 'meters'. Beam of Vessel."
+                },
+                "length": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 8000,
+                    "description": "Property. Model:'https://schema.org/Number'. Units: 'meters'. Length of Vessel."
+                },
+                "maximumDraught": {
+                    "type": "number",
+                    "description": "Property. Model:'https://schema.org/Number'. Units: 'meters'. Maximum Draught."
+                },
+                "deadweightTonnage": {
+                    "type": "number",
+                    "description": "Property. Model:'https://schema.org/Number'. Units: 'tons'. Deadweight Tonnage (DWT)."
+                },
+                "buildingAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'https://schema.org/Text'. Date and time of building of the vessel represented by an ISO 8601 UTC format."
+                },
+                "toBow": {
+                    "type": "number",
+                    "description": "Property. Model:'http://schema.org/Number'. Units: 'meters'. Dimension to Bow."
+                },
+                "toStern": {
+                    "type": "number",
+                    "description": "Property. Model:'http://schema.org/Number'. Units: 'meters'. Dimension to Stern."
+                },
+                "toPort": {
+                    "type": "number",
+                    "description": "Property. Model:'http://schema.org/Number'. Units: 'meters'. Dimension to Port."
+                },
+                "toStardboard": {
+                    "type": "number",
+                    "description": "Property. Model:'http://schema.org/Number'. Units: 'meters'. Dimension to Starboard."
+                },
+                "navigationStatus": {
+                    "type": "number",
+                    "enum": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                    "description": "Property. Model:'http://schema.org/Number'. Enum: '0=Under way using engine,1=At anchor,2=Not under command,3=Restricted manoeuverability,4=Constrained by her draught,5=Moored,6=Aground,7=Engaged in Fishing,8=Under way sailing,9=Reserved for future amendment of Navigational Status for HSC,10=Reserved for future amendment of Navigational Status for WIG,11=Reserved for future use,12=Reserved for future use,13=Reserved for future use,14=AIS-SART is active,15=Not defined (default)'. Navigation Status. AIVDM/AIVDO data format."
+                },
+                "airDraught": {
+                    "type": "number",
+                    "description": "Property. Model:'http://schema.org/Number'. Air Draught (distance from the top of a vessel''s highest point to its waterline). Units: 'meters'"
+                },
+                "draught": {
+                    "type": "number",
+                    "description": "Property. Model:'http://schema.org/Number'. Draught (vertical distance between the waterline and the bottom of the hull (keel)). Units: 'meters'"
+                },
+                "photo": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Vessel Photo URL"
+                },
+                "ownerVessel": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Owner Vessel"
+                },
+                "manager": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Manager Vessel"
+                },
+                "financialOwner": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Financial Owner"
+                },
+                "technicalManager": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Technical Manager"
+                },
+                "dataProvider": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. A sequence of characters identifying the provider of the harmonised data entity"
+                },
+                "destinationPort": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Destination Port (Geographic coding scheme UN/LOCODE (Unitsed Nations Code for Trade and Transport Locations))"
+                },
+                "previousPort": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Previous Port (Geographic coding scheme UN/LOCODE (Unitsed Nations Code for Trade and Transport Locations))"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type",
+        "location",
+        "mmsi",
+        "observedAt"
+    ]
+} 
