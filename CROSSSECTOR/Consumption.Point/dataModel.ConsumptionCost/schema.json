@@ -1,0 +1,157 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.XXX/ConsumptionCost/schema.json",
+    "title": "Smart Data Models - Consumption Cost",
+    "description": "Information of energy consumed and its cost by consumption point",
+    "modelTags": "",
+    "derivedFrom": "",
+    "license": "https://smart-data-models.github.io/dataModel.XXX/ConsumptionCost/LICENSE.md",
+    "type": "object",
+    "allOf": [{
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI entity type. It must be equal to ConsumptionCost.",
+                    "enum": [
+                        "ConsumptionCost"
+                    ]
+
+                },
+                "year": {
+                    "type": "number",
+                    "description": "Property. The year to which the entity refers."
+                },
+                "month": {
+                    "type": "number",
+                    "description": "Property. The month to which the entity refers."
+                },
+                "consumptionPoint": {
+                    "type": "object",
+                    "description": "Property. Consumption point identifier which to entity refers.",
+                    "items": {
+                        "oneOf": [{
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            {
+                                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                            }
+                        ]
+                    },
+                    "maxItems": 1
+                },
+                "consumptionAndCost": {
+                    "type": "array",
+                    "description": "Property. Array with energy consumption and cost by type of energy.",
+                    "items": [{
+                        "type": "object",
+                        "description": "Property. Entity with the energy consumed and its cost by type of energy.",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "description": "Property. Identifier of consumption leture entity. For example, CUPS in Spain.",
+                                "items": {
+                                    "oneOf": [{
+                                            "type": "string",
+                                            "format": "uri"
+                                        },
+                                        {
+                                            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                                        }
+                                    ]
+                                }
+                            },
+                            "energyType": {
+                                "type": "string",
+                                "description": "Property. Type of energy. Enum:'electricity, water, gas, fuel, pellet, diesel oil'.",
+                                "enum": [
+                                    "electricity",
+                                    "water",
+                                    "gas",
+                                    "fuel",
+                                    "pellet",
+                                    "diesel oil"
+                                ]
+                            },
+                            "supplyName": {
+                                "type": "string",
+                                "description": "Property. Name of the supply company."
+                            },
+                            "energyConsumed": {
+                                "type": "object",
+                                "description": "Property. Amount of energy consumed.",
+                                "properties": {
+                                    "unitCode": {
+                                        "description": "Property. Measurment unit used. Units:'[MTQ, KWH]'.",
+                                        "oneOf": [{
+                                                "type": "string",
+                                                "enum": ["MTQ"]
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": ["KWH"]
+                                            }
+                                        ]
+                                    },
+                                    "value": {
+                                        "type": "number",
+                                        "description": "Property. Value of the amount of the energy consumed."
+                                    }
+                                },
+                                "required": ["measurmentUnit", "value"]
+                            },
+                            "energyAmount": {
+                                "type": "object",
+                                "description": "Property. Amount of cost by energy consumed.",
+                                "properties": {
+                                    "currencyAlphaCode": {
+                                        "type": "string",
+                                        "description": "Property. Currency names in ISO-4217 format. Units:'[EUR, USD, GPD, JPY]'.",
+                                        "oneOf": [{
+                                                "typSe": "string",
+                                                "enum": ["EUR"]
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": ["USD"]
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": ["GPD"]
+                                            },
+                                            {
+                                                "type": "string",
+                                                "enum": ["JPY"]
+                                            }
+                                        ]
+                                    },
+                                    "value": {
+                                        "type": "number",
+                                        "description": "Property. Value of the amount of the cost for energy consumed."
+                                    }
+                                },
+                                "required": ["currency", "value"]
+                            }
+                        }
+                    }],
+                    "minItems": 1
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type",
+        "year",
+        "month",
+        "consumptionPoint",
+        "consumptionAndCost"
+    ]
+}
