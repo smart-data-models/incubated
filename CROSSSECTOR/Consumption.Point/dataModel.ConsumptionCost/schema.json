@@ -15,18 +15,34 @@
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
         },
         {
-            "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.PublicAccountability/master/RevenueCollection/schema.json#/properties/year"
-        },
-        {
-            "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.PublicAccountability/master/RevenueCollection/schema.json#/properties/month"
-        },
-        {
             "properties": {
                 "type": {
                     "type": "string",
                     "description": "Property. NGSI entity type. It must be equal to ConsumptionCost.",
                     "enum": [
                         "ConsumptionCost"
+                    ]
+                },
+                "year": {
+                    "oneOf": [{
+                            "type": "number",
+                            "format": "YYYY",
+                            "description": "Property. The year to which the entity refers."
+                        },
+                        {
+                            "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.PublicAccountability/master/RevenueCollection/schema.json#/properties/year"
+                        }
+                    ]
+                },
+                "month": {
+                    "oneOf": [{
+                            "type": "number",
+                            "format": "MM",
+                            "description": "Property. The month to which the entity refers."
+                        },
+                        {
+                            "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.PublicAccountability/master/RevenueCollection/schema.json#/properties/month"
+                        }
                     ]
                 },
                 "consumptionPoint": {
