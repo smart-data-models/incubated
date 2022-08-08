@@ -13,7 +13,7 @@
         },
         {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-        },        
+        },
         {
             "properties": {
                 "type": {
@@ -22,15 +22,30 @@
                     "enum": [
                         "ConsumptionCost"
                     ]
-
                 },
                 "year": {
-                    "type": "number",
-                    "description": "Property. The year to which the entity refers."
+                    "items": {
+                        "oneOf": [{
+                                "type": "number",
+                                "format": "YYYY",
+                                "description": "Property. The year to which the entity refers."
+                            },
+                            {
+                                "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.PublicAccountability/master/RevenueCollection/schema.json#/definitions/year"
+                            }
+                        ] 
                 },
                 "month": {
-                    "type": "number",
-                    "description": "Property. The month to which the entity refers."
+                    "items": {
+                        "oneOf": [{
+                                "type": "number",
+                                "format": "MM",
+                                "description": "Property. The month to which the entity refers."
+                            },
+                            {
+                                "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.PublicAccountability/master/RevenueCollection/schema.json#/definitions/month"
+                            }
+                        ]
                 },
                 "consumptionPoint": {
                     "type": "object",
