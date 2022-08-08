@@ -25,12 +25,30 @@
 
                 },
                 "year": {
-                    "type": "number",
-                    "description": "Property. The year to which the entity refers."
+                    "items": {
+                        "oneOf": [{
+                                "type": "number",
+                                "format": "YYYY",
+                                "description": "Property. The year to which the entity refers."
+                            },
+                            {
+                                "$ref": "iudx:RevenueCollection:year"
+                            }
+                        ]
+                    }
                 },
                 "month": {
-                    "type": "number",
-                    "description": "Property. The month to which the entity refers."
+                    "items": {
+                        "oneOf": [{
+                                "type": "number",
+                                "format": "YYYY",
+                                "description": "Property. The month to which the entity refers."
+                            },
+                            {
+                                "$ref": "iudx:RevenueCollection:month"
+                            }
+                        ]
+                    }
                 },
                 "consumptionPoint": {
                     "type": "object",
