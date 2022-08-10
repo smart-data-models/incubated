@@ -1,158 +1,416 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "$schemaVersion": "0.1.0",
-  "description": "Maps a RAMI4.0 SubmodelElement representing an OPERATION (Command) of a referrenced Asset Administration Shell.",
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "$id": "https://smart-data-models.github.io/SMARTMANUFACTURING/corosect/I4Submodel/schema.json",
+  "title": "Smart Data Models - RAMI4.0 Asset Administrtion Shell -AAS- Generic Submodel schema",
+  "description": "Describes a generic RAMI4.0 SubmodelElement representing an OPERATION (Command) of a referrenced Asset Administration Shell.",
   "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
+  "derivedFrom": "IEC 63278-1 https://portal.effra.eu/taxonomylisttaxon/view/1577s",
+  "license": "",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
     },
-    "type": {
-      "type": "string",
-      "enum": [
-        "I4SubmodelElementOperation"
-      ],
-      "description": "Property. NGSI Entity type. It has to be I4SubmodelElementOperation"
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
-    "refI4AssetId": {
-      "type": "string",
-      "description": "Referecence. References the root Asset which this Submodel belongs to"
-    },
-    "refI4AASId": {
-      "type": "string",
-      "description": "Reference. References the root Asset Administration Shell which this Submodel belongs to"
-    },
-    "refI4SubmodelId": {
-      "type": "string",
-      "description": "Reference. References the root Submodel which this Submodel belongs to"
-    },
-    "idShort": {
-      "type": "string",
-      "description": "Property. RAMI4.0 ID for this SubmodelElement"
-    },
-    "requestId": {
-      "type": "string",
-      "description": "Property. ID of the request sent -for INPUT- and/or the retrieved value/status -for OUTPUT-"
-    },
-    "timeout": {
-      "type": "integer",
-      "description": "Property. Represents the timeout value for this command reported by the OPC-UA server"
-    },
-    "inputArguments": {
-      "type": "array",
-      "description": "Property. Parameters sent as INPUT for the command",
-      "items": {}
-    },
-    "outputArguments": {
-      "type": "array",
-      "description": "Property. Parameters retrieved as OUTPUT for the command",
-      "items": {}
-    },
-    "inoutputArguments": {
-      "type": "array",
-      "description": "Property.",
-      "items": {}
-    },
-    "operationResult": {
-      "type": "object",
-      "description": "Property. Shares the status/results of the actual command",
-      "properties": {}
-    },
-    "executionState": {
-      "type": "string",
-      "description": "Property. Short report of the status of the operation",
-      "enum": [
-        "executed", "stopped", "blocked", "initiated", "waiting", "interrupted"
-      ]
-    },
-    "semanticId": {
-      "type": "object",
+    {
       "properties": {
-        "keys": {
+        "id": {
+          "type": "string",
+          "description": "Property. Identity information that unambiguously distinguishes one AAS I4SubmodelElementOperation from another one within the NGSI context"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "I4SubmodelElementOperation"
+          ],
+          "description": "Property. It has to be RAMI4.0 I4SubmodelElementOperation NGSI Entity type to represent a RAMI4.0 AAS Digital Twin Submodel Operation component"
+        },
+        "refI4AssetId": {
+          "type": "string",
+          "description": "Referecence. References the root Asset which this SubmodelElement belongs to"
+        },
+        "refI4AASId": {
+          "type": "string",
+          "description": "Reference. References the root Asset Administration Shell which this SubmodelElement belongs to"
+        },
+        "refI4SubmodelId": {
+          "type": "string",
+          "description": "Reference. References the root Submodel which this SubmodelElement belongs to"
+        },
+        "hasDataSpecification": {
           "type": "array",
+          "description": "Property. Data specification defines the additional attributes a Submodel Element may have. RAMI4.0 specification",
+          "items": {}
+        },      
+        "idShort": {
+          "type": "string",
+          "description": "Property. short id is the (short) name of the SubmodelElement within RAMI40 environment"
+        },
+        "category": {
+          "type": "string",
+          "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the element"
+        },
+        "modelType": {
+          "type": "object",
+          "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used.",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Property. Property of the item. Usually -Operation- is set for this type."
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "descriptions": {
+          "type": "array",
+          "description": "Property. For adding detailed knowldedge about the Element in different languages",
           "items": [
             {
               "type": "object",
               "properties": {
-                "local": {
-                  "type": "boolean"
+                "language": {
+                  "type": "string",
+                  "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
                 },
-                "value": {
-                  "type": "string"
-                },
-                "index": {
-                  "type": "integer"
-                },
-                "idType": {
-                  "type": "string"
+                "text": {
+                  "type": "string",
+                  "description": "Property. The Description text is filled here"
                 }
               },
               "required": [
-                "type",
-                "local",
-                "value",
-                "index",
-                "idType"
+                "language",
+                "text"
               ]
             }
           ]
-        }
-      },
-      "required": [
-        "keys"
-      ]
-    },
-    "constraints": {
-      "type": "array",
-      "items": {}
-    },
-    "hasDataSpecification": {
-      "type": "array",
-      "items": {}
-    },
-    "category": {
-      "type": "string"
-    },
-    "modelType": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "name"
-      ]
-    },
-    "kind": {
-      "type": "string"
-    },
-    "descriptions": {
-      "type": "array",
-      "items": [
-        {
+        },
+        "semanticId": {
           "type": "object",
+          "description": "Property. It refers to an external information source, which explains the formulation of the submodel element",
           "properties": {
-            "language": {
-              "type": "string"
-            },
-            "text": {
-              "type": "string"
+            "keys": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "local": {
+                      "type": "boolean"
+                    },
+                    "value": {
+                      "type": "string"
+                    },
+                    "index": {
+                      "type": "integer"
+                    },
+                    "idType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "local",
+                    "value",
+                    "index",
+                    "idType"
+                  ]
+                }
+              ]
             }
           },
           "required": [
-            "language",
-            "text"
+            "keys"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used"
+        },
+        "requestId": {
+          "type": "string",
+          "description": "Property. Client request ID sent -for INPUT- and/or the retrieved value/status -for OUTPUT-. Used to TRACK the operations"
+        },
+        "timeout": {
+          "type": "integer",
+          "description": "Property. Represents the timeout value for this command reported by the OPC-UA server"
+        },
+        "inputVariable": {
+          "type": "array",
+          "description": "Property. Array with input parameters of the operation.",
+          "items": [
+            {
+              "type": "object",
+              "description": "Defines an Input variable for this command request",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "The given value in string format."
+                },
+                "valueType": {
+                  "type": "object",
+                  "description": "The value type used in string format.",
+                  "properties": {
+                    "dataObjectType": {
+                      "type": "object",
+                      "description": "Property. Property of the item. string, integer, float, num etc. are used set for this type.",
+                      "properties":{
+                        "name":{
+                          "type":"string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    }
+                  },
+                  "required": [
+                      "dataObjectType"
+                    ]
+                },
+                "idShort": {
+                  "type": "string",
+                  "description": "Property. short id is the (short) name of the Input Value -varable name- within RAMI40 environment"
+                },
+                "category": {
+                  "type": "string",
+                  "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the element"
+                },
+                "modelType": {
+                  "type": "object",
+                  "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used.",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "Property. Property of the item. Usually -OperationVariable- is set for this type."
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                "descriptions": {
+                  "type": "array",
+                  "description": "Property. For adding detailed knowldedge about the Element in different languages",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "language": {
+                          "type": "string",
+                          "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
+                        },
+                        "text": {
+                          "type": "string",
+                          "description": "Property. The Description text is filled here"
+                        }
+                      },
+                      "required": [
+                        "language",
+                        "text"
+                      ]
+                    }
+                  ]
+                },
+                "kind": {
+                  "type": "string",
+                  "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used"
+                },
+                "hasDataSpecification": {
+                  "type": "array",
+                  "description": "Property. Data specification defines the additional attributes an Input Variable may have. RAMI4.0 specification",
+                  "items": {}
+                },
+                "constraints": {
+                  "type": "array",
+                  "description": "Property. Constraints an Input Variable may have. RAMI4.0 specification",
+                  "items": {}
+                }
+              },
+              "required": [
+                "value",
+                "valueType",
+                "idShort"
+              ]
+            }
+          ]
+        },
+        "outputVariable": {
+          "type": "array",
+          "description": "Property. Array with Output parameters of the operation",
+          "items": [
+            {
+              "type": "object",
+              "description": "Defines an Output variable for this command request",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "The obtained value in string format."
+                },
+                "valueType": {
+                  "type": "object",
+                  "description": "The value type used in string format.",
+                  "properties": {
+                    "dataObjectType": {
+                      "type": "object",
+                      "description": "Property. Property of the item. string, integer, float, num etc. are used set for this type.",
+                      "properties":{
+                        "name":{
+                          "type":"string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    }
+                  },
+                  "required": [
+                      "dataObjectType"
+                    ]
+                },
+                "idShort": {
+                  "type": "string",
+                  "description": "Property. short id is the (short) name of the Output Value -varable name- within RAMI40 environment"
+                },
+                "category": {
+                  "type": "string",
+                  "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the element"
+                },
+                "modelType": {
+                  "type": "object",
+                  "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used.",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "Property. Property of the item. Usually -OperationVariable- is set for this type."
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                "descriptions": {
+                  "type": "array",
+                  "description": "Property. For adding detailed knowldedge about the Element in different languages",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "language": {
+                          "type": "string",
+                          "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
+                        },
+                        "text": {
+                          "type": "string",
+                          "description": "Property. The Description text is filled here"
+                        }
+                      },
+                      "required": [
+                        "language",
+                        "text"
+                      ]
+                    }
+                  ]
+                },
+                "kind": {
+                  "type": "string",
+                  "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used"
+                },
+                "hasDataSpecification": {
+                  "type": "array",
+                  "description": "Property. Data specification defines the additional attributes an Output Variable may have. RAMI4.0 specification",
+                  "items": {}
+                },
+                "constraints": {
+                  "type": "array",
+                  "description": "Property. Constraints an Output Variable may have. RAMI4.0 specification",
+                  "items": {}
+                }
+              },
+              "required": [
+                "value",
+                "valueType",
+                "idShort"
+              ]
+            }
+          ]
+        },
+        "inoutputVariable": {
+          "type": "array",
+          "description": "Property.Parameter that is input and output of the operation ",
+          "items": {}
+        },
+        "operationResult": {
+          "type": "object",
+          "description": "Property. Contains The operation invocation result object with the returned result of an operation invocation",
+          "properties": {
+            "success": {
+              "type": "boolean",
+              "description": ""
+            },
+            "isException": {
+              "type": "boolean",
+              "description": ""
+            },
+            "entity":{
+              "type": "object",
+              "description":"",
+              "properties":{}
+            },
+            "entityType": {
+              "type": "string",
+              "description": ""
+            },
+            "messages": {
+              "type": "array",
+              "description": "Additional message containing information for the requester",
+              "items": [
+                {
+                  "type": "object",
+                  "description": "",
+                  "properties": {
+                    "messageType": {
+                      "type": "string",
+                      "description": "The message type enum.",
+                      "enum": [
+                        "info","warning","error","exception"
+                      ]
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "A message containing more information for the requester about a certain happening in the backend."
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "Technology-dependent status or error code"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "required": [
+            "success",
+            "isException"
+          ]
+        },
+        "executionState": {
+          "type": "string",
+          "description": "Property. The operation invocation result state.",
+          "enum": [
+            "initiated","running","completed","canceled","failed","timeout"
           ]
         }
-      ]
+      }
     }
-  },
+  ],
   "required": [
     "id",
     "type",
-    "refI4AssetId",
-    "refI4AASId",
     "refI4SubmodelId",
     "idShort",
     "semanticId",
