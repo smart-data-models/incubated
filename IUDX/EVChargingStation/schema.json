@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "modelTags": "IUDX",
+  "$id": "https://smart-data-models.github.io/dataModel.UrbanMobility/EVChargingStation/schema.json",
+  "title": "Smart Data Models - EV Charging Station data Model",
+  "description": "A Data Model for Electric Vehicle Charging Stations.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type":"array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "EVChargingStation"
+            ]
+          },
+          "description": "Property. NGSI Entity type. It has to be EVChargingStation"
+        },
+        "dataDescriptor": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. URI pointing to the data-descriptor entity"
+        },
+        "powerConsumption": {
+          "type": "number",
+          "description": "Property. Power consumed by the entity corresponding to this observation."
+        },
+        "socketType": {
+          "type": "string",
+          "description": "Property. The type of charging socket offered by the EV charging station."
+        },
+        "chargingUnitID": {
+          "type": "string",
+          "description": "Property. The ID of the charging point in the EV charging station corresponding to this observation."
+        },
+        "transactionID": {
+          "type": "string",
+          "description": "Property. Unique transaction ID of the entity corresponding to this observation."
+        },
+        "transactionType": {
+          "type": "string",
+          "description": "Property. Type of the transaction based on the mode of payment (For eg. mobile/UPI, card, etc) or mode of service (For eg. Issue, ReIssue, Entry, Exit etc.) corresponding to this observation."
+        },
+        "stationName": {
+          "type": "string",
+          "description": "Property. The name station corresponding to this observation. It can be the name of bike docking station, charging station, etc."
+        },
+        "amountCollected": {
+          "type": "number",
+          "description": "Property. Amount collected towards the service corresponding to this observation."
+        },
+        "taxAmountCollected": {
+          "type": "number",
+          "description": "Property. The amount of tax levied on the products, things and services which includes sales tax, value-added tax, service tax, Good and Service tax, customs duty, etc."
+        },
+        "endDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Reported end time corresponding to this observation."
+        },
+        "startDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Reported start time corresponding to this observation."
+        },
+        "vehicleType": {
+          "type": "string",
+          "description": "Property. Describes the type of vehicle corresponding to this observation, could be hopper, compactor, tipper, dumper in case of solid waste management vehicles, BRT mini bus, BRT bus, city bus in case of ITMS vehicles, Ambulance, Fire tender, Police van etc, in case of emergency vehicles and Moped/Scooter, Motor Cycle, Autorickshaw, Private car/ Jeep car, Tempo, Bus, E-Moped/E-Scooter/E-Motor Cycle, Public motor in case of vehicle registration."
+        },
+        "observationDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Last reported time of observation."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
