@@ -35,20 +35,16 @@
           "description": "Property. The month to which the entity refers. Format MM, ex:'07'"
         },
         "consumptionPoint": {
-          "type": "array",
           "description": "Relationship. Consumption point identifier which to entity refers.",
-          "items": {
-            "oneOf": [
-              {
-                "type": "string",
-                "format": "uuid"
-              },
-              {
-                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-              }
-            ]
-          },
-          "maxItems": 1
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+            }
+          ]
         },
         "consumptionAndCost": {
           "type": "array",
