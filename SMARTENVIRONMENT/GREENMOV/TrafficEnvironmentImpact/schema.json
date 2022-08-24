@@ -46,17 +46,22 @@
                 "type": "string",
                 "description": "Property. enumeration of the vehicle classes"
               },
-              "trafficIntensity": {
-                "type": "number",
-                "description": "Property. Total number of vehicle of emission range defined by the vehicle class"
-              },
-              "averageVehicleSpeed": {
-                "type": "number",
-                "description": "Property. Total number of vehicle of emission range defined by the vehicle class"
-              },
-              "averageOccupancy": {
-                "type": "number",
-                "description": "Property. The average number of people in vehicles of emission range defined by  the vehicle class"
+              "refTrafficObserved": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  }
+                ],
+                "description": "Relationship. Unique identifier of the entity TrafficObserved with the averageVehicleSpeed, averageOccupancy and intensity"
               }
             }
           }
