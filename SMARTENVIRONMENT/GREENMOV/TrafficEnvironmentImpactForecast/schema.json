@@ -4,7 +4,7 @@
   "modelTags": "",
   "$id": "https://smart-data-models.github.io/dataModel.Environment/TrafficEnvironmentImpactForecast/schema.json",
   "title": "Smart Data Models - Traffic Environment Impact Forecast",
-  "description": "Environmental Impact expectations of traffic based on the vehicles traffic and their emission characteristics",
+  "description": "Environmental Impact of traffic based on the vehicles traffic expectations and their emission characteristics",
   "type": "object",
   "allOf": [
     {
@@ -18,40 +18,15 @@
         "type": {
           "type": "string",
           "enum": [
-            "TrafficEnvironmentImpactForecast"
+            "TrafficEnvironmentImpact"
           ],
           "description": "Property. NGSI type. it has to be TrafficEnvironmentImpactForecast"
         },
         "co2": {
           "type": "number",
-          "description": "Property. The measured C02 emission concentration. Units:'mg/L'"
+          "description": "Property. The expected C02 emission concentration. Units:'mg/L'"
         },
-        "traffic": {
-          "type": "array",
-          "description": "property",
-          "items": {
-            "type": "object",
-            "properties": {
-              "vehicleClass": {
-                "type": "string",
-                "description": "Property. enumeration of the vehicle classes"
-              },
-              "trafficIntensity": {
-                "type": "number",
-                "description": "Property. Total number of vehicle of emission range defined by the vehicle class"
-              },
-              "averageVehicleSpeed": {
-                "type": "number",
-                "description": "Property. Total number of vehicle of emission range defined by the vehicle class"
-              },
-              "averageOccupancy": {
-                "type": "number",
-                "description": "Property. The average number of people in vehicles of emission range defined by  the vehicle class"
-              }
-            }
-          }
-        },
-         "validFrom": {
+        "validFrom": {
           "type": "string",
           "format": "date-time",
           "description": "Property. The start of the validity period for this forecast as a ISO8601 format"
@@ -69,6 +44,35 @@
           "type": "string",
           "format": "date-time",
           "description": "Property. The date and time the forecast was issued by the service provider in ISO8601 UTC format."
+        },
+        "traffic": {
+          "type": "array",
+          "description": "property",
+          "items": {
+            "type": "object",
+            "properties": {
+              "vehicleClass": {
+                "type": "string",
+                "description": "Property. Enumeration of the vehicle classes"
+              },
+              "intensityExpected": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Total number of vehicles expected during this forecast period. Model:'https://schema.org/Number'."
+              },
+              "occupancyExpected": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Property. Fraction of the observation time where a vehicle has been occupying the observed lane. Model:'https://schema.org/Number'."
+              },
+              "averageVehicleSpeedExpected": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Average speed expected of the vehicles transiting during the observation period. Model:'https://schema.org/Number'. Units:'Kilometer per hour (Km/h)'"
+              }
+            }
+          }
         }
       }
     }
