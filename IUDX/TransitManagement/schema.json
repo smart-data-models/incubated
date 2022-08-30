@@ -82,11 +82,6 @@
             "other"
           ]
         },
-        "trip_details": {
-          "type": "object",
-          "description": "Property. A descriptor of realtime update on the schedule of a vehicle along a trip.",
-          "properties": {}
-        },
         "position": {
           "type": "object",
           "description": "Property. Describes the current position of the vehicle corresponding to this observation. SameAs:'position' field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition)",
@@ -461,7 +456,20 @@
             "position": {
               "type": "object",
               "description": "Property. Describes the current position of the vehicle corresponding to this observation. SameAs: 'position' field from GTFS Realtime message-VehiclePosition(https://developers.google.com/transit/gtfs-realtime/reference#message-vehicleposition).",
-              "properties": {}
+              "properties": {
+                "bearing": {
+                  "type": "number",
+                  "description": "Property. Bearing, in degrees, clockwise from True North, i.e., 0 is North and 90 is East. This can be the compass bearing, or the direction towards the next stop or intermediate location. This should not be deduced from the sequence of previous positions, which clients can compute from previous data"
+                },
+                "odometer": {
+                  "type": "number",
+                  "description": "Property. Odometer value, in meters. Units:'meters'"
+                },
+                "speed": {
+                  "type": "number",
+                  "description": "Property. Momentary speed measured by the vehicle, in meters per second. Units:'meters per second'"
+                }
+              }
             },
             "current_status": {
               "type": "string",
