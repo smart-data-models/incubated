@@ -1,180 +1,229 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "$id": "https://smart-data-models.github.io/SMARTMANUFACTURING/corosect/I4Asset/schema.json",
+  "title": "Smart Data Models - RAMI4.0 Asset Administrtion Shell -Asset- Generic schema",
+  "description": "Defines the Asset -instance- linked to a given AAS a generic Asset Administration Shell - AAS -  component of the RAMI4.0",
+  "derivedFrom": "IEC 63278-1 https://portal.effra.eu/taxonomylisttaxon/view/1577s",
+  "license": "",
   "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
     },
-    "type": {
-      "type": "string"
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
-    "hasDataSpecification": {
-      "type": "array",
-      "items": {}
-    },
-    "assetIdentificationModelRef": {
-      "type": "object",
+    {
       "properties": {
-        "keys": {
-          "type": "array",
-          "items": [
-            {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string"
-                },
-                "local": {
-                  "type": "boolean"
-                },
-                "value": {
-                  "type": "string"
-                },
-                "index": {
-                  "type": "integer"
-                },
-                "idType": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "type",
-                "local",
-                "value",
-                "index",
-                "idType"
-              ]
-            }
-          ]
-        }
-      },
-      "required": [
-        "keys"
-      ]
-    },
-    "billOfMaterialRef": {
-      "type": "object",
-      "properties": {
-        "keys": {
-          "type": "array",
-          "items": [
-            {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string"
-                },
-                "local": {
-                  "type": "boolean"
-                },
-                "value": {
-                  "type": "string"
-                },
-                "index": {
-                  "type": "integer"
-                },
-                "idType": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "type",
-                "local",
-                "value",
-                "index",
-                "idType"
-              ]
-            }
-          ]
-        }
-      },
-      "required": [
-        "keys"
-      ]
-    },
-    "identification": {
-      "type": "object",
-      "properties": {
-        "idType": {
-          "type": "string"
-        },
         "id": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "idType",
-        "id"
-      ]
-    },
-    "administration": {
-      "type": "object",
-      "properties": {
-        "version": {
-          "type": "string"
+          "type": "string",
+          "description": "Property. Id of the NGSI entity"
         },
-        "revision": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "version",
-        "revision"
-      ]
-    },
-    "idShort": {
-      "type": "string"
-    },
-    "category": {
-      "type": "string"
-    },
-    "modelType": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "name"
-      ]
-    },
-    "kind": {
-      "type": "string"
-    },
-    "descriptions": {
-      "type": "array",
-      "items": [
-        {
+        "type": {
+          "type": "string",
+          "enum": [
+            "I4Asset"
+          ],
+          "description": "Property. it has to be RAMI4.0 I4Asset NGSI Entity type"
+        },
+        "hasDataSpecification": {
+            "type": "array",
+            "description": "Property. Data specification defines the additional attributes an element may or shall have",
+            "items": {}
+        },
+        "assetIdentificationModelRef": {
           "type": "object",
+          "description": "Property. An asset typically may be represented by several different identification properties like for example the serial number, its RFID code etc. Such local identification properties are defined in the asset identification submodel",
           "properties": {
-            "language": {
-              "type": "string"
-            },
-            "text": {
-              "type": "string"
+            "keys": {
+              "type": "array",
+              "description": "Property. keys for the asset instance",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "local": {
+                      "type": "boolean"
+                    },
+                    "value": {
+                      "type": "string"
+                    },
+                    "index": {
+                      "type": "integer"
+                    },
+                    "idType": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "local",
+                    "value",
+                    "index",
+                    "idType"
+                  ]
+                }
+              ]
             }
           },
           "required": [
-            "language",
-            "text"
+            "keys"
+          ]
+        },
+        "billOfMaterialRef": {
+          "type": "object",
+          "description": "Property. A complex asset is composed out of other entities and assets. These entities and assets being part of the asset are specified in the bill of material",
+          "properties": {
+            "keys": {
+              "type": "array",
+              "description": "Property. Keys for the Semantic ID",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                },
+                "local": {
+                  "type": "boolean"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "index": {
+                  "type": "integer"
+                },
+                "idType": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "local",
+                "value",
+                "index",
+                "idType"
+              ]
+            }
           ]
         }
+      },
+      "required": [
+        "keys"
+      ]
+        },
+        "identification": {
+          "type": "object",
+          "description": "Property. Identification of the AAS -Asset- Instance object",
+          "properties": {
+            "idType": {
+              "type": "string",
+              "description": "Property. Type of the Identifier, eg.IRI or IRD"
+            },
+            "id": {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identity information that unambiguously distinguishes one RAMI Instance from another one"
+            }
+          },
+          "required": [
+            "idType",
+            "id"
+          ]
+        },
+        "administration": {
+          "type": "object",
+          "description": "Property. Instance administration information",
+          "properties": {
+            "version": {
+              "type": "string",
+              "description": "Property. AAS version number is the number in line with release of specification"
+            },
+            "revision": {
+              "type": "string",
+              "description": "Property. AAS Revision number is the number in line with release of specification"
+            }
+          },
+          "required": [
+            "version",
+            "revision"
+          ]
+        },
+        "idShort": {
+          "type": "string",
+          "description": "Property. Short id (name) of the RAMI Instance"
+        },
+        "category": {
+          "type": "string",
+          "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the AAS"
+        },
+        "modelType": {
+          "type": "object",
+          "description": "Property. Instance type",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Property. Type of the item"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "Instance"
+          ],
+          "description": "Property. Kind of the Schema. This is restricted to Instance"
+        },
+        "descriptions": {
+          "type": "array",
+          "description": "Property. For adding detailed knowldedge in different languages",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "language": {
+                  "type": "string",
+                  "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
+                },
+                "text": {
+                  "type": "string",
+                  "description": "Property. Add the description text here"
+                }
+              },
+              "required": [
+                "language",
+                "text"
+              ]
+        }
+      ]
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "hasDataSpecification",
+        "assetIdentificationModelRef",
+        "billOfMaterialRef",
+        "identification",
+        "administration",
+        "idShort",
+        "category",
+        "modelType",
+        "kind",
+        "descriptions"
       ]
     }
-  },
+  ],
   "required": [
     "id",
-    "type",
-    "hasDataSpecification",
-    "assetIdentificationModelRef",
-    "billOfMaterialRef",
-    "identification",
-    "administration",
-    "idShort",
-    "category",
-    "modelType",
-    "kind",
-    "descriptions"
+    "type"
   ]
 }

@@ -1,377 +1,233 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "$id": "https://smart-data-models.github.io/SMARTMANUFACTURING/corosect/I4AAS/schema.json",
+  "title": "Smart Data Models - RAMI4.0 Asset Administrtion Shell -AAS- Generic schema",
+  "description": "Describes a generic Asset Administration Shell - AAS -  component of the RAMI4.0",
   "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
+  "derivedFrom": "IEC 63278-1 https://portal.effra.eu/taxonomylisttaxon/view/1577s",
+  "license": "",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
     },
-    "type": {
-      "type": "string"
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
-    "refI4AssetId": {
-      "type": "string"
-    },
-    "hasDataSpecification": {
-      "type": "array",
-      "items": {}
-    },
-    "asset": {
-      "type": "object",
+    {
       "properties": {
-        "keys": {
+        "id": {
+          "type": "string",
+          "description": "Property. Identity information that unambiguously distinguishes one AAS from another one within the NGSI context"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "I4AAS"
+          ],
+          "description": "Property. It has to be RAMI4.0 I4AAS NGSI Entity type to represent a RAMI4.0 AAS Digital Twin"
+        },
+        "refI4AssetId": {
+          "type": "string",
+          "description": "Relationship. References the root Asset linked to this AAS"
+        },
+        "hasDataSpecification": {
           "type": "array",
+          "description": "Property. Data specification defines the additional attributes an asset may have. RAMI4.0 specification",
+          "items": {}
+        },
+        "asset": {
+          "type": "object",
+          "description": "Property. The Asset descripton is filled here",
+          "properties": {
+            "keys": {
+              "type": "array",
+              "description": "Property. Keys for the Asset",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type":"string",
+                      "enum": ["Asset"],
+                      "description": "Property. Type (description) of the asset"
+                    },
+                    "local": {
+                      "type": "boolean",
+                      "description": "Property. It defines whether the asset is created locally or globally"
+                    },
+                    "value": {
+                      "type": "string",
+                      "description": "Property. Here comes the id pointing to the definition of asset"
+                    },
+                    "index": {
+                      "type": "integer",
+                      "description": "Property. Index encodes the position in the original sequence"
+                    },
+                    "idType": {
+                      "type": "string",
+                      "description": "Property. Type of the Identifier, eg.IRI or IRDI"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "local",
+                    "value",
+                    "index",
+                    "idType"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "keys"
+          ]
+        },
+        "submodels": {
+          "type": "array",
+          "description": "Property. AAS contains complex set of informations, submodels provide a separate category for this complex data",
+          "items": [
+            {
+              "type": "object",
+              "description": "Property. It clearly identify the attribute of data",
+              "properties": {
+                "keys": {
+                  "type": "array",
+                  "description": "keys for the submodel",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type":"string",
+                          "enum": ["Submodel"],
+                          "description": "Property. Type (description) of the submodel"
+                        },
+                        "local": {
+                          "type": "boolean",
+                          "description": "Property. It defines whether the submodel is created locally or globally"
+                        },
+                        "value": {
+                          "type": "string",
+                          "description": "Property. The id of the submodel pointing to the definition of the Submodel"
+                        },
+                        "index": {
+                          "type": "integer",
+                          "description": "Property. Index encodes the position in the original sequence"
+                        },
+                        "idType": {
+                          "type": "string",
+                          "description": "Property. Identity information that unambiguously distinguishes one submodel from another one. Can be IRI or IRDI"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "local",
+                        "value",
+                        "index",
+                        "idType"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "keys"
+              ]
+            }
+          ]
+        },
+        "conceptDictionaries": {
+          "type": "array",
+          "description": "Property. The AAS itself can also define its own dictionary that contains semantic definitions of its submodel elements. These semantic definitions are called concept descriptions (ConceptDescription or concept dictionary).",
+          "items": {}
+        },
+        "identification": {
+          "type": "object",
+          "description": "Property. Identification of the AAS for the asset. RAMI4.0 environment",
+          "properties": {
+            "idType": {
+              "type": "string",
+              "description": "Property. Type of the Identifier, eg.IRI or IRDI"
+            },
+            "id": {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identity information that unambiguously distinguishes one AAS from another one. RAMI4.0 environmet "
+            }
+          },
+          "required": [
+            "idType",
+            "id"
+          ]
+        },
+        "administration": {
+          "type": "object",
+          "description": "Property. AAS administration information",
+          "properties": {
+            "version": {
+              "type": "string",
+              "description": "AAS Version number is the number in line with release of specification"
+            },
+            "revision": {
+              "type": "string",
+              "description": "AAS Revision number is the number in line with release of specification"
+            }
+          },
+          "required": [
+            "version",
+            "revision"
+          ]
+        },
+        "idShort": {
+          "type": "string",
+          "description": "Property. short id is the (short) name of the ASSET ADMINISTRATION SHELL"
+        },
+        "category": {
+          "type": "string",
+          "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the element"
+        },
+        "modelType": {
+          "type": "object",
+          "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Property. Property of the item"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "descriptions": {
+          "type": "array",
+          "description": "Property. For adding detailed knowldedge about the AAS in different languages",
           "items": [
             {
               "type": "object",
               "properties": {
-                "type": {
-                  "type": "string"
+                "language": {
+                  "type": "string",
+                  "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
                 },
-                "local": {
-                  "type": "boolean"
-                },
-                "value": {
-                  "type": "string"
-                },
-                "index": {
-                  "type": "integer"
-                },
-                "idType": {
-                  "type": "string"
+                "text": {
+                  "type": "string",
+                  "description": "Property. The Description text is filled here"
                 }
               },
               "required": [
-                "type",
-                "local",
-                "value",
-                "index",
-                "idType"
+                "language",
+                "text"
               ]
             }
           ]
         }
-      },
-      "required": [
-        "keys"
-      ]
-    },
-    "submodels": {
-      "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "properties": {
-            "keys": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "local": {
-                      "type": "boolean"
-                    },
-                    "value": {
-                      "type": "string"
-                    },
-                    "index": {
-                      "type": "integer"
-                    },
-                    "idType": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "local",
-                    "value",
-                    "index",
-                    "idType"
-                  ]
-                }
-              ]
-            }
-          },
-          "required": [
-            "keys"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "keys": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "local": {
-                      "type": "boolean"
-                    },
-                    "value": {
-                      "type": "string"
-                    },
-                    "index": {
-                      "type": "integer"
-                    },
-                    "idType": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "local",
-                    "value",
-                    "index",
-                    "idType"
-                  ]
-                }
-              ]
-            }
-          },
-          "required": [
-            "keys"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "keys": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "local": {
-                      "type": "boolean"
-                    },
-                    "value": {
-                      "type": "string"
-                    },
-                    "index": {
-                      "type": "integer"
-                    },
-                    "idType": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "local",
-                    "value",
-                    "index",
-                    "idType"
-                  ]
-                }
-              ]
-            }
-          },
-          "required": [
-            "keys"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "keys": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "local": {
-                      "type": "boolean"
-                    },
-                    "value": {
-                      "type": "string"
-                    },
-                    "index": {
-                      "type": "integer"
-                    },
-                    "idType": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "local",
-                    "value",
-                    "index",
-                    "idType"
-                  ]
-                }
-              ]
-            }
-          },
-          "required": [
-            "keys"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "keys": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "local": {
-                      "type": "boolean"
-                    },
-                    "value": {
-                      "type": "string"
-                    },
-                    "index": {
-                      "type": "integer"
-                    },
-                    "idType": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "local",
-                    "value",
-                    "index",
-                    "idType"
-                  ]
-                }
-              ]
-            }
-          },
-          "required": [
-            "keys"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "keys": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "local": {
-                      "type": "boolean"
-                    },
-                    "value": {
-                      "type": "string"
-                    },
-                    "index": {
-                      "type": "integer"
-                    },
-                    "idType": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "local",
-                    "value",
-                    "index",
-                    "idType"
-                  ]
-                }
-              ]
-            }
-          },
-          "required": [
-            "keys"
-          ]
-        }
-      ]
-    },
-    "conceptDictionaries": {
-      "type": "array",
-      "items": {}
-    },
-    "identification": {
-      "type": "object",
-      "properties": {
-        "idType": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "idType",
-        "id"
-      ]
-    },
-    "administration": {
-      "type": "object",
-      "properties": {
-        "version": {
-          "type": "string"
-        },
-        "revision": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "version",
-        "revision"
-      ]
-    },
-    "idShort": {
-      "type": "string"
-    },
-    "category": {
-      "type": "string"
-    },
-    "modelType": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "name"
-      ]
-    },
-    "descriptions": {
-      "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "properties": {
-            "language": {
-              "type": "string"
-            },
-            "text": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "language",
-            "text"
-          ]
-        }
-      ]
+      }
     }
-  },
+  ],
   "required": [
     "id",
     "type",

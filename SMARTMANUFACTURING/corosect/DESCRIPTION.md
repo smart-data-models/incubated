@@ -10,9 +10,11 @@ This Smart Data Model is a proposal to translate and manage within NGSI (exploit
 # Structure
 
 The proposed set of NGSI Entities represents the different parts of the AAS schema proposed by Industry4.0 to create the Digital Twin of a device/system involved in the manufacturing chain of a I4.0 framework. According to the figure below, these entities are linked (refenced) between them to create the final AAS.
+
 ![NGSI entyties' tree to map an RAMI4.0 Asset Administration Shell](/SMARTMANUFACTURING/corosect/images/RAMI4.0-AAS-NGSI-Entities'%20structure-RAMI-NGSI%20V0.2.png)
 
 # Example
 
 The files provided within the corresponding entities' folder illustrates the DIGITAL TWIN defined for one of the Kuka Robots (supported by the [University of Maastricht](https://www.maastrichtuniversity.nl/research/department-advanced-computing-sciences)) which is shown in this figure
+
 ![Proposed Digital Twin for Maastricht Kuka's robot](/SMARTMANUFACTURING/corosect/images/MRobot-Example.png)

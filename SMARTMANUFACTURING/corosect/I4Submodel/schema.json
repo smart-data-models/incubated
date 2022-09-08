@@ -1,208 +1,191 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "$id": "https://smart-data-models.github.io/SMARTMANUFACTURING/corosect/I4Submodel/schema.json",
+  "title": "Smart Data Models - RAMI4.0 Asset Administrtion Shell -AAS- Generic Submodel schema",
+  "description": "Describes a generic submodel component of the RAMI4.0 Asset Administration Shell",
   "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
+  "derivedFrom": "IEC 63278-1 https://portal.effra.eu/taxonomylisttaxon/view/1577s",
+  "license": "",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
     },
-    "type": {
-      "type": "string"
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
-    "refI4AssetId": {
-      "type": "string"
-    },
-    "refI4AASId": {
-      "type": "string"
-    },
-    "semanticId": {
-      "type": "object",
+    {
       "properties": {
-        "keys": {
-          "type": "array",
-          "items": {}
-        }
-      },
-      "required": [
-        "keys"
-      ]
-    },
-    "qualifiers": {
-      "type": "array",
-      "items": {}
-    },
-    "hasDataSpecification": {
-      "type": "array",
-      "items": {}
-    },
-    "identification": {
-      "type": "object",
-      "properties": {
-        "idType": {
-          "type": "string"
-        },
         "id": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "idType",
-        "id"
-      ]
-    },
-    "administration": {
-      "type": "object",
-      "properties": {
-        "version": {
-          "type": "string"
+          "type": "string",
+          "description": "Property. Identity information that unambiguously distinguishes one AAS Submodel from another one within the NGSI context"
         },
-        "revision": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "version",
-        "revision"
-      ]
-    },
-    "idShort": {
-      "type": "string"
-    },
-    "category": {
-      "type": "string"
-    },
-    "modelType": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "name"
-      ]
-    },
-    "kind": {
-      "type": "string"
-    },
-    "submodelElements": {
-      "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "properties": {
-            "refSubmodelElement": {
-              "type": "string"
-            },
-            "idShort": {
-              "type": "string"
-            },
-            "category": {
-              "type": "string"
-            },
-            "modelType": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "I4Submodel"
+          ],
+          "description": "Property. It has to be RAMI4.0 I4Submodel NGSI Entity type to represent a RAMI4.0 AAS Digital Twin Submodel component"
+        },
+        "refI4AssetId": {
+          "type": "string",
+          "description": "Relationship. References the root Asset which this Submodel belongs to"
+        },
+        "refI4AASId": {
+          "type": "string",
+          "description": "Relationship. References the root Asset Administration Shell which this Submodel belongs to"
+        },
+        "hasDataSpecification": {
+          "type": "array",
+          "description": "Property. Data specification defines the additional attributes a Submodel may have. RAMI4.0 specification",
+          "items": {}
+        },
+        "qualifiers": {
+          "type": "array",
+          "description": "Property. Qualifiers are used if the semantics of the element is the same independent of its qualifiers. It is only the quality or the meaning of the value for the element that differs",
+          "items": {}
+        },
+        "submodelElements": {
+          "type": "array",
+          "description": "Property. Data element which includes the list of Elements -Operations or Commands AND Properties- I4SubmodelElementOperation for RAMI commands / I4SubmodelElementProperty for RAMI Properties",
+          "items": [
+            {
               "type": "object",
+              "description": "Property. Link to the RAMI40 element -I4SubmodelElementOperation or I4SubmodelElementProperty- that maps the Command/Property of the RAMI Submodel",
               "properties": {
-                "name": {
+                "refI4SubmodelElement": {
+                  "type": "string",
+                  "description": "Property. Link to the NGSI entity -I4SubmodelElementOperation or I4SubmodelElementProperty- that maps the Command/Property of the Submodel"
+                },
+                "idShort": {
                   "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "modelType": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
                 }
               },
               "required": [
-                "name"
+                "refI4SubmodelElement",
+                "idShort",
+                "category",
+                "modelType"
               ]
+            }
+          ]
+        },       
+        "identification": {
+          "type": "object",
+          "description": "Property. Identification of the Submodel within its AAS. RAMI4.0 environment",
+          "properties": {
+            "idType": {
+              "type": "string",
+              "description": "Property. Type of the Identifier, eg.IRI or IRDI"
+            },
+            "id": {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identity information that unambiguously distinguishes one Submodel from another one -NGSI Id-. RAMI4.0 environmet "
             }
           },
           "required": [
-            "refSubmodelElement",
-            "idShort",
-            "category",
-            "modelType"
+            "idType",
+            "id"
           ]
         },
-        {
+        "administration": {
           "type": "object",
+          "description": "Property. AAS Submodel administration information",
           "properties": {
-            "refSubmodelElement": {
-              "type": "string"
+            "version": {
+              "type": "string",
+              "description": "AAS Version number is the number in line with release of specification"
             },
-            "idShort": {
-              "type": "string"
-            },
-            "category": {
-              "type": "string"
-            },
-            "modelType": {
+            "revision": {
+              "type": "string",
+              "description": "AAS Revision number is the number in line with release of specification"
+            }
+          },
+          "required": [
+            "version",
+            "revision"
+          ]
+        },
+        "idShort": {
+          "type": "string",
+          "description": "Property. short id is the (short) name of the Submodel within RAMI40 environment"
+        },
+        "category": {
+          "type": "string",
+          "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the element"
+        },
+        "modelType": {
+          "type": "object",
+          "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used.",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Property. Property of the item. Usually Submodel is set for this type."
+            }
+          },
+          "required": [
+            "name"
+          ]
+        },
+        "descriptions": {
+          "type": "array",
+          "description": "Property. For adding detailed knowldedge about the AAS in different languages",
+          "items": [
+            {
               "type": "object",
               "properties": {
-                "name": {
-                  "type": "string"
+                "language": {
+                  "type": "string",
+                  "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
+                },
+                "text": {
+                  "type": "string",
+                  "description": "Property. The Description text is filled here"
                 }
               },
               "required": [
-                "name"
+                "language",
+                "text"
               ]
             }
-          },
-          "required": [
-            "refSubmodelElement",
-            "idShort",
-            "category",
-            "modelType"
           ]
         },
-        {
+        "semanticId": {
           "type": "object",
+          "description": "Property. It refer to an external information source, which explains the formulation of the submodel",
           "properties": {
-            "refSubmodelElement": {
-              "type": "string"
-            },
-            "idShort": {
-              "type": "string"
-            },
-            "category": {
-              "type": "string"
-            },
-            "modelType": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "name"
-              ]
+            "keys": {
+              "type": "array",
+              "description": "Property. Keys for the Semantic ID",
+              "items": {
+                "type": "string"
+              }
             }
-          },
-          "required": [
-            "refSubmodelElement",
-            "idShort",
-            "category",
-            "modelType"
-          ]
+          }
+        },
+        "kind": {
+          "type": "string",
+          "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used"
         }
-      ]
-    },
-    "descriptions": {
-      "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "properties": {
-            "language": {
-              "type": "string"
-            },
-            "text": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "language",
-            "text"
-          ]
-        }
-      ]
+      }
     }
-  },
+  ],
   "required": [
     "id",
     "type",
