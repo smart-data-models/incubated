@@ -2,8 +2,8 @@
   "$schema": "http://json-schema.org/schema#",
   "$schemaVersion": "0.0.1",
   "modelTags": "",
-  "$id": "https://smart-data-models.github.io/dataModel.Aquaculture/FishContaiment/schema.json",
-  "title": " Fish Containment",
+  "$id": "https://smart-data-models.github.io/dataModel.Aquaculture/Specie/schema.json",
+  "title": "Specie",
   "description": "",
   "type": "object",
   "allOf": [
@@ -21,86 +21,64 @@
         "type": {
           "type": "string",
           "enum": [
-            "FishContainment"
+            "Specie"
           ],
-          "description": "Property. NGSI Entity Type. It has to be FishContainment"
+          "description": "Property. NGSI Entity Type"
         },
-        "category": {
-          "type": "string"
-        },
-        "currents": {
+        "name": {
           "type": "number",
           "description": "Property."
         },
-        "depth": {
-          "type": "number",
-          "description": "Property. Depth of the FishContainment"
-        },
-        "dissolvedOxygen": {
-          "type": "number",
-          "description": "Property. Dissolved oxygen in the water of the containment."
-        },
-        "feedingOperation": {
-          "type": "number",
-          "description": "Property. "
-        },
-        "redoxPotential": {
+        "description": {
           "type": "number",
           "description": "Property."
         },
-        "totalDissolvedSolids": {
+        "absorptionRatio": {
           "type": "number",
           "description": "Property."
         },
-        "videoStream": {
-          "type": "string",
-          "description": "Property."
-        },
-        "fishDensity": {
+        "stomachCapacity": {
           "type": "number",
           "description": "Property."
         },
-        "conductivity": {
-          "type": "number",
-          "description": "Property. Electrical Conductivity of Water in the FishContainment"
-        },
-        "pH": {
-          "type": "number",
-          "description": "Property. Water pH level measured"
-        },
-        "salinity": {
-          "type": "number",
-          "description": "Property. Amount of salts dissolved in water."
-        },
-        "temperature": {
-          "type": "number",
-          "description": "Property. Measured temperature"
-        },
-        "turbidity": {
-          "type": "number",
-          "description": "Property. Amount of light scattered by particles in the water column"
-        },
-        "fishSpeed": {
+        "waterUptake": {
           "type": "number",
           "description": "Property."
         },
-        "fishDirection": {
-          "type": "string",
+        "midgutMaxdur": {
+          "type": "number",
           "description": "Property."
         },
-        "refSump": {
-          "type": "string",
-          "description": "Relationshp. Id of the Sump related to the FishContainment"
+        "ingestionDelay": {
+          "type": "number",
+          "description": "Property."
         },
-        "refFarm": {
-          "type": "string",
-          "description": "Relationshp. Id of the Farm related to the FishContainment"
+        "transportPattern": {
+          "type": "number",
+          "description": "Property."
+        },
+        "appetiteFactor": {
+          "type": "number",
+          "description": "Property."
+        },
+        "midgutVolume": {
+          "type": "number",
+          "description": "Property."
+        },
+        "digestionDelay": {
+          "type": "number",
+          "description": "Property."
+        },
+        "hasFishPopulation": {
+          "type": "number",
+          "description": "Relationship."
         }
       }
     }
   ],
   "required": [
     "id",
-    "type"
+    "type",
+    "hasFishPopulation"
   ]
 }

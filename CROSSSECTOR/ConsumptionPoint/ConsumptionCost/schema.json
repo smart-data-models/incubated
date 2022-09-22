@@ -46,7 +46,7 @@
             }
           ]
         },
-        "consumptionAndCost": {
+        "energyConsumedAndCost": {
           "type": "array",
           "description": "Property. Array with energy consumption and cost by type of energy.",
           "items": [
@@ -71,15 +71,8 @@
                 },
                 "energyType": {
                   "type": "string",
-                  "description": "Property. Type of energy. Enum:'electricity, water, gas, fuel, pellet, diesel oil'.",
-                  "enum": [
-                    "diesel oil",
-                    "electricity",
-                    "fuel",
-                    "gas",
-                    "pellet",
-                    "water"
-                  ]
+                  "description": "Property. Type of energy."
+
                 },
                 "supplyName": {
                   "type": "string",
@@ -89,8 +82,8 @@
                   "type": "object",
                   "description": "Property. Amount of energy consumed.",
                   "properties": {
-                    "unitCode": {
-                      "description": "Property. Measurement unit used. Units:'[MTQ, KWH]'.",
+                    "measurementUnit": {
+                      "description": "Property. Measurement unit used. Units:'[MTQ, KWH]'. Official list at https://unece.org/trade/documents/2021/06/uncefact-rec20",
                       "oneOf": [
                         {
                           "type": "string",
@@ -110,17 +103,13 @@
                       "type": "number",
                       "description": "Property. Value of the amount of the energy consumed."
                     }
-                  },
-                  "required": [
-                    "measurementUnit",
-                    "value"
-                  ]
+                  }
                 },
-                "energyAmount": {
+                "totalCost": {
                   "type": "object",
                   "description": "Property. Amount of cost by energy consumed.",
                   "properties": {
-                    "currencyAlphaCode": {
+                    "currency": {
                       "type": "string",
                       "description": "Property. Currency names in ISO-4217 format. Enum:'[EUR, USD, GPD, JPY]'. Official list https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list_one.xls",
                       "enum": [
@@ -134,11 +123,7 @@
                       "type": "number",
                       "description": "Property. Value of the amount of the cost for energy consumed."
                     }
-                  },
-                  "required": [
-                    "currency",
-                    "value"
-                  ]
+                  }
                 }
               }
             }
@@ -151,9 +136,7 @@
   "required": [
     "id",
     "type",
-    "year",
-    "month",
     "consumptionPoint",
-    "consumptionAndCost"
+    "energyConsumedAndCost"
   ]
 }
