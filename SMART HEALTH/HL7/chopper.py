@@ -72,8 +72,8 @@ schemaHeader = {
     "title": "Smart Data Models - HL7 / ",
     "description": "",
     "modelTags": "HL7",
-    "derivedFrom": "HL7",
-    "license": "",
+    "derivedFrom": "http://hl7.org/fhir/json-schema/4.3",
+    "license": "http://www.hl7.org/implement/standards/fhir/license.html",
     "type": "object",
     "required": ["id", "type"],
     "allOf": [
