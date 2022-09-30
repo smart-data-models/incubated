@@ -26,7 +26,7 @@ def open_json(fileUrl):
 def extensor(object_dict, definitions, level):
     notExpandable = ["ResourceList"]
     import copy
-    limitDepth = 6
+    limitDepth = 9
     newObject = copy.deepcopy(object_dict)
     for key, value in object_dict.items():
         print(str(key) + '->' + str(value))
@@ -107,7 +107,7 @@ for item in listToParse:
         # now load the export
         objectDict = open_json(exportfilename)
         counter = 0
-        limit = 3
+        limit = 4
         while str(objectDict).find("#/definitions/") > -1:
             counter += 1
             if counter > limit:
