@@ -118,7 +118,7 @@ for item in listToParse:
             with open(outfilename, "w") as outfile:
                 json.dump(outDict, outfile)
             objectDict = outDict
-        finalfilename = "./" + item + "/" + item + "_processed3.json"
+        finalfilename = "./" + item + "/" + item + "_processed" + str(limit) + ".json"
         preschema = open_json(finalfilename)
         properties = preschema[item]["properties"]
         if "type" not in properties:
