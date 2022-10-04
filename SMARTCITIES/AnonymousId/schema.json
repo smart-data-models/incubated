@@ -8,55 +8,145 @@
   "type": "object",
   "required": [
     "anonymized_id",
-    "type",
-    "date",
-    "dest",
-    "algorithm"
+    "type"
   ],
-  "allOf": [
-    {
+  "definitions": {
+    "GSMA-Commons": {
+      "type": "object",
       "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "AnonymousId"
-          ],
-          "description": "Property. NGSI entity type. It has to be AnonymousId"
+        "id": {
+          "$ref": "#/definitions/EntityIdentifierType"
         },
-        "date": {
+        "dateCreated": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Date of the detected anonymous identifier."
+          "description": "Property. Entity creation timestamp. This will usually be allocated by the storage platform."
         },
-        "orig": {
+        "dateModified": {
           "type": "string",
-          "description": "String value of origin id, last entity where the anonymous id was detected."
-        },
-        "dest": {
-          "type": "string",
-          "description": "String value of destination id, actual entity where the anonymous id was detected."
-        },
-        "coords_lat": {
-          "type": "number",
-          "description": "Decimal latitude of the anonymous id."
-        },
-        "coords_lon": {
-          "type": "number",
-          "description": "Decimal longitude of the anonymous id."
-        },
-        "anonymized_id": {
-          "type": "string",
-          "description": "Anonymized identifier"
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification of the entity. This will usually be allocated by the storage platform."
         },
         "source": {
           "type": "string",
-          "description": "String value of source of this AnonymousId, eg. (ALPR, People Monitoring, Face Recognition, etc...)"
+          "description": "Property. A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object."
         },
-        "algorithm": {
+        "name": {
           "type": "string",
-          "description": "Name of the algorithm used to anonymize the Id"
+          "description": "Property. The name of this item."
+        },
+        "alternateName": {
+          "type": "string",
+          "description": "Property. An alternative name for this item"
+        },
+        "description": {
+          "type": "string",
+          "description": "Property. A description of this item"
+        },
+        "dataProvider": {
+          "type": "string",
+          "description": "Property. A sequence of characters identifying the provider of the harmonised data entity."
+        },
+        "owner": {
+          "type": "array",
+          "description": "Property. A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          }
+        },
+        "seeAlso": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
+          ],
+          "description": "Property. list of uri pointing to additional resources about the item"
         }
       }
+    },
+    "EntityIdentifier": {
+      "allOf": [
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "AnonymousId"
+              ],
+              "description": "Property. NGSI entity type. It has to be AnonymousId"
+            },
+            "date": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Property. Date of the detected anonymous identifier."
+            },
+            "orig": {
+              "type": "string",
+              "description": "String value of origin id, last entity where the anonymous id was detected."
+            },
+            "dest": {
+              "type": "string",
+              "description": "String value of destination id, actual entity where the anonymous id was detected."
+            },
+            "anonymized_id": {
+              "type": "string",
+              "description": "Anonymized identifier"
+            },
+            "source": {
+              "type": "string",
+              "description": "String value of source of this AnonymousId, eg. (ALPR, People Monitoring, Face Recognition, etc...)"
+            },
+            "algorithm": {
+              "type": "string",
+              "description": "Name of the algorithm used to anonymize the Id"
+            }
+          },
+          "location": {
+            "type": "object",
+            "properties": {
+              "title": "GeoJSON Point",
+              "type": "object",
+              "required": [
+                "type",
+                "coordinates"
+              ],
+              "description": "Geoproperty. Geojson reference to the item. Point",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "Point"
+                  ]
+                },
+                "coordinates": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "bbox": {
+                  "type": "array",
+                  "minItems": 4,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "description": "Geoproperty. Geojson reference to the item. It is a Point."
+          }
+        }
+      ]
     }
-  ]
+  }
 }
