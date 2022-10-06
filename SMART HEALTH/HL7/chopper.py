@@ -1,3 +1,21 @@
+################################################################################
+#  Licensed to the FIWARE Foundation (FF) under one
+#  or more contributor license agreements. The FF licenses this file
+#  to you under the Apache License, Version 2.0 (the
+#  "License"); you may not use this file except in compliance
+#  with the License.  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+# limitations under the License.
+################################################################################
+# this program parses the overall definition of HL7 standard base on full json schema and
+# divide it into the single entities
+
 import copy
 import pathlib
 import json
@@ -53,6 +71,8 @@ def extensor(object_dict, definitions, level):
                 newObject["type"] = "string"
         if isinstance(value, dict):
             print("Entering into level " + str(level + 1))
+            if "properties" in value:
+                value["type"] = "object"
             newObject[key] = extensor(value, definitions, level + 1)
         elif isinstance(value, list):
             for val in value:
@@ -72,7 +92,7 @@ schemaHeader = {
     "title": "Smart Data Models - HL7 / ",
     "description": "",
     "modelTags": "HL7",
-    "derivedFrom": "http://hl7.org/fhir/json-schema/4.3",
+    "derivedFrom": "http://hl7.org/fhir/R4B/",
     "license": "http://www.hl7.org/implement/standards/fhir/license.html",
     "type": "object",
     "required": ["id", "type"],
@@ -129,7 +149,11 @@ for item in listToParse:
             }
         for prop in properties:
             if "description" in properties[prop]:
-                properties[prop]["description"] = "Property. " + properties[prop]["description"]
+                properties[prop]["description"] = "Property. " + properties[prop]["description"].replace(chr(34),"").replace(chr(39),"")
+            elif "const" in properties[prop]:
+                properties["prop"]["type"] = "string"
+                properties["prop"]["enum"] = [properties["prop"]["const"]]
+                del properties["prop"]["const"]
             else:
                 properties[prop]["description"] = "Property. Not described in HL7 original"
         description = preschema[item]["description"]
@@ -139,4 +163,5 @@ for item in listToParse:
         finalSchema["title"] += item + " data model based on HL7 equivalent"
         finalSchema["allOf"].append({"properties": properties})
         with open("./" + item + "/" + "schema.json", "w+") as outfile:
-            json.dump(finalSchema, outfile)
+            rawOutput = json.dumps(finalSchema, indent=4).replace(">=", chr(39) + ">=" + chr(39))
+            outfile.write(rawOutput)
