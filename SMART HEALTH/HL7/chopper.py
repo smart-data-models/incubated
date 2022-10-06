@@ -150,12 +150,12 @@ for item in listToParse:
         for prop in properties:
             if "description" in properties[prop]:
                 properties[prop]["description"] = "Property. " + properties[prop]["description"].replace(chr(34), "").replace(chr(39), "")
-            elif "const" in properties[prop]:
-                properties["prop"]["type"] = "string"
-                properties["prop"]["enum"] = [properties["prop"]["const"]]
-                del properties["prop"]["const"]
             else:
                 properties[prop]["description"] = "Property. Not described in HL7 original"
+            if "const" in properties[prop]:
+                properties[prop]["type"] = "string"
+                properties[prop]["enum"] = [properties[prop]["const"]]
+                del properties[prop]["const"]
         description = preschema[item]["description"]
         finalSchema = copy.deepcopy(schemaHeader)
         finalSchema["$id"] = finalSchema["$id"].replace("XXXX", item)
