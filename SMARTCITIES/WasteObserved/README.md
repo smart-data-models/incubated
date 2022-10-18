@@ -1,0 +1,1 @@
+Folder for the definition of a waster observed data model

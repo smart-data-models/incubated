@@ -42,10 +42,17 @@ def open_json(fileUrl):
 
 
 def extensor(object_dict, definitions, level):
+    # create the version of the schema with limitation to the infinite recursive schema (not parseable for a jsonref package)
+
+    # attribute that has to be avoided (it is not a proper data model)
     notExpandable = ["ResourceList"]
     import copy
+
+    # maximum sublevels assessed of recurivity
     limitDepth = 9
+
     newObject = copy.deepcopy(object_dict)
+    # loop to expand the $ref (till the limitiable value)
     for key, value in object_dict.items():
         print(str(key) + '->' + str(value))
         if (key == "$ref") and (level < limitDepth):
@@ -98,7 +105,7 @@ schemaHeader = {
     "required": ["id", "type"],
     "allOf": [
         {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+            "$ref": "https://smart-data-models.github.io/dataModel.Hl7/hl7-schema.json#/definitions/GSMA-Commons"
         },
         {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
@@ -141,12 +148,16 @@ for item in listToParse:
         finalfilename = "./" + item + "/" + item + "_processed" + str(limit) + ".json"
         preschema = open_json(finalfilename)
         properties = preschema[item]["properties"]
+        # if there is no type we need one. mandatory
         if "type" not in properties:
             properties["type"] = {
                 "type": "string",
                 "description": "Property. NGSI entity type. It has to be " + item,
                 "enum": [item]
             }
+        # remove id to not have a conflict with actual id of NGSI. id is included in the schemaHeader
+        if "id" in properties:
+            del properties["id"]
         for prop in properties:
             if "description" in properties[prop]:
                 properties[prop]["description"] = "Property. " + properties[prop]["description"].replace(chr(34), "").replace(chr(39), "")
