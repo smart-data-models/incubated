@@ -1,69 +1,68 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "$schemaVersion": "0.0.2",
-    "modelTags": "",
-    "$id": "https://smart-data-models.github.io/dataModel.WasteManagement/WasteObserved/schema.json",
-    "title": "Smart Data Models - WasteObserved.",
-    "versionControl": "0.0.1: initial,0.0.2:afte talking tot Alberto",
-    "description": "This entity models a single collection of Waste.
-    ***gaan we hier actoren ook benoemen?",
-    "type" : "object",
-    "allOf": [{
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
-        }, {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-        }, {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/PhysicalObject-Commons"
-        }, {
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "WasteObserved"
-                    ],
-                    "description": "Property. NGSI Entity type. It has to be WasteObserved"
-                },
-                "location": {
-                    "type": "geo:json",
-                    "description": "Location of the waste. Geoproperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygoProperty. "
-                },
-                "address": {
-                    "type": "PostalAddress",
-                    "description": "The mailing address. Model:'https://schema.org/address "
-                },
-                "dateObserved": {
-                    "type": "Datetime",
-                    "description": "Time of the wastecollection."
-                },
-                "weight": {
-                    "type": "Number",
-                    "description": "The weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ) . For instance, 'KGM' represents kilogram."
-                },
-
-                "---OPTIONAL STUFF HIERONDER------": {
-                "refGarbageTruck": {
-                    "type": "Reference",
-                    "description": "A reference to an Vehicle Smart model referencint the vehicle used during garbage collection"
-                },
-                "refWeighingDevice": {
-                    "type": "Reference",
-                    "description": "A reference to the device used to measure the waste weight."
-                },
-
-                "refServiceOrderId": {
-                    "type": "Reference",
-                    "description": "A reference to an external system containing workorders. This might contain data about a client requesting the garbage collection, or a workorder for wastecollection, or any other relavant referece."
-                },
-                "Image": {
-                    "type": "URL",
-                    "description": "An URL to an image or images of the observed Waste."
-                }
-
-            }
-        }
-    ],
-    "required": [
-        "id",
-        "type"
-    ]
+	"$schema": "http://json-schema.org/schema#",
+	"$schemaVersion": "0.0.2",
+	"modelTags": "",
+	"$id": "https://smart-data-models.github.io/dataModel.WasteManagement/WasteObserved/schema.json",
+	"title": "Smart Data Models - WasteObserved.",
+	"versionControl": "0.0.1: initial,0.0.2:afte talking tot Alberto",
+	"description": "This entity models a single collection of Waste.***gaan we hier actoren ook benoemen?",
+	"type": "object",
+	"allOf": [
+		{
+			"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+		},
+		{
+			"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+		},
+		{
+			"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/PhysicalObject-Commons"
+		},
+		{
+			"properties": {
+				"type": {
+					"type": "string",
+					"enum": [
+						"WasteObserved"
+					],
+					"description": "Property. NGSI Entity type. It has to be WasteObserved"
+				},
+				"location": {
+					"type": "geo:json",
+					"description": "Location of the waste. Geoproperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygoProperty. "
+				},
+				"address": {
+					"type": "PostalAddress",
+					"description": "The mailing address. Model:'https://schema.org/address "
+				},
+				"dateObserved": {
+					"type": "Datetime",
+					"description": "Time of the wastecollection."
+				},
+				"weight": {
+					"type": "Number",
+					"description": "The weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ) . For instance, 'KGM' represents kilogram.***moeten we hier bruto - netto - tarra hebben??"
+				},
+				"refGarbageTruck": {
+					"type": "Reference",
+					"description": "A reference to an Vehicle Smart model referencint the vehicle used during garbage collection"
+				},
+				"refWeighingDevice": {
+					"type": "Reference",
+					"description": "A reference to the device used to measure the waste weight."
+				},
+				"refServiceOrderId": {
+					"type": "Reference",
+					"description": "A reference to an external system containing workorders. This might contain data about a client requesting the garbage collection, or a workorder for wastecollection, or any other relavant referece."
+				},
+				"Image": {
+					"type": "URL",
+					"description": "An URL to an image or images of the observed Waste."
+				}
+			}
+		}
+	],
+	"required": [
+		"id",
+		"type"
+	]
 }
