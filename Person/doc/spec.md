@@ -647,5 +647,5 @@ Person:
 <!-- /95-Units -->  
 <!-- 97-LastFooter -->  
 ---  
-[https://smartdatamodels.org](https://smartdatamodels.org) + [Contribution Manual](https://bit.ly/contribution_manual)  [About](https://bit.ly/Introduction_SDM)  
+[Smart Data Models](https://smartdatamodels.org) +++ [Contribution Manual](https://bit.ly/contribution_manual) +++ [About](https://bit.ly/Introduction_SDM)  
 <!-- /97-LastFooter -->  
