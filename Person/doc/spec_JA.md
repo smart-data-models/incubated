@@ -14,8 +14,8 @@
 
 ## プロパティ一覧  
 
-<sup><sub>属性に型がない場合は、複数の型または異なるフォーマット/パターンを持つ可能性があるためです</sub></sup>。  
-- `additionalName[string]`: ミドルネームとして使用することができます。  . Model: [https://schema.org/Text](https://schema.org/Text)- `address[object]`: 郵送先住所  . Model: [https://schema.org/address](https://schema.org/address)- `alternateName[string]`: この項目の別称  - `areaServed[string]`: サービスまたは提供品が提供される地理的な地域  . Model: [https://schema.org/Text](https://schema.org/Text)- `dataProvider[string]`: 調和されたデータエンティティの提供者を識別する一連の文字。  - `dateCreated[string]`: エンティティの作成タイムスタンプ。これは通常、ストレージプラットフォームによって割り当てられる。  - `dateModified[string]`: エンティティの最終更新のタイムスタンプ。これは通常、ストレージプラットフォームによって割り当てられる。  - `description[string]`: このアイテムの説明  - `email[string]`: 所有者のEメールアドレス。  - `familyName[string]`: ファミリーネーム。米国では、人物の姓。  . Model: [https://schema.org/Text](https://schema.org/Text)- `givenName[string]`: Given nameの略。米国では、人物のファーストネーム。  . Model: [https://schema.org/Text](https://schema.org/Text)- `id`: エンティティの一意な識別子  - `location`: アイテムへの Geojson リファレンス。Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygonのいずれかを指定することができる。  - `name[string]`: このアイテムの名称です。  - `owner[array]`: 所有者の一意のIDを参照するJSONエンコードされた文字列を含むリストです。  - `seeAlso`: 項目に関する追加リソースを指すURIのリスト。  - `source[string]`: エンティティデータの元のソースをURLで示す一連の文字。ソースプロバイダの完全修飾ドメイン名、またはソースオブジェクトのURLであることが推奨されます。  - `telephone[string]`: 電話番号のことです。  . Model: [https://schema.org/Text](https://schema.org/Text)- `type[string]`: Personと等しくなければならない。NGSIタイプ  <!-- /30-PropertiesList -->  
+<sup><sub>[*] 属性にタイプがない場合、複数のタイプまたは異なるフォーマット/パターンを持つ可能性があるためです</sub></sup>。  
+- `additionalName[string]`: ミドルネームとして使用することができます。  . Model: [https://schema.org/Text](https://schema.org/Text)- `address[object]`: 郵送先住所  . Model: [https://schema.org/address](https://schema.org/address)- `alternateName[string]`: この項目の別称  - `areaServed[string]`: サービスまたは提供品が提供される地理的な地域  . Model: [https://schema.org/Text](https://schema.org/Text)- `dataProvider[string]`: 調和されたデータエンティティの提供者を識別する一連の文字。  - `dateCreated[string]`: エンティティの作成タイムスタンプ。これは通常、ストレージプラットフォームによって割り当てられる。  - `dateModified[string]`: エンティティの最終更新のタイムスタンプ。これは通常、ストレージプラットフォームによって割り当てられる。  - `description[string]`: このアイテムの説明  - `email[string]`: 所有者のEメールアドレス。  - `familyName[string]`: ファミリーネーム。米国では、人物の姓。  . Model: [https://schema.org/Text](https://schema.org/Text)- `givenName[string]`: Given nameの略。米国では、人物のファーストネーム。  . Model: [https://schema.org/Text](https://schema.org/Text)- `id[*]`: エンティティの一意な識別子  - `location[*]`: アイテムへの Geojson リファレンス。Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygonのいずれかを指定することができる。  - `name[string]`: このアイテムの名称です。  - `owner[array]`: 所有者の一意のIDを参照するJSONエンコードされた文字列を含むリストです。  - `seeAlso[*]`: 項目に関する追加リソースを指すURIのリスト。  - `source[string]`: エンティティデータの元のソースをURLで示す一連の文字。ソースプロバイダの完全修飾ドメイン名、またはソースオブジェクトのURLであることが推奨されます。  - `telephone[string]`: 電話番号のことです。  . Model: [https://schema.org/Text](https://schema.org/Text)- `type[string]`: Personと等しくなければならない。NGSIタイプ  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 必要なプロパティ  
 - `id`  - `type`  <!-- /35-RequiredProperties -->  
@@ -645,3 +645,7 @@ Person:
 <!-- 95-Units -->  
 マグニチュード単位の扱いについては、[FAQ 10](https://smartdatamodels.org/index.php/faqs/)を参照してください。  
 <!-- /95-Units -->  
+<!-- 97-LastFooter -->  
+---  
+[スマートデータモデル](https://smartdatamodels.org) +++ [寄稿マニュアル](https://bit.ly/contribution_manual) +++ [バージョン情報](https://bit.ly/Introduction_SDM)  
+<!-- /97-LastFooter -->  
