@@ -14,7 +14,8 @@
 
 ##属性列表  
 
-- `additionalName`: 一个人的附加名称，可用于中间名。  - `address`: 邮寄地址  - `alternateName`: 这个项目的一个替代名称  - `areaServed`: 提供服务或提供项目的地理区域  - `dataProvider`: 一串识别统一数据实体提供者的字符。  - `dateCreated`: 实体创建时间戳。这通常会由存储平台分配。  - `dateModified`: 实体最后一次修改的时间戳。这通常会由存储平台分配。  - `description`: 对这个项目的描述  - `email`: 业主的电子邮件地址。  - `familyName`: 姓氏。在美国，一个人的姓氏。  - `givenName`: 名字。在美国，一个人的名字。  - `id`: 实体的唯一标识符  - `location`: 对该项目的Geojson引用。它可以是点、线字符串、多边形、多点、多线字符串或多多边形。  - `name`: 这个项目的名称。  - `owner`: 一个包含JSON编码的字符序列的列表，引用所有者的唯一Ids。  - `seeAlso`: 指向有关该项目的其他资源的URI列表  - `source`: 一系列的字符，以URL的形式给出实体数据的原始来源。建议为源提供者的完全合格域名，或源对象的URL。  - `telephone`: 的电话号码。  - `type`: 它必须等于人。NGSI类型  <!-- /30-PropertiesList -->  
+<sup><sub>如果一个属性中没有一个类型，是因为它可能有几种类型或不同的格式/模式</sub></sub>。  
+- `additionalName[string]`: 一个人的附加名称，可用于中间名。  . Model: [https://schema.org/Text](https://schema.org/Text)- `address[object]`: 邮寄地址  . Model: [https://schema.org/address](https://schema.org/address)- `alternateName[string]`: 这个项目的一个替代名称  - `areaServed[string]`: 提供服务或提供项目的地理区域  . Model: [https://schema.org/Text](https://schema.org/Text)- `dataProvider[string]`: 一串识别统一数据实体提供者的字符。  - `dateCreated[string]`: 实体创建时间戳。这通常会由存储平台分配。  - `dateModified[string]`: 实体最后一次修改的时间戳。这通常会由存储平台分配。  - `description[string]`: 对这个项目的描述  - `email[string]`: 业主的电子邮件地址。  - `familyName[string]`: 姓氏。在美国，一个人的姓氏。  . Model: [https://schema.org/Text](https://schema.org/Text)- `givenName[string]`: 名字。在美国，一个人的名字。  . Model: [https://schema.org/Text](https://schema.org/Text)- `id`: 实体的唯一标识符  - `location`: 对该项目的Geojson引用。它可以是点、线字符串、多边形、多点、多线字符串或多多边形。  - `name[string]`: 这个项目的名称。  - `owner[array]`: 一个包含JSON编码的字符序列的列表，引用所有者的唯一Ids。  - `seeAlso`: 指向有关该项目的其他资源的URI列表  - `source[string]`: 一系列的字符，以URL的形式给出实体数据的原始来源。建议为源提供者的完全合格域名，或源对象的URL。  - `telephone[string]`: 的电话号码。  . Model: [https://schema.org/Text](https://schema.org/Text)- `type[string]`: 它必须等于人。NGSI类型  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 所需属性  
 - `id`  - `type`  <!-- /35-RequiredProperties -->  
@@ -342,7 +343,6 @@ Person:
 这里是一个以JSON-LD格式作为关键值的Person的例子。当使用`options=keyValues`时，这与NGSI-v2兼容，并返回单个实体的上下文数据。  
 <details><summary><strong>show/hide example</strong></summary>    
 ```json  
-```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
   "type": "Person",  
@@ -384,12 +384,10 @@ Person:
   "email": "info@fiware.org"  
 }  
 ```  
-```  
-</details>    
+</details>  
 #### 人NGSI-v2规范化示例  
 下面是一个以JSON-LD格式规范化的人的例子。当不使用选项时，这与NGSI-v2兼容，并返回单个实体的上下文数据。  
 <details><summary><strong>show/hide example</strong></summary>    
-```json  
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -486,12 +484,10 @@ Person:
   ]  
 }  
 ```  
-```  
-</details>    
+</details>  
 #### Person NGSI-LD key-values 示例  
 这里是一个以JSON-LD格式作为key-values的Person的例子。当使用`options=keyValues`时，这与NGSI-LD兼容，并返回单个实体的上下文数据。  
 <details><summary><strong>show/hide example</strong></summary>    
-```json  
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -537,12 +533,10 @@ Person:
   ]  
 }  
 ```  
-```  
-</details>    
+</details>  
 #### 人NGSI-LD正常化的例子  
 下面是一个JSON-LD格式的人的例子，是规范化的。当不使用选项时，这与NGSI-LD兼容，并返回单个实体的上下文数据。  
 <details><summary><strong>show/hide example</strong></summary>    
-```json  
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -645,9 +639,7 @@ Person:
   ]  
 }  
 ```  
-```  
-</details>    
-<!-- /80-Examples -->  
+</details><!-- /80-Examples -->  
 <!-- 90-FooterNotes -->  
 <!-- /90-FooterNotes -->  
 <!-- 95-Units -->  
