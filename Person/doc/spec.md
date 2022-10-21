@@ -385,7 +385,6 @@ Person:
 }  
 ```  
 ```  
-</details>    
 #### Person NGSI-v2 normalized Example    
 Here is an example of a Person in JSON-LD format as normalized. This is compatible with NGSI-v2 when not using options and returns the context data of an individual entity.  
 <details><summary><strong>show/hide example</strong></summary>    
@@ -487,7 +486,6 @@ Person:
 }  
 ```  
 ```  
-</details>    
 #### Person NGSI-LD key-values Example    
 Here is an example of a Person in JSON-LD format as key-values. This is compatible with NGSI-LD when  using `options=keyValues` and returns the context data of an individual entity.  
 <details><summary><strong>show/hide example</strong></summary>    
@@ -538,7 +536,6 @@ Person:
 }  
 ```  
 ```  
-</details>    
 #### Person NGSI-LD normalized Example    
 Here is an example of a Person in JSON-LD format as normalized. This is compatible with NGSI-LD when not using options and returns the context data of an individual entity.  
 <details><summary><strong>show/hide example</strong></summary>    
@@ -646,7 +643,6 @@ Person:
 }  
 ```  
 ```  
-</details>    
 <!-- /80-Examples -->  
 <!-- 90-FooterNotes -->  
 <!-- /90-FooterNotes -->  
