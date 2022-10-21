@@ -340,6 +340,8 @@ Person:
 ## ＃＃＃＃有效载荷的例子  
 #### Person NGSI-v2 key-values 示例  
 这里是一个以JSON-LD格式作为关键值的Person的例子。当使用`options=keyValues`时，这与NGSI-v2兼容，并返回单个实体的上下文数据。  
+<details><summary><strong>show/hide example</strong></summary>    
+```json  
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -382,8 +384,12 @@ Person:
   "email": "info@fiware.org"  
 }  
 ```  
+```  
+</details>    
 #### 人NGSI-v2规范化示例  
 下面是一个以JSON-LD格式规范化的人的例子。当不使用选项时，这与NGSI-v2兼容，并返回单个实体的上下文数据。  
+<details><summary><strong>show/hide example</strong></summary>    
+```json  
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -480,8 +486,12 @@ Person:
   ]  
 }  
 ```  
+```  
+</details>    
 #### Person NGSI-LD key-values 示例  
 这里是一个以JSON-LD格式作为key-values的Person的例子。当使用`options=keyValues`时，这与NGSI-LD兼容，并返回单个实体的上下文数据。  
+<details><summary><strong>show/hide example</strong></summary>    
+```json  
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -527,8 +537,12 @@ Person:
   ]  
 }  
 ```  
+```  
+</details>    
 #### 人NGSI-LD正常化的例子  
 下面是一个JSON-LD格式的人的例子，是规范化的。当不使用选项时，这与NGSI-LD兼容，并返回单个实体的上下文数据。  
+<details><summary><strong>show/hide example</strong></summary>    
+```json  
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -631,6 +645,8 @@ Person:
   ]  
 }  
 ```  
+```  
+</details>    
 <!-- /80-Examples -->  
 <!-- 90-FooterNotes -->  
 <!-- /90-FooterNotes -->  
