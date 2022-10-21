@@ -28,19 +28,27 @@
 				},
 				"location": {
 					"type": "geo:json",
-					"description": "Location of the waste. Geoproperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygoProperty. "
+					"description": "Location of the waste. Mandatory if address is not used. Geoproperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygoProperty. "
 				},
 				"address": {
 					"type": "PostalAddress",
-					"description": "The mailing address. Model:'https://schema.org/address "
+					"description": "The mailing address. Mandatory if location is not used.  Model:'https://schema.org/address "
 				},
 				"dateObserved": {
 					"type": "Datetime",
-					"description": "Time of the wastecollection."
+					"description": "Time of the wastecollection in ISO8601 UTCformat."
 				},
 				"weight": {
 					"type": "Number",
-					"description": "The weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ) . For instance, 'KGM' represents kilogram.***moeten we hier bruto - netto - tarra hebben??"
+					"description": "The net weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ) . For instance, 'KGM' represents kilogram.***moeten we hier bruto - netto - tarra hebben??"
+				},
+				"grossWeight": {
+					"type": "Number",
+					"description": "The gross weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ) . For instance, 'KGM' represents kilogram.***moeten we hier bruto - netto - tarra hebben??"
+				},
+				"tareWeight": {
+					"type": "Number",
+					"description": "The tare weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ) . For instance, 'KGM' represents kilogram.***moeten we hier bruto - netto - tarra hebben??"
 				},
 				"refGarbageTruck": {
 					"type": "Reference",
@@ -63,6 +71,7 @@
 	],
 	"required": [
 		"id",
-		"type"
+		"type",
+		"dateObserved"
 	]
 }
