@@ -1,68 +1,32 @@
+<!-- 10-Header -->  
+[![Smart Data Models](https://smartdatamodels.org/wp-content/uploads/2022/01/SmartDataModels_logo.png "Logo")](https://smartdatamodels.org)  
+Entity: Person  
+==============<!-- /10-Header -->  
+<!-- 15-License -->  
+[Open License](https://github.com/smart-data-models//incubated/blob/master/Person/LICENSE.md)  
+[document generated automatically](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
+<!-- /15-License -->  
+<!-- 20-Description -->  
+Global description: **A person (alive, dead, undead, or fictional) mapped from schema.org**  
+version: 0.0.1  
+<!-- /20-Description -->  
+<!-- 30-PropertiesList -->  
 
-Global description: **A person (alive, dead, undead, or fictional) mapped from schema.org**  
+## List of properties  
 
-version: 0.0.2  
-
-
-Global description: **A person (alive, dead, undead, or fictional) mapped from schema.org**  
-
-version: 0.0.2  
-
-<!-- /20-Description -->
-  
-<!-- 30-PropertiesList -->
-  
-
-
-## List of properties  
-
-
-- `additionalName`: An additional name for a Person, can be used for a middle name.  
-- `address`: The mailing address  
-- `alternateName`: An alternative name for this item  
-- `areaServed`: The geographic area where a service or offered item is provided  
-- `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.  
-- `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.  
-- `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.  
-- `description`: A description of this item  
-- `email`: Email address of owner.  
-- `familyName`: Family name. In the U.S., the last name of a Person.  
-- `givenName`: Given name. In the U.S., the first name of a Person.  
-- `id`: Unique identifier of the entity  
-- `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon  
-- `name`: The name of this item.  
-- `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)  
-- `seeAlso`: list of uri pointing to additional resources about the item  
-- `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.  
-- `telephone`: The telephone number.  
-- `type`: It must be equal to Person. NGSI type  
-<!-- /30-PropertiesList -->
-  
-<!-- 35-RequiredProperties -->
-  
-
-Required properties  
-- `id`  
-- `type`  
-<!-- /35-RequiredProperties -->
-  
-<!-- 40-RequiredProperties -->
-  
-<!-- /40-RequiredProperties -->
-  
-<!-- 50-DataModelHeader -->
-  
-
-## Data Model description of properties  
-
-Sorted alphabetically (click for details)  
-<!-- /50-DataModelHeader -->
-  
-<!-- 60-ModelYaml -->
-  
+- `additionalName`: An additional name for a Person, can be used for a middle name.  - `address`: The mailing address  - `alternateName`: An alternative name for this item  - `areaServed`: The geographic area where a service or offered item is provided  - `dataProvider`: A sequence of characters identifying the provider of the harmonised data entity.  - `dateCreated`: Entity creation timestamp. This will usually be allocated by the storage platform.  - `dateModified`: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform.  - `description`: A description of this item  - `email`: Email address of owner.  - `familyName`: Family name. In the U.S., the last name of a Person.  - `givenName`: Given name. In the U.S., the first name of a Person.  - `id`: Unique identifier of the entity  - `location`: Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon  - `name`: The name of this item.  - `owner`: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)  - `seeAlso`: list of uri pointing to additional resources about the item  - `source`: A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object.  - `telephone`: The telephone number.  - `type`: It must be equal to Person. NGSI type  <!-- /30-PropertiesList -->  
+<!-- 35-RequiredProperties -->  
+Required properties  
+- `id`  - `type`  <!-- /35-RequiredProperties -->  
+<!-- 40-RequiredProperties -->  
+<!-- /40-RequiredProperties -->  
+<!-- 50-DataModelHeader -->  
+## Data Model description of properties  
+Sorted alphabetically (click for details)  
+<!-- /50-DataModelHeader -->  
+<!-- 60-ModelYaml -->  
 <details><summary><strong>full yaml details</strong></summary>    
-
-```yaml  
+```yaml  
 Person:    
   description: 'A person (alive, dead, undead, or fictional) mapped from schema.org'    
   properties:    
@@ -369,24 +333,15 @@ Person:
   x-version: 0.0.1    
 ```  
 </details>    
-<!-- /60-ModelYaml -->
-  
-<!-- 70-MiddleNotes -->
-  
-<!-- /70-MiddleNotes -->
-  
-<!-- 80-Examples -->
-  
-
-## Example payloads    
-
-#### Person NGSI-v2 key-values Example    
-
-Here is an example of a Person in JSON-LD format as key-values. This is compatible with NGSI-v2 when  using `options=keyValues` and returns the context data of an individual entity.  
-
-```json  
-
-{  
+<!-- /60-ModelYaml -->  
+<!-- 70-MiddleNotes -->  
+<!-- /70-MiddleNotes -->  
+<!-- 80-Examples -->  
+## Example payloads    
+#### Person NGSI-v2 key-values Example    
+Here is an example of a Person in JSON-LD format as key-values. This is compatible with NGSI-v2 when  using `options=keyValues` and returns the context data of an individual entity.  
+```json  
+{  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
   "type": "Person",  
   "dateCreated": "2022-05-07T06:43:37Z",  
@@ -427,14 +382,10 @@ Here is an example of a Person in JSON-LD format as key-values. This is compatib
   "email": "info@fiware.org"  
 }  
 ```  
-
-#### Person NGSI-v2 normalized Example    
-
-Here is an example of a Person in JSON-LD format as normalized. This is compatible with NGSI-v2 when not using options and returns the context data of an individual entity.  
-
-```json  
-
-{  
+#### Person NGSI-v2 normalized Example    
+Here is an example of a Person in JSON-LD format as normalized. This is compatible with NGSI-v2 when not using options and returns the context data of an individual entity.  
+```json  
+{  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
   "type": "Person",  
   "dateCreated": {  
@@ -529,14 +480,10 @@ Here is an example of a Person in JSON-LD format as normalized. This is compatib
   ]  
 }  
 ```  
-
-#### Person NGSI-LD key-values Example    
-
-Here is an example of a Person in JSON-LD format as key-values. This is compatible with NGSI-LD when  using `options=keyValues` and returns the context data of an individual entity.  
-
-```json  
-
-{  
+#### Person NGSI-LD key-values Example    
+Here is an example of a Person in JSON-LD format as key-values. This is compatible with NGSI-LD when  using `options=keyValues` and returns the context data of an individual entity.  
+```json  
+{  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
   "type": "Person",  
   "dateCreated": "2022-05-07T06:43:37Z",  
@@ -580,14 +527,10 @@ Here is an example of a Person in JSON-LD format as key-values. This is compatib
   ]  
 }  
 ```  
-
-#### Person NGSI-LD normalized Example    
-
-Here is an example of a Person in JSON-LD format as normalized. This is compatible with NGSI-LD when not using options and returns the context data of an individual entity.  
-
-```json  
-
-{  
+#### Person NGSI-LD normalized Example    
+Here is an example of a Person in JSON-LD format as normalized. This is compatible with NGSI-LD when not using options and returns the context data of an individual entity.  
+```json  
+{  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
   "type": "Person",  
   "dateCreated": {  
@@ -688,15 +631,9 @@ Here is an example of a Person in JSON-LD format as normalized. This is compatib
   ]  
 }  
 ```  
-<!-- /80-Examples -->
-  
-<!-- 90-FooterNotes -->
-  
-<!-- /90-FooterNotes -->
-  
-<!-- 95-Units -->
-  
-
-See [FAQ 10](https://smartdatamodels.org/index.php/faqs/) to get an answer on how to deal with magnitude units  
-<!-- /95-Units -->
-  
+<!-- /80-Examples -->  
+<!-- 90-FooterNotes -->  
+<!-- /90-FooterNotes -->  
+<!-- 95-Units -->  
+See [FAQ 10](https://smartdatamodels.org/index.php/faqs/) to get an answer on how to deal with magnitude units  
+<!-- /95-Units -->  
