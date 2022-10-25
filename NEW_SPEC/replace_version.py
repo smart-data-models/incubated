@@ -41,14 +41,19 @@ def replace_section(repository, spec_path, section, content, token, globalUser):
     if specPointer.status_code == 200:
 
         contentSpec = specPointer.text
+        print(contentSpec)
         start = "<!-- " + section + " -->"
-        end = "<!-- \\" + section + " -->"
+        end = "<!-- /" + section + " -->"
+        print(start)
+        print(end)
         sectionStartFound = contentSpec.find(start)
+        print(sectionStartFound)
         sectionEndFound = contentSpec.find(end)
+        print(sectionEndFound)
         if (sectionStartFound == -1) or (sectionEndFound == -1):
             return [False, "not found section " + section + " inside spec at " + specUrl]
         else:
-            newSectionContent = content[:sectionStartFound] + content + contentSpec[sectionEndFound:]
+            newSectionContent = contentSpec[:sectionStartFound] + content + contentSpec[sectionEndFound:]
             message = "updated section " + section
             github_push_from_variable(newSectionContent, repository, spec_path, message, globalUser, token)
             return [True, "updated this section " + section + " of the file " + spec_path + " with this content " + content]
