@@ -1,8 +1,9 @@
+<!-- 10-header -->
 [![Smart Data Models](https://smartdatamodels.org/wp-content/uploads/2022/01/SmartDataModels_logo.png "Logo")](https://smartdatamodels.org)  
-
+<!-- 10-/header -->
 Entity: AircraftModel  
 =====================
-  
+<!-- test -->
 
 [Open License](https://github.com/smart-data-models//dataModel.Aeronautics/blob/master/AircraftModel/LICENSE.md)  
 
