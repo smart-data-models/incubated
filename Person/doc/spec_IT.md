@@ -14,7 +14,8 @@
 
 ## Elenco delle proprietà  
 
-- `additionalName`: Un nome aggiuntivo per una persona, che può essere utilizzato come secondo nome.  - `address`: L'indirizzo postale  - `alternateName`: Un nome alternativo per questa voce  - `areaServed`: L'area geografica in cui viene fornito il servizio o l'articolo offerto.  - `dataProvider`: Una sequenza di caratteri che identifica il fornitore dell'entità di dati armonizzata.  - `dateCreated`: Timestamp di creazione dell'entità. Di solito viene assegnato dalla piattaforma di archiviazione.  - `dateModified`: Timestamp dell'ultima modifica dell'entità. Di solito viene assegnato dalla piattaforma di archiviazione.  - `description`: Descrizione dell'articolo  - `email`: Indirizzo e-mail del proprietario.  - `familyName`: Nome di famiglia. Negli Stati Uniti, il cognome di una persona.  - `givenName`: Nome di battesimo. Negli Stati Uniti, il nome di una persona.  - `id`: Identificatore univoco dell'entità  - `location`: Riferimento Geojson all'elemento. Può essere un punto, una stringa di linea, un poligono, un multi-punto, una stringa di linea o un poligono multiplo.  - `name`: Il nome di questo elemento.  - `owner`: Un elenco contenente una sequenza di caratteri codificata JSON che fa riferimento agli ID univoci dei proprietari.  - `seeAlso`: elenco di uri che puntano a risorse aggiuntive sull'elemento  - `source`: Una sequenza di caratteri che indica la fonte originale dei dati dell'entità come URL. Si consiglia di utilizzare il nome di dominio completamente qualificato del provider di origine o l'URL dell'oggetto di origine.  - `telephone`: Il numero di telefono.  - `type`: Deve essere uguale a Persona. Tipo NGSI  <!-- /30-PropertiesList -->  
+<sup><sub>[*] Se non c'è un tipo in un attributo è perché potrebbe avere diversi tipi o diversi formati/modelli</sub></sup>.  
+- `additionalName[string]`: Un nome aggiuntivo per una persona, che può essere utilizzato come secondo nome.  . Model: [https://schema.org/Text](https://schema.org/Text)- `address[object]`: L'indirizzo postale  . Model: [https://schema.org/address](https://schema.org/address)- `alternateName[string]`: Un nome alternativo per questa voce  - `areaServed[string]`: L'area geografica in cui viene fornito il servizio o l'articolo offerto.  . Model: [https://schema.org/Text](https://schema.org/Text)- `dataProvider[string]`: Una sequenza di caratteri che identifica il fornitore dell'entità di dati armonizzata.  - `dateCreated[string]`: Timestamp di creazione dell'entità. Di solito viene assegnato dalla piattaforma di archiviazione.  - `dateModified[string]`: Timestamp dell'ultima modifica dell'entità. Di solito viene assegnato dalla piattaforma di archiviazione.  - `description[string]`: Descrizione dell'articolo  - `email[string]`: Indirizzo e-mail del proprietario.  - `familyName[string]`: Nome di famiglia. Negli Stati Uniti, il cognome di una persona.  . Model: [https://schema.org/Text](https://schema.org/Text)- `givenName[string]`: Nome di battesimo. Negli Stati Uniti, il nome di una persona.  . Model: [https://schema.org/Text](https://schema.org/Text)- `id[*]`: Identificatore univoco dell'entità  - `location[*]`: Riferimento Geojson all'elemento. Può essere un punto, una stringa di linea, un poligono, un multi-punto, una stringa di linea o un poligono multiplo.  - `name[string]`: Il nome di questo elemento.  - `owner[array]`: Un elenco contenente una sequenza di caratteri codificata JSON che fa riferimento agli ID univoci dei proprietari.  - `seeAlso[*]`: elenco di uri che puntano a risorse aggiuntive sull'elemento  - `source[string]`: Una sequenza di caratteri che indica la fonte originale dei dati dell'entità come URL. Si consiglia di utilizzare il nome di dominio completamente qualificato del provider di origine o l'URL dell'oggetto di origine.  - `telephone[string]`: Il numero di telefono.  . Model: [https://schema.org/Text](https://schema.org/Text)- `type[string]`: Deve essere uguale a Persona. Tipo NGSI  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 Proprietà richieste  
 - `id`  - `type`  <!-- /35-RequiredProperties -->  
@@ -340,6 +341,7 @@ Person:
 ## Esempi di payload  
 #### Persona NGSI-v2 valori-chiave Esempio  
 Ecco un esempio di Persona in formato JSON-LD come valori-chiave. Questo è compatibile con NGSI-v2 quando si usa `options=keyValues` e restituisce i dati di contesto di una singola entità.  
+<details><summary><strong>show/hide example</strong></summary>    
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -382,8 +384,10 @@ Person:
   "email": "info@fiware.org"  
 }  
 ```  
+</details>  
 #### Persona NGSI-v2 normalizzata Esempio  
 Ecco un esempio di Persona in formato JSON-LD normalizzato. Questo è compatibile con NGSI-v2 quando non si utilizzano le opzioni e restituisce i dati di contesto di una singola entità.  
+<details><summary><strong>show/hide example</strong></summary>    
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -480,8 +484,10 @@ Person:
   ]  
 }  
 ```  
+</details>  
 #### Valori chiave NGSI-LD della persona Esempio  
 Ecco un esempio di Persona in formato JSON-LD come valori-chiave. Questo è compatibile con NGSI-LD quando si usa `options=keyValues` e restituisce i dati di contesto di una singola entità.  
+<details><summary><strong>show/hide example</strong></summary>    
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -527,8 +533,10 @@ Person:
   ]  
 }  
 ```  
+</details>  
 #### Persona NGSI-LD normalizzata Esempio  
 Ecco un esempio di Persona in formato JSON-LD normalizzato. Questo è compatibile con NGSI-LD quando non si utilizzano le opzioni e restituisce i dati di contesto di una singola entità.  
+<details><summary><strong>show/hide example</strong></summary>    
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -631,9 +639,13 @@ Person:
   ]  
 }  
 ```  
-<!-- /80-Examples -->  
+</details><!-- /80-Examples -->  
 <!-- 90-FooterNotes -->  
 <!-- /90-FooterNotes -->  
 <!-- 95-Units -->  
 Vedere [FAQ 10](https://smartdatamodels.org/index.php/faqs/) per ottenere una risposta su come gestire le unità di grandezza.  
 <!-- /95-Units -->  
+<!-- 97-LastFooter -->  
+---  
+[Modelli di dati intelligenti](https://smartdatamodels.org) +++ [Manuale dei contributi](https://bit.ly/contribution_manual) +++ [Informazioni su](https://bit.ly/Introduction_SDM)  
+<!-- /97-LastFooter -->  

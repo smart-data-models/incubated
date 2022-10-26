@@ -14,7 +14,8 @@
 
 ## Lista de propiedades  
 
-- `additionalName`: Un nombre adicional para una persona, puede ser utilizado como segundo nombre.  - `address`: La dirección postal  - `alternateName`: Un nombre alternativo para este artículo  - `areaServed`: La zona geográfica en la que se presta un servicio o se ofrece un artículo  - `dataProvider`: Una secuencia de caracteres que identifica al proveedor de la entidad de datos armonizada.  - `dateCreated`: Marca de tiempo de creación de la entidad. Suele ser asignada por la plataforma de almacenamiento.  - `dateModified`: Marca de tiempo de la última modificación de la entidad. Normalmente será asignada por la plataforma de almacenamiento.  - `description`: Una descripción de este artículo  - `email`: Dirección de correo electrónico del propietario.  - `familyName`: Apellido. En Estados Unidos, el apellido de una persona.  - `givenName`: Nombre de pila. En Estados Unidos, el nombre de pila de una persona.  - `id`: Identificador único de la entidad  - `location`: Referencia Geojson al elemento. Puede ser Point, LineString, Polygon, MultiPoint, MultiLineString o MultiPolygon  - `name`: El nombre de este artículo.  - `owner`: Una lista que contiene una secuencia de caracteres codificada en JSON que hace referencia a los identificadores únicos de los propietarios  - `seeAlso`: lista de uri que apuntan a recursos adicionales sobre el artículo  - `source`: Una secuencia de caracteres que indica la fuente original de los datos de la entidad en forma de URL. Se recomienda que sea el nombre de dominio completo del proveedor de origen o la URL del objeto de origen.  - `telephone`: El número de teléfono.  - `type`: Debe ser igual a Persona. Tipo NGSI  <!-- /30-PropertiesList -->  
+<sup><sub>[*] Si no hay un tipo en un atributo es porque puede tener varios tipos o diferentes formatos/patrones</sub></sup>  
+- `additionalName[string]`: Un nombre adicional para una persona, puede ser utilizado como segundo nombre.  . Model: [https://schema.org/Text](https://schema.org/Text)- `address[object]`: La dirección postal  . Model: [https://schema.org/address](https://schema.org/address)- `alternateName[string]`: Un nombre alternativo para este artículo  - `areaServed[string]`: La zona geográfica en la que se presta un servicio o se ofrece un artículo  . Model: [https://schema.org/Text](https://schema.org/Text)- `dataProvider[string]`: Una secuencia de caracteres que identifica al proveedor de la entidad de datos armonizada.  - `dateCreated[string]`: Marca de tiempo de creación de la entidad. Suele ser asignada por la plataforma de almacenamiento.  - `dateModified[string]`: Marca de tiempo de la última modificación de la entidad. Normalmente será asignada por la plataforma de almacenamiento.  - `description[string]`: Una descripción de este artículo  - `email[string]`: Dirección de correo electrónico del propietario.  - `familyName[string]`: Apellido. En Estados Unidos, el apellido de una persona.  . Model: [https://schema.org/Text](https://schema.org/Text)- `givenName[string]`: Nombre de pila. En Estados Unidos, el nombre de pila de una persona.  . Model: [https://schema.org/Text](https://schema.org/Text)- `id[*]`: Identificador único de la entidad  - `location[*]`: Referencia Geojson al elemento. Puede ser Point, LineString, Polygon, MultiPoint, MultiLineString o MultiPolygon  - `name[string]`: El nombre de este artículo.  - `owner[array]`: Una lista que contiene una secuencia de caracteres codificada en JSON que hace referencia a los identificadores únicos de los propietarios  - `seeAlso[*]`: lista de uri que apuntan a recursos adicionales sobre el artículo  - `source[string]`: Una secuencia de caracteres que indica la fuente original de los datos de la entidad en forma de URL. Se recomienda que sea el nombre de dominio completo del proveedor de origen o la URL del objeto de origen.  - `telephone[string]`: El número de teléfono.  . Model: [https://schema.org/Text](https://schema.org/Text)- `type[string]`: Debe ser igual a Persona. Tipo NGSI  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 Propiedades requeridas  
 - `id`  - `type`  <!-- /35-RequiredProperties -->  
@@ -340,6 +341,7 @@ Person:
 ## Ejemplo de carga útil  
 #### Persona NGSI-v2 key-values Ejemplo  
 Aquí hay un ejemplo de una Persona en formato JSON-LD como valores-clave. Esto es compatible con NGSI-v2 cuando se utiliza `options=keyValues` y devuelve los datos de contexto de una entidad individual.  
+<details><summary><strong>show/hide example</strong></summary>    
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -382,8 +384,10 @@ Person:
   "email": "info@fiware.org"  
 }  
 ```  
+</details>  
 #### Persona NGSI-v2 normalizada Ejemplo  
 Este es un ejemplo de una Persona en formato JSON-LD normalizado. Esto es compatible con NGSI-v2 cuando no se utilizan opciones y devuelve los datos de contexto de una entidad individual.  
+<details><summary><strong>show/hide example</strong></summary>    
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -480,8 +484,10 @@ Person:
   ]  
 }  
 ```  
+</details>  
 #### Persona NGSI-LD key-values Ejemplo  
 Aquí hay un ejemplo de una Persona en formato JSON-LD como valores-clave. Esto es compatible con NGSI-LD cuando se utiliza `options=keyValues` y devuelve los datos de contexto de una entidad individual.  
+<details><summary><strong>show/hide example</strong></summary>    
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -527,8 +533,10 @@ Person:
   ]  
 }  
 ```  
+</details>  
 #### Persona NGSI-LD normalizada Ejemplo  
 Este es un ejemplo de una Persona en formato JSON-LD normalizado. Esto es compatible con NGSI-LD cuando no se utilizan opciones y devuelve los datos de contexto de una entidad individual.  
+<details><summary><strong>show/hide example</strong></summary>    
 ```json  
 {  
   "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",  
@@ -631,9 +639,13 @@ Person:
   ]  
 }  
 ```  
-<!-- /80-Examples -->  
+</details><!-- /80-Examples -->  
 <!-- 90-FooterNotes -->  
 <!-- /90-FooterNotes -->  
 <!-- 95-Units -->  
 Consulte [FAQ 10](https://smartdatamodels.org/index.php/faqs/) para obtener una respuesta sobre cómo tratar las unidades de magnitud  
 <!-- /95-Units -->  
+<!-- 97-LastFooter -->  
+---  
+[Modelos de datos inteligentes](https://smartdatamodels.org) +++ [Manual de contribución](https://bit.ly/contribution_manual) +++ [Acerca de](https://bit.ly/Introduction_SDM)  
+<!-- /97-LastFooter -->  
