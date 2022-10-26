@@ -31,35 +31,35 @@
 					"description": "Location of the waste. Mandatory if address is not used. Geoproperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygoProperty. "
 				},
 				"address": {
-					"type": "PostalAddress",
+					"type": "object",
 					"description": "The mailing address. Mandatory if location is not used.  Model:'https://schema.org/address "
 				},
 				"dateObserved": {
-					"type": "Datetime",
+					"type": "string",
 					"description": "Time of the wastecollection in ISO8601 UTCformat."
 				},
 				"weight": {
-					"type": "Number",
+					"type": "number",
 					"description": "The net weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ) . For instance, 'KGM' represents kilogram.***moeten we hier bruto - netto - tarra hebben??"
 				},
 				"grossWeight": {
-					"type": "Number",
+					"type": "number",
 					"description": "The gross weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ) . For instance, 'KGM' represents kilogram.***moeten we hier bruto - netto - tarra hebben??"
 				},
 				"tareWeight": {
-					"type": "Number",
+					"type": "number",
 					"description": "The tare weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ) . For instance, 'KGM' represents kilogram.***moeten we hier bruto - netto - tarra hebben??"
 				},
 				"refGarbageTruck": {
-					"type": "Reference",
+					"type": "Relationship",
 					"description": "A reference to an Vehicle Smart model referencint the vehicle used during garbage collection"
 				},
 				"refWeighingDevice": {
-					"type": "Reference",
+					"type": "Relationship",
 					"description": "A reference to the device used to measure the waste weight."
 				},
 				"refServiceOrderId": {
-					"type": "Reference",
+					"type": "Relationship",
 					"description": "A reference to an external system containing workorders. This might contain data about a client requesting the garbage collection, or a workorder for wastecollection, or any other relavant referece."
 				},
 				"Image": {
