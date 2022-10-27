@@ -60,17 +60,9 @@
           "description": "Country Code following the 2 character ISO3166 standard (https://www.iban.com/country-codes). Note that the International vehicle registration code should not be used to avoid ambiguity (https://en.wikipedia.org/wiki/International_vehicle_registration_code). If the country-code could not be determined, set 'XX' as for this attribute."
         },
         "observedCredentialConfidence": {
-          "type": "string",
-          "description": "The overal confidence of the measurement. This can be highly vendor specific. Use the metadata to indicate how this number should be interpreted. Arvoo: range[0, 999](higher is better). XXX",
-          "enum": [
-            "AndereMethodeVanLeverancierXYZ",
-            "Arvoo",
-            "Scanacar",
-            "Genetec",
-            "Zoneguard",
-            "MACQ - CAM3",
-            "MACQ - CAM5"
-          ]
+          "type": "number",
+          "description": "The overal confidence of the measurement. This can be highly vendor specific. Use the metadata to indicate how this number should be interpreted. Arvoo: range[0, 999](higher is better)."
+
         },
         "observedCredentialCharacterConfidence": {
           "type": "array",
@@ -99,21 +91,22 @@
           }
         },
         "observationDateTime": {
-          "type": "DateTime",
+          "type": "string",
+          "format":  "date-time",
           "description": "The timestamp the Observation was made (UTC). Mandatory if observationStartDateTime and observationEndDateTime are not used."
         },
         "observationStartDateTime": {
-          "type": "DateTime",
+          "type": "string",
+          "format":  "date-time",
           "description": "The date and time of the observation(in UTC)event started.(e.g.a car was observed to enter a delivery zone at 8: 01am). Mandatory if creationDateTime is not used."
         },
         "observationEndDateTime": {
-          "type": "DateTime",
+          "type": "string",
+          "format":  "date-time",
           "description": "The date and time of the observation event ended(in UTC).(e.g.a car was observed to exit a delivery zone at 9: 33am).Mandatory if creationDateTime is not used."
         },
         "observerLocation": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons",
-          "type": "geo: json",
-          "description": "Location of the observer. XXX"
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
         },
         "observerLocationPDOP": {
           "type": "number",
@@ -161,8 +154,7 @@
         },
         "observedLocation": {
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons",
-          "type": "geo: json",
-          "description": "GPS position of the middle position of the scanned vehicle. XXX better geopoint"
+          "description": "GPS position of the middle position of the scanned vehicle."
         },
         "observedLocationPDOP": {
           "type": "number",
@@ -217,7 +209,22 @@
           "type": "array",
           "description": "Property. Array of links to images.The array element contain the URLs of the images and additional info. The latter may contain these tags: URL: url to the image. camId: identifier of the camera. Can be specified by the cameraposition (also used in the ' camera ' attribute. ' imageContent ': specifies the content of the image, ' distance ': the distance from the observer. XXX camelCase missing items",
           "items": {
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "URL": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "camId": {
+                  "type": "string"
+                },
+                "imageContent": {
+                  "type": "string"
+                }
+              }
+            }
           }
         },
         "observedVehicleColour": {
