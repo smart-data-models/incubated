@@ -5,8 +5,9 @@
 	"$id": "https://smart-data-models.github.io/dataModel.WasteManagement/WasteObserved/schema.json",
 	"title": "Smart Data Models - WasteObserved.",
 	"versionControl": "0.0.1: initial,0.0.2:afte talking tot Alberto",
-	"description": "This entity models a single collection of Waste.***gaan we hier actoren ook benoemen?",
+	"description": "This entity models a single collection of Waste.",
 	"type": "object",
+	"license": "*** this is my own make - which open source license would you propose?",
 	"allOf": [
 		{
 			"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -27,44 +28,45 @@
 					"description": "Property. NGSI Entity type. It has to be WasteObserved"
 				},
 				"location": {
-					"type": "geo:json",
-					"description": "Location of the waste. Mandatory if address is not used. Geoproperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygoProperty. "
+					"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons",
+					"description": "GeoProperty. Location of the waste. Mandatory if address is not used. Geoproperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygoProperty. "
 				},
 				"address": {
 					"type": "object",
-					"description": "The mailing address. Mandatory if location is not used.  Model:'https://schema.org/address "
+					"description": "GeoProperty. The mailing address. Mandatory if location is not used.  Model:'https://schema.org/address "
 				},
 				"dateObserved": {
 					"type": "string",
-					"description": "Time of the wastecollection in ISO8601 UTCformat."
+					"format": "date-time",
+					"description": "Property. Time of the wastecollection in ISO8601 UTCformat."
 				},
 				"weight": {
 					"type": "number",
-					"description": "The net weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ) . For instance, 'KGM' represents kilogram.***moeten we hier bruto - netto - tarra hebben??"
+					"description": "Property. The net weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ). For instance, 'KGM' represents kilogram. Units: 'KGM'."
 				},
 				"grossWeight": {
 					"type": "number",
-					"description": "The gross weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ) . For instance, 'KGM' represents kilogram.***moeten we hier bruto - netto - tarra hebben??"
+					"description": "Property. The gross weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ). For instance, 'KGM' represents kilogram. Units: 'KGM'."
 				},
 				"tareWeight": {
 					"type": "number",
-					"description": "The tare weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ) . For instance, 'KGM' represents kilogram.***moeten we hier bruto - netto - tarra hebben??"
+					"description": "Property. The tare weight of the collected waste. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes ). For instance, 'KGM' represents kilogram. Units: 'KGM'."
 				},
 				"refGarbageTruck": {
 					"type": "Relationship",
-					"description": "A reference to an Vehicle Smart model referencint the vehicle used during garbage collection"
+					"description": "Property. A reference to an Vehicle Smart model referencint the vehicle used during garbage collection. ***Can I define this as either 1) an id (string) of an external system, or 2) a proper reference to anothher NGSI entity (e.g. refVehicle:Truck123 ???"
 				},
 				"refWeighingDevice": {
 					"type": "Relationship",
-					"description": "A reference to the device used to measure the waste weight."
+					"description": "Relationship. A reference to the device used to measure the waste weight."
 				},
 				"refServiceOrderId": {
 					"type": "Relationship",
-					"description": "A reference to an external system containing workorders. This might contain data about a client requesting the garbage collection, or a workorder for wastecollection, or any other relavant referece."
+					"description": "Relationship. A reference to an external system containing workorders. This might contain data about a client requesting the garbage collection, or a workorder for wastecollection, or any other relavant referece."
 				},
-				"Image": {
+				"image": {
 					"type": "URL",
-					"description": "An URL to an image or images of the observed Waste."
+					"description": "Property. An URL to an image or images of the observed Waste."
 				}
 			}
 		}
