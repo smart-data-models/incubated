@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/XXXSubjectXXX/XXXDataModelXXX/schema.json",
+  "title": "Smart Data models -XXXdataModelXXX schema",
+  "modelTags": "EPPO",
+  "description": "Reporting a crime to the EPPO.",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "financialDamage": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. What do you estimate is the amount of the financial damage"
+        },
+        "reportedIssue": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. please indicate: when, where, who, what, how"
+        },
+        "ImpactEU": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. How does this affect the financial interest of the Union?"
+        },
+        "dataObserved": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Example of definition of a date-time attribute"
+        },
+        "crimeLocation": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        "OffenceType": {
+          "type": "stringMoneyLaundering",
+          "enum": [
+            "Corruption",
+            "ProcurementFraud",
+            "VATFraud",
+            "Fraud",
+            "MoneyLaundering",
+            "Other"
+          ],
+          "description": "Property. Model:'https://schema.org/Text. Type of offence"
+        }
+      }
+    }
+  ],
+  "derivedFrom": "",
+  "license": ""
+}

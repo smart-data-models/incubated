@@ -1,144 +1,144 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "modelTags": "IUDX",
-    "$id": "https://smart-data-models.github.io/dataModel.WasteWater/WaterDistributionNetwork/schema.json",
-    "title": "GISData",
-    "$schemaVersion": "0.0.1",
-    "description": "Smart Data Models - A Data Model for water supply network in a city.",
-    "derivedFrom": "https://voc.iudx.org.in/WaterDistributionNetwork",
-    "type": "object",
-    "allOf": [
+  "$schema": "http://json-schema.org/schema#",
+  "modelTags": "IUDX",
+  "$id": "https://smart-data-models.github.io/dataModel.WasteWater/WaterDistributionNetwork/schema.json",
+  "title": "GISData",
+  "$schemaVersion": "0.0.1",
+  "description": "Smart Data Models - A Data Model for water supply network in a city.",
+  "derivedFrom": "https://voc.iudx.org.in/WaterDistributionNetwork",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": [
         {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+          "description": {
+            "type": "string",
+            "description": "Property. Description for an IUDX thing."
+          }
         },
         {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+          "dataDescriptor": {
+            "type": "Relationship",
+            "description": "Relationship. URI pointing to the data-descriptor entity"
+          }
         },
         {
-            "properties": [
-                {
-                    "description": {
-                        "type": "string",
-                        "description": "Property. Description for an IUDX thing."
-                    }
-                },
-                {
-                    "dataDescriptor": {
-                        "type": "Relationship",
-                        "description": "Relationship. URI pointing to the data-descriptor entity"
-                    }
-                },
-                {
-                    "waterPressure": {
-                        "type": "number",
-                        "description": "Property. Pressure of water flowing from the water storage tank corresponding to this observation."
-                    }
-                },
-                {
-                    "tankCapacity": {
-                        "type": "number",
-                        "description": "Property. Maximum amount of water the water storage tank corresponding to this observation can hold."
-                    }
-                },
-                {
-                    "tankName": {
-                        "type": "string",
-                        "description": "Property. Name of the water storage tank corresponding to this observation."
-                    }
-                },
-                {
-                    "turbidity": {
-                        "type": "number",
-                        "description": "Property. Measurement of the amount of light that is scattered by material in the water when a light is shined through the water."
-                    }
-                },
-                {
-                    "pH": {
-                        "type": "number",
-                        "description": "Property. Acidity level or basicity level obsevered in the water."
-                    }
-                },
-                {
-                    "tankDiameter": {
-                        "type": "number",
-                        "description": "Property. Diameter of Cylindrical or Spherical water storage tanks."
-                    }
-                },
-                {
-                    "tankShape": {
-                        "type": "string",
-                        "description": "Property. Physical shape of the water storage tank corresponding to this observation. ENUM: [Cylindrical, Conical, Cuboid, Spherical]"
-                    }
-                },
-                {
-                    "waterFlow": {
-                        "type": "number",
-                        "description": "Property. Flow or current of water flowing from the water storage tank corresponding to this observation."
-                    }
-                },
-                {
-                    "waterLevel": {
-                        "type": "number",
-                        "description": "Property. Current water level in the water storage tank corresponding to this observation."
-                    }
-                },
-                {
-                    "tankBreadth": {
-                        "type": "number",
-                        "description": "Property. Breadth of the Cuboid shaped water storage tank."
-                    }
-                },
-                {
-                    "totalML": {
-                        "type": "number",
-                        "description": "Property. Total MLDs of water discharged from the water storage tank corresponding to this observation."
-                    }
-                },
-                {
-                    "flowrate": {
-                        "type": "number",
-                        "description": "Property. Volume of water flowing in/out of the water storage tank corresponding to this observation."
-                    }
-                },
-                {
-                    "cl": {
-                        "type": "number",
-                        "description": "Property. Concentration of chlorides in the water."
-                    }
-                },
-                {
-                    "waterTemperature": {
-                        "type": "number",
-                        "description": "Property. Water temperature in the water storage tank corresponding to this observation."
-                    }
-                },
-                {
-                    "tankdepth": {
-                        "type": "number",
-                        "description": "Property. Depth of the water storage tank corresponding to this observation."
-                    }
-                },
-                {
-                    "tankLength": {
-                        "type": "number",
-                        "description": "Property. Length of the Cuboid shaped water storage tank."
-                    }
-                },
-                {
-                    "deviceInfo": {
-                        "type": "object",
-                        "description": "Property. Information about the device associated with the observations.",
-                        "properties": {}
-                    }
-                },
-                {
-                    "observationDateTime": {
-                        "type": "string",
-                        "format": "date-time",
-                        "description": "Property. Last reported time of observation."
-                    }
-                }
-            ]
+          "waterPressure": {
+            "type": "number",
+            "description": "Property. Pressure of water flowing from the water storage tank corresponding to this observation."
+          }
+        },
+        {
+          "tankCapacity": {
+            "type": "number",
+            "description": "Property. Maximum amount of water the water storage tank corresponding to this observation can hold."
+          }
+        },
+        {
+          "tankName": {
+            "type": "string",
+            "description": "Property. Name of the water storage tank corresponding to this observation."
+          }
+        },
+        {
+          "turbidity": {
+            "type": "number",
+            "description": "Property. Measurement of the amount of light that is scattered by material in the water when a light is shined through the water."
+          }
+        },
+        {
+          "pH": {
+            "type": "number",
+            "description": "Property. Acidity level or basicity level obsevered in the water."
+          }
+        },
+        {
+          "tankDiameter": {
+            "type": "number",
+            "description": "Property. Diameter of Cylindrical or Spherical water storage tanks."
+          }
+        },
+        {
+          "tankShape": {
+            "type": "string",
+            "description": "Property. Physical shape of the water storage tank corresponding to this observation. ENUM: [Cylindrical, Conical, Cuboid, Spherical]"
+          }
+        },
+        {
+          "waterFlow": {
+            "type": "number",
+            "description": "Property. Flow or current of water flowing from the water storage tank corresponding to this observation."
+          }
+        },
+        {
+          "waterLevel": {
+            "type": "number",
+            "description": "Property. Current water level in the water storage tank corresponding to this observation."
+          }
+        },
+        {
+          "tankBreadth": {
+            "type": "number",
+            "description": "Property. Breadth of the Cuboid shaped water storage tank."
+          }
+        },
+        {
+          "totalML": {
+            "type": "number",
+            "description": "Property. Total MLDs of water discharged from the water storage tank corresponding to this observation."
+          }
+        },
+        {
+          "flowrate": {
+            "type": "number",
+            "description": "Property. Volume of water flowing in/out of the water storage tank corresponding to this observation."
+          }
+        },
+        {
+          "cl": {
+            "type": "number",
+            "description": "Property. Concentration of chlorides in the water."
+          }
+        },
+        {
+          "waterTemperature": {
+            "type": "number",
+            "description": "Property. Water temperature in the water storage tank corresponding to this observation."
+          }
+        },
+        {
+          "tankdepth": {
+            "type": "number",
+            "description": "Property. Depth of the water storage tank corresponding to this observation."
+          }
+        },
+        {
+          "tankLength": {
+            "type": "number",
+            "description": "Property. Length of the Cuboid shaped water storage tank."
+          }
+        },
+        {
+          "deviceInfo": {
+            "type": "object",
+            "description": "Property. Information about the device associated with the observations.",
+            "properties": {}
+          }
+        },
+        {
+          "observationDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Property. Last reported time of observation."
+          }
         }
-    ]
+      ]
+    }
+  ]
 }
