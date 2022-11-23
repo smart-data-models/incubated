@@ -1,0 +1,116 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "",
+    "derivedFrom": "",
+    "license": "",
+    "$id": "https://smart-data-models.github.io/dataModel.Ports/Port/schema.json",
+    "title": "Smart Data models Port schema",
+    "description": "The data model is intended to provide information about ports",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Property. Unique identifier of the entity"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI Entity type. It has to be Port",
+                    "enum": [
+                        "Port"
+                    ]
+                },
+                "location": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string"
+                        },
+                        "coordinates": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        }
+                    },
+                    "description": "Geoproperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygoProperty."
+                },
+                "unlocode": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. United Nations Code for Trade and Transport Locations. See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Port Name."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. A description of this port."
+                },
+                "address": {
+                    "type": "object",
+                    "description": "Property. Model:'https://schema.org/address'. Address"
+                },
+                "contactPoint": {
+                    "type": "object",
+                    "description": "Property. Model:'https://schema.org/ContactPoint'. Contact point for the port."
+                },
+                "areaCovered": {
+                    "oneOf": [
+                        {
+                            "$ref": "https://geojson.org/schema/Polygon.json"
+                        },
+                        {
+                            "$ref": "https://geojson.org/schema/MultiPolygon.json"
+                        }
+                    ],
+                    "description": "Geoproperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygoProperty. "
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. The value provided should be among those listed in the IANA Time Zone Database. See [TZ](IANA Time Zone Database)."
+                },
+                "gln": {
+                    "type": "number",
+                    "description": "Property. Model:'https://schema.org/Number'. Global Location Number. See [GLN](https://gs1id.org/global-location-number-gln)."
+                },
+                "portType": {
+                    "type": "string",
+                    "enum": ["Sea", "Inland", "Fishing", "WarmWater", "Dry"],
+                    "description": "Property. Model:'http://schema.org/Text'. Enum: 'Sea, Inland, Fishing, WarmWater, Dry'. Classification by type of port."
+                },
+                "refPortAuthority": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 256,
+                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                            "description": "Property. Identifier format of any NGSI entity"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "Property. Identifier format of any NGSI entity"
+                        }
+                    ],
+                    "description": "Relationship. Model:'https://schema.org/URL'. Reference to the PortAuthority"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type",
+        "location",
+        "unlocode"
+    ]
+}
