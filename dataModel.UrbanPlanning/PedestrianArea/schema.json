@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://github.com/smart-data-models/dataModel.UrbanLayout/tree/master/PedestrianArea/schema.json",
+  "title": "Smart Data models - PedestrianArea schema",
+  "modelTags": "SPOTTED",
+  "description": "Polygonal representation of pedestrian area and limited traffic zones.",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "derivedFrom": "",
+  "license": "",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "identifier": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Unique numeric code of the Area"
+        },
+        "areaType": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Type of Area: PZ(pedestrian zone), AREA_B (Area B), AREA_C (Area C), RZ (restricted zone), LTZ (limited traffic zone).",
+          "enum": [
+            "PZ",
+            "AREA_B",
+            "AREA_C",
+            "RZ",
+            "LTZ"
+          ]
+        },
+        "areaName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Area name"
+        },
+        "ordinance": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Reference to the ordinance establishing the Area, and any subsequent amendments thereto."
+        },
+        "exemption": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Type of vehicles authorised to access the exemption from the prohibition."
+        },
+        "activationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. The date/time of the area activation."
+        },
+        "deactivationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. The date/time of the area deactivation."
+        },
+        "resolution": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Any resolution establishing the Area."
+        },
+        "locationDetail": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Any location detail of the pedestrian area."
+        },
+        "areaNote": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Any note associated to the pedestrian area."
+        },
+        "areaSignal": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Type of sign identifying the Pedestrian Area: PZ (pedestrian area), PT (prohibition of transit), PR (pedestrian route), LTZ (limited traffic zone).",
+          "enum": [
+            "PZ",
+            "PT",
+            "PR",
+            "LTZ"
+          ]
+        },
+        "dissuasiveDevice": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Description of any dissuasive device installed in the pedestrian area."
+        }
+      }
+    }
+  ]
+}
