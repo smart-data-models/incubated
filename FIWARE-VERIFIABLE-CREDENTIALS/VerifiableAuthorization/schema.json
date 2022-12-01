@@ -5,6 +5,7 @@
   "title": "Services Credential",
   "description": "Schema of a  Services Credential",
   "modelTags": "",
+  "derivedFrom": "",
   "type": "object",
   "allOf": [
     {
@@ -24,10 +25,10 @@
         },
         "type": {
           "description": "Property. Defines the Verifiable Credential type",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "type": "string",
+          "enum": [
+            "VerifiableAuthorization"
+          ]
         },
         "issuer": {
           "description": "Property. Defines the issuer of the Packet Delivery Services Credential",
@@ -35,27 +36,27 @@
           "format": "uri"
         },
         "issuanceDate": {
-          "description": "Property. Defines the date and time, when the Verifiable Attestation becomes valid",
+          "description": "Property. Defines the date and time, when the Verifiable Attestation becomes valid. Recommended to use ISO 8601 format",
           "type": "string",
           "format": "date-time"
         },
         "issued": {
-          "description": "Property. Defines when the Verifiable Attestation was issued",
+          "description": "Property. Defines when the Verifiable Attestation was issued. Recommended to use ISO 8601 format",
           "type": "string",
           "format": "date-time"
         },
         "validFrom": {
-          "description": "Property. Defines the date and time, when the Verifiable Attestation becomes valid",
+          "description": "Property. Defines the date and time, when the Verifiable Attestation becomes valid. Recommended to use ISO 8601 format",
           "type": "string",
           "format": "date-time"
         },
         "validUntil": {
-          "description": "Property. Defines the date and time, when the Verifiable Attestation expires",
+          "description": "Property. Defines the date and time, when the Verifiable Attestation expires. Recommended to use ISO 8601 format",
           "type": "string",
           "format": "date-time"
         },
         "expirationDate": {
-          "description": "Property. Defines the date and time, when the Verifiable Attestation expires",
+          "description": "Property. Defines the date and time, when the Verifiable Attestation expires. Recommended to use ISO 8601 format",
           "type": "string",
           "format": "date-time"
         },
@@ -194,7 +195,7 @@
               "type": "string"
             },
             "created": {
-              "description": "Property. Defines the date and time, when the proof has been created",
+              "description": "Property. Defines the date and time, when the proof has been created. Recommended to use ISO 8601 format",
               "type": "string",
               "format": "date-time"
             },
