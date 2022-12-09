@@ -1,1 +1,0 @@
-Folder for the creation of a powerForecast data model
