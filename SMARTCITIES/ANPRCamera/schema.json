@@ -66,9 +66,26 @@
 				"observedCredentialCharacterConfidence": {
 					"type": "array",
 					"description": "The confidence of individual character recognition. As with observedCredentialConfidence this is vendor specific. Use the metadata to indicate how the confidences can be interpreted. XXX",
-					"items": {
-						"type": "number"
-					}
+					"type": "object",
+					"properties": {
+						"type": {
+							"type": "string"
+						},
+						"value": {
+							"type": "array",
+							"items": {
+								"type": "number"
+							}
+						},
+						"metadata": {
+							"ref": "#/definitions/metadata/properties/confidenceMethod"
+						}
+					},
+					"required": [
+						"type",
+						"value",
+						"metadata"
+					]
 				},
 				"observer": {
 					"type": "string",
@@ -107,7 +124,7 @@
 				"observerLocation": {
 					"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
 				},
-				"observerLocationPDOP": {
+				"observerPDOP": {
 					"type": "number",
 					"description": "Accuracy of the GPS position of the observer, expressed as 'Position Dilution Of Precision'(https: //en.wikipedia.org/wiki/Dilution_of_precision_(navigation)). Units:'meters'."
 				},
@@ -155,7 +172,7 @@
 					"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons",
 					"description": "GPS position of the middle position of the scanned vehicle."
 				},
-				"observedLocationPDOP": {
+				"observedPDOP": {
 					"type": "number",
 					"description": "Accuracy of GPS position of the observed vehicle. This is expressed as 'Position Dilution Of Precision'(https: //en.wikipedia.org/wiki/Dilution_of_precision_(navigation)). Units:' meters'. (UN code 'MTR'). "
 				},
@@ -207,34 +224,46 @@
 				"images": {
 					"type": "array",
 					"description": "Property. Array of links to images.The array element contain the URLs of the images and additional info. The latter may contain these tags: camId: identifier of the camera. Can be specified by the cameraposition (also used in the ' camera ' attribute. ' imageContent ': specifies the content of the image, ' distance ': the distance in meter from the observer. XXX camelCase missing items",
-					"items": {
-						"type": "array",
-						"items": {
-							"type": "object",
-							"properties": {
-								"oneOF": [
+					"type": "object",
+					"properties": {
+						"type": {
+							"type": "string"
+						},
+						"value": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"URL": {
+										"type": "string",
+										"format": "uri"
+									},
+									"binaryContent": {
+										"type": "string",
+										"format": "uuencoded"
+									},
+									"camId": {
+										"type": "string"
+									},
+									"imageContent": {
+										"type": "string"
+									},
+									"distance": {
+										"type": "number"
+									}
+								},
+								"oneOf": [
 									{
-										"URL": {
-											"type": "string",
-											"format": "uri"
-										}
+										"required": [
+											"URL"
+										]
 									},
 									{
-										"binaryContent": {
-											"type": "string",
-											"format": "uuencoded"
-										}
+										"required": [
+											"binaryContent"
+										]
 									}
-								],
-								"camId": {
-									"type": "string"
-								},
-								"imageContent": {
-									"type": "string"
-								},
-								"distance": {
-									"type": "number"
-								}
+								]
 							}
 						}
 					}
