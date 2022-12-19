@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.2",
+  "$id": "https://github.com/smart-data-models/XXX/schema.json",
+  "title": "Smart Data models - District schema extension",
+  "modelTags": "",
+  "description": "The Districts represent a veritable territorial atlas, a tool for verification and consultation for the planning of services, but above all for knowledge of the neighbourhoods that make up the various local realities, highlighting unique and different characteristics for each nucleus and synthetically rendering the socio-demographic and territorial components. In addition, they express the territorial phenomena representative of local dynamism, and collect data from heterogeneous registry and census sources, related by means of elaborations with geographic-territorial data.",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "derivedFrom": "",
+  "license": "",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "District"
+          ],
+          "description": "Property. NGSI Entity type. It has to be District."
+        },
+        "districtId": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Type of electrical installation."
+        },
+        "districtName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'.  Name of the District."
+        },
+        "validFrom": {
+          "type": "string",
+          "format": "date",
+          "description": "Property. Model:'https://schema.org/Date. Date of start of validity."
+        },
+        "validTo": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "date",
+              "description": "Property. Model:'https://schema.org/Date. End of the validity date."
+            },
+            {
+              "type": "string",
+              "enum": [
+                "valid"
+              ],
+              "description": "Property. Model:'https://schema.org/Text'. 'valid' means that the district is still valid."
+            }
+          ]
+        },
+        "source": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Source of definition of the district shape."
+        },
+        "shapeLength": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Float'. Perimeter of the vector describing the district. Unit in meters"
+        },
+        "shapeArea": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Float'. Area of the vector describing the district. Unit in square meters"
+        },
+        "vectorId": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Identifier of the vector"
+        }
+      }
+    }
+  ]
+}
