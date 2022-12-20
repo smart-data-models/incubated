@@ -1,0 +1,188 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "schemaVersion": "0.0.2",
+  "modelTags": "",
+  "$id": "https://gitlab.inuits.io/tom.vda/dataModel.Police/AnprFlowObserved/schema.json",
+  "title": "ANPR Flow Observed schema",
+  "description": "The data model intended to represent an observation linked to the passing of a vehicle at a certain location and at a given time. This Data Model is based on the [dataModel.Transportation/ItemFlowObserved], extended with ANPR specific properties and links to the observation images.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "description": "Property. NGSI Entity type. It has to be AnprFlowObserved",
+          "type": "string",
+          "enum": [
+            "AnprFlowObserved"
+          ]
+        },
+        "dateObserved": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/dateObserved"
+        },
+        "observedBy": {
+          "description": "Relationship. The entity or device which has reported this observation",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "laneId": {
+          "description": "Property. Lane identifier. Lane identification provided by the observer.",
+          "type": "string"
+        },
+        "vehiclePlateNotRead": {
+          "description": "Property. Indicates if a license could not be read",
+          "type": "boolean"
+        },
+        "observedVehicle": {
+          "description": "Property. Information about the observed vehicle.",
+          "type": "object",
+          "properties": {
+            "speed": {
+              "description": "Property. Detected speed of the observed vehicle.",
+              "type": "number",
+              "minimum": 0
+            },
+            "brand": {
+              "description": "Property. Detected brand of the observed vehicle.",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "Property. Brand name.",
+                  "type": "string"
+                },
+                "confidence": {
+                  "description": "Property. Confidence level of the detection",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "required": [
+                "name"
+              ]
+            },
+            "model": {
+              "description": "Property. Detected brand model of the observed vehicle.",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "Property. Model name.",
+                  "type": "string"
+                },
+                "confidence": {
+                  "description": "Property. Confidence level of the detection.",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "required": [
+                "name"
+              ]
+            },
+            "color": {
+              "description": "Property. Detected color of the observed vehicle.",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "Property. Color name.",
+                  "type": "string"
+                },
+                "confidence": {
+                  "description": "Property. Confidence level of the detection.",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "required": [
+                "name"
+              ]
+            },
+            "country": {
+              "description": "Property. Detected country of the observed vehicle.",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "description": "Property. Country code according to ISO 3166-1 alpha-2",
+                  "type": "string"
+                },
+                "confidence": {
+                  "description": "Property. Confidence level of the detection.",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "required": [
+                "code"
+              ]
+            },
+            "licensePlate": {
+              "description": "Property. Detected license plate of the observed vehicle.",
+              "type": "object",
+              "properties": {
+                "identifier": {
+                  "description": "Property. License plate identifier",
+                  "type": "string"
+                },
+                "confidence": {
+                  "description": "Property. Confidence level of the detection.",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "required": [
+                "identifier"
+              ]
+            }
+          }
+        },
+        "refImages": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "description": "Property. URL referencing to the image",
+                  "type": "string",
+                  "format": "uri"
+                },
+                "contentType": {
+                  "description": "Property. Content type according to IANA Media Types.",
+                  "type": "string"
+                },
+                "imageType": {
+                  "description": "Property. Type of image",
+                  "type": "string",
+                  "enum": [
+                    "plate",
+                    "overview",
+                    "anpr"
+                  ]
+                }
+              },
+              "required": [
+                "url",
+                "contentType",
+                "imageType"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "dateObserved"
+  ]
+}
