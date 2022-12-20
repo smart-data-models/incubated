@@ -1,12 +1,12 @@
 {
 	"$schema": "http://json-schema.org/schema#",
-	"$schemaVersion": "0.0.2",
+	"$schemaVersion": "0.0.3",
 	"modelTags": "",
 	"$id": "https://smart-data-models.github.io/dataModel.Transportation/APDSObservation/schema.json",
 	"title": "Smart Data Models - APDSObservation.",
 	"description": "This entity models a particular observation of a set of ANPR camera. The Observation might be done with several ANPR camera's, but is limited to the observation of ONE vehicle. It implements the APDS datamodel https://www.allianceforparkingdatastandards.org/",
 	"type": "object",
-	"derivedFrom": "XXX missing",
+	"derivedFrom": "APDS 4.0 standard: https://www.allianceforparkingdatastandards.org/",
 	"license": "XXX see original. credit to contributors",
 	"allOf": [
 		{
@@ -124,7 +124,7 @@
 				"observerLocation": {
 					"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
 				},
-				"observerPDOP": {
+				"observerLocationPDOP": {
 					"type": "number",
 					"description": "Accuracy of the GPS position of the observer, expressed as 'Position Dilution Of Precision'(https: //en.wikipedia.org/wiki/Dilution_of_precision_(navigation)). Units:'meters'."
 				},
@@ -172,7 +172,7 @@
 					"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons",
 					"description": "GPS position of the middle position of the scanned vehicle."
 				},
-				"observedPDOP": {
+				"observedLocationPDOP": {
 					"type": "number",
 					"description": "Accuracy of GPS position of the observed vehicle. This is expressed as 'Position Dilution Of Precision'(https: //en.wikipedia.org/wiki/Dilution_of_precision_(navigation)). Units:' meters'. (UN code 'MTR'). "
 				},
