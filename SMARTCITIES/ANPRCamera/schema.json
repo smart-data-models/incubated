@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/schema#",
-	"$schemaVersion": "0.0.3",
+	"$schemaVersion": "0.0.1",
 	"modelTags": "",
 	"$id": "https://smart-data-models.github.io/dataModel.Transportation/APDSObservation/schema.json",
 	"title": "Smart Data Models - APDSObservation.",
@@ -66,19 +66,21 @@
 				"observedCredentialCharacterConfidence": {
 					"type": "array",
 					"description": "The confidence of individual character recognition. As with observedCredentialConfidence this is vendor specific. Use the metadata to indicate how the confidences can be interpreted. XXX",
-					"type": "object",
-					"properties": {
-						"type": {
-							"type": "string"
-						},
-						"value": {
-							"type": "array",
-							"items": {
-								"type": "number"
+					"items": {
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string"
+							},
+							"value": {
+								"type": "array",
+								"items": {
+									"type": "number"
+								}
+							},
+							"metadata": {
+								"ref": "#/definitions/metadata/properties/confidenceMethod"
 							}
-						},
-						"metadata": {
-							"ref": "#/definitions/metadata/properties/confidenceMethod"
 						}
 					},
 					"required": [
