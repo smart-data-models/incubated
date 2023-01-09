@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/schema",
   "$schemaVersion": "0.0.2",
-  "$id": "https://github.com/smart-data-models/dataModel.Population/tree/master/PopulationProjection/schema.json",
-  "title": "Smart Data models - PopulationProjection schema extension",
+  "$id": "https://github.com/smart-data-models/dataModel.Population/tree/master/Population/schema.json",
+  "title": "Smart Data models - Population schema extension",
   "modelTags": "SPOTTED",
-  "description": "The dataset presents the new projections elaborated according to the different evolutionary hypotheses of the fertility and migration trends, following the Cohort Component Model methodology.",
+  "description": "The dataset contains the master data of the resident population by year and citizenship..",
   "type": "object",
   "required": [
     "id",
@@ -24,13 +24,17 @@
         "type": {
           "type": "string",
           "enum": [
-            "PopulationProjection"
+            "Population"
           ],
-          "description": "Property. NGSI Entity type. It has to be District"
+          "description": "Property. NGSI Entity type. It has to be Population"
         },
         "districtName": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'.  Name of the District."
+          "description": "Property. Model:'https://schema.org/Text'. Name of the District."
+        },
+        "districtId": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Integer'. Identification of the NIL – Nucleus of Local Identity/District."
         },
         "year": {
           "type": "number",
@@ -57,17 +61,14 @@
             }
           ]
         },
-        "highHypothesis": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Integer'. The high hypothesis elaborates a growth scenario both in fertility levels and in the intensity of migratory flows."
+        "nationality": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/nationality'. Nationality of the person."
         },
-        "mediumHypothesis": {
+        "residents": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Integer'. The medium hypothesis envisages a continuation of the current levels of fertility and migration."
-        },
-        "lowHypothesis": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Integer'. The low hypothesis that differs from the medium hypothesis by a decreasing trend in fertility levels over time."
+          "minimum": 1,
+          "description": "Property. Model:'https://schema.org/Number'. Number of residents."
         }
       }
     }
