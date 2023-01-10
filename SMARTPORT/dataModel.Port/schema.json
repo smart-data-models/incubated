@@ -17,10 +17,6 @@
         },
         {
             "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "Property. Unique identifier of the entity"
-                },
                 "type": {
                     "type": "string",
                     "description": "Property. NGSI Entity type. It has to be Port",
@@ -28,42 +24,11 @@
                         "Port"
                     ]
                 },
-                "location": {
-                    "type": "object",
-                    "properties": {
-                        "type": {
-                            "type": "string"
-                        },
-                        "coordinates": {
-                            "type": "array",
-                            "items": {
-                                "type": "number"
-                            }
-                        }
-                    },
-                    "description": "Geoproperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygoProperty."
-                },
                 "unlocode": {
                     "type": "string",
                     "description": "Property. Model:'https://schema.org/Text'. United Nations Code for Trade and Transport Locations. See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)"
                 },
-                "name": {
-                    "type": "string",
-                    "description": "Property. Model:'https://schema.org/Text'. Port Name."
-                },
-                "description": {
-                    "type": "string",
-                    "description": "Property. Model:'https://schema.org/Text'. A description of this port."
-                },
-                "address": {
-                    "type": "object",
-                    "description": "Property. Model:'https://schema.org/address'. Address"
-                },
-                "contactPoint": {
-                    "type": "object",
-                    "description": "Property. Model:'https://schema.org/ContactPoint'. Contact point for the port."
-                },
-                "areaCovered": {
+                "coveredArea": {
                     "oneOf": [
                         {
                             "$ref": "https://geojson.org/schema/Polygon.json"
@@ -72,7 +37,7 @@
                             "$ref": "https://geojson.org/schema/MultiPolygon.json"
                         }
                     ],
-                    "description": "Geoproperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygoProperty. "
+                    "description": "Geoproperty. Geojson reference to the item. It can be Polygon or MultiPolygon."
                 },
                 "timezone": {
                     "type": "string",
