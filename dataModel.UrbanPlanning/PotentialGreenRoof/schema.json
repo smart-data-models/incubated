@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://smart-data-models.github.io/dataModel.UrbanPlaning/potential_green_roof/schema.json",
+  "description": "Surface covered by waterproof structures. The data were released as part of the European project DECUMANUS FP7-SPACE (Development and Consolidation of Geospatial Sustainability Services for Adaptation and Climate Change Urban Impacts. Polygonal representation of potential green roof associated with the corresponding amount (%) of surface covered by waterproof structures, with a spatial resolution of 30 meters.",
+  "type": "object",
+  "modelTags": "SPOTTED",
+  "derivedFrom": "",
+  "license": "",
+  "$schemaVersion": "0.0.1",
+  "title": "Smart Data models - Potential Green Roof schema",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "id": {
+          "$ref": "https://github.com/smart-data-models/data-models/raw/master/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI entity type. It has to be station_information",
+          "enum": [
+            "PotentialGreenRoof"
+          ]
+        },
+        "un_vol_av": {
+          "type": "number",
+          "description": "Property. Model:'http://schema.org/Number'. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        },
+        "identifier": {
+          "type": "string",
+          "description": "Property. Model:'http://schema.org/Text. The identifier property represents any kind of identifier for the building."
+        },
+        "area": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'http://schema.org/Number'. Units:'m2'. The area of the potential green roof nominally in square meters."
+        },
+        "impact": {
+          "type": "number",
+          "description": "Property. Model:'http://schema.org/Number'. The corresponding amount (%) of surface covered by waterproof structures."
+        },
+        "note": {
+          "type": "string",
+          "description": "Property. Model:'http://schema.org/Text'. Used for general notes and annotations not coded elsewhere."
+        },
+        "owner": {
+          "type": "string",
+          "description": "Property. Model:'http://schema.org/Text'. Owner of the building."
+        },
+        "legend": {
+          "type": "string",
+          "description": "Property. Model:'http://schema.org/Text'. A legend associated to the potential green roof."
+        }
+      }
+    }
+  ]
+}
