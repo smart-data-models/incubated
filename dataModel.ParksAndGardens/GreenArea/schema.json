@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.2",
+  "$id": "https://github.com/smart-data-models/dataModel.ParksandGardens/tree/master/GreenArea/schema.json",
+  "title": "Smart Data models - GreenArea schema extension",
+  "modelTags": "SPOTTED",
+  "description": "Green area in a specific Municipality classified by Zone.",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "derivedFrom": "",
+  "license": "",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "GreenArea"
+          ],
+          "description": "Property. NGSI Entity type. It has to be GreenArea\"."
+        },
+        "zone": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/text'. The zone inside the municipality in which the green area can be found."
+        },
+        "municipalityArea": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/text'. The area inside the municipality in which the green area can be found."
+        },
+        "typeGreenArea": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/text'. The type of the green area.",
+          "enum": [
+            "Row",
+            "Park",
+            "School"
+          ]
+        },
+        "classification": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/text'. The classification of the green area.",
+          "enum": [
+            "Sports Centre",
+            "City cemetery",
+            "Building",
+            "School building - kindergarten",
+            "School building - kindergarten/primary school",
+            "School building - kindergarten/preschool",
+            "School building - elementary/middle school",
+            "School building - high school",
+            "School building - nursery/elementary school",
+            "School building - kindergarten/high school",
+            "School building - undefined",
+            "School building - all inclusive",
+            "School building - primary school",
+            "School building - nursery school",
+            "School building - middle school",
+            "Tree-lined row",
+            "Tree-lined row and tram building",
+            "Tree-lined row and green street furniture",
+            "Row, street green and tramway building",
+            "Garden",
+            "Walled garden",
+            "Belt garden",
+            "Belted belt garden",
+            "Garden and tree-lined row",
+            "Garden and tramway seat",
+            "Garden, tree-lined row and tramway",
+            "Urban gardens",
+            "Park",
+            "Central park",
+            "Belt park",
+            "Fenced-in belt park",
+            "Historical park",
+            "Fenced-in historical park",
+            "Tramway",
+            "Street furniture green",
+            "Street furniture and row green",
+            "Street furniture green and tramway site"
+          ]
+        },
+        "classificationType": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/text'. The type of the classification.",
+          "enum": [
+            "1 - Equipped green spaces",
+            "2 - Urban parks",
+            "3 - Historic greenery",
+            "4 - Urban design areas",
+            "5a - Special areas - school gardens",
+            "5b - Special Areas - Botanical Gardens and Nurseries",
+            "5d - Special areas - urban cemeteries",
+            "5e - Special areas - sports centres",
+            "5f - Special areas - public buildings"
+          ]
+        },
+        "contractor": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/text'. The responsible organisation of the management of the green area."
+        },
+        "area": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Float'. Unit:m². The area of the green area expressed in square meters."
+        },
+        "description": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/text'. A  brief description of the green area."
+        }
+      }
+    }
+  ]
+}
