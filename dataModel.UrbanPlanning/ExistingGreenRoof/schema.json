@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://smart-data-models.github.io/dataModel.UrbanPlaning/existing_green_roof/schema.json",
+  "description": "  Polygonal representation of existing green roof. The data were released as part of the European project DECUMANUS FP7-SPACE (Development and Consolidation of Geospatial Sustainability Services for Adaptation and Climate Change Urban Impacts). A green roof is defined as the greening of the surface of the roof covering of buildings.",
+  "type": "object",
+  "modelTags": "SPOTTED",
+  "derivedFrom": "",
+  "license": "",
+  "$schemaVersion": "0.0.1",
+  "title": "Smart Data models - Existing Green Roof schema",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "id": {
+          "$ref": "https://github.com/smart-data-models/data-models/raw/master/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI entity type. It has to be ExistingGreenRoof",
+          "enum": [
+            "ExistingGreenRoof"
+          ]
+        },
+        "un_vol_av": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/feature/dataModel.UrbanPlanning/dataModel.UrbanPlanning/PotentialGreenRoof/schema.json#/allOf/properties/un_vol_av"
+        },
+        "identifier": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/feature/dataModel.UrbanPlanning/dataModel.UrbanPlanning/PotentialGreenRoof/schema.json#/allOf/properties/identifier"
+        },
+        "area": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/feature/dataModel.UrbanPlanning/dataModel.UrbanPlanning/PotentialGreenRoof/schema.json#/allOf/properties/area"
+        },
+        "impact": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/feature/dataModel.UrbanPlanning/dataModel.UrbanPlanning/PotentialGreenRoof/schema.json#/allOf/properties/impact"
+        },
+        "note": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/feature/dataModel.UrbanPlanning/dataModel.UrbanPlanning/PotentialGreenRoof/schema.json#/allOf/properties/note"
+        },
+        "owner": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/feature/dataModel.UrbanPlanning/dataModel.UrbanPlanning/PotentialGreenRoof/schema.json#/allOf/properties/owner"
+        },
+        "legend": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/feature/dataModel.UrbanPlanning/dataModel.UrbanPlanning/PotentialGreenRoof/schema.json#/allOf/properties/legend"
+        },
+        "classification": {
+          "type": "string",
+          "description": "Property. Model:'http://schema.org/Text'. Used to provide classification information about the buidling."
+        }
+    }
+      }
+    }
+  ]
+}
