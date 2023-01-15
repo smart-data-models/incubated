@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.2",
+  "$id": "https://github.com/smart-data-models/dataModel.ParksandGardens/tree/master/PlayingArea/schema.json",
+  "title": "Smart Data models - PlayingArea schema extension",
+  "modelTags": "SPOTTED",
+  "description": "Public green space where there are areas dedicated to play activities with play equipment.",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "derivedFrom": "",
+  "license": "",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "PlayingArea"
+          ],
+          "description": "Property. NGSI Entity type. It has to be PlayingArea\"."
+        },
+        "area": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Float'. Unit:m². The area of the green area expressed in square meters."
+        },
+        "description": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/text'. A  brief description of the green area."
+        },
+        "gameAreas": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Integer'. The number of game areas available in the green area."
+        },
+        "districtId": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/text'. The identifier of the district."
+        },
+        "districtName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/text'. The name of the district."
+        }
+      }
+    }
+  ]
+}
