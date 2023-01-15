@@ -28,9 +28,59 @@
           ],
           "description": "Property. NGSI Entity type. It has to be District"
         },
-        "districtName": {
+        "municipalityInfo": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/Text. Municipality information corresponding to this observation.",
+          "properties": {
+            "district": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. District name corresponding to this observation."
+            },
+            "ulbName": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. Name of the Urban Local Body corresponding to this observation."
+            },
+            "cityId": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. City Id corresponding to this observation."
+            },
+            "wardId": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. Ward Id corresponding to this observation."
+            },
+            "stateName": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. Name of the state corresponding to this observation."
+            },
+            "cityName": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. City name corresponding to this observation"
+            },
+            "zoneName": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. Zone name corresponding to this observation."
+            },
+            "zoneId": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. Zone Id corresponding to this observation."
+            },
+            "wardName": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. Ward name corresponding to this observation."
+            },
+            "wardNum": {
+              "type": "number",
+              "description": "Property. Model:'https://schema.org/Number'. Ward number corresponding to this observation."
+            },
+            "regionalMapCode": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. Regional Map Code corresponding to the municipality."
+            }
+          }
+        },
+        "regionalLevel": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'.  Name of the District."
+          "description": "Property. Model:'https://schema.org/Text'. Regional level of the population prediction."
         },
         "year": {
           "type": "number",
@@ -40,7 +90,7 @@
         },
         "age": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Integer'. Number of ages of the population."
+          "description": "Property. Model:'https://schema.org/Integer'. Number of ages of the population, it could be a range of ages or a simple age."
         },
         "gender": {
           "description": "Property. Model:'https://schema.org/Male' 'https://schema.org/Female'. Gender of something, typically a Person, but possibly also fictional characters, animals, etc. While https://schema.org/Male and https://schema.org/Female may be used, text strings are also acceptable for people who do not identify as a binary gender. The gender property can also be used in an extended sense to cover e.g. the gender of sports teams. As with the gender of individuals, we do not try to enumerate all possibilities. A mixed-gender SportsTeam can be indicated with a text value of \"Mixed\".",
@@ -68,6 +118,10 @@
         "lowHypothesis": {
           "type": "number",
           "description": "Property. Model:'https://schema.org/Integer'. The low hypothesis that differs from the medium hypothesis by a decreasing trend in fertility levels over time."
+        },
+        "projection": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Integer'. The value of the population (real or projection) taking into account the age or range of ages represented in the property 'age'."
         }
       }
     }
