@@ -225,7 +225,7 @@
 				},
 				"images": {
 					"type": "array",
-					"description": "Property. Array of links to images.The array element contain the URLs of the images and additional info. The latter may contain these tags: camId: identifier of the camera. Can be specified by the cameraposition (also used in the ' camera ' attribute. ' imageContent ': specifies the content of the image, ' distance ': the distance in meter from the observer. XXX camelCase missing items",
+					"description": "Property. Array of links to images.The array element contain the URLs of the images and additional info. As an alternative to the images URL, the image itself can be included in the binaryContent attribute. These other tags may be used: expiryDateTime: timestamp until which et URL is valid,  camId: identifier of the camera. Can be specified by the cameraposition (also used in the ' camera ' attribute. ' imageContent ': specifies the content of the image, ' distance ': the distance in meter from the observer. XXX camelCase missing items",
 					"type": "object",
 					"properties": {
 						"type": {
@@ -244,6 +244,10 @@
 										"type": "string",
 										"format": "uuencoded"
 									},
+									"expiryDateTime": {
+										"type": "string",
+										"format": "date-time"
+									}, 									
 									"camId": {
 										"type": "string"
 									},
