@@ -1,0 +1,1241 @@
+﻿{
+	"$ref": "#/definitions/TrackableEvent",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Address": {
+            "description": "Physical address of the entity",
+            "properties": {
+                "city": {
+                    "description": "Property. City name",
+                    "type": "string"
+                },
+                "country": {
+                    "$ref": "#/definitions/Code",
+                    "description": "Property. Country name"
+                },
+                "postalCode": {
+                    "description": "Property. Postal code",
+                    "type": "string"
+                },
+                "province": {
+                    "description": "Property. Province name",
+                    "type": "string"
+                },
+                "street": {
+                    "description": "Property. Street name",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Amount": {
+            "description": "Monetary amount",
+            "properties": {
+                "currency": {
+                    "$ref": "#/definitions/Code",
+                    "description": "Property. Currency used"
+                },
+                "value": {
+                    "description": "Property. Monetary value",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "Attribute": {
+            "description": "Name and value of an attribute",
+            "properties": {
+                "delete": {
+                    "description": "Property. Deleted or not",
+                    "type": "boolean"
+                },
+                "name": {
+                    "description": "Property. Attribute name",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Property. Attribute value",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Code": {
+            "description": "Class that stores a code and its name",
+            "properties": {
+                "assetType": {
+                    "$ref": "#/definitions/EntityType",
+                    "description": "Property. Asset type"
+                },
+                "code": {
+                    "description": "Property. Item Code",
+                    "type": "string"
+                },
+                "delete": {
+                    "description": "Property. Deleted or not",
+                    "type": "boolean"
+                },
+                "history": {
+                    "description": "Property. Object change history",
+                    "items": {},
+                    "type": "array"
+                },
+                "inBC": {
+                    "description": "Property. Whether or not it is stored on the Blockchain",
+                    "type": "boolean"
+                },
+                "messageID": {
+                    "description": "Property. Message identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Property. Item Name",
+                    "type": "string"
+                },
+                "reportedByCode": {
+                    "description": "Property. Code of the identity that has reported it",
+                    "type": "string"
+                },
+                "reportedByID": {
+                    "description": "Property. Identifier of the entity who reported it",
+                    "type": "string"
+                },
+                "reportedByRole": {
+                    "$ref": "#/definitions/OrganizationType",
+                    "description": "Property. Role of the identity that has reported it"
+                },
+                "userId": {
+                    "description": "Property. User identifier",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "Property. Object version",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Contact": {
+            "description": "Contact details of a person",
+            "properties": {
+                "delete": {
+                    "description": "Property. Deleted or not",
+                    "type": "boolean"
+                },
+                "email": {
+                    "description": "Property. Contact email",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Property. Contact id",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Property. Contact name",
+                    "type": "string"
+                },
+                "phone": {
+                    "description": "Property. Phone number",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Property. Contact type",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EntityType": {
+            "description": "Enumerables for entity types",
+            "enum": [
+                "ack",
+                "charges",
+                "customsProcedure",
+                "document",
+                "locationFacility",
+                "masterData",
+                "message",
+                "office",
+                "operation",
+                "service",
+                "shipment",
+                "storageFacility",
+                "storedItem",
+                "trackableEvent",
+                "transport",
+                "transportUnit",
+                "user",
+                "vehicle"
+            ],
+            "type": "string"
+        },
+        "EventFunction": {
+            "description": "Enumerables for event functions",
+            "enum": [
+                "added",
+                "cancelled",
+                "changed",
+                "confirmed",
+                "rejected",
+                "removed",
+                "warning"
+            ],
+            "type": "string"
+        },
+        "EventResult": {
+            "description": "Enumerables for event results",
+            "enum": [
+                "pending",
+                "processed",
+                "rejected"
+            ],
+            "type": "string"
+        },
+        "EventType": {
+            "description": "Enumerables for event status",
+            "enum": [
+                "accepted",
+                "arrived",
+                "cancelled",
+                "changed",
+                "declared",
+                "delayed",
+                "delivered",
+                "departed",
+                "detained",
+                "discharged",
+                "dispatched",
+                "doorClosed",
+                "doorOpened",
+                "finished",
+                "gateIn",
+                "gateOut",
+                "inspected",
+                "loaded",
+                "ordered",
+                "pickedUp",
+                "planned",
+                "position",
+                "received",
+                "registered",
+                "rejected",
+                "released",
+                "requested",
+                "sensor",
+                "shunting",
+                "started",
+                "stopped"
+            ],
+            "type": "string"
+        },
+        "GeoJSON": {
+            "description": "Geographic coordinates of an element",
+            "properties": {
+                "coordinates": {
+                    "description": "Property. Array formed by each of the coordinate numbers",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Property. Coordinate Type",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Location": {
+            "description": "Physical and temporary location of a logistics element",
+            "properties": {
+                "address": {
+                    "$ref": "#/definitions/Address",
+                    "description": "Property. Physical address"
+                },
+                "assetType": {
+                    "$ref": "#/definitions/EntityType",
+                    "description": "Property. Asset type"
+                },
+                "ata": {
+			"description": "Property. Actual time of arrival",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "atd": {
+			 "description": "Property. Actual time of departure",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "eta": {
+			"description": "Property. Expected time of arrival",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "etd": {
+			"description": "Property. Expected time of arrival",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "history": {
+                    "description": "Property. Object change history",
+                    "items": {},
+                    "type": "array"
+                },
+                "inBC": {
+                    "description": "Property. Whether or not it is stored on the Blockchain",
+                    "type": "boolean"
+                },
+                "location": {
+			"description": "Property. Location data",
+                    "type": "string"
+                },
+                "locationName": {
+			"description": "Property. Location name",
+                    "type": "string"
+                },
+                "messageID": {
+                    "description": "Property. Message identifier",
+                    "type": "string"
+                },
+                "position": {
+                    "$ref": "#/definitions/GeoJSON",
+                    "description": "Property. Geographical position"
+                },
+                "positionTime": {
+                    "description": "Property. Time instant in which the sample was captured",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "reportedByCode": {
+                    "description": "Property. Code of the identity that has reported it",
+                    "type": "string"
+                },
+                "reportedByID": {
+                    "description": "Property. Identifier of the entity who reported it",
+                    "type": "string"
+                },
+                "reportedByRole": {
+                    "$ref": "#/definitions/OrganizationType",
+                    "description": "Property. Role of the identity that has reported it"
+                },
+                "rta": {
+                    "description": "Property. Requested (rta), estimated (eta), actual (ata) time of arrival",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "rtd": {
+                    "description": "Property. Requested (rtd), estimated (etd), actual (atd) time of departure",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "sequence": {
+                    "description": "Property. Sequence number",
+                    "type": "number"
+                },
+                "type": {
+                    "$ref": "#/definitions/LocationType",
+                    "description": "Property. Physical location type"
+                },
+                "userId": {
+                    "description": "Property. User identifier",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "Property. Object version",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LocationType": {
+            "description": "Enumerables for location types",
+            "enum": [
+                "arrival",
+                "countryOrEntry",
+                "departure",
+                "destination",
+                "discharge",
+                "loading",
+                "nextPortOfCall",
+                "origin",
+                "portOfCall",
+                "previousPortOfCall",
+                "stopover"
+            ],
+            "type": "string"
+        },
+        "Measure": {
+            "description": "Measurement Types and Values",
+            "properties": {
+                "UOM": {
+                    "description": "Property. Unit used in measurement",
+                    "type": "string"
+                },
+                "delete": {
+                    "description": "Property. Deleted or not",
+                    "type": "boolean"
+                },
+                "sizeText": {
+                    "description": "Property. Size description",
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/definitions/MeasureType",
+                    "description": "Property. Measurement type"
+                },
+                "value": {
+                    "description": "Property. Measurement value",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "MeasureType": {
+            "description": "Enumerables for measure types",
+            "enum": [
+                "temperature",
+                "verifiedGrossMass",
+                "volume",
+                "weight"
+            ],
+            "type": "string"
+        },
+        "OrganizationType": {
+            "description": "Enumerables for organization types",
+            "enum": [
+                "admin",
+                "agent",
+                "bank",
+                "borderInspectionAgency",
+                "carrier",
+                "consignee",
+                "customs",
+                "customsBroker",
+                "deliveryParty",
+                "depositary",
+                "depositor",
+                "dispatchParty",
+                "forwarder",
+                "haulier",
+                "officemanager",
+                "orgmanager",
+                "owner",
+                "portAuthority",
+                "provider",
+                "publisher",
+                "railHaulier",
+                "receiver",
+                "receiverParty",
+                "requestor",
+                "roadHaulier",
+                "scaleOperator",
+                "seaCarrier",
+                "sender",
+                "shipper",
+                "shippingAgent",
+                "shippingLine",
+                "system",
+                "trader",
+                "transportInspectionAgency",
+                "usrmanager",
+                "vgmAgent"
+            ],
+            "type": "string"
+        },
+        "Oversize": {
+            "description": "Dimensions of an oversized load",
+            "properties": {
+                "back": {
+                    "$ref": "#/definitions/Measure",
+                    "description": "Property. Back dimensions"
+                },
+                "front": {
+                    "$ref": "#/definitions/Measure",
+                    "description": "Property. Front dimensions"
+                },
+                "left": {
+                    "$ref": "#/definitions/Measure",
+                    "description": "Property. Left dimensions"
+                },
+                "right": {
+                    "$ref": "#/definitions/Measure",
+                    "description": "Property. Right dimensions"
+                },
+                "top": {
+                    "$ref": "#/definitions/Measure",
+                    "description": "Property. Top dimensions"
+                }
+            },
+            "type": "object"
+        },
+        "Party": {
+            "description": "Details of the entity involved in the operation",
+            "properties": {
+                "ID": {
+                    "description": "Property. Entity Identifier",
+                    "type": "string"
+                },
+                "address": {
+                    "$ref": "#/definitions/Address",
+                    "description": "Property. Physical address of the office"
+                },
+                "assetType": {
+                    "$ref": "#/definitions/EntityType",
+                    "description": "Property. Asset type"
+                },
+                "balance": {
+                    "$ref": "#/definitions/Amount",
+                    "description": "Property. Office balance"
+                },
+                "codes": {
+                    "description": "Property. Codes array associated with the the office",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "contacts": {
+                    "description": "Property. Contact persons in the office",
+                    "items": {
+                        "$ref": "#/definitions/Contact"
+                    },
+                    "type": "array"
+                },
+                "delete": {
+                    "description": "Property. Whether it's deleted or not",
+                    "type": "boolean"
+                },
+                "history": {
+                    "description": "Property. Object change history",
+                    "items": {},
+                    "type": "array"
+                },
+                "inBC": {
+                    "description": "Property. Whether or not it is stored on the Blockchain",
+                    "type": "boolean"
+                },
+                "logo": {
+                    "description": "Property. Organization logo",
+                    "type": "string"
+                },
+                "messageID": {
+                    "description": "Property. Message identifier",
+                    "type": "string"
+                },
+                "office": {
+                    "$ref": "#/definitions/Code",
+                    "description": "Property. Office code belonging to the organization"
+                },
+                "organization": {
+                    "$ref": "#/definitions/Code",
+                    "description": "Property. Organization of the entity"
+                },
+                "remarks": {
+                    "description": "Property. Field for comments",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "reportedByCode": {
+                    "description": "Property. Code of the identity that has reported it",
+                    "type": "string"
+                },
+                "reportedByID": {
+                    "description": "Property. Identifier of the entity who reported it",
+                    "type": "string"
+                },
+                "reportedByRole": {
+                    "$ref": "#/definitions/OrganizationType",
+                    "description": "Property. Role of the identity that has reported it"
+                },
+                "role": {
+                    "$ref": "#/definitions/OrganizationType",
+                    "description": "Property. Organization role in the operation"
+                },
+                "types": {
+                    "description": "Property. Elements type associated with the the office",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "userId": {
+                    "description": "Property. User identifier",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "Property. Object version",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ProcessReference": {
+            "description": "Data of a logistics process",
+            "properties": {
+                "ID": {
+                    "description": "Property. Process identificator",
+                    "type": "string"
+                },
+                "ata": {
+                    "description": "Property. Actual time of arrival",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "atd": {
+                    "description": "Property. Actual time of departure",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "authorisedParty": {
+                    "$ref": "#/definitions/Party",
+                    "description": "Property. Details of the authorizing party"
+                },
+                "containerStatus": {
+                    "description": "Property. Container status description",
+                    "type": "string"
+                },
+                "delete": {
+                    "description": "Property. Deleted or not",
+                    "type": "boolean"
+                },
+                "depositary": {
+                    "$ref": "#/definitions/Party",
+                    "description": "Property. Details of the depositary party"
+                },
+                "eta": {
+                    "description": "Property. Estimated time of arrival",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "etd": {
+                    "description": "Property. Estimated time of departure",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "eventFunction": {
+                    "$ref": "#/definitions/EventFunction",
+                    "description": "Property. Logistics event type"
+                },
+                "expiryDate": {
+                    "description": "Property. Expiry date",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "location": {
+                    "$ref": "#/definitions/Location",
+                    "description": "Property. Logistics element location data"
+                },
+                "performedDate": {
+                    "description": "Property. Performed date",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "references": {
+                    "description": "Property. References array associated with the the process",
+                    "items": {
+                        "$ref": "#/definitions/Reference"
+                    },
+                    "type": "array"
+                },
+                "remarks": {
+                    "description": "Property. Observations of the logistics process",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "requestedDate": {
+                    "description": "Property. Requested date",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "transport": {
+                    "$ref": "#/definitions/TransportInfo",
+                    "description": "Property. Data of the transport mean"
+                },
+                "type": {
+                    "$ref": "#/definitions/ReferenceType",
+                    "description": "Property. Process type"
+                },
+                "validFrom": {
+                    "description": "Property. Valid from date",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "Property. Process description",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Reference": {
+            "description": "Reference types and their values",
+            "properties": {
+                "ID": {
+                    "description": "Property. Reference identifier",
+                    "type": "string"
+                },
+                "delete": {
+                    "description": "Property. Deleted or not",
+                    "type": "boolean"
+                },
+                "type": {
+                    "$ref": "#/definitions/ReferenceType",
+                    "description": "Property. Reference type"
+                },
+                "value": {
+                    "description": "Property. Reference value",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ReferenceType": {
+            "description": "Enumerables for reference types",
+            "enum": [
+                "additionalInfo",
+                "arrival",
+                "arrivalNotice",
+                "authorization",
+                "barCode",
+                "berth",
+                "bolNumber",
+                "carrierManifest",
+                "certificate",
+                "customsRelease",
+                "delivery",
+                "departure",
+                "discharge",
+                "dispatch",
+                "document",
+                "freightCharges",
+                "gateIn",
+                "gateOut",
+                "licensePlate",
+                "load",
+                "pickUp",
+                "pin",
+                "portCall",
+                "procedure",
+                "reception",
+                "serviceCharges",
+                "shipment",
+                "storageCharges",
+                "storedItem",
+                "stowage",
+                "system",
+                "trailerPlate",
+                "transport",
+                "transportCharges",
+                "transportManifest",
+                "transportUnit",
+                "verifiedGrossMass",
+                "voyage",
+                "wagonID",
+                "weighingService"
+            ],
+            "type": "string"
+        },
+        "Seal": {
+            "description": "Owner and seal number",
+            "properties": {
+                "delete": {
+                    "description": "Property. Deleted or not",
+                    "type": "boolean"
+                },
+                "number": {
+                    "description": "Property. Seal number",
+                    "type": "string"
+                },
+                "owner": {
+                    "description": "Property. Seal owner",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ShipmentInfo": {
+            "description": "Minimum information necessary to make a shipment of merchandise",
+            "properties": {
+                "ID": {
+                    "description": "Property. Shipment id",
+                    "type": "string"
+                },
+                "bolNumber": {
+                    "description": "Property. Bill of Lading number",
+                    "type": "string"
+                },
+                "carrier": {
+                    "$ref": "#/definitions/Party",
+                    "description": "Property. Carrier data"
+                },
+                "confirmedDate": {
+                    "description": "Property. Confirmed date",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "delete": {
+                    "description": "Property. Deleted or not",
+                    "type": "boolean"
+                },
+                "eventFunction": {
+                    "$ref": "#/definitions/EventFunction",
+                    "description": "Property. Logistics event type"
+                },
+                "gateIn": {
+                    "$ref": "#/definitions/ProcessReference",
+                    "description": "Property. Gate in data"
+                },
+                "gateOut": {
+                    "$ref": "#/definitions/ProcessReference",
+                    "description": "Property. Gate out data"
+                },
+                "haulier": {
+                    "$ref": "#/definitions/Party",
+                    "description": "Property. Haullier data"
+                },
+                "references": {
+                    "description": "Property. References array associated with the the shipment",
+                    "items": {
+                        "$ref": "#/definitions/Reference"
+                    },
+                    "type": "array"
+                },
+                "requestor": {
+                    "$ref": "#/definitions/Party",
+                    "description": "Property. Requestor data"
+                },
+                "requestorReference": {
+                    "description": "Property. Requestor reference",
+                    "type": "string"
+                },
+                "shipmentID": {
+                    "description": "Property. Shipment id description",
+                    "type": "string"
+                },
+                "transportMode": {
+                    "$ref": "#/definitions/TransportMode",
+                    "description": "Property. Transport mode type"
+                },
+                "transportUnitType": {
+                    "$ref": "#/definitions/TransportUnitType",
+                    "description": "Property. Transports means type"
+                }
+            },
+            "type": "object"
+        },
+        "ShipmentReference": {
+            "description": "Data of a merchandise shipment",
+            "properties": {
+                "ID": {
+                    "description": "Property. Shipment identifier",
+                    "type": "string"
+                },
+                "bolNumber": {
+                    "description": "Property. Bill of Lading Number",
+                    "type": "string"
+                },
+                "carrier": {
+                    "$ref": "#/definitions/Party",
+                    "description": "Property. Carrier data"
+                },
+                "consignee": {
+                    "$ref": "#/definitions/Party",
+                    "description": "Property. Consignee data"
+                },
+                "delete": {
+                    "description": "Property. Deleted or not",
+                    "type": "boolean"
+                },
+                "dispatchParty": {
+                    "$ref": "#/definitions/Party",
+                    "description": "Dispatcher data"
+                },
+                "requestor": {
+                    "$ref": "#/definitions/Party",
+                    "description": "Property. Requestor data"
+                },
+                "requestorReference": {
+                    "description": "Property. Requestor reference",
+                    "type": "string"
+                },
+                "shipmentID": {
+                    "description": "Property. Shipment Identifier Description",
+                    "type": "string"
+                },
+                "transportMode": {
+                    "$ref": "#/definitions/TransportMode",
+                    "description": "Property. Trasport mode"
+                },
+                "transportUnitType": {
+                    "$ref": "#/definitions/TransportUnitType",
+                    "description": "Property. Transport unit type"
+                }
+            },
+            "type": "object"
+        },
+        "TrackableEvent": {
+            "description": "Events that may occur during the shipment of a merchandise through a certain means of transport from an origin to a destination",
+            "properties": {
+                "ID": {
+                    "description": "Property. Trackable event ID",
+                    "type": "string"
+                },
+                "additionalDetails": {
+                    "description": "Property. Additional details",
+                    "type": "string"
+                },
+                "assetType": {
+                    "$ref": "#/definitions/EntityType",
+                    "description": "Property. Asset type"
+                },
+                "ata": {
+                    "description": "Property. Actual time of arrival",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "atd": {
+                    "description": "Property. Actual time of departure",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "attributes": {
+                    "description": "Property. Array of attributes",
+                    "items": {
+                        "$ref": "#/definitions/Attribute"
+                    },
+                    "type": "array"
+                },
+                "eventCategory": {
+                    "description": "Property. Event category",
+                    "type": "string"
+                },
+                "eventFunction": {
+                    "$ref": "#/definitions/EventFunction",
+                    "description": "Property. Event function"
+                },
+                "eventResult": {
+                    "$ref": "#/definitions/EventResult",
+                    "description": "Property. Event result"
+                },
+                "eventType": {
+                    "$ref": "#/definitions/EventType",
+                    "description": "Property. Event type"
+                },
+                "history": {
+                    "description": "Property. Object change history",
+                    "items": {},
+                    "type": "array"
+                },
+                "inBC": {
+                    "description": "Property. Whether or not it is stored on the Blockchain",
+                    "type": "boolean"
+                },
+                "location": {
+                    "$ref": "#/definitions/Location",
+                    "description": "Property. Location data"
+                },
+                "locationID": {
+                    "description": "Property. Location ID",
+                    "type": "string"
+                },
+                "messageID": {
+                    "description": "Property. Message identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "$ref": "#/definitions/ReferenceType",
+                    "description": "Property. Trackable event name"
+                },
+                "participants": {
+                    "description": "Property. Array of participants data",
+                    "items": {
+                        "$ref": "#/definitions/Party"
+                    },
+                    "type": "array"
+                },
+                "performedTime": {
+                    "description": "Property. Performed time",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "positions": {
+                    "description": "Property. Array of positions",
+                    "items": {
+                        "$ref": "#/definitions/Location"
+                    },
+                    "type": "array"
+                },
+                "publisher": {
+                    "description": "Property. Publisher ID",
+                    "type": "string"
+                },
+                "reason": {
+                    "description": "Property. Trackable event reason",
+                    "type": "string"
+                },
+                "references": {
+                    "description": "Property. Array of references",
+                    "items": {
+                        "$ref": "#/definitions/Reference"
+                    },
+                    "type": "array"
+                },
+                "reportedByCode": {
+                    "description": "Property. Code of the identity that has reported it",
+                    "type": "string"
+                },
+                "reportedByID": {
+                    "description": "Property. Identifier of the entity who reported it",
+                    "type": "string"
+                },
+                "reportedByRole": {
+                    "$ref": "#/definitions/OrganizationType",
+                    "description": "Property. Role of the identity that has reported it"
+                },
+                "shipments": {
+                    "description": "Property. Array of shipments",
+                    "items": {
+                        "$ref": "#/definitions/ShipmentInfo"
+                    },
+                    "type": "array"
+                },
+                "status": {
+                    "description": "Property. Trackable event status",
+                    "type": "string"
+                },
+                "trackableEntityID": {
+                    "description": "Property. Trackable entity ID",
+                    "type": "string"
+                },
+                "trackableEntityStatus": {
+                    "description": "Property. Trackable entity status",
+                    "type": "string"
+                },
+                "trackableParentEntityID": {
+                    "description": "Property. Trackable parent entity ID",
+                    "type": "string"
+                },
+                "transport": {
+                    "$ref": "#/definitions/TransportInfo",
+                    "description": "Property. Transport data"
+                },
+                "transportUnits": {
+                    "description": "Property. Array of transport units",
+                    "items": {
+                        "$ref": "#/definitions/TransportUnitInfo"
+                    },
+                    "type": "array"
+                },
+                "userId": {
+                    "description": "Property. User identifier",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "Property. Object version",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TransportInfo": {
+            "description": "Information of the transport mean",
+            "properties": {
+                "ID": {
+                    "description": "Property. Identifier of the transport mean",
+                    "type": "string"
+                },
+                "carrier": {
+                    "$ref": "#/definitions/Party",
+                    "description": "Property. Carrier data"
+                },
+                "delete": {
+                    "description": "Property. Deleted or not",
+                    "type": "boolean"
+                },
+                "identification": {
+                    "$ref": "#/definitions/Code",
+                    "description": "Property. Identification data of the transport mean"
+                },
+                "rta": {
+                    "description": "Property. Actual arrival time",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "rtd": {
+                    "description": "Property. Actual departure time",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "stopOver": {
+                    "description": "Property. Stop over description",
+                    "type": "string"
+                },
+                "tranportMode": {
+                    "$ref": "#/definitions/TransportMode",
+                    "description": "transport mean type"
+                },
+                "transportID": {
+                    "description": "Property. Description of the transport mean identifier",
+                    "type": "string"
+                },
+                "transportPlaces": {
+                    "description": "Property. Array with data from the different physical locations through which the transport mean has passed",
+                    "items": {
+                        "$ref": "#/definitions/Location"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "TransportMode": {
+            "description": "Enumerables for transport modes",
+            "enum": [
+                "air",
+                "combined",
+                "multimodal",
+                "rail",
+                "river",
+                "road",
+                "sea"
+            ],
+            "type": "string"
+        },
+        "TransportUnitInfo": {
+            "description": "Transport units used to ship goods",
+            "properties": {
+                "ID": {
+                    "description": "Property. Transport unit id",
+                    "type": "string"
+                },
+                "airFlow": {
+                    "$ref": "#/definitions/Measure",
+                    "description": "Property. Air flow measure"
+                },
+                "attributes": {
+                    "description": "Property. Transport unit attributes",
+                    "items": {
+                        "$ref": "#/definitions/Attribute"
+                    },
+                    "type": "array"
+                },
+                "confirmedDate": {
+                    "description": "Property. Confirmed date",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "containerStatus": {
+                    "description": "Property. Container status",
+                    "type": "string"
+                },
+                "containerType": {
+                    "$ref": "#/definitions/Code",
+                    "description": "Property. Container type"
+                },
+                "customsStatus": {
+                    "description": "Property. Customs status",
+                    "type": "string"
+                },
+                "delete": {
+                    "description": "Property. Deleted or not",
+                    "type": "boolean"
+                },
+                "eventFunction": {
+                    "$ref": "#/definitions/EventFunction",
+                    "description": "Property. Logistics event type"
+                },
+                "gateIn": {
+                    "$ref": "#/definitions/ProcessReference",
+                    "description": "Property. Gate in data"
+                },
+                "gateOut": {
+                    "$ref": "#/definitions/ProcessReference",
+                    "description": "Property. Gate out data"
+                },
+                "grossMass": {
+                    "$ref": "#/definitions/Measure",
+                    "description": "Property. Gross mass"
+                },
+                "inspection": {
+                    "description": "Property. Inspection description",
+                    "type": "string"
+                },
+                "inspectionDate": {
+                    "description": "Property. Inspection date",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "instruction": {
+                    "description": "Property. Instruction description",
+                    "type": "string"
+                },
+                "isVGM": {
+                    "description": "Property. Whether or not it is a weighing request",
+                    "type": "boolean"
+                },
+                "maximumWeight": {
+                    "$ref": "#/definitions/Measure",
+                    "description": "Property. Maximum weight"
+                },
+                "oversize": {
+                    "$ref": "#/definitions/Oversize",
+                    "description": "Property. Oversize dimensions"
+                },
+                "provider": {
+                    "$ref": "#/definitions/Party",
+                    "description": "Property. Transport unit provider"
+                },
+                "references": {
+                    "description": "Property. References array associated with the the transport unit",
+                    "items": {
+                        "$ref": "#/definitions/Reference"
+                    },
+                    "type": "array"
+                },
+                "seals": {
+                    "description": "Property. Seals array associated with the the transport unit",
+                    "items": {
+                        "$ref": "#/definitions/Seal"
+                    },
+                    "type": "array"
+                },
+                "shipment": {
+                    "$ref": "#/definitions/ShipmentReference",
+                    "description": "Property. Shipment data"
+                },
+                "tareWeight": {
+                    "$ref": "#/definitions/Measure",
+                    "description": "Property. Tare weight"
+                },
+                "temperature": {
+                    "$ref": "#/definitions/Measure",
+                    "description": "Property. Temperature measure"
+                },
+                "transportUnitID": {
+                    "description": "Property. Description of transport unit id",
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/definitions/TransportUnitType",
+                    "description": "Property. Transport unit type"
+                }
+            },
+            "type": "object"
+        },
+        "TransportUnitType": {
+            "description": "Enumerables for transport unit types",
+            "enum": [
+                "box",
+                "bulk",
+                "container",
+                "pallet"
+            ],
+            "type": "string"
+        }
+    }
+}
+
