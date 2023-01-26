@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "modelTags": "SAREF Evaporator SMART DATA MODELS",
+  "$id": "http://smart-data-models.kmd.dk/Evaporators/Evaporator",
+  "title": "Smart data models - Evaporator schema",
+  "type": "object",
+  "description": "An evaporator is a device in which a liquid refrigerent is vaporized and absorbs heat from the surrounding fluid.",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. It must be equal to `Evaporator`.",
+          "enum": [
+            "Evaporator"
+          ]
+        },
+        "evaporationCoolant": {
+          "type": "string",
+          "description": "Property. The fluid used for the coolant in the evaporator."
+        },
+        "evaporationMediumType": {
+          "type": "string",
+          "description": "Property. ColdLiquid: Evaporator is using liquid type of fluid to exchange heat with refrigerant. ColdAir: Evaporator is using air to exchange heat with refrigerant."
+        },
+        "externalSurfaceArea": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. External surface area (both primary and secondary area). Usually measured in square metre (m2)."
+        },
+        "internalRefrigerantVolume": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Internal volume of evaporator (refrigerant side). Usually measured in cubic metre (m3)."
+        },
+        "internalSurfaceArea": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Internal surface area. Usually measured in square metre (m2)."
+        },
+        "internalWaterVolume": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Internal volume of evaporator (water side). Usually measured in cubic metre (m3)."
+        },
+        "nominalHeatTransferArea": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal heat transfer surface area associated with nominal overall heat transfer coefficient. Usually measured in square metre (m2)."
+        },
+        "nominalHeatTransferCoefficient": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal overall heat transfer coefficient associated with nominal heat transfer area. Usually measured in Watts/m2 Kelvin."
+        },
+        "refrigerantClass": {
+          "type": "string",
+          "description": "Property. Refrigerant class used by the compressor. CFC: Chlorofluorocarbons. HCFC: Hydrochlorofluorocarbons. HFC: Hydrofluorocarbons."
+        },
+        "isContainedInBuildingSpace": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. An entity used to define the physical spaces of the building. A building space contains devices or building objects. (BuildingSpace)"
+        },
+        "isContainedInPhysicalObject": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Any Object that has a proper space region.  (Definition extracted from DUL ontology) (PhysicalObject)"
+        },
+        "isSubSystemOf": {
+          "type": "array",
+          "description": "Relationship. A reference to a system(s) that this Physical Object is part of.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+            "description": "Relationship. The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled. Systems can be connected to other systems. Connected systems interact in some ways. Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem. (System)"
+          }
+        },
+        "hasManufacturer": {
+          "type": "string",
+          "description": "Property. A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        },
+        "hasModel": {
+          "type": "string",
+          "description": "Property. A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
