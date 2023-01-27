@@ -1,7 +1,7 @@
 [![Smart Data Models](https://smartdatamodels.org/wp-content/uploads/2022/01/SmartDataModels_logo.png "Logo")](https://smartdatamodels.org)  
 
 Entity: AirToAirHeatRecovery  
-================https://github.com/smart-data-models/incubated/SAREF/
+================https://github.com/smart-data-models/incubated/tree/master/SAREF/
   
 
 [Open License](http://smart-data-models.kmd.dk/flat/s4bldg/AirToAirHeatRecovery/LICENSE.md)  
@@ -386,7 +386,7 @@ AirToAirHeatRecovery:
           title: GeoJSON LineString
     
           type: object
-    https://github.com/smart-data-models/incubated/SAREF/
+    https://github.com/smart-data-models/incubated/tree/master/SAREF/
         - description: Geoproperty. Geojson reference to the item. Polygon
     
           properties:

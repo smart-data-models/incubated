@@ -1,7 +1,7 @@
 [![Smart Data Models](https://smartdatamodels.org/wp-content/uploads/2022/01/SmartDataModels_logo.png "Logo")](https://smartdatamodels.org)  
 
 Entity: Boiler  
-==============https://github.com/smart-data-models/incubated/SAREF/
+==============https://github.com/smart-data-models/incubated/tree/master/SAREF/
   
 
 [Open License](http://smart-data-models.kmd.dk/flat/s4bldg/Boiler/LICENSE.md)  
@@ -415,7 +415,7 @@ Boiler:
     
                 - LineString
     
-              typhttps://github.com/smart-data-models/incubated/SAREF/
+              typhttps://github.com/smart-data-models/incubated/tree/master/SAREF/
     
           required:
     

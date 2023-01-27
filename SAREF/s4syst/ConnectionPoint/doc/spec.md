@@ -1,7 +1,7 @@
 [![Smart Data Models](https://smartdatamodels.org/wp-content/uploads/2022/01/SmartDataModels_logo.png "Logo")](https://smartdatamodels.org)  
 
 Entity: ConnectionPoint  
-================https://github.com/smart-data-models/incubated/SAREF/
+================https://github.com/smart-data-models/incubated/tree/master/SAREF/
   
 
 [Open License](http://smart-data-models.kmd.dk/flat/s4syst/ConnectionPoint/LICENSE.md)  
@@ -295,7 +295,7 @@ ConnectionPoint:
     
               enum:
     
-                -https://github.com/smart-data-models/incubated/SAREF/
+                -https://github.com/smart-data-models/incubated/tree/master/SAREF/
     
               type: string
     
