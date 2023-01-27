@@ -1101,7 +1101,7 @@ Here is an example of a ElectricFlowStorageDevice in JSON-LD format as key-value
   
   "@context": [
   
-    "https://smartdatamodels.blob.core.windows.net/models/context.jsonld",
+    "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/context.jsonld",
   
     "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
   
@@ -1276,7 +1276,7 @@ Here is an example of a ElectricFlowStorageDevice in JSON-LD format as normalize
   
   "@context": [
   
-    "https://smartdatamodels.blob.core.windows.net/models/context.jsonld",
+    "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/context.jsonld",
   
     "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
   
