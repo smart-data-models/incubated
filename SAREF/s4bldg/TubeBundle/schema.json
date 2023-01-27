@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "modelTags": "SAREF TubeBundle SMART DATA MODELS",
+  "$id": "http://smart-data-models.kmd.dk/TubeBundles/TubeBundle",
+  "title": "Smart data models - TubeBundle schema",
+  "type": "object",
+  "description": "A tube bundle is a device consisting of tubes and bundles of tubes used for heat transfer and contained typically within other energy conversion devices, such as a chiller or coil.",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. It must be equal to `TubeBundle`.",
+          "enum": [
+            "TubeBundle"
+          ]
+        },
+        "foulingFactor": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Fouling factor of the tubes in the tube bundle. Usually measured in m2 Kelvin/Watt."
+        },
+        "hasTurbulator": {
+          "type": "boolean",
+          "description": "Property. TRUE if the tube has a turbulator, FALSE if it does not."
+        },
+        "horizontalSpacing": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Horizontal spacing between tubes in the tube bundle. Usually measured in millimeters (mm)."
+        },
+        "inLineRowSpacing": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. In-line tube row spacing. Usually measured in millimeters (mm)."
+        },
+        "insideDiameter": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Actual inner diameter of the tube in the tube bundle. Usually measured in millimeters (mm)."
+        },
+        "length": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. The finished length of the device. Usually measured in millimeters (mm)."
+        },
+        "nominalDiameter": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal diameter or width of the tubes in the tube bundle. Usually measured in millimeters (mm)."
+        },
+        "numberOfCircuits": {
+          "type": "number",
+          "description": "Property. Number of parallel fluid tube circuits."
+        },
+        "numberOfRows": {
+          "type": "number",
+          "description": "Property. Number of tube rows in the tube bundle assembly."
+        },
+        "outsideDiameter": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Actual outside diameter of the tube in the tube bundle. Usually measured in millimeters (mm)."
+        },
+        "staggeredRowSpacing": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Staggered tube row spacing. Usually measured in millimeters (mm)."
+        },
+        "thermalConductivity": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Fouling factor of the tubes in the tube bundle. Usually measured in m2 Kelvin/Watt."
+        },
+        "verticalSpacing": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Vertical spacing between tubes in the tube bundle.Usually measured in millimeters (mm)."
+        },
+        "volumen": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Total volume of fluid in the tubes and their headers. Usually measured in cubic metre (m3)."
+        },
+        "isContainedInBuildingSpace": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. An entity used to define the physical spaces of the building. A building space contains devices or building objects. (BuildingSpace)"
+        },
+        "isContainedInPhysicalObject": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Any Object that has a proper space region.  (Definition extracted from DUL ontology) (PhysicalObject)"
+        },
+        "isSubSystemOf": {
+          "type": "array",
+          "description": "Relationship. A reference to a system(s) that this Physical Object is part of.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+            "description": "Relationship. The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled. Systems can be connected to other systems. Connected systems interact in some ways. Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem. (System)"
+          }
+        },
+        "hasManufacturer": {
+          "type": "string",
+          "description": "Property. A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        },
+        "hasModel": {
+          "type": "string",
+          "description": "Property. A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

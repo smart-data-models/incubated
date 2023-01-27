@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "modelTags": "SAREF VibrationIsolator SMART DATA MODELS",
+  "$id": "http://smart-data-models.kmd.dk/VibrationIsolators/VibrationIsolator",
+  "title": "Smart data models - VibrationIsolator schema",
+  "type": "object",
+  "description": "A vibration isolator is a device used to minimize the effects of vibration transmissibility in a building.",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. It must be equal to `VibrationIsolator`.",
+          "enum": [
+            "VibrationIsolator"
+          ]
+        },
+        "height": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Height of the vibration isolator before tha application of load. Usually measured in millimeters (mm)."
+        },
+        "isolatorCompressibility": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. The compressibility of the vibration isolator."
+        },
+        "isolatorStaticDeflection": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Static deflection of the vibration isolator. Usually measured in millimeters (mm)."
+        },
+        "supportedWeightMax": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. The maximum weight that can be carried by the vibration isolator. Usually measured in kilograms (kg) or grams (g)."
+        },
+        "vibrationTransmissibility": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. The vibration transmissibility percentage."
+        },
+        "hasManufacturer": {
+          "type": "string",
+          "description": "Property. A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        },
+        "hasModel": {
+          "type": "string",
+          "description": "Property. A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        },
+        "isContainedInBuildingSpace": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. An entity used to define the physical spaces of the building. A building space contains devices or building objects. (BuildingSpace)"
+        },
+        "isContainedInPhysicalObject": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Any Object that has a proper space region.  (Definition extracted from DUL ontology) (PhysicalObject)"
+        },
+        "isSubSystemOf": {
+          "type": "array",
+          "description": "Relationship. A reference to a system(s) that this Physical Object is part of.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+            "description": "Relationship. The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled. Systems can be connected to other systems. Connected systems interact in some ways. Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem. (System)"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "modelTags": "SAREF DuctSilencer SMART DATA MODELS",
+  "$id": "http://smart-data-models.kmd.dk/DuctSilencers/DuctSilencer",
+  "title": "Smart data models - DuctSilencer schema",
+  "type": "object",
+  "description": "A duct silencer is a device that is typically installed inside a duct distribution system for the purpose of reducing the noise levels from air movement, fan noise, etc. in the adjacent space or downstream of the duct silencer device.",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. It must be equal to `DuctSilencer`.",
+          "enum": [
+            "DuctSilencer"
+          ]
+        },
+        "airFlowRateMax": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Maximum allowable air flow rate. Usually measured in m3/s."
+        },
+        "airFlowRateMin": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Minimum allowable air flow rate. Usually measured in m3/s."
+        },
+        "hasExteriorInsulation": {
+          "type": "boolean",
+          "description": "Property. TRUE if the silencer has exterior insulation. FALSE if it does not."
+        },
+        "hydraulicDiameter": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Hydraulic diameter. Usually measured in millimeters (mm)."
+        },
+        "length": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. The finished length of the device. Usually measured in millimeters (mm)."
+        },
+        "operationTemperatureMax": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable operation ambient (air, fluid) temperature range. Usually measured in degrees Kelvin (K)."
+        },
+        "operationTemperatureMin": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable operation ambient (air, fluid) temperature range. Usually measured in degrees Kelvin (K)."
+        },
+        "weight": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. The weight of the device. Usually measured in kilograms (kg) or grams (g)."
+        },
+        "workingPressureMax": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Maximum working pressure. Usually measured in Pascals (Pa, N/m2)."
+        },
+        "workingPressureMin": {
+          "$ref": "https://github.com/smart-data-models/incubated/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable minimum working pressure (relative to ambient pressure). Usually measured in Pascals (Pa, N/m2)."
+        },
+        "isContainedInBuildingSpace": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. An entity used to define the physical spaces of the building. A building space contains devices or building objects. (BuildingSpace)"
+        },
+        "isContainedInPhysicalObject": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Any Object that has a proper space region.  (Definition extracted from DUL ontology) (PhysicalObject)"
+        },
+        "isSubSystemOf": {
+          "type": "array",
+          "description": "Relationship. A reference to a system(s) that this Physical Object is part of.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+            "description": "Relationship. The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled. Systems can be connected to other systems. Connected systems interact in some ways. Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem. (System)"
+          }
+        },
+        "hasManufacturer": {
+          "type": "string",
+          "description": "Property. A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        },
+        "hasModel": {
+          "type": "string",
+          "description": "Property. A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
