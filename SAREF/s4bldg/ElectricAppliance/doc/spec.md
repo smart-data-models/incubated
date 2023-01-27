@@ -1,7 +1,7 @@
 [![Smart Data Models](https://smartdatamodels.org/wp-content/uploads/2022/01/SmartDataModels_logo.png "Logo")](https://smartdatamodels.org)  
 
 Entity: ElectricAppliance  
-================https://github.com/smart-data-models/incubated/SAREF/
+================https://github.com/smart-data-models/incubated/tree/master/SAREF/
   
 
 [Open License](http://smart-data-models.kmd.dk/flat/s4bldg/ElectricAppliance/LICENSE.md)  
@@ -318,7 +318,7 @@ ElectricAppliance:
             bbox:
     
               items:
-    https://github.com/smart-data-models/incubated/SAREF/
+    https://github.com/smart-data-models/incubated/tree/master/SAREF/
                 type: number
     
               minItems: 4

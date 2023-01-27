@@ -1,7 +1,7 @@
 [![Smart Data Models](https://smartdatamodels.org/wp-content/uploads/2022/01/SmartDataModels_logo.png "Logo")](https://smartdatamodels.org)  
 
 Entity: Condenser  
-================https://github.com/smart-data-models/incubated/SAREF/
+================https://github.com/smart-data-models/incubated/tree/master/SAREF/
   
 
 [Open License](http://smart-data-models.kmd.dk/flat/s4bldg/Condenser/LICENSE.md)  
@@ -381,7 +381,7 @@ Condenser:
                 type: number
     
               minItems: 2
-    https://github.com/smart-data-models/incubated/SAREF/
+    https://github.com/smart-data-models/incubated/tree/master/SAREF/
               type: array
     
             type:

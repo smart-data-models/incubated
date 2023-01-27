@@ -1,7 +1,7 @@
 [![Smart Data Models](https://smartdatamodels.org/wp-content/uploads/2022/01/SmartDataModels_logo.png "Logo")](https://smartdatamodels.org)  
 
 Entity: Lamp  
-============https://github.com/smart-data-models/incubated/SAREF/
+============https://github.com/smart-data-models/incubated/tree/master/SAREF/
   
 
 [Open License](http://smart-data-models.kmd.dk/flat/s4bldg/Lamp/LICENSE.md)  
@@ -396,7 +396,7 @@ Lamp:
       x-ngsi:
     
         type: Property
-    https://github.com/smart-data-models/incubated/SAREF/
+    https://github.com/smart-data-models/incubated/tree/master/SAREF/
     location:
     
       description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'

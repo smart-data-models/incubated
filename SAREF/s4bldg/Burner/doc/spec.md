@@ -1,7 +1,7 @@
 [![Smart Data Models](https://smartdatamodels.org/wp-content/uploads/2022/01/SmartDataModels_logo.png "Logo")](https://smartdatamodels.org)  
 
 Entity: Burner  
-==============https://github.com/smart-data-models/incubated/SAREF/
+==============https://github.com/smart-data-models/incubated/tree/master/SAREF/
   
 
 [Open License](http://smart-data-models.kmd.dk/flat/s4bldg/Burner/LICENSE.md)  
@@ -323,7 +323,7 @@ Burner:
           type: object
     
         - description: Geoproperty. Geojson reference to the item. LineString
-    https://github.com/smart-data-models/incubated/SAREF/
+    https://github.com/smart-data-models/incubated/tree/master/SAREF/
           properties:
     
             bbox:
