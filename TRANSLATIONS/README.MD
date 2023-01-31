@@ -1,1 +1,0 @@
-This directory compiles the tests for a translations¡ terms file to map local language terms for smart data amodels, so you could use loal language for terms names. 
