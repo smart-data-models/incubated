@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "modelTags": "SAREF CooledBeam SMART DATA MODELS",
+  "$id": "http://smart-data-models.kmd.dk/CooledBeams/CooledBeam",
+  "title": "Smart data models - CooledBeam schema",
+  "type": "object",
+  "description": "A cooled beam (or chilled beam) is a device typically used to cool air by circulating a fluid such as chilled water through exposed finned tubes above a space. Typically mounted overhead near or within a ceiling, the cooled beam uses convection to cool the space below it by acting as a heat sink for the naturally rising warm air of the space. Once cooled, the air naturally drops back to the floor where the cycle begins again.",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. It must be equal to `CooledBeam`.",
+          "enum": [
+            "CooledBeam"
+          ]
+        },
+        "coilLength": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Length of coil. Usually measured in millimeters (mm)."
+        },
+        "coilWidth": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Width of coil. Usually measured in millimeters (mm"
+        },
+        "finishColor": {
+          "type": "string",
+          "description": "Property. Finish color for cooled beam."
+        },
+        "integratedLightingType": {
+          "type": "string",
+          "description": "Property. Integrated lighting in cooled beam."
+        },
+        "isFreeHanging": {
+          "type": "boolean",
+          "description": "Property. Is it free hanging type (not mounted in a false ceiling)?"
+        },
+        "nominalCoolingCapacity": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal cooling capacity. Usually measured in Watts (W, J/s)."
+        },
+        "nominalHeatingCapacity": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal heating capacity. Usually measured in Watts (W, J/s)."
+        },
+        "nominalReturnWaterTemperatureCooling": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal return water temperature (refers to nominal cooling capacity). Usually measured in degrees Kelvin (K)."
+        },
+        "nominalReturnWaterTemperatureHeating": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal return water temperature (refers to nominal heating capacity). Usually measured in degrees Kelvin (K)."
+        },
+        "nominalSorroundingHumidityCooling": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal surrounding humidity (refers to nominal cooling capacity). Usually measured in degrees Kelvin (K)."
+        },
+        "nominalSorroundingTemperatureCooling": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal surrounding temperature (refers to nominal cooling capacity). Usually measured in degrees Kelvin (K)."
+        },
+        "nominalSorroundingTemperatureHeating": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal surrounding temperature (refers to nominal heating capacity). Usually measured in degrees Kelvin (K)."
+        },
+        "nominalSupplyWaterTemperatureCooling": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal supply water temperature (refers to nominal cooling capacity). Usually measured in degrees Kelvin (K)."
+        },
+        "nominalSupplyWaterTemperatureHeating": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal supply water temperature (refers to nominal heating capacity). Usually measured in degrees Kelvin (K)."
+        },
+        "nominalWaterFlowCooling": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal water flow (refers to nominal cooling capacity). Usually measured in m3/s."
+        },
+        "nominalWaterFlowHeating": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal water flow (refers to nominal heating capacity). Usually measured in m3/s."
+        },
+        "pipeConnectionEnum": {
+          "type": "string",
+          "description": "Property. The manner in which the pipe connection is made to the cooled beam."
+        },
+        "waterFlowControlSystemType": {
+          "type": "string",
+          "description": "Property. Factory fitted waterflow control system."
+        },
+        "waterPressureMax": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable water circuit working pressure range. Usually measured in Pascals (Pa, N/m2)."
+        },
+        "waterPressureMin": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable water circuit working pressure range. Usually measured in Pascals (Pa, N/m2)."
+        },
+        "isContainedInBuildingSpace": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. An entity used to define the physical spaces of the building. A building space contains devices or building objects. (BuildingSpace)"
+        },
+        "isContainedInPhysicalObject": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Any Object that has a proper space region.  (Definition extracted from DUL ontology) (PhysicalObject)"
+        },
+        "isSubSystemOf": {
+          "type": "array",
+          "description": "Relationship. A reference to a system(s) that this Physical Object is part of.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+            "description": "Relationship. The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled. Systems can be connected to other systems. Connected systems interact in some ways. Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem. (System)"
+          }
+        },
+        "hasManufacturer": {
+          "type": "string",
+          "description": "Property. A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        },
+        "hasModel": {
+          "type": "string",
+          "description": "Property. A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

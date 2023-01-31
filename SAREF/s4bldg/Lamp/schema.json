@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "modelTags": "SAREF Lamp SMART DATA MODELS",
+  "$id": "http://smart-data-models.kmd.dk/Lamps/Lamp",
+  "title": "Smart data models - Lamp schema",
+  "type": "object",
+  "description": "A lamp is an artificial light source such as a light bulb or tube.",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. It must be equal to `Lamp`.",
+          "enum": [
+            "Lamp"
+          ]
+        },
+        "colorAppearance": {
+          "type": "string",
+          "description": "Property. In both the DIN and CIE standards, artificial light sources are classified in terms of their color appearance. To the human eye they all appear to be white the difference can only be detected by direct comparison. Visual performance is not directly affected by differences in color appearance."
+        },
+        "colorRenderingIndex": {
+          "type": "number",
+          "description": "Property. The CRI indicates how well a light source renders eight standard colors compared to perfect reference lamp with the same color temperature. The CRI scale ranges from 1 to 100, with 100 representing perfect rendering properties."
+        },
+        "colorTemperature": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. The color temperature of any source of radiation is defined as the temperature (in Kelvin) of a black-body or Planckian radiator whose radiation has the same chromaticity as the source of radiation. Often the values are only approximate color temperatures as the black-body radiator cannot emit radiation of every chromaticity value. The color temperatures of the commonest artificial light sources range from less than 3000K (warm white) to 4000K (intermediate) and over 5000K (daylight). Usually measured in degrees Kelvin (K)."
+        },
+        "contributedLuminousFlux": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Luminous flux is a photometric measure of radiant flux, i.e. the volume of light emitted from a light source. Luminous flux is measured either for the interior as a whole or for a part of the interior (partial luminous flux for a solid angle). All other photometric parameters are derivatives of luminous flux. Luminous flux is measured in lumens (lm). The luminous flux is given as a nominal value for each lamp. Usually measured in Lumen (lm, Candela Steradian)."
+        },
+        "lampBallastType": {
+          "type": "string",
+          "description": "Property. The type of ballast used to stabilise gas discharge by limiting the current during operation and to deliver the necessary striking voltage for starting. Ballasts are needed to operate Discharge Lamps such as Fluorescent, Compact Fluorescent, High-pressure Mercury, Metal Halide and High-pressure Sodium Lamps. Magnetic ballasts are chokes which limit the current passing through a lamp connected in series on the principle of self-induction. The resultant current and power are decisive for the efficient operation of the lamp. A specially designed ballast is required for every type of lamp to comply with lamp rating in terms of Luminous Flux, Color Appearance and service life. The two types of magnetic ballasts for fluorescent lamps are KVG Conventional (EC-A series) and VVG Low-loss ballasts (EC-B series). Low-loss ballasts have a higher efficiency, which means reduced ballast losses and a lower thermal load. Electronic ballasts are used to run fluorescent lamps at high frequencies (approx. 35 - 40 kHz)."
+        },
+        "lampCompensationType": {
+          "type": "string",
+          "description": "Property. Identifies the form of compensation used for power factor correction and radio suppression."
+        },
+        "lampMaintenanceFactor": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Non recoverable losses of luminous flux of a lamp due to lamp depreciation i.e. the decreasing of light output of a luminaire due to aging and dirt."
+        },
+        "lightEmitterNominalPower": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Light emitter nominal power. Usually measured in Watts (W, J/s)."
+        },
+        "spectrumMax": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. The spectrum of radiation describes its composition with regard to wavelength. Light, for example, as the portion of electromagnetic radiation that is visible to the human eye, is radiation with wavelengths in the range of approx. 380 to 780 nm (1 nm = 10 m). The corresponding range of colours varies from violet to indigo, blue, green, yellow, orange, and red. These colours form a continuous spectrum, in which the various spectral sectors merge into each other."
+        },
+        "spectrumMin": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. The spectrum of radiation describes its composition with regard to wavelength. Light, for example, as the portion of electromagnetic radiation that is visible to the human eye, is radiation with wavelengths in the range of approx. 380 to 780 nm (1 nm = 10 m). The corresponding range of colours varies from violet to indigo, blue, green, yellow, orange, and red. These colours form a continuous spectrum, in which the various spectral sectors merge into each other."
+        },
+        "isContainedInBuildingSpace": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. An entity used to define the physical spaces of the building. A building space contains devices or building objects. (BuildingSpace)"
+        },
+        "isContainedInPhysicalObject": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Any Object that has a proper space region.  (Definition extracted from DUL ontology) (PhysicalObject)"
+        },
+        "isSubSystemOf": {
+          "type": "array",
+          "description": "Relationship. A reference to a system(s) that this Physical Object is part of.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+            "description": "Relationship. The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled. Systems can be connected to other systems. Connected systems interact in some ways. Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem. (System)"
+          }
+        },
+        "hasManufacturer": {
+          "type": "string",
+          "description": "Property. A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        },
+        "hasModel": {
+          "type": "string",
+          "description": "Property. A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

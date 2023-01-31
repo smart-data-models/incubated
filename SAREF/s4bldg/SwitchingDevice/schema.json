@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "modelTags": "SAREF SwitchingDevice SMART DATA MODELS",
+  "$id": "http://smart-data-models.kmd.dk/SwitchingDevices/SwitchingDevice",
+  "title": "Smart data models - SwitchingDevice schema",
+  "type": "object",
+  "description": "A switch is used in a cable distribution system (electrical circuit) to control or modulate the flow of electricity.  Switches include those used for electrical power, communications, audio-visual, or other distribution system types as determined by the available ports.",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. It must be equal to `SwitchingDevice`.",
+          "enum": [
+            "SwitchingDevice"
+          ]
+        },
+        "hasLock": {
+          "type": "boolean",
+          "description": "Property. Indication of whether a switching device has a key operated lock (=TRUE) or not (= FALSE)."
+        },
+        "isIlluminated": {
+          "type": "boolean",
+          "description": "Property. An indication of whether there is an illuminated indicator to show that the switch is on (=TRUE) or not (= FALSE)."
+        },
+        "legend": {
+          "type": "string",
+          "description": "Property. A text inscribed or applied to the switch as a legend to indicate purpose or function."
+        },
+        "numberOfGangs": {
+          "type": "number",
+          "description": "Property. Number of gangs/buttons on this switch."
+        },
+        "switchFunction": {
+          "type": "string",
+          "description": "Property. Indicates types of switches which differs in functionality."
+        },
+        "isContainedInBuildingSpace": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. An entity used to define the physical spaces of the building. A building space contains devices or building objects. (BuildingSpace)"
+        },
+        "isContainedInPhysicalObject": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Any Object that has a proper space region.  (Definition extracted from DUL ontology) (PhysicalObject)"
+        },
+        "isSubSystemOf": {
+          "type": "array",
+          "description": "Relationship. A reference to a system(s) that this Physical Object is part of.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+            "description": "Relationship. The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled. Systems can be connected to other systems. Connected systems interact in some ways. Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem. (System)"
+          }
+        },
+        "hasManufacturer": {
+          "type": "string",
+          "description": "Property. A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        },
+        "hasModel": {
+          "type": "string",
+          "description": "Property. A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

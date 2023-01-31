@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "modelTags": "SAREF Pump SMART DATA MODELS",
+  "$id": "http://smart-data-models.kmd.dk/Pumps/Pump",
+  "title": "Smart data models - Pump schema",
+  "type": "object",
+  "description": "A pump is a device which imparts mechanical work on fluids or slurries to move them through a channel or pipeline. A typical use of a pump is to circulate chilled water or heating hot water in a building services distribution system.",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. It must be equal to `Pump`.",
+          "enum": [
+            "Pump"
+          ]
+        },
+        "connectionSize": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. The connection size of the to and from the pump. Usually measured in millimeters (mm)."
+        },
+        "flowResistanceMax": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable range of frictional resistance against which the fluid is being pumped. Usually measured in Pascals (Pa, N/m2)."
+        },
+        "flowResistanceMin": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable range of frictional resistance against which the fluid is being pumped. Usually measured in Pascals (Pa, N/m2)."
+        },
+        "netPositiveSuctionHead": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Minimum liquid pressure at the pump inlet to prevent cavitation. Usually measured in Pascals (Pa, N/m2)."
+        },
+        "nomminalRotationSpeed": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Pump rotational speed under nominal conditions. Usually measured in cycles/s."
+        },
+        "operationTemperatureMax": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable operation ambient (air, fluid) temperature range. Usually measured in degrees Kelvin (K)."
+        },
+        "operationTemperatureMin": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable operation ambient (air, fluid) temperature range. Usually measured in degrees Kelvin (K)."
+        },
+        "pumpFlowRateMax": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable range of volume of fluid being pumped against the resistance specified. Usually measured in kg/s."
+        },
+        "pumpFlowRateMin": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable range of volume of fluid being pumped against the resistance specified. Usually measured in kg/s."
+        },
+        "isContainedInBuildingSpace": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. An entity used to define the physical spaces of the building. A building space contains devices or building objects. (BuildingSpace)"
+        },
+        "isContainedInPhysicalObject": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Any Object that has a proper space region.  (Definition extracted from DUL ontology) (PhysicalObject)"
+        },
+        "isSubSystemOf": {
+          "type": "array",
+          "description": "Relationship. A reference to a system(s) that this Physical Object is part of.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+            "description": "Relationship. The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled. Systems can be connected to other systems. Connected systems interact in some ways. Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem. (System)"
+          }
+        },
+        "hasManufacturer": {
+          "type": "string",
+          "description": "Property. A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        },
+        "hasModel": {
+          "type": "string",
+          "description": "Property. A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

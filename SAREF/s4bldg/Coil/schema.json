@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "modelTags": "SAREF Coil SMART DATA MODELS",
+  "$id": "http://smart-data-models.kmd.dk/Coils/Coil",
+  "title": "Smart data models - Coil schema",
+  "type": "object",
+  "description": "A coil is a device used to provide heat transfer between non-mixing media. A common example is a cooling coil, which utilizes a finned coil in which circulates chilled water, antifreeze, or refrigerant that is used to remove heat from air moving across the surface of the coil. A coil may be used either for heating or cooling purposes by placing a series of tubes (the coil) carrying a heating or cooling fluid into an airstream. The coil may be constructed from tubes bundled in a serpentine form or from finned tubes that give a extended heat transfer surface.  Coils may also be used for non-airflow cases such as embedded in a floor slab.",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. It must be equal to `Coil`.",
+          "enum": [
+            "Coil"
+          ]
+        },
+        "airFlowRateMax": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Maximum allowable air flow rate. Usually measured in m3/s."
+        },
+        "airFlowRateMin": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Minimum allowable air flow rate. Usually measured in m3/s."
+        },
+        "nominalLatentCapacity": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal latent capacity. Usually measured in Watts (W, J/s)."
+        },
+        "nominalSensibleCapacity": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal sensible capacity. Usually measured in Watts (W, J/s)."
+        },
+        "nominalUa": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal UA value."
+        },
+        "operationMode": {
+          "type": "string",
+          "description": "Property. Operation mode of this coil.",
+          "enum": [
+            "cooling",
+            "heating"
+          ]
+        },
+        "operationTemperatureMax": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable operation ambient (air, fluid) temperature range. Usually measured in degrees Kelvin (K)."
+        },
+        "operationTemperatureMin": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable operation ambient (air, fluid) temperature range. Usually measured in degrees Kelvin (K)."
+        },
+        "placementType": {
+          "type": "string",
+          "description": "Property. Indicates how the device is designed to be placed."
+        },
+        "isContainedInBuildingSpace": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. An entity used to define the physical spaces of the building. A building space contains devices or building objects. (BuildingSpace)"
+        },
+        "isContainedInPhysicalObject": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Any Object that has a proper space region.  (Definition extracted from DUL ontology) (PhysicalObject)"
+        },
+        "isSubSystemOf": {
+          "type": "array",
+          "description": "Relationship. A reference to a system(s) that this Physical Object is part of.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+            "description": "Relationship. The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled. Systems can be connected to other systems. Connected systems interact in some ways. Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem. (System)"
+          }
+        },
+        "hasManufacturer": {
+          "type": "string",
+          "description": "Property. A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        },
+        "hasModel": {
+          "type": "string",
+          "description": "Property. A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

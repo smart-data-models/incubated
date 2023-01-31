@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "modelTags": "SAREF AirToAirHeatRecovery SMART DATA MODELS",
+  "$id": "http://smart-data-models.kmd.dk/AirToAirHeatRecoverys/AirToAirHeatRecovery",
+  "title": "Smart data models - AirToAirHeatRecovery schema",
+  "type": "object",
+  "description": "An air-to-air heat recovery device employs a counter-flow heat exchanger between inbound and outbound air flow. It is typically used to transfer heat from warmer air in one chamber to cooler air in the second chamber (i.e., typically used to recover heat from the conditioned air being exhausted and the outside air being supplied to a building), resulting in energy savings from reduced heating (or cooling) requirements.",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. It must be equal to `AirToAirHeatRecovery`.",
+          "enum": [
+            "AirToAirHeatRecovery"
+          ]
+        },
+        "hasDefrost": {
+          "type": "boolean",
+          "description": "Property. Whether the heat exchanger has defrost function or not."
+        },
+        "heatTransferTypeEnum": {
+          "type": "string",
+          "description": "Property. Type of heat transfer between the two air streams."
+        },
+        "operationTemperatureMax": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable operation ambient (air, fluid) temperature range. Usually measured in degrees Kelvin (K)."
+        },
+        "operationTemperatureMin": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable operation ambient (air, fluid) temperature range. Usually measured in degrees Kelvin (K)."
+        },
+        "primaryAirFlowRateMax": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Maximum primary airflow that can be delivered. Usually measured in m3/s."
+        },
+        "primaryAirFlowRateMin": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Minimum primary airflow that can be delivered. Usually measured in m3/s."
+        },
+        "secondaryAirFlowRateMax": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Maximum secondary airflow that can be delivered. Usually measured in Pascals (Pa, N/m2)."
+        },
+        "secondaryAirFlowRateMin": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Maximum secondary airflow that can be delivered. Usually measured in Pascals (Pa, N/m2)."
+        },
+        "isContainedInBuildingSpace": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. An entity used to define the physical spaces of the building. A building space contains devices or building objects. (BuildingSpace)"
+        },
+        "isContainedInPhysicalObject": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Any Object that has a proper space region.  (Definition extracted from DUL ontology) (PhysicalObject)"
+        },
+        "isSubSystemOf": {
+          "type": "array",
+          "description": "Relationship. A reference to a system(s) that this Physical Object is part of.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+            "description": "Relationship. The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled. Systems can be connected to other systems. Connected systems interact in some ways. Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem. (System)"
+          }
+        },
+        "hasManufacturer": {
+          "type": "string",
+          "description": "Property. A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        },
+        "hasModel": {
+          "type": "string",
+          "description": "Property. A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

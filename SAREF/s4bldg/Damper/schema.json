@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "modelTags": "SAREF Damper SMART DATA MODELS",
+  "$id": "http://smart-data-models.kmd.dk/Dampers/Damper",
+  "title": "Smart data models - Damper schema",
+  "type": "object",
+  "description": "A damper typically participates in an HVAC duct distribution system and is used to control or modulate the flow of air.",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. It must be equal to `Damper`.",
+          "enum": [
+            "Damper"
+          ]
+        },
+        "airFlowRateMax": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Maximum allowable air flow rate. Usually measured in m3/s."
+        },
+        "bladeAction": {
+          "type": "string",
+          "description": "Property. Blade action."
+        },
+        "bladeEdge": {
+          "type": "string",
+          "description": "Property. Blade edge."
+        },
+        "bladeShape": {
+          "type": "string",
+          "description": "Property. Blade shape. Flat means triple V-groove."
+        },
+        "bladeThickness": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. The thickness of the damper blade. Usually measured in millimeters (mm)."
+        },
+        "closeOffRating": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Close off rating. Usually measured in Pascals (Pa, N/m2)."
+        },
+        "faceArea": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Face area open to the airstream. Usually measured in square metre (m2)."
+        },
+        "frameDepth": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. The length (or depth) of the damper frame. Usually measured in millimeters (mm)."
+        },
+        "frameThickness": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. The thickness of the damper frame material. Usually measured in millimeters (mm)."
+        },
+        "frameType": {
+          "type": "string",
+          "description": "Property. The type of frame used by the damper (e.g., Standard, Single Flange, Single Reversed Flange, Double Flange, etc.)."
+        },
+        "leakageFullyClosed": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Leakage when fully closed. Usually measured in m3/s."
+        },
+        "nominalAirFlowRate": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Nominal rate of air flow. Usually measured in m3/s."
+        },
+        "numberOfBlades": {
+          "type": "number",
+          "description": "Property. Number of blades."
+        },
+        "openPressureDrop": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Total pressure drop across damper. Usually measured in Pascals (Pa, N/m2)."
+        },
+        "operation": {
+          "type": "string",
+          "description": "Property. The operational mechanism for the damper operation."
+        },
+        "operationMode": {
+          "type": "string",
+          "description": "Property. Operation mode of this damper.",
+          "enum": [
+            "supply",
+            "exhaust"
+          ]
+        },
+        "operationTemperatureMax": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable operation ambient (air, fluid) temperature range. Usually measured in degrees Kelvin (K)."
+        },
+        "operationTemperatureMin": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Allowable operation ambient (air, fluid) temperature range. Usually measured in degrees Kelvin (K)."
+        },
+        "orientation": {
+          "type": "string",
+          "description": "Property. The intended orientation for the damper as specified by the manufacturer."
+        },
+        "temperatureRating": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Temperature rating. Usually measured in degrees Kelvin (K)."
+        },
+        "workingPressureMax": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SAREF/commons.json#/definitions/Measurement",
+          "description": "Property. Maximum working pressure. Usually measured in Pascals (Pa, N/m2)."
+        },
+        "isContainedInBuildingSpace": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. An entity used to define the physical spaces of the building. A building space contains devices or building objects. (BuildingSpace)"
+        },
+        "isContainedInPhysicalObject": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Any Object that has a proper space region.  (Definition extracted from DUL ontology) (PhysicalObject)"
+        },
+        "isSubSystemOf": {
+          "type": "array",
+          "description": "Relationship. A reference to a system(s) that this Physical Object is part of.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+            "description": "Relationship. The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled. Systems can be connected to other systems. Connected systems interact in some ways. Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem. (System)"
+          }
+        },
+        "hasManufacturer": {
+          "type": "string",
+          "description": "Property. A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        },
+        "hasModel": {
+          "type": "string",
+          "description": "Property. A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
