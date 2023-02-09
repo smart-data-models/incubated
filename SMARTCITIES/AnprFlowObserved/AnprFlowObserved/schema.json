@@ -33,6 +33,17 @@
           "description": "Property. Lane identifier. Lane identification provided by the observer.",
           "type": "string"
         },
+        "areaServed":{
+          "description": " Property. The geographic area where a service or offered item is provided",
+          "type": "string"
+        },
+        "zonesServed":{
+          "description": "Array of zones that are able to receive or read the observations",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "vehiclePlateNotRead": {
           "description": "Property. Indicates if a license could not be read",
           "type": "boolean"
@@ -41,6 +52,14 @@
           "description": "Property. Information about the observed vehicle.",
           "type": "object",
           "properties": {
+            "direction": {
+              "description": "Property. Detected direction of the observed vehicle.",
+              "type": "string",
+              "enum":[
+                "away",
+                "towards"
+              ]
+            },
             "speed": {
               "description": "Property. Detected speed of the observed vehicle.",
               "type": "number",
