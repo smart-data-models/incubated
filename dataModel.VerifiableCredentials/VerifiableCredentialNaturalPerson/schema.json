@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EBSI Natural Person Verifiable ID",
+  "description": "Schema of an EBSI Verifiable ID for a natural person",
+  "type": "object",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "EBSI, Verifiable Credentials",
+  "derivedFrom": "https://ec.europa.eu/digital-building-blocks/code/projects/EBSI/repos/json-schema/browse/schemas/ebsi-vid/natural-person/2022-11/schema.json",
+  "required": [
+    "credentialSubject"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/dataModel.VerifiableCredentials/VerifiableCredentials-schema.json"
+    },
+    {
+      "properties": {
+        "credentialSubject": {
+          "description": "Property. Defines additional information about the subject that is described by the Verifiable ID",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "Property. Defines the DID of the subject that is described by the Verifiable Attestation",
+              "type": "string",
+              "format": "uri"
+            },
+            "familyName": {
+              "description": "Property. Defines current family name(s) of the credential subject",
+              "type": "string"
+            },
+            "firstName": {
+              "description": "Property. Defines current first name(s) of the credential subject",
+              "type": "string"
+            },
+            "dateOfBirth": {
+              "description": "Property. Defines date of birth of the credential subject",
+              "type": "string",
+              "format": "date"
+            },
+            "personalIdentifier": {
+              "description": "Defines the unique national identifier of the credential subject (constructed by the sending Member State in accordance with the technical specifications for the purposes of cross-border identification and which is as persistent as possible in time)",
+              "type": "string"
+            },
+            "nameAndFamilyNameAtBirth": {
+              "description": "Property. Defines the first and the family name(s) of the credential subject at the time of their birth",
+              "type": "string"
+            },
+            "placeOfBirth": {
+              "description": "Property. Defines the place where the credential subjectis born",
+              "type": "string"
+            },
+            "currentAddress": {
+              "description": "Property. Defines the current address of the credential subject",
+              "type": "string"
+            },
+            "gender": {
+              "description": "Property. Defines the gender of the credential subject",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "familyName",
+            "firstName",
+            "dateOfBirth",
+            "personalIdentifier"
+          ]
+        }
+      }
+    }
+  ]
+}
