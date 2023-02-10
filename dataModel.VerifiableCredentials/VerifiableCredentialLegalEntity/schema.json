@@ -21,6 +21,28 @@
               "type": "string",
               "format": "uri"
             },
+            "identifier": {
+              "type": "array",
+              "description": "Property. Description to be completed",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "schemeID": {
+                    "type": "string",
+                    "description": "Property. Description to be completed"
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "Property. Description to be completed"
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Description to be completed"
+                  }
+                }
+              }
+            },
             "legalPersonIdentifier": {
               "description": "National/Legal Identifier of Credential Subject (constructed by the sending Member State in accordance with the technical specifications for the purposes of cross-border identification and which is as persistent as possible in time)",
               "type": "string"
@@ -62,7 +84,10 @@
               "type": "string"
             }
           },
-          "required": ["id", "legalName"]
+          "required": [
+            "id",
+            "legalName"
+          ]
         }
       }
     }
