@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EBSI Accredited Verifiable Attestation Record",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "EBSI, Verifiable Credentials",
+  "derivedFrom": "https://ec.europa.eu/digital-building-blocks/code/projects/EBSI/repos/json-schema/browse/schemas/ebsi-accredited-attestation/2022-11/schema.json",
+  "description": "Schema of an EBSI Accredited Verifiable Attestation",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/dataModel.VerifiableCredentials/VerifiableCredentials-schema.json"
+    },
+    {
+      "properties": {
+        "termsOfUse": {
+          "description": "Contains the terms under which the Accredited Verifiable Attestation was issued",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Contains a URL that points to where more information about this instance of terms of use can be found.",
+                "type": "string",
+                "format": "uri"
+              },
+              "type": {
+                "description": "Defines the type of terms of use.",
+                "type": "string"
+              }
+            },
+            "required": ["id", "type"]
+          }
+        },
+        "credentialSubject": {
+          "description": "Property. Defines additional information about the subject that is described by the Verifiable ID",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "Property. Defines the DID of the subject that is described by the Verifiable Attestation",
+              "type": "string",
+              "format": "uri"
+            },
+            "familyName": {
+              "description": "Property. Defines current family name(s) of the credential subject",
+              "type": "string"
+            },
+            "firstName": {
+              "description": "Property. Defines current first name(s) of the credential subject",
+              "type": "string"
+            },
+            "dateOfBirth": {
+              "description": "Property. Defines date of birth of the credential subject",
+              "type": "string",
+              "format": "date"
+            },
+            "personalIdentifier": {
+              "description": "Defines the unique national identifier of the credential subject (constructed by the sending Member State in accordance with the technical specifications for the purposes of cross-border identification and which is as persistent as possible in time)",
+              "type": "string"
+            },
+            "nameAndFamilyNameAtBirth": {
+              "description": "Property. Defines the first and the family name(s) of the credential subject at the time of their birth",
+              "type": "string"
+            },
+            "placeOfBirth": {
+              "description": "Property. Defines the place where the credential subjectis born",
+              "type": "string"
+            },
+            "currentAddress": {
+              "description": "Property. Defines the current address of the credential subject",
+              "type": "string"
+            },
+            "gender": {
+              "description": "Property. Defines the gender of the credential subject",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        }
+      },
+      "required": ["credentialStatus", "termsOfUse"]
+    }
+  ]
+}
