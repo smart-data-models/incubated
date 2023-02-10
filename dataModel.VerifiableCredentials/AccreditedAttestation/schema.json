@@ -13,73 +13,43 @@
     {
       "properties": {
         "termsOfUse": {
-          "description": "Contains the terms under which the Accredited Verifiable Attestation was issued",
+          "description": "Property. Contains the terms under which the Accredited Verifiable Attestation was issued",
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
               "id": {
-                "description": "Contains a URL that points to where more information about this instance of terms of use can be found.",
+                "description": "Property. Contains a URL that points to where more information about this instance of terms of use can be found.",
                 "type": "string",
                 "format": "uri"
               },
               "type": {
-                "description": "Defines the type of terms of use.",
+                "description": "Property. Defines the type of terms of use.",
                 "type": "string"
               }
             },
-            "required": ["id", "type"]
+            "required": [
+              "id",
+              "type"
+            ]
           }
         },
         "credentialSubject": {
-          "description": "Property. Defines additional information about the subject that is described by the Verifiable ID",
+          "description": "Property. Defines information about the subject that is described by the Verifiable Attestation",
           "type": "object",
           "properties": {
             "id": {
               "description": "Property. Defines the DID of the subject that is described by the Verifiable Attestation",
               "type": "string",
               "format": "uri"
-            },
-            "familyName": {
-              "description": "Property. Defines current family name(s) of the credential subject",
-              "type": "string"
-            },
-            "firstName": {
-              "description": "Property. Defines current first name(s) of the credential subject",
-              "type": "string"
-            },
-            "dateOfBirth": {
-              "description": "Property. Defines date of birth of the credential subject",
-              "type": "string",
-              "format": "date"
-            },
-            "personalIdentifier": {
-              "description": "Defines the unique national identifier of the credential subject (constructed by the sending Member State in accordance with the technical specifications for the purposes of cross-border identification and which is as persistent as possible in time)",
-              "type": "string"
-            },
-            "nameAndFamilyNameAtBirth": {
-              "description": "Property. Defines the first and the family name(s) of the credential subject at the time of their birth",
-              "type": "string"
-            },
-            "placeOfBirth": {
-              "description": "Property. Defines the place where the credential subjectis born",
-              "type": "string"
-            },
-            "currentAddress": {
-              "description": "Property. Defines the current address of the credential subject",
-              "type": "string"
-            },
-            "gender": {
-              "description": "Property. Defines the gender of the credential subject",
-              "type": "string"
             }
-          },
-          "required": [
-            "id"
-          ]
+          }
         }
       },
-      "required": ["credentialStatus", "termsOfUse"]
+      "required": [
+        "credentialStatus",
+        "termsOfUse"
+      ]
     }
   ]
 }
