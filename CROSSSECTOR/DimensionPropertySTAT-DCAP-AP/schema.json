@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/schema",
   "$schemaVersion": "0.0.2",
-  "$id": "https://github.com/smart-data-models/dataModel.STAT-DCAT-AP/tree/master/Concept/schema.json",
-  "title": "Smart Data models - SKOS Concept schema",
-  "modelTags": "",
-  "description": "A SKOS concept can be viewed as an idea or notion; a unit of thought. However, what constitutes a unit of thought is subjective, and this definition is meant to be suggestive, rather than restrictive. The notion of a SKOS concept is useful when describing the conceptual or intellectual structure of a knowledge organization system, and when referring to specific ideas or meanings established within a KOS. Note that, because SKOS is designed to be a vehicle for representing semi-formal KOS, such as thesauri and classification schemes, a certain amount of flexibility has been built in to the formal definition of this class.",
+  "$id": "https://github.com/smart-data-models/dataModel.STAT-DCAT-AP/tree/master/DimensionPropertySTAT-DCAT-AP/schema.json",
+  "title": "Smart Data models - Dimension Property schema (Cube)",
+  "modelTags": "INTERSTAT",
+  "description": "The class of component properties which represent the dimensions of the cube.",
   "type": "object",
   "required": [
     "id",
@@ -24,9 +24,9 @@
         "type": {
           "type": "string",
           "enum": [
-            "Concept"
+            "DimensionProperty"
           ],
-          "description": "Property. NGSI Entity type. It has to be Concept."
+          "description": "Property. NGSI Entity type. It has to be DimensionProperty."
         },
         "language": {
           "type": "array",
@@ -36,20 +36,44 @@
             "enum": ["en", "fr", "it", "es", "de", "jp", "zh"]
           }
         },
-        "inScheme": {
-          "type": "string",
-          "description": "Relationship. Model:'https://www.w3.org/TR/skos-reference/#schemes'. Link to the ConceptSchema in which it is defined this Concept."
-        },
-        "prefLabel": {
-          "type": "array",
-          "description": "Property. Model:'https://www.w3.org/TR/skos-reference/#prefLabel'. A preferred label is a string of UNICODE characters, such as 'romantic love' or 'れんあい', in a given natural language, such as English or Japanese (written here in hiragana). The Simple Knowledge Organization System provides some basic vocabulary for associating lexical labels with resources of any type. The preferred label is useful when generating or creating human-readable representations of a knowledge organization system. These labels provide the strongest clues as to the meaning of a SKOS concept. Formally, a preferred label is an RDF plain literal [RDF-CONCEPTS, https://www.w3.org/TR/skos-reference/#ref-RDF-CONCEPTS]. An RDF plain literal is composed of a lexical form, which is a string of UNICODE characters, and an optional language tag, which is a string of characters conforming to the syntax defined by [BCP47, https://www.w3.org/TR/skos-reference/#ref-BCP47].",
-          "items": {
-            "type": "string"
+        "label": {
+          "type": "object",
+          "description": "Property. Model:'https://www.w3.org/TR/rdf-schema/#ch_label'. Label is an instance of rdf:Property that may be used to provide a human-readable version of a resource's name.",
+          "properties": {
+            "en": "string",
+            "fr": "string",
+            "it": "string",
+            "es": "string",
+            "de": "string",
+            "jp": "string",
+            "zh": "string"
           }
         },
-        "notation": {
+        "qb:codeList": {
           "type": "string",
-          "description": "Property. Model:'https://www.w3.org/TR/skos-reference/#notations'. A notation is a string of characters such as T58.5 or 303.4833 used to uniquely identify a concept within the scope of a given concept scheme. A notation is different from a lexical label in that a notation is not normally recognizable as a word or sequence of words in any natural language."
+          "description": "Relationship, Model:'http://purl.org/linked-data/cube#codeList'. Links to the Concept Schema which is being measured or indicated by the Dimension Property."
+        },
+        "concept": {
+          "type": "string",
+          "description": "Relationship. Model:'http://purl.org/linked-data/cube#concept'. Gives the concept which is being measured or indicated by the Attribute Property."
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#created'. Date of creation of this attribute property. A string instance is valid against this attribute if it is a valid representation according to the 'date-time' ABNF rule. Date and time format names are derived from RFC 3339, section 5.6 [https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339]."
+        },
+        "identifier": {
+          "type": "string",
+          "description": "Property. Model:'https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#identifier'. An unambiguous reference to the resource within a given context."
+        },
+        "modified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#modified'. Date on which the resource was changed. A string instance is valid against this attribute if it is a valid representation according to the 'date-time' ABNF rule. Date and time format names are derived from RFC 3339, section 5.6 [https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339]."
+        },
+        "range": {
+          "type": "string",
+          "description": "Property. Model:'https://www.w3.org/TR/rdf-schema/#ch_range'. Range is an instance of rdf:Property that is used to state that the values of a property are instances of one or more classes."
         }
       }
     }
