@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.2",
+  "$id": "https://github.com/smart-data-models/dataModel.STAT-DCAT-AP/tree/master/AttributePropertySTAT-DCAT-AP/schema.json",
+  "title": "Smart Data models - Attribute Property schema (Cube)",
+  "modelTags": "INTERSTAT",
+  "description": "The class of component properties which represent attributes of observations in the cube, e.g. unit of measurement.",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "derivedFrom": "",
+  "license": "",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "AttributeProperty"
+          ],
+          "description": "Property. NGSI Entity type. It has to be Concept."
+        },
+        "language": {
+          "type": "array",
+          "description": "Property. Model:'https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#LinguisticSystem'. This property refers to a language of the Attribute Property.",
+          "items": {
+            "type": "string",
+            "enum": ["en", "fr", "it", "es", "de", "jp", "zh"]
+          }
+        },
+        "label": {
+          "type": "object",
+          "description": "Property. Model:'https://www.w3.org/TR/rdf-schema/#ch_label'. Label is an instance of rdf:Property that may be used to provide a human-readable version of a resource's name.",
+          "properties": {
+            "en": {
+              "type": "string"
+            },
+            "fr": {
+              "type": "string"
+            },
+            "it": {
+              "type": "string"
+            },
+            "es": {
+              "type": "string"
+            },
+            "de": {
+              "type": "string"
+            },
+            "jp": {
+              "type": "string"
+            },
+            "zh": {
+              "type": "string"
+            }
+          }
+        },
+        "concept": {
+          "type": "string",
+          "description": "Relationship. Model:'http://purl.org/linked-data/cube#concept'. Gives the concept which is being measured or indicated by the Attribute Property."
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#created'. Date of creation of this attribute property. A string instance is valid against this attribute if it is a valid representation according to the 'date-time' ABNF rule. Date and time format names are derived from RFC 3339, section 5.6 [https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339]."
+        },
+        "identifier": {
+          "type": "string",
+          "description": "Property. Model:'https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#identifier'. An unambiguous reference to the resource within a given context."
+        },
+        "modified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#modified'. Date on which the resource was changed. A string instance is valid against this attribute if it is a valid representation according to the 'date-time' ABNF rule. Date and time format names are derived from RFC 3339, section 5.6 [https://json-schema.org/draft/2020-12/json-schema-validation.html#RFC3339]."
+        },
+        "range": {
+          "type": "string",
+          "description": "Property. Model:'https://www.w3.org/TR/rdf-schema/#ch_range'. Range is an instance of rdf:Property that is used to state that the values of a property are instances of one or more classes."
+        }
+      }
+    }
+  ]
+}
