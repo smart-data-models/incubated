@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/subject/platform/schema.json,",
+  "title": "data model of a platform",
+  "description": "global description of the data model",
+  "modelTags": "Gaia-X",
+  "derivedFrom": "https://gitlab.com/gaia-x/technical-committee/federation-services/data-exchange/-/blob/main/specs/dewg.md",
+  "required": [
+    "id",
+    "type",
+    "providedBy",
+    "termsAndConditions",
+    "title",
+    "exposeThrough",
+    "aggregationOf",
+    "copyrightOwnedBy",
+    "license",
+    "identifier",
+    "distribution",
+    "Algorithm"
+  ],
+  "license": "https://smart-data-models.github.io/subject/platform/LICENSE.md",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "DataProduct"
+      ]
+    },
+    "providedBy": {
+      "type": "string",
+      "format": "uri",
+      "description": "Property. A resolvable link to the participant self-description providing the service."
+    },
+    "termsAndConditions": {
+      "type": "string",
+      "format": "uri",
+      "description": "Property. A resolvable link to the Terms and Conditions applying to that service."
+    },
+    "title": {
+      "type": "string",
+      "description": "Property. Title of the Data Product"
+    },
+    "description": {
+      "type": "string",
+      "description": "Property. Description of the Data Product"
+    },
+    "issuedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Property. Publication date in ISO 8601 format"
+    },
+    "obsoleteDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Property. Date time in ISO 8601 format after which data is obsolete."
+    },
+    "expirationDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Property. Ddate time in ISO 8601 format after which data is expired and shall be deleted."
+    },
+    "dataDomains": {
+      "type": "array",
+      "description": "Property. List of Tags or Keywords (Unicode) for data domains",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exposedThrough": {
+      "type": "string",
+      "description": "Property. A resolvable link to the data exchange component that exposes the data resource.",
+      "format": "uri"
+    },
+    "policies": {
+      "type": "array",
+      "description": "Property. a list of policy expressed using a DSL (e.g., Rego or ODRL)",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dataController": {
+      "type": "string",
+      "description": "Property. Data controller Participant as defined in GDPR."
+    },
+    "consent": {
+      "type": "array",
+      "description": "Property. List of consents from the data subjects as Natural Person when the dataset contains PII, as defined by the Trust Framework",
+      "items": {
+        "type": "string"
+      }
+    },
+    "aggregationOf": {
+      "type": "array",
+      "description": "Property. DataSet Content",
+      "items": {
+        "type": "string"
+      }
+    },
+    "copyrightOwnedBy": {
+      "type": "array",
+      "description": "Property. A list of copyright owner either as a free form string or participant self-description.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "license": {
+      "type": "array",
+      "description": "Property. A list of URIs to license document.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "identifier": {
+      "type": "string",
+      "description": "Property. Unique uuid4"
+    },
+    "distribution": {
+      "type": "array",
+      "description": "Property. List of distributions format of the dataset",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Property. Filename of the dataset distribution"
+          },
+          "mediaType": {
+            "type": "string",
+            "description": "Property. Format of the dataset distribution (pdf, csv, …)"
+          },
+          "byteSize": {
+            "type": "string",
+            "description": "Property. Size of the dataset distribution"
+          },
+          "location": {
+            "type": "string",
+            "description": "Property. List of dataset storage location"
+          },
+          "hash": {
+            "type": "string",
+            "description": "Property. To uniquely identify the data contained in the dataset distribution"
+          }
+        }
+      },
+      "required": [
+        "title",
+        "mediaType",
+        "byteSize",
+        "location"
+      ]
+    },
+    "Algorithm": {
+      "type": "string",
+      "description": "Property. Hash Algorithm"
+    }
+  }
+}

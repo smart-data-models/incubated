@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/subject/platform/schema.json,",
+  "title": "Data Provider / Data consumer",
+  "description": "Self Description for Data Provider / Data Consumer (based on Trust Framework):",
+  "modelTags": "Gaia-X",
+  "derivedFrom": "https://gitlab.com/gaia-x/technical-committee/federation-services/data-exchange/-/blob/main/specs/dewg.md",
+  "required": [
+    "id",
+    "type",
+    "name",
+    "registrationNumber",
+    "headquarterAddress"
+  ],
+  "license": "https://smart-data-models.github.io/subject/platform/LICENSE.md",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "DataProvider"
+      ]
+    },
+    "parentOrganization": {
+      "type": "array",
+      "description": "Relationship. A list of direct participant that this entity is a subOrganization of, if any.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name": {
+      "type": "string",
+      "description": "Property. Name of Participant"
+    },
+    "registrationNumber": {
+      "type": "string",
+      "description": "Property. Country’s registration number which identifies one specific company"
+    },
+    "LEI Code": {
+      "type": "number",
+      "description": "Property. Unique LEI number as defined by https://www.gleif.org"
+    },
+    "headquarterAddress": {
+      "type": "object",
+      "description": "Property. Physical location of head quarter in ISO 3166-2 alpha2, alpha-3 or numeric format.",
+      "properties": {
+        "street-address": {
+          "type": "string",
+          "description": "Property. Street Address"
+        },
+        "postal-code": {
+          "type": "string",
+          "description": "Property. Postal Code"
+        },
+        "region": {
+          "type": "string",
+          "description": "Property. Region"
+        },
+        "locality": {
+          "type": "string",
+          "description": "Property. Locality"
+        },
+        "country-name": {
+          "type": "string",
+          "description": "Property. \nCountry Name"
+        }
+      },
+      "required": [
+        "country-name"
+      ]
+    },
+    "legalAddress": {
+      "type": "object",
+      "description": "Property. ",
+      "properties": {
+        "street-address": {
+          "type": "string",
+          "description": "Property. Street Address"
+        },
+        "postal-code": {
+          "type": "string",
+          "description": "Property. Postal Code"
+        },
+        "region": {
+          "type": "string",
+          "description": "Property. Region"
+        },
+        "locality": {
+          "type": "string",
+          "description": "Property. Locality"
+        },
+        "country-name": {
+          "type": "string",
+          "description": "Property. \nCountry Name"
+        }
+      },
+      "required": [
+        "country-name"
+      ]
+    }
+  }
+}
