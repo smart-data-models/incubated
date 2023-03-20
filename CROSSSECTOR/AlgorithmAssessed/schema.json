@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/datamodel.MachineLearning/AssessedAlgorithm/schema.json,",
+  "title": "Algorithm assess in terms of data sovereignty",
+  "description": "This data model represents the assessment of an AI algorithm, initially offered as a service",
+  "modelTags": "StandICT",
+  "derivedFrom": "",
+  "required": [
+    "id",
+    "type"
+  ],
+  "license": "https://smart-data-models.github.io/datamodel.MachineLearning/AssessedAlgorithm/LICENSE.md",
+  "type": "object",
+  "allOf": [
+        {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Contact-Commons"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string"
+        },
+        "globalQualification": {
+          "type": "string",
+          "description": "Property. Global qualification of the algorithm"
+        },
+        "socialImpact": {
+          "type": "string",
+          "description": "Property. if the algorithm has any kind of social impact assessment"
+        },
+        "checkBias": {
+          "type": "object",
+          "description": "Property. If the algorthm has been check against these potential bias. race, ethnicity, gender, nationality, income, sexual orientation, ability and political or religious belief.",
+          "properties": {
+            "race": {
+              "type": "boolean",
+              "description": "Property. If the algorithm has been assessed in terms of race bias "
+            },
+            "ethnicity": {
+              "type": "boolean",
+              "description": "Property. If the algorithm has been assessed in terms of ethnicity bias "
+            },
+            "gender": {
+              "type": "boolean",
+              "description": "Property. If the algorithm has been assessed in terms of gender bias "
+            },
+            "nationality": {
+              "type": "boolean",
+              "description": "Property. If the algorithm has been assessed in terms of nationality bias "
+            },
+            "income": {
+              "type": "boolean",
+              "description": "Property. If the algorithm has been assessed in terms of income bias "
+            },
+            "sexualOrientation": {
+              "type": "boolean",
+              "description": "Property. If the algorithm has been assessed in terms of sexual orientation bias "
+            },
+            "politicalBelief": {
+              "type": "boolean",
+              "description": "Property. If the algorithm has been assessed in terms of political beliefs bias "
+            },
+            "religiousBelief": {
+              "type": "boolean",
+              "description": "Property. If the algorithm has been assessed in terms of religious beliefs bias "
+            }
+          },
+          "iso27017": {
+            "type": "boolean",
+            "description": "Property. If the service is compliant with ISO 27017 standard"
+          },
+          "iso27701": {
+            "type": "boolean",
+            "description": "Property. If the service is compliant with ISO 27701 standard"
+          },
+          "iso27018": {
+            "type": "boolean",
+            "description": "Property. If the service is compliant with ISO 27018 standard"
+          }
+        }
+      }
+    }
+  ]
+}
