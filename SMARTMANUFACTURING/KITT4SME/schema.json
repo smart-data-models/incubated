@@ -1,0 +1,269 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "",
+    "derivedFrom": "",
+    "license": "",
+    "$id": "https://smart-data-models.github.io/XXXsubjectXXX/XXXdataModelXXX/schema.json",
+    "title": "",
+    "description": "",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Property. Unique identifier of the entity"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI Entity type. It has to be Wearable",
+                    "enum": [
+                        "Wearable"
+                    ]
+                },
+                "wearableDevice": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string"
+                        },
+                        "value": {
+                            "type": "object",
+                            "properties": {
+                                "workerSession": {
+                                    "type": "object",
+                                    "properties": {
+                                        "session": {
+                                            "type": "object",
+                                            "properties": {
+                                                "start": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "dateTime": {
+                                                            "type": "string",
+                                                            "format": "date-time"
+                                                        },
+                                                        "format": {
+                                                            "type": "string"
+                                                        },
+                                                        "timezoneId": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                },
+                                                "end": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "dateTime": {
+                                                            "type": "string",
+                                                            "format": "date-time"
+                                                        },
+                                                        "format": {
+                                                            "type": "string"
+                                                        },
+                                                        "timezoneId": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "worker": {
+                                            "type": "object",
+                                            "properties": {
+                                                "workerId": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "wearableAccelometer": {
+                                    "type": "object",
+                                    "properties": {
+                                        "x": {
+                                            "type": "number"
+                                        },
+                                        "y": {
+                                            "type": "number"
+                                        },
+                                        "z": {
+                                            "type": "number"
+                                        }
+                                    }
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "deviceProperties": {
+                                    "type": "object",
+                                    "properties": {
+                                        "properties": {
+                                            "type": "object",
+                                            "properties": {}
+                                        }
+                                    }
+                                },
+                                "description": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "description": "Property. "
+                },
+                "workerId": {
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string"
+                        }
+                    },
+                    "description": "Property. "
+                },
+                "sessionId": {
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string"
+                        }
+                    },
+                    "description": "Property. "
+                },
+                "temperature": {
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "number"
+                        },
+                        "type": {
+                            "type": "string"
+                        }
+                    },
+                    "description": "Body temperature "
+                },
+                "gsr": {
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "number"
+                        },
+                        "type": {
+                            "type": "string"
+                        }
+                    },
+                    "description": "Property. "
+                },
+                "heartRate": {
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "number"
+                        },
+                        "type": {
+                            "type": "string"
+                        }
+                    },
+                    "description": "Property. "
+                },
+                "rrInterval": {
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "number"
+                        },
+                        "type": {
+                            "type": "string"
+                        }
+                    },
+                    "description": "Property. "
+                },
+                "position": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string"
+                        },
+                        "value": {
+                            "type": "object",
+                            "properties": {
+                                "latitude": {
+                                    "type": "number"
+                                },
+                                "longitude": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "description": "Worker geographic location"
+                },
+                "timestamp": {
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "type": {
+                            "type": "string"
+                        },
+                        "metadata": {
+                            "type": "object",
+                            "properties": {
+                                "format": {
+                                    "type": "object",
+                                    "properties": {
+                                        "value": {
+                                            "type": "string"
+                                        },
+                                        "type": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "timezoneId": {
+                                    "type": "object",
+                                    "properties": {
+                                        "value": {
+                                            "type": "string"
+                                        },
+                                        "type": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": "data timestamp. "
+                },
+                "metadata": {
+                    "type": "object",
+                    "properties": {},
+                    "description": "Property. "
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ]
+}
