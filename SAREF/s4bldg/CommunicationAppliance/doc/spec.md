@@ -657,7 +657,7 @@ CommunicationAppliance:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/CommunicationAppliance/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/CommunicationAppliances/CommunicationAppliance
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/CommunicationAppliance/schema.json"
     
   x-model-tags: SAREF CommunicationAppliance SMART DATA MODELS
     

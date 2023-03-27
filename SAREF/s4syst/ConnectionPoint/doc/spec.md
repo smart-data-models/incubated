@@ -607,7 +607,7 @@ ConnectionPoint:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4SYST/flat/s4syst/ConnectionPoint/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4SYST/ConnectionPoints/ConnectionPoint
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4SYST/ConnectionPoint/schema.json"
     
   x-model-tags: SAREF ConnectionPoint SMART DATA MODELS
     

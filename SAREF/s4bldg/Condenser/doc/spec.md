@@ -190,7 +190,7 @@ Condenser:
     
     externalSurfaceArea:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -272,7 +272,7 @@ Condenser:
     
     internalRefrigerantVolume:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -288,7 +288,7 @@ Condenser:
     
     internalSurfaceArea:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -304,7 +304,7 @@ Condenser:
     
     internalWaterVolume:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -672,7 +672,7 @@ Condenser:
     
     nominalHeatTransferArea:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -688,7 +688,7 @@ Condenser:
     
     nominalHeatTransferCoefficient:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -790,7 +790,7 @@ Condenser:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/Condenser/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Condensers/Condenser
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Condenser/schema.json"
     
   x-model-tags: SAREF Condenser SMART DATA MODELS
     

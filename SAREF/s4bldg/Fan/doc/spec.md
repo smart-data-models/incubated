@@ -612,7 +612,7 @@ Fan:
     
     nominalAirFlowRate:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -648,7 +648,7 @@ Fan:
     
     nominalPowerRate:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -664,7 +664,7 @@ Fan:
     
     nominalRotationSpeed:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -680,7 +680,7 @@ Fan:
     
     nominalStaticPressure:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -696,7 +696,7 @@ Fan:
     
     nominalTotalPressure:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -728,7 +728,7 @@ Fan:
     
     operationTemperatureMax:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -744,7 +744,7 @@ Fan:
     
     operationTemperatureMin:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -760,7 +760,7 @@ Fan:
     
     operationalRiterial:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -852,7 +852,7 @@ Fan:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/Fan/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Fans/Fan
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Fan/schema.json"
     
   x-model-tags: SAREF Fan SMART DATA MODELS
     

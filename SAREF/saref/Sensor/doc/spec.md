@@ -205,7 +205,7 @@ Sensor:
     
     hasSensingRange:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -733,7 +733,7 @@ Sensor:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF/flat/saref/Sensor/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF/Sensors/Sensor
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF/Sensor/schema.json"
     
   x-model-tags: SAREF Sensor SMART DATA MODELS
     

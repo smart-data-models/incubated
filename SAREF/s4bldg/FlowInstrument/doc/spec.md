@@ -657,7 +657,7 @@ FlowInstrument:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/FlowInstrument/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/FlowInstruments/FlowInstrument
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/FlowInstrument/schema.json"
     
   x-model-tags: SAREF FlowInstrument SMART DATA MODELS
     

@@ -668,7 +668,7 @@ Engine:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/Engine/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Engines/Engine
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Engine/schema.json"
     
   x-model-tags: SAREF Engine SMART DATA MODELS
     

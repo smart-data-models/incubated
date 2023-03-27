@@ -596,7 +596,7 @@ Building:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/Building/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Buildings/Building
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Building/schema.json"
     
   x-model-tags: SAREF Building SMART DATA MODELS
     

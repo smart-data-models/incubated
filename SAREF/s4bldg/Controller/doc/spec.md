@@ -674,7 +674,7 @@ Controller:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/Controller/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Controllers/Controller
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Controller/schema.json"
     
   x-model-tags: SAREF Controller SMART DATA MODELS
     

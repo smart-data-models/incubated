@@ -212,7 +212,7 @@ Evaporator:
     
     externalSurfaceArea:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -294,7 +294,7 @@ Evaporator:
     
     internalRefrigerantVolume:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -310,7 +310,7 @@ Evaporator:
     
     internalSurfaceArea:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -326,7 +326,7 @@ Evaporator:
     
     internalWaterVolume:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -694,7 +694,7 @@ Evaporator:
     
     nominalHeatTransferArea:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -710,7 +710,7 @@ Evaporator:
     
     nominalHeatTransferCoefficient:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -812,7 +812,7 @@ Evaporator:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/Evaporator/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Evaporators/Evaporator
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Evaporator/schema.json"
     
   x-model-tags: SAREF Evaporator SMART DATA MODELS
     

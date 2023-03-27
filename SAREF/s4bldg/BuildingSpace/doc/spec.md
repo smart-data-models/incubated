@@ -117,7 +117,7 @@ BuildingSpace:
     
     airVolume:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -175,7 +175,7 @@ BuildingSpace:
     
     bounds:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Boundss/Bounds
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Bounds/schema.json"
     
       description: Represents a box in a 3D space.
     
@@ -183,7 +183,7 @@ BuildingSpace:
     
         max:
     
-          $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Points/Point
+          $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Point/schema.json"
     
           description: Property. Represents a point in a 3D space.
     
@@ -223,7 +223,7 @@ BuildingSpace:
     
         min:
     
-          $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Points/Point
+          $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Point/schema.json"
     
           description: Property. Represents a point in a 3D space.
     
@@ -785,7 +785,7 @@ BuildingSpace:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/BuildingSpace/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/BuildingSpaces/BuildingSpace
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/BuildingSpace/schema.json"
     
   x-model-tags: SAREF BuildingSpace SMART DATA MODELS
     

@@ -657,7 +657,7 @@ UnitaryControlElement:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/UnitaryControlElement/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/UnitaryControlElements/UnitaryControlElement
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/UnitaryControlElement/schema.json"
     
   x-model-tags: SAREF UnitaryControlElement SMART DATA MODELS
     

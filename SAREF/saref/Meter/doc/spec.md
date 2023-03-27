@@ -195,7 +195,7 @@ Meter:
     
     hasMeterReading:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -735,7 +735,7 @@ Meter:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF/flat/saref/Meter/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF/Meters/Meter
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF/Meter/schema.json"
     
   x-model-tags: SAREF Meter SMART DATA MODELS
     

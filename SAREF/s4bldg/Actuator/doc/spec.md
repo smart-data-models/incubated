@@ -679,7 +679,7 @@ Actuator:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/Actuator/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Actuators/Actuator
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Actuator/schema.json"
     
   x-model-tags: SAREF Actuator SMART DATA MODELS
     

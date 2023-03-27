@@ -618,7 +618,7 @@ Connection:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4SYST/flat/s4syst/Connection/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4SYST/Connections/Connection
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4SYST/Connection/schema.json"
     
   x-model-tags: SAREF Connection SMART DATA MODELS
     

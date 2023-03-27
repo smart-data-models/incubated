@@ -615,7 +615,7 @@ System:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4SYST/flat/s4syst/System/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4SYST/Systems/System
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4SYST/System/schema.json"
     
   x-model-tags: SAREF System SMART DATA MODELS
     

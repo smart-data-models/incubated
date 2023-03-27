@@ -657,7 +657,7 @@ MedicalDevice:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/MedicalDevice/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/MedicalDevices/MedicalDevice
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/MedicalDevice/schema.json"
     
   x-model-tags: SAREF MedicalDevice SMART DATA MODELS
     

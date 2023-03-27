@@ -657,7 +657,7 @@ SolarDevice:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/SolarDevice/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/SolarDevices/SolarDevice
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/SolarDevice/schema.json"
     
   x-model-tags: SAREF SolarDevice SMART DATA MODELS
     

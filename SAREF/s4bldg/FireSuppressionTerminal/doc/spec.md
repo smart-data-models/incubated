@@ -657,7 +657,7 @@ FireSuppressionTerminal:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/FireSuppressionTerminal/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/FireSuppressionTerminals/FireSuppressionTerminal
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/FireSuppressionTerminal/schema.json"
     
   x-model-tags: SAREF FireSuppressionTerminal SMART DATA MODELS
     

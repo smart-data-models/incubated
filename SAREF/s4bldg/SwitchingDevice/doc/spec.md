@@ -712,7 +712,7 @@ SwitchingDevice:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/SwitchingDevice/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/SwitchingDevices/SwitchingDevice
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/SwitchingDevice/schema.json"
     
   x-model-tags: SAREF SwitchingDevice SMART DATA MODELS
     

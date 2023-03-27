@@ -267,7 +267,7 @@ ProtectiveDeviceTrippingUnit:
     
     limitingTerminalSize:
     
-      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -705,7 +705,7 @@ ProtectiveDeviceTrippingUnit:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/ProtectiveDeviceTrippingUnit/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/ProtectiveDeviceTrippingUnits/ProtectiveDeviceTrippingUnit
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/ProtectiveDeviceTrippingUnit/schema.json"
     
   x-model-tags: SAREF ProtectiveDeviceTrippingUnit SMART DATA MODELS
     

@@ -657,7 +657,7 @@ Alarm:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/Alarm/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Alarms/Alarm
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Alarm/schema.json"
     
   x-model-tags: SAREF Alarm SMART DATA MODELS
     

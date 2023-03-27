@@ -668,7 +668,7 @@ HeatExchanger:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/HeatExchanger/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/HeatExchangers/HeatExchanger
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/HeatExchanger/schema.json"
     
   x-model-tags: SAREF HeatExchanger SMART DATA MODELS
     

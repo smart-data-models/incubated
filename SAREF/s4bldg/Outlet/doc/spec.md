@@ -679,7 +679,7 @@ Outlet:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/Outlet/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Outlets/Outlet
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Outlet/schema.json"
     
   x-model-tags: SAREF Outlet SMART DATA MODELS
     

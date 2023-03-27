@@ -657,7 +657,7 @@ SanitaryTerminal:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/SanitaryTerminal/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/SanitaryTerminals/SanitaryTerminal
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/SanitaryTerminal/schema.json"
     
   x-model-tags: SAREF SanitaryTerminal SMART DATA MODELS
     

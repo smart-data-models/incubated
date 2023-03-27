@@ -657,7 +657,7 @@ ElectricAppliance:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/ElectricAppliance/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/ElectricAppliances/ElectricAppliance
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/ElectricAppliance/schema.json"
     
   x-model-tags: SAREF ElectricAppliance SMART DATA MODELS
     

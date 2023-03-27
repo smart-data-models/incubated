@@ -657,7 +657,7 @@ ElectricTimeControl:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/ElectricTimeControl/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/ElectricTimeControls/ElectricTimeControl
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/ElectricTimeControl/schema.json"
     
   x-model-tags: SAREF ElectricTimeControl SMART DATA MODELS
     

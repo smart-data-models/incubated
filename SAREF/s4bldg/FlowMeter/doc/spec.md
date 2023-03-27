@@ -679,7 +679,7 @@ FlowMeter:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/FlowMeter/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/FlowMeters/FlowMeter
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/FlowMeter/schema.json"
     
   x-model-tags: SAREF FlowMeter SMART DATA MODELS
     

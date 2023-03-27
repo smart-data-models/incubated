@@ -668,7 +668,7 @@ Burner:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/Burner/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Burners/Burner
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Burner/schema.json"
     
   x-model-tags: SAREF Burner SMART DATA MODELS
     

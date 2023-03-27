@@ -657,7 +657,7 @@ ProtectiveDevice:
     
   x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/ProtectiveDevice/LICENSE.md
     
-  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/ProtectiveDevices/ProtectiveDevice
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/ProtectiveDevice/schema.json"
     
   x-model-tags: SAREF ProtectiveDevice SMART DATA MODELS
     
