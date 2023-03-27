@@ -4,7 +4,7 @@ Entity: TubeBundle
 ================https://github.com/smart-data-models/incubated/tree/master/SAREF/
   
 
-[Open License](http://smart-data-models.kmd.dk/flat/s4bldg/TubeBundle/LICENSE.md)  
+[Open License](https://opensource.org/licenses/BSD-3-Clause)  
 
 [document generated automatically](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 
@@ -197,7 +197,7 @@ TubeBundle:
     
     foulingFactor:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -263,7 +263,7 @@ TubeBundle:
     
     horizontalSpacing:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -305,7 +305,7 @@ TubeBundle:
     
     inLineRowSpacing:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -321,7 +321,7 @@ TubeBundle:
     
     insideDiameter:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -373,7 +373,7 @@ TubeBundle:
     
     length:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -705,7 +705,7 @@ TubeBundle:
     
     nominalDiameter:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -741,7 +741,7 @@ TubeBundle:
     
     outsideDiameter:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -807,7 +807,7 @@ TubeBundle:
     
     staggeredRowSpacing:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -823,7 +823,7 @@ TubeBundle:
     
     thermalConductivity:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -853,7 +853,7 @@ TubeBundle:
     
     verticalSpacing:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -869,7 +869,7 @@ TubeBundle:
     
     volumen:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -895,9 +895,9 @@ TubeBundle:
     
   x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2021 Contributors to Smart Data Models Program'
     
-  x-license-url: http://smart-data-models.kmd.dk/flat/s4bldg/TubeBundle/LICENSE.md
+  x-license-url: https://opensource.org/licenses/BSD-3-Clause
     
-  x-model-schema: http://smart-data-models.kmd.dk/TubeBundles/TubeBundle
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/TubeBundle/schema.json"
     
   x-model-tags: SAREF TubeBundle SMART DATA MODELS
     

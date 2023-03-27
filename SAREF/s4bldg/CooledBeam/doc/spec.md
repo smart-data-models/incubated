@@ -4,7 +4,7 @@ Entity: CooledBeam
 ================https://github.com/smart-data-models/incubated/tree/master/SAREF/
   
 
-[Open License](http://smart-data-models.kmd.dk/flat/s4bldg/CooledBeam/LICENSE.md)  
+[Open License](https://opensource.org/licenses/BSD-3-Clause)  
 
 [document generated automatically](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 
@@ -159,7 +159,7 @@ CooledBeam:
     
     coilLength:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -195,7 +195,7 @@ CooledBeam:
     
     coilWidth:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -683,7 +683,7 @@ CooledBeam:
     
     nominalCoolingCapacity:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -699,7 +699,7 @@ CooledBeam:
     
     nominalHeatingCapacity:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -715,7 +715,7 @@ CooledBeam:
     
     nominalReturnWaterTemperatureCooling:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -731,7 +731,7 @@ CooledBeam:
     
     nominalReturnWaterTemperatureHeating:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -747,7 +747,7 @@ CooledBeam:
     
     nominalSorroundingHumidityCooling:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -763,7 +763,7 @@ CooledBeam:
     
     nominalSorroundingTemperatureCooling:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -779,7 +779,7 @@ CooledBeam:
     
     nominalSorroundingTemperatureHeating:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -795,7 +795,7 @@ CooledBeam:
     
     nominalSupplyWaterTemperatureCooling:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -811,7 +811,7 @@ CooledBeam:
     
     nominalSupplyWaterTemperatureHeating:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -827,7 +827,7 @@ CooledBeam:
     
     nominalWaterFlowCooling:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -843,7 +843,7 @@ CooledBeam:
     
     nominalWaterFlowHeating:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -943,7 +943,7 @@ CooledBeam:
     
     waterPressureMax:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -959,7 +959,7 @@ CooledBeam:
     
     waterPressureMin:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -985,9 +985,9 @@ CooledBeam:
     
   x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2021 Contributors to Smart Data Models Program'
     
-  x-license-url: http://smart-data-models.kmd.dk/flat/s4bldg/CooledBeam/LICENSE.md
+  x-license-url: https://opensource.org/licenses/BSD-3-Clause
     
-  x-model-schema: http://smart-data-models.kmd.dk/CooledBeams/CooledBeam
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/CooledBeam/schema.json"
     
   x-model-tags: SAREF CooledBeam SMART DATA MODELS
     

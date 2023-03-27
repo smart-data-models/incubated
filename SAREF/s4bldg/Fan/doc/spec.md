@@ -4,7 +4,7 @@ Entity: Fan
 ===========https://github.com/smart-data-models/incubated/tree/master/SAREF/
   
 
-[Open License](http://smart-data-models.kmd.dk/flat/s4bldg/Fan/LICENSE.md)  
+[Open License](https://opensource.org/licenses/BSD-3-Clause)  
 
 [document generated automatically](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 
@@ -612,7 +612,7 @@ Fan:
     
     nominalAirFlowRate:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -648,7 +648,7 @@ Fan:
     
     nominalPowerRate:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -664,7 +664,7 @@ Fan:
     
     nominalRotationSpeed:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -680,7 +680,7 @@ Fan:
     
     nominalStaticPressure:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -696,7 +696,7 @@ Fan:
     
     nominalTotalPressure:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -728,7 +728,7 @@ Fan:
     
     operationTemperatureMax:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -744,7 +744,7 @@ Fan:
     
     operationTemperatureMin:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -760,7 +760,7 @@ Fan:
     
     operationalRiterial:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurement/schema.json"
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -850,9 +850,9 @@ Fan:
     
   x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2021 Contributors to Smart Data Models Program'
     
-  x-license-url: http://smart-data-models.kmd.dk/flat/s4bldg/Fan/LICENSE.md
+  x-license-url: https://opensource.org/licenses/BSD-3-Clause
     
-  x-model-schema: http://smart-data-models.kmd.dk/Fans/Fan
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Fan/schema.json"
     
   x-model-tags: SAREF Fan SMART DATA MODELS
     
