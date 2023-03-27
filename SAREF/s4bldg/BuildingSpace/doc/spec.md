@@ -4,7 +4,7 @@ Entity: BuildingSpace
 ================https://github.com/smart-data-models/incubated/tree/master/SAREF/
   
 
-[Open License](http://smart-data-models.kmd.dk/flat/s4bldg/BuildingSpace/LICENSE.md)  
+[Open License](https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/BuildingSpace/LICENSE.md)  
 
 [document generated automatically](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 
@@ -117,7 +117,7 @@ BuildingSpace:
     
     airVolume:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -175,7 +175,7 @@ BuildingSpace:
     
     bounds:
     
-      $id: http://smart-data-models.kmd.dk/Boundss/Bounds
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Boundss/Bounds
     
       description: Represents a box in a 3D space.
     
@@ -183,7 +183,7 @@ BuildingSpace:
     
         max:
     
-          $id: http://smart-data-models.kmd.dk/Points/Point
+          $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Points/Point
     
           description: Property. Represents a point in a 3D space.
     
@@ -223,7 +223,7 @@ BuildingSpace:
     
         min:
     
-          $id: http://smart-data-models.kmd.dk/Points/Point
+          $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Points/Point
     
           description: Property. Represents a point in a 3D space.
     
@@ -783,9 +783,9 @@ BuildingSpace:
     
   x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2021 Contributors to Smart Data Models Program'
     
-  x-license-url: http://smart-data-models.kmd.dk/flat/s4bldg/BuildingSpace/LICENSE.md
+  x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/BuildingSpace/LICENSE.md
     
-  x-model-schema: http://smart-data-models.kmd.dk/BuildingSpaces/BuildingSpace
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/BuildingSpaces/BuildingSpace
     
   x-model-tags: SAREF BuildingSpace SMART DATA MODELS
     

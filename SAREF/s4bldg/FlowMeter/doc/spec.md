@@ -4,7 +4,7 @@ Entity: FlowMeter
 ================https://github.com/smart-data-models/incubated/tree/master/SAREF/
   
 
-[Open License](http://smart-data-models.kmd.dk/flat/s4bldg/FlowMeter/LICENSE.md)  
+[Open License](https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/FlowMeter/LICENSE.md)  
 
 [document generated automatically](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 
@@ -677,9 +677,9 @@ FlowMeter:
     
   x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2021 Contributors to Smart Data Models Program'
     
-  x-license-url: http://smart-data-models.kmd.dk/flat/s4bldg/FlowMeter/LICENSE.md
+  x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/FlowMeter/LICENSE.md
     
-  x-model-schema: http://smart-data-models.kmd.dk/FlowMeters/FlowMeter
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/FlowMeters/FlowMeter
     
   x-model-tags: SAREF FlowMeter SMART DATA MODELS
     

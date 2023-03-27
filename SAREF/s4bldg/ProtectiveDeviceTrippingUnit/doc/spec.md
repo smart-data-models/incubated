@@ -4,7 +4,7 @@ Entity: ProtectiveDeviceTrippingUnit
 ================https://github.com/smart-data-models/incubated/tree/master/SAREF/
   
 
-[Open License](http://smart-data-models.kmd.dk/flat/s4bldg/ProtectiveDeviceTrippingUnit/LICENSE.md)  
+[Open License](https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/ProtectiveDeviceTrippingUnit/LICENSE.md)  
 
 [document generated automatically](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 
@@ -267,7 +267,7 @@ ProtectiveDeviceTrippingUnit:
     
     limitingTerminalSize:
     
-      $id: http://smart-data-models.kmd.dk/Measurements/Measurement
+      $id: https://smart-data-models.github.com/dataModel.SAREF4BLDG/Measurements/Measurement
     
       description: Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.
     
@@ -703,9 +703,9 @@ ProtectiveDeviceTrippingUnit:
     
   x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2021 Contributors to Smart Data Models Program'
     
-  x-license-url: http://smart-data-models.kmd.dk/flat/s4bldg/ProtectiveDeviceTrippingUnit/LICENSE.md
+  x-license-url: https://smart-data-models.github.com/dataModel.SAREF4BLDG/flat/s4bldg/ProtectiveDeviceTrippingUnit/LICENSE.md
     
-  x-model-schema: http://smart-data-models.kmd.dk/ProtectiveDeviceTrippingUnits/ProtectiveDeviceTrippingUnit
+  x-model-schema: https://smart-data-models.github.com/dataModel.SAREF4BLDG/ProtectiveDeviceTrippingUnits/ProtectiveDeviceTrippingUnit
     
   x-model-tags: SAREF ProtectiveDeviceTrippingUnit SMART DATA MODELS
     
