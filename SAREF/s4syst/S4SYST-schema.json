@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.com/dataModel.SAREF/commons",
+  "title": "Common definitions for SAREF",
+  "definitions": {
+    "Measurement": {
+      "$id": "https://smart-data-models.github.com/dataModel.SAREF/Measurement",
+      "derivedFrom": "https://saref.etsi.org/core/v3.1.1/#saref:Measurement",
+      "title": "Smart data models - Measurement schema",
+      "type": "object",
+      "license": "https://opensource.org/licenses/BSD-3-Clause",
+      "description": "Property. Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement.",
+      "properties": {
+        "observedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. A relationship stating the timestamp of an entity (e.g. a measurement)."
+        },
+        "value": {
+          "type": "number",
+          "description": "Property. A relationship defining the value of a certain property, e.g., energy or power. Note that, even if numeric values are expected to enable reasoning, measurement values could use other datatypes."
+        },
+        "unitCode": {
+          "type": "string",
+          "description": "Property. A relationship identifying the unit of measure used for a certain entity."
+        }
+      }
+    },
+    "Bounds": {
+      "$id": "https://smart-data-models.github.com/dataModel.SAREF/Bounds",
+      "title": "Smart data models - Bounds schema",
+      "type": "object",
+      "license": "https://opensource.org/licenses/BSD-3-Clause",
+      "description": "Property. Represents a box in a 3D space.",
+      "properties": {
+        "max": {
+          "$ref": "#/definitions/Point",
+          "description": "Property. The maximal point of the box."
+        },
+        "min": {
+          "$ref": "#/definitions/Point",
+          "description": "Property. The minimal point of the box."
+        },
+        "type": {
+          "type": "string",
+          "description": "Property. Property. NGSI-LD Entity Type.",
+          "enum": [
+            "Bounds"
+          ]
+        }
+      }
+    },
+    "Point": {
+      "$id": "https://smart-data-models.github.com/dataModel.SAREF/Point",
+      "title": "Smart data models - Point schema",
+      "type": "object",
+      "license": "https://opensource.org/licenses/BSD-3-Clause",
+      "description": "Property. Represents a point in a 3D space.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. Property. NGSI-LD Entity Type.",
+          "enum": [
+            "Point"
+          ]
+        },
+        "x": {
+          "type": "number",
+          "description": "Property. Coordinate X of the point."
+        },
+        "y": {
+          "type": "number",
+          "description": "Property. Coordinate Y of the point."
+        },
+        "z": {
+          "type": "number",
+          "description": "Property. Coordinate Z of the point."
+        }
+      }
+    },
+    "Predictions": {
+      "$id": "https://smart-data-models.github.com/dataModel.SAREF/Predictions",
+      "title": "Smart data models - Predictions schema",
+      "type": "object",
+      "license": "https://opensource.org/licenses/BSD-3-Clause",
+      "description": "Contains a list of predictions for a specific Measurement of a Physical Object.",
+      "allOf": [
+        {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Property. It must be equal to `Predictions`.",
+              "enum": [
+                "Predictions"
+              ]
+            },
+            "author": {
+              "type": "string",
+              "description": "Property. A sequence of characters identifying the provider of the harmonised data entity."
+            },
+            "dateCreated": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Property. Entity creation timestamp. This will usually be allocated by the storage platform."
+            },
+            "dateModified": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Property. Timestamp of the last modification of the entity. This will usually be allocated by the storage platform."
+            },
+            "isForPhysicalObject": {
+              "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+              "description": "Relationship. Reference to a Physical Object, for which those Predictions are created. (PhysicalObject)"
+            },
+            "measurementName": {
+              "type": "string",
+              "description": "Property. Name of the measurement on Physical Object, for which those Predictions are created."
+            },
+            "measurementPredictions": {
+              "type": "array",
+              "description": "Relationship. List of predictions, usually with the future dates in a form of measurements. Measured in i.e. m3, hPa, K",
+              "items": {
+                "$ref": "#/definitions/Measurement",
+                "description": "Property. Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement."
+              }
+            },
+            "source": {
+              "type": "string",
+              "description": "Property. A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object."
+            }
+          }
+        }
+      ]
+    },
+    "PhysicalObject": {
+      "$id": "https://smart-data-models.github.com/dataModel.SAREF/PhysicalObject",
+      "derivedFrom": "https://saref.etsi.org/saref4bldg/v1.1.2/#s4bldg:PhysicalObject",
+      "title": "Smart data models - PhysicalObject schema",
+      "type": "object",
+      "license": "https://opensource.org/licenses/BSD-3-Clause",
+      "description": "Any Object that has a proper space region.  (Definition extracted from DUL ontology)",
+      "allOf": [
+        {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Property. It must be equal to `PhysicalObject`.",
+              "enum": [
+                "PhysicalObject"
+              ]
+            },
+            "isContainedInBuildingSpace": {
+              "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+              "description": "Relationship. An entity used to define the physical spaces of the building. A building space contains devices or building objects. (BuildingSpace)"
+            },
+            "isContainedInPhysicalObject": {
+              "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+              "description": "Relationship. Any Object that has a proper space region.  (Definition extracted from DUL ontology) (PhysicalObject)"
+            },
+            "isSubSystemOf": {
+              "type": "array",
+              "description": "Relationship. A reference to a system(s) that this Physical Object is part of.",
+              "items": {
+                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+                "description": "Relationship. The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled. Systems can be connected to other systems. Connected systems interact in some ways. Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem. (System)"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

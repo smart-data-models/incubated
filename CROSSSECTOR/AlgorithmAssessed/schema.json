@@ -13,7 +13,7 @@
   "license": "https://smart-data-models.github.io/datamodel.MachineLearning/AssessedAlgorithm/LICENSE.md",
   "type": "object",
   "allOf": [
-        {
+    {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
     },
     {
@@ -30,7 +30,12 @@
         },
         "globalQualification": {
           "type": "string",
-          "description": "Property. Global qualification of the algorithm"
+          "description": "Property. Global qualification of the algorithm. AsIs means that the algorithm does not provide evidence of compliance with data sovereignty regulations or standards. documented means that the algorithm provides self certification of some data sovereignty standards compliance. sandbox means that the algorithm has been tested in an independent sandbox to check data sovereignty ",
+          "enum": [
+            "asIs",
+            "documented",
+            "sandbox"
+          ]
         },
         "socialImpact": {
           "type": "string",
@@ -85,6 +90,36 @@
             "type": "boolean",
             "description": "Property. If the service is compliant with ISO 27018 standard"
           }
+        },
+        "termsOfUse": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Link to the terms of use of the algorithm, specially for the data sovereignty section"
+        },
+        "integrity": {
+          "type": "object",
+          "description": "Property. Preventions taken by the owner of the AI service to guarantee the integrity of the evidence of data",
+          "properties": {
+            "secureStorage": {
+              "type": "string",
+              "description": "Property. Mechanism for preventing unauthorized access to data"
+            },
+            "chainOfCustody": {
+              "type": "string",
+              "description": "Property. Mechanism to ensure that the evidences have not been altered"
+            },
+            "encryption": {
+              "type": "string",
+              "description": "Property. Mechanism to protect the evidences during communications and storage"
+            },
+            "digitalSignatures": {
+              "type": "string",
+              "description": "Property. Description of the mechanism for digital signing of the evidences"
+            }
+          }
+        },
+        "trustee": {
+          ""
         }
       }
     }
