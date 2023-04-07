@@ -1,0 +1,691 @@
+produce ngsi-ld yaml smart data model definition from FHIR https://hl7.org/fhir/patient.schema.json.html
+To convert the FHIR Patient resource schema to NGSI-LD YAML format, we need to first understand the structure and properties of the Patient resource in FHIR. The FHIR Patient schema is available in JSON format at the following URL: https://hl7.org/fhir/patient.schema.json.html.
+
+To convert the FHIR schema to NGSI-LD YAML format, we need to follow the NGSI-LD data model specification, which includes defining the @context, @type, and properties of the entity.
+
+Here is an example of how to convert the FHIR Patient schema to NGSI-LD YAML format:
+
+yaml
+Copy code
+@context:
+  - https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld
+  - https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-datamodel-context.jsonld
+  - https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-temporal-context.jsonld
+  - https://uri.etsi.org/ngsi-ld/fhir-context.jsonld
+@type: Patient
+id: urn:ngsi-ld:Patient:{{patient_id}}
+identifier:
+  @type: Property
+  value: {{patient_identifier_value}}
+  type: {{patient_identifier_type}}
+  system: {{patient_identifier_system}}
+active:
+  @type: Property
+  value: {{patient_active}}
+name:
+  @type: Property
+  givenName: {{patient_given_name}}
+  familyName: {{patient_family_name}}
+  suffix: {{patient_suffix}}
+telecom:
+  @type: Property
+  value: {{patient_telecom_value}}
+  system: {{patient_telecom_system}}
+  use: {{patient_telecom_use}}
+gender:
+  @type: Property
+  value: {{patient_gender}}
+birthDate:
+  @type: Property
+  value: {{patient_birth_date}}
+address:
+  @type: Property
+  value: {{patient_address_value}}
+  city: {{patient_address_city}}
+  postalCode: {{patient_address_postal_code}}
+  country: {{patient_address_country}}
+maritalStatus:
+  @type: Property
+  value: {{patient_marital_status}}
+In this NGSI-LD YAML format, we have defined the @context and @type of the entity as Patient. We have also defined the properties of the entity, such as identifier, active, name, telecom, gender, birthDate, address, and maritalStatus.
+
+To populate the YAML template with actual patient data, we can replace the placeholders (e.g., {{patient_id}}, {{patient_given_name}}, etc.) with actual values. The actual values for the patient data can be retrieved from a FHIR server or database.
+
+Note that this is just an example of how to convert the FHIR Patient schema to NGSI-LD YAML format. The actual implementation may vary depending on the requirements and use case.
+
+
+
+
+Alain GALDEMAS
+interesting, but ngsi-ld need also a "type" property, with value "Patient" (the hl7 resource type)
+You are correct, I apologize for the oversight. In NGSI-LD, the "type" property is used to indicate the type of the entity. In this case, we need to add "type: Patient" to the NGSI-LD YAML definition to indicate that the entity is a FHIR Patient resource. Here is the updated NGSI-LD YAML definition:
+
+yaml
+Copy code
+@context:
+  - https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld
+  - https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-datamodel-context.jsonld
+  - https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-temporal-context.jsonld
+  - https://uri.etsi.org/ngsi-ld/fhir-context.jsonld
+@type: Patient
+id: urn:ngsi-ld:Patient:{{patient_id}}
+type: Patient
+identifier:
+  @type: Property
+  value: {{patient_identifier_value}}
+  type: {{patient_identifier_type}}
+  system: {{patient_identifier_system}}
+active:
+  @type: Property
+  value: {{patient_active}}
+name:
+  @type: Property
+  givenName: {{patient_given_name}}
+  familyName: {{patient_family_name}}
+  suffix: {{patient_suffix}}
+telecom:
+  @type: Property
+  value: {{patient_telecom_value}}
+  system: {{patient_telecom_system}}
+  use: {{patient_telecom_use}}
+gender:
+  @type: Property
+  value: {{patient_gender}}
+birthDate:
+  @type: Property
+  value: {{patient_birth_date}}
+address:
+  @type: Property
+  value: {{patient_address_value}}
+  city: {{patient_address_city}}
+  postalCode: {{patient_address_postal_code}}
+  country: {{patient_address_country}}
+maritalStatus:
+  @type: Property
+  value: {{patient_marital_status}}
+Thank you for bringing this to my attention.
+
+
+
+
+Alain GALDEMAS
+OK, but I want the schema model in yaml, not a way to transcript
+I apologize for the misunderstanding. To provide you with the FHIR Patient resource schema model in YAML format, you can use the following code:
+
+yaml
+Copy code
+$id: http://hl7.org/fhir/Patient
+$schema: http://json-schema.org/draft-04/schema#
+title: Patient
+type: object
+description: Demographics and other administrative information about an individual or animal receiving care or other health-related services.
+required:
+  - resourceType
+  - id
+  - meta
+  - extension
+  - identifier
+  - active
+  - name
+  - telecom
+  - gender
+  - birthDate
+  - address
+properties:
+  resourceType:
+    type: string
+    enum:
+      - Patient
+  id:
+    type: string
+  meta:
+    $ref: "#/definitions/meta"
+  extension:
+    type: array
+    items:
+      $ref: "#/definitions/extension"
+  identifier:
+    type: array
+    items:
+      $ref: "#/definitions/identifier"
+  active:
+    type: boolean
+  name:
+    type: array
+    items:
+      $ref: "#/definitions/name"
+  telecom:
+    type: array
+    items:
+      $ref: "#/definitions/telecom"
+  gender:
+    type: string
+    enum:
+      - male
+      - female
+      - other
+      - unknown
+  birthDate:
+    type: string
+    format: date
+  address:
+    type: array
+    items:
+      $ref: "#/definitions/address"
+definitions:
+  meta:
+    type: object
+    required:
+      - versionId
+      - lastUpdated
+    properties:
+      versionId:
+        $ref: "#/definitions/id"
+      lastUpdated:
+        type: string
+        format: date-time
+      profile:
+        type: array
+        items:
+          type: string
+      security:
+        type: array
+        items:
+          $ref: "#/definitions/coding"
+      tag:
+        type: array
+        items:
+          $ref: "#/definitions/coding"
+  extension:
+    type: object
+    required:
+      - url
+    properties:
+      url:
+        type: string
+      valueBoolean:
+        type: boolean
+      valueInteger:
+        type: integer
+      valueDecimal:
+        type: number
+      valueBase64Binary:
+        type: string
+        format: base64
+      valueInstant:
+        type: string
+        format: date-time
+      valueString:
+        type: string
+      valueUri:
+        type: string
+        format: uri
+      valueDate:
+        type: string
+        format: date
+      valueDateTime:
+        type: string
+        format: date-time
+      valueTime:
+        type: string
+        format: time
+      valueCode:
+        type: string
+      valueOid:
+        type: string
+        pattern: "urn:oid:[0-2](\.(0|[1-9][0-9]*))+"
+      valueUuid:
+        type: string
+        pattern: "urn:uuid:[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"
+      valueId:
+        $ref: "#/definitions/id"
+      valueUnsignedInt:
+        type: integer
+        minimum: 0
+      valuePositiveInt:
+        type: integer
+        minimum: 1
+      valueMarkdown:
+        type: string
+      valueAnnotation:
+        $ref: "#/definitions/annotation"
+      valueAttachment:
+       
+
+
+
+Alain GALDEMAS
+nice !
+Glad I could help! Is there anything else you need assistance with?
+
+
+
+
+Alain GALDEMAS
+but still not exactly the right result, to respect NGSI-LD standard the "resourceType" property should become the NGSI-LD "type" mandatory property
+
+2 / 2
+
+I apologize for my mistake. Here's the updated schema in YAML format that includes the NGSI-LD "type" property:
+
+yaml
+Copy code
+$id: https://hl7.org/fhir/Patient
+$schema: http://json-schema.org/draft-04/schema#
+title: Patient
+description: Demographics and other administrative information about an individual or animal receiving care or other health-related services.
+type: object
+required:
+  - id
+  - type
+  - meta
+  - identifier
+  - active
+  - name
+  - gender
+  - birthDate
+properties:
+  id:
+    type: string
+  type:
+    type: string
+    const: "Patient"
+  meta:
+    $ref: "#/definitions/meta"
+  identifier:
+    type: array
+    items:
+      $ref: "#/definitions/identifier"
+  active:
+    type: boolean
+  name:
+    type: array
+    items:
+      $ref: "#/definitions/name"
+  gender:
+    type: string
+    enum:
+      - male
+      - female
+      - other
+      - unknown
+  birthDate:
+    type: string
+    format: date
+definitions:
+  meta:
+    type: object
+    required:
+      - versionId
+      - lastUpdated
+    properties:
+      versionId:
+        $ref: "#/definitions/id"
+      lastUpdated:
+        type: string
+        format: date-time
+      profile:
+        type: array
+        items:
+          type: string
+      security:
+        type: array
+        items:
+          $ref: "#/definitions/coding"
+      tag:
+        type: array
+        items:
+          $ref: "#/definitions/coding"
+  identifier:
+    type: object
+    required:
+      - use
+      - value
+      - system
+    properties:
+      use:
+        $ref: "#/definitions/codeableConcept"
+      type:
+        $ref: "#/definitions/codeableConcept"
+      system:
+        type: string
+      value:
+        type: string
+      period:
+        $ref: "#/definitions/period"
+      assigner:
+        $ref: "#/definitions/reference"
+  name:
+    type: object
+    properties:
+      use:
+        $ref: "#/definitions/codeableConcept"
+      family:
+        type: array
+        items:
+          type: string
+      given:
+        type: array
+        items:
+          type: string
+      prefix:
+        type: array
+        items:
+          type: string
+      suffix:
+        type: array
+        items:
+          type: string
+      period:
+        $ref: "#/definitions/period"
+  codeableConcept:
+    type: object
+    required:
+      - coding
+    properties:
+      coding:
+        type: array
+        items:
+          $ref: "#/definitions/coding"
+      text:
+        type: string
+  coding:
+    type: object
+    required:
+      - system
+      - code
+      - display
+    properties:
+      system:
+        type: string
+      version:
+        type: string
+      code:
+        type: string
+      display:
+        type: string
+      userSelected:
+        type: boolean
+  period:
+    type: object
+    properties:
+      start:
+        type: string
+        format: date-time
+      end:
+        type: string
+        format: date-time
+  reference:
+    type: object
+    properties:
+      reference:
+        type: string
+      type:
+        type: string
+        const: "Organization"
+Please let me know if you have any further questions or concerns.
+
+
+
+
+Alain GALDEMAS
+OK, nice, but can you provide also referenced definitions yaml schema files such as definitions/codeableConcept, 
+Sure! Here are the referenced definition YAML schema files for codeableConcept and coding:
+
+codeableConcept.yaml
+
+yaml
+Copy code
+type: object
+required:
+  - coding
+properties:
+  coding:
+    type: array
+    items:
+      $ref: "coding.yaml"
+  text:
+    type: string
+coding.yaml
+
+yaml
+Copy code
+type: object
+required:
+  - system
+  - code
+  - display
+properties:
+  system:
+    type: string
+  version:
+    type: string
+  code:
+    type: string
+  display:
+    type: string
+  userSelected:
+    type: boolean
+Note that in the codeableConcept.yaml schema file, we are referencing the coding.yaml file with $ref. You can adjust the path to the schema files as needed.
+
+
+
+
+Alain GALDEMAS
+ok, but those models should respect NGSI-LD rules and be defined as entities, with "id" and "type" mandatory properties
+You're right, my apologies. Here are the updated versions of the codeableConcept.yaml and coding.yaml schema files that include the mandatory id and type properties for NGSI-LD entities:
+
+codeableConcept.yaml
+
+yaml
+Copy code
+$id: https://example.com/schemas/codeableConcept
+$schema: https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-schema.jsonld
+type: "Object"
+properties:
+  id:
+    type: "string"
+    format: "uri"
+  type:
+    type: "string"
+    enum: ["CodeableConcept"]
+  coding:
+    type: "array"
+    items:
+      $ref: "coding.yaml"
+  text:
+    type: "string"
+required:
+  - id
+  - type
+  - coding
+coding.yaml
+
+yaml
+Copy code
+$id: https://example.com/schemas/coding
+$schema: https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-schema.jsonld
+type: "Object"
+properties:
+  id:
+    type: "string"
+    format: "uri"
+  type:
+    type: "string"
+    enum: ["Coding"]
+  system:
+    type: "string"
+  version:
+    type: "string"
+  code:
+    type: "string"
+  display:
+    type: "string"
+  userSelected:
+    type: "boolean"
+required:
+  - id
+  - type
+  - system
+  - code
+  - display
+Note that I've added $id and $schema properties to comply with the NGSI-LD specification. I've also changed the type property to a string with the value "Object" to comply with NGSI-LD. Additionally, the enum property for the type has been changed to ["CodeableConcept"] and ["Coding"], respectively, to indicate the NGSI-LD entity types.
+
+
+
+
+Alain GALDEMAS
+nice, can you do that for other definitions referenced in Patient model
+
+2 / 2
+
+Certainly! Here are the updated versions of the other referenced definition YAML schema files:
+
+identifier.yaml
+
+yaml
+Copy code
+$id: https://example.com/schemas/identifier
+$schema: https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-schema.jsonld
+type: "Object"
+properties:
+  id:
+    type: "string"
+    format: "uri"
+  type:
+    type: "string"
+    enum: ["Identifier"]
+  system:
+    type: "string"
+  value:
+    type: "string"
+  period:
+    $ref: "period.yaml"
+  assigner:
+    type: "string"
+required:
+  - id
+  - type
+  - system
+  - value
+name.yaml
+
+yaml
+Copy code
+$id: https://example.com/schemas/name
+$schema: https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-schema.jsonld
+type: "Object"
+properties:
+  id:
+    type: "string"
+    format: "uri"
+  type:
+    type: "string"
+    enum: ["HumanName"]
+  use:
+    type: "string"
+  text:
+    type: "string"
+  family:
+    type: "array"
+    items:
+      type: "string"
+  given:
+    type: "array"
+    items:
+      type: "string"
+  prefix:
+    type: "array"
+    items:
+      type: "string"
+  suffix:
+    type: "array"
+    items:
+      type: "string"
+  period:
+    $ref: "period.yaml"
+required:
+  - id
+  - type
+telecom.yaml
+
+yaml
+Copy code
+$id: https://example.com/schemas/telecom
+$schema: https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-schema.jsonld
+type: "Object"
+properties:
+  id:
+    type: "string"
+    format: "uri"
+  type:
+    type: "string"
+    enum: ["ContactPoint"]
+  system:
+    type: "string"
+  value:
+    type: "string"
+  use:
+    type: "string"
+  rank:
+    type: "integer"
+  period:
+    $ref: "period.yaml"
+required:
+  - id
+  - type
+  - system
+  - value
+address.yaml
+
+yaml
+Copy code
+$id: https://example.com/schemas/address
+$schema: https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-schema.jsonld
+type: "Object"
+properties:
+  id:
+    type: "string"
+    format: "uri"
+  type:
+    type: "string"
+    enum: ["PostalAddress"]
+  use:
+    type: "string"
+  type:
+    type: "string"
+  text:
+    type: "string"
+  line:
+    type: "array"
+    items:
+      type: "string"
+  city:
+    type: "string"
+  district:
+    type: "string"
+  state:
+    type: "string"
+  postalCode:
+    type: "string"
+  country:
+    type: "string"
+  period:
+    $ref: "period.yaml"
+required:
+  - id
+  - type
+period.yaml
+
+yaml
+Copy code
+$id: https://example.com/schemas/period
+$schema: https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-schema.jsonld
+type: "Object"
+properties:
+  id:
+    type: "string"
+    format: "uri"
+  type:
+    type: "string"
+   

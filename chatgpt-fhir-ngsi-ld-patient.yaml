@@ -1,0 +1,160 @@
+# chatgpt generated yaml schema for patient from HL7-FHIR to NGSI-LD
+# 1. produce ngsi-ld yaml smart data model definition from FHIR https://hl7.org/fhir/patient.schema.json.html
+# 2. interesting, but ngsi-ld need also a "type" property, with value "Patient" (the hl7 resource type)
+# 3. OK, but I want the schema model in yaml, not a way to transcript
+# 4. but still not exactly the right result, to respect NGSI-LD standard the "resourceType" property should become the NGSI-LD "type" mandatory property
+# => and that's the result
+
+$id: https://hl7.org/fhir/Patient
+$schema: http://json-schema.org/draft-04/schema#
+title: Patient
+description: Demographics and other administrative information about an individual or animal receiving care or other health-related services.
+type: object
+required:
+  - id
+  - type
+  - meta
+  - identifier
+  - active
+  - name
+  - gender
+  - birthDate
+properties:
+  id:
+    type: string
+  type:
+    type: string
+    const: "Patient"
+  meta:
+    $ref: "#/definitions/meta"
+  identifier:
+    type: array
+    items:
+      $ref: "#/definitions/identifier"
+  active:
+    type: boolean
+  name:
+    type: array
+    items:
+      $ref: "#/definitions/name"
+  gender:
+    type: string
+    enum:
+      - male
+      - female
+      - other
+      - unknown
+  birthDate:
+    type: string
+    format: date
+definitions:
+  meta:
+    type: object
+    required:
+      - versionId
+      - lastUpdated
+    properties:
+      versionId:
+        $ref: "#/definitions/id"
+      lastUpdated:
+        type: string
+        format: date-time
+      profile:
+        type: array
+        items:
+          type: string
+      security:
+        type: array
+        items:
+          $ref: "#/definitions/coding"
+      tag:
+        type: array
+        items:
+          $ref: "#/definitions/coding"
+  identifier:
+    type: object
+    required:
+      - use
+      - value
+      - system
+    properties:
+      use:
+        $ref: "#/definitions/codeableConcept"
+      type:
+        $ref: "#/definitions/codeableConcept"
+      system:
+        type: string
+      value:
+        type: string
+      period:
+        $ref: "#/definitions/period"
+      assigner:
+        $ref: "#/definitions/reference"
+  name:
+    type: object
+    properties:
+      use:
+        $ref: "#/definitions/codeableConcept"
+      family:
+        type: array
+        items:
+          type: string
+      given:
+        type: array
+        items:
+          type: string
+      prefix:
+        type: array
+        items:
+          type: string
+      suffix:
+        type: array
+        items:
+          type: string
+      period:
+        $ref: "#/definitions/period"
+  codeableConcept:
+    type: object
+    required:
+      - coding
+    properties:
+      coding:
+        type: array
+        items:
+          $ref: "#/definitions/coding"
+      text:
+        type: string
+  coding:
+    type: object
+    required:
+      - system
+      - code
+      - display
+    properties:
+      system:
+        type: string
+      version:
+        type: string
+      code:
+        type: string
+      display:
+        type: string
+      userSelected:
+        type: boolean
+  period:
+    type: object
+    properties:
+      start:
+        type: string
+        format: date-time
+      end:
+        type: string
+        format: date-time
+  reference:
+    type: object
+    properties:
+      reference:
+        type: string
+      type:
+        type: string
+        const: "Organization"
