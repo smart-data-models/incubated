@@ -8,6 +8,10 @@
     "title": "KITT4SME Sensing Layer",
     "description": "Data model produced by the Sensing Layer in the KITT4SME project",
     "type": "object",
+    "required": [
+        "id",
+        "type"
+    ],
     "allOf": [
         {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -19,11 +23,10 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "Property. Unique identifier of the entity"
+                    "pattern": "^urn:ngsi:Wearable:[0-9]+$"
                 },
                 "type": {
                     "type": "string",
-                    "description": "Property. NGSI Entity type. It has to be Wearable",
                     "enum": [
                         "Wearable"
                     ]
@@ -31,239 +34,132 @@
                 "wearableDevice": {
                     "type": "object",
                     "properties": {
-                        "type": {
-                            "type": "string"
-                        },
-                        "value": {
+                        "workerSession": {
                             "type": "object",
                             "properties": {
-                                "workerSession": {
+                                "session": {
                                     "type": "object",
                                     "properties": {
-                                        "session": {
+                                        "start": {
                                             "type": "object",
                                             "properties": {
-                                                "start": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "dateTime": {
-                                                            "type": "string",
-                                                            "format": "date-time"
-                                                        },
-                                                        "format": {
-                                                            "type": "string"
-                                                        },
-                                                        "timezoneId": {
-                                                            "type": "string"
-                                                        }
-                                                    }
+                                                "dateTime": {
+                                                    "type": "string",
+                                                    "format": "date-time"
                                                 },
-                                                "end": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "dateTime": {
-                                                            "type": "string",
-                                                            "format": "date-time"
-                                                        },
-                                                        "format": {
-                                                            "type": "string"
-                                                        },
-                                                        "timezoneId": {
-                                                            "type": "string"
-                                                        }
-                                                    }
+                                                "format": {
+                                                    "type": "string",
+                                                    "pattern": "^YYYY-MM-DDThh:mm:ss.zzzZ$"
+                                                },
+                                                "timezoneId": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "UTC"
+                                                    ]
                                                 }
                                             }
                                         },
-                                        "worker": {
+                                        "end": {
                                             "type": "object",
                                             "properties": {
-                                                "workerId": {
-                                                    "type": "string"
+                                                "dateTime": {
+                                                    "type": "string",
+                                                    "format": "date-time"
                                                 },
-                                                "description": {
-                                                    "type": "string"
+                                                "format": {
+                                                    "type": "string",
+                                                    "pattern": "^YYYY-MM-DDThh:mm:ss.zzzZ$"
+                                                },
+                                                "timezoneId": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "UTC"
+                                                    ]
                                                 }
                                             }
                                         }
                                     }
                                 },
-                                "wearableAccelometer": {
+                                "worker": {
                                     "type": "object",
                                     "properties": {
-                                        "x": {
-                                            "type": "number"
+                                        "workerId": {
+                                            "type": "string",
+                                            "format": "uuid"
                                         },
-                                        "y": {
-                                            "type": "number"
-                                        },
-                                        "z": {
-                                            "type": "number"
+                                        "description": {
+                                            "type": "string"
                                         }
                                     }
-                                },
-                                "name": {
-                                    "type": "string"
-                                },
-                                "deviceProperties": {
-                                    "type": "object",
-                                    "properties": {
-                                        "properties": {
-                                            "type": "object",
-                                            "properties": {}
-                                        }
-                                    }
-                                },
-                                "description": {
-                                    "type": "string"
                                 }
                             }
+                        },
+                        "wearableAccelometer": {
+                            "type": "object",
+                            "properties": {
+                                "x": {
+                                    "type": "number"
+                                },
+                                "y": {
+                                    "type": "number"
+                                },
+                                "z": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "deviceProperties": {
+                            "type": "object",
+                            "properties": {
+                                "properties": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "description": {
+                            "type": "string"
                         }
-                    },
-                    "description": "Property. Describes the individual wearable sensor used to collect data"
+                    }
                 },
                 "workerId": {
-                    "type": "object",
-                    "properties": {
-                        "value": {
-                            "type": "string"
-                        },
-                        "type": {
-                            "type": "string"
-                        }
-                    },
-                    "description": "Property. Internal ID assigned to identify a worker. It can be generated or assigned manually"
+                    "type": "string",
+                    "format": "uuid"
                 },
                 "sessionId": {
-                    "type": "object",
-                    "properties": {
-                        "value": {
-                            "type": "string"
-                        },
-                        "type": {
-                            "type": "string"
-                        }
-                    },
-                    "description": "Property. Internal ID assigned to identify a worker's session. It's generated"
+                    "type": "string",
+                    "format": "uuid"
                 },
                 "temperature": {
-                    "type": "object",
-                    "properties": {
-                        "value": {
-                            "type": "number"
-                        },
-                        "type": {
-                            "type": "string"
-                        }
-                    },
-                    "description": "Property. Body temperature in Celsius"
+                    "type": "number"
                 },
                 "gsr": {
-                    "type": "object",
-                    "properties": {
-                        "value": {
-                            "type": "number"
-                        },
-                        "type": {
-                            "type": "string"
-                        }
-                    },
-                    "description": "Property. Galvanic skin response. Indicates changes in sweat gland activity that are reflective of the intensity of someone emotional state"
+                    "type": "number"
                 },
                 "heartRate": {
-                    "type": "object",
-                    "properties": {
-                        "value": {
-                            "type": "number"
-                        },
-                        "type": {
-                            "type": "string"
-                        }
-                    },
-                    "description": "Property. Number of times your heart beats per minute"
+                    "type": "number"
                 },
                 "rrInterval": {
-                    "type": "object",
-                    "properties": {
-                        "value": {
-                            "type": "number"
-                        },
-                        "type": {
-                            "type": "string"
-                        }
-                    },
-                    "description": "Property. The time elapsed between two successive R-waves of the QRS signal on the electrocardiogram"
+                    "type": "number"
                 },
                 "position": {
                     "type": "object",
                     "properties": {
-                        "type": {
-                            "type": "string"
+                        "latitude": {
+                            "type": "number"
                         },
-                        "value": {
-                            "type": "object",
-                            "properties": {
-                                "latitude": {
-                                    "type": "number"
-                                },
-                                "longitude": {
-                                    "type": "number"
-                                }
-                            }
+                        "longitude": {
+                            "type": "number"
                         }
-                    },
-                    "description": "Property. Worker geographic location"
+                    }
                 },
                 "timestamp": {
-                    "type": "object",
-                    "properties": {
-                        "value": {
-                            "type": "string",
-                            "format": "date-time"
-                        },
-                        "type": {
-                            "type": "string"
-                        },
-                        "metadata": {
-                            "type": "object",
-                            "properties": {
-                                "format": {
-                                    "type": "object",
-                                    "properties": {
-                                        "value": {
-                                            "type": "string"
-                                        },
-                                        "type": {
-                                            "type": "string"
-                                        }
-                                    }
-                                },
-                                "timezoneId": {
-                                    "type": "object",
-                                    "properties": {
-                                        "value": {
-                                            "type": "string"
-                                        },
-                                        "type": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "description": "Property. Data timestamp"
-                },
-                "metadata": {
-                    "type": "object",
-                    "properties": {},
-                    "description": "Property. Contains context data related to the model, used for possible extensions."
+                    "type": "string",
+                    "format": "date-time"
                 }
             }
         }
-    ],
-    "required": [
-        "id",
-        "type"
     ]
 }
