@@ -32,13 +32,22 @@
           ],
           "description": "Property. It has to be AlgorithmAssessed"
         },
-        "globalQualification": {
+        "qualificationStatus": {
           "type": "string",
           "description": "Property. Global qualification of the algorithm. AsIs means that the algorithm does not provide evidence of compliance with data sovereignty regulations or standards. documented means that the algorithm provides self certification of some data sovereignty standards compliance. sandbox means that the algorithm has been tested in an independent sandbox to check data sovereignty ",
           "enum": [
             "asIs",
             "documented",
             "sandbox"
+          ]
+        },
+        "dataSovereignty": {
+          "type": "strong",
+          "description": "Property. ",
+          "enum": [
+            "No storage",
+            "storage of aggregated data",
+            "storage of individual data"
           ]
         },
         "socialImpact": {
@@ -123,7 +132,9 @@
           }
         },
         "trustee": {
-          ""
+          "type": "string",
+          "format": "uri",
+          "description": "Property. URI pointing to the id of the organization providing the trust. next version could provide a VC trust framwork for the identification of the certification"
         }
       }
     }
