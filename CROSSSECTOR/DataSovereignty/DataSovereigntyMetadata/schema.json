@@ -2,8 +2,8 @@
   "$schema": "http://json-schema.org/schema#",
   "$schemaVersion": "0.0.1",
   "$id": "https://smart-data-models.github.io/datamodel.MachineLearning/DataSovereigntyMetadata/schema.json,",
-  "title": "Algorithm assess in terms of data sovereignty",
-  "description": "This data model represents the assessment of an AI algorithm, initially offered as a service",
+  "title": "Algorithm data sovereignty request of certification",
+  "description": "Algorithm data sovereignty request of certification. The data has to be provided by the owner of the service",
   "modelTags": "StandICT",
   "derivedFrom": "",
   "required": [
@@ -21,29 +21,86 @@
     },
     {
       "properties": {
-        "id": {
-          "type": "string",
-          "format": "uri"
-        },
         "type": {
           "type": "string",
           "enum": [
-            "AlgorithmAssessed"
+            "DataSovereigntyMetadata"
           ],
-          "description": "Property. It has to be AlgorithmAssessed"
+          "description": "Property. It has to be DataSovereigntyMetadata"
         },
-        "qualificationStatus": {
+        "request": {
+          "type": "object",
+          "description": "Property. identifier of the request for certification",
+          "properties": {
+            "requestId": {
+              "type": "string",
+              "description": "Property. Unique identifier of the request"
+            },
+            "requestDate": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Property. Date of the request according to ISO 8601 format"
+            },
+            "serviceId": {
+              "type": "string",
+              "description": "Property. Unique identifier of the service provided by the data space management system"
+            },
+            "serviceContact": {
+              "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Contact-Commons"
+            }
+          }
+        },
+        "serviceCharacteristics": {
           "type": "string",
-          "description": "Property. Global qualification of the algorithm. asIs means that the algorithm does not provide evidence of compliance with data sovereignty regulations or standards. documented means that the algorithm provides self certification of some data sovereignty standards compliance. sandbox means that the algorithm has been tested in an independent sandbox to check data sovereignty ",
+          "format": "uri",
+          "description": "Relationship. Pointer to where the description of the service is available compliant with th service description specification of Gaia-X. https://gitlab.com/gaia-x/technical-committee/service-characteristics"
+        },
+        "execution": {
+          "type": "string",
+          "description": "Property. Whether the service is executed in the data space's resources or in their own resources",
           "enum": [
-            "asIs",
-            "documented",
-            "sandbox"
+            "remote",
+            "dataspace"
           ]
         },
-        "dataSovereignty": {
-          "type": "strong",
-          "description": "Property. ",
+        "executionUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Pointer to where the service is executed (usually for remotely executed services)"
+        },
+        "allowedPersonalData": {
+          "type": "boolean",
+          "description": "Property. if the service is capable to deal with personal data affected by the GDPR regulation"
+        },
+        "storage": {
+          "type": "string",
+          "description": "Property. What is the data storage the service is doing. noStorage means that the service is not storing the data at all. aggregatedStorage is that some data are stored but in an aggregated form so it avoids the individual access to the source registers. The aggregationThreshold attribute complement with the minimum size of an aggregation. individualStorage means that the service can store individual registries",
+          "enum": [
+            "noStorage",
+            "aggregatedStorage",
+            "individualStorage"
+          ]
+        },
+        "storageJurisdiction": {
+          "type": "string",
+          "description": "Property. Jurisdiction where the data are stored in the case they are. Registration coded in ISO 3166-1 alpha2, alpha-3 or numeric format."
+        },
+        "aggregationThreshold": {
+          "type": "number",
+          "minimum": 1,
+          "description": "Property. Minimum size of aggregated data stored by the service."
+        },
+        "processingIntegrity": {
+          "type": "string",
+          "description": "Property. Description of the mechanisms for ensuring the integrity of the transmission chain of data for processing, obtaining results and deliver to the user"
+        },
+        "resultsTrainAlgorithm": {
+          "type": "boolean",
+          "description": "Property. it indicates if the processed information is incorporated to the AI algorithm for improving its performance, accuracy, etc."
+        },
+        "qualificationRequested": {
+          "type": "string",
+          "description": "Property. Global qualification of the algorithm requested to the certification. asIs means that the algorithm does not provide evidence of compliance with data sovereignty regulations or standards. documented means that the algorithm provides self certification of some data sovereignty standards compliance. sandbox means that the algorithm has been tested in an independent sandbox to check data sovereignty ",
           "enum": [
             "No storage",
             "storage of aggregated data",
@@ -90,19 +147,8 @@
               "type": "boolean",
               "description": "Property. If the algorithm has been assessed in terms of religious beliefs bias "
             }
-          },
-          "iso27017": {
-            "type": "boolean",
-            "description": "Property. If the service is compliant with ISO 27017 standard"
-          },
-          "iso27701": {
-            "type": "boolean",
-            "description": "Property. If the service is compliant with ISO 27701 standard"
-          },
-          "iso27018": {
-            "type": "boolean",
-            "description": "Property. If the service is compliant with ISO 27018 standard"
           }
+
         },
         "termsOfUse": {
           "type": "string",
@@ -134,7 +180,7 @@
         "trustee": {
           "type": "string",
           "format": "uri",
-          "description": "Property. URI pointing to the id of the organization providing the trust. next version could provide a VC trust framwork for the identification of the certification"
+          "description": "Property. URI pointing to the id of the organization providing the trust. Next version could provide a VC trust framwork for the identification of the certification"
         }
       }
     }

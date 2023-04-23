@@ -21,10 +21,6 @@
     },
     {
       "properties": {
-        "id": {
-          "type": "string",
-          "format": "uri"
-        },
         "type": {
           "type": "string",
           "enum": [
@@ -32,110 +28,127 @@
           ],
           "description": "Property. It has to be AlgorithmAssessed"
         },
-        "qualificationStatus": {
-          "type": "string",
-          "description": "Property. Global qualification of the algorithm. asIs means that the algorithm does not provide evidence of compliance with data sovereignty regulations or standards. documented means that the algorithm provides self certification of some data sovereignty standards compliance. sandbox means that the algorithm has been tested in an independent sandbox to check data sovereignty ",
-          "enum": [
-            "asIs",
-            "documented",
-            "sandbox"
-          ]
-        },
-        "dataSovereignty": {
-          "type": "strong",
-          "description": "Property. ",
-          "enum": [
-            "No storage",
-            "storage of aggregated data",
-            "storage of individual data"
-          ]
-        },
-        "socialImpact": {
-          "type": "string",
-          "description": "Property. if the algorithm has any kind of social impact assessment"
-        },
-        "checkBias": {
+        "request": {
           "type": "object",
-          "description": "Property. If the algorthm has been check against these potential bias. race, ethnicity, gender, nationality, income, sexual orientation, ability and political or religious belief.",
+          "description": "Property. identifier of the request for certification",
           "properties": {
-            "race": {
-              "type": "boolean",
-              "description": "Property. If the algorithm has been assessed in terms of race bias "
-            },
-            "ethnicity": {
-              "type": "boolean",
-              "description": "Property. If the algorithm has been assessed in terms of ethnicity bias "
-            },
-            "gender": {
-              "type": "boolean",
-              "description": "Property. If the algorithm has been assessed in terms of gender bias "
-            },
-            "nationality": {
-              "type": "boolean",
-              "description": "Property. If the algorithm has been assessed in terms of nationality bias "
-            },
-            "income": {
-              "type": "boolean",
-              "description": "Property. If the algorithm has been assessed in terms of income bias "
-            },
-            "sexualOrientation": {
-              "type": "boolean",
-              "description": "Property. If the algorithm has been assessed in terms of sexual orientation bias "
-            },
-            "politicalBelief": {
-              "type": "boolean",
-              "description": "Property. If the algorithm has been assessed in terms of political beliefs bias "
-            },
-            "religiousBelief": {
-              "type": "boolean",
-              "description": "Property. If the algorithm has been assessed in terms of religious beliefs bias "
-            }
-          },
-          "iso27017": {
-            "type": "boolean",
-            "description": "Property. If the service is compliant with ISO 27017 standard"
-          },
-          "iso27701": {
-            "type": "boolean",
-            "description": "Property. If the service is compliant with ISO 27701 standard"
-          },
-          "iso27018": {
-            "type": "boolean",
-            "description": "Property. If the service is compliant with ISO 27018 standard"
-          }
-        },
-        "termsOfUse": {
-          "type": "string",
-          "format": "uri",
-          "description": "Property. Link to the terms of use of the algorithm, specially for the data sovereignty section"
-        },
-        "integrity": {
-          "type": "object",
-          "description": "Property. Preventions taken by the owner of the AI service to guarantee the integrity of the evidence of data",
-          "properties": {
-            "secureStorage": {
+            "requestId": {
               "type": "string",
-              "description": "Property. Mechanism for preventing unauthorized access to data"
+              "description": "Property. Unique identifier of the request"
             },
-            "chainOfCustody": {
+            "requestDate": {
               "type": "string",
-              "description": "Property. Mechanism to ensure that the evidences have not been altered"
+              "format": "date-time",
+              "description": "Property. Date of the request according to ISO 8601 format"
             },
-            "encryption": {
+            "serviceId": {
               "type": "string",
-              "description": "Property. Mechanism to protect the evidences during communications and storage"
+              "description": "Property. Unique identifier of the service provided by the data space management system"
             },
-            "digitalSignatures": {
-              "type": "string",
-              "description": "Property. Description of the mechanism for digital signing of the evidences"
+            "serviceContact": {
+              "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Contact-Commons"
             }
           }
         },
-        "trustee": {
+        "dateResponse": {
           "type": "string",
-          "format": "uri",
-          "description": "Property. URI pointing to the id of the organization providing the trust. next version could provide a VC trust framwork for the identification of the certification"
+          "format": "date-time",
+          "description": "Property. Date of the answer to the request according to ISO 8601 format"
+        },
+        "certification": {
+          "certificationGranted": {
+            "type": "boolean",
+            "description": "Property. If the request has generated some kind of certification "
+          },
+          "typeOfCertification": {
+            "description": "Property. What is the data storage the service is doing. noStorage means that the service is not storing the data at all. aggregatedStorage is that some data are stored but in an aggregated form so it avoids the individual access to the source registers. The aggregationThreshold attribute complement with the minimum size of an aggregation. individualStorage means that the service can store individual registries",
+            "enum": [
+              "noStorage",
+              "aggregatedStorage",
+              "individualStorage"
+            ]
+          },
+          "validFrom": {
+            "description": "Property. Defines the date and time, when the certification becomes valid",
+            "type": "string",
+            "format": "date-time"
+          },
+          "validUntil": {
+            "description": "Property. Defines the date and time, when the certification expires",
+            "type": "string",
+            "format": "date-time"
+          }
         }
+      },
+      "biasResults": {
+        "type": "object",
+        "description": "Property. ",
+        "properties": {
+          "race": {
+            "type": "string",
+            "description": "Property. Results of the algorithm test about race bias"
+          },
+          "ethnicity": {
+            "type": "string",
+            "description": "Property. Results of the algorithm test about ethnicity bias"
+          },
+          "gender": {
+            "type": "string",
+            "description": "Property. Results of the algorithm test about gender bias"
+          },
+          "nationality": {
+            "type": "string",
+            "description": "Property. Results of the algorithm test about nationality bias"
+          },
+          "income": {
+            "type": "string",
+            "description": "Property. Results of the algorithm test about income bias"
+          },
+          "sexualOrientation": {
+            "type": "string",
+            "description": "Property. Results of the algorithm test about sexual orientation bias"
+          },
+          "politicalBelief": {
+            "type": "string",
+            "description": "Property. Results of the algorithm test about political beliefs bias"
+          },
+          "religiousBelief": {
+            "type": "string",
+            "description": "Property. Results of the algorithm test about religious beliefs bias"
+          }
+        }
+      },
+      "termsOfUse": {
+        "type": "string",
+        "format": "uri",
+        "description": "Property. Link to the terms of use of the algorithm, specially for the data sovereignty section"
+      },
+      "resultsIntegrity": {
+        "type": "object",
+        "description": "Property. Assessment of the preventions taken by the owner of the AI service to guarantee the integrity of the evidence of data",
+        "properties": {
+          "secureStorage": {
+            "type": "string",
+            "description": "Property. Results on the mechanisms for preventing unauthorized access to data"
+          },
+          "chainOfCustody": {
+            "type": "string",
+            "description": "Property. Results on the mechanisms to ensure that the evidences have not been altered"
+          },
+          "encryption": {
+            "type": "string",
+            "description": "Property. Results on the mechanisms to protect the evidences during communications and storage"
+          },
+          "digitalSignatures": {
+            "type": "string",
+            "description": "Property. Results on the mechanisms for digital signing of the evidences"
+          }
+        }
+      },
+      "trustee": {
+        "type": "string",
+        "format": "uri",
+        "description": "Property. URI pointing to the id of the organization providing the trust. next version could provide a VC trust framework for the identification of the certification"
       }
     }
   ]
