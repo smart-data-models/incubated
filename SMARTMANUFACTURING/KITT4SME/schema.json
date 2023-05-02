@@ -1,0 +1,165 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "KITT4SME, Sensing Layer, Holonix, EU, Project, Manufacturing, Worker, Session",
+    "derivedFrom": "",
+    "license": "",
+    "$id": "https://smart-data-models.github.io/XXXsubjectXXX/XXXdataModelXXX/schema.json",
+    "title": "KITT4SME Sensing Layer",
+    "description": "Data model produced by the Sensing Layer in the KITT4SME project",
+    "type": "object",
+    "required": [
+        "id",
+        "type"
+    ],
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "pattern": "^urn:ngsi:Wearable:[0-9]+$"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Wearable"
+                    ]
+                },
+                "wearableDevice": {
+                    "type": "object",
+                    "properties": {
+                        "workerSession": {
+                            "type": "object",
+                            "properties": {
+                                "session": {
+                                    "type": "object",
+                                    "properties": {
+                                        "start": {
+                                            "type": "object",
+                                            "properties": {
+                                                "dateTime": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                },
+                                                "format": {
+                                                    "type": "string",
+                                                    "pattern": "^YYYY-MM-DDThh:mm:ss.zzzZ$"
+                                                },
+                                                "timezoneId": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "UTC"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "end": {
+                                            "type": "object",
+                                            "properties": {
+                                                "dateTime": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                },
+                                                "format": {
+                                                    "type": "string",
+                                                    "pattern": "^YYYY-MM-DDThh:mm:ss.zzzZ$"
+                                                },
+                                                "timezoneId": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "UTC"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "worker": {
+                                    "type": "object",
+                                    "properties": {
+                                        "workerId": {
+                                            "type": "string",
+                                            "format": "uuid"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "wearableAccelometer": {
+                            "type": "object",
+                            "properties": {
+                                "x": {
+                                    "type": "number"
+                                },
+                                "y": {
+                                    "type": "number"
+                                },
+                                "z": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "deviceProperties": {
+                            "type": "object",
+                            "properties": {
+                                "properties": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "description": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "workerId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "sessionId": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "temperature": {
+                    "type": "number"
+                },
+                "gsr": {
+                    "type": "number"
+                },
+                "heartRate": {
+                    "type": "number"
+                },
+                "rrInterval": {
+                    "type": "number"
+                },
+                "position": {
+                    "type": "object",
+                    "properties": {
+                        "latitude": {
+                            "type": "number"
+                        },
+                        "longitude": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        }
+    ]
+}
