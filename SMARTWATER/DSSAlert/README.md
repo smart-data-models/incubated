@@ -1,0 +1,1 @@
+directory for the creation of the dssalert data model
