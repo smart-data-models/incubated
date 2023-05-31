@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.SDG/Project/schema.json",
+  "title": "Smart Data Models - Project for sustainable development goals",
+  "description": "",
+  "modelTags": "SDG",
+  "derivedFrom": "",
+  "license": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Project"
+          ],
+          "description": "Property. It must be equal to Project"
+        },
+        "plan": {
+          "type": "string",
+          "description": "Property. Subtype of project. Enum:'EDS, PPE'",
+          "enum": [
+            "EDS",
+            "PPE"
+          ]
+        },
+        "delegations": {
+          "type": "array",
+          "description": "Property. Delegations or internal departments the project belongs to.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "delegationsInvolved": {
+          "type": "array",
+          "description": "Property. Delegations or internal departments involved in the project",
+          "items": {
+            "type": "string"
+          }
+        },
+        "axis": {
+          "type": "string",
+          "description": "Property. Strategic axis the project belongs to"
+        },
+        "interestGroups": {
+          "type": "array",
+          "description": "Property. Delegations or internal departments involved in the project",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sdg": {
+          "type": "string",
+          "description": "Property. Sustainable Development goal the project belongs to "
+        },
+        "strategicObjective": {
+          "type": "string",
+          "description": "Property. Strategic objective the project belongs to "
+        },
+        "challenges": {
+          "type": "string",
+          "description": "Property. Challenges to be faced by the project "
+        },
+        "modifications": {
+          "type": "string",
+          "description": "Property. Changes that the project has incorporated in a possible update "
+        },
+        "observations": {
+          "type": "string",
+          "description": "Property. Free text about specific characteristics of the project"
+        },
+        "refDevice": {
+          "type": "array",
+          "description": "Relationship. Device(s) used to obtain the measurement.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

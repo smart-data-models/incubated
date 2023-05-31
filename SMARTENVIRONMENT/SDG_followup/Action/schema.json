@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.SDG/Project/schema.json",
+  "title": "Smart Data Models - Action for sustainable development goals",
+  "description": "",
+  "modelTags": "SDG",
+  "derivedFrom": "",
+  "license": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Project"
+          ],
+          "description": "Property. It must be equal to Action"
+        },
+        "refProject":{
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/data-models/master/common-schema.json/#definitions/EntityIdentifierType",
+          "description": "Relationship. Id of the related project"
+        },
+        "executionPeriod": {
+          "type": "string",
+          "description": "Property. Temporal reference to the execution period"
+        },
+        "compliancePercentage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Property. Percentage of compliance of the action"
+        },
+        "modifications": {
+          "type": "string",
+          "description": "Property. Changes that the action has incorporated in a possible update "
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
