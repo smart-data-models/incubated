@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.3",
+  "title": " Smart Data Models - Data Service Run",
+  "description": "A representation of one specific run of a data service (e.g. DataServiceDCAT-AP).",
+  "modelTags": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI entity type. It has to be DataServiceRun",
+          "enum": [
+            "DataServiceRun"
+          ]
+        },
+        "resultEntities": {
+          "type": "array",
+          "description": "Relationship. A list of references pointing to NGSI-LD entities that were generated within a service run.",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                "description": "Property. Identifier format of any NGSI entity"
+              },
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. Identifier format of any NGSI entity"
+              }
+            ]
+          }
+        },
+        "resultExternal": {
+          "type": "array",
+          "description": "Property. A list of uri pointing to external results that were generated within a service run.",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "sourceEntities": {
+          "type": "array",
+          "description": "Relationship. A list of references pointing to NGSI-LD entities that acted as source within a service run.",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                "description": "Property. Identifier format of any NGSI entity"
+              },
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. Identifier format of any NGSI entity"
+              }
+            ]
+          }
+        },
+        "sourceExternal": {
+          "type": "array",
+          "description": "Property. A list of uri pointing to external results that acted as source within a service run.",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "service": {
+          "description": "Relationship. A reference pointing to the NGSI-LD entity representing the corresponding data service (e.g. of type DataServiceDCAT-AP).",
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ]
+
+        },
+        "configuration": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/StructuredValue'. Technical configuration of the service. This attribute is intended to be an array of properties and their values which capture parameters which have to do with the configuration of a service (output format, URL, etc.) and which are not currently covered by the standard attributes defined by this model.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "parameter": {
+                "type": "string",
+                "format": "text"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
