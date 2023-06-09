@@ -1,9 +1,10 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$schemaVersion": "0.0.3",
-  "title": " Smart Data Models - Data Service Run",
+  "$id": "https://github.com/smart-data-models/dataModel.DCAT-AP/master/DataServiceRun/schema.json",
+  "$schemaVersion": "0.0.1",
+  "title": " Smart Data Models - Data Service Run extension to DCAT-AP",
   "description": "A representation of one specific run of a data service (e.g. DataServiceDCAT-AP).",
-  "modelTags": "",
+  "modelTags": "SALTED",
   "type": "object",
   "allOf": [
     {
@@ -20,7 +21,6 @@
         },
         "resultEntities": {
           "type": "array",
-          "description": "Relationship. A list of references pointing to NGSI-LD entities that were generated within a service run.",
           "items": {
             "anyOf": [
               {
@@ -36,7 +36,8 @@
                 "description": "Property. Identifier format of any NGSI entity"
               }
             ]
-          }
+          },
+          "description": "Relationship. A list of references pointing to NGSI-LD entities that were generated within a service run."
         },
         "resultExternal": {
           "type": "array",
@@ -75,7 +76,6 @@
           }
         },
         "service": {
-          "description": "Relationship. A reference pointing to the NGSI-LD entity representing the corresponding data service (e.g. of type DataServiceDCAT-AP).",
           "anyOf": [
             {
               "type": "string",
@@ -89,8 +89,8 @@
               "format": "uri",
               "description": "Property. Identifier format of any NGSI entity"
             }
-          ]
-
+          ],
+          "description": "Relationship. A reference pointing to the NGSI-LD entity representing the corresponding data service (e.g. of type DataServiceDCAT-AP)."
         },
         "configuration": {
           "type": "array",
