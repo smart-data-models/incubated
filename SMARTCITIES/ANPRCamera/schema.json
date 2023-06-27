@@ -61,7 +61,9 @@
         },
         "observedCredentialConfidence": {
           "type": "number",
-          "description": "The overal confidence of the measurement. This can be highly vendor specific. Use the metadata to indicate how this number should be interpreted. Arvoo: range[0, 999](higher is better)."
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The overal confidence of the measurement. This can be vendor specific, but should alwways be rescaled to value between 0 en 1. Use the metadata to indicate how this number should be interpreted. Arvoo: range[0.0, 1.0](higher is better)."
         },
         "observedCredentialCharacterConfidence": {
           "type": "array",
