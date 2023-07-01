@@ -1,0 +1,178 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.5",
+    "modelTags": "B-WaterSmart",
+    "$id": "https://smart-data-models.github.io/dataModel.WasteWater/SludgeQualityObserved/schema.json",
+    "title": " - Sludge quality observed schema",
+    "description": "Sludge Quality data model is intended to represent sludge quality parameters.",
+    "type": "object",
+    "allOf": [
+        {"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"},
+        {"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"},
+        {"properties": {
+            "type": {
+                "type": "string",
+                "enum": ["SludgeQualityObserved"],
+                "description": "Property. NGSI Entity type. It has to be SludgeQualityObserved"
+            },
+            "dateObserved": {
+                "type": "string",
+                "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval."
+            },
+            "measurand": {
+                "type": "array",
+                "items": {"type": "string"},
+                "minItems": 1,
+                "description": "Property. An array of strings containing details (see format below) about extra measurands provided by this observation."
+            },
+            "pH": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 14,
+                "description": "Property. Acidity or basicity of an aqueous solution."
+            },
+            "refPointOfInterest": {
+                "anyOf": [
+                    {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256,
+                        "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                        "description": "Property. Identifier format of any NGSI entity"
+                    },
+                    {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "Property. Identifier format of any NGSI entity"
+                    }
+                ],
+                "description": "Relationship. A reference to a point of interest associated to this observation."
+            },
+            "N-TOT": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Property. Total Nitrogen. Total Nitrogen (TN) is the sum of nitrate-nitrogen (NO3-N), nitrite-nitrogen (NO2-N), ammonia-nitrogen (NH3-N) and organically bonded nitrogen. Units:'percentage of SS (min)'"
+            },
+            "P-TOT": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Property. Total Phosphorus. Total phosphorus is a measure of all forms of phosphorus in the water, including dissolved and particulate, organic and inorganic. Units:'percentage of SS (min)'"
+            },
+            "K-TOT": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Property. Total potassium. Total content of potassium. Units:'percentage of SS (min)'"
+            },
+            "C-ORG": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Property. Organic Carbon. Concentration of organic carbon. Units:'percentage of SS (min)'"
+            },
+            "PCB": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Polychlorinated biphenyls	Concentration of polychlorinated biphenyls. Units:'mg/Kg SS'"
+            },
+            "As": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Arsenic. Concentration of arsenic. Units:'mg/Kg SS'"
+            },
+            "B": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Boron. Concentration of boron. Units:'mg/Kg SS'"
+            },
+            "Be": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Beryllium. Concentration of Beryllium. Units:'mg/Kg SS'"
+            },
+            "Cd": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Cadmium. Concentration of cadmium. Units:'mg/Kg SS'"
+            },
+            "Cr": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Chromium. Concentration of chromium. Units:'mg/Kg SS'"
+            },
+            "Cr-VI": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Chromium VI. Concentration of chromium at the oxidation state +6. Units:'mg/Kg SS'"
+            },
+            "Cu": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Copper. Concentration of copper. Units:'mg/Kg SS'"
+            },
+            "Hg": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Mercury. Concentration of mercury. Units:'mg/Kg SS'"
+            },
+            "Ni": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Nickel. Concentration of Nickel. Units:'mg/Kg SS'"
+            },
+            "Se": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Selenium. Concentration of selenium. Units:'mg/Kg SS'"
+            },
+            "Zn": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Zinc. Concentration of zinc. Units:'mg/Kg SS'"
+            },
+            "IPA": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Sum of isopropyl alcohol	Sum of content of isopropyl alcohol. Units:'mg/Kg SS'"
+            },
+            "toluene": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Concentration of Toluene. Units:'mg/Kg SS'"
+            },
+            "AOX": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Concentration of Adsorbable Organically bound halogens (AOX). Units:'mg/Kg SS'"
+            },
+            "DEHP": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Diethylhexyl phthalate. Concentration of DEHP. Units:'mg/Kg SS'"
+            },
+            "C10-C40": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Concentration of Hydrocarbons C10-C40. Units:'mg/Kg SS'"
+            },
+            "salmonella": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Concentration of Salmonella (Most Probable Number per gram solids). Units:'MPN/g SS (max)'"
+            },
+            "faecal-coliforms": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Concentration of faecal coliforms (Most Probable Number per gram solids). Units:'MPN/g SS (max)'"
+            }
+        }}
+    ],
+    "required": [
+        "id",
+        "type",
+        "dateObserved",
+        "location"
+    ]
+}
