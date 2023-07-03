@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.TourismDestinations/TouristRental/schema.json,",
+  "title": "Rental of a Tourist Facility",
+  "description": "A rental of a facility from a tourist",
+  "modelTags": "",
+  "derivedFrom": "",
+  "required": [
+    "id",
+    "type"
+  ],
+  "license": "https://smart-data-models.github.io/dataModel.TourismDestinations/TouristRental/LICENSE.md",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+                        "TouristRental"
+                    ]
+    },
+    "rental_source": {
+      "type": "string",
+      "description": "Relationship. The object that is rented"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Property. Start date of the tourist rental"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Property. End date of the tourist rental"
+    },
+    "leadTourist": {
+      "type": "string",
+      "description": "Property. Name of who did the rental"
+    },
+    "consumptionBehaviour": {
+      "type": "array",
+      "description": "Relationship. An array of ConsumptionBehaviour data models",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    }
+  }
+}
