@@ -1,0 +1,260 @@
+{
+        "$schema": "http://json-schema.org/schema#",
+        "$schemaVersion": "0.0.1",
+        "$id": "https://smart-data-models.github.io/dataModel.TouristProfile/TouristProfile/schema.json,",
+        "title": "General profile of a Tourist",
+        "description": "Description of a tourist profile based on the characteristics of a person, trip, choice of stay and spending while in destination.",
+        "modelTags": "",
+        "derivedFrom": "",
+        "required": [
+                "id",
+                "type"
+        ],
+        "license": "https://smart-data-models.github.io/dataModel.TouristProfile/TouristProfile/LICENSE.md",
+        "type": "object",
+        "properties": {
+                "id": {
+                        "type": "string",
+                        "format": "uri"
+                },
+                "type": {
+                        "type": "string",
+                                                "enum": [
+                                                        "TouristProfile"
+                                                ],
+                                                "description": "Property. NGSI Entity type. It has to be TouristProfile"
+                },
+                "country": {
+                        "type": "string",
+                        "description": "Property. Country of nationality - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
+                },
+                "ageRange": {
+                        "type": "object",
+                        "description": "Property. Age range of the person profiled",
+                        "properties": {
+                                "range": {
+                                        "type": "string"
+                                },
+                                "sortingOrder": {
+                                        "type": "array",
+                                        "items": {
+                                                "type": "string"
+                                        }
+                                }
+                        }
+                },
+                "gender": {
+                        "type": "string",
+                                                "enum": [
+                                                        "Female",
+                                                        "Male"
+                                                ],
+                        "description": "Property. Gender of the person profiled"
+                },
+                "travelPartyComposition": {
+                        "type": "string",
+                                                "enum": [
+                                                        "Single",
+                                                        "Single Parent",
+                                                        "Family",
+                                                        "Couple",
+                                                        "Friends/Relatives"
+                                                ],
+                        "description": "Property. Composition of the travelling party based on the number of adults and children"
+                },
+                "lodgingType": {
+                        "type": "string",
+                                                "enum": [
+                                                        "Hotel", 
+                                                        "Resort", 
+                                                        "Hostel", 
+                                                        "Motel", 
+                                                        "B&B", 
+                                                        "Aparthotel", 
+                                                        "Lodge"
+                                                ],
+                        "description": "Property. Usual type of lodging for the stay. Could reference UNE178506 in the future."
+                },
+                "lodgingCategory": {
+                        "type": "string",
+                                                "enum": [
+                                                        "1",
+                                                        "1 Superior",
+                                                        "2",
+                                                        "2 Superior",
+                                                        "3",
+                                                        "3 Superior",
+                                                        "4",
+                                                        "4 Superior",
+                                                        "5",
+                                                        "5 Superior"
+                                                ],
+                        "description": "Property. Usual category of the lodging"
+                },
+                "lodgingSize": {
+                        "type": "object",
+                        "description": "Property. Range size in number of rooms of the lodging",
+                        "properties": {
+                                "range": {
+                                        "type": "string"
+                                },
+                                "sortingOrder": {
+                                        "type": "array",
+                                        "items": {
+                                                "type": "string"
+                                        }
+                                }
+                        }
+                },
+                "roomOfStayType": {
+                        "type": "string",
+                                                "enum": [
+                                                        "Apartment",
+                                                        "Bungalow",
+                                                        "Studio",
+                                                        "Single",
+                                                        "Double",
+                                                        "Family",
+                                                        "Junior Suite",
+                                                        "Senior/Executive Suite",
+                                                        "Royal/Presidential Suite"
+                                                ],
+                        "description": "Property. Usual type of the accomodation room reserved"
+                },
+                "board": {
+                        "type": "string",
+                                                "enum": [
+                                                        "RO",
+                                                        "BB",
+                                                        "HB",
+                                                        "FB",
+                                                        "AI"
+                                                ],
+                        "description": "Property. Usual type of board type reserved"
+                },
+                "bookingChannel": {
+                        "type": "string",
+                        "description": "Property. Channel used by the tourist for the reservation"
+                },
+                "reservationLeadTime": {
+                        "type": "object",
+                        "description": "Property. Range of days between booking and check-in",
+                        "properties": {
+                                "range": {
+                                        "type": "string"
+                                },
+                                "sortingOrder": {
+                                        "type": "array",
+                                        "items": {
+                                                "type": "string"
+                                        }
+                                }
+                        }
+                },
+                "stayLength": {
+                        "type": "object",
+                        "description": "Property. Range of number of staying nights",
+                        "properties": {
+                                "range": {
+                                        "type": "string"
+                                },
+                                "sortingOrder": {
+                                        "type": "array",
+                                        "items": {
+                                                "type": "string"
+                                        }
+                                }
+                        }
+                },
+                "totalExpenditure": {
+                        "type": "object",
+                        "description": "Property. Range of total amount of money invoiced by the lodging establishment",
+                        "properties": {
+                                "range": {
+                                        "type": "string"
+                                },
+                                "sortingOrder": {
+                                        "type": "array",
+                                        "items": {
+                                                "type": "string"
+                                        }
+                                }
+                        }
+                },
+                "totalAccomodationAndBoardExpenditure": {
+                        "type": "object",
+                        "description": "Property. Range of total amount of money invoiced by the lodging establishment in accomodation and board concepts",
+                        "properties": {
+                                "range": {
+                                        "type": "string"
+                                },
+                                "sortingOrder": {
+                                        "type": "array",
+                                        "items": {
+                                                "type": "string"
+                                        }
+                                }
+                        }
+                },
+                "totalExtraExpenditure": {
+                        "type": "object",
+                        "description": "Property. Range of total amount of money invoiced by the lodging establishment in extra concepts",
+                        "properties": {
+                                "range": {
+                                        "type": "string"
+                                },
+                                "sortingOrder": {
+                                        "type": "array",
+                                        "items": {
+                                                "type": "string"
+                                        }
+                                }
+                        }
+                },
+                "avgDailyExpenditure": {
+                        "type": "object",
+                        "description": "Property. Range of avg daily amount of money invoiced by the lodging establishment",
+                        "properties": {
+                                "range": {
+                                        "type": "string"
+                                },
+                                "sortingOrder": {
+                                        "type": "array",
+                                        "items": {
+                                                "type": "string"
+                                        }
+                                }
+                        }
+                },
+                "avgDailyAccomodationAndBoardExpenditure": {
+                        "type": "object",
+                        "description": "Property. Range of avg daily amount of money invoiced by the lodging establishment in accomodation and board concepts",
+                        "properties": {
+                                "range": {
+                                        "type": "string"
+                                },
+                                "sortingOrder": {
+                                        "type": "array",
+                                        "items": {
+                                                "type": "string"
+                                        }
+                                }
+                        }
+                },
+                "avgDailyExtraExpenditure": {
+                        "type": "object",
+                        "description": "Property. Range of avg daily amount of money invoiced by the lodging establishment in extra concepts",
+                        "properties": {
+                                "range": {
+                                        "type": "string"
+                                },
+                                "sortingOrder": {
+                                        "type": "array",
+                                        "items": {
+                                                "type": "string"
+                                        }
+                                }
+                        }
+                }
+        }
+}
