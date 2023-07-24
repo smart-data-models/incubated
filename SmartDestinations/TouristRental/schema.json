@@ -24,30 +24,29 @@
       ]
     },
     "rental_source": {
-      "type": "string",
-      "description": "Relationship. The object that is rented"
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+      "description": "Relationship. The object that is rented."
     },
     "startDate": {
       "type": "string",
       "format": "date-time",
-      "description": "Property. Start date of the tourist rental"
+      "description": "Property. Start date of the tourist rental."
     },
     "endDate": {
       "type": "string",
       "format": "date-time",
-      "description": "Property. End date of the tourist rental"
+      "description": "Property. End date of the tourist rental."
     },
     "leadTourist": {
-      "type": "string",
-      "description": "Property. Name of who did the rental"
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+      "description": "Relationship. Reference to the 'tourist' or 'touristProfile' associated with the rental transaction."
     },
     "consumptionBehaviour": {
       "type": "array",
-      "description": "Relationship. An array of ConsumptionBehaviour data models",
       "items": {
-        "type": "string",
-        "format": "uri"
-      }
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+      },
+      "description": "Relationship. An array of ConsumptionBehaviour data models."
     }
   }
 }
