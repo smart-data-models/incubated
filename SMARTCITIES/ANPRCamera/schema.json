@@ -69,31 +69,15 @@
           "type": "array",
           "description": "Property. The confidence of individual character recognition. As with observedCredentialConfidence this is vendor specific. Use the metadata to indicate how the confidences can be interpreted.",
           "items": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string"
-              },
-              "value": {
-                "type": "array",
-                "items": {
-                  "type": "number",
-                  "minimum": 0,
-                  "maximum": 1
-                }
-              },
-              "metadata": {
-                "ref": "#/definitions/metadata/properties/confidenceMethod"
-              }
-            }
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
           },
-          "required": [
-            "type",
-            "value",
-            "metadata"
-          ]
-        },
-        "observer": {
+          "metadata": {
+              "ref": "#/definitions/metadata/properties/confidenceMethod"
+          },
+      },     
+      "observer": {
           "type": "string",
           "description": "Property. The name or identification of the scanning system making the observation recorded in this observation element."
         },
