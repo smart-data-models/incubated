@@ -1,0 +1,152 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+  "components": {
+    "schemas": {
+      "urn_samm_BatteryPass_1.0.0_CriticalRawMaterialsEnum": {
+        "type": "string",
+        "description": "'Critical raw materials contained in the battery above a concentration of 0.1 % weight by weight. Reference to COM(2020)474: âThose raw materials that are most important economically and have a high supply riskâ. The fourth list of critical raw materials for the EU lists 30 raw materials as critical in 2020. An updated version has been included in Annex II of the EU Critical Raw Materials Act Regulation (CRMA)",
+        "enum": [
+          "Cobalt",
+          "Nickel",
+          "Lithium",
+          "Manganese"
+        ]
+      },
+      "urn_samm_BatteryPass_1.0.0_Text": {
+        "type": "string",
+        "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc."
+      },
+      "urn_samm_org.eclipse.esmf.samm_characteristic_2.0.0_Text": {
+        "type": "string",
+        "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc."
+      },
+      "urn_samm_BatteryPass_1.0.0_BatteryChemistryType": {
+        "type": "object",
+        "properties": {
+          "shortName": {
+            "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_Text"
+          },
+          "clearName": {
+            "$ref": "#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.0.0_Text"
+          }
+        },
+        "required": [
+          "shortName",
+          "clearName"
+        ],
+        "description": "Detailed composition, including materials used in the cathode, anode, and electrolyte.\nAll common cells have two electrodes and an electrolyte. The specific combination of materials used to make these components is called \"chemistry.\" A cell's chemistry largely determines its properties, while most variations within it are caused by additives, purification, and design elements."
+      },
+      "urn_samm_BatteryPass_1.0.0_ComponentNameEnum": {
+        "type": "string",
+        "enum": [
+          "Anode",
+          "Cathode",
+          "Electrolyte"
+        ]
+      },
+      "urn_samm_BatteryPass_1.0.0_MaterialIdentifierTrait": {
+        "type": "string",
+        "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc.",
+        "pattern": "[0-9]{4}-[0-9]{2}-[0-9]"
+      },
+      "urn_samm_BatteryPass_1.0.0_Weight": {
+        "type": "number"
+      },
+      "urn_samm_BatteryPass_1.0.0_BatteryMaterial": {
+        "type": "object",
+        "properties": {
+          "componentName": {
+            "description": "Name of battery component",
+            "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_ComponentNameEnum"
+          },
+          "materialIdentifier": {
+            "description": "CAS Number ",
+            "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_MaterialIdentifierTrait"
+          },
+          "materialName": {
+            "description": "Clear name of Material",
+            "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_Text"
+          },
+          "weight": {
+            "description": "Weight of component material",
+            "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_Weight"
+          }
+        },
+        "required": [
+          "componentName",
+          "materialIdentifier",
+          "materialName",
+          "weight"
+        ]
+      },
+      "urn_samm_BatteryPass_1.0.0_BatteryMaterialList": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_BatteryMaterial"
+        }
+      },
+      "urn_samm_BatteryPass_1.0.0_HazardousSubstanceClassChrateristic": {
+        "type": "string",
+        "enum": [
+          "Acute toxicity",
+          "Skin corrosion / irritation",
+          "Eye damage / irritation"
+        ]
+      },
+      "urn_samm_BatteryPass_1.0.0_HazardousSubstanceConcentrationCharacteristic": {
+        "type": "number"
+      },
+      "urn_samm_BatteryPass_1.0.0_HazardousSubstance": {
+        "description": "Hazardous substances (No. 19-23): Name (agreed substance nomenclature, e.g. IUPAC or chemical name) all hazardous substance (as âany substance that poses a threat to human health and the environmentâ). Suggested above 0.1 % weight by weight within each (sub-)component.",
+        "type": "object",
+        "properties": {
+          "hazardousSubstanceClass": {
+            "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_HazardousSubstanceClassChrateristic"
+          },
+          "hazardousSubstanceName": {
+            "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_Text"
+          },
+          "hazardousSubstanceConcentration": {
+            "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_HazardousSubstanceConcentrationCharacteristic"
+          }
+        },
+        "required": [
+          "hazardousSubstanceClass",
+          "hazardousSubstanceName",
+          "hazardousSubstanceConcentration"
+        ]
+      },
+      "urn_samm_BatteryPass_1.0.0_HazardousSubstancesList": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_HazardousSubstance"
+        }
+      }
+    }
+  },
+  "properties": {
+    "criticalRawMaterials": {
+      "description": "Raw materials being economically important and vulnerable to supply disruption. List of the Commission is subject to updating, at least every three years to reflect production, market and technological developments. The latest list will be made available via the Raw Materials Information System (RMIS) of the EU Science Hub. In the battery passport, all critical raw materials above a concentration of 0.1 % weight by weight within each (sub)-component of the battery should be specified in an aggregated way for the entire battery. For anode, cathode, and electrolyte critical raw materials can be derived from \"cathode materials\", \"anode materials\", and \"electrolyte materials\".",
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_CriticalRawMaterialsEnum"
+    },
+    "batteryChemistry": {
+      "description": "Composition of a battery in general terms by specifying the cathode and anode active material as well as electrolyte.",
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_BatteryChemistryType"
+    },
+    "batteryMaterials": {
+      "description": "Component materials used (No. 16-18): Naming the materials (as a composition of substances) in cathode, anode, electrolyte according to public standards, including specification of the corresponding component (i.e., cathode, anode, or electrolyte). We suggest a reporting threshold of 0.1 % weight by weight.",
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_BatteryMaterialList"
+    },
+    "hazardousSubstances": {
+      "description": "Hazardous substances (No. 19-23): Name (agreed substance nomenclature, e.g. IUPAC or chemical name) all hazardous substance (as âany substance that poses a threat to human health and the environmentâ). Suggested above 0.1 % weight by weight within each (sub-)component.",
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_HazardousSubstancesList"
+    }
+  },
+  "required": [
+    "criticalRawMaterials",
+    "batteryChemistry",
+    "batteryMaterials",
+    "hazardousSubstances"
+  ]
+}
