@@ -26,7 +26,7 @@
         },
         "observedMethod": {
           "type": "string",
-          "description": "The method of observation recorded for this observation element as defined by APDS (ObservationType). Enum:'anpr, chalk, visual, scanner, rfTranspoder, other'",
+          "description": "Property. The method of observation recorded for this observation element as defined by APDS (ObservationType). Enum:'anpr, chalk, visual, scanner, rfTranspoder, other'",
           "enum": [
             "anpr",
             "other",
@@ -37,7 +37,7 @@
         },
         "observedCredentialType": {
           "type": "string",
-          "description": "Type of the credential referenced within  the observation. Allowed values are specified in the APDS CredentialType. Enum: 'barcode, bluetooth, eticket, hangtag, licensePlate, permit, qrCode, rfid, ticket, other'",
+          "description": "Property. Type of the credential referenced within  the observation. Allowed values are specified in the APDS CredentialType. Enum: 'barcode, bluetooth, eticket, hangtag, licensePlate, permit, qrCode, rfid, ticket, other'",
           "enum": [
             "barcode",
             "bluetooth",
@@ -53,61 +53,45 @@
         },
         "observedCredentialId": {
           "type": "string",
-          "description": "Specific identifier to the referenced observed credential. The credential is specified by observedCredentialType and may be an RFID tag, ticket number from a paystation, license plate number, etc. In case of a licensePlate only alpha numerical values (no spaces or hyphens) are allowed. Optionally an ':' can be used to indicate the position of e.g. the German City Seal (https://www.europeanplates.com/information/german-city-codes.html)."
+          "description": "Property. Specific identifier to the referenced observed credential. The credential is specified by observedCredentialType and may be an RFID tag, ticket number from a paystation, license plate number, etc. In case of a licensePlate only alpha numerical values (no spaces or hyphens) are allowed. Optionally an ':' can be used to indicate the position of e.g. the German City Seal (https://www.europeanplates.com/information/german-city-codes.html)."
         },
         "observedCredentialCountry": {
           "type": "string",
-          "description": "Country Code following the 2 character ISO3166 standard (https://www.iban.com/country-codes). Note that the International vehicle registration code should not be used to avoid ambiguity (https://en.wikipedia.org/wiki/International_vehicle_registration_code). If the country-code could not be determined, set 'XX' as for this attribute."
+          "description": "Property. Country Code following the 2 character ISO3166 standard (https://www.iban.com/country-codes). Note that the International vehicle registration code should not be used to avoid ambiguity (https://en.wikipedia.org/wiki/International_vehicle_registration_code). If the country-code could not be determined, set 'XX' as for this attribute."
         },
         "observedCredentialConfidence": {
           "type": "number",
           "minimum": 0,
           "maximum": 1,
-          "description": "The overal confidence of the measurement. This can be vendor specific, but should alwways be rescaled to value between 0 en 1. Use the metadata to indicate how this number should be interpreted. Arvoo: range[0.0, 1.0](higher is better)."
+          "description": "Property. The overal confidence of the measurement. This can be vendor specific, but should alwways be rescaled to value between 0 en 1. Use the metadata to indicate how this number should be interpreted. Arvoo: range[0.0, 1.0](higher is better)."
         },
         "observedCredentialCharacterConfidence": {
           "type": "array",
-          "description": "The confidence of individual character recognition. As with observedCredentialConfidence this is vendor specific. Use the metadata to indicate how the confidences can be interpreted.",
+          "description": "Property. The confidence of individual character recognition. As with observedCredentialConfidence this is vendor specific. Use the metadata to indicate how the confidences can be interpreted.",
           "items": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string"
-              },
-              "value": {
-                "type": "array",
-                "items": {
-                  "type": "number",
-                  "minimum": 0,
-                  "maximum": 1
-                }
-              },
-              "metadata": {
-                "ref": "#/definitions/metadata/properties/confidenceMethod"
-              }
-            }
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
           },
-          "required": [
-            "type",
-            "value",
-            "metadata"
-          ]
-        },
-        "observer": {
+          "metadata": {
+              "ref": "#/definitions/metadata/properties/confidenceMethod"
+          },
+      },     
+      "observer": {
           "type": "string",
-          "description": "The name or identification of the scanning system making the observation recorded in this observation element."
+          "description": "Property. The name or identification of the scanning system making the observation recorded in this observation element."
         },
         "observerDescription": {
           "type": "string",
-          "description": "Free-text description for details of the observation or observer. Can e.g.be used as a friendly name of a specific ANPR scancar."
+          "description": "Property. Free-text description for details of the observation or observer. Can e.g.be used as a friendly name of a specific ANPR scancar."
         },
         "creator": {
           "type": "string",
-          "description": "Id of current driver. XXX misleading name?"
+          "description": "Property. Id of current driver. XXX misleading name?"
         },
         "observerCameras": {
           "type": "array",
-          "description": "Array of camera positions that detected the vehicle.The first camera in the list has the best recognition.Use the following abbreviations to indicate the camera positioning on a car: RF(Right Front), RM(Right Middle), RB(Right Back), LF(Left Front), LM(Left Middle), LB(Left Back). XXX missing items",
+          "description": "Property. Array of camera positions that detected the vehicle.The first camera in the list has the best recognition.Use the following abbreviations to indicate the camera positioning on a car: RF(Right Front), RM(Right Middle), RB(Right Back), LF(Left Front), LM(Left Middle), LB(Left Back). XXX missing items",
           "items": {
             "type": "string"
           }
@@ -115,28 +99,29 @@
         "observationDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "The timestamp the Observation was made (UTC). Mandatory if observationStartDateTime and observationEndDateTime are not used."
+          "description": "Property. The timestamp the Observation was made (UTC). Mandatory if observationStartDateTime and observationEndDateTime are not used."
         },
         "observationStartDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "The date and time of the observation(in UTC)event started.(e.g.a car was observed to enter a delivery zone at 8: 01am). Mandatory if creationDateTime is not used."
+          "description": "Property. The date and time of the observation(in UTC)event started.(e.g.a car was observed to enter a delivery zone at 8: 01am). Mandatory if creationDateTime is not used."
         },
         "observationEndDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "The date and time of the observation event ended(in UTC).(e.g.a car was observed to exit a delivery zone at 9: 33am).Mandatory if creationDateTime is not used."
+          "description": "Property. The date and time of the observation event ended(in UTC).(e.g.a car was observed to exit a delivery zone at 9: 33am). Mandatory if creationDateTime is not used."
         },
         "observerLocation": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons",
+          "description": "Property. GPS position of the person or car equipped with the Camera('s) that produce the observation."
         },
         "observerLocationPDOP": {
           "type": "number",
-          "description": "Accuracy of the GPS position of the observer, expressed as 'Position Dilution Of Precision'(https: //en.wikipedia.org/wiki/Dilution_of_precision_(navigation)). Units:'meters'."
+          "description": "Property. Accuracy of the GPS position of the observer, expressed as 'Position Dilution Of Precision'(https: //en.wikipedia.org/wiki/Dilution_of_precision_(navigation)). Units:'meters'."
         },
         "towardsObserver": {
           "type": "number",
-          "description": "1: Observed vehicle moves in direction of camera, 0: Observed vehicle moves away direction of camera, -1: Observed vehicle direction not detected. XXX missing valid values",
+          "description": "Property. 1: Observed vehicle moves in direction of camera, 0: Observed vehicle moves away direction of camera, -1: Observed vehicle direction not detected. XXX missing valid values",
           "enum": [
             -1,
             0,
@@ -176,11 +161,11 @@
         },
         "observedLocation": {
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons",
-          "description": "GPS position of the middle position of the scanned vehicle."
+          "description": "Property. GPS position of the middle position of the scanned vehicle."
         },
         "observedLocationPDOP": {
           "type": "number",
-          "description": "Accuracy of GPS position of the observed vehicle. This is expressed as 'Position Dilution Of Precision'(https: //en.wikipedia.org/wiki/Dilution_of_precision_(navigation)). Units:' meters'. (UN code 'MTR'). "
+          "description": "Property. Accuracy of GPS position of the observed vehicle. This is expressed as 'Position Dilution Of Precision'(https: //en.wikipedia.org/wiki/Dilution_of_precision_(navigation)). Units:' meters'. (UN code 'MTR'). "
         },
         "observedHeading": {
           "oneOf": [
@@ -197,7 +182,9 @@
               ]
             }
           ],
-          "observerSpeed": {
+          "description": "Property. Denotes the direction of travel of the observer and is specified in decimal degrees, where 0 <= `heading` < 360, counting clockwise relative to the true north.If the vehicle is stationary(i.e. the value of the `speed` attribute is `0`), then the value of the heading attribute must be equal to `-1`. Model: 'https://schema.org/Number'. Units: Degrees (UN code 'DD') "
+        },
+        "observerSpeed": {
             "oneOf": [
               {
                 "type": "number",
@@ -209,10 +196,8 @@
                 "maximum": -1
               }
             ],
-            "description": "Property.Denotes the magnitude of the horizontal component of the observer current velocity and is specified in kilometers per hour.If provided, the value of the speed attribute must be a non - negative real number.`-1` MAY be used if speed is transiently unknown for some reason.Model: 'https://schema.org/Number'.Units: 'KMH' "
+            "description": "Property. Denotes the magnitude of the horizontal component of the observer current velocity and is specified in kilometers per hour. If provided, the value of the speed attribute must be a non - negative real number. `-1` MAY be used if speed is transiently unknown for some reason.Model: 'https://schema.org/Number'. Units: 'KMH' "
           },
-          "description": "Property.Denotes the direction of travel of the observer and is specified in decimal degrees, where 0 <= `heading` < 360, counting clockwise relative to the true north.If the vehicle is stationary(i.e. the value of the `speed` attribute is `0`), then the value of the heading attribute must be equal to `-1`. Model: 'https://schema.org/Number'. Units: Degrees (UN code 'DD') "
-        },
         "observedSpeed": {
           "oneOf": [
             {
@@ -262,11 +247,11 @@
         },
         "observedVehicleColour": {
           "type": "string",
-          "description": "The colour of the observed Vehicle"
+          "description": "Property. The colour of the observed vehicle"
         },
         "observedVehicleMake": {
           "type": "string",
-          "description": "Dhe make of the observed Vehicle"
+          "description": "Property. The make of the observed vehicle"
         },
         "observedVehicleType": {
           "type": "string",
