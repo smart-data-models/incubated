@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.ACRIS/AirportElevation/schema.json",
+    "title": "Smart Data Models - Mapping of ACRIS data model AirportElevation",
+    "description": "Property. The height of an Airport, above sea level.",
+    "modelTags": "ACRIS",
+    "derivedFrom": "https://acris.aero/static/documents/waittimes/ACI-Wait-Times-API-Specification-v1.6.0.1c4ec122da9a.yaml",
+    "license": "https://smart-data-models.github.io/dataModel.Energy/ThreePhaseAcMeasurement/LICENSE.md",
+    "type": "object",
+    "allOf": [
+        {
+            "properties": {
+                "id": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "AirportElevation"
+                    ],
+                    "description": "Property. It must be equal to AirportElevation."
+                },
+                "Name": {
+                    "type": "string",
+                    "description": "Property. The name of an Airport elevation above sea level."
+                },
+                "Value": {
+                    "type": "number",
+                    "description": "Property. The value of an Airport elevation above sea level."
+                },
+                "AirportElevationUnitOfMeasurement": {
+                    "type": "object",
+                    "description": "Property. The unit of measure of the height of an Airport above sea level (FT for foot or M for metre).",
+                    "properties": {
+                        "Name": {
+                            "type": "string",
+                            "description": "Property. The name of the unit of measure for an Airport elevation above sea level."
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ]
+}

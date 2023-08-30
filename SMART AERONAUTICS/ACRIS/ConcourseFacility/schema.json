@@ -1,0 +1,71 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.ACRIS/ConcourseFacility/schema.json",
+    "title": "Smart Data Models - Mapping of ACRIS data model ConcourseFacility",
+    "description": "Property. Information about an Airport Concourse as buildings or infrastructure used to provide services.",
+    "modelTags": "ACRIS",
+    "derivedFrom": "https://acris.aero/static/documents/waittimes/ACI-Wait-Times-API-Specification-v1.6.0.1c4ec122da9a.yaml",
+    "license": "https://smart-data-models.github.io/dataModel.Energy/ThreePhaseAcMeasurement/LICENSE.md",
+    "type": "object",
+    "allOf": [
+        {
+            "properties": {
+                "id": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "ConcourseFacility"
+                    ],
+                    "description": "Property. It must be equal to ConcourseFacility."
+                },
+                "Identifier": {
+                    "description": "Property. Unique identifier for the Concourse Facility.",
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "Property. Unique name for the Concourse Facility.",
+                    "type": "string"
+                },
+                "TerminalFacility": {
+                    "type": "object",
+                    "description": "Property. Information about an Airport Terminal as buildings or infrastructure used to provide services.",
+                    "properties": {
+                        "Identifier": {
+                            "type": "string",
+                            "description": "Property. Unique identifier for the Terminal Facility."
+                        },
+                        "Name": {
+                            "type": "string",
+                            "description": "Property. Unique name for the Terminal Facility."
+                        },
+                        "AirportFacility": {
+                            "type": "object",
+                            "description": "Property. Information about an Airport as buildings or infrastructure used to provide services.",
+                            "properties": {
+                                "IataCode": {
+                                    "description": "Property. Three character IATA code for the Airport.",
+                                    "type": "string"
+                                },
+                                "IcaoCode": {
+                                    "description": "Property. Four character ICAO code for the Airport.",
+                                    "type": "string"
+                                },
+                                "Name": {
+                                    "description": "Property. Common name of the Airport.",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.ACRIS/TerminalAreaLocation/schema.json",
+    "title": "Smart Data Models - Mapping of ACRIS data model TerminalAreaLocation",
+    "description": "Property. The geospatial or geopolitical location of an Airport Terminal building.",
+    "modelTags": "ACRIS",
+    "derivedFrom": "https://acris.aero/static/documents/waittimes/ACI-Wait-Times-API-Specification-v1.6.0.1c4ec122da9a.yaml",
+    "license": "https://smart-data-models.github.io/dataModel.Energy/ThreePhaseAcMeasurement/LICENSE.md",
+    "type": "object",
+    "allOf": [
+        {
+            "properties": {
+                "id": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "TerminalAreaLocation"
+                    ],
+                    "description": "Property. It must be equal to TerminalAreaLocation."
+                },
+                "Name": {
+                    "type": "string",
+                    "description": "Property. Unique name for the Terminal Area Location."
+                },
+                "AirportLocation": {
+                    "type": "object",
+                    "description": "Property. The geospatial or geopolitical location of an Airport.",
+                    "properties": {
+                        "Latitude": {
+                            "description": "Property. Coordinate for latitude of the Airport.",
+                            "type": "number"
+                        },
+                        "Longitude": {
+                            "description": "Property. Coordinate for longitude of the Airport.",
+                            "type": "number"
+                        },
+                        "Name": {
+                            "description": "Property. Unique name for the Airport Location.",
+                            "type": "string"
+                        },
+                        "Srid": {
+                            "description": "Property. A Spatial Reference System Identifier (SRID), to identify the spatial coordinate system definitions.",
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ]
+}

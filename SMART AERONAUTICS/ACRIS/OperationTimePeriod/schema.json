@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.ACRIS/OperationTimePeriod/schema.json",
+    "title": "Smart Data Models - Mapping of ACRIS data model OperationTimePeriod",
+    "description": "Property. The time period over which the Checkpoint is operating.",
+    "modelTags": "ACRIS",
+    "derivedFrom": "https://acris.aero/static/documents/waittimes/ACI-Wait-Times-API-Specification-v1.6.0.1c4ec122da9a.yaml",
+    "license": "https://smart-data-models.github.io/dataModel.Energy/ThreePhaseAcMeasurement/LICENSE.md",
+    "type": "object",
+    "allOf": [
+        {
+            "properties": {
+                "id": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "OperationTimePeriod"
+                    ],
+                    "description": "Property. It must be equal to OperationTimePeriod."
+                },
+                "ClosingTime": {
+                    "description": "Property. The date and time from when the Checkpoint Facility is closed. Date time should be UTC, compliant with ISO 8601 format (e.g. 2023-04-20T11:54:59Z)",
+                    "type": "string"
+                },
+                "OpeningTime": {
+                    "description": "Property. The date and time from when the Checkpoint Facility is open. Date time should be UTC, compliant with ISO 8601 format (e.g. 2023-04-20T11:54:59Z)",
+                    "type": "string"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ]
+}

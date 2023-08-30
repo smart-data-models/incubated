@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.ACRIS/PassengerProcess/schema.json",
+    "title": "Smart Data Models - Mapping of ACRIS data model PassengerProcess",
+    "description": "Property. Information about the Passenger Party Process.",
+    "modelTags": "ACRIS",
+    "derivedFrom": "https://acris.aero/static/documents/waittimes/ACI-Wait-Times-API-Specification-v1.6.0.1c4ec122da9a.yaml",
+    "license": "https://smart-data-models.github.io/dataModel.Energy/ThreePhaseAcMeasurement/LICENSE.md",
+    "type": "object",
+    "allOf": [
+        {
+            "properties": {
+                "id": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "PassengerProcess"
+                    ],
+                    "description": "Property. It must be equal to PassengerProcess."
+                },
+                "Name": {
+                    "description": "Property. Unique name for the Passenger Process.",
+                    "type": "string"
+                },
+                "PassengerProcessType": {
+                    "type": "object",
+                    "description": "Property. Information about the type of Passenger Party Process.",
+                    "properties": {
+                        "Code": {
+                            "type": "string",
+                            "description": "Property. Unique code for the type of Passenger Party Process."
+                        },
+                        "Description": {
+                            "type": "string",
+                            "description": "Property. Description of the type of Passenger Party Process."
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ]
+}

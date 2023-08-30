@@ -1,0 +1,53 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.ACRIS/PaginatedQueueMeasurementList/schema.json",
+    "title": "Smart Data Models - Mapping of ACRIS data model PaginatedQueueMeasurementList",
+    "description": "",
+    "modelTags": "ACRIS",
+    "derivedFrom": "https://acris.aero/static/documents/waittimes/ACI-Wait-Times-API-Specification-v1.6.0.1c4ec122da9a.yaml",
+    "license": "https://smart-data-models.github.io/dataModel.Energy/ThreePhaseAcMeasurement/LICENSE.md",
+    "type": "object",
+    "allOf": [
+        {
+            "properties": {
+                "id": {
+                    "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "PaginatedQueueMeasurementList"
+                    ],
+                    "description": "Property. It must be equal to PaginatedQueueMeasurementList."
+                },
+                "Count": {
+                    "type": "integer",
+                    "example": 123
+                },
+                "Next": {
+                    "type": "string",
+                    "nullable": true,
+                    "format": "uri",
+                    "example": "http://api.example.org/measurements/?page=4"
+                },
+                "Previous": {
+                    "type": "string",
+                    "nullable": true,
+                    "format": "uri",
+                    "example": "http://api.example.org/measurements/?page=2"
+                },
+                "Results": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/components/schemas/QueueMeasurement"
+                    }
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ]
+}
