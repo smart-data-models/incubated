@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "description": "General Product Information",
+  "type": "object",
+  "components": {
+    "schemas": {
+      "urn_samm_BatteryPass_1.0.0_ProductIdentifier": {
+        "type": "string"
+      },
+      "urn_samm_BatteryPass_1.0.0_ProductPassportIdentifierTrait": {
+        "type": "string",
+        "pattern": "\"urn:uuid:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]\""
+      },
+      "urn_samm_BatteryPass_1.0.0_BatteryCategories": {
+        "type": "string",
+        "enum": [
+          "LMT",
+          "EV",
+          "Industrial",
+          "Stationary"
+        ]
+      },
+      "urn_samm_BatteryPass_1.0.0_ManufacturerID": {
+        "type": "string"
+      },
+      "urn_samm_BatteryPass_1.0.0_ManufacturingDate": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "urn_samm_BatteryPass_1.0.0_BatteryStatus": {
+        "type": "string",
+        "description": "Lifecycle status of the battery. Status defined from a list, with the options suggested as follows: 'original', 'repurposed', 'reused', 'remanufactured', 'waste'.",
+        "enum": [
+          "original",
+          "repurposed",
+          "reused",
+          "remanufactured",
+          "waste"
+        ]
+      },
+      "urn_samm_BatteryPass_1.0.0_BatteryWeight": {
+        "type": "number",
+        "description": "Mass of the entire battery in kilograms. Voluntary: if the battery is defined on pack or module level: also weight of the modules and/or cells."
+      },
+      "urn_samm_org.eclipse.esmf.samm_characteristic_2.0.0_Text": {
+        "type": "string",
+        "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc."
+      },
+      "urn_samm_BatteryPass_1.0.0_PostalAddress": {
+        "type": "object",
+        "properties": {
+          "addressCountry": {
+            "$ref": "#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.0.0_Text"
+          },
+          "postalCode": {
+            "$ref": "#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.0.0_Text"
+          },
+          "streetAddress": {
+            "$ref": "#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.0.0_Text"
+          }
+        },
+        "required": [
+          "addressCountry",
+          "postalCode",
+          "streetAddress"
+        ]
+      }
+    }
+  },
+  "properties": {
+    "productIdentifier": {
+      "description": "Unique identifier allowing for the unambiguous identification of each individual battery and hence each corresponding battery passport (exploration of a potential additional battery passport identifier (not requried per Battery Regulation) ongoing).",
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_ProductIdentifier"
+    },
+    "productPassportIdentifier": {
+      "description": "Unique identifer of the battery passport",
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_ProductPassportIdentifierTrait"
+    },
+    "batteryCategory": {
+      "description": "Intended use of the battery.",
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_BatteryCategories"
+    },
+    "manufacturerID": {
+      "description": "Unambiguous identification of the manufacturer of the battery, suggested via a unique operator identifier (as \"unique string of characters for the identification of actors involved in the value chain of products\", ESPR Art. 2(32)). ",
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_ManufacturerID"
+    },
+    "manufacturingDate": {
+      "description": "Manufacturing date (month and year), suggested in form of manufacturing date codes.",
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_ManufacturingDate"
+    },
+    "batteryStatus": {
+      "description": "Lifecycle status of the battery. Status defined from a list, with the options suggested as follows: 'original', 'repurposed', 'reused', 'remanufactured', 'waste'.",
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_BatteryStatus"
+    },
+    "batteryWeight": {
+      "description": "Mass of the entire battery in kilograms. Voluntary: if the battery is defined on pack or module level: also weight of the modules and/or cells.",
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_BatteryWeight"
+    },
+    "manufacturingPlace": {
+      "description": "Unambiguous identification of the manufacturing facility (e.g. country, city, street, building (if needed)), suggested via a unique facility identifier (as \"unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product\", ESPR Art. 2(33)).",
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_PostalAddress"
+    }
+  },
+  "required": [
+    "productIdentifier",
+    "productPassportIdentifier",
+    "batteryCategory",
+    "manufacturerID",
+    "manufacturingDate",
+    "batteryStatus",
+    "batteryWeight",
+    "manufacturingPlace"
+  ]
+}

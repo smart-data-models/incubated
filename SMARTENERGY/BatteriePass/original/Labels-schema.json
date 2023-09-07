@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+  "components": {
+    "schemas": {
+      "urn_samm_org.eclipse.esmf.samm_characteristic_2.0.0_ResourcePath": {
+        "type": "string",
+        "format": "uri",
+        "description": "The path of a resource."
+      },
+      "urn_samm_org.eclipse.digitaltwin_1.0.0_ResourcePath": {
+        "type": "string",
+        "format": "uri",
+        "description": "The path of a resource."
+      },
+      "urn_samm_BatteryPass_1.0.0_IdOfEuDeclarationOfConformity": {
+        "type": "string"
+      },
+      "urn_samm_org.eclipse.esmf.samm_characteristic_2.0.0_MultiLanguageText": {
+        "type": "object",
+        "patternProperties": {
+          "^.*$": {
+            "type": "string"
+          }
+        },
+        "description": "Describes a Property which contains plain text in multiple languages. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc."
+      },
+      "urn_samm_BatteryPass_1.0.0_SeparateCollection": {
+        "description": "Explanation of the meaning of all symbols and labels (including separate collection; cadmium and lead; and carbon footprint and carbon footprint performance class symbols; and symbols and labels printed on batteries or their accompanying documents but not accessible via the battery passport).",
+        "type": "object",
+        "properties": {
+          "separateCollectionSymbol": {
+            "$ref": "#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.0.0_ResourcePath"
+          },
+          "separateCollectionMeaning": {
+            "description": "Explanation of the meaning of all symbols and labels (including separate collection; cadmium and lead; and carbon footprint and carbon footprint performance class symbols; and symbols and labels printed on batteries or their accompanying documents but not accessible via the battery passport).",
+            "$ref": "#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.0.0_MultiLanguageText"
+          }
+        },
+        "required": [
+          "separateCollectionSymbol",
+          "separateCollectionMeaning"
+        ]
+      },
+      "urn_samm_BatteryPass_1.0.0_MaterialSymbol": {
+        "type": "object",
+        "properties": {
+          "materialSymbol": {
+            "description": "Battery containing more than 0.002% cadmium or 0.004% lead to be marked with the symbol(s) for the metal concerned: Cd or Pb (Art. 13(4)).",
+            "$ref": "#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.0.0_ResourcePath"
+          },
+          "materialText": {
+            "description": "Clear text information Battery containing more than 0.002% cadmium or 0.004% lead to be marked with the symbol(s) for the metal concerned: Cd or Pb (Art. 13(4)).",
+            "$ref": "#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.0.0_MultiLanguageText"
+          }
+        },
+        "required": [
+          "materialSymbol",
+          "materialText"
+        ]
+      },
+      "urn_samm_BatteryPass_1.0.0_MaterialSymbols": {
+        "description": "Cadmium and lead symbols indicating the metal is contained in the battery above a defined threshold. To be printed on the physical label and displayed via the battery passport, suggested to be translated also to text to ensure machine readability.",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_MaterialSymbol"
+        },
+        "uniqueItems": true
+      }
+    }
+  },
+  "properties": {
+    "declarationOfConformity": {
+      "description": "URL to EU declaration of conformity signed by responsible economic operators to declare compliance with the regulatory requirements in the context of the market conformity assessment procedure and assume full responsibility.",
+      "$ref": "#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.0.0_ResourcePath"
+    },
+    "resultOfTestReport": {
+      "description": "URL to a document that includes results of tests reports proving compliance in the market conformity assessment procedure with the requirements as per the technical documentation (Art. 7-10, Art. 12-14 and due diligence policies ).",
+      "$ref": "#/components/schemas/urn_samm_org.eclipse.digitaltwin_1.0.0_ResourcePath"
+    },
+    "idOfEuDeclarationOfConformity": {
+      "description": "Identification number of the EU declaration of conformity of the battery, linked to the  Battery Carbon Footprint Declaration.",
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_IdOfEuDeclarationOfConformity"
+    },
+    "separateCollection": {
+      "description": "'Separate collection' or 'WEEE label' indicating that a product should not be discarded as unsorted waste but must be sent to separate collection facilities for recovery and recycling. To be printed on the physical label and displayed via the battery passport, suggested to be translated also to text to ensure machine readability.",
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_SeparateCollection"
+    },
+    "materialSymbols": {
+      "$ref": "#/components/schemas/urn_samm_BatteryPass_1.0.0_MaterialSymbols"
+    }
+  },
+  "required": [
+    "declarationOfConformity",
+    "resultOfTestReport",
+    "idOfEuDeclarationOfConformity",
+    "separateCollection",
+    "materialSymbols"
+  ]
+}
