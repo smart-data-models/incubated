@@ -1,374 +1,179 @@
 {
-  "$schema": "http://json-schema.org/schema#",
-  "$schemaVersion": "0.0.1",
-  "modelTags": "I4trust, SmartEDIPort",
-  "derivedFrom": "",
-  "license": "",
-  "$id": "https://smart-data-models.github.io/dataModels.Ports/EdiCodeco/schema.json",
-  "title": "Smart Data models EDI Codeco schema",
-  "description": "A message by which a terminal, depot, etc. confirms that the containers specified have been delivered or picked up by the inland carrier (road, rail or barge). This message can also be used to report internal terminal container movements (excluding loading and discharging the vessel) and to report the change in status of container(s) without those containers having physically been moved. See [UN/EDIFACT - CODECO](https://service.unece.org/trade/untdid/d19a/trmd/codeco_c.htm)",
-  "type": "object",
-  "allOf": [
-    {
-      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
-    },
-    {
-      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-    },
-    {
-      "properties": {
-        "type": {
-          "type": "string",
-          "description": "Property. NGSI Entity type. It has to be EDICodeco",
-          "enum": [
-            "EDICodeco"
-          ]
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "",
+    "derivedFrom": "",
+    "license": "",
+    "$id":"https://smart-data-models.github.io/dataModels.Ports/EdiCodeco/schema.json",
+    "title": "Smart Data models EDI Codeco schema",
+    "description": "A message by which a terminal, depot, etc. confirms that the containers specified have been delivered or picked up by the inland carrier (road, rail or barge). This message can also be used to report internal terminal container movements (excluding loading and discharging the vessel) and to report the change in status of container(s) without those containers having physically been moved. See [UN/EDIFACT - CODECO](https://service.unece.org/trade/untdid/d19a/trmd/codeco_c.htm)",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
         },
-        "senderIdentification": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Interchange Sender Identification. See [UN/EDIFACT - S002](https://unece.org/trade/uncefact/unedifact/part-4-Annex-B)"
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
         },
-        "receiverIdentification": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Interchange Recipient Identification. See [UN/EDIFACT - S003](https://unece.org/trade/uncefact/unedifact/part-4-Annex-B)"
-        },
-        "sentAt": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Property. Model:'https://schema.org/Text'. Date and time of message has been sent represented by an ISO 8601 UTC format. See [UN/EDIFACT - S004](https://unece.org/trade/uncefact/unedifact/part-4-Annex-B)"
-        },
-        "versionMessage": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Version of the message type. See [UNTDID - D.95B - UNH - S009 (0052)](https://service.unece.org/trade/untdid/d95b/trmd/codeco_d.htm#DSGI)"
-        },
-        "release": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Release number within current version number. See [UNTDID - D.95B - UNH - S009 (0054)](https://service.unece.org/trade/untdid/d95b/trmd/codeco_d.htm#DSGI)"
-        },
-        "fileName": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. File name of EDI Codeco message"
-        },
-        "functionCode": {
-          "type": "string",
-          "enum": [
-            "Addition",
-            "Advance notification",
-            "Cancellation",
-            "Change",
-            "Confirmation",
-            "Deletion",
-            "Duplicate",
-            "Not found",
-            "Not processed",
-            "Original",
-            "Proposal",
-            "Replace",
-            "Reminder",
-            "Response",
-            "Request",
-            "Status"
-          ],
-          "description": "Property. Model:'https://schema.org/Text'. Code indicating the function of the message. Enum='Cancellation, Addition, Deletion, Change, Replace,Confirmation, Duplicate, Status, Original, Not found, Response, Not processed, Request, Advance notification, Reminder, Proposal'. See [UNTDID - D.95B - BGM - 1225](https://service.unece.org/trade/untdid/d95b/uncl/uncl1225.htm)"
-        },
-        "rawMessage": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Raw message of the EDI Codeco"
-        },
-        "operationType": {
-          "type": "string",
-          "enum": [
-            "Place of terms of delivery",
-            "Payment place",
-            "Goods receipt place",
-            "Place of departure",
-            "Place of delivery",
-            "Place of destination",
-            "Place/port of loading",
-            "Place of acceptance",
-            "Place/port of discharge",
-            "Port of discharge",
-            "Place of transhipment",
-            "Location of goods",
-            "Place of transfer responsibility",
-            "Place of transfer of ownership",
-            "Border crossing place",
-            "Warehouse",
-            "Factory/plant",
-            "Place of ultimate destination of goods",
-            "Terms of sale place",
-            "Customs office of clearance",
-            "Port of release",
-            "Port of entry",
-            "Country",
-            "City",
-            "Country of origin",
-            "Country of destination of goods",
-            "Railway station",
-            "Country of source",
-            "Building",
-            "Beginning of chargeable section",
-            "Baseport of discharge",
-            "Baseport of loading",
-            "Country of exportation/despatch",
-            "Country of ultimate destination",
-            "Country of last consignment",
-            "Country of first destination",
-            "Country of production",
-            "Country of trading",
-            "Customs office of entry",
-            "Customs office of exit",
-            "Place of Customs examination",
-            "Place of authentication of document",
-            "Customs office of destination (transit)",
-            "Region of despatch",
-            "Region of destination",
-            "Region of production",
-            "Country of transit",
-            "Customs office of transit",
-            "Country of invalid transit guarantee",
-            "Country of destination (transit)",
-            "Charge and freight due from",
-            "Manufacturing department",
-            "Charges and freight payable to",
-            "End of chargeable section",
-            "Place of payment",
-            "Full track loading or unloading",
-            "Place of arrival",
-            "Next port of call",
-            "On-carriage port",
-            "First optional place of discharge",
-            "Express railway station",
-            "Mixed cargo railway station",
-            "Second optional place of discharge",
-            "Next non-discharge port of call",
-            "Third optional place of discharge",
-            "Reconsolidation point",
-            "Fourth optional place of discharge",
-            "Bill of lading release office",
-            "Transhipment excluding this place",
-            "Transhipment limited to this place",
-            "Original port of loading",
-            "First port of call - non-discharging",
-            "First port of call - discharging",
-            "Place/port of first entry",
-            "Place of despatch",
-            "Fifth optional place of discharge",
-            "Pre-carriage port",
-            "Place of delivery (by on carriage)",
-            "Transport contract place of acceptance",
-            "Transport contract place of destination",
-            "Country of valid transit guarantee",
-            "Place/port of conveyance initial arrival",
-            "Place of receipt",
-            "Place of registration",
-            "Place/location where special treatments have happened or must happen",
-            "Place of document issue",
-            "Routing",
-            "Station of application of additional costs",
-            "Place of lodgement of documents",
-            "Optional place of discharge",
-            "Place of empty equipment despatch",
-            "Place of empty equipment return",
-            "Place/port of warehouse entry",
-            "Country of first sale",
-            "Country of purchase",
-            "Place of transfer",
-            "Place of deconsolidation",
-            "Place of consumption",
-            "Region of origin",
-            "Place of consolidation",
-            "Rate combination point",
-            "Place of prolongation decision of delivery delay",
-            "Recharging place/location",
-            "Customs office of despatch",
-            "Country of despatch",
-            "Customs office of export",
-            "Free zone of export",
-            "Region of export/despatch",
-            "Customs office of departure",
-            "Customs office of transit guarantee",
-            "Country of transhipment",
-            "Country of sale",
-            "Customs office of destination",
-            "Wagon-load railway station",
-            "Siding",
-            "Last place/port of call of conveyance",
-            "Country of previous Customs procedure",
-            "Customs office of registration of previous Customs declaration",
-            "Participant sender location",
-            "Wage negotiation district",
-            "Place of ultimate destination of conveyance",
-            "Place of loading of empty equipment",
-            "Place of discharge of empty equipment",
-            "Region of delivery",
-            "Petroleum warehouse",
-            "Place of entry (Customs)",
-            "Living animals care place",
-            "Re-icing place",
-            "Weighting place",
-            "Marshalling yard",
-            "Shopping station",
-            "Loading dock",
-            "Port connection",
-            "Place of expiry",
-            "Place of negotiation",
-            "Claims payable place",
-            "Documentary credit available in",
-            "Stowage cell",
-            "For transportation to",
-            "Loading on board/despatch/taking in charge at/from",
-            "Private box",
-            "Next port of discharge",
-            "Port of call",
-            "Place/location of on-hire",
-            "Place/location of off-hire",
-            "Other carriers terminal",
-            "Country of Value Added Tax (VAT) jurisdiction",
-            "Contact location",
-            "Additional internal destination",
-            "Foreign port of call",
-            "Maintenance location"
-          ],
-          "description": "Property. Model:'https://schema.org/Text'. Code identifying the function of a location. Enum: 'Place of terms of delivery,Payment place,Goods receipt place,Place of departure,Place of delivery,Place of destination,Place/port of loading,Place of acceptance,Place/port of discharge,Port of discharge,Place of transhipment,Location of goods,Place of transfer responsibility,Place of transfer of ownership,Border crossing place,Warehouse,Factory/plant,Place of ultimate destination of goods,Terms of sale place,Customs office of clearance,Port of release,Port of entry,Country,City,Country of origin,Country of destination of goods,Railway station,Country of source,Building,Beginning of chargeable section,Baseport of discharge,Baseport of loading,Country of exportation/despatch,Country of ultimate destination,Country of last consignment,Country of first destination,Country of production,Country of trading,Customs office of entry,Customs office of exit,Place of Customs examination,Place of authentication of document,Customs office of destination (transit),Region of despatch,Region of destination,Region of production,Country of transit,Customs office of transit,Country of invalid transit guarantee,Country of destination (transit),Charge and freight due from,Manufacturing department,Charges and freight payable to,End of chargeable section,Place of payment,Full track loading or unloading,Place of arrival,Next port of call,On-carriage port,First optional place of discharge,Express railway station,Mixed cargo railway station,Second optional place of discharge,Next non-discharge port of call,Third optional place of discharge,Reconsolidation point,Fourth optional place of discharge,Bill of lading release office,Transhipment excluding this place,Transhipment limited to this place,Original port of loading,First port of call - non-discharging,First port of call - discharging,Place/port of first entry,Place of despatch,Fifth optional place of discharge,Pre-carriage port,Place of delivery (by on carriage),Transport contract place of acceptance,Transport contract place of destination,Country of valid transit guarantee,Place/port of conveyance initial arrival,Place of receipt,Place of registration,Place/location where special treatments have happened or must happen,Place of document issue,Routing,Station of application of additional costs,Place of lodgement of documents,Optional place of discharge,Place of empty equipment despatch,Place of empty equipment return,Place/port of warehouse entry,Country of first sale,Country of purchase,Place of transfer,Place of deconsolidation,Place of consumption,Region of origin,Place of consolidation,Rate combination point,Place of prolongation decision of delivery delay,Recharging place/location,Customs office of despatch,Country of despatch,Customs office of export,Free zone of export,Region of export/despatch,Customs office of departure,Customs office of transit guarantee,Country of transhipment,Country of sale,Customs office of destination,Wagon-load railway station,Siding,Last place/port of call of conveyance,Country of previous Customs procedure,Customs office of registration of previous Customs declaration,Participant sender location,Wage negotiation district,Place of ultimate destination of conveyance,Place of loading of empty equipment,Place of discharge of empty equipment,Region of delivery,Petroleum warehouse,Place of entry (Customs),Living animals care place,Re-icing place,Weighting place,Marshalling yard,Shopping station,Loading dock,Port connection,Place of expiry,Place of negotiation,Claims payable place,Documentary credit available in,Stowage cell,For transportation to,Loading on board/despatch/taking in charge at/from,Private box,Next port of discharge,Port of call,Place/location of on-hire,Place/location of off-hire,Other carriers terminal,Country of Value Added Tax (VAT) jurisdiction,Contact location,Additional internal destination,Foreign port of call,Maintenance location'. See [UNTDID - D.95B - Segment TDT - LOC - 3227](https://service.unece.org/trade/untdid/d95b/uncl/uncl3227.htm)"
-        },
-        "destinationTransportType": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Method of transport code (UN/ECE). See [UNTDID - D.95B - Segment TDT - C220 (8067)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8067.htm) and [UN/ECE - Rec 19](https://unece.org/trade/uncefact/cl-recommendations)"
-        },
-        "vesselImo": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. International Maritime Organization Number (a global forever UID). See [UNTDID - D.95B - Segment TDT - C222 (8213)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8213.htm)"
-        },
-        "vesselMmsi": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Marine Mobile Service Identity Number (a temporarily assigned UID, issued by that object's current flag state). See [UNTDID - D.95B - Segment TDT - C222 (8213)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8213.htm)"
-        },
-        "vesselName": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Vessel Name. See [UNTDID - D.95B - Segment TDT - C222 (8212)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8212.htm)"
-        },
-        "vesselCallSign": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Maritime call signs are call signs assigned as unique identifiers to vessels. See [UNTDID - D.95B - Segment TDT - C222 (8213)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8213.htm)"
-        },
-        "vesselVoyage": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Reference number of vessel voyage. See [UNTDID - D.95B - Segment RFF - C506 (1154)](https://service.unece.org/trade/untdid/d95b/uncl/uncl1154.htm)"
-        },
-        "vesselCarrier": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Vessel carrier Identification (identification of party undertaking or arranging transport of goods between named points). See [UNTDID - D.95B - Segment TDT - C040 (3127)](https://service.unece.org/trade/untdid/d95b/uncl/uncl3127.htm)"
-        },
-        "originTransportType": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Method of transport code (UN/ECE). See [UNTDID - D.95B - Segment TDT - C220 (8067)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8067.htm) and [UN/ECE - Rec 19](https://unece.org/trade/uncefact/cl-recommendations)"
-        },
-        "truckLicenseCode": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. License Plate of the Truck. See [UNTDID - D.95B - Segment TDT - C222 (8213)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8213.htm)"
-        },
-        "bookingCode": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Booking Reference. See [UNTDID - D.95B - Segment RFF - C506 (1154)](https://service.unece.org/trade/untdid/d95b/uncl/uncl1154.htm)"
-        },
-        "containerIdentification": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Containter identification. See [UNTDID - D.95B - Segment EQD - C237 (8260)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8260.htm)"
-        },
-        "containerIsoCode": {
-          "type": "string",
-          "enum": [
-            "Dime coated tank",
-            "Epoxy coated tank",
-            "IMO1",
-            "IMO2",
-            "IMO3",
-            "Pressurized tank",
-            "Refrigerated tank",
-            "Semi-refrigerated",
-            "Stainless steel tank",
-            "Nonworking reefer container 40 ft",
-            "Box pallet",
-            "Europallet",
-            "Scandinavian pallet",
-            "Trailer",
-            "Nonworking reefer container 20 ft",
-            "Exchangeable pallet",
-            "Semi-trailer",
-            "Tank container 20 ft",
-            "Tank container 30 ft",
-            "Tank container 40 ft",
-            "Container IC 20 ft",
-            "Container IC 30 ft",
-            "Container IC 40 ft",
-            "Refrigerator tank 20 ft",
-            "Refrigerator tank 30 ft",
-            "Refrigerator tank 40 ft",
-            "Tank container IC 20 ft",
-            "Tank container IC 30 ft",
-            "Tank container IC 40 ft",
-            "Refrigerator tank IC 20 ft",
-            "Refrigerator tank IC 40 ft",
-            "Movable case: L < 6,15m",
-            "Movable case: 6,15m < L < 7,82m",
-            "Movable case: 7,82m < L < 9,15m",
-            "Movable case: 9,15m < L < 10,90m",
-            "Movable case: 10,90m < L < 13,75m",
-            "Totebin",
-            "Temperature controlled container 20 ft",
-            "Temperature controlled container 40 ft"
-          ],
-          "description": "Property. Model:'https://schema.org/Text'. Coded description of the size and type of equipment. Enum 'Dime coated tank,Epoxy coated tank,IMO1,IMO2,IMO3,Pressurized tank,Refrigerated tank,Semi-refrigerated,Stainless steel tank,Nonworking reefer container 40 ft,Box pallet,Europallet,Scandinavian pallet,Trailer,Nonworking reefer container 20 ft,Exchangeable pallet,Semi-trailer,Tank container 20 ft,Tank container 30 ft,Tank container 40 ft,Container IC 20 ft,Container IC 30 ft,Container IC 40 ft,Refrigerator tank 20 ft,Refrigerator tank 30 ft,Refrigerator tank 40 ft,Tank container IC 20 ft,Tank container IC 30 ft,Tank container IC 40 ft,Refrigerator tank IC 20 ft,Refrigerator tank IC 40 ft,Movable case: L < 6,15m,Movable case: 6,15m < L < 7,82m,Movable case: 7,82m < L < 9,15m,Movable case: 9,15m < L < 10,90m,Movable case: 10,90m < L < 13,75m,Totebin,Temperature controlled container 20 ft,Temperature controlled container 40 ft'. See [UNTDID - D.95B - Segment EQD - C224 (8155)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8155.htm)"
-        },
-        "containerCarrierIdentification": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Code identifying a party involved in a transaction. See [UNTDID - D.95B - Segment NAD - C082 (3039)](https://service.unece.org/trade/untdid/d95b/uncl/uncl3039.htm)"
-        },
-        "containerClass": {
-          "type": "string",
-          "enum": [
-            "Continental",
-            "Export",
-            "Import",
-            "Remain on board",
-            "Shifter",
-            "Transhipment"
-          ],
-          "description": "Property. Model:'https://schema.org/Text'. Container class (indication of the action related to the equipment). Enum: 'Continental, Export, Import,Remain on board,Shifter,Transhipment'. See [UNTDID - D.95B - Segment EQD - 8249](https://service.unece.org/trade/untdid/d95b/uncl/uncl8249.htm)"
-        },
-        "containerWeight": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Weight of the container. Units: KGM. See [UNTDID - D.95B - Segment MEA - C174 (6314)](https://service.unece.org/trade/untdid/d95b/uncl/uncl6314.htm)"
-        },
-        "containerSeal": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. The number of a custom seal or another seal affixed to the containers. See [UNTDID - D.95B - Segment SEL - 9308](https://service.unece.org/trade/untdid/d95b/uncl/uncl9308.htm)"
-        },
-        "isContainerEmpty": {
-          "type": "boolean",
-          "description": "Property. Model:'https://schema.org/Boolean'. Information about if the container is full or empty. See [UNTDID - D.95B - Segment EQD - 8169](https://service.unece.org/trade/untdid/d95b/uncl/uncl8169.htm)"
-        },
-        "loadingPort": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Port where the container is loaded (UN/LOCODE: United Nations Code for Trade and Transport Locations). See [UNTDID - D.95B - Segment LOC - C517 (3225)](https://service.unece.org/trade/untdid/d95b/uncl/uncl3225.htm) and [UN/LOCODE](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)"
-        },
-        "dischargingPort": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Port where the container is discharged (UN/LOCODE: United Nations Code for Trade and Transport Locations). See [UNTDID - D.95B - Segment LOC - C517 (3225)](https://service.unece.org/trade/untdid/d95b/uncl/uncl3225.htm) and [UN/LOCODE](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)"
-        },
-        "destination": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Final destination of the container (UN/LOCODE: United Nations Code for Trade and Transport Locations). See [UNTDID - D.95B - Segment LOC - C517 (3225)](https://service.unece.org/trade/untdid/d95b/uncl/uncl3225.htm) and [UN/LOCODE](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)"
-        },
-        "ata": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Property. Model:'https://schema.org/Text'. Actual time of arrival or departure to/from Terminal. (ISO 8601 UTC format). See [UNTDID - D.95B - Segment DTM - C507 (2380)](https://service.unece.org/trade/untdid/d95b/uncl/uncl2380.htm)"
-        },
-        "travelReference": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Conveyance reference number. See [UNTDID - D.95B - Segment TDT - 8028](https://service.unece.org/trade/untdid/d95b/uncl/uncl8028.htm)"
+        {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Property. Unique identifier of the entity"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI Entity type. It has to be EDICodeco",
+                    "enum": [
+                        "EDICodeco"
+                    ]
+                },
+                "senderIdentification": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Interchange Sender Identification. See [UN/EDIFACT - S002](https://unece.org/trade/uncefact/unedifact/part-4-Annex-B)"
+                },
+                "receiverIdentification": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Interchange Recipient Identification. See [UN/EDIFACT - S003](https://unece.org/trade/uncefact/unedifact/part-4-Annex-B)"
+                },
+                "sentAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'https://schema.org/Text'. Date and time of message has been sent represented by an ISO 8601 UTC format. See [UN/EDIFACT - S004](https://unece.org/trade/uncefact/unedifact/part-4-Annex-B)"
+                },
+                "messageVersion": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Version of the message type. See [UNTDID - D.95B - UNH - S009 (0052)](https://service.unece.org/trade/untdid/d95b/trmd/codeco_d.htm#DSGI)"
+                },
+                "release": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Release number within current version number. See [UNTDID - D.95B - UNH - S009 (0054)](https://service.unece.org/trade/untdid/d95b/trmd/codeco_d.htm#DSGI)"
+                },
+                "fileName": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. File name of EDI Codeco message"
+                },
+                "functionCode": {
+                    "type": "string",
+                    "enum": ["Cancellation", "Addition", "Deletion", "Change", "Replace", "Confirmation", "Duplicate", "Status", "Original", "Not found", "Response", "Not processed", "Request", "Advance notification", "Reminder", "Proposal", "Cancel, to be reissued", "Reissue", "Seller initiated change", "Replace heading section only", "Replace item detail and summary only", "Final transmission", "Transaction on hold", "Delivery instruction", "Forecast", "Delivery instruction and forecast", "Not accepted", "Accepted, with amendment in heading section", "Accepted without amendment", "Accepted, with amendment in detail section", "Copy", "Approval", "Change in heading section", "Accepted with amendment", "Retransmission", "Change in detail section", "Reversal of a debit", "Reversal of a credit", "Reversal for cancellation", "Request for deletion", "Finishing/closing order", "Confirmation via specific means", "Additional transmission", "Accepted without reserves", "Accepted with reserves", "Provisional", "Definitive", "Accepted, contents rejected", "Settled dispute", "Withdraw", "Authorisation", "Proposed amendment", "Test"],
+                    "description": "Property. Model:'https://schema.org/Text'. Code indicating the function of the message. Enum='Cancellation, Addition, Deletion, Change, Replace, Confirmation, Duplicate, Status, Original, Not found, Response, Not processed, Request, Advance notification, Reminder, Proposal, Cancel, to be reissued, Reissue, Seller initiated change, Replace heading section only, Replace item detail and summary only, Final transmission, Transaction on hold, Delivery instruction, Forecast, Delivery instruction and forecast, Not accepted, Accepted, with amendment in heading section, Accepted without amendment, Accepted, with amendment in detail section, Copy, Approval, Change in heading section, Accepted with amendment, Retransmission, Change in detail section, Reversal of a debit, Reversal of a credit, Reversal for cancellation, Request for deletion, Finishing/closing order, Confirmation via specific means, Additional transmission, Accepted without reserves, Accepted with reserves, Provisional, Definitive, Accepted, contents rejected, Settled dispute, Withdraw, Authorisation, Proposed amendment, Test'. See [UNTDID - D.95B - BGM - 1225](https://service.unece.org/trade/untdid/d95b/uncl/uncl1225.htm)"
+                },
+                "messageRaw": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Raw message of the EDI Codeco"
+                },
+                "operationType": {
+                    "type": "string",
+                    "enum": ["Place of terms of delivery", "Payment place", "Goods receipt place", "Place of departure", "Place of delivery", "Place of destination", "Place/port of loading", "Place of acceptance", "Place/port of discharge", "Port of discharge", "Place of transhipment", "Location of goods", "Place of transfer responsibility", "Place of transfer of ownership", "Border crossing place", "Warehouse", "Factory/plant", "Place of ultimate destination of goods", "Terms of sale place", "Customs office of clearance", "Port of release", "Port of entry", "Country", "City", "Country of origin", "Country of destination of goods", "Railway station", "Country of source", "Building", "Beginning of chargeable section", "Baseport of discharge", "Baseport of loading", "Country of exportation/despatch", "Country of ultimate destination", "Country of last consignment", "Country of first destination", "Country of production", "Country of trading", "Customs office of entry", "Customs office of exit", "Place of Customs examination", "Place of authentication of document", "Customs office of destination (transit)", "Region of despatch", "Region of destination", "Region of production", "Country of transit", "Customs office of transit", "Country of invalid transit guarantee", "Country of destination (transit)", "Charge and freight due from", "Manufacturing department", "Charges and freight payable to", "End of chargeable section", "Place of payment", "Full track loading or unloading", "Place of arrival", "Next port of call", "On-carriage port", "First optional place of discharge", "Express railway station", "Mixed cargo railway station", "Second optional place of discharge", "Next non-discharge port of call", "Third optional place of discharge", "Reconsolidation point", "Fourth optional place of discharge", "Bill of lading release office", "Transhipment excluding this place", "Transhipment limited to this place", "Original port of loading", "First port of call - non-discharging", "First port of call - discharging", "Place/port of first entry", "Place of despatch", "Fifth optional place of discharge", "Pre-carriage port", "Place of delivery (by on carriage)", "Transport contract place of acceptance", "Transport contract place of destination", "Country of valid transit guarantee", "Place/port of conveyance initial arrival", "Place of receipt", "Place of registration", "Place/location where special treatments have happened or must happen", "Place of document issue", "Routing", "Station of application of additional costs", "Place of lodgement of documents", "Optional place of discharge", "Place of empty equipment despatch", "Place of empty equipment return", "Place/port of warehouse entry", "Country of first sale", "Country of purchase", "Place of transfer", "Place of deconsolidation", "Place of consumption", "Region of origin", "Place of consolidation", "Rate combination point", "Place of prolongation decision of delivery delay", "Recharging place/location", "Customs office of despatch", "Country of despatch", "Customs office of export", "Free zone of export", "Region of export/despatch", "Customs office of departure", "Customs office of transit guarantee", "Country of transhipment", "Country of sale", "Customs office of destination", "Wagon-load railway station", "Siding", "Last place/port of call of conveyance", "Country of previous Customs procedure", "Customs office of registration of previous Customs declaration", "Participant sender location", "Wage negotiation district", "Place of ultimate destination of conveyance", "Place of loading of empty equipment", "Place of discharge of empty equipment", "Region of delivery", "Petroleum warehouse", "Place of entry (Customs)", "Living animals care place", "Re-icing place", "Weighting place", "Marshalling yard", "Shopping station", "Loading dock", "Port connection", "Place of expiry", "Place of negotiation", "Claims payable place", "Documentary credit available in", "Stowage cell", "For transportation to", "Loading on board/despatch/taking in charge at/from", "Private box", "Next port of discharge", "Port of call", "Place/location of on-hire", "Place/location of off-hire", "Other carriers terminal", "Country of Value Added Tax (VAT) jurisdiction", "Contact location", "Additional internal destination", "Foreign port of call", "Maintenance location", "Mutually defined"],
+                    "description": "Property. Model:'https://schema.org/Text'. Code identifying the function of a location. Enum: 'Place of terms of delivery, Payment place, Goods receipt place, Place of departure, Place of delivery, Place of destination, Place/port of loading, Place of acceptance, Place/port of discharge, Port of discharge, Place of transhipment, Location of goods, Place of transfer responsibility, Place of transfer of ownership, Border crossing place, Warehouse, Factory/plant, Place of ultimate destination of goods, Terms of sale place, Customs office of clearance, Port of release, Port of entry, Country, City, Country of origin, Country of destination of goods, Railway station, Country of source, Building, Beginning of chargeable section, Baseport of discharge, Baseport of loading, Country of exportation/despatch, Country of ultimate destination, Country of last consignment, Country of first destination, Country of production, Country of trading, Customs office of entry, Customs office of exit, Place of Customs examination, Place of authentication of document, Customs office of destination (transit), Region of despatch, Region of destination, Region of production, Country of transit, Customs office of transit, Country of invalid transit guarantee, Country of destination (transit), Charge and freight due from, Manufacturing department, Charges and freight payable to, End of chargeable section, Place of payment, Full track loading or unloading, Place of arrival, Next port of call, On-carriage port, First optional place of discharge, Express railway station, Mixed cargo railway station, Second optional place of discharge, Next non-discharge port of call, Third optional place of discharge, Reconsolidation point, Fourth optional place of discharge, Bill of lading release office, Transhipment excluding this place, Transhipment limited to this place, Original port of loading, First port of call - non-discharging, First port of call - discharging, Place/port of first entry, Place of despatch, Fifth optional place of discharge, Pre-carriage port, Place of delivery (by on carriage), Transport contract place of acceptance, Transport contract place of destination, Country of valid transit guarantee, Place/port of conveyance initial arrival, Place of receipt, Place of registration, Place/location where special treatments have happened or must happen, Place of document issue, Routing, Station of application of additional costs, Place of lodgement of documents, Optional place of discharge, Place of empty equipment despatch, Place of empty equipment return, Place/port of warehouse entry, Country of first sale, Country of purchase, Place of transfer, Place of deconsolidation, Place of consumption, Region of origin, Place of consolidation, Rate combination point, Place of prolongation decision of delivery delay, Recharging place/location, Customs office of despatch, Country of despatch, Customs office of export, Free zone of export, Region of export/despatch, Customs office of departure, Customs office of transit guarantee, Country of transhipment, Country of sale, Customs office of destination, Wagon-load railway station, Siding, Last place/port of call of conveyance, Country of previous Customs procedure, Customs office of registration of previous Customs declaration, Participant sender location, Wage negotiation district, Place of ultimate destination of conveyance, Place of loading of empty equipment, Place of discharge of empty equipment, Region of delivery, Petroleum warehouse, Place of entry (Customs), Living animals care place, Re-icing place, Weighting place, Marshalling yard, Shopping station, Loading dock, Port connection, Place of expiry, Place of negotiation, Claims payable place, Documentary credit available in, Stowage cell, For transportation to, Loading on board/despatch/taking in charge at/from, Private box, Next port of discharge, Port of call, Place/location of on-hire, Place/location of off-hire, Other carriers terminal, Country of Value Added Tax (VAT) jurisdiction, Contact location, Additional internal destination, Foreign port of call, Maintenance location Mutually defined'. See [UNTDID - D.95B - Segment TDT - LOC - 3227](https://service.unece.org/trade/untdid/d95b/uncl/uncl3227.htm)"
+                },
+                "destinationTransportType": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Method of transport code (UN/ECE). See [UNTDID - D.95B - Segment TDT - C220 (8067)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8067.htm) and [UN/ECE - Rec 19](https://unece.org/trade/uncefact/cl-recommendations)"
+                },
+                "vesselImo": {
+                    "type": "number",
+                    "description": "Property. Model:'https://schema.org/Number'. International Maritime Organization Number (a global forever UID). See [UNTDID - D.95B - Segment TDT - C222 (8213)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8213.htm)"
+                },
+                "vesselMmsi": {
+                    "type": "number",
+                    "description": "Property. Model:'https://schema.org/Number'. Marine Mobile Service Identity Number (a temporarily assigned UID, issued by that object's current flag state). See [UNTDID - D.95B - Segment TDT - C222 (8213)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8213.htm)"
+                },
+                "vesselName": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Vessel Name. See [UNTDID - D.95B - Segment TDT - C222 (8212)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8212.htm)"
+                },
+                "vesselCallSign": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Maritime call signs are call signs assigned as unique identifiers to vessels. See [UNTDID - D.95B - Segment TDT - C222 (8213)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8213.htm)"
+                },
+                "vesselVoyage": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Reference number of vessel voyage. See [UNTDID - D.95B - Segment RFF - C506 (1154)](https://service.unece.org/trade/untdid/d95b/uncl/uncl1154.htm)"
+                },
+                "vesselCarrier": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Vessel carrier Identification (identification of party undertaking or arranging transport of goods between named points). See [UNTDID - D.95B - Segment TDT - C040 (3127)](https://service.unece.org/trade/untdid/d95b/uncl/uncl3127.htm)"
+                },
+                "originTransportType": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Method of transport code (UN/ECE). See [UNTDID - D.95B - Segment TDT - C220 (8067)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8067.htm) and [UN/ECE - Rec 19](https://unece.org/trade/uncefact/cl-recommendations)"
+                },
+                "truckLicenseCode": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. License Plate of the Truck. See [UNTDID - D.95B - Segment TDT - C222 (8213)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8213.htm)"
+                },
+                "bookingCode": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Booking Reference. See [UNTDID - D.95B - Segment RFF - C506 (1154)](https://service.unece.org/trade/untdid/d95b/uncl/uncl1154.htm)"
+                },
+                "containerIdentification": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Containter identification. See [UNTDID - D.95B - Segment EQD - C237 (8260)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8260.htm)"
+                },
+                "containerIsoCode": {
+                    "type": "string",
+                    "enum": ["Dime coated tank","Epoxy coated tank","IMO1","IMO2","IMO3","Pressurized tank","Refrigerated tank","Semi-refrigerated","Stainless steel tank","Nonworking reefer container 40 ft","Box pallet","Europallet","Scandinavian pallet","Trailer","Nonworking reefer container 20 ft","Exchangeable pallet","Semi-trailer","Tank container 20 ft.","Tank container 30 ft.","Tank container 40 ft.","Container IC 20 ft.","Container IC 30 ft.","Container IC 40 ft.","Refrigerator tank 20 ft.","Refrigerator tank 30 ft.","Refrigerator tank 40 ft.","Tank container IC 20 ft.","Tank container IC 30 ft.","Tank container IC 40 ft.","Refrigerator tank IC 20 ft.","Refrigerator tank IC 40 ft.","Movable case: L < 6,15m","Movable case: 6,15m < L < 7,82m","Movable case: 7,82m < L < 9,15m","Movable case: 9,15m < L < 10,90m","Movable case: 10,90m < L < 13,75m","Totebin","Temperature controlled container 20 ft","Temperature controlled container 40 ft"],
+                    "description": "Property. Model:'https://schema.org/Text'. Coded description of the size and type of equipment. Enum 'Dime coated tank,Epoxy coated tank,IMO1,IMO2,IMO3,Pressurized tank,Refrigerated tank,Semi-refrigerated,Stainless steel tank,Nonworking reefer container 40 ft,Box pallet,Europallet,Scandinavian pallet,Trailer,Nonworking reefer container 20 ft,Exchangeable pallet,Semi-trailer,Tank container 20 ft.,Tank container 30 ft.,Tank container 40 ft.,Container IC 20 ft.,Container IC 30 ft.,Container IC 40 ft.,Refrigerator tank 20 ft.,Refrigerator tank 30 ft.,Refrigerator tank 40 ft.,Tank container IC 20 ft.,Tank container IC 30 ft.,Tank container IC 40 ft.,Refrigerator tank IC 20 ft.,Refrigerator tank IC 40 ft.,Movable case: L < 6,15m,Movable case: 6,15m < L < 7,82m,Movable case: 7,82m < L < 9,15m,Movable case: 9,15m < L < 10,90m,Movable case: 10,90m < L < 13,75m,Totebin,Temperature controlled container 20 ft,Temperature controlled container 40 ft'. See [UNTDID - D.95B - Segment EQD - C224 (8155)](https://service.unece.org/trade/untdid/d95b/uncl/uncl8155.htm)"
+                },
+                "containerCarrierIdentification": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Code identifying a party involved in a transaction. See [UNTDID - D.95B - Segment NAD - C082 (3039)](https://service.unece.org/trade/untdid/d95b/uncl/uncl3039.htm)"
+                },
+                "containerClass": {
+                    "type": "string",
+                    "enum": ["Continental","Export","Import","Remain on board","Shifter","Transhipment"],
+                    "description": "Property. Model:'https://schema.org/Text'. Container class (indication of the action related to the equipment). Enum: 'Continental, Export, Import,Remain on board,Shifter,Transhipment'. See [UNTDID - D.95B - Segment EQD - 8249](https://service.unece.org/trade/untdid/d95b/uncl/uncl8249.htm)"
+                },
+                "containerWeight": {
+                    "type": "number",
+                    "description": "Property. Model:'https://schema.org/Number'. Weight of the container. Units: KGM. See [UNTDID - D.95B - Segment MEA - C174 (6314)](https://service.unece.org/trade/untdid/d95b/uncl/uncl6314.htm)"
+                },
+                "containerSeal": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. The number of a custom seal or another seal affixed to the containers. See [UNTDID - D.95B - Segment SEL - 9308](https://service.unece.org/trade/untdid/d95b/uncl/uncl9308.htm)"
+                },
+                "isContainerEmpty": {
+                    "type": "boolean",
+                    "description": "Property. Model:'https://schema.org/Boolean'. Information about if the container is full or empty. See [UNTDID - D.95B - Segment EQD - 8169](https://service.unece.org/trade/untdid/d95b/uncl/uncl8169.htm)"
+                },
+                "loadingPort": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Port where the container is loaded (UN/LOCODE: United Nations Code for Trade and Transport Locations). See [UNTDID - D.95B - Segment LOC - C517 (3225)](https://service.unece.org/trade/untdid/d95b/uncl/uncl3225.htm) and [UN/LOCODE](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)"
+                },
+                "dischargingPort": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Port where the container is discharged (UN/LOCODE: United Nations Code for Trade and Transport Locations). See [UNTDID - D.95B - Segment LOC - C517 (3225)](https://service.unece.org/trade/untdid/d95b/uncl/uncl3225.htm) and [UN/LOCODE](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)"
+                },
+                "destination": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Final destination of the container (UN/LOCODE: United Nations Code for Trade and Transport Locations). See [UNTDID - D.95B - Segment LOC - C517 (3225)](https://service.unece.org/trade/untdid/d95b/uncl/uncl3225.htm) and [UN/LOCODE](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)"
+                },
+                "ata": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'https://schema.org/Text'. Actual time of arrival or departure to/from Terminal. (ISO 8601 UTC format). See [UNTDID - D.95B - Segment DTM - C507 (2380)](https://service.unece.org/trade/untdid/d95b/uncl/uncl2380.htm)"
+                },
+                "travelReference": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Conveyance reference number. See [UNTDID - D.95B - Segment TDT - 8028](https://service.unece.org/trade/untdid/d95b/uncl/uncl8028.htm)"
+                },
+                "location": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string"
+                        },
+                        "coordinates": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        }
+                    },
+                    "description": "Geoproperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygoProperty."
+                }
+            }
         }
       }
     }
