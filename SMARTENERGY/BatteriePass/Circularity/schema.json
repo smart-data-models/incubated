@@ -1,0 +1,152 @@
+{
+  "$schema":"http://json-schema.org/schema#",
+  "$schemaVersion":"0.0.1",
+  "modelTags":"BatteriePass",
+  "$id":"https://smart-data-models.github.io/dataModel.Battery/Circularity/schema.json",
+  "title":"Smart Data Models - Circularity",
+  "description":"Battery Circularity",
+  "allOf":[
+      {
+          "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      },
+      {
+          "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+      },
+      {
+          "properties":{
+              "type":{
+                  "type":"string",
+                  "description":"Property. NGSI entity type. It has to be Circularity",
+                  "enum":[
+                      "Circularity"
+                  ]
+              },
+              "safetyRequirements":{
+                  "type":"string",
+                  "description":"Property. Safety requirements"
+              },
+              "endOfLifeInformation":{
+                  "description":"Property. Composition of a battery in general terms by specifying the cathode and anode active material as well as electrolyte.",
+                  "type":"object",
+                  "properties":{
+                      "wastePrevention":{
+                          "type":"string",
+                          "description":"Property. Producer or producer responsibility organisations shall make information available to distributors and end-users on: the role of end-users in contributing to waste prevention, including by information on good practices and recommendations concerning the use of batteries aiming at extending their use phase and the possibilities of re-use, preparing for re-use, preparing for repurpose, repurposing and remanufacturing."
+                      },
+                      "separateCollection":{
+                          "type":"string",
+                          "description":"Property. Producer or producer responsibility organisations shall make information available to distributors and end-users on: the role of end-users in contributing to the separate collection of waste batteries in accordance with their obligations under Article 51 so as to allow their treatment."
+                      }
+                  },
+                  "required":[
+                      "wastePrevention",
+                      "separateCollection"
+                  ]
+              },
+              "RecycledContent":{
+                  "type":"object",
+                  "properties":{
+                      "preConsumerShare":{
+                          "type":"number",
+                          "description":"Property. "
+                      },
+                      "material":{
+                          "type":"string",
+                          "description":"Property. ",
+                          "enum":[
+                              "Nickel",
+                              "Cobalt",
+                              "Lithium",
+                              "Lead"
+                          ]
+                      },
+                      "postConsumerShare":{
+                          "type":"number",
+                          "description":"Property. "
+                      }
+                  },
+                  "required":[
+                      "preConsumerShare",
+                      "material",
+                      "postConsumerShare"
+                  ]
+              },
+              "dismantlingAndRemovalInformation":{
+                  "description":"Property. Component materials used (No. 16-18): Naming the materials (as a composition of substances) in cathode, anode, electrolyte according to public standards, including specification of the corresponding component (i.e., cathode, anode, or electrolyte). We suggest a reporting threshold of 0.1 % weight by weight.",
+                  "type":"array",
+                  "items":{
+                      "type":"object",
+                      "properties":{
+                          "documentType":{
+                              "type":"string",
+                              "description":"Property. ",
+                              "enum":[
+                                  "Dismantling Manual",
+                                  "Removal Manual",
+                                  "Other Manual",
+                                  "3D-Model",
+                                  "Drawing",
+                                  "BillOfMaterial"
+                              ]
+                          },
+                          "mimeType":{
+                              "type":"string",
+                              "description":"A MIME type as defined in RFC 2046, for example \"application/pdf\"."
+                          },
+                          "documentURL":{
+                              "type":"string",
+                              "format":"uri",
+                              "description":"Property. Link to document"
+                          }
+                      },
+                      "required":[
+                          "documentType",
+                          "mimeType",
+                          "documentURL"
+                      ]
+                  },
+                  "sourceForSpareParts":{
+                      "description":"Property. ",
+                      "type":"array",
+                      "items":{
+                          "type":"object",
+                          "properties":{
+                              "nameOfSupplier":{
+                                  "type":"string",
+                                  "description":"Property. "
+                              },
+                              "adressOfSupplier":{
+                                  "type":"object",
+                                  "properties":{
+                                      "addressCountry":{
+                                          "type":"string",
+                                          "description":"Property. "
+                                      },
+                                      "streetAddress":{
+                                          "type":"string",
+                                          "description":"Property. "
+                                      },
+                                      "postalCode":{
+                                          "type":"string",
+                                          "description":"Property. "
+                                      }
+                                  },
+                                  "required":[
+                                      "hazardousSubstanceClass",
+                                      "hazardousSubstanceName",
+                                      "hazardousSubstanceConcentration"
+                                  ]
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  ],
+  "required":[
+      "safetyRequirements",
+      "endOfLifeInformation",
+      "dismantlingAndRemovalInformation"
+  ]
+}
