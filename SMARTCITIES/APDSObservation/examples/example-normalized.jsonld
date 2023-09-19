@@ -1,34 +1,29 @@
 {
-	"id": "APDSObservation:Arvoo:ArvooSGIDxxxx",
+	"id": "uri:ngsi-ld:APDSObservation:Arvoo:ArvooSGIDxxxx",
 	"type": "APDSObservation",
 	"observedMethod": {
-		"type": "Text",
+		"type": "Property",
 		"value": "anpr"
 	},
 	"observedCredentialType": {
-		"type": "Text",
+		"type": "Property",
 		"value": "license plate"
 	},
 	"observedCredentialId": {
-		"type": "Text",
+		"type": "Property",
 		"value": "1ENC003"
 	},
 	"observedCredentialCountry": {
-		"type": "Text",
+		"type": "Property",
 		"value": "BE"
 	},
 	"observedCredentialConfidence": {
-		"type": "Number",
-		"value": 0.851,
-		"metadata": {
-			"confidenceMethod": {
-				"type": "Text",
-				"value": "Arvoo. Higher is better."
-			}
-		}
+		"type": "Property",
+		"value": 0.851
+		
 	},
 	"observedCredentialCharacterConfidence": {
-		"type": "array",
+		"type": "Property",
 		"value": [
 			0.944,
 			0.851,
@@ -37,113 +32,80 @@
 			0.932,
 			0.936,
 			0.901
-		],
-		"metadata": {
-			"confidenceMethod": {
-				"type": "Text",
-				"value": "Arvoo"
-			}
-		}
+		]
 	},
 	"observer": {
-		"type": "Text",
-		"value": "Arvoo",
-		"metadata": {}
+		"type": "Property",
+		"value": "Arvoo"
+		
 	},
 	"observerDescription": {
-		"type": "Text",
+		"type": "Property",
 		"value": "Scangenius Auto-26"
 	},
 	"creator": {
-		"type": "Text",
+		"type": "Property",
 		"value": "25399"
 	},
 	"observerCameras": {
-		"type": "Array",
+		"type": "Property",
 		"value": [
 			"LF,LB"
 		]
 	},
 	"observationDateTime": {
-		"type": "DateTime",
-		"value": "2020-09-11T10:45:00.00Z"
+		"type": "Property",
+		"value": {
+			"@type": "DateTime",
+			"@value": "2020-09-11T10:45:00.00Z"
+		}
 	},
 	"observerLocation": {
-		"type": "geo:json",
+		"type": "GeoProperty",
 		"value": {
 			"type": "Point",
 			"coordinates": [
 				4.412077,
 				51.216632
 			]
-		},
-		"metadata": {
-			"timestamp": {
-				"type": "DateTime",
-				"value": "2020-09-11T10:45:00.00Z"
-			}
 		}
 	},
 	"observerLocationPDOP": {
-		"type": "Number",
-		"value": 0.2959945752,
-		"metadata": {
-			"UnitCode": {
-				"type": "Text",
-				"value": "MTR"
-			}
-		}
+		"type": "Property",
+		"value": 0.2959945752
 	},
 	"observerHeading": {
-		"type": "Number",
+		"type": "Property",
 		"value": 175
 	},
 	"observerSpeed": {
-		"type": "Number",
-		"value": 26,
-		"metadata": {
-			"UnitCode": {
-				"type": "Text",
-				"value": "KMH"
-			}
-		}
+		"type": "Property",
+		"value": 26
 	},
 	"observedLocation": {
-		"type": "geo:json",
+		"type": "GeoProperty",
 		"value": {
 			"type": "Point",
 			"coordinates": [
 				4.00412077,
 				51.00216632
 			]
-		},
-		"metadata": {
-			"timestamp": {
-				"type": "DateTime",
-				"value": "2020-09-11T10:45:00.00Z"
-			}
 		}
 	},
 	"observedLocationPDOP": {
-		"type": "Number",
-		"value": 0.2959945752,
-		"metadata": {
-			"UnitCode": {
-				"type": "Text",
-				"value": "MTR"
-			}
-		}
+		"type": "Property",
+		"value": 0.2959945752
 	},
 	"observedHeading": {
-		"type": "Number",
+		"type": "Property",
 		"value": 175
 	},
 	"observedSpeed": {
-		"type": "Number",
+		"type": "Property",
 		"value": -1
 	},
 	"images": {
-		"type": "array",
+		"type": "Property",
 		"value": [
 			{
 			  "URL": "http://localhost:4000/getimage?sgid=984133&camid=lf&imgreqtype=anpr",
@@ -171,5 +133,8 @@
 			  "distance": -3.232
 			}
 		]
-	}
+	},
+	 "@context": [
+        ""
+    ]
 }
