@@ -6,8 +6,8 @@
     "title": "Smart Data Models - APDSObservation.",
     "description": "This entity models a particular observation of a set of ANPR camera. The Observation might be done with several ANPR camera's, but is limited to the observation of ONE vehicle. It implements the APDS datamodel https://www.allianceforparkingdatastandards.org/",
     "type": "object",
-    "derivedFrom": "APDS 4.0 standard: https://www.allianceforparkingdatastandards.org/",
-    "license": "MIT license. https://github.com/parkingdata/spec/blob/master/LICENSE.",
+    "derivedFrom": "https://www.allianceforparkingdatastandards.org/",
+    "license": "https://github.com/parkingdata/spec/blob/master/LICENSE.",
     "allOf": [
       {
         "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -112,6 +112,7 @@
             "description": "Property. The date and time of the observation event ended(in UTC).(e.g.a car was observed to exit a delivery zone at 9: 33am). Mandatory if creationDateTime is not used."
           },
           "observerLocation": {
+              "type": "GeoProperty",
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons",
             "description": "Property. GPS position of the person or car equipped with the Camera('s) that produce the observation."
           },
@@ -146,6 +147,7 @@
             "description": "Property. Denotes the direction of travel of the observer and is specified in decimal degrees, where 0 <= `heading` < 360, counting clockwise relative to the true north. If the vehicle is stationary(i.e. the value of the `speed` attribute is `0`), then the value of the heading attribute must be equal to `-1`. Model: 'https://schema.org/Number'. Units: 'Degree'."
           },
           "observedLocation": {
+              "type": "GeoProperty",
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons",
             "description": "Property. GPS position of the middle position of the scanned vehicle."
           },
