@@ -4,7 +4,7 @@
   "modelTags": "",
   "$id": "https://smart-data-models.github.io/dataModel.Transportation/APDSObservation/schema.json",
   "title": "Smart Data Models - APDSObservation.",
-  "description": "This entity models a particular observation of a set of ANPR camera. The Observation might be done with several ANPR camera's, but is limited to the observation of ONE vehicle. It implements the APDS data model https://www.allianceforparkingdatastandards.org/",
+  "description": "This entity models a particular observation of a set of ANPR camera. The Observation might be done with several ANPR cameras, but is limited to the observation of ONE vehicle. It implements the APDS data model https://www.allianceforparkingdatastandards.org/",
   "type": "object",
   "derivedFrom": "https://www.allianceforparkingdatastandards.org/",
   "license": "https://github.com/parkingdata/spec/blob/master/LICENSE",
@@ -38,7 +38,7 @@
         },
         "observedCredentialType": {
           "type": "string",
-          "description": "Property. Type of the credential referenced within  the observation. Allowed values are specified in the APDS CredentialType. Enum: 'barcode, bluetooth, eticket, hangtag, licensePlate, permit, qrCode, rfid, ticket, other'",
+          "description": "Property. Type of the credential referenced within  the observation. Allowed values are specified in the APDS CredentialType. Enum:'barcode, bluetooth, eticket, hangtag, licensePlate, permit, qrCode, rfid, ticket, other'",
           "enum": [
             "barcode",
             "bluetooth",
@@ -113,7 +113,7 @@
         },
         "observerLocation": {
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons",
-          "description": "GeoProperty. GPS position of the person or car equipped with the Camera('s) that produce the observation."
+          "description": "GeoProperty. GPS position of the person or car equipped with the Camera/s that produce the observation."
         },
         "observerLocationPDOP": {
           "type": "number",
@@ -143,7 +143,7 @@
               ]
             }
           ],
-          "description": "Property. Denotes the direction of travel of the observer and is specified in decimal degrees, where 0 <= `heading` < 360, counting clockwise relative to the true north. If the vehicle is stationary(i.e. the value of the `speed` attribute is `0`), then the value of the heading attribute must be equal to `-1`. Model: 'https://schema.org/Number'. Units: 'Degree'."
+          "description": "Property. Denotes the direction of travel of the observer and is specified in decimal degrees, where 0 <= 'heading' < 360, counting clockwise relative to the true north. If the vehicle is stationary(i.e. the value of the 'speed' attribute is '0'), then the value of the heading attribute must be equal to '-1'. Model:'https://schema.org/Number'. Units:'Degree'."
         },
         "observedLocation": {
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons",
@@ -151,7 +151,7 @@
         },
         "observedLocationPDOP": {
           "type": "number",
-          "description": "Property. Accuracy of GPS position of the observed vehicle. This is expressed as 'Position Dilution Of Precision'(https: //en.wikipedia.org/wiki/Dilution_of_precision_(navigation)). Units:' meters'. (UN code 'MTR'). "
+          "description": "Property. Accuracy of GPS position of the observed vehicle. This is expressed as 'Position Dilution Of Precision'(https: //en.wikipedia.org/wiki/Dilution_of_precision_(navigation)). Units:'meters'. (UN code 'MTR'). "
         },
         "observedHeading": {
           "oneOf": [
@@ -168,7 +168,7 @@
               ]
             }
           ],
-          "description": "Property. Denotes the direction of travel of the observer and is specified in decimal degrees, where 0 <= `heading` < 360, counting clockwise relative to the true north.If the vehicle is stationary(i.e. the value of the `speed` attribute is `0`), then the value of the heading attribute must be equal to `-1`. Model: 'https://schema.org/Number'. Units: Degrees (UN code 'DD') "
+          "description": "Property. Denotes the direction of travel of the observer and is specified in decimal degrees, where 0 <= 'heading' < 360, counting clockwise relative to the true north.If the vehicle is stationary(i.e. the value of the 'speed' attribute is '0'), then the value of the heading attribute must be equal to '-1'. Model:'https://schema.org/Number'. Units:'Degrees'. (UN code DD)"
         },
         "observerSpeed": {
           "oneOf": [
@@ -182,7 +182,7 @@
               "maximum": -1
             }
           ],
-          "description": "Property. Denotes the magnitude of the horizontal component of the observer current velocity and is specified in kilometers per hour. If provided, the value of the speed attribute must be a non - negative real number. `-1` MAY be used if speed is transiently unknown for some reason. Model: 'https://schema.org/Number'. Units: 'KMH' "
+          "description": "Property. Denotes the magnitude of the horizontal component of the observer current velocity and is specified in kilometers per hour. If provided, the value of the speed attribute must be a non - negative real number. '-1' MAY be used if speed is transiently unknown for some reason. Model:'https://schema.org/Number'. Units:'KMH' "
         },
         "observedSpeed": {
           "oneOf": [
@@ -196,7 +196,7 @@
               "maximum": -1
             }
           ],
-          "description": "Property. Denotes the magnitude of the horizontal component of the observed vehicles current velocity and is specified in kilometers per hour. If provided, the value of the speed attribute must be a non - negative real number.`-1` MAY be used if speed is transiently unknown for some reason. Model: 'https://schema.org/Number'.Units: km/h (UN Code 'KMH')."
+          "description": "Property. Denotes the magnitude of the horizontal component of the observed vehicles current velocity and is specified in kilometers per hour. If provided, the value of the speed attribute must be a non - negative real number.'-1' MAY be used if speed is transiently unknown for some reason. Model:'https://schema.org/Number'.Units:'km/h'. (UN Code KMH)."
         },
         "images": {
           "type": "array",
