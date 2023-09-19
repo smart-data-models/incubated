@@ -4,10 +4,10 @@
   "modelTags": "",
   "$id": "https://smart-data-models.github.io/dataModel.Transportation/APDSObservation/schema.json",
   "title": "Smart Data Models - APDSObservation.",
-  "description": "This entity models a particular observation of a set of ANPR camera. The Observation might be done with several ANPR camera's, but is limited to the observation of ONE vehicle. It implements the APDS datamodel https://www.allianceforparkingdatastandards.org/",
+  "description": "This entity models a particular observation of a set of ANPR camera. The Observation might be done with several ANPR camera's, but is limited to the observation of ONE vehicle. It implements the APDS data model https://www.allianceforparkingdatastandards.org/",
   "type": "object",
-  "derivedFrom": "APDS 4.0 standard: https://www.allianceforparkingdatastandards.org/",
-  "license": "XXX see original. credit to contributors",
+  "derivedFrom": "https://www.allianceforparkingdatastandards.org/",
+  "license": "https://github.com/parkingdata/spec/blob/master/LICENSE",
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -29,6 +29,7 @@
           "description": "Property. The method of observation recorded for this observation element as defined by APDS (ObservationType). Enum:'anpr, chalk, visual, scanner, rfTranspoder, other'",
           "enum": [
             "anpr",
+            "chalk",
             "other",
             "rfTranspoder",
             "scanner",
@@ -63,37 +64,36 @@
           "type": "number",
           "minimum": 0,
           "maximum": 1,
-          "description": "Property. The overal confidence of the measurement. This can be vendor specific, but should alwways be rescaled to value between 0 en 1. Use the metadata to indicate how this number should be interpreted. Arvoo: range[0.0, 1.0](higher is better)."
+          "description": "Property. The overall confidence of the measurement. This can be vendor specific, but should always be rescaled to value between 0 en 1. Use the metadata to indicate how this number should be interpreted. Arvoo: range[0.0, 1.0](higher is better)."
         },
         "observedCredentialCharacterConfidence": {
           "type": "array",
           "description": "Property. The confidence of individual character recognition. As with observedCredentialConfidence this is vendor specific. Use the metadata to indicate how the confidences can be interpreted.",
           "items": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-          },
-          "metadata": {
-              "ref": "#/definitions/metadata/properties/confidenceMethod"
-          },
-      },     
-      "observer": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Property. Every observation of the credential character confidence"
+          }
+        },
+        "observer": {
           "type": "string",
           "description": "Property. The name or identification of the scanning system making the observation recorded in this observation element."
         },
         "observerDescription": {
           "type": "string",
-          "description": "Property. Free-text description for details of the observation or observer. Can e.g.be used as a friendly name of a specific ANPR scancar."
+          "description": "Property. Free-text description for details of the observation or observer. Can e.g.be used as a friendly name of a specific ANPR scan car."
         },
         "creator": {
           "type": "string",
-          "description": "Property. Id of current driver. XXX misleading name?"
+          "description": "Property. Id of current driver."
         },
         "observerCameras": {
           "type": "array",
-          "description": "Property. Array of camera positions that detected the vehicle.The first camera in the list has the best recognition.Use the following abbreviations to indicate the camera positioning on a car: RF(Right Front), RM(Right Middle), RB(Right Back), LF(Left Front), LM(Left Middle), LB(Left Back). XXX missing items",
+          "description": "Property. Array of camera positions that detected the vehicle.The first camera in the list has the best recognition.Use the following abbreviations to indicate the camera positioning on a car: RF(Right Front), RM(Right Middle), RB(Right Back), LF(Left Front), LM(Left Middle), LB(Left Back).",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Property. Every camera position"
           }
         },
         "observationDateTime": {
@@ -113,7 +113,7 @@
         },
         "observerLocation": {
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons",
-          "description": "Property. GPS position of the person or car equipped with the Camera('s) that produce the observation."
+          "description": "GeoProperty. GPS position of the person or car equipped with the Camera('s) that produce the observation."
         },
         "observerLocationPDOP": {
           "type": "number",
@@ -121,7 +121,7 @@
         },
         "towardsObserver": {
           "type": "number",
-          "description": "Property. 1: Observed vehicle moves in direction of camera, 0: Observed vehicle moves away direction of camera, -1: Observed vehicle direction not detected. XXX missing valid values",
+          "description": "Property. 1: Observed vehicle moves in direction of camera, 0: Observed vehicle moves away direction of camera, -1: Observed vehicle direction not detected.",
           "enum": [
             -1,
             0,
@@ -134,7 +134,7 @@
               "type": "number",
               "minimum": 0,
               "maximum": 360,
-              "exclusiveMaximum": true
+              "exclusiveMaximum": true,
             },
             {
               "type": "number",
@@ -145,23 +145,9 @@
           ],
           "description": "Property. Denotes the direction of travel of the observer and is specified in decimal degrees, where 0 <= `heading` < 360, counting clockwise relative to the true north. If the vehicle is stationary(i.e. the value of the `speed` attribute is `0`), then the value of the heading attribute must be equal to `-1`. Model: 'https://schema.org/Number'. Units: 'Degree'."
         },
-        "observerSpeed": {
-          "oneOf": [
-            {
-              "type": "number",
-              "minimum": 0
-            },
-            {
-              "type": "number",
-              "minimum": -1,
-              "maximum": -1
-            }
-          ],
-          "description": "Property. Denotes the magnitude of the horizontal component of the oberver current velocity and is specified in Kilometers per Hour. If provided, the value of the speed attribute must be a non - negative real number. `-1` MAY be used if speed is transiently unknown for some reason. Model: 'https://schema.org/Number'. Units: 'Km/h' (UN code 'KMH') "
-        },
         "observedLocation": {
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons",
-          "description": "Property. GPS position of the middle position of the scanned vehicle."
+          "description": "GeoProperty. GPS position of the middle position of the scanned vehicle."
         },
         "observedLocationPDOP": {
           "type": "number",
@@ -185,19 +171,19 @@
           "description": "Property. Denotes the direction of travel of the observer and is specified in decimal degrees, where 0 <= `heading` < 360, counting clockwise relative to the true north.If the vehicle is stationary(i.e. the value of the `speed` attribute is `0`), then the value of the heading attribute must be equal to `-1`. Model: 'https://schema.org/Number'. Units: Degrees (UN code 'DD') "
         },
         "observerSpeed": {
-            "oneOf": [
-              {
-                "type": "number",
-                "minimum": 0
-              },
-              {
-                "type": "number",
-                "minimum": -1,
-                "maximum": -1
-              }
-            ],
-            "description": "Property. Denotes the magnitude of the horizontal component of the observer current velocity and is specified in kilometers per hour. If provided, the value of the speed attribute must be a non - negative real number. `-1` MAY be used if speed is transiently unknown for some reason.Model: 'https://schema.org/Number'. Units: 'KMH' "
-          },
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "number",
+              "minimum": -1,
+              "maximum": -1
+            }
+          ],
+          "description": "Property. Denotes the magnitude of the horizontal component of the observer current velocity and is specified in kilometers per hour. If provided, the value of the speed attribute must be a non - negative real number. `-1` MAY be used if speed is transiently unknown for some reason. Model: 'https://schema.org/Number'. Units: 'KMH' "
+        },
         "observedSpeed": {
           "oneOf": [
             {
@@ -214,7 +200,7 @@
         },
         "images": {
           "type": "array",
-          "description": "Property. Array of links to images.The array element contain the URLs of the images and additional info. As an alternative to the images URL, the image itself can be included in the binaryContent attribute. These other tags may be used: expiryDateTime: timestamp until which et URL is valid,  camId: identifier of the camera. Can be specified by the cameraposition (also used in the ' camera ' attribute. ' imageContent ': specifies the content of the image, ' distance ': the distance in meter from the observer. XXX camelCase missing items",
+          "description": "Property. Array of links to images. The array element contain the URLs of the images and additional info. As an alternative to the images URL, the image itself can be included in the binaryContent attribute.",
           "items": {
             "type": "array",
             "items": {
@@ -230,18 +216,23 @@
                 },
                 "expiryDateTime": {
                   "type": "string",
-                  "format": "date-time"
+                  "format": "date-time",
+                  "description": "Property. Timestamp until which the URL is valid"
                 },
                 "camId": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Property. Identifier of the camera. It can be specified by the camera position (also used in the 'camera' attribute)"
                 },
                 "imageContent": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Property. It specifies the content of the image"
                 },
                 "distance": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Property. The distance in meters from the observer. Units:'meters'"
                 }
-              }
+              },
+              "description": "Property. Every element in the array of images"
             }
           }
         },
