@@ -58,14 +58,28 @@ def generate_additional_example():
                 if "#/components/schemas/" in str(schema_data):
                     print("next")
                 else:
-                    path_example = "./" + directory + "/examples/example-normalized.jsonld"
+                    path_example = "./" + directory + "/examples/example.jsonld"
                     print(path_example)
                     path_schema = "https://raw.githubusercontent.com/smart-data-models/incubated/master/SMART%20AERONAUTICS/ACRIS/" + directory + "/schema.json"
-                    normalized = sdm.ngsi_ld_example_generator(path_schema)
-                    print(normalized)
-                    with open(path_example, "w") as example_file:
-                        example_file.write(json.dumps(normalized, indent=4))
+                    # normalized = sdm.ngsi_ld_example_generator(path_schema)
+                    # print(normalized)
+                    # with open(path_example, "w") as example_file:
+                    #     example_file.write(json.dumps(normalized, indent=4))
 
+                    # example.json
+                    path_example = "./" + directory + "/examples/example.json"
+                    print(path_example)
+                    keyvalues = sdm.ngsi_ld_keyvalue_example_generator(path_schema)
+                    print(keyvalues)
+                    with open(path_example, "w") as example_file:
+                        example_file.write(json.dumps(keyvalues, indent=4))
+
+                    # example.jsonld
+                    path_example = "./" + directory + "/examples/example.jsonld"
+                    print(path_example)
+                    keyvalues["@context"] = ["https://raw.githubusercontent.com/smart-data-models/dataModel.ACRIS/master/context.jsonld"]
+                    with open(path_example, "w") as example_file:
+                        example_file.write(json.dumps(keyvalues, indent=4))
 
 def get_credentials(credentialsFile):
     import json
