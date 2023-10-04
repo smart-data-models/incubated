@@ -28,7 +28,7 @@ def copy_adopters():
     # Get the current working directory
     current_directory = os.getcwd()
     print(current_directory)
-    original_path = "./AirportElevation/ADOPTERS.yaml"
+    original_path = "../../../../data-models/dataModel.ACRIS/AirportElevation/ADOPTERS.yaml"
     with open(original_path, "r") as file:
         content = file.read()
 
