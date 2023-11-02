@@ -18,12 +18,12 @@ def open_json(fileUrl):
         except:
             return None
 
-source_attributes_file = "attributes.json"
+source_attributes_file = "relations.json"
 directory_datamodels = "./dataModel.ERA"
 missing_datamodels = []
-missing_datamodels_file = "missing_entities.json"
+missing_datamodels_file = "missing_entities2.json"
 missing_domain_in_attribute = []
-missing_domain_in_attribute_file = "missing_domain_in_attribute.json"
+missing_domain_in_attribute_file = "missing_domain_in_attribute2.json"
 attributes = open_json(source_attributes_file)
 for attribute in attributes:
     print(attribute)
@@ -36,9 +36,7 @@ for attribute in attributes:
             if schema is None:
                 missing_datamodels.append(attribute)
                 continue
-            schema["allOf"][2]["properties"][attribute] = {}
-            schema["allOf"][2]["properties"][attribute]["type"] = attributes[attribute]["type"]
-            schema["allOf"][2]["properties"][attribute]["description"] = attributes[attribute]["description"]
+            schema["allOf"][2]["properties"][attribute] = attributes[attribute]
             with open(schema_location,"w") as file:
                 json.dump(schema, file, indent=4)
     else:

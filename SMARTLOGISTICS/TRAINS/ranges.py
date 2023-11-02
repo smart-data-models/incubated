@@ -7,7 +7,9 @@ myroot = mytree.getroot()
 
 datatypes = set()
 for element in myroot:
-    if element.tag == "{http://www.w3.org/2002/07/owl#}DatatypeProperty":
+    if element.tag == "{http://www.w3.org/2002/07/owl#}ObjectProperty":
+        print(element.attrib)
+        print("______________________________")
         for item in element:
             print(item)
             print(item.tag)
