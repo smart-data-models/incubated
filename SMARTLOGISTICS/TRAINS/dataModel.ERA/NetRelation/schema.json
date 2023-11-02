@@ -1,0 +1,67 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
+    "modelTags": "ERA vocabulary, railway, train",
+    "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "elementA": {
+                    "domains": [
+                        "NetRelation"
+                    ],
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Element A"
+                },
+                "elementB": {
+                    "domains": [
+                        "NetRelation"
+                    ],
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Element B"
+                },
+                "navigability": {
+                    "domains": [
+                        "NetRelation"
+                    ],
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Navigability"
+                },
+                "positionOnA": {
+                    "domains": [
+                        "NetRelation"
+                    ],
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Position on A"
+                },
+                "positionOnB": {
+                    "domains": [
+                        "NetRelation"
+                    ],
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Position on B"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ],
+    "title": "NetRelation + mapped from ERA ontology by Smart Data Models",
+    "derivedFrom": "http://data.europa.eu/949/NetRelation",
+    "description": "Base class for defining edges in the connectivity graph representing the topological network."
+}

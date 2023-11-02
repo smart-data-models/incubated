@@ -1,0 +1,80 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
+    "modelTags": "ERA vocabulary, railway, train",
+    "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "compositeBrakeBlockRetrofitted": {
+                    "type": "boolean",
+                    "description": "Property. Composite brake block retrofitted"
+                },
+                "vehicleNumber": {
+                    "type": "string",
+                    "description": "Property. Vehicle number"
+                },
+                "vehicleSeries": {
+                    "type": "string",
+                    "description": "Property. Vehicle series"
+                },
+                "manufacturingCountry": {
+                    "domains": [
+                        "Vehicle",
+                        "VehicleType"
+                    ],
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Manufacturing country"
+                },
+                "operationalRestriction": {
+                    "domains": [
+                        "Vehicle"
+                    ],
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Operational restriction"
+                },
+                "quieterRoutesExemptedCountry": {
+                    "domains": [
+                        "Vehicle"
+                    ],
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Quieter route exempted country"
+                },
+                "vehicleKeeper": {
+                    "domains": [
+                        "Vehicle"
+                    ],
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Vehicle keeper"
+                },
+                "vehicleType": {
+                    "domains": [
+                        "Vehicle"
+                    ],
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Vehicle type"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ],
+    "title": "Vehicle + mapped from ERA ontology by Smart Data Models",
+    "derivedFrom": "http://data.europa.eu/949/Vehicle",
+    "description": "A specific vehicle or wagon able to operate over railway lines."
+}

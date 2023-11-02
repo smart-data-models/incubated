@@ -1,0 +1,80 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
+    "modelTags": "ERA vocabulary, railway, train",
+    "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "conditionalRegenerativeBrake": {
+                    "type": "boolean",
+                    "description": "Property. Permission for regenerative braking"
+                },
+                "conditionsAppliedRegenerativeBraking": {
+                    "type": "string",
+                    "description": "Property. Conditions applying in regards to regenerative braking"
+                },
+                "conditionsChargingElectricEnergyStorage": {
+                    "type": "string",
+                    "description": "Property. Permitted conditions for charging electric energy storage for traction purposes at standstill"
+                },
+                "currentLimitationRequired": {
+                    "type": "boolean",
+                    "description": "Property. Current or power limitation on board required"
+                },
+                "energySupplySystemTSICompliant": {
+                    "type": "boolean",
+                    "description": "Property. Energy supply system TSI compliant"
+                },
+                "maxCurrentStandstillPantograph": {
+                    "type": "number",
+                    "description": "Property. Maximum current at standstill per pantograph"
+                },
+                "maxTrainCurrent": {
+                    "type": "integer",
+                    "description": "Property. Maximum train current"
+                },
+                "permissionChargingElectricEnergyTractionStandstill": {
+                    "type": "boolean",
+                    "description": "Property. Permission for charging electric energy storage for traction purposes at standstill"
+                },
+                "umax2": {
+                    "type": "integer",
+                    "description": "Property. Umax2 for lines referred to in sections 7.4.2.2.1 and 7.4.2.11.1 of Regulation (EU)1301/2014."
+                },
+                "contactLineSystemType": {
+                    "domains": [
+                        "ContactLineSystem"
+                    ],
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Type of contact line system"
+                },
+                "energySupplySystem": {
+                    "domains": [
+                        "ContactLineSystem",
+                        "VehicleType"
+                    ],
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Energy supply system"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ],
+    "title": "ContactLineSystem + mapped from ERA ontology by Smart Data Models",
+    "derivedFrom": "http://data.europa.eu/949/ContactLineSystem",
+    "description": "System that is used to transmit electrical energy to road or rail vehicles."
+}
