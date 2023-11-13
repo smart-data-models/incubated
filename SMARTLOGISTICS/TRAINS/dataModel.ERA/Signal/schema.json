@@ -1,0 +1,50 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
+    "modelTags": "ERA vocabulary, railway, train",
+    "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "relativeDistanceDangerPoint": {
+                    "type": "integer",
+                    "description": "Property. Relative distance of the danger point"
+                },
+                "signalId": {
+                    "type": "string",
+                    "description": "Property. Name of signal"
+                },
+                "signalOrientation": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Signal orientation"
+                },
+                "signalType": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Type of signal"
+                },
+                "track": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. Track"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ],
+    "title": "Signal + mapped from ERA ontology by Smart Data Models",
+    "derivedFrom": "http://data.europa.eu/949/Signal",
+    "description": "A railway signal is an installation next to the railway track for signalling the maximum allowed speed in the next block section to the train driver.\nDefinition RSM: Apparatus by means of which a conventional visual or acoustic indication is given, generally concerning the movements of railway vehicles."
+}

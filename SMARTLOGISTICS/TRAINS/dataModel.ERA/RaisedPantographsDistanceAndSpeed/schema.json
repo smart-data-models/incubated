@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
+    "modelTags": "ERA vocabulary, railway, train",
+    "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "raisedPantographsDistance": {
+                    "type": "integer",
+                    "description": "Property. Raised pantographs distance"
+                },
+                "raisedPantographsNumber": {
+                    "type": "integer",
+                    "description": "Property. Number of pantographs."
+                },
+                "raisedPantographsSpeed": {
+                    "type": "integer",
+                    "description": "Property. Raised pantographs speed"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ],
+    "title": "RaisedPantographsDistanceAndSpeed + mapped from ERA ontology by Smart Data Models",
+    "derivedFrom": "http://data.europa.eu/949/RaisedPantographsDistanceAndSpeed",
+    "description": "Indication of maximum number of raised pantographs per train allowed and minimum spacing centre line to centre line of adjacent pantograph heads, expressed in metres, at the given speed.\nEach track can have several raised pantographs per train allowed (structured) values, and each one has values for number of pantographs, minimum distance between pantographs, in metres, and speed considered in km/h."
+}

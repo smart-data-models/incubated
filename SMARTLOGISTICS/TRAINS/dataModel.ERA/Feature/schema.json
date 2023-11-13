@@ -1,0 +1,35 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
+    "modelTags": "ERA vocabulary, railway, train",
+    "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "currentlyValid": {
+                    "type": "boolean",
+                    "description": "Property. Currently valid"
+                },
+                "length": {
+                    "type": "number",
+                    "description": "Property. Length"
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ],
+    "title": "Feature + mapped from ERA ontology by Smart Data Models",
+    "derivedFrom": "http://data.europa.eu/949/Feature",
+    "description": "Class that encompasses the features that are part of the physical infrastructure (class InfrastructureObject) and the topological objects (class TopologicalObject). It is a subclass of the geographical Feature class that has a spatial representation."
+}
