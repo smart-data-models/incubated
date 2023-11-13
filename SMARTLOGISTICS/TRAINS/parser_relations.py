@@ -38,10 +38,8 @@ for element in myroot:
                     attributes_object[attributeName]["type"] = []
                     for subsubitem in subitem:
                         for sub3item in subsubitem:
-
                             source_range = sub3item.attrib
                             detected_type = list(source_range.values())[0].split("/")[-1]
-
                             attributes_object[attributeName]["type"].append(detected_type)
                 if not complex_range:
                     attributes_object[attributeName]["type"] = ""

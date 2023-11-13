@@ -36,7 +36,10 @@ for attribute in attributes:
             if schema is None:
                 missing_datamodels.append(attribute)
                 continue
+
             schema["allOf"][2]["properties"][attribute] = attributes[attribute]
+            if "domains" in schema["allOf"][2]["properties"][attribute]:
+                del schema["allOf"][2]["properties"][attribute]["domains"]
             with open(schema_location,"w") as file:
                 json.dump(schema, file, indent=4)
     else:
