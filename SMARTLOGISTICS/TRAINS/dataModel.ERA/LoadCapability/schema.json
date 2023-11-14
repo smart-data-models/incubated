@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/LoadCapability",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "LoadCapability"
+                    ],
+                    "description": "Property. NGSI data type. It has to be LoadCapability"
+                },
                 "loadCapabilitySpeed": {
                     "type": "integer",
                     "description": "Property. Load capability speed"
@@ -31,6 +39,5 @@
         "type"
     ],
     "title": "LoadCapability + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/LoadCapability",
     "description": "This class together with properties loadCapabilityLineCategory and loadCapabilitySpeed replaces the previous loadCapability SKOS property."
 }

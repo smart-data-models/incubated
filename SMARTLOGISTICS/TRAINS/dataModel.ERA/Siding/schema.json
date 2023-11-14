@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/Siding",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Siding"
+                    ],
+                    "description": "Property. NGSI data type. It has to be Siding"
+                },
                 "demonstrationINF": {
                     "type": "string",
                     "description": "Property. EI declaration of demonstration for track/siding [INF]"
@@ -87,6 +95,5 @@
         "type"
     ],
     "title": "Siding + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/Siding",
     "description": "Sidings are all those tracks where running trains in service movements ends and which are not used for operational routing of a train."
 }

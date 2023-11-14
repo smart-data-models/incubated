@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/Signal",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Signal"
+                    ],
+                    "description": "Property. NGSI data type. It has to be Signal"
+                },
                 "relativeDistanceDangerPoint": {
                     "type": "integer",
                     "description": "Property. Relative distance of the danger point"
@@ -45,6 +53,5 @@
         "type"
     ],
     "title": "Signal + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/Signal",
     "description": "A railway signal is an installation next to the railway track for signalling the maximum allowed speed in the next block section to the train driver.\nDefinition RSM: Apparatus by means of which a conventional visual or acoustic indication is given, generally concerning the movements of railway vehicles."
 }

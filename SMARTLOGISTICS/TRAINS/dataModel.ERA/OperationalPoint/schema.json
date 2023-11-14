@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/OperationalPoint",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "OperationalPoint"
+                    ],
+                    "description": "Property. NGSI data type. It has to be OperationalPoint"
+                },
                 "digitalSchematicOverview": {
                     "type": "string",
                     "description": "Property. Digital schematic overview"
@@ -83,6 +91,5 @@
         "type"
     ],
     "title": "OperationalPoint + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/OperationalPoint",
     "description": "An operational point (OP) means any location for train service operations, where train services may begin and end or change route, and where passenger or freight services may be provided; operational point also means any location at boundaries between Member States or infrastructure managers.\nIn https://eur-lex.europa.eu/eli/reg_impl/2019/773/oj 2.1.2 Principal locations (stations, yards, junctions, freight terminals)."
 }

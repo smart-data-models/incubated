@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/NetRelation",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "NetRelation"
+                    ],
+                    "description": "Property. NGSI data type. It has to be NetRelation"
+                },
                 "elementA": {
                     "type": "string",
                     "format": "uri",
@@ -47,6 +55,5 @@
         "type"
     ],
     "title": "NetRelation + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/NetRelation",
     "description": "Base class for defining edges in the connectivity graph representing the topological network."
 }

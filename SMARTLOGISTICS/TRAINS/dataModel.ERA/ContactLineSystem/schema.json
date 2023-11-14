@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/ContactLineSystem",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "ContactLineSystem"
+                    ],
+                    "description": "Property. NGSI data type. It has to be ContactLineSystem"
+                },
                 "conditionalRegenerativeBrake": {
                     "type": "boolean",
                     "description": "Property. Permission for regenerative braking"
@@ -68,6 +76,5 @@
         "type"
     ],
     "title": "ContactLineSystem + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/ContactLineSystem",
     "description": "System that is used to transmit electrical energy to road or rail vehicles."
 }

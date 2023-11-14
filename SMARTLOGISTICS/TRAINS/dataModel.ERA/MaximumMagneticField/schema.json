@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/MaximumMagneticField",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "MaximumMagneticField"
+                    ],
+                    "description": "Property. NGSI data type. It has to be MaximumMagneticField"
+                },
                 "maximumMagneticFieldDirectionX": {
                     "type": "integer",
                     "description": "Property. Maximum magnetic field direction X"
@@ -34,6 +42,5 @@
         "type"
     ],
     "title": "MaximumMagneticField + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/MaximumMagneticField",
     "description": "The maximum magnetic field limits allowed for axle counters (in dB\u00b5A/m) for a defined frequency band.\nIt should be provided in 3 directions."
 }

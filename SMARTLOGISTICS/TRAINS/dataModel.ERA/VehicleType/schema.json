@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/VehicleType",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "VehicleType"
+                    ],
+                    "description": "Property. NGSI data type. It has to be VehicleType"
+                },
                 "alternativeName": {
                     "type": "string",
                     "description": "Property. Alternative name"
@@ -649,6 +657,5 @@
         "type"
     ],
     "title": "VehicleType + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/VehicleType",
     "description": "A vehicle type that has been authorized to operate on the EU railway infrastructure."
 }

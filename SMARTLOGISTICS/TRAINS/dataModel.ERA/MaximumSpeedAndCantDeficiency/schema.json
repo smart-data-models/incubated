@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/MaximumSpeedAndCantDeficiency",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "MaximumSpeedAndCantDeficiency"
+                    ],
+                    "description": "Property. NGSI data type. It has to be MaximumSpeedAndCantDeficiency"
+                },
                 "vehicleTypeMaximumCantDeficiency": {
                     "type": "integer",
                     "description": "Property. Vehicle type maximum cant deficiency"
@@ -30,6 +38,5 @@
         "type"
     ],
     "title": "MaximumSpeedAndCantDeficiency + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/MaximumSpeedAndCantDeficiency",
     "description": "Combination of maximum speed and maximum cant deficiency for which the vehicle was assessed."
 }

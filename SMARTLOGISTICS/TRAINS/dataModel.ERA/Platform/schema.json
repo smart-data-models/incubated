@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/Platform",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Platform"
+                    ],
+                    "description": "Property. NGSI data type. It has to be Platform"
+                },
                 "areaBoardingAid": {
                     "type": "integer",
                     "description": "Property. Information of the train access level for which the boarding aid can be used."
@@ -48,6 +56,5 @@
         "type"
     ],
     "title": "Platform + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/Platform",
     "description": "Platform for the purpose of RINF is understood as a platform edge. A platform concerns only the part of the structure neighbouring to the track (interfaced with trains)."
 }

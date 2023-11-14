@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/SectionOfLine",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "SectionOfLine"
+                    ],
+                    "description": "Property. NGSI data type. It has to be SectionOfLine"
+                },
                 "lineNationalId": {
                     "type": "string",
                     "format": "uri",
@@ -47,6 +55,5 @@
         "type"
     ],
     "title": "SectionOfLine + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/SectionOfLine",
     "description": "A section of line means the part of line between adjacent operational points and may consist of several tracks.\nIn https://eur-lex.europa.eu/eli/reg_impl/2019/773/oj 2.1.1 Line sections."
 }

@@ -48,6 +48,7 @@ header = {
     "$id": "https://smart-data-models.github.io/dataModel.ERA/XXXX/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/XXXX/LICENSE.md",
+    "derivedFrom": "https://data-interop.era.europa.eu/era-vocabulary/",
     "type": "object",
     "allOf": [
         {
@@ -72,9 +73,11 @@ for item in list(schemas.keys()):
     schema_object["title"] = schemas[item]["title"]
     schema_object["derivedFrom"] = schemas[item]["derivedFrom"]
     schema_object["description"] = schemas[item]["description"]
+    schema_object["allOf"][2]["properties"]["type"] = {}
+    schema_object["allOf"][2]["properties"]["type"] = {"type": "string", "enum": [item], "description": "Property. NGSI data type. It has to be " + item}
     dirname = outputDirectory + "/" + item
     os.makedirs(dirname, exist_ok=True)
     filename = outputDirectory + "/" + item + "/schema.json"
     with open(filename, "w") as file:
-        json.dump(schema_object, file)
+        json.dump(schema_object, file, indent=2)
 

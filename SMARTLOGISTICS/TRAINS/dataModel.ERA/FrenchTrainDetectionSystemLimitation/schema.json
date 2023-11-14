@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/FrenchTrainDetectionSystemLimitation",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "FrenchTrainDetectionSystemLimitation"
+                    ],
+                    "description": "Property. NGSI data type. It has to be FrenchTrainDetectionSystemLimitation"
+                },
                 "frenchTrainDetectionSystemLimitationApplicable": {
                     "type": "boolean",
                     "description": "Property. Section with train detection limitation is applicable, only for the French network"
@@ -31,6 +39,5 @@
         "type"
     ],
     "title": "FrenchTrainDetectionSystemLimitation + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/FrenchTrainDetectionSystemLimitation",
     "description": "Specific for route compatibility check on French network. Sections with: \n-1 Tonnage circulated per track is inferior to 15000 tons/day/track \n-2 Directional Interlocking \n-3 45-second delay for directional interlocking \n-4 Installation with track circuit announcement \n-5 Absence of a shunting assistance pedal in the normal direction of circulation for non-reversible double track lines \n-6 Absence of a shunting assistance pedal regardless of the direction of traffic for single track lines and tracks for two way working \n-7 Absence of a pedal announcement mechanism \n-8 45-second delay for specific announcement reset devices"
 }

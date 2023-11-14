@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/Tunnel",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Tunnel"
+                    ],
+                    "description": "Property. NGSI data type. It has to be Tunnel"
+                },
                 "complianceInfTsi": {
                     "type": "boolean",
                     "description": "Property. Compliance of the tunnel with INF TSI"
@@ -98,6 +106,5 @@
         "type"
     ],
     "title": "Tunnel + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/Tunnel",
     "description": "A railway tunnel is an excavation or a construction around the track provided to allow the railway to pass for example higher land, buildings or water."
 }

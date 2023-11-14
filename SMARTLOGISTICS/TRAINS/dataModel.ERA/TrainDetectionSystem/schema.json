@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/TrainDetectionSystem",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "TrainDetectionSystem"
+                    ],
+                    "description": "Property. NGSI data type. It has to be TrainDetectionSystem"
+                },
                 "flangeLubeRules": {
                     "type": "boolean",
                     "description": "Property. Existence of rules on on-board flange lubrication"
@@ -148,6 +156,5 @@
         "type"
     ],
     "title": "TrainDetectionSystem + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/TrainDetectionSystem",
     "description": "System used to detect the position of vehicles in the railway track."
 }

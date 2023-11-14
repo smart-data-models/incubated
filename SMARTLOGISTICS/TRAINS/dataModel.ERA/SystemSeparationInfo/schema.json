@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/SystemSeparationInfo",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "SystemSeparationInfo"
+                    ],
+                    "description": "Property. NGSI data type. It has to be SystemSeparationInfo"
+                },
                 "systemSeparationInfoChangeSupplySystem": {
                     "type": "string",
                     "description": "Property. System separation info change supply system"
@@ -38,6 +46,5 @@
         "type"
     ],
     "title": "SystemSeparationInfo + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/SystemSeparationInfo",
     "description": "Indication of required several information on system separation."
 }

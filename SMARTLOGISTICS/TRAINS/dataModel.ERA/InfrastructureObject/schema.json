@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/InfrastructureObject",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "InfrastructureObject"
+                    ],
+                    "description": "Property. NGSI data type. It has to be InfrastructureObject"
+                },
                 "validityEndDate": {
                     "type": "string",
                     "description": "Property. Validity end date"
@@ -50,6 +58,5 @@
         "type"
     ],
     "title": "InfrastructureObject + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/InfrastructureObject",
     "description": "This class encompasses all those classes that represent features that are  implemented in the European railway infrastructure. It is a subclass of the ERA Feature that has a spatial representation. It covers tracks, platforms, signals, tunnels, operational points, and sections of line.\nA feature that belongs to the infrastructure can be abstracted (hasAbstraction) as a topological object. It also is related to the infrastructure manager through the property infrastructureMgr."
 }

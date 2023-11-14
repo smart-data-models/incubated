@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/Track",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Track"
+                    ],
+                    "description": "Property. NGSI data type. It has to be Track"
+                },
                 "IdPhoneErtmsRadioBlockCenter": {
                     "type": "string",
                     "description": "Property. ID and phone number of ERTMS/ETCS Radio Block Center"
@@ -749,6 +757,5 @@
         "type"
     ],
     "title": "Track + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/Track",
     "description": "A running track that is used for train service movements."
 }

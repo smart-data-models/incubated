@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/SubsetWithCommonCharacteristics",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "SubsetWithCommonCharacteristics"
+                    ],
+                    "description": "Property. NGSI data type. It has to be SubsetWithCommonCharacteristics"
+                },
                 "IdPhoneErtmsRadioBlockCenter": {
                     "type": "string",
                     "description": "Property. ID and phone number of ERTMS/ETCS Radio Block Center"
@@ -708,6 +716,5 @@
         "type"
     ],
     "title": "SubsetWithCommonCharacteristics + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/SubsetWithCommonCharacteristics",
     "description": "Subset of items shared by sections of lines and/or operational points of a member state. For the purposes of the register of infrastructure, each infrastructure manager shall describe its railway network at least by sections of line and operational points and optionally via common characteristic subsets."
 }

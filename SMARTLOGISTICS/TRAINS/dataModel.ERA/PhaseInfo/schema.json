@@ -4,6 +4,7 @@
     "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
     "modelTags": "ERA vocabulary, railway, train",
     "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+    "derivedFrom": "http://data.europa.eu/949/PhaseInfo",
     "type": "object",
     "allOf": [
         {
@@ -14,6 +15,13 @@
         },
         {
             "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "PhaseInfo"
+                    ],
+                    "description": "Property. NGSI data type. It has to be PhaseInfo"
+                },
                 "phaseInfoKm": {
                     "type": "number",
                     "description": "Property. Phase info Km"
@@ -42,6 +50,5 @@
         "type"
     ],
     "title": "PhaseInfo + mapped from ERA ontology by Smart Data Models",
-    "derivedFrom": "http://data.europa.eu/949/PhaseInfo",
     "description": "Indication of required several information on phase separation."
 }

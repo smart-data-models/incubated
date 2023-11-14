@@ -1,1 +1,34 @@
-{"$schema": "http://json-schema.org/schema#", "$schemaVersion": "0.0.1", "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json", "modelTags": "ERA vocabulary, railway, train", "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md", "type": "object", "allOf": [{"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"}, {"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"}, {"properties": {}}], "required": ["id", "type"], "title": "Manufacturer + mapped from ERA ontology by Smart Data Models", "derivedFrom": "http://data.europa.eu/949/Manufacturer", "description": "A company or organization that manufactures vehicles."}
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.ERA/Certificate/schema.json",
+  "modelTags": "ERA vocabulary, railway, train",
+  "license": "https://smart-data-models.github.io/dataModel.ERA/Certificate/LICENSE.md",
+  "derivedFrom": "http://data.europa.eu/949/Manufacturer",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Manufacturer"
+          ],
+          "description": "Property. NGSI data type. It has to be Manufacturer"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ],
+  "title": "Manufacturer + mapped from ERA ontology by Smart Data Models",
+  "description": "A company or organization that manufactures vehicles."
+}
