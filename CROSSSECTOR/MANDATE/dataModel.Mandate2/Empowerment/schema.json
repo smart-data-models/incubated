@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Mandate/Empowerment/schema.json,",
+  "title": "Smart Data Models mapping of RPaM ontology data model Empowerment",
+  "description": "The assignment of one power to one or more natural or legal persons. It may define constraints on the use of the power by the empowered persons (the mandatees).",
+  "modelTags": "",
+  "derivedFrom": "https://github.com/everis-rpam/RPaM-Ontology",
+  "required": [
+    "id",
+    "type"
+  ],
+  "license": "https://smart-data-models.github.io/dataModel.Mandate/Empowerment/LICENSE.md",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri",
+      "description": "Property. Unique Id of the entity"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Empowerment"
+      ],
+      "description": "Property. It has to be Empowerment"
+    },
+    "PowerTypeCode": {
+      "type": "string",
+      "description": "Property. The type of power with which the mandator empowers its mandatee(s)."
+    },
+    "Description": {
+      "type": "string",
+      "description": "Property. The description of the empowerment."
+    },
+    "MandatorConstraintCriterion": {
+      "type": "array",
+      "description": "Relationship. Constraint(s) on how mandators with delegated powers may use a power.",
+      "items": {
+        "type": "string",
+        "format": "uri",
+        "description": "Relationship. Every constraint on how mandators with delegated powers may use a power."
+      }
+    },
+    "MandateeCriterion": {
+      "type": "array",
+      "description": "Relationship. Constraint(s) on how mandators with delegated powers may use a power.",
+      "items": {
+        "type": "string",
+        "format": "uri",
+        "description": "Relationship. Every Constraint on how mandators with delegated powers may use a power."
+      }
+    },
+    "MandateeParty": {
+      "type": "array",
+      "description": "Relationship. The persons being empowered.",
+      "items": {
+        "type": "string",
+        "format": "uri",
+        "description": "Relationship. Every person being empowered."
+      }
+    }
+  }
+}
+
+

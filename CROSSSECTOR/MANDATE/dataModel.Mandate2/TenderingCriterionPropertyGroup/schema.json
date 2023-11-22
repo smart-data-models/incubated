@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Mandate/TenderingCriterionPropertyGroup/schema.json,",
+  "title": "Smart Data Models mapping of RPaM ontology data model TenderingCriterionPropertyGroup",
+  "description": "A class to describe a group of tendering criteria",
+  "modelTags": "",
+  "derivedFrom": "https://github.com/everis-rpam/RPaM-Ontology",
+  "required": [
+    "id",
+    "type"
+  ],
+  "license": "https://smart-data-models.github.io/dataModel.Mandate/TenderingCriterionPropertyGroup/LICENSE.md",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri",
+      "description": "Property. Unique Id of the entity"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "TenderingCriterionPropertyGroup"
+      ],
+      "description": "Property. It has to be TenderingCriterionPropertyGroup"
+    },
+    "ID": {
+      "type": "string",
+      "description": "Property. An identifier for the group of criteria"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Property. The name of the group"
+    },
+    "Description": {
+      "type": "array",
+      "description": "Property. The textual description for this group",
+      "items": {
+        "type": "string",
+        "description": "Property. Every element of the description"
+      }
+    },
+    "TypeCode": {
+      "type": "string",
+      "description": "Property. A code signifying the type of the property group"
+    },
+    "CriterionProperty": {
+      "type": "array",
+      "description": "Property. All the criteria properties comprising the tendering criterion",
+      "items": {
+        "type": "string",
+        "description": "Property. Every criteria property comprising the tendering criterion"
+      }
+    },
+    "SubCriterionPropertyGroup": {
+      "type": "array",
+      "description": "Relationship. Subsidiary tendering criteria groups comprising this tendering criterion",
+      "items": {
+        "type": "string",
+        "format": "uri",
+        "description": "Relationship. Every subsidiary tendering criteria group comprising this tendering criterion"
+      }
+    }
+  }
+}

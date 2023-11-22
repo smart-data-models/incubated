@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Mandate/Criterion/schema.json,",
+  "title": "A condition that needs to be answered for evaluation purposes.",
+  "description": "A condition that needs to be answered for evaluation purposes.",
+  "modelTags": "",
+  "derivedFrom": "https://github.com/everis-rpam/RPaM-Ontology",
+  "required": [
+    "id",
+    "type"
+  ],
+  "license": "https://smart-data-models.github.io/dataModel.Mandate/Criterion/LICENSE.md",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri",
+      "description": "Property. Unique Id of the entity"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Criterion"
+      ],
+      "description": "Property. It has to be Criterion"
+    },
+    "ID": {
+      "type": "string",
+      "description": "Property. An identifier for this item of criterion support."
+    },
+    "CriterionTypeCode": {
+      "type": "string",
+      "description": "Property. A code signifying the type of criterion."
+    },
+    "Name": {
+      "type": "string",
+      "description": "Property. The name of the criterion."
+    },
+    "Description": {
+      "type": "array",
+      "description": "Property. The textual description for this criterion.",
+      "items": {
+        "type": "string",
+        "description": "Property. Every element of the description"
+      }
+    },
+    "WeightNumeric": {
+      "type": "number",
+      "description": "Property. A weighting to provide for automatic scoring of the criterion."
+    },
+    "EvaluationMethodTypeCode": {
+      "type": "string",
+      "description": "Property. A code signifying the type of Evaluation."
+    },
+    "WeightingConsiderationDescription": {
+      "type": "string",
+      "description": "Property. The textual description of the Weighting Description"
+    },
+    "SubCriterion": {
+      "type": "array",
+      "description": "Relationship. One or more tendering subcriteria.",
+      "items": {
+        "type": "string",
+        "format": "uri",
+        "description": "Relationship. Pointer to every subcriteria item"
+      }
+    },
+    "Legislation": {
+      "type": "array",
+      "description": "Property. The legislation reference for the criterion.",
+      "items": {
+         "type": "string",
+        "format": "uri",
+        "description": "Property. Pointer to every legislation reference item"
+      }
+    },
+    "CriterionPropertyGroup": {
+      "type": "array",
+      "description": "Relationship. The sets of properties that can be used to fulfil the tendering criterion.",
+      "items": {
+        "type": "string",
+        "format": "uri",
+        "description": "Relationship. Every set of properties that can be used to fulfil the tendering criterion."
+      }
+    }
+  }
+}

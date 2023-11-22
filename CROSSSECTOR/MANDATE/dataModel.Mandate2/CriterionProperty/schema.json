@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Mandate/CriterionProperty/schema.json,",
+  "title": "Smart Data Models mapping of RPaM ontology data model Criterion property",
+  "description": "A condition that needs to be answered for evaluation purposes.",
+  "modelTags": "",
+  "derivedFrom": "https://github.com/everis-rpam/RPaM-Ontology",
+  "required": [
+    "id",
+    "type"
+  ],
+  "license": "https://smart-data-models.github.io/dataModel.Mandate/CriterionProperty/LICENSE.md",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri",
+      "description": "Property. Unique Id of the entity"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "CriterionProperty"
+      ],
+      "description": "Property. It has to be CriterionProperty"
+    },
+    "ID": {
+      "type": "string",
+      "description": "Property. An identifier to refer to the criterion property"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Property. The name of the criterion property"
+    },
+    "Description": {
+      "type": "array",
+      "description": "Property. A description of the criterion property",
+      "items": {
+        "type": "string",
+        "description": "Property. Every element of the description"
+      }
+    },
+    "TypeCode": {
+      "type": "string",
+      "description": "Property. A mutually agreed code signifying the type of the property"
+    },
+    "InformationRequirementCriterionPropertyDatum": {
+      "type": "array",
+      "description": "Property. Specific information needed to measure a criterion",
+      "items": {
+        "type": "string",
+        "description": "Property. Every element of the information needed to measure a criterion"
+      }
+    },
+    "ConstraintCriterionPropertyDatum": {
+      "type": "array",
+      "description": "Property. The value provided for a criterion property",
+      "items": {
+        "type": "number",
+        "description": "Property. Every element of the value provided for a criterion property"
+      }
+    },
+    "MinimumConstraintCriterionPropertyDatum": {
+      "type": "array",
+      "description": "Property. The minimum value provided for a criterion property.",
+      "items": {
+        "type": "number",
+        "description": "Property. Every element of the minimum value provided for a criterion property"
+      }
+    },
+    "MaximumConstraintCriterionPropertyDatum": {
+      "type": "array",
+      "description": "Property. The maximum value provided for a criterion property.",
+      "items": {
+        "type": "number",
+        "description": "Property. Every element of the maximum value provided for a criterion property"
+      }
+    }
+  }
+}

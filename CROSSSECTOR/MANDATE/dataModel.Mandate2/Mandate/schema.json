@@ -1,0 +1,45 @@
+  {
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Mandate/Mandate/schema.json,",
+  "title": "Smart Data Models mapping of RPaM ontology data model Mandate",
+  "description": "Collection of empowerments",
+  "modelTags": "",
+  "derivedFrom": "https://github.com/everis-rpam/RPaM-Ontology",
+  "required": [
+    "id",
+    "type",
+    "MandatorConstraintParty"
+  ],
+  "license": "https://smart-data-models.github.io/dataModel.Mandate/Mandate/LICENSE.md",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri",
+      "description": "Property. Unique Id of the entity"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Mandate"
+      ],
+      "description": "Property. It has to be Mandate"
+    },
+    "MandatorConstraintParty": {
+      "type": "string",
+      "format": "uri",
+      "description": "Relationship. The person that empowers."
+    },
+    "Empowerment": {
+      "type": "array",
+      "description": "Relationship. The assignment of one power to one or more natural or legal persons.",
+      "items": {
+        "type": "string",
+        "format": "uri",
+        "description": "Relationship. Every assignment of one power to one or more natural or legal persons."
+      }
+    }
+  }
+}
+  
