@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Mandate/Power/schema.json",
+  "modelTags": "ERA vocabulary, railway, train",
+  "license": "https://smart-data-models.github.io/dataModel.Mandate/Power/LICENSE.md",
+  "derivedFrom": "https://github.com/everis-rpam/RPaM-Ontology",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Mandatee"
+          ],
+          "description": "Property. NGSI data type. It has to be Mandatee"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ],
+  "title": "Mandatee adapted to Smart Data Models",
+  "description": "Natural or legal person that acts on behalf of another natural or legal person."
+}

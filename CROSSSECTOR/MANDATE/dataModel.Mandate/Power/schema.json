@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Mandate/Power/schema.json",
+  "modelTags": "ERA vocabulary, railway, train",
+  "license": "https://smart-data-models.github.io/dataModel.Mandate/Power/LICENSE.md",
+  "derivedFrom": "https://github.com/everis-rpam/RPaM-Ontology",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Power"
+          ],
+          "description": "Property. NGSI data type. It has to be Power"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ],
+  "title": "Power adapted to Smart Data Models",
+  "description": "The specification of how one mandator assigns one power, and possible constraints on its use, to one or more Mandatees."
+}

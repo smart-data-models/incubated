@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Mandate/Power/schema.json",
+  "modelTags": "ERA vocabulary, railway, train",
+  "license": "https://smart-data-models.github.io/dataModel.Mandate/Power/LICENSE.md",
+  "derivedFrom": "https://github.com/everis-rpam/RPaM-Ontology",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "System"
+          ],
+          "description": "Property. NGSI data type. It has to be System"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ],
+  "title": "System adapted to Smart Data Models"
+}
