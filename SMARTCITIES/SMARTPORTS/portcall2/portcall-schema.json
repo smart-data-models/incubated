@@ -1,0 +1,225 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "modelTags": "ESHUV,I4Trust",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/PortCall/schema.json",
+  "title": "Smart Data models PortCall schema",
+  "description": "This data model is intended to provide information about PortCalls (the visit of a ship to a port). It allows to represent the properties of each PortCall, including the visiting Vessel (partially loaded and referenced to Vessel entity for more info). On each attribute references related to elements of other well known standards are included. The data model is intended to provide the basic information about a PortCall, that is, the data relative to the arrival and the departure of the ship from the port, but not intermediate activities (berthing, operations, ...) that are defined in other linked entities (Berth, Operation, ...)",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Property. Unique identifier of the entity assigned by the system who created on first the entity. This URN should Conforms MRN & IETF specifically RFC 2141, RFC 5234, and RFC 8141. The propossed format is id::=urn:mrn:<OID>:<ONSS>:portcall:id:99999999 where OID:= Organisation UN/LOCODE, OONSS:=Organization Name of Service, 9999999 an sequential, unique identifier that the issuer of the PortCall entity will identify on his sistems (i.e. a SQL row-id), i.e. 'urn:mrn:eshuv:portcalls:portcall:id:1422'. See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)[IALA_S211:localPortCallId] "
+        },
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be PortCall. In international standards is also known as [Ship's Visit]",
+          "enum": [
+            "PortCall"
+          ]
+        },
+        "vessel": {
+          "type" : "object",
+          "description": "Property. Vessel object with subset of properties loaded. Includes the id-urn of the vessel to look for more properties in Vessel entity.",
+          "properties": {
+            "vesselRef": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256,
+                  "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                  "description": "Property. Identifier format of any NGSI entity"
+                },
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Property. Identifier format of any NGSI entity in MRN format"
+                }
+              ],
+              "description": "Relationship. Related Vessel with all fields loaded with further info. Reference to Vessel/schema.json"
+            },
+            "name": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. Name of the Vessel. [EMSWe: DE-003-07] [EDIFACT:TDT-8212] [IMO:IMO0142]"
+            },
+            "imo": {
+              "type": "number",
+              "description": "Property. Model:'https://schema.org/Number'. International Maritime Organization Number (a global forever UID) [EMSWe: DE-003-03] [EDIFACT:TDT-8213] [IALA_S211:vesselId] [IMO:IMO0140] "
+            },
+            "mmsi": {
+              "type": "number",
+              "description": "Property. Model:'https://schema.org/Number'. Marine Mobile Service Identity Number (a temporarily assigned UID, issued by that object's current flag state)[EMSWe: DE-068-09] [EDIFACT:TDT-1131] [IALA_S211:vesselId] [IMO:IMO0178]"
+            },
+            "callsign": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Number'. Mxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+            }
+          }
+        },
+
+        "portCallNumber": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Port call identifier in MRN format. First element of the NSS should be the 5 character UN/Locode of the port, later the YEAR and finishing with a sequential number in this port [LLLLLYYYY99999] where LLLLL is the UN/LOCODE of the visited port, YYYY is the year, and 99999 is a unique sequential number assigned by port authority unique on each year (i.e. ESHUV202310323). An abreviation can be used for UN/LOCODE (i.e. H202310323).  The portCallNumber is assigned during the initial steps of the visit, but could be null at the beggining. In international standards is also known as [Port Call ID], [Visit ID] or [Port Call Coded]. See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory) [EMSWe: DG-004/DG-004-01] [EDIFACT:BGM-1004] [IALA_S211:portCallId] [IMO:IMO108+IMO0153]"
+        },
+        "portCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. United Nations Code for Trade and Transport Locations. See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory) [EMSWe: DE-004-04] [EDIFACT:LOC-3227-153] [IALA_S211:portCode] [IMO:IMO0108] "
+        },
+        "lastPortCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Last port of call, coded.The code representing the port immediately previous to the port of arrival, if available. [EMSWe: DE-005-05] [EDIFACT:LOC-3227-92] [IMO:IMO0076] "
+        },
+        "nextPortCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Next port of call, coded.The code representing the port immediately previous to the port of arrival, if available.. Related to IALA_S211:nestPortCallCod / IMO. [EMSWe: DE-005-07] [EDIFACT:LOC-3227-61] [IMO:IMO0120]"
+        },
+        "masterName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Name of master [EMSWe: DE-053-01] [EDIFACT:NAD-3035-ZME] [IMO:IMO0083]"
+        },
+        "wasteAgreementExists": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Text'. All waste delivery indicator. Waste collection paid indicator. Exists agreement with Port Authority for waste discharge and treatment. [EDIFACT:FTX-4441-ZRS/ZRL] [IALA_S211:locationReferenceObject. SLUDGE_VESSEL]"
+        },
+        "dangerousGoodsCarried": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Text'. A 'yes/no' indicator whether the ship is carrying any dangerous goods.[EMSWe: DE-018-02] [EDIFACT:FTX-4441-ZCD] [IMO:IMO0046]"
+        },
+        "dangerousGoodsLoading": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Text'. A 'yes/no' indicator whether the ship is loading any dangerous goods in this port. [EMSWe: DE-018-02] [EDIFACT:FTX-4441-ZDD] [IMO:IMO0046]"
+        },
+        "dangerousGoodsUnloading": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Text'. A 'yes/no' indicator whether the ship is unloading any dangerous goods in this port. [EMSWe: DE-018-02] [EDIFACT:FTX-4441-ZBD] [IMO:IMO0046]"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "ACCEPTED",
+            "AUTHORIZED",
+            "CANCELLED",
+            "COMPLETED",
+            "DENIED",
+            "INITIATED",
+            "INVOICING",
+            "INVOICED",
+            "REQUESTED",
+            "REJECTED"
+            ],
+          "description": "Property. Model:'https://schema.org/Text'. Current status of the PortCall in its lifetime, from request to authorization by port and civil authorities and completion. [EMSWe: DE-019-07] [EDIFACT:BGM-1225] [IALA_S211:serviceState: timeSequence:VESSEL]"
+        },
+        "authorizedBy": {
+          "type": "string",
+          "enum" : [ 
+            "PORT_AUTHORITY", 
+            "ARMY_AUTHORITY",
+            "PORT_ARMY_AUTHORITIES"
+          ],
+          "description": "Property. Model:'https://schema.org/Text'. Codes to identify which authority has approved or denied the visit of the ship. [EMSWe: DE-027-01] [EDIFACT:BGM-4443] [IMO:IMO0010]"
+        },
+        "authorizationDate" :{
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of authorization represented by an ISO 8601 UTC format"
+        },
+        "agentName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The name of the Agent at Port of the Sipping Line and usually the consignor or the load. [EMSWe: DE-009-01] [EDIFACT:NAD-3035-ZME-CV] [IMO:IMO0002]"
+        },
+        "manifestActivated": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Text'.Indicator of the Activation of the Manifest of the Cargo. "
+        },
+        "interiorTraffic": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Text'.Indicator of interior navigation port call. "
+        },
+        "comments": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Comments about this PortCall by the Porth Authority. [EMSWe: DE-038-01] [EDIFACT:FTX-4440-AAI] [IALA_S211:comment] [IMO: IMO0196]"
+        },
+        "crewArrival": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Text'. Number of crew at arrival. [EMSWe: DE-013-03] [EDIFACT:QTY-6063-ZTE] [IMO:IMO0086]"
+        },
+        "crewDeparture": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Text'. Number of crew at departure. [EMSWe: DE-013-03] [EDIFACT:QTY-6063-ZTS] [IMO:IMO0086] "
+        },
+        "passengersArrival": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Text'. Number of passengers at arrival. [EMSWe: DE-013-02] [EDIFACT:QTY-6063-ZPE] [IMO:IMO0087]."
+        },
+        "passengersDeparture": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Text'. Number of passengers at departure. [EMSWe: DE-013-02] [EDIFACT:QTY-6063-ZPS] [IMO:IMO0087]"
+        },
+        "ata": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of Actual Time of Departure from Port (ISO 8601 UTC format). [EMSWe: DE-005-02] [IALA_S211:locationState.timeType.ACTUAL] [IMO:IMO0063]"
+        },
+        "eta": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of Estimated Time of Arrival to Port expected by Port Authority  (ISO 8601 UTC format). [EMSWe: DE-005-09] [EDIFACT:DTM-2005-132] [IALA_S211:locationState.timeType.ESTIMATED] [IMO:IMO0064] "
+        },
+        "pta": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of Planned Time of Arrival to Port by Port Authority Berthing Plan  (ISO 8601 UTC format). [EDIFACT:DTM-2005-155] [IALA_S211:locationState.timeType.PLANNED] [IMO:IMO0235]"
+        },
+        "rta": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of Requested Time of Arrival to Port. Requested by Consignee to Port Authority  (ISO 8601 UTC format). [EDIFACT:DTM-2005-178] [IALA_S211:locationState.timeType.REQUIRED] [IMO:IMO0234]"
+        },
+        "atd": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of Actual Time of Departure  from Port.  (ISO 8601 UTC format). [IALA_S211:timeType=2] [EMSWe: DE-005-03] [IALA_S211:locationState.timeType.ACTUAL] [IMO:IMO0065]"
+        },
+        "etd": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of Estimated Time of Departure  from Port, expected by Port Authority  (ISO 8601 UTC format). [EMSWe: DE-005-04] [EDIFACT:DTM-2005-133] [IALA_S211:locationState.timeType.ESTIMATED] [IMO:IMO0066]"
+        },
+        "ptd": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of Planned Time of Departure  from Port, planned by Port Authority Berthing Plan  (ISO 8601 UTC format). [EDI: DTM-2005-156] [S211: locationState.timeType.PLANNED] [IMO: IMO0236]"
+        },
+        "rtd": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of Requested Time of Departure from Port. Requested by Consignee to Port Authority  (ISO 8601 UTC format). [EDIFACT:DTM-2005-189] [IALA_S211:locationState.timeType.REQUIRED] [IMO:IMO0237]"
+        }
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Property. Model:'https://schema.org/Text'. Date and time of creation of the entity represented by an ISO 8601 UTC format."
+      },
+      "modifiedAt": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Property. Model:'https://schema.org/Text'. Date and time of last modification of the entity represented by an ISO 8601 UTC format."
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "vessel",
+    "eta"
+  ]
+}
