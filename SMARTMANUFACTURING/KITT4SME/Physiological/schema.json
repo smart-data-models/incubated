@@ -1,17 +1,13 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$schemaVersion": "0.0.1",
-    "modelTags": "KITT4SME, Sensing Layer, Holonix, EU, Project, Manufacturing, Worker, Session",
+    "modelTags": "",
     "derivedFrom": "",
     "license": "",
     "$id": "https://smart-data-models.github.io/XXXsubjectXXX/XXXdataModelXXX/schema.json",
-    "title": "KITT4SME Sensing Layer",
-    "description": "Data model produced by the Sensing Layer in the KITT4SME project",
+    "title": "",
+    "description": "",
     "type": "object",
-    "required": [
-        "id",
-        "type"
-    ],
     "allOf": [
         {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -21,12 +17,8 @@
         },
         {
             "properties": {
-                "id": {
-                    "type": "string",
-                    "pattern": "^urn:ngsi:Wearable:[0-9]+$"
-                },
                 "type": {
-                    "type": "string",
+                    "description": "Property. NGSI Entity type. It has to be Wearable",
                     "enum": [
                         "Wearable"
                     ]
@@ -45,121 +37,147 @@
                                             "properties": {
                                                 "dateTime": {
                                                     "type": "string",
-                                                    "format": "date-time"
+                                                    "format": "date-time",
+                                                    "description": "Property. "
                                                 },
                                                 "format": {
                                                     "type": "string",
-                                                    "pattern": "^YYYY-MM-DDThh:mm:ss.zzzZ$"
+                                                    "description": "Property. Format of the output"
                                                 },
                                                 "timezoneId": {
                                                     "type": "string",
-                                                    "enum": [
-                                                        "UTC"
-                                                    ]
+                                                    "description": "Property. "
                                                 }
-                                            }
+                                            },
+                                            "description": "Property. "
                                         },
                                         "end": {
                                             "type": "object",
                                             "properties": {
                                                 "dateTime": {
                                                     "type": "string",
-                                                    "format": "date-time"
+                                                    "format": "date-time",
+                                                    "description": "Property. "
                                                 },
                                                 "format": {
                                                     "type": "string",
-                                                    "pattern": "^YYYY-MM-DDThh:mm:ss.zzzZ$"
+                                                    "description": "Property. Format of the output"
                                                 },
                                                 "timezoneId": {
                                                     "type": "string",
-                                                    "enum": [
-                                                        "UTC"
-                                                    ]
+                                                    "description": "Property. "
                                                 }
-                                            }
+                                            },
+                                            "description": "Property. "
                                         }
-                                    }
+                                    },
+                                    "description": "Property. "
                                 },
                                 "worker": {
                                     "type": "object",
                                     "properties": {
                                         "workerId": {
                                             "type": "string",
-                                            "format": "uuid"
+                                            "description": "Property. "
                                         },
                                         "description": {
-                                            "type": "string"
+                                            "type": "string",
+                                            "description": "Property. A description of this item"
                                         }
-                                    }
+                                    },
+                                    "description": "Property. "
                                 }
-                            }
+                            },
+                            "description": "Property. "
                         },
                         "wearableAccelometer": {
                             "type": "object",
                             "properties": {
                                 "x": {
-                                    "type": "number"
+                                    "type": "number",
+                                    "description": "Property. "
                                 },
                                 "y": {
-                                    "type": "number"
+                                    "type": "number",
+                                    "description": "Property.  "
                                 },
                                 "z": {
-                                    "type": "number"
+                                    "type": "number",
+                                    "description": "Property. "
                                 }
-                            }
+                            },
+                            "description": "Property. "
                         },
                         "name": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Property. The name of this item"
                         },
                         "deviceProperties": {
                             "type": "object",
                             "properties": {
                                 "properties": {
-                                    "type": "object"
+                                    "type": "object",
+                                    "properties": {},
+                                    "description": "Property. "
                                 }
-                            }
+                            },
+                            "description": "Property. "
                         },
                         "description": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Property. A description of this item"
                         }
-                    }
+                    },
+                    "description": "Property. "
                 },
                 "workerId": {
                     "type": "string",
-                    "format": "uuid"
+                    "description": "Property. "
                 },
                 "sessionId": {
                     "type": "string",
-                    "format": "uuid"
+                    "description": "Property. "
                 },
                 "temperature": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "Property. "
                 },
                 "gsr": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "Property. "
                 },
                 "heartRate": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "Property. "
                 },
                 "rrInterval": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "Property. "
                 },
                 "position": {
                     "type": "object",
                     "properties": {
                         "latitude": {
-                            "type": "number"
+                            "type": "number",
+                            "description": "Property. "
                         },
                         "longitude": {
-                            "type": "number"
+                            "type": "number",
+                            "description": "Property. "
                         }
-                    }
+                    },
+                    "description": "Property.  "
                 },
                 "timestamp": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "description": "Property.  "
                 }
             }
         }
+    ],
+    "required": [
+        "id",
+        "type"
     ]
 }
