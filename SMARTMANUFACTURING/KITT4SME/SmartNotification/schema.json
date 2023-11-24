@@ -1,0 +1,61 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "",
+    "derivedFrom": "",
+    "license": "",
+    "$id": "https://smart-data-models.github.io/XXXsubjectXXX/XXXdataModelXXX/schema.json",
+    "title": "",
+    "description": "",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "description": "Property. NGSI Entity type. It has to be Machine",
+                    "enum": [
+                        "Machine"
+                    ]
+                },
+                "recommendation": {
+                    "type": "string",
+                    "description": "Property. "
+                },
+                "timestamp": {
+                    "type": "object",
+                    "properties": {
+                        "dateTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Property. "
+                        },
+                        "format": {
+                            "type": "string",
+                            "description": "Property. Format of the output"
+                        },
+                        "timezoneId": {
+                            "type": "string",
+                            "description": "Property. "
+                        }
+                    },
+                    "description": "Property. "
+                },
+                "metadata": {
+                    "type": "object",
+                    "properties": {},
+                    "description": "Property. "
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ]
+}

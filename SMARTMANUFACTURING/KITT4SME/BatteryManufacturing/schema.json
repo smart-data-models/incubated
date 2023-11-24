@@ -1,0 +1,186 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "",
+    "derivedFrom": "",
+    "license": "",
+    "$id": "https://smart-data-models.github.io/XXXsubjectXXX/XXXdataModelXXX/schema.json",
+    "title": "",
+    "description": "",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "description": "Property. NGSI Entity type.",
+                    "enum": [
+                        "Machine"
+                    ]
+                },
+                "equipmentDevice": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "description": "Property. The name of this item"
+                        },
+                        "deviceProperties": {
+                            "type": "object",
+                            "properties": {
+                                "properties": {
+                                    "type": "object",
+                                    "properties": {},
+                                    "description": "Property. "
+                                }
+                            },
+                            "description": "Property. "
+                        },
+                        "devicePosition": {
+                            "type": "object",
+                            "properties": {
+                                "x": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                },
+                                "y": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                },
+                                "z": {
+                                    "type": "number",
+                                    "description": "Property. "
+                                }
+                            },
+                            "description": "Property. "
+                        },
+                        "description": {
+                            "type": "string",
+                            "description": "Property. A description of this item"
+                        }
+                    },
+                    "description": "Property. "
+                },
+                "qualityKPIs": {
+                    "type": "object",
+                    "properties": {
+                        "perc_ok_welding_points": {
+                            "type": "string",
+                            "description": "Property. "
+                        },
+                        "tbd": {
+                            "type": "string",
+                            "description": "Property. "
+                        }
+                    },
+                    "description": "Property. "
+                },
+                "detectedAnomalies": {
+                    "type": "object",
+                    "properties": {
+                        "anom_1": {
+                            "type": "string",
+                            "description": "Property. "
+                        },
+                        "anom_2": {
+                            "type": "string",
+                            "description": "Property. "
+                        }
+                    },
+                    "description": "Property. "
+                },
+                "mlPredictionValues": {
+                    "type": "object",
+                    "properties": {
+                        "pred_1": {
+                            "type": "string",
+                            "description": "Property. "
+                        },
+                        "pred_2": {
+                            "type": "string",
+                            "description": "Property. "
+                        }
+                    },
+                    "description": "Property. "
+                },
+                "BarCode": {
+                    "type": "string",
+                    "description": "Property. "
+                },
+                "Face": {
+                    "type": "string",
+                    "description": "Property. "
+                },
+                "Cell": {
+                    "type": "string",
+                    "description": "Property. "
+                },
+                "Point": {
+                    "type": "string",
+                    "description": "Property. "
+                },
+                "Group": {
+                    "type": "string",
+                    "description": "Property. "
+                },
+                "WeldCounter": {
+                    "type": "number",
+                    "description": "Property. "
+                },
+                "OutputJoules": {
+                    "type": "number",
+                    "description": "Property. "
+                },
+                "Charge": {
+                    "type": "number",
+                    "description": "Property. "
+                },
+                "Residue": {
+                    "type": "number",
+                    "description": "Property. "
+                },
+                "ForceLN": {
+                    "type": "number",
+                    "description": "Property. "
+                },
+                "ForceLN1": {
+                    "type": "number",
+                    "description": "Property. "
+                },
+                "timestamp": {
+                    "type": "object",
+                    "properties": {
+                        "dateTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Property. "
+                        },
+                        "format": {
+                            "type": "string",
+                            "description": "Property. Format of the output"
+                        },
+                        "timezoneId": {
+                            "type": "string",
+                            "description": "Property. "
+                        }
+                    },
+                    "description": "Property. "
+                },
+                "metadata": {
+                    "type": "object",
+                    "properties": {},
+                    "description": "Property. "
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ]
+}

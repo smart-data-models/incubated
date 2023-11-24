@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://smart-data-models.github.io/XXXsubjectXXX/XXXdataModelXXX/schema.json",
+  "title": "",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "description": "Property. NGSI Entity type. It has to be Machine",
+          "enum": [
+            "Machine"
+          ]
+        },
+        "format": {
+          "type": "string",
+          "description": "Property. Format of the output"
+        },
+        "height": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "width": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "Property. URL which provides a description or further information about this item"
+            }
+          },
+          "description": "Property. https://schema.org/Number.  Default: 0.0"
+        },
+        "timestamp": {
+          "type": "object",
+          "properties": {
+            "dateTime": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Property. "
+            },
+            "format": {
+              "type": "string",
+              "description": "Property. Format of the output"
+            },
+            "timezoneId": {
+              "type": "string",
+              "description": "Property. "
+            }
+          },
+          "description": "Property. "
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {},
+          "description": "Property. "
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

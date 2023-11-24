@@ -1,0 +1,169 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://smart-data-models.github.io/XXXsubjectXXX/XXXdataModelXXX/schema.json",
+  "title": "",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "description": "Property. NGSI Entity type. It has to be Machine",
+          "enum": [
+            "Machine"
+          ]
+        },
+        "equipmentDevice": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Property. The name of this item"
+            },
+            "deviceProperties": {
+              "type": "object",
+              "properties": {
+                "properties": {
+                  "type": "object",
+                  "properties": {},
+                  "description": "Property. "
+                }
+              },
+              "description": "Property. "
+            },
+            "devicePosition": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "y": {
+                  "type": "number",
+                  "description": "Property."
+                },
+                "z": {
+                  "type": "number",
+                  "description": "Property. "
+                }
+              },
+              "description": "Property. "
+            },
+            "description": {
+              "type": "string",
+              "description": "Property. A description of this item"
+            }
+          },
+          "description": "Property. "
+        },
+        "WorkpieceWeightAfterInjection": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "WorkpieceWeightAfterNutsAndScrewInsertion": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "ForceMeasuredDuringDrilling": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "NutPresence": {
+          "type": "object",
+          "properties": {},
+          "description": "Property. "
+        },
+        "WorkerPresenceInTheWorkCell": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "BufferLevelOnTheConveyorBelt": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "WorkpiecePresenceOnTheConveyorBelt": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "BufferLevelOnThePallet": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "WorkpieceOnTheWorkbench": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "StatusOfTheCobot": {
+          "type": "object",
+          "properties": {},
+          "description": "Property. "
+        },
+        "PerceivedExertionFatigueOfTheWorker": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "ProcessKPIs": {
+          "type": "object",
+          "properties": {},
+          "description": "Property. "
+        },
+        "OperatorAssignedTask": {
+          "type": "object",
+          "properties": {},
+          "description": "Property. "
+        },
+        "CobotTask": {
+          "type": "object",
+          "properties": {},
+          "description": "Property. "
+        },
+        "CobotSpeed": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "DrillingForce": {
+          "type": "number",
+          "description": "Property. "
+        },
+        "timestamp": {
+          "type": "object",
+          "properties": {
+            "dateTime": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Property. "
+            },
+            "format": {
+              "type": "string",
+              "description": "Property. Format of the output"
+            },
+            "timezoneId": {
+              "type": "string",
+              "description": "Property. "
+            }
+          },
+          "description": "Property. "
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {},
+          "description": "Property. "
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
