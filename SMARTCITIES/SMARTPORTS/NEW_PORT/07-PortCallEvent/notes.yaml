@@ -1,0 +1,30 @@
+notesHeader:
+  - id format: 'Unique identifier of the entity assigned by the system who created on first the entity. This URN should Conforms MRN & IETF specifically RFC 2141, RFC 5234, and RFC 8141. 
+    The propossed format is 
+    id::=urn:mrn:<OID>:<ONSS>:portcalls:portcallevent:id:99999999 
+    where OID:= Organisation UN/LOCODE, OONSS:=Organization Name of Service, 9999999 an sequential, unique identifier that the issuer of the PortCallVessel entity will identify on his sistems (i.e. a SQL row-id), 
+    i.e. urn:mrn:eshuv:portcalls:portcallvessel:id:19002 
+     See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)
+    '
+
+notesMiddle:
+
+notesFooter:
+  Version 1:
+    - First version pending to agree the standards identification of each field
+
+    - For URN forming the following standards are taken into account:  '
+        - SO 3166-1 – The International Standard for country codes and codes for their subdivisions.
+        - RFC 2141 – URN Syntax (https://www.ietf.org/rfc/rfc2141.txt)
+        - RFC 8141 – Uniform Resource Names (URN) (https://tools.ietf.org/html/rfc8141)
+        - IALA’s MRN Request: (https://www.iana.org/assignments/urn-formal/mrn)
+        
+        <MRN> ::= "urn" ":" "mrn" ":" <OID> ":" <OSNID> ":" <OSNS>
+        <OID> ::= (alphanum) 0*32(alphanum / "-") (alphanum) ; Organization ID (i.e. ESHUV)
+        <OSNID> ::= (alphanum) 0*32(alphanum / "-") (alphanum) ; Organization-specific namespace ID (i.e. portcalls)
+        <OSNS> ::= pchar *(pchar / "/") ; Organization-specific namespace string (i.e. a name of module or microservice.
+        <ID> ::= a unique identifier on that namespace (i.e. an entity name followed by a row-id in an SQL database)
+        
+        i.e. urn := "urn:mrn:eshuv:portcalls:portcall:id:343"
+  '
+notesReadme:

@@ -1,0 +1,65 @@
+notesHeader:
+  - id format: 'Unique identifier of the entity assigned by the system who created on first the entity. This URN should Conforms MRN & IETF specifically RFC 2141, RFC 5234, and RFC 8141. The propossed format is
+    id::=urn:mrn:<OID>:<ONSS>:port:id:99999999 
+    where OID:= Organisation UN/LOCODE, OONSS:=Organization Name of Service, 9999999 an sequential, unique identifier that the issuer of the PortCall entity will identify on his sistems (i.e. a SQL row-id), 
+     i.e.: urn:mrn:eshuv:portcalls:portcall:id:1422 
+     See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory) and (https://service.unece.org/trade/locode/es.htm)'
+
+  - identification of current standards 
+    On each attribute has been specified the standards on which the attribute comply
+    [EMSWe] European Maritime Single Window, https://www.emsa.europa.eu/emsw.html
+    [EDIFACT] UN/EDIFACT - United Nations rules for Elec­tronic Data Interchange for Administration, Commerce and Transport https://service.unece.org/trade/untdid/d20b/trsd/trsdrff.htm
+    [PCO] Port Call Optimization Taskforce, https://portcalloptimization.org/
+    [IMO] IMO FAL Convention Standards, https://www.imo.org/en/OurWork/Facilitation/Pages/FormsCartificates-default.aspx
+    [IALA_S211] IALA S211-Port Call Message, https://www.iala-aism.org/technical/data-modelling/iala-s-200-development-status/s-211/
+  '
+notesMiddle:
+
+notesFooter:
+
+notesReadme:
+  'Related international standards:
+  A work of combining different standars with broad acceptance and future projection has been made in order to be consistent with those standards and facilitate the built of automatic adapters between standards. And the main objective of this proposal is provide a comprehensive rationale of the PortCall from the point of view of a Port Authority and all organizations working around this central concept.
+
+  The standards taken into account are:
+
+  1. European Maritime Single Window [EMSWe] https://www.emsa.europa.eu/emsw.html. It defines a PortCall message to be transmitted between ship or shipping line to the port authority with a specific datamodel and propossing names for fields, used in 7 FAL forms. This standard will be obligatory in Europe, so this is the most appropiated to apply.
+    https://www.emsa.europa.eu/emsw.html - https://www.emsa.europa.eu/images/2020/EMSA_logo_full_600-ed.png
+
+  2. UN/EDIFACT (the United Nations rules for Elec­tronic Data Interchange for Administration, Commerce and Transport) comprise a set of internationally agreed standards. The relevant messages BERMAN, APERAK.
+    https://service.unece.org/trade/untdid/d20b/trsd/trsdrff.htm  https://unece.org/ - https://unece.org/themes/custom/unece/logo.png
+
+  3. Port Call Optimization Taskforce, https://portcalloptimization.org/, defining the concepts of informatino (semantics) related to a port-call and all of its dependencies with berthing and operation entities. This initiative is guided to armonize OMI-OMA-ISO-UN/CEFACT standards and do not specify names for attributes, but its semantics.
+    https://portcalloptimization.org/ - https://portcalloptimization.org/images/International-Taskforce.jpg
+
+  4. IMO FAL Convention Standards [IMO]], https://www.imo.org/en/OurWork/Facilitation/Pages/FormsCartificates-default.aspx, describes from the point of view of a ship navigating between ports the different data elements usefull on the 7 FAL forms, forming an IMO data-compedium.
+    https://www.imo.org/en/OurWork/Facilitation/Pages/FormsCartificates-default.aspx - https://www.imo.org/Content/images/img/Logo-EN.png
+
+  5. IALA S211-Port Call Message [S211], https://www.iala-aism.org/technical/data-modelling/iala-s-200-development-status/s-211/, Ship-to-port, port-to-ship, port-to-port, as well as port actor-to-port actor communication for an efficient coordination of port calls. Based on multiple instances of Port Collaborative Decision Making (PortCDM), as a sub concept of Sea Traffic Management (STM)
+    https://www.iala-aism.org/technical/data-modelling/iala-s-200-development-status/s-211/ - https://www.iala-aism.org/content/themes/redwire-iala/assets/images/iala/logo.png
+
+  6. For URN forming the following standards are taken into account:
+      - SO 3166-1 – The International Standard for country codes and codes for their subdivisions.
+      - RFC 2141 – URN Syntax (https://www.ietf.org/rfc/rfc2141.txt)
+      - RFC 8141 – Uniform Resource Names (URN) (https://tools.ietf.org/html/rfc8141)
+      - IALA’s MRN Request: (https://www.iana.org/assignments/urn-formal/mrn)
+
+      <MRN> ::= "urn" ":" "mrn" ":" <OID> ":" <OSNID> ":" <OSNS>
+      <OID> ::= (alphanum) 0*32(alphanum / "-") (alphanum) ; Organization ID (i.e. ESHUV)
+      <OSNID> ::= (alphanum) 0*32(alphanum / "-") (alphanum) ; Organization-specific namespace ID (i.e. portcall)
+      <OSNS> ::= pchar *(pchar / "/") ; Organization-specific namespace string (i.e. a name of module or microservice.
+      <ID> ::= a unique identifier on that namespace (i.e. an entity name followed by a row-id in an SQL database)
+
+      i.e. urn := "urn:mrn:eshuv:portcalls:portcall:id:343"
+
+  7. Compliance with previous related smart-data-models defined in FIWARE MarineTransport official site: [Port], [PortAuthority] and [Vessel].
+
+  So, for each data element described, an effort of identifying it in each standard has been done. For example, for PortCall identifier (or number, or code, are the same):
+  [PCO:Port call ID] [IMO:IMO108+IMO0110] [S211:localPortCallId][EMSW:]
+
+  Current UN/CEFACT EDIFACTS related to the PortCall: BERMAN for PortCall request and APERAK message, accepting or denying permission for the PortCall.
+
+  NOTES about identify attributes. There are two ways to identify a PortCall:
+  - [portCallNumber] aka [PortCall Code] or [Visit Id], is the unique identifier that will identify the PortCall from the moment on wich it is assigned a port call number (“LLLLLAAAA99999”, i.e. ESHUV202310323). This identifier is assigned when the ship calls to ask for the visit, but before this, the Port Authority uses to build the berthing plan some days before the ship visit, and this number is not assigned.
+  - [id] this is the unique identifier of the FIWARE Entity that the issuer of the PortCall entity will identify on his sistems. The proposal for this identifier is to have an URN (MRN): urn:mrn:LLLLL:<OSNID>:portcall:id:NN, so the issuer entity (usually port authority), can easyli retrieve this record from his databases with only the NN part of the id.
+  '

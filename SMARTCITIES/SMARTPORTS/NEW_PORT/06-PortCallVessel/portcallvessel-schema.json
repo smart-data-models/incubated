@@ -1,0 +1,198 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.2",
+  "modelTags": "I4Trust",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/PortCallVessel/schema.json",
+  "title": "Smart Data models Vessel schema",
+  "description": "The data model is intended to provide information about vessels. It allows to represent the properties of each vessel: static and dynamic information",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Property. Unique identifier of the entity. Suggested format: urn:mrn:<oid>:portcalls:portcallvessel:id:9999"
+        },
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be PortCallVessel",
+          "enum": [
+            "PortCallVessel"
+          ]
+        },
+        "masterVesselRef":   {"type": "Relationship", "description": "Relationship.Reference to parent MasterVessel entity. [NGSI-MarineTransport.MasterVessel.id]- urn:mrn:<oid>:portcalls:portcallvessel:id:9999" },
+
+        "imo": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. International Maritime Organization Number (a global forever UID)"
+        },
+        "mmsi": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Marine Mobile Service Identity Number (a temporarily assigned UID, issued by that object's current flag state)"
+        },
+        "callSign": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Maritime call signs are call signs assigned as unique identifiers to vessels"
+        },
+        "name": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Vessel Name"
+        },
+
+        "portCallNumber": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Port call identifier in MRN format. First element of the NSS should be the 5 character UN/Locode of the port, later the YEAR and finishing with a sequential number in this port [LLLLLYYYY99999] where LLLLL is the UN/LOCODE of the visited port, YYYY is the year, and 99999 is a unique sequential number assigned by port authority unique on each year (i.e. ESHUV202310323). An abreviation can be used for UN/LOCODE (i.e. H202310323).  The portCallNumber is assigned during the initial steps of the visit, but could be null at the beggining. In international standards is also known as [Port Call ID], [Visit ID] or [Port Call Coded]. See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory) [EMSWe: DG-004/DG-004-01] [EDIFACT:BGM-1004] [IALA_S211:portCallId] [IMO:IMO108+IMO0153]"
+        },
+        "portCallRef":   {"type": "Relationship", "description": "Relationship.Reference to parent PortCall entity. [NGSI-MarineTransport.PortCall.id]" },
+
+        "portCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. United Nations Code for Trade and Transport Locations. See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory) [EMSWe: DE-004-04] [EDIFACT:LOC-3227-153] [IALA_S211:portCode] [IMO:IMO0108] "
+        },
+
+        "lastPortCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Last port of call, coded.The code representing the port immediately previous to the port of arrival, if available. [EMSWe: DE-005-05] [EDIFACT:LOC-3227-92] [IMO:IMO0076] "
+        },
+        "nextPortCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Next port of call, coded.The code representing the port immediately previous to the port of arrival, if available.. Related to IALA_S211:nestPortCallCod / IMO. [EMSWe: DE-005-07] [EDIFACT:LOC-3227-61] [IMO:IMO0120]"
+        },
+
+        "etaAis": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Estimated time of arrival, as it is reported by AIS system, represented by an ISO 8601 UTC format."
+        },
+        "etaAlgorithm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Estimated time of arrival, computed by an algorithm based on vessel's positions, represented by an ISO 8601 UTC format."
+        },
+
+
+
+
+
+
+        "loa": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 8000,
+          "description": "Property. Model:'https://schema.org/Number'. Units: 'meters'. Length of Vessel."
+        },
+        "gt": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units: 'moorson tons'. Gross Tonnage (GT)."
+        },
+        "specialManeuverIndicator": {
+          "type": "number",
+          "enum": [ 0, 1, 2 ],
+          "description": "Property. Model:'https://schema.org/Number'. Enum: '0=Not available (default),1=Not engaged in special maneuver,2=Engaged in special maneuver'. Code for the special maneuver flag."
+        },
+        "manager": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Manager Vessel informed by agent at port"
+        },
+        "draught": {
+          "type": "number",
+          "description": "Property. Model:'http://schema.org/Number'. Actual Draught (vertical distance between the waterline and the bottom of the hull (keel)). Declared by ship Agent in PortCall request and reported/confirmed by Pilot. Units: 'meters'"
+        },
+        "arrivalDraught":  {
+          "type": "number",
+          "description": "Property. Model:'http://schema.org/Number'. Draught at arrival reported by ship Agent. Vertical distance between the waterline and the bottom of the hull (keel). . Units: 'meters'"
+        },
+        "departureDraught":  {
+          "type": "number",
+          "description": "Property. Model:'http://schema.org/Number'. Draught at departure reported by ship Agent. Vertical distance between the waterline and the bottom of the hull (keel). Units: 'meters'"
+        },
+        "airDraught": {
+          "type": "number",
+          "description": "Property. Model:'http://schema.org/Number'. Air Draught (distance from the top of a vessel''s highest point to its waterline). Units: 'meters'"
+        },
+
+        "navigationStatus": {
+          "type": "number",
+          "enum": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+          "description": "Property. Model:'http://schema.org/Number'. Enum: '0=Under way using engine,1=At anchor,2=Not under command,3=Restricted manoeuverability,4=Constrained by her draught,5=Moored,6=Aground,7=Engaged in Fishing,8=Under way sailing,9=Reserved for future amendment of Navigational state for HSC,10=Reserved for future amendment of Navigational Status for WIG,11=Reserved for future use,12=Reserved for future use,13=Reserved for future use,14=AIS-SART is active,15=Not defined (default)'. Navigation Status. AIVDM/AIVDO data format."
+        },
+
+        "location": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "coordinates": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "description": "GeoProperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygoProperty."
+        },
+        "positionAccuracy": {
+          "type": "number",
+          "enum": [ 0, 1 ],
+          "description": "Property. Model:'https://schema.org/Number'.Enum: '0=Low (> 10 m; autonomous mode of e.g. global navigation satellite system (GNSS) receiver or of other electronic position fixing device; default),1=High (< 10 m; differential mode of e.g. DGNSS receiver)'. Code for the accuracy of the vessel position flag."
+        },
+
+        "speedOverGround": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units: 'meters per second'. Speed Over Ground (SOG)."
+        },
+        "courseOverGround": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units: 'degree'. Course Over Ground (COG)."
+        },
+        "heading": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 511,
+          "description": "Property. Model:'https://schema.org/Number'. Units: 'degree'. Heading of the Vessel (HDG)."
+        },
+        "rateOfTurn": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 708,
+          "description": "Property. Model:'https://schema.org/Number'. Units: 'degree'. Rate of Turn (ROT)."
+        },
+
+        "dataProvider": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. A sequence of characters identifying the provider of the harmonised data entity"
+        },
+
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of creation of the entity represented by an ISO 8601 UTC format."
+        },
+        "modifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of last modification of the entity represented by an ISO 8601 UTC format."
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of this observation represented by an ISO 8601 UTC format."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name"
+  ]
+}
