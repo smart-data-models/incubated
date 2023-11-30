@@ -39,8 +39,8 @@ A big thanks to all contributors! The contributors for Brick v1.2.0 are, in desc
 ### Added Classes
 
 ```
-Ablutions_Room
 Air_Wet_Bulb_Temperature_Sensor
+Ablutions_Room
 Auditorium
 Battery_Room
 Bench_Space
