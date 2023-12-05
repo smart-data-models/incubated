@@ -5,12 +5,15 @@
   "derivedFrom": "",
   "license": "",
   "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/Berth/schema.json",
-  "title": "Smart Data models Berth schema",
-  "description": "This data model is intended to provide information about commercial operations made in a stop  of a ship during a PortCall (Berth entity). An Operation is defined as the activities related to commercial operations that take in place during the berth. Each Operation has an entity and some operations can be made in the same berth (docked or anchorage), and are distinguished by its sequence number on time (operationRank)",
+  "title": "Smart Data models operation schema",
+  "description": "This data model is intended to provide information about commercial operations made in a stop of a ship during a PortCall (Berth entity). An Operation is defined as the activities related to commercial operations that take in place during the berth. Each Operation has an entity and some operations can be made in the same berth (docked or anchorage), and are distinguished by its sequence number on time (operationRank)",
   "type": "object",
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
     },
     {
       "properties": {
@@ -21,35 +24,176 @@
             "Operation"
           ]
         },
-
-        "portCode":   {"type": "string", "description": "Property. Model:'https://schema.org/Text'. Code of the port of the call. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-        "year":   {"type": "number", "description": "Property. Model:'https://schema.org/Number'. Year of the init of the berthing. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-        "portCallNumber":   {"type": "string", "description": "Property. Model:'https://schema.org/Text'. PortCall identifier in urn format. MarineTransport:PortCall:portCallNumber [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-        "portCallRef":   {"type": "Relationship", "description": "Relationship.Reference to parent MarineTransport:PortCall entity. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-        "berthRef":   {"type": "Relationship", "description": "Relationship.Reference to parent MarineTransport:Berth entity. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-
-        "stopRank":   {"type": "number", "description": "Property. Model:'https://schema.org/Number'. Rank or Number of this stop in the stop (berth or anchor area) ordered by  time sequence. [EMSWe: -] [EDI: -] [S211: -] [IMO: -]"},
-        "operationRank":   {"type": "number", "description": "Property. Model:'https://schema.org/Number'. Rank or Number of this Operation in all the commercial operations made in berth in the sequence of operations (dischargue, charge, ...). [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-
-        "ets":   {"type": "datetime", "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of Estimated Time of starting the operation.. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-        "etc":   {"type": "datetime", "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of Estimated Time of Arrival to Berth expected by Port Authority  (ISO 8601 UTC format). If this is the first berthing, the ETA-berth should be the same than ETA-PBP. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-
-        "operationTypeCode":   {"type": "string", "description": "Property. Model:'https://schema.org/Text'. Code identifying the type of commercial operation. Enum: ZD=Disembarkation; ZE=Embarkation; ZT=Transshipment; ZR=Waste; AV=Victualling; DT=Disembarkation in transit; RE=Restow. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-        "productCode":   {"type": "string", "description": "Property. Model:'https://schema.org/Text'. Code identifying the type of product of this operation. Enum: Z01=Crude oil; Z02=Fuel oil; Z03=Gas-oil; Z04=Gasoline; Z05=Asphalt; Z06=Other petroleum products; Z07=Petroleum energy gases; Z08=Iron ore; Z09=Pyrites; Z10=Other minerals; Z11=Iron scrap; Z12=Coals and petroleum coke; Z13=Steel products; Z14=Phosphates; Z15=Potasses; Z16=Natural and artificial fertilizers; Z17=Chemical products; Z18=Cement and clinker; Z19=Wood and cork; Z20=Construction materials; Z21=Cereals and their flour; Z22=Beans and soy flour; Z23=Fruits, vegetables and legumes; Z24=Wines, alcoholic beverages and derivatives; Z25=Common salt; Z26=Paper and pulp; Z27=Canned; Z28=Tobacco, cocoa, coffee and spices; Z29=Oils and fats; Z30=Other food products; Z31=Machinery, appliances, tools and spare parts; Z32=Automobiles and parts; Z33=Frozen fish; Z34=Rest of merchandise; Z35=Natural gas; Z36=Other metallurgical products; Z37=Feed and forage; Z38=Tare truck cargo platform; Z39=Container tare; Z40=Merchandise in transit containers; Z41=Containers full; Z42=Empty containers; Z43=Vehicles; Z44=Vehicle parts; Z91=Passengers; Z92=Cruise passengers; 1=Fresh fish; Z51=Biofuels; Z52=Other non-metallic minerals; ZR1=Dirty ballast; ZR2=Sludge and settling tanks; ZR3=Bilge oily water tanks; ZR4=Dirty waters; ZR5=Garbage;. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-        "amount":   {"type": "number", "description": "Property. Model:'https://schema.org/Number'. Number of units loading/discharge. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-        "measureUnit":   {"type": "string", "description": "Property. Model:'https://schema.org/Text'. Unit type of load loading/discharge. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-        "maxWeightPerUnit":   {"type": "number", "description": "Property. Model:'https://schema.org/Number'. Maximum Weight per unit loading/discharge in Tm. [EMSWe: DE-019-07] [EDI: BGM-1225] [S211: serviceState: timeSequence:VESSEL] " },
-
-        "terminal":   {"type": "string", "description": "Property. Model:'https://schema.org/Text'. Terminal where the operation takes place. [EMSWe: DE-005-04] [EDI: DTM-2005-133] [S211: locationState.timeType.ESTIMATED] [IMO: IMO0066] " },
-        "location":   {"type": "string", "description": "Property. Model:'https://schema.org/Text'. Text specifying the location in the port where the operations has place. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-
-        "remarks":   {"type": "string", "description": "Property. Model:'https://schema.org/Text'. Remarks of the operation. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-        "manipulaitonMeansCode":   {"type": "string", "description": "Property. Model:'https://schema.org/Text'. Code identifying the manipulation means. Enum: 1=Vessel's own resources", "3=Dock cranes", "2=Roll-on-roll-off ramp", "4=Automotive cranes", "5=Pipes", "6=Conveyor belts", " 7=Pneumatic pumping installations", "8=Special installations", "9=Other means. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-        "manipulationMeansNumber":   {"type": "number", "description": "Property. Model:'https://schema.org/Number'. Number of manipulation means. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-        "stevedoreRef":   {"type": "string", "description": "Property. Model:'https://schema.org/Text'. Id of the stevedore. Format urn:mrn:<oid>:portcalls:operation:stevedore:9999. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-
-        "createdAt":   {"type": "datetime", "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of creation thi entity. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " },
-        "modifiedAt":   {"type": "datetime", "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of modification this entity. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] " }
+        "portCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Code of the port of the call"
+        },
+        "year": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Year of the init of the berthing"
+        },
+        "portCallNumber": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. PortCall identifier in urn format. MarineTransport:PortCall:portCallNumber"
+        },
+        "portCallRef": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship.Reference to parent MarineTransport:PortCall entity"
+        },
+        "berthRef": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship.Reference to parent MarineTransport:Berth entity"
+        },
+        "stopRank": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Rank or Number of this stop in the stop (berth or anchor area) ordered by time sequence"
+        },
+        "operationRank": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Rank or Number of this Operation in all the commercial operations made in berth in the sequence of operations (discharge, charge, ...)"
+        },
+        "ets": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of Estimated Time of starting the operation."
+        },
+        "etc": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of Estimated Time of Arrival to Berth expected by Port Authority  (ISO 8601 UTC format). If this is the first berthing, the ETA-berth should be the same than ETA-PBP"
+        },
+        "operationTypeCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Code identifying the type of commercial operation. Enum: 'ZD=Disembarkation; ZE=Embarkation; ZT=Transshipment; ZR=Waste; AV=Victualling; DT=Disembarkation in transit; RE=Restow'",
+          "enum": [
+            "ZD",
+            "ZE",
+            "ZT",
+            "ZR",
+            "AV",
+            "DT",
+            "RE"
+          ]
+        },
+        "productCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Code identifying the type of product of this operation. Enum: Z01=Crude oil; Z02=Fuel oil; Z03=Gas-oil; Z04=Gasoline; Z05=Asphalt; Z06=Other petroleum products; Z07=Petroleum energy gases; Z08=Iron ore; Z09=Pyrites; Z10=Other minerals; Z11=Iron scrap; Z12=Coals and petroleum coke; Z13=Steel products; Z14=Phosphates; Z15=Potasses; Z16=Natural and artificial fertilizers; Z17=Chemical products; Z18=Cement and clinker; Z19=Wood and cork; Z20=Construction materials; Z21=Cereals and their flour; Z22=Beans and soy flour; Z23=Fruits, vegetables and legumes; Z24=Wines, alcoholic beverages and derivatives; Z25=Common salt; Z26=Paper and pulp; Z27=Canned; Z28=Tobacco, cocoa, coffee and spices; Z29=Oils and fats; Z30=Other food products; Z31=Machinery, appliances, tools and spare parts; Z32=Automobiles and parts; Z33=Frozen fish; Z34=Rest of merchandise; Z35=Natural gas; Z36=Other metallurgical products; Z37=Feed and forage; Z38=Tare truck cargo platform; Z39=Container tare; Z40=Merchandise in transit containers; Z41=Containers full; Z42=Empty containers; Z43=Vehicles; Z44=Vehicle parts; Z91=Passengers; Z92=Cruise passengers; 1=Fresh fish; Z51=Biofuels; Z52=Other non-metallic minerals; ZR1=Dirty ballast; ZR2=Sludge and settling tanks; ZR3=Bilge oily water tanks; ZR4=Dirty waters; ZR5=Garbage;",
+          "enum": [
+            "Z01",
+            "Z02",
+            "Z03",
+            "Z04",
+            "Z05",
+            "Z06",
+            "Z07",
+            "Z08",
+            "Z09",
+            "Z10",
+            "Z11",
+            "Z12",
+            "Z13",
+            "Z14",
+            "Z15",
+            "Z16",
+            "Z17",
+            "Z18",
+            "Z19",
+            "Z20",
+            "Z21",
+            "Z22",
+            "Z23",
+            "Z24",
+            "Z25",
+            "Z26",
+            "Z27",
+            "Z28",
+            "Z29",
+            "Z30",
+            "Z31",
+            "Z32",
+            "Z33",
+            "Z34",
+            "Z35",
+            "Z36",
+            "Z37",
+            "Z38",
+            "Z39",
+            "Z40",
+            "Z41",
+            "Z42",
+            "Z43",
+            "Z44",
+            "Z91",
+            "Z92",
+            "Z51",
+            "Z52",
+            "ZR1",
+            "ZR2",
+            "ZR3",
+            "ZR4",
+            "ZR5"
+          ]
+        },
+        "amount": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Number of units loading/discharge"
+        },
+        "measureUnit": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Unit type of load loading/discharge"
+        },
+        "maxWeightPerUnit": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Maximum Weight per unit loading/discharge. Units:'Tm'"
+        },
+        "terminal": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Terminal where the operation takes place"
+        },
+        "position": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Text specifying the position in the port where the operations has place"
+        },
+        "remarks": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Remarks of the operation"
+        },
+        "manipulationMeansCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Code identifying the manipulation means. Enum: 1=Vessel's own resources, 2=Roll-on-roll-off ramp, 3=Dock cranes, 4=Automotive cranes, 5=Pipes, 6=Conveyor belts, 7=Pneumatic pumping installations, 8=Special installations, 9=Other means'",
+          "enum": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ]
+        },
+        "manipulationMeansNumber": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Number of manipulation means"
+        },
+        "stevedoreRef": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Model:'https://schema.org/Text'. Id of the stevedore. Format urn:mrn:<oid>:portcalls:operation:stevedore:9999"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of creation thi entity"
+        },
+        "modifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of modification this entity"
+        }
       }
     }
   ],
