@@ -1,0 +1,29 @@
+id: http://w3id.org/gaia-x/gx-trust-framework/endpoint
+name: endpoint
+prefixes:
+  linkml: https://w3id.org/linkml/
+  gx: http://w3id.org/gaia-x/gx-trust-framework/
+default_prefix: gx
+imports:
+  - linkml:types
+  - standard-conformity
+default_range: string
+
+classes:
+  Endpoint:
+    description: 'An endpoint is a mean to access and interact with a service or a resource.'
+    attributes:
+      endpointURL:
+        title: 'endpoint URL'
+        description: 'The URL of the endpoint where it can be accessed.'
+        range: uri
+      standardConformity:
+        required: true
+        title: 'standard conformity'
+        description: 'Provides information about applied standards.'
+        multivalued: true
+        range: StandardConformity
+      description:
+        required: false
+        description: 'The Description (e.g. openAPI Description) of the endpoint.'
+        range: string
