@@ -1,510 +1,510 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "EventLocationType": {
-            "description": "Specifies the type of location",
-            "enum": [
-                "anchorArea",
-                "approachArea",
-                "berth",
-                "fairway",
-                "pilotBoardingPlace",
-                "port",
-                "portBasin",
-                "terminal",
-                "tugArea"
-            ],
-            "type": "string"
-        },
-        "EventType": {
-            "description": "Designates the type of events\nThe format is a string composed of 3 parts, separated by a dot: PortActivity.TimeType.EventParty\nNot all combinations are valid, they are restricted to the following specified event types",
-            "enum": [
-                "120nm.ata.vessel",
-                "12nm.ata.vessel",
-                "240nm.ata.vessel",
-                "60nm.ata.vessel",
-                "anchorArea.ata.agent",
-                "anchorArea.ata.portAuthority",
-                "anchorArea.ata.vessel",
-                "anchorArea.atd.agent",
-                "anchorArea.atd.portAuthority",
-                "anchorArea.atd.vessel",
-                "anchorArea.eta.agent",
-                "anchorArea.eta.carrier",
-                "anchorArea.eta.portAuthority",
-                "anchorArea.etd.agent",
-                "anchorArea.etd.carrier",
-                "anchorArea.etd.portAuthority",
-                "berth.ata.agent",
-                "berth.ata.carrier",
-                "berth.ata.portAuthority",
-                "berth.ata.terminal",
-                "berth.ata.vessel",
-                "berth.atd.agent",
-                "berth.atd.carrier",
-                "berth.atd.portAuthority",
-                "berth.atd.terminal",
-                "berth.atd.vessel",
-                "berth.cancel.agent",
-                "berth.cancel.carrier",
-                "berth.cancel.portAuthority",
-                "berth.cancel.terminal",
-                "berth.eta.agent",
-                "berth.eta.captain",
-                "berth.eta.carrier",
-                "berth.eta.pilot",
-                "berth.eta.portAuthority",
-                "berth.eta.terminal",
-                "berth.eta.vessel",
-                "berth.etd.agent",
-                "berth.etd.carrier",
-                "berth.etd.pilot",
-                "berth.etd.portAuthority",
-                "berth.etd.terminal",
-                "berth.pta.terminal",
-                "berth.ptd.portAuthority",
-                "berth.ptd.terminal",
-                "bunkerPW.atc.vessel",
-                "bunkerPW.ats.vessel",
-                "bunkerService.atc.bunkerService",
-                "bunkerService.atc.portAuthority",
-                "bunkerService.atc.serviceProvider",
-                "bunkerService.atc.vessel",
-                "bunkerService.ats.bunkerService",
-                "bunkerService.ats.portAuthority",
-                "bunkerService.ats.serviceProvider",
-                "bunkerService.ats.vessel",
-                "bunkerService.cancel.agent",
-                "bunkerService.cancel.bunkerService",
-                "bunkerService.cancel.portAuthority",
-                "bunkerService.cancel.serviceProvider",
-                "bunkerService.etc.agent",
-                "bunkerService.etc.bunkerService",
-                "bunkerService.etc.serviceProvider",
-                "bunkerService.ets.agent",
-                "bunkerService.ets.bunkerService",
-                "bunkerService.ets.serviceProvider",
-                "cargoOperations.atc.terminal",
-                "cargoOperations.ats.terminal",
-                "cargoOperations.cancel.agent",
-                "cargoOperations.cancel.serviceProvider",
-                "cargoOperations.etc.agent",
-                "cargoOperations.etc.serviceProvider",
-                "cargoOperations.etc.terminal",
-                "cargoOperations.ets.agent",
-                "cargoOperations.ets.serviceProvider",
-                "cargoOperations.ets.terminal",
-                "customs.atc.vessel",
-                "customs.ats.vessel",
-                "fairway.ata.vessel",
-                "firstLineReleased.at.linesmen",
-                "firstLineReleased.at.vessel",
-                "firstLineSecured.at.linesmen",
-                "firstLineSecured.at.vessel",
-                "floatingCrane.atc.vessel",
-                "floatingCrane.ats.vessel",
-                "immigration.atc.vessel",
-                "immigration.ats.vessel",
-                "lastLineReleased.at.linesmen",
-                "lastLineReleased.at.vessel",
-                "lastLineSecured.at.linesmen",
-                "lastLineSecured.at.vessel",
-                "movement.cancel.agent",
-                "pilotBoardingPlace.ata.carrier",
-                "pilotBoardingPlace.ata.vessel",
-                "pilotBoardingPlace.atd.carrier",
-                "pilotBoardingPlace.atd.vessel",
-                "pilotBoardingPlace.eta.agent",
-                "pilotBoardingPlace.eta.carrier",
-                "pilotBoardingPlace.eta.pilot",
-                "pilotBoardingPlace.eta.vessel",
-                "pilotBoardingPlace.etd.agent",
-                "pilotBoardingPlace.etd.carrier",
-                "pilotBoardingPlace.pta.portAuthority",
-                "pilotDisembarked.at.pilot",
-                "pilotDisembarked.at.portAuthority",
-                "pilotDisembarked.at.vessel",
-                "pilotDisembarked.et.pilot",
-                "pilotOnBoard.at.pilot",
-                "pilotOnBoard.at.portAuthority",
-                "pilotOnBoard.at.vessel",
-                "pilotOnBoard.et.pilot",
-                "port.ata.agent",
-                "port.ata.carrier",
-                "port.ata.portAuthority",
-                "port.ata.vessel",
-                "port.atd.agent",
-                "port.atd.carrier",
-                "port.atd.portAuthority",
-                "port.atd.vessel",
-                "port.cancel.agent",
-                "port.cancel.carrier",
-                "port.cancel.portAuthority",
-                "port.clearance.portAuthority",
-                "port.eta.agent",
-                "port.eta.carrier",
-                "port.eta.portAuthority",
-                "port.etd.agent",
-                "port.etd.carrier",
-                "port.etd.portAuthority",
-                "portAuthority.atc.vessel",
-                "portAuthority.ats.vessel",
-                "portBasin.ata.vessel",
-                "provision.atc.serviceProvider",
-                "provision.atc.vessel",
-                "provision.ats.serviceProvider",
-                "provision.ats.vessel",
-                "provision.cancel.serviceProvider",
-                "provision.etc.serviceProvider",
-                "provision.ets.serviceProvider",
-                "repairService.atc.serviceProvider",
-                "repairService.ats.serviceProvider",
-                "repairService.cancel.agent",
-                "repairService.etc.agent",
-                "repairService.etc.serviceProvider",
-                "repairService.ets.agent",
-                "repairService.ets.serviceProvider",
-                "safeAccessToShoreOpen.et.pilot",
-                "slops.atc.vessel",
-                "slops.ats.vessel",
-                "slops.cancel.agent",
-                "slops.cancel.serviceProvider",
-                "slops.etc.agent",
-                "slops.etc.serviceProvider",
-                "slops.ets.agent",
-                "slops.ets.serviceProvider",
-                "stores.cancel.agent",
-                "stores.cancel.serviceProvider",
-                "stores.etc.agent",
-                "stores.etc.serviceProvider",
-                "stores.ets.agent",
-                "stores.ets.serviceProvider",
-                "surveyor.atc.terminal",
-                "surveyor.ats.terminal",
-                "surveyor.cancel.serviceProvider",
-                "surveyor.etc.serviceProvider",
-                "surveyor.ets.serviceProvider",
-                "tender.atc.vessel",
-                "tender.ats.vessel",
-                "tugArea.ata.vessel",
-                "tugArea.atd.vessel",
-                "tugArea.eta.pilot",
-                "tugsFromBerth.reportnumber.agent",
-                "tugsFromBerth.reportnumber.portAuthority",
-                "tugsNoMoreStandby.at.portAuthority",
-                "tugsNoMoreStandby.at.tugService",
-                "tugsNoMoreStandby.at.vessel",
-                "tugsNoMoreStandby.et.portAuthority",
-                "tugsNoMoreStandby.et.tugService",
-                "tugsStandby.at.portAuthority",
-                "tugsStandby.at.tugService",
-                "tugsStandby.at.vessel",
-                "tugsStandby.et.portAuthority",
-                "tugsStandby.et.tugService",
-                "tugsToBerth.reportnumber.agent",
-                "tugsToBerth.reportnumber.portAuthority",
-                "vtsArea.ata.vessel",
-                "vtsArea.atd.vessel",
-                "waste.atc.serviceProvider",
-                "waste.atc.vessel",
-                "waste.ats.serviceProvider",
-                "waste.ats.vessel",
-                "waste.cancel.agent",
-                "waste.cancel.serviceProvider",
-                "waste.etc.agent",
-                "waste.etc.serviceProvider",
-                "waste.ets.agent",
-                "waste.ets.serviceProvider",
-                "waterSupply.cancel.agent",
-                "waterSupply.cancel.serviceProvider",
-                "waterSupply.etc.agent",
-                "waterSupply.etc.serviceProvider",
-                "waterSupply.ets.agent",
-                "waterSupply.ets.serviceProvider"
-            ],
-            "type": "string"
-        },
-        "IEventContext": {
-            "description": "EventContext is a key-value object in which users are allowed to put custom keys for any purposes\nThe following keys have pre-defined meanings within the spec\nKeys in this object are always optional",
-            "properties": {
-                "berthVisitId": {
-                    "description": "Case-insensitive identifier for a berth visit, which is a ship being alongside a single berth",
-                    "pattern": "^BID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
-                    "type": "string"
-                },
-                "clearance": {
-                    "description": "Used in combination with port.xxx.portAuthority to convey whether the port authority has given clearance for the ship to enter the port",
-                    "type": "boolean"
-                },
-                "distanceToLocationNM": {
-                    "description": "Used in combination with eta vessel or distanceToPort.at.vessel events, to inform how far away the vessel currently is",
-                    "type": "number"
-                },
-                "draught": {
-                    "description": "Maximum actual or expected static vessel draught at the event time in centimeters (integer)",
-                    "type": "number"
-                },
-                "mooring": {
-                    "description": "Mooring information, associated with berth events",
-                    "properties": {
-                        "bollardAft": {
-                            "description": "Bollard at the aft of the ship",
-                            "type": "number"
-                        },
-                        "bollardFore": {
-                            "description": "Bollard at the fore of the ship\nBollards are preferably integers, but some ports use fractional bollard numbers",
-                            "type": "number"
-                        },
-                        "doubleBanked": {
-                            "description": "True if the ship is doulbe banked, there is a ship in between it and the berth",
-                            "type": "boolean"
-                        },
-                        "orientation": {
-                            "description": "Mooring orientation",
-                            "enum": [
-                                "port",
-                                "starboard"
-                            ],
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "bollardAft",
-                        "bollardFore"
-                    ],
-                    "type": "object"
-                },
-                "movementId": {
-                    "description": "Case-insensitive identifier for a movement, which is a ship traveling from one location to another inside a portcall",
-                    "pattern": "^MID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
-                    "type": "string"
-                },
-                "organisationPortcallId": {
-                    "description": "Case-insensitive identifier for a single service activity, like a bunker activity",
-                    "pattern": "^PID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
-                    "type": "string"
-                },
-                "serviceId": {
-                    "description": "Case-insensitive identifier for a single service activity, like a bunker activity",
-                    "pattern": "^SID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
-                    "type": "string"
-                },
-                "serviceShip": {
-                    "$ref": "#/definitions/IShip",
-                    "description": "The ship associated with a service event, e.g. the bunkers that will provide the bunker fuel",
-                    "minProperties": 1
-                },
-                "serviceShipNumber": {
-                    "description": "The number of service ships, for when the specific service ships are not known yet",
-                    "minimum": 0,
-                    "type": "number"
-                },
-                "stakeholders": {
-                    "description": "The stakeholder ids of the stakeholders that should have access to the data from this event",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                }
-            },
-            "type": "object"
-        },
-        "IEventLocation": {
-            "description": "Identifies a physical location at which the event will take place",
-            "properties": {
-                "geo": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/IPoint"
-                        },
-                        {
-                            "$ref": "#/definitions/IPolygon"
-                        }
-                    ],
-                    "description": "The Geometry Object of the GeoJSON specification:\nhttps://tools.ietf.org/html/rfc7946#page-7\nThe World Geodetic System (WGS84) is used as its reference coordinate system."
-                },
-                "gln": {
-                    "description": "Global Location Number identifying a physical location",
-                    "pattern": "^[0-9]{13}$",
-                    "type": "string"
-                },
-                "glnExtension": {
-                    "description": "GLN Extension component, identifying a physical sublocation of a location",
-                    "pattern": "^[0-9]{1,20}$",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "In case GLN is present, name is informative only\nTo provide a transition period to allow the introduction of GLNs in port, events are not required to have GLN in v3.\nIn this case, name MUST be unique per source system and consumers are allowed to link the name to locations in their master data",
-                    "type": "string"
-                },
-                "type": {
-                    "$ref": "#/definitions/EventLocationType"
-                }
-            },
-            "required": [
-                "type"
-            ],
-            "type": "object"
-        },
-        "IPoint": {
-            "description": "Point geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.2",
-            "properties": {
-                "coordinates": {
-                    "description": "A Position is an array of (lon, lat) coordinates (The altitude element is not supported)\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nCoordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
-                    "items": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "maxItems": 2,
-                    "minItems": 2,
-                    "type": "array"
-                },
-                "type": {
-                    "enum": [
-                        "Point"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "coordinates",
-                "type"
-            ],
-            "type": "object"
-        },
-        "IPolygon": {
-            "description": "Polygon geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.6",
-            "properties": {
-                "coordinates": {
-                    "items": {
-                        "items": {
-                            "description": "A Position is an array of (lon, lat) coordinates (The altitude element is not supported)\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nCoordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 2,
-                            "minItems": 2,
-                            "type": "array"
-                        },
-                        "type": "array"
-                    },
-                    "type": "array"
-                },
-                "type": {
-                    "enum": [
-                        "Polygon"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "coordinates",
-                "type"
-            ],
-            "type": "object"
-        },
-        "IShip": {
-            "description": "Bundles identifiers of a ship, but not information about the ship\nAt least an IMO, ENI, USCG or MMSI must be provided, with IMO being preferred over ENI, and ENI being preferred over MMSI",
-            "minProperties": 1,
-            "properties": {
-                "eni": {
-                    "description": "European Number of Identification (ENI) ship reference number",
-                    "pattern": "^[0-9]{8}$",
-                    "type": "string"
-                },
-                "imo": {
-                    "description": "International Maritime Organization (IMO) ship reference number",
-                    "pattern": "^[0-9]{7}$",
-                    "type": "string"
-                },
-                "mmsi": {
-                    "pattern": "^[0-9]{9}$",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "Name is informative only",
-                    "type": "string"
-                },
-                "uscg": {
-                    "description": "United States Coast Guard vessel identification number",
-                    "pattern": "^(?:[0-9]{6,8}|[a-zA-Z][0-9]{6,7}|[a-zA-Z]{2}[0-9]{6})$",
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        }
-    },
-    "properties": {
-        "context": {
-            "$ref": "#/definitions/IEventContext",
-            "description": "EventContext is a key-value object in which users are allowed to put custom keys for any purposes\nThe following keys have pre-defined meanings within the spec\nKeys in this object are always optional"
-        },
-        "eventTime": {
-            "description": "Time at which the event occured/will occur. The meaning of this should be interperted according to eventType",
-            "format": "date-time",
-            "type": "string"
-        },
-        "eventType": {
-            "$ref": "#/definitions/EventType"
-        },
-        "location": {
-            "$ref": "#/definitions/IEventLocation",
-            "description": "Identifies a physical location at which the event will take place"
-        },
-        "port": {
-            "description": "A UN/LOCODE designating a port",
-            "pattern": "^[A-Z]{2}[A-Z2-9]{3}$",
-            "type": "string"
-        },
-        "portcallId": {
-            "description": "A local port call identifier issued by the port authority or an organisation authorized by the port authority\nMust be prefixed by the UNLOCODE of the issuing port, and followed by an identifier of 1 to 32 characters\nAllowed characters in the identifier: a-z and A-Z (basic latin block letters), 0-9 (basic latin block digits), - (U+002D) and _ (U+005F)",
-            "pattern": "^[A-Z]{2}[A-Z2-9]{3}[a-zA-Z0-9\\-_]{1,32}$",
-            "type": "string"
-        },
-        "recordTime": {
-            "description": "Time at which the event was created",
-            "format": "date-time",
-            "type": "string"
-        },
-        "ship": {
-            "$ref": "#/definitions/IShip"
-        },
-        "source": {
-            "description": "System creating the event, unique within participants",
-            "type": "string"
-        },
-        "uuid": {
-            "description": "UUID identifying the event",
-            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
-            "type": "string"
-        },
-        "version": {
-            "description": "Follows semantic versioning, see https://semver.org",
-            "enum": [
-                "3.2.1"
-            ],
-            "type": "string"
-        }
-    },
-    "required": [
-        "eventTime",
-        "eventType",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "EventLocationType": {
+      "description": "Specifies the type of location",
+      "enum": [
+        "anchorArea",
+        "approachArea",
+        "berth",
+        "fairway",
+        "pilotBoardingPlace",
         "port",
-        "recordTime",
-        "ship",
-        "source",
-        "uuid",
-        "version"
-    ],
-    "type": "object"
+        "portBasin",
+        "terminal",
+        "tugArea"
+      ],
+      "type": "string"
+    },
+    "EventType": {
+      "description": "Designates the type of events\nThe format is a string composed of 3 parts, separated by a dot: PortActivity.TimeType.EventParty\nNot all combinations are valid, they are restricted to the following specified event types",
+      "enum": [
+        "120nm.ata.vessel",
+        "12nm.ata.vessel",
+        "240nm.ata.vessel",
+        "60nm.ata.vessel",
+        "anchorArea.ata.agent",
+        "anchorArea.ata.portAuthority",
+        "anchorArea.ata.vessel",
+        "anchorArea.atd.agent",
+        "anchorArea.atd.portAuthority",
+        "anchorArea.atd.vessel",
+        "anchorArea.eta.agent",
+        "anchorArea.eta.carrier",
+        "anchorArea.eta.portAuthority",
+        "anchorArea.etd.agent",
+        "anchorArea.etd.carrier",
+        "anchorArea.etd.portAuthority",
+        "berth.ata.agent",
+        "berth.ata.carrier",
+        "berth.ata.portAuthority",
+        "berth.ata.terminal",
+        "berth.ata.vessel",
+        "berth.atd.agent",
+        "berth.atd.carrier",
+        "berth.atd.portAuthority",
+        "berth.atd.terminal",
+        "berth.atd.vessel",
+        "berth.cancel.agent",
+        "berth.cancel.carrier",
+        "berth.cancel.portAuthority",
+        "berth.cancel.terminal",
+        "berth.eta.agent",
+        "berth.eta.captain",
+        "berth.eta.carrier",
+        "berth.eta.pilot",
+        "berth.eta.portAuthority",
+        "berth.eta.terminal",
+        "berth.eta.vessel",
+        "berth.etd.agent",
+        "berth.etd.carrier",
+        "berth.etd.pilot",
+        "berth.etd.portAuthority",
+        "berth.etd.terminal",
+        "berth.pta.terminal",
+        "berth.ptd.portAuthority",
+        "berth.ptd.terminal",
+        "bunkerPW.atc.vessel",
+        "bunkerPW.ats.vessel",
+        "bunkerService.atc.bunkerService",
+        "bunkerService.atc.portAuthority",
+        "bunkerService.atc.serviceProvider",
+        "bunkerService.atc.vessel",
+        "bunkerService.ats.bunkerService",
+        "bunkerService.ats.portAuthority",
+        "bunkerService.ats.serviceProvider",
+        "bunkerService.ats.vessel",
+        "bunkerService.cancel.agent",
+        "bunkerService.cancel.bunkerService",
+        "bunkerService.cancel.portAuthority",
+        "bunkerService.cancel.serviceProvider",
+        "bunkerService.etc.agent",
+        "bunkerService.etc.bunkerService",
+        "bunkerService.etc.serviceProvider",
+        "bunkerService.ets.agent",
+        "bunkerService.ets.bunkerService",
+        "bunkerService.ets.serviceProvider",
+        "cargoOperations.atc.terminal",
+        "cargoOperations.ats.terminal",
+        "cargoOperations.cancel.agent",
+        "cargoOperations.cancel.serviceProvider",
+        "cargoOperations.etc.agent",
+        "cargoOperations.etc.serviceProvider",
+        "cargoOperations.etc.terminal",
+        "cargoOperations.ets.agent",
+        "cargoOperations.ets.serviceProvider",
+        "cargoOperations.ets.terminal",
+        "customs.atc.vessel",
+        "customs.ats.vessel",
+        "fairway.ata.vessel",
+        "firstLineReleased.at.linesmen",
+        "firstLineReleased.at.vessel",
+        "firstLineSecured.at.linesmen",
+        "firstLineSecured.at.vessel",
+        "floatingCrane.atc.vessel",
+        "floatingCrane.ats.vessel",
+        "immigration.atc.vessel",
+        "immigration.ats.vessel",
+        "lastLineReleased.at.linesmen",
+        "lastLineReleased.at.vessel",
+        "lastLineSecured.at.linesmen",
+        "lastLineSecured.at.vessel",
+        "movement.cancel.agent",
+        "pilotBoardingPlace.ata.carrier",
+        "pilotBoardingPlace.ata.vessel",
+        "pilotBoardingPlace.atd.carrier",
+        "pilotBoardingPlace.atd.vessel",
+        "pilotBoardingPlace.eta.agent",
+        "pilotBoardingPlace.eta.carrier",
+        "pilotBoardingPlace.eta.pilot",
+        "pilotBoardingPlace.eta.vessel",
+        "pilotBoardingPlace.etd.agent",
+        "pilotBoardingPlace.etd.carrier",
+        "pilotBoardingPlace.pta.portAuthority",
+        "pilotDisembarked.at.pilot",
+        "pilotDisembarked.at.portAuthority",
+        "pilotDisembarked.at.vessel",
+        "pilotDisembarked.et.pilot",
+        "pilotOnBoard.at.pilot",
+        "pilotOnBoard.at.portAuthority",
+        "pilotOnBoard.at.vessel",
+        "pilotOnBoard.et.pilot",
+        "port.ata.agent",
+        "port.ata.carrier",
+        "port.ata.portAuthority",
+        "port.ata.vessel",
+        "port.atd.agent",
+        "port.atd.carrier",
+        "port.atd.portAuthority",
+        "port.atd.vessel",
+        "port.cancel.agent",
+        "port.cancel.carrier",
+        "port.cancel.portAuthority",
+        "port.clearance.portAuthority",
+        "port.eta.agent",
+        "port.eta.carrier",
+        "port.eta.portAuthority",
+        "port.etd.agent",
+        "port.etd.carrier",
+        "port.etd.portAuthority",
+        "portAuthority.atc.vessel",
+        "portAuthority.ats.vessel",
+        "portBasin.ata.vessel",
+        "provision.atc.serviceProvider",
+        "provision.atc.vessel",
+        "provision.ats.serviceProvider",
+        "provision.ats.vessel",
+        "provision.cancel.serviceProvider",
+        "provision.etc.serviceProvider",
+        "provision.ets.serviceProvider",
+        "repairService.atc.serviceProvider",
+        "repairService.ats.serviceProvider",
+        "repairService.cancel.agent",
+        "repairService.etc.agent",
+        "repairService.etc.serviceProvider",
+        "repairService.ets.agent",
+        "repairService.ets.serviceProvider",
+        "safeAccessToShoreOpen.et.pilot",
+        "slops.atc.vessel",
+        "slops.ats.vessel",
+        "slops.cancel.agent",
+        "slops.cancel.serviceProvider",
+        "slops.etc.agent",
+        "slops.etc.serviceProvider",
+        "slops.ets.agent",
+        "slops.ets.serviceProvider",
+        "stores.cancel.agent",
+        "stores.cancel.serviceProvider",
+        "stores.etc.agent",
+        "stores.etc.serviceProvider",
+        "stores.ets.agent",
+        "stores.ets.serviceProvider",
+        "surveyor.atc.terminal",
+        "surveyor.ats.terminal",
+        "surveyor.cancel.serviceProvider",
+        "surveyor.etc.serviceProvider",
+        "surveyor.ets.serviceProvider",
+        "tender.atc.vessel",
+        "tender.ats.vessel",
+        "tugArea.ata.vessel",
+        "tugArea.atd.vessel",
+        "tugArea.eta.pilot",
+        "tugsFromBerth.reportnumber.agent",
+        "tugsFromBerth.reportnumber.portAuthority",
+        "tugsNoMoreStandby.at.portAuthority",
+        "tugsNoMoreStandby.at.tugService",
+        "tugsNoMoreStandby.at.vessel",
+        "tugsNoMoreStandby.et.portAuthority",
+        "tugsNoMoreStandby.et.tugService",
+        "tugsStandby.at.portAuthority",
+        "tugsStandby.at.tugService",
+        "tugsStandby.at.vessel",
+        "tugsStandby.et.portAuthority",
+        "tugsStandby.et.tugService",
+        "tugsToBerth.reportnumber.agent",
+        "tugsToBerth.reportnumber.portAuthority",
+        "vtsArea.ata.vessel",
+        "vtsArea.atd.vessel",
+        "waste.atc.serviceProvider",
+        "waste.atc.vessel",
+        "waste.ats.serviceProvider",
+        "waste.ats.vessel",
+        "waste.cancel.agent",
+        "waste.cancel.serviceProvider",
+        "waste.etc.agent",
+        "waste.etc.serviceProvider",
+        "waste.ets.agent",
+        "waste.ets.serviceProvider",
+        "waterSupply.cancel.agent",
+        "waterSupply.cancel.serviceProvider",
+        "waterSupply.etc.agent",
+        "waterSupply.etc.serviceProvider",
+        "waterSupply.ets.agent",
+        "waterSupply.ets.serviceProvider"
+      ],
+      "type": "string"
+    },
+    "IEventContext": {
+      "description": "EventContext is a key-value object in which users are allowed to put custom keys for any purposes\nThe following keys have pre-defined meanings within the spec\nKeys in this object are always optional",
+      "properties": {
+        "berthVisitId": {
+          "description": "Case-insensitive identifier for a berth visit, which is a ship being alongside a single berth",
+          "pattern": "^BID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
+          "type": "string"
+        },
+        "clearance": {
+          "description": "Used in combination with port.xxx.portAuthority to convey whether the port authority has given clearance for the ship to enter the port",
+          "type": "boolean"
+        },
+        "distanceToLocationNM": {
+          "description": "Used in combination with eta vessel or distanceToPort.at.vessel events, to inform how far away the vessel currently is",
+          "type": "number"
+        },
+        "draught": {
+          "description": "Maximum actual or expected static vessel draught at the event time in centimeters (integer)",
+          "type": "number"
+        },
+        "mooring": {
+          "description": "Mooring information, associated with berth events",
+          "properties": {
+            "bollardAft": {
+              "description": "Bollard at the aft of the ship",
+              "type": "number"
+            },
+            "bollardFore": {
+              "description": "Bollard at the fore of the ship\nBollards are preferably integers, but some ports use fractional bollard numbers",
+              "type": "number"
+            },
+            "doubleBanked": {
+              "description": "True if the ship is doulbe banked, there is a ship in between it and the berth",
+              "type": "boolean"
+            },
+            "orientation": {
+              "description": "Mooring orientation",
+              "enum": [
+                "port",
+                "starboard"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "bollardAft",
+            "bollardFore"
+          ],
+          "type": "object"
+        },
+        "movementId": {
+          "description": "Case-insensitive identifier for a movement, which is a ship traveling from one location to another inside a portcall",
+          "pattern": "^MID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
+          "type": "string"
+        },
+        "organisationPortcallId": {
+          "description": "Case-insensitive identifier for a single service activity, like a bunker activity",
+          "pattern": "^PID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
+          "type": "string"
+        },
+        "serviceId": {
+          "description": "Case-insensitive identifier for a single service activity, like a bunker activity",
+          "pattern": "^SID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
+          "type": "string"
+        },
+        "serviceShip": {
+          "$ref": "#/definitions/IShip",
+          "description": "The ship associated with a service event, e.g. the bunkers that will provide the bunker fuel",
+          "minProperties": 1
+        },
+        "serviceShipNumber": {
+          "description": "The number of service ships, for when the specific service ships are not known yet",
+          "minimum": 0,
+          "type": "number"
+        },
+        "stakeholders": {
+          "description": "The stakeholder ids of the stakeholders that should have access to the data from this event",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "IEventLocation": {
+      "description": "Identifies a physical location at which the event will take place",
+      "properties": {
+        "geo": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IPoint"
+            },
+            {
+              "$ref": "#/definitions/IPolygon"
+            }
+          ],
+          "description": "The Geometry Object of the GeoJSON specification:\nhttps://tools.ietf.org/html/rfc7946#page-7\nThe World Geodetic System (WGS84) is used as its reference coordinate system."
+        },
+        "gln": {
+          "description": "Global Location Number identifying a physical location",
+          "pattern": "^[0-9]{13}$",
+          "type": "string"
+        },
+        "glnExtension": {
+          "description": "GLN Extension component, identifying a physical sublocation of a location",
+          "pattern": "^[0-9]{1,20}$",
+          "type": "string"
+        },
+        "name": {
+          "description": "In case GLN is present, name is informative only\nTo provide a transition period to allow the introduction of GLNs in port, events are not required to have GLN in v3.\nIn this case, name MUST be unique per source system and consumers are allowed to link the name to locations in their master data",
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/EventLocationType"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "IPoint": {
+      "description": "Point geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.2",
+      "properties": {
+        "coordinates": {
+          "description": "A Position is an array of (lon, lat) coordinates (The altitude element is not supported)\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nCoordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
+          "items": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Point"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "coordinates",
+        "type"
+      ],
+      "type": "object"
+    },
+    "IPolygon": {
+      "description": "Polygon geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.6",
+      "properties": {
+        "coordinates": {
+          "items": {
+            "items": {
+              "description": "A Position is an array of (lon, lat) coordinates (The altitude element is not supported)\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nCoordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
+              "items": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "Polygon"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "coordinates",
+        "type"
+      ],
+      "type": "object"
+    },
+    "IShip": {
+      "description": "Bundles identifiers of a ship, but not information about the ship\nAt least an IMO, ENI, USCG or MMSI must be provided, with IMO being preferred over ENI, and ENI being preferred over MMSI",
+      "minProperties": 1,
+      "properties": {
+        "eni": {
+          "description": "European Number of Identification (ENI) ship reference number",
+          "pattern": "^[0-9]{8}$",
+          "type": "string"
+        },
+        "imo": {
+          "description": "International Maritime Organization (IMO) ship reference number",
+          "pattern": "^[0-9]{7}$",
+          "type": "string"
+        },
+        "mmsi": {
+          "pattern": "^[0-9]{9}$",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name is informative only",
+          "type": "string"
+        },
+        "uscg": {
+          "description": "United States Coast Guard vessel identification number",
+          "pattern": "^(?:[0-9]{6,8}|[a-zA-Z][0-9]{6,7}|[a-zA-Z]{2}[0-9]{6})$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "properties": {
+    "context": {
+      "$ref": "#/definitions/IEventContext",
+      "description": "EventContext is a key-value object in which users are allowed to put custom keys for any purposes\nThe following keys have pre-defined meanings within the spec\nKeys in this object are always optional"
+    },
+    "eventTime": {
+      "description": "Time at which the event occured/will occur. The meaning of this should be interperted according to eventType",
+      "format": "date-time",
+      "type": "string"
+    },
+    "eventType": {
+      "$ref": "#/definitions/EventType"
+    },
+    "location": {
+      "$ref": "#/definitions/IEventLocation",
+      "description": "Identifies a physical location at which the event will take place"
+    },
+    "port": {
+      "description": "A UN/LOCODE designating a port",
+      "pattern": "^[A-Z]{2}[A-Z2-9]{3}$",
+      "type": "string"
+    },
+    "portcallId": {
+      "description": "A local port call identifier issued by the port authority or an organisation authorized by the port authority\nMust be prefixed by the UNLOCODE of the issuing port, and followed by an identifier of 1 to 32 characters\nAllowed characters in the identifier: a-z and A-Z (basic latin block letters), 0-9 (basic latin block digits), - (U+002D) and _ (U+005F)",
+      "pattern": "^[A-Z]{2}[A-Z2-9]{3}[a-zA-Z0-9\\-_]{1,32}$",
+      "type": "string"
+    },
+    "recordTime": {
+      "description": "Time at which the event was created",
+      "format": "date-time",
+      "type": "string"
+    },
+    "ship": {
+      "$ref": "#/definitions/IShip"
+    },
+    "source": {
+      "description": "System creating the event, unique within participants",
+      "type": "string"
+    },
+    "uuid": {
+      "description": "UUID identifying the event",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "type": "string"
+    },
+    "version": {
+      "description": "Follows semantic versioning, see https://semver.org",
+      "enum": [
+        "3.2.1"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "eventTime",
+    "eventType",
+    "port",
+    "recordTime",
+    "ship",
+    "source",
+    "uuid",
+    "version"
+  ],
+  "type": "object"
 }
 
