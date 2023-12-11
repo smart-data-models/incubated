@@ -1,0 +1,181 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "1.0.1",
+  "modelTags": "",
+  "$id": "https://smart-data-models.github.io/dataModel.DCAT-AP/Distribution/schema.json",
+  "title": "Smart Data models DCAT-AP distribution of a Dataset, according to DCAT-AP 2.1.1",
+  "description": "This is a distribution belonging ot a dataset according to the DCAT-AP standard 2.1.1",
+  "type": "object",
+  "required": [
+    "accessURL",
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Distribution"
+          ],
+          "description": "Property. NGSI entity type. It has to be Distribution"
+        },
+        "accessUrl": {
+          "type": "array",
+          "description": "Property. Model:'http://www.w3.org/2000/01/rdf-schema#Resource'. This property contains a URL that gives access to a Distribution of the Dataset. The resource at the access URL may contain information about how to get the Dataset",
+          "items": {
+            "type": "string",
+            "minItems": 1
+          }
+        },
+        "availability": {
+          "type": "string",
+          "description": "Property. Model:'http://www.w3.org/2004/02/skos/core#Concept'. This property indicates how long it is planned to keep the Distributio of the Dataset available"
+        },
+        "description": {
+          "type": "array",
+          "description": "Property. Model:'http://www.w3.org/2000/01/rdf-schema#Literal'. This property contains a free-text account of the Distribution. This property can be repeated for parallel language versions of the description",
+          "items": {
+            "type": "string",
+            "description": "Property. Every description of the distribution in a language"
+          }
+        },
+        "format": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. This property refers to the file format of the Distribution"
+        },
+        "license": {
+          "type": "string",
+          "description": "Property. Model:'http://purl.org/dc/terms/LicenseDocument'. This property refers to a data service that gives access to the distribution of the dataset"
+        },
+        "accessService": {
+          "type": "array",
+          "description": "Property. Model:'http://www.w3.org/ns/dcat#DataService'. This property refers to a data service that gives access to the distribution of the dataset",
+          "items": {
+            "type": "string",
+            "description": "Property. Every Data service providing access to the distribution"
+          }
+        },
+        "byteSize": {
+          "type": "number",
+          "description": "Property. Model:'http://www.w3.org/2000/01/rdf-schema#Literal'. This property contains the size of a Distribution in bytes"
+        },
+        "checksum": {
+          "type": "string",
+          "description": "Property. Model:'http://spdx.org/rdf/terms#Checksum'. This property provides a mechanism that can be used to verify that the contents of a distribution have not changed. The checksum is related to the downloadURL"
+        },
+        "compressFormat": {
+          "type": "string",
+          "description": "Property. Model:'http://purl.org/dc/terms/MediaType'. This property refers to the format of the file in which the data is contained in a compressed form, e.g. to reduce the size of the downloadable file. It SHOULD be expressed using a media type as defined in the official register of media types managed by IANA"
+        },
+        "belongsToDataset": {
+          "description": "Relationship. It links the Distribution to its parent Dataset. Model:'https://www.w3.org/ns/dcat#Dataset'. Note: this attribute does not belong to the current version of DCAT-AP, 2.1.1",
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Link to the dataset"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Link to the dataset"
+            }
+          ]
+        },
+        "page": {
+          "type": "array",
+          "description": "Property. Model:'http://xmlns.com/foaf/0.1/#term_Document'. This property refers to a page or document about this Distribution",
+          "items": {
+            "type": "string",
+            "description": "Property. Every page providing information about the distribution"
+          }
+        },
+        "downloadURL": {
+          "type": "array",
+          "description": "Property. Model:'http://www.w3.org/2000/01/rdf-schema#Resource'. This property contains a URL that is a direct link to a downloadable file in a given format",
+          "items": {
+            "type": "string",
+            "format": "uri",
+            "description": "Property. Every URL available for downloading"
+          }
+        },
+        "hasPolicy": {
+          "type": "string",
+          "description": "Property. Model:'http://www.w3.org/ns/odrl/2/hasPolicy'. This property refers to the policy expressing the rights associated with the distribution if using the ODRL vocabulary"
+        },
+        "language": {
+          "type": "array",
+          "description": "Property. Model:'http://purl.org/dc/terms/LinguisticSystem'. This property refers to a language used in the Distribution. This property can be repeated if the metadata is provided in multiple languages",
+          "items": {
+            "type": "string",
+            "description": "Property. Every language included"
+          }
+        },
+        "conformsTo": {
+          "type": "array",
+          "description": "Property. Model:'http://purl.org/dc/terms/Standard'. This property refers to an established schema to which the described Distribution conforms",
+          "items": {
+            "type": "string",
+            "description": "Property. Every rule o standard the distribution complies with"
+          }
+        },
+        "mediaType": {
+          "type": "string",
+          "description": "Property. Model:'http://purl.org/dc/terms/MediaType'. This property refers to the media type of the Distribution as defined in the official register of media types managed by IANA"
+        },
+        "packageFormat": {
+          "type": "string",
+          "description": "Property. Model:'http://purl.org/dc/terms/MediaType'. This property refers to the format of the file in which one or more data files are grouped together, e.g. to enable a set of related files to be downloaded together. It SHOULD be expressed using a media type as defined in the official register of media types managed by IANA"
+        },
+        "issued": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'http://www.w3.org/2000/01/rdf-schema#Literal'. This property contains the date of formal issuance (e.g., publication) of the Distribution"
+        },
+        "rights": {
+          "type": "string",
+          "description": "Property. Model:'http://purl.org/dc/terms/RightsStatement'. This property refers to a statement that specifies rights associated with the Distribution"
+        },
+        "spatialResolutionInMeters": {
+          "type": "array",
+          "description": "Property. Model:'http://www.w3.org/2000/01/rdf-schema#Literal'. This property refers to the minimum spatial separation resolvable in a distribution, measured in meters"
+        },
+        "status": {
+          "type": "string",
+          "description": "Property. Model:'http://www.w3.org/2004/02/skos/core#Concept'. This property refers to the maturity of the Distribution. It MUST take one of the values Completed, Deprecated, Under Development, Withdrawn",
+          "enum": [
+            "Completed",
+            "Deprecated",
+            "Under Development",
+            "Withdrawn"
+          ]
+        },
+        "temporalResolution": {
+          "type": "string",
+          "format": "duration",
+          "description": "Property. Model:'http://www.w3.org/2001/XMLSchema#duration'. This property refers to the minimum time period resolvable in the dataset. "
+        },
+        "title": {
+          "type": "array",
+          "description": "Property. Model:'http://www.w3.org/2000/01/rdf-schema#Literal'. This property contains a name given to the Distribution. This property can be repeated for parallel language versions of the description",
+          "items": {
+            "type": "string",
+            "description": "Property. Every language description of the distribution title"
+          }
+        },
+        "modified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'http://www.w3.org/2000/01/rdf-schema#Literal'. This property contains the most recent date on which the Distribution was changed or modified"
+        }
+      }
+    }
+  ]
+}
