@@ -26,9 +26,8 @@
         },
 
         "eventContext": {
-          "type": "string",
-          "$ref": "#/definitions/IEventContext",
-          "description": "EventContext is a key-value object in which users are allowed to put custom keys for any purposes\nThe following keys have pre-defined meanings within the spec\nKeys in this object are always optional"
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/SMARTPORTS/NEW_PORT/MarineTransport-schema.json#/definitions/IEventContext",
+          "description": "EventContext is a key-value object in which users are allowed to put custom keys for any purposes. The following keys have pre-defined meanings within the spec. Keys in this object are always optional"
         },
         "eventTime": {
           "description": "Time at which the event occured/will occur. The meaning of this should be interperted according to eventType",
@@ -259,39 +258,36 @@
           ],
           "type": "string"
         },
-        "location": {
-          "type": "location",
-          "description": "Identifies a physical location at which the event will take place"
+        "eventLocation": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/SMARTPORTS/NEW_PORT/MarineTransport-schema.json#/definitions/IEeventLocation",
+          "description": "Property. Identifies a physical location at which the event will take place"
         },
         "port": {
-          "description": "A UN/LOCODE designating a port",
+          "description": "Property. A UN/LOCODE designating a port",
           "pattern": "^[A-Z]{2}[A-Z2-9]{3}$",
           "type": "string"
         },
         "portcallId": {
-          "description": "A local port call identifier issued by the port authority or an organisation authorized by the port authority\nMust be prefixed by the UNLOCODE of the issuing port, and followed by an identifier of 1 to 32 characters\nAllowed characters in the identifier: a-z and A-Z (basic latin block letters), 0-9 (basic latin block digits), - (U+002D) and _ (U+005F)",
+          "description": "Property. A local port call identifier issued by the port authority or an organisation authorized by the port authority. Must be prefixed by the UNLOCODE of the issuing port, and followed by an identifier of 1 to 32 characters. Allowed characters in the identifier: a-z and A-Z (basic latin block letters), 0-9 (basic latin block digits), - (U+002D) and _ (U+005F)",
           "pattern": "^[A-Z]{2}[A-Z2-9]{3}[a-zA-Z0-9\\-_]{1,32}$",
           "type": "string"
         },
         "recordTime": {
-          "description": "Time at which the event was created",
+          "description": "Property. Time at which the event was created",
           "format": "date-time",
           "type": "string"
         },
         "shipRef": {
-          "type": "Relationship",
-          "description": "Relationship.Reference to PortCallVessel entity."
-        },
-        "source": {
           "type": "string",
-          "description": "System creating the event, unique within participants"
+          "format": "uri",
+          "description": "Relationship. Reference to PortCallVessel entity."
         },
         "uuid": {
           "type": "string",
-          "description": "UUID identifying the event. Format: '^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$' "
+          "description": "Property. UUID identifying the event. Format: '^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$' "
         },
         "version": {
-          "description": "Follows semantic versioning, see https://semver.org",
+          "description": "Property. Follows semantic versioning, see https://semver.org",
           "enum": [
             "3.2.1"
           ],

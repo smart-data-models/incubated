@@ -13,6 +13,9 @@
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
     {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
       "properties": {
         "type": {
           "type": "string",
@@ -90,7 +93,7 @@
               "type": "string",
               "description": "Property. Name of the vessel"
             },
-            "IMO": {
+            "imo": {
               "type": "number",
               "description": "Property. IMO ship identification number, following the [scheme](https://www.imo.org/en/OurWork/IIIS/Pages/IMO-Identification-Number-Schemes.aspx) defined by the International Maritime Organization."
             },
@@ -184,7 +187,8 @@
           "description": "Property. Model:'https://schema.org/Text'. Legal identifier code of the PortCall's ship Agent. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
         },
         "agentChangeDate":   {
-          "type": "datetime",
+          "type": "string",
+          "format": "date-time",
           "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, If a change of ship agent occurls during the PortCall, this must be not null, and contains the date and time contract of new agent (secondAgentRef). [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
         },
         "secondAgentName":   {

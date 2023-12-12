@@ -1,0 +1,19 @@
+1.- Si el fichero PortCallOptimizacion-Event_schema.json son definiciones generales debería ir en el raiz de la subject y llamarse MarineTransport-schema.json. Cambiado allí
+
+2.- En el fichero PortCallOptimizacion-Event_schema.json hay una sección de definiciones y otra de propiedades ¿por que?. Eliminado en MarineTransport-schema.json
+
+3.- 'eventContext' la referencia no debe ser local sino absoluta. De hecho es incorrecta
+
+4.- 'organisationPortcallId' y 'serviceId' tienen la misma definición . ¿es correcto?
+
+5.- 'IEventLocation' por que solo puede ser un punto o un polígono y no cualquier otro tipo (linea, multipolígono, etc)
+
+6.- 'IPoint' creo que está reinventando los punto de geojson. confirmar y en su caso reemplazar (y sería una geoproperty)
+
+7.- 'IPolygon'. Lo mismo además faltan descriptions
+
+8.- location is a SDM common attribute, changed name to eventLocation
+
+9.- source is a SDM common attribute, used the common one
+
+10.- 'uuid' tiene un pattern en el comentario pero podría tenerlo en la definción si fuera obligatorio.

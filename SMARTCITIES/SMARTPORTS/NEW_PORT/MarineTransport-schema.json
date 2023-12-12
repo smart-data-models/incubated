@@ -1,5 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/data-models/common-schema.json",
+  "title": "Common definitions for  Harmonized Data Models",
   "definitions": {
     "EventLocationType": {
       "description": "Specifies the type of location",
@@ -225,6 +227,7 @@
       "type": "string"
     },
     "IEventContext": {
+      "type": "object",
       "description": "Property. EventContext is a key-value object in which users are allowed to put custom keys for any purposes. The following keys have pre-defined meanings within the spec. Keys in this object are always optional",
       "properties": {
         "berthVisitId": {
@@ -256,11 +259,11 @@
               "type": "number"
             },
             "doubleBanked": {
-              "description": "True if the ship is doulbe banked, there is a ship in between it and the berth",
+              "description": "Property. True if the ship is double banked, there is a ship in between it and the berth",
               "type": "boolean"
             },
             "orientation": {
-              "description": "Mooring orientation",
+              "description": "Property. Mooring orientation",
               "enum": [
                 "port",
                 "starboard"
@@ -279,7 +282,7 @@
           "pattern": "^MID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
           "type": "string"
         },
-        "organisationPortcallId": {
+        "organisationPortCallId": {
           "description": "Property. Case-insensitive identifier for a single service activity, like a bunker activity",
           "pattern": "^PID-[a-zA-Z0-9_]+-[a-zA-Z0-9_]+$",
           "type": "string"
@@ -290,55 +293,53 @@
           "type": "string"
         },
         "serviceShip": {
-          "$ref": "#/definitions/IShip",
-          "description": "The ship associated with a service event, e.g. the bunkers that will provide the bunker fuel",
-          "minProperties": 1
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/SMARTPORTS/NEW_PORT/MarineTransport-schema.json#/definitions/IShip",
+          "description": "The ship associated with a service event, e.g. the bunkers that will provide the bunker fuel"
         },
         "serviceShipNumber": {
-          "description": "The number of service ships, for when the specific service ships are not known yet",
+          "description": "Property. The number of service ships, for when the specific service ships are not known yet",
           "minimum": 0,
-          "type": "number"
+          "type": "integer"
         },
         "stakeholders": {
-          "description": "The stakeholder ids of the stakeholders that should have access to the data from this event",
+          "description": "Property. The stakeholder's ids that should have access to the data of this event",
           "items": {
             "type": "string"
           },
           "type": "array"
         }
-      },
-      "type": "object"
+      }
     },
     "IEventLocation": {
-      "description": "Identifies a physical location at which the event will take place",
+      "description": "Property. Identifies a physical location at which the event will take place",
       "properties": {
         "geo": {
           "anyOf": [
             {
-              "$ref": "#/definitions/IPoint"
+              "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/SMARTPORTS/NEW_PORT/MarineTransport-schema.json#/definitions/IPoint"
             },
             {
-              "$ref": "#/definitions/IPolygon"
+              "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/SMARTPORTS/NEW_PORT/MarineTransport-schema.json#/definitions/IPolygon"
             }
           ],
-          "description": "The Geometry Object of the GeoJSON specification:\nhttps://tools.ietf.org/html/rfc7946#page-7\nThe World Geodetic System (WGS84) is used as its reference coordinate system."
+          "description": "Property. The Geometry Object of the GeoJSON specification: https://tools.ietf.org/html/rfc7946#page-7. The World Geodetic System (WGS84) is used as its reference coordinate system."
         },
         "gln": {
-          "description": "Global Location Number identifying a physical location",
+          "description": "Property. Global Location Number identifying a physical location",
           "pattern": "^[0-9]{13}$",
           "type": "string"
         },
         "glnExtension": {
-          "description": "GLN Extension component, identifying a physical sublocation of a location",
+          "description": "Property. GLN Extension component, identifying a physical sublocation of a location",
           "pattern": "^[0-9]{1,20}$",
           "type": "string"
         },
         "name": {
-          "description": "In case GLN is present, name is informative only\nTo provide a transition period to allow the introduction of GLNs in port, events are not required to have GLN in v3.\nIn this case, name MUST be unique per source system and consumers are allowed to link the name to locations in their master data",
+          "description": "Property. In case GLN is present, name is informative only to provide a transition period to allow the introduction of GLNs in port, events are not required to have GLN in v3. In this case, name MUST be unique per source system and consumers are allowed to link the name to locations in their master data",
           "type": "string"
         },
         "type": {
-          "$ref": "#/definitions/EventLocationType"
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/SMARTPORTS/NEW_PORT/MarineTransport-schema.json#/definitions/EventLocationType"
         }
       },
       "required": [
@@ -347,21 +348,16 @@
       "type": "object"
     },
     "IPoint": {
-      "description": "Point geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.2",
+      "description": "Property. Point geometry object. https://tools.ietf.org/html/rfc7946#section-3.1.2",
       "properties": {
         "coordinates": {
-          "description": "A Position is an array of (lon, lat) coordinates (The altitude element is not supported)\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nCoordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
-          "items": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "number"
-            }
-          ],
+          "description": "Property. A Position is an array of (lon, lat) coordinates (The altitude element is not supported). https://tools.ietf.org/html/rfc7946#section-3.1.1 Coordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
           "maxItems": 2,
-          "minItems": 2,
-          "type": "array"
+          "minItems": 2
         },
         "type": {
           "enum": [
@@ -377,134 +373,116 @@
       "type": "object"
     },
     "IPolygon": {
-      "description": "Polygon geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.6",
+      "type": "object",
+      "description": "Property. Polygon geometry object. https://tools.ietf.org/html/rfc7946#section-3.1.6",
       "properties": {
         "coordinates": {
           "items": {
+            "type": "array",
+            "description": "Property. XXXX",
             "items": {
-              "description": "A Position is an array of (lon, lat) coordinates (The altitude element is not supported)\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nCoordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
+              "type": "array",
+              "description": "Property. A Position is an array of (lon, lat) coordinates (The altitude element is not supported) https://tools.ietf.org/html/rfc7946#section-3.1.1 Coordinates are in WGS 84: https://tools.ietf.org/html/rfc7946#ref-WGS84",
               "items": [
                 {
-                  "type": "number"
-                },
-                {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Property. XXXX"
                 }
               ],
               "maxItems": 2,
-              "minItems": 2,
-              "type": "array"
-            },
-            "type": "array"
-          },
-          "type": "array"
+              "minItems": 2
+            }
+          }
         },
         "type": {
+          "type": "string",
           "enum": [
             "Polygon"
-          ],
-          "type": "string"
+          ]
         }
       },
       "required": [
         "coordinates",
         "type"
-      ],
-      "type": "object"
+      ]
     },
     "IShip": {
-      "description": "Bundles identifiers of a ship, but not information about the ship\nAt least an IMO, ENI, USCG or MMSI must be provided, with IMO being preferred over ENI, and ENI being preferred over MMSI",
+      "type": "object",
+      "description": "Property. Bundles identifiers of a ship, but not information about the ship. At least an IMO, ENI, USCG or MMSI must be provided, with IMO being preferred over ENI, and ENI being preferred over MMSI",
       "minProperties": 1,
       "properties": {
         "eni": {
-          "description": "European Number of Identification (ENI) ship reference number",
+          "description": "Property. European Number of Identification (ENI) ship reference number",
           "pattern": "^[0-9]{8}$",
           "type": "string"
         },
         "imo": {
-          "description": "International Maritime Organization (IMO) ship reference number",
+          "description": "Property. International Maritime Organization (IMO) ship reference number",
           "pattern": "^[0-9]{7}$",
           "type": "string"
         },
         "mmsi": {
           "pattern": "^[0-9]{9}$",
-          "type": "string"
+          "type": "string",
+          "description": "Property. XXXX"
         },
         "name": {
-          "description": "Name is informative only",
+          "description": "Property. Name is informative only",
           "type": "string"
         },
         "uscg": {
-          "description": "United States Coast Guard vessel identification number",
+          "description": "Property. United States Coast Guard vessel identification number",
           "pattern": "^(?:[0-9]{6,8}|[a-zA-Z][0-9]{6,7}|[a-zA-Z]{2}[0-9]{6})$",
           "type": "string"
         }
-      },
-      "type": "object"
-    }
-  },
-  "properties": {
+      }
+    },
     "context": {
-      "$ref": "#/definitions/IEventContext",
-      "description": "EventContext is a key-value object in which users are allowed to put custom keys for any purposes\nThe following keys have pre-defined meanings within the spec\nKeys in this object are always optional"
+      "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/SMARTPORTS/NEW_PORT/MarineTransport-schema.json#/definitions/IEventContext",
+      "description": "Property. EventContext is a key-value object in which users are allowed to put custom keys for any purposes. The following keys have pre-defined meanings within the spec. Keys in this object are always optional"
     },
     "eventTime": {
-      "description": "Time at which the event occured/will occur. The meaning of this should be interperted according to eventType",
+      "type": "string",
       "format": "date-time",
-      "type": "string"
+      "description": "Property. Time at which the event occurred/will occur. The meaning of this should be interpreted according to eventType"
+
     },
     "eventType": {
-      "$ref": "#/definitions/EventType"
+      "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/SMARTPORTS/NEW_PORT/MarineTransport-schema.json#/definitions/EventType"
     },
-    "location": {
-      "$ref": "#/definitions/IEventLocation",
-      "description": "Identifies a physical location at which the event will take place"
+    "eventLocation": {
+      "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/SMARTPORTS/NEW_PORT/MarineTransport-schema.json#/definitions/IEventLocation",
+      "description": "Property. Identifies a physical location at which the event will take place"
     },
     "port": {
-      "description": "A UN/LOCODE designating a port",
+      "description": "Property. A UN/LOCODE designating a port",
       "pattern": "^[A-Z]{2}[A-Z2-9]{3}$",
       "type": "string"
     },
     "portcallId": {
-      "description": "A local port call identifier issued by the port authority or an organisation authorized by the port authority\nMust be prefixed by the UNLOCODE of the issuing port, and followed by an identifier of 1 to 32 characters\nAllowed characters in the identifier: a-z and A-Z (basic latin block letters), 0-9 (basic latin block digits), - (U+002D) and _ (U+005F)",
+      "description": "Property. A local port call identifier issued by the port authority or an organisation authorized by the port authority. Must be prefixed by the UNLOCODE of the issuing port, and followed by an identifier of 1 to 32 characters. Allowed characters in the identifier: a-z and A-Z (basic latin block letters), 0-9 (basic latin block digits), - (U+002D) and _ (U+005F)",
       "pattern": "^[A-Z]{2}[A-Z2-9]{3}[a-zA-Z0-9\\-_]{1,32}$",
       "type": "string"
     },
     "recordTime": {
-      "description": "Time at which the event was created",
+      "description": "Property. Time at which the event was created",
       "format": "date-time",
       "type": "string"
     },
     "ship": {
-      "$ref": "#/definitions/IShip"
-    },
-    "source": {
-      "description": "System creating the event, unique within participants",
-      "type": "string"
+      "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/SMARTPORTS/NEW_PORT/MarineTransport-schema.json#/definitions/IShip"
     },
     "uuid": {
-      "description": "UUID identifying the event",
+      "description": "Property. UUID identifying the event",
       "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
       "type": "string"
     },
     "version": {
-      "description": "Follows semantic versioning, see https://semver.org",
+      "description": "Property. Follows semantic versioning, see https://semver.org",
       "enum": [
         "3.2.1"
       ],
       "type": "string"
     }
-  },
-  "required": [
-    "eventTime",
-    "eventType",
-    "port",
-    "recordTime",
-    "ship",
-    "source",
-    "uuid",
-    "version"
-  ],
-  "type": "object"
+  }
 }
-

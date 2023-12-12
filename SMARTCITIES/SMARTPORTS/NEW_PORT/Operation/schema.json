@@ -39,12 +39,12 @@
         "portCallRef": {
           "type": "string",
           "format": "uri",
-          "description": "Relationship.Reference to parent MarineTransport:PortCall entity"
+          "description": "Relationship. Reference to parent MarineTransport:PortCall entity"
         },
         "berthRef": {
           "type": "string",
           "format": "uri",
-          "description": "Relationship.Reference to parent MarineTransport:Berth entity"
+          "description": "Relationship. Reference to parent MarineTransport:Berth entity"
         },
         "stopRank": {
           "type": "number",
@@ -62,19 +62,19 @@
         "etc": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'https://schema.org/Text'. Represented by an ISO 8601 UTC format, Date and time of Estimated Time of Arrival to Berth expected by Port Authority  (ISO 8601 UTC format). If this is the first berthing, the ETA-berth should be the same than ETA-PBP"
+          "description": "Property. Model:'https://schema.org/DateTime'. Represented by an ISO 8601 UTC format, Date and time of Estimated Time of Arrival to Berth expected by Port Authority  (ISO 8601 UTC format). If this is the first berthing, the ETA-berth should be the same than ETA-PBP"
         },
         "operationTypeCode": {
           "type": "string",
           "description": "Property. Model:'https://schema.org/Text'. Code identifying the type of commercial operation. Enum: 'ZD=Disembarkation; ZE=Embarkation; ZT=Transshipment; ZR=Waste; AV=Victualling; DT=Disembarkation in transit; RE=Restow'",
           "enum": [
-            "ZD",
-            "ZE",
-            "ZT",
-            "ZR",
             "AV",
             "DT",
-            "RE"
+            "RE",
+            "ZD",
+            "ZE",
+            "ZR",
+            "ZT"
           ]
         },
         "productCode": {
@@ -181,18 +181,7 @@
         },
         "stevedoreRef": {
           "type": "string",
-          "format": "uri",
           "description": "Property. Model:'https://schema.org/Text'. Id of the stevedore. Format urn:mrn:<oid>:portcalls:operation:stevedore:9999"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Property. Model:'https://schema.org/Text'. Represented by an ISO 8601 UTC format, Date and time of creation thi entity"
-        },
-        "modifiedAt": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Property. Model:'https://schema.org/Text'. Represented by an ISO 8601 UTC format, Date and time of modification this entity"
         }
       }
     }

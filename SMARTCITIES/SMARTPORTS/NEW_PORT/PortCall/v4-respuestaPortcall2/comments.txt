@@ -1,27 +1,10 @@
 El id enviado podría ser reemplazado por el id automático en alguna operación, sería mejor que el id fuera un attributo específico, p.e. portcallId y no el id de NGSI-LD. --> ¿QUÉ ID AUTOMÁTICO? OK LO COMENTAMOS LOS ID
 
-En el campo vessel (un objeto), se incluye un subatributo name cuando en el original es shipname.
+Las referencias entre corchetes deben llevar a alguna información que el usuario pueda consultar, convertirlos en referencias o quitarlos (p.e. se pdorían incluir en el notes.yaml)
 
-Los campos imo y mmsi son números y no cadenas en el ejemplo --> OK son numeros los dos
-
-IMO se suele escribir en mayúsculas? ---> NO necesariamente, mejor minúsculas
-
-En callsign dentro del atributo vessel ": esta es la descripción que se incluye en el schema " Mxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" ?? --->  "Property. Model:'https://schema.org/Number'. Identification signal of a vessel when initially connecting by radio [EMSWe: DE-065-05] [EDI: BGM-RFF] [S211: Call Name / Call Sign] [IMO: IMO0136]
-
-manifestActivated si es definido como boolean tiene que ser true or false, no se puede incluir una cadena vacía --> OK
-
-Los campos boolean sus valores no pueden ir entre comillas, si no son cadenas y no boolean  ==> OK
-Entonces hay que cambiar "manifestActivated": {
-          "type": "boolean",
-          "description": "Property. Model:'https://schema.org/Text'.Indicator of the Activation of the Manifest of the Cargo. "
-        },
-
-Lo mismo para los numéricos, no pueden ir entre comillas ==> OK
-
-es authorized y no autorized
-
-Vessel id como obligatorio debería estar dentro, no obstante no lo pondría como obligatorio ==> como obligatorio debe estar uno de los identificadores de buque: imo/mmsi/callSign/vesselRef. Por eso yo preferiría sacar las propiedades de vessel fuera, porque todas ellas son solo un identificador, que en unas ocasiones usan uno y en otras otro, pero siempre debe haber uno de ellos.
 
 Añadidos datos del ship's Agent (consignatario del buque) y del segundo agente si se produce un cambio en los contratos del buque
 Cambiado "comments" por "remarks" (lo leo más en los estándares)
+
+por que solo 2 ship's agents y no más?
 
