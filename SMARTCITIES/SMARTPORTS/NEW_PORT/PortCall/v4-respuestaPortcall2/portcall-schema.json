@@ -17,6 +17,11 @@
     },
     {
       "properties": {
+        "portCallId": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Property. Unique identifier of the entity assigned by the system who created on first the entity. This URN should Conforms MRN & IETF specifically RFC 2141, RFC 5234, and RFC 8141. The proposed format is id::=urn:mrn:<OID>:<ONSS>:port:id:99999999 where OID:= Organisation UN/LOCODE, OONSS:=Organization Name of Service, 9999999 an sequential, unique identifier that the issuer of the PortCall entity will identify on his systems (i.e. a SQL row-id), i.e. 'urn:mrn:eshuv:portcalls:portcall:id:1422'. See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory and https://service.unece.org/trade/locode/es.htm)"
+        },
         "type": {
           "type": "string",
           "description": "Property. NGSI Entity type. It has to be PortCall. In international standards is also known as [Ship's Visit]",
@@ -24,7 +29,6 @@
             "PortCall"
           ]
         },
-
         "portCode": {
           "type": "string",
           "description": "Property. Model:'https://schema.org/Text'. United Nations Code for Trade and Transport Locations. See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory) [EMSWe: DE-004-04] [EDIFACT:LOC-3227-153] [IALA_S211:portCode] [IMO:IMO0108] "
@@ -41,7 +45,6 @@
           "type": "string",
           "description": "Property. Model:'https://schema.org/Text'. Name of the terminal [EMSWe:-] [EDIFACT:-] [IMO:-]"
         },
-
         "status": {
           "type": "string",
           "enum": [
@@ -72,7 +75,6 @@
           "format": "date-time",
           "description": "Property. Model:'https://schema.org/Text'. Date and time of authorization represented by an ISO 8601 UTC format"
         },
-
         "voyageNumber": {
           "type": "string",
           "description": "Property. Model:'https://schema.org/Text'. Number of voyage. [EMSWe: DE-004-02] [EDIFACT:-] [IMO:-]"
@@ -85,7 +87,6 @@
           "type": "string",
           "description": "Property. Model:'https://schema.org/Text'. Next port of call, coded.The code representing the port immediately previous to the port of arrival, if available.. Related to IALA_S211:nestPortCallCod / IMO. [EMSWe: DE-005-07] [EDIFACT:LOC-3227-61] [IMO:IMO0120]"
         },
-
         "vessel": {
           "type": "object",
           "properties": {
@@ -199,7 +200,6 @@
           "type": "string",
           "description": "Property. Model:'https://schema.org/Text'. Legal identifier code of the PortCall's ship Agent. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
         },
-
         "manifestActivated": {
           "type": "boolean",
           "description": "Property. Model:'https://schema.org/Boolean'.Indicator of the Activation of the Manifest of the Cargo. "
@@ -271,17 +271,8 @@
           "format": "date-time",
           "description": "Property. Model:'https://schema.org/Text'. Date and time of Actual Time of Departure  from Port.  (ISO 8601 UTC format). [IALA_S211:timeType=2] [EMSWe: DE-005-03] [IALA_S211:locationState.timeType.ACTUAL] [IMO:IMO0065]"
         }
-      },
-      "createdAt": {
-        "type": "string",
-        "format": "date-time",
-        "description": "Property. Model:'https://schema.org/Text'. Date and time of creation of the entity represented by an ISO 8601 UTC format."
-      },
-      "modifiedAt": {
-        "type": "string",
-        "format": "date-time",
-        "description": "Property. Model:'https://schema.org/Text'. Date and time of last modification of the entity represented by an ISO 8601 UTC format."
       }
+
     }
   ],
   "required": [
