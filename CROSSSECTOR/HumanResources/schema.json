@@ -85,7 +85,7 @@
         },
         "interestingFacts": {
           "type": "array",
-          "description": "Facts that define you: your IDE, your favorite books,  your football team...",
+          "description": "Property. Facts that define you: your IDE, your favorite books,  your football team...",
           "items": {
             "type": "object",
             "properties": {
@@ -137,7 +137,7 @@
               },
               "type": {
                 "type": "string",
-                "description": "Types of Recommendations",
+                "description": "Property. Types of Recommendations",
                 "enum": [
                   "other",
                   "podcast",
@@ -372,12 +372,12 @@
               },
               "startDate": {
                 "type": "string",
-                "description": "date when studies started in ISO 86401format yyyy-mm-dd",
+                "description": "Property. Date when studies started in ISO 86401format yyyy-mm-dd",
                 "format": "date"
               },
               "finishDate": {
                 "type": "string",
-                "description": "date when studies finished (if finished), with or without obtaining a degree",
+                "description": "Property. Date when studies finished (if finished), with or without obtaining a degree",
                 "format": "date"
               },
               "institution": {
@@ -449,32 +449,26 @@
                     "properties": {
                       "mustHave": {
                         "type": "boolean",
-                        "description": "If equity is a must have to accept a new position"
+                        "description": "Property. If equity is a must have to accept a new position"
                       },
                       "from": {
                         "type": "number",
-                        "examples": [
-                          1.5,
-                          0.3,
-                          30
-                        ]
+                        "description": "Property. Minimum percentage of equity"
+
                       },
                       "upto": {
                         "type": "number",
-                        "examples": [
-                          10
-                        ]
+                        "description": "Property. Maximum percentage of equity"
                       },
                       "comments": {
                         "type": "string",
-                        "examples": [
-                          ""
-                        ]
+                       "description": "Property. Comments about the equity percentage"
                       }
                     }
                   },
                   "perks": {
                     "type": "object",
+                    "description": "Property. Other non-monetary retribution",
                     "allOf": [
                       {
                         "type": "object",
@@ -484,10 +478,7 @@
                             "description": "Property. Perks a new position must have to be considered",
                             "items": {
                               "type": "string",
-                              "examples": [
-                                "Health Insurance"
-                              ],
-                              "$comment": "TBD to be validated against an external enumeration of perks"
+                              "description": "Property. Mandatory requirements"
                             }
                           }
                         }
@@ -497,13 +488,10 @@
                         "properties": {
                           "niceToHave": {
                             "type": "array",
-                            "description": "Perks a new position should have to be considered",
+                            "description": "Property. Perks a new position should have to be considered",
                             "items": {
                               "type": "string",
-                              "examples": [
-                                "Free Meals"
-                              ],
-                              "$comment": "TBD to be validated against an external enumeration of perks"
+                              "description": "Property. Items in retribution nice to have"
                             }
                           }
                         }
@@ -514,39 +502,43 @@
               },
               "contractTypes": {
                 "type": "array",
+                "description": "Property. Type of contract with the entity / organization",
                 "items": {
                   "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/contractType"
                 }
               },
               "situation": {
                 "type": "object",
+                "description": "Property. Details about working location",
                 "properties": {
                   "remoteOnly": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Property. Candidate only accepts remote work "
                   },
                   "openToRelocate": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Property. Candidate accepts relocation "
                   },
                   "openToRemote": {
                     "type": "boolean",
-                    "default": true
+                    "description": "Property. Candidate accepts remote work "
                   },
                   "workingAreas": {
                     "type": "array",
-                    "additionalItems": false,
-                    "uniqueItems": true,
+                    "description": "Property. Locations where the candidate accepts as working locations ",
                     "items": {
                       "type": "object",
                       "properties": {
                         "location": {
-                          "$ref": "#/$defs/location"
+                          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
                         },
                         "distanceFromMunicipality": {
                           "type": "object",
+                          "description": "Property. Distance from municipality accepted by the candidate",
                           "properties": {
                             "unit": {
                               "type": "string",
-                              "description": "Unit of measure, Kilometers or Miles",
+                              "description": "Property. Unit of measure, Kilometers or Miles",
                               "enum": [
                                 "Km",
                                 "Mi"
@@ -554,125 +546,86 @@
                             },
                             "amount": {
                               "type": "integer",
-                              "examples": [
-                                20
-                              ]
+                              "description": "Property. Number of miles / km"
                             }
-                          },
-                          "additionalProperties": false,
-                          "required": [
-                            "unit",
-                            "amount"
-                          ]
+                          }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
                   },
                   "comments": {
                     "type": "string",
-                    "examples": [
-                      "I don't want to work in the Financial District. There are no decent donuts shops"
-                    ]
+                    "description": "Property. Other conditions or comments about the candidate"
                   }
-                },
-                "additionalProperties": false
+                }
               }
-            },
-            "additionalProperties": false
+            }
           },
           "preferences": {
             "type": "object",
+            "description": "Property. Preferences of the Candidate to accept the work",
             "properties": {
               "preferredCompetences": {
                 "type": "array",
-                "description": "Skills, tools, domains or methodologies I like to work with",
-                "additionalItems": false,
-                "minContains": 1,
-                "uniqueItems": true,
+                "description": "Property. Skills, tools, domains or methodologies I like to work with",
                 "items": {
-                  "$ref": "#/$defs/competence"
+                  "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/competence"
                 }
               },
               "discardedCompetences": {
                 "type": "array",
-                "description": "Skills, tools, domains or methodologies I don't like to work with",
-                "additionalItems": false,
-                "uniqueItems": true,
+                "description": "Property. Skills, tools, domains or methodologies I don't like to work with",
                 "items": {
-                  "$ref": "#/$defs/competence"
+                  "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/competence"
                 }
               },
               "preferredOrganizations": {
                 "type": "array",
-                "description": "Type of organizations where I want to work",
-                "additionalItems": false,
-                "uniqueItems": true,
+                "description": "Property. Type of organizations where I want to work",
                 "items": {
-                  "$ref": "#/$defs/organizationType"
+                  "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/organizationType"
                 }
               },
               "discardedOrganizations": {
                 "type": "array",
-                "description": "Type of organizations where I don't want to work",
-                "additionalItems": false,
-                "uniqueItems": true,
+                "description": "Property. Type of organizations where I don't want to work",
                 "items": {
-                  "$ref": "#/$defs/organizationType"
+                  "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/organizationType"
                 }
               },
               "preferredRoles": {
                 "type": "array",
-                "additionalItems": false,
-                "uniqueItems": true,
+                "description": "Property. Preferred roles like 'Product Manager', 'Chef', 'Teacher'",
                 "items": {
                   "type": "string",
-                  "examples": [
-                    "Product Manager",
-                    "Chef",
-                    "Teacher"
-                  ]
+                  "description": "Property. Every role description"
                 }
               },
               "discardedRoles": {
                 "type": "array",
-                "description": "Type of roles I don't like to adopt",
-                "additionalItems": false,
-                "uniqueItems": true,
+                "description": "Property. Type of roles I don't like to adopt",
                 "items": {
                   "type": "string",
-                  "examples": [
-                    "Project Manager",
-                    "CIO"
-                  ]
+                  "description": "Property. Preferred roles like Project Manager, CIO, etc"
                 }
               }
-            },
-            "additionalProperties": false
+            }
           },
           "goals": {
             "type": "array",
-            "description": "Personal and Professional goals to match with company needs and requirements.",
-            "additionalItems": false,
-            "uniqueItems": true,
+            "description": "Property. Personal and Professional goals to match with company needs and requirements.",
             "items": {
               "type": "object",
+              "description": "Property. Every Personal and Professional goals to match with company needs and requirements",
               "properties": {
                 "title": {
                   "type": "string",
-                  "examples": [
-                    "Learn German",
-                    "Become Team Leader",
-                    "Work in a Silicon Valley Company"
-                  ]
-                },
+                  "description": "Property. Short description of the goals like Learn German, Become Team Leader, Work in a Silicon Valley Company"},
+
                 "description": {
                   "type": "string",
-                  "examples": [
-                    "Write and speak German fluently",
-                    "Manage people, resources and goals",
-                    "Work in a startup "
-                  ]
+                  "description": "Property. Long description of the goals like Learn German, Become Team Leader, Work in a Silicon Valley Company "
+
                 }
               }
             }
