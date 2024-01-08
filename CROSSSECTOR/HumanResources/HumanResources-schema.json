@@ -4,487 +4,419 @@
   "title": "human Resources Commons schema",
   "description": "Common definitions to describe HumanResources data models",
   "definitions": {
-    "HumanResources-Commons": {
+    "person": {
       "type": "object",
+      "description": "Property. Main data of the CV author",
       "properties": {
-        "person": {
+        "profile": {
           "type": "object",
-          "description": "Property. Main data of the CV author",
-          "properties": {
-            "profile": {
-              "type": "object",
-              "description": "Property. A Person data",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "description": "Property. Name of the person"
-                },
-                "surnames": {
-                  "type": "string",
-                  "description": "Property. Surname o Surnames of the person"
-                },
-                "title": {
-                  "type": "string",
-                  "description": "Property. Role, relationship or activity related to the person.",
-                  "maxLength": 255
-                },
-                "description": {
-                  "type": "string",
-                  "description": "Property. Description of the person"
-                },
-                "birthday": {
-                  "type": "string",
-                  "description": "Property. Person's birth date in format ISO 8601",
-                  "format": "date"
-                },
-                "avatar": {
-                  "type": "object",
-                  "description": "Property. Link to the image and alternative description",
-                  "properties": {
-                    "alt": {
-                      "type": "string",
-                      "description": "Property. Alternative description of the image"
-                    },
-                    "link": {
-                      "type": "string",
-                      "format": "uri",
-                      "description": "Property. Link to the image of the avatar"
-                    }
-                  }
-                },
-                "contact": {
-                  "type": "object",
-                  "description": "Property. A way to contact a specific person",
-                  "anyOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "publicProfiles": {
-                          "type": "array",
-                          "description": "Online services that provide a way to contact a person without exposing mail or phone number.",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "type": {
-                                "type": "string",
-                                "enum": [
-                                  "github",
-                                  "linkedin",
-                                  "manfred",
-                                  "other",
-                                  "stackoverflow",
-                                  "twitter",
-                                  "xing",
-                                  "website"
-                                ]
-                              },
-                              "URL": {
-                                "type": "string",
-                                "format": "uri"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "phoneNumbers": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "countryCode": {
-                                "type": "number",
-                                "description": "Property. Country calling code as defined in International Telecommunication Union (ITU) standards E.123 and E.164."
-                              },
-                              "number": {
-                                "type": "string",
-                                "description": "Property. Telephone number without the country prefix"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "contactMails": {
-                          "type": "array",
-                          "description": "Property. Array of contact emails",
-                          "items": {
-                            "type": "string",
-                            "format": "email"
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "competence": {
-          "type": "object",
-          "description": "Any competence used to complete professional tasks (tools proficiency as \"Excel\", technologies mastered as \"JAVA\", practices learned as \"TDD\", hardware you know how to handle as vehicles or construction tools, and know-how domains as \"banking\" or \"russia\")",
+          "description": "Property. A Person data",
           "properties": {
             "name": {
               "type": "string",
-              "examples": [
-                "Excel",
-                "JAVA",
-                "TDD",
-                "Class 8 trucks",
-                "banking"
-              ]
-            },
-            "type": {
-              "type": "string",
-              "enum": [
-                "tool",
-                "technology",
-                "practice",
-                "hardware",
-                "domain"
-              ]
-            },
-            "description": {
-              "type": "string",
-              "examples": [
-                "Formule modeling and complex calculations",
-                "Web apps developing",
-                "Writing tests first and then coding to pass then",
-                "Driving 15-wheeler over the country",
-                "Experience in the financial sector"
-              ]
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "name",
-            "type"
-          ]
-        },
-        "image": {
-          "type": "object",
-          "description": "picture, thumbnail or avatar",
-          "properties": {
-            "alt": {
-              "type": "string",
-              "description": "Alternative description of the image",
-              "examples": [
-                "picture of Mike Gomez"
-              ]
-            }
-          },
-          "additionalProperties": true,
-          "oneOf": [
-            {
-              "type": "object",
-              "description": "A link to the image",
-              "properties": {
-                "link": {
-                  "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://images.assetsdelivery.com/compings_v2/thesomeday123/thesomeday1231709/thesomeday123170900021.jpg"
-                  ]
-                }
-              },
-              "additionalProperties": true,
-              "required": [
-                "link"
-              ]
-            },
-            {
-              "type": "object",
-              "description": "Image data encoded in base64",
-              "properties": {
-                "data": {
-                  "type": "string",
-                  "examples": [
-                    "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIpQBKci6KEg9Q6H9kovIHoCIVQJJCKE1ENFjnAgcaSGC6rEnxBwA04Tx43t2FnvDAfjkNibxgHxnWb2e/u992bee7tCa00YFsffekFY+nUzFtjW0LrvjRXrCDIAaPLlW0nHL0SsZtVoaF98mLrx3pdhOqLtYPHChahZcYYO7KvPFxvRl5XPp1sN3adWiD1ZAqD6XYK1b/dvE5IWryTt2udLFedwc1+9kLp+vbbpoDh+6TklxBeAi9TL0taeWpdmZzQDry0AcO+jQ12RyohqqoYoo8RDwJrU+qXkjWtfi8Xxt58BdQuwQs9qC/afLwCw8tnQbqYAPsgxE1S6F3EAIXux2oQFKm0ihMsOF71dHYx+f3NND68ghCu1YIoePPQN1pGRABkJ6Bus96CutRZMydTl+TvuiRW1m3n0eDl0vRPcEysqdXn+jsQPsrHMquGeXEaY4Yk4wxWcY5V/9scqOMOVUFthatyTy8QyqwZ+kDURKoMWxNKr2EeqVKcTNOajqKoBgOE28U4tdQl5p5bwCw7BWquaZSzAPlwjlithJtp3pTImSqQRrb2Z8PHGigD4RZuNX6JYj6wj7O4TFLbCO/Mn/m8R+h6rYSUb3ekokRY6f/YukArN979jcW+V/S8g0eT/N3VN3kTqWbQ428m9/8k0P/1aIhF36PccEl6EhOcAUCrXKZXXWS3XKd2vc/TRBG9O5ELC17MmWubD2nKhUKZa26Ba2+D3P+4/MNCFwg59oWVeYhkzgN/JDR8deKBoD7Y+ljEjGZ0sosXVTvbc6RHirr2reNy1OXd6pJsQ+gqjk8VWFYmHrwBzW/n+uMPFiRwHB2I7ih8ciHFxIkd/3Omk5tCDV1t+2nNu5sxxpDFNx+huNhVT3/zMDz8usXC3ddaHBj1GHj/As08fwTS7Kt1HBTmyN29vdwAw+/wbwLVOJ3uAD1wi/dUH7Qei66PfyuRj4Ik9is+hglfbkbfR3cnZm7chlUWLdwmprtCohX4HUtlOcQjLYCu+fzGJH2QRKvP3UNz8bWk1qMxjGTOMThZ3kvgLI5AzFfo379UAAAAASUVORK5CYII="
-                  ]
-                },
-                "mediaType": {
-                  "type": "string",
-                  "enum": [
-                    "image/png",
-                    "image/jpeg"
-                  ]
-                },
-                "encoding": {
-                  "type": "string",
-                  "const": "base64"
-                }
-              },
-              "additionalProperties": true,
-              "required": [
-                "data",
-                "mediaType",
-                "encoding"
-              ]
-            }
-          ],
-          "$comment": "TDB: to be refactor to extract an image  \"object\" within a definitions section or schema"
-        },
-        "person": {
-          "type": "object",
-          "description": "A Person data",
-          "properties": {
-            "name": {
-              "type": "string",
-              "examples": [
-                "Sharon",
-                "Tatiana",
-                "Goran"
-              ]
+              "description": "Property. Name of the person"
             },
             "surnames": {
               "type": "string",
-              "description": "Surname o Surnames of the person",
-              "examples": [
-                "Vlaovic-Sorensen",
-                "Varoufakis",
-                "Ahmed"
-              ]
+              "description": "Property. Surname o Surnames of the person"
             },
             "title": {
               "type": "string",
-              "description": "Role, relationship or activity related to the person.",
-              "maxLength": 255,
-              "examples": [
-                "My supervisor",
-                "I work with her for 5 years"
-              ]
+              "description": "Property. Role, relationship or activity related to the person.",
+              "maxLength": 255
             },
             "description": {
               "type": "string",
-              "examples": [
-                "Daniel was the perfect leader and he achieved all the goals assigned to the Departement but the most important thing is he's also a great colleague."
-              ]
+              "description": "Property. Description of the person"
             },
             "birthday": {
               "type": "string",
-              "description": "Person's birth date in format yyyy-mm-dd",
-              "format": "date",
-              "examples": [
-                "1977-07-26"
-              ]
+              "description": "Property. Person's birth date in format ISO 8601",
+              "format": "date"
             },
             "avatar": {
-              "$ref": "#/$defs/image"
+              "type": "object",
+              "description": "Property. Link to the image and alternative description",
+              "properties": {
+                "alt": {
+                  "type": "string",
+                  "description": "Property. Alternative description of the image"
+                },
+                "link": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Property. Link to the image of the avatar"
+                }
+              }
             },
             "contact": {
-              "$ref": "#/$defs/contactMean"
-            },
-            "location": {
-              "$ref": "#/$defs/location"
-            }
-          },
-          "additionalProperties": false,
-          "$comment": "TBD Same component used in rol/referrals, #/experience/jobs/organization/projects/project/referrals and significativeRelationships, to be refactor to a common definition.",
-          "required": [
-            "name",
-            "surnames",
-            "title"
-          ]
-        },
-        "role": {
-          "type": "object",
-          "description": "roles developed within an organization",
-          "properties": {
-            "name": {
-              "type": "string",
-              "examples": [
-                "Developer"
-              ]
-            },
-            "startDate": {
-              "type": "string",
-              "format": "date",
-              "examples": [
-                "2019-06-20"
-              ]
-            },
-            "finishDate": {
-              "type": "string",
-              "format": "date",
-              "examples": [
-                "2022-02-14"
-              ]
-            },
-            "challenges": {
-              "type": "array",
-              "additionalItems": false,
-              "minContains": 1,
-              "uniqueItems": true,
-              "items": {
-                "type": "object",
-                "properties": {
-                  "description": {
-                    "type": "string"
-                  },
-                  "actions": {
-                    "type": "array",
-                    "additionalItems": false,
-                    "minContains": 1,
-                    "items": {
-                      "type": "string"
+              "type": "object",
+              "description": "Property. A way to contact a specific person",
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "publicProfiles": {
+                      "type": "array",
+                      "description": "Online services that provide a way to contact a person without exposing mail or phone number.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "github",
+                              "linkedin",
+                              "manfred",
+                              "other",
+                              "stackoverflow",
+                              "twitter",
+                              "xing",
+                              "website"
+                            ]
+                          },
+                          "URL": {
+                            "type": "string",
+                            "format": "uri"
+                          }
+                        }
+                      }
                     }
                   }
                 },
-                "additionalProperties": false,
-                "required": [
-                  "description"
-                ]
-              }
-            },
-            "competences": {
-              "type": "array",
-              "additionalItems": false,
-              "uniqueItems": true,
-              "items": {
-                "$ref": "#/$defs/competence"
-              }
-            },
-            "referrals": {
-              "type": "array",
-              "additionalItems": false,
-              "uniqueItems": true,
-              "$comment": "Professional Referrals about my activity in one specific rol.",
-              "items": {
-                "$ref": "#/$defs/person"
-              }
-            },
-            "notes": {
-              "type": "string",
-              "description": "Notes and information about the role"
-            }
-          },
-          "additionalProperties": false,
-          "required": [
-            "name",
-            "startDate"
-          ]
-        },
-        "publicEntityDetails": {
-          "type": "object",
-          "description": "Organization, Company, Institution, Administration, Project or Initiative related to my career.",
-          "properties": {
-            "name": {
-              "type": "string",
-              "examples": [
-                "Stanford University",
-                "IBM",
-                "Project Management Institute"
+                {
+                  "type": "object",
+                  "properties": {
+                    "phoneNumbers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "countryCode": {
+                            "type": "number",
+                            "description": "Property. Country calling code as defined in International Telecommunication Union (ITU) standards E.123 and E.164."
+                          },
+                          "number": {
+                            "type": "string",
+                            "description": "Property. Telephone number without the country prefix"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "contactMails": {
+                      "type": "array",
+                      "description": "Property. Array of contact emails",
+                      "items": {
+                        "type": "string",
+                        "format": "email"
+                      }
+                    }
+                  }
+                }
               ]
-            },
-            "description": {
-              "type": "string"
-            },
-            "URL": {
-              "type": "string",
-              "format": "uri",
-              "examples": [
-                "https://www.stanford.edu/"
-              ]
-            },
-            "image": {
-              "$ref": "#/$defs/image"
-            },
-            "location": {
-              "$ref": "#/$defs/location"
             }
           }
-        },
-        "organizationType": {
-          "type": "string",
-          "description": "Types of Organization",
-          "enum": [
-            "freelance",
-            "publicAdministration",
-            "NGO",
-            "startup",
-            "SME",
-            "bigCorp",
-            "academicalInstitution",
-            "other"
-          ],
-          "$comment": "TBD Refactor to extract the enumeration \"OrganizationType\" (used in jobs/roles/organization or careerPreferences/preferredOrganizations) to a common definition file."
-        },
-        "projectType": {
-          "type": "string",
-          "description": "Types of Projects",
-          "enum": [
-            "proBono",
-            "openSource",
-            "sideProject",
-            "personalAchievement",
-            "other"
-          ]
-        },
-        "publicArtifactType": {
-          "type": "string",
-          "description": "Types of Public Artifacts",
-          "enum": [
-            "post",
-            "talk",
-            "sideProject",
-            "achievement",
-            "launch",
-            "video"
-          ]
-        },
-        "contractType": {
-          "type": "string",
-          "description": "Types of Contracts",
-          "enum": [
-            "permanent",
-            "temporary",
-            "freelance",
-            "internship"
-          ]
-        },
-        "recommendationType": {
-          "type": "string",
-          "description": "Types of Recommendations",
-          "enum": [
-            "reading",
-            "video",
-            "podcast",
-            "web",
-            "other"
-          ]
-        },
-        "tags": {
-          "type": "array",
-          "description": "A list of tags with random values to provide the candidates a way to segment and categorize elements in their CV.",
-          "additionalItems": false,
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "examples": [
-              "cooking",
-              "not available",
-              "february"
-            ]
-          }
-        },
-        "studyType": {
-          "type": "string",
-          "description": "Types of studies:\n\n* \"officialDegree\" is a degree accredited by the government (University Degree) or an external, recognized and independent agency (some MBAs).\n* \"certification\" is a degree accredited by a private institution (eg. Oracle Database Admin Certification or Projecr Management Institute PMP)\n* \"unaccredited\" is a course without any accreditation (eg. Coursera or Platzi courses), but this doesn't mean that is not valid, legit, or has poor quality\n* \"selfTraining\" is the study designed, managed and evaluated just by the own learner.",
-          "enum": [
-            "officialDegree",
-            "certification",
-            "unaccredited",
-            "selfTraining"
-          ]
         }
       }
+    },
+    "competence": {
+      "type": "object",
+      "description": "Any competence used to complete professional tasks (tools proficiency as 'Excel', technologies mastered as 'JAVA', practices learned as 'TDD', hardware you know how to handle as vehicles or construction tools, and know-how domains as 'banking' or 'russia')",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Property. Name of the competence"
+        },
+        "type": {
+          "type": "string",
+          "description": "Property. type of the competence",
+          "enum": [
+            "domain",
+            "hardware",
+            "practice",
+            "technology",
+            "tool"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "description": "Property. Description of the competence"
+        }
+      }
+    },
+    "image": {
+      "type": "object",
+      "description": "Property. Link adn alternative description to the file wth the picture, thumbnail or avatar",
+      "properties": {
+        "alt": {
+          "type": "string",
+          "description": "Alternative description of the image"
+        }
+      },
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "A link to the image",
+          "properties": {
+            "link": {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Link to the stored image "
+            }
+          }
+        },
+        {
+          "type": "object",
+          "description": "Property. Image data encoded in base64",
+          "properties": {
+            "data": {
+              "type": "string",
+              "description": "Property. The raw data of the image"
+            },
+            "mediaType": {
+              "type": "string",
+              "description": "Property. the media type of the image",
+              "enum": [
+                "image/png",
+                "image/jpeg"
+              ]
+            },
+            "encoding": {
+              "type": "string",
+              "enum": [
+                "base64"
+              ],
+              "description": "Property. The constant value base64 for encoding the images"
+            }
+          }
+        }
+      ]
+    },
+    "person": {
+      "type": "object",
+      "description": "A Person data",
+      "properties": {
+        "name": {
+          "type": "string",
+          "examples": [
+            "Sharon",
+            "Tatiana",
+            "Goran"
+          ]
+        },
+        "surnames": {
+          "type": "string",
+          "description": "Surname o Surnames of the person",
+          "examples": [
+            "Vlaovic-Sorensen",
+            "Varoufakis",
+            "Ahmed"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "Role, relationship or activity related to the person.",
+          "maxLength": 255,
+          "examples": [
+            "My supervisor",
+            "I work with her for 5 years"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "examples": [
+            "Daniel was the perfect leader and he achieved all the goals assigned to the Departement but the most important thing is he's also a great colleague."
+          ]
+        },
+        "birthday": {
+          "type": "string",
+          "description": "Person's birth date in format yyyy-mm-dd",
+          "format": "date",
+          "examples": [
+            "1977-07-26"
+          ]
+        },
+        "avatar": {
+          "$ref": "#/$defs/image"
+        },
+        "contact": {
+          "$ref": "#/$defs/contactMean"
+        },
+        "location": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
+        }
+      },
+      "additionalProperties": false,
+      "$comment": "TBD Same component used in rol/referrals, #/experience/jobs/organization/projects/project/referrals and significativeRelationships, to be refactor to a common definition.",
+      "required": [
+        "name",
+        "surnames",
+        "title"
+      ]
+    },
+    "role": {
+      "type": "object",
+      "description": "Property. Roles developed within an organization",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Property. Name of the role"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Property. Start date of the role"
+        },
+        "finishDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Property. End date of the role"
+        },
+        "challenges": {
+          "type": "array",
+          "description": "Property. List of challenges faced while assuming the role",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string",
+                "description": "Property. Every challenge faced while assuming the role"
+              },
+              "actions": {
+                "type": "array",
+                "description": "Property. Actions taken to solve the challenges while playing this role",
+                "items": {
+                  "type": "string",
+                  "description": "Property. Every action taken to solve the challenges while playing this role"
+                }
+              }
+            }
+          }
+        },
+        "competences": {
+          "type": "array",
+          "items": {
+            "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/competence"
+          }
+        },
+        "referrals": {
+          "type": "array",
+          "items": {
+            "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/person"
+          }
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes and information about the role"
+        }
+      }
+    },
+    "publicEntityDetails": {
+      "type": "object",
+      "description": "Property. Organization, Company, Institution, Administration, Project or Initiative related to my career.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Property. Name of the Organization, Company, Institution, Administration, Project or Initiative related to my career"
+        },
+        "description": {
+          "type": "string",
+          "description": "Property. Description of the Organization, Company, Institution, Administration, Project or Initiative related to my career"
+        },
+        "URL": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Link to the site of the Organization, Company, Institution, Administration, Project or Initiative related to my career"
+        },
+        "image": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/image"
+        },
+        "location": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
+        }
+      }
+    },
+    "organizationType": {
+      "type": "string",
+      "description": "Property. Types of Organization",
+      "enum": [
+        "academicalInstitution",
+        "bigCorp",
+        "freelance",
+        "NGO",
+        "other",
+        "publicAdministration",
+        "SME",
+        "startup"
+      ]
+    },
+    "projectType": {
+      "type": "string",
+      "description": "Property. Types of Projects",
+      "enum": [
+        "openSource",
+        "other",
+        "personalAchievement",
+        "proBono",
+        "sideProject"
+      ]
+    },
+    "publicArtifactType": {
+      "type": "string",
+      "description": "Property. Types of Public Artifacts",
+      "enum": [
+        "achievement",
+        "launch",
+        "post",
+        "sideProject",
+        "talk",
+        "video"
+      ]
+    },
+    "contractType": {
+      "type": "string",
+      "description": "Property. Types of Contracts",
+      "enum": [
+        "freelance",
+        "internship",
+        "permanent",
+        "temporary"
+      ]
+    },
+    "recommendationType": {
+      "type": "string",
+      "description": "Property. Types of Recommendations",
+      "enum": [
+        "other",
+        "podcast",
+        "reading",
+        "video",
+        "web"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "description": "Property. A list of tags with values to provide the candidates a way to segment and categorize elements in their CV.",
+      "items": {
+        "type": "string",
+        "description": "Property. Every tag descripton "
+      }
+    },
+    "studyType": {
+      "type": "string",
+      "description": "Types of studies: 'officialDegree' is a degree accredited by the government (University Degree) or an external, recognized and independent agency (some MBAs). 'certification' is a degree accredited by a private institution (eg. Oracle Database Admin Certification or Project Management Institute PMP). 'unaccredited' is a course without any accreditation (eg. Coursera or Platzi courses), but this doesn't mean that is not valid, legit, or has poor quality. 'selfTraining' is the study designed, managed and evaluated just by the own learner.",
+      "enum": [
+        "certification",
+        "officialDegree",
+        "selfTraining",
+        "unaccredited"
+      ]
     }
   }
 }
+
