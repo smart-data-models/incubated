@@ -113,46 +113,32 @@
             "alt": {
               "type": "string",
               "description": "Alternative description of the image"
-            }
-          },
-          "oneOf": [
-            {
-              "type": "object",
-              "description": "A link to the image",
-              "properties": {
-                "link": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "Property. Link to the stored image "
-                }
-              }
             },
-            {
-              "type": "object",
-              "description": "Property. Image data encoded in base64",
-              "properties": {
-                "data": {
-                  "type": "string",
-                  "description": "Property. The raw data of the image"
-                },
-                "mediaType": {
-                  "type": "string",
-                  "description": "Property. the media type of the image",
-                  "enum": [
-                    "image/png",
-                    "image/jpeg"
-                  ]
-                },
-                "encoding": {
-                  "type": "string",
-                  "enum": [
-                    "base64"
-                  ],
-                  "description": "Property. The constant value base64 for encoding the images"
-                }
-              }
+            "link": {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Link to the stored image "
+            },
+            "data": {
+              "type": "string",
+              "description": "Property. The raw data of the image"
+            },
+            "mediaType": {
+              "type": "string",
+              "description": "Property. the media type of the image",
+              "enum": [
+                "image/png",
+                "image/jpeg"
+              ]
+            },
+            "encoding": {
+              "type": "string",
+              "enum": [
+                "base64"
+              ],
+              "description": "Property. The constant value base64 for encoding the images"
             }
-          ]
+          }
         },
         "person": {
           "type": "object",
