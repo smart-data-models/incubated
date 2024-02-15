@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Cemetery/cemeteryDepartment/schema.json",
+  "title": "Smart Data models - cemeteryDepartment schema",
+  "modelTags": "",
+  "description": "Data regarding the different departments (blocks, streets, areas, etc) in which cemeteries and graveyards may be divided.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "location"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Property. Name, number, letter, etc. by which the department may be identified. Units: 'n/a'"
+        },
+        "refCemetery": {
+          "type": "string",
+          "description": "Relationship. Reference to the entity representing the particular cemetery to which the department belongs. Must be an entity with type: Building and category: Cemetery. "
+        }
+      }
+    }
+  ],
+  "derivedFrom": "",
+  "license": ""
+}
+
