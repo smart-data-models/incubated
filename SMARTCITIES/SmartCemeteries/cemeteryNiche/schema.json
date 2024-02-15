@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Cemetery/cemeteryNiche/schema.json",
+  "title": "Smart Data models - cemeteryNiche schema",
+  "modelTags": "",
+  "description": "Data regarding individual niches and graves in cemeteries and graveyards.",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "location"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "height": {
+          "type": "string",
+          "description": "Property. Number of cemetery units over the ground — the floor on a certain niche wall — in which the niche is located. Counted up from 0 (ground level i.e. interment). Units: 'n/a'"
+        },
+        "number": {
+          "type": "string",
+          "description": "Property. Reference number for the plot. Format dependent on cemetery management.  Units:'n/a'"
+        },
+        "refDepartment": {
+          "type": "string",
+          "description": "Relationship. Reference to the entity representing the particular deparment (type: cemeteryDepartment) in which the niche is located"
+        }
+      }
+    }
+  ],
+  "derivedFrom": "",
+  "license": ""
+}
