@@ -3,10 +3,10 @@
   "$schemaVersion": "0.0.1",
   "modelTags": "",
   "$id": "https://smart-data-models.github.io/SMARTMANUFACTURING/corosect/I4AAS/schema.json",
-  "title": "Smart Data Models - RAMI4.0 Asset Administration Shell -AAS- Generic schema",
-  "description": "Describes a generic Asset Administration Shell - AAS -  component of the RAMI4.0",
+  "title": "Smart Data Models - RAMI4.0 Asset Administrtion Shell -AAS- Generic schema",
+  "description": "Describes a generic Asset Administration Shell - AAS - tree, component of the RAMI4.0",
   "type": "object",
-  "derivedFrom": "IEC 63278-1 https://portal.effra.eu/taxonomylisttaxon/view/1577s",
+  "derivedFrom": "IDTA-01001-3-0 https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf",
   "license": "",
   "allOf": [
     {
@@ -35,7 +35,17 @@
         "hasDataSpecification": {
           "type": "array",
           "description": "Property. Data specification defines the additional attributes an asset may have. RAMI4.0 specification",
-          "items": {}
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type":"string",
+                  "description": "Property. Link, url or descriptionof the specified data"
+                }
+              }
+            }
+          ]
         },
         "asset": {
           "type": "object",
@@ -49,10 +59,8 @@
                   "type": "object",
                   "properties": {
                     "type": {
-                      "type": "string",
-                      "enum": [
-                        "Asset"
-                      ],
+                      "type":"string",
+                      "enum": ["Asset"],
                       "description": "Property. Type (description) of the asset"
                     },
                     "local": {
@@ -103,10 +111,8 @@
                       "type": "object",
                       "properties": {
                         "type": {
-                          "type": "string",
-                          "enum": [
-                            "Submodel"
-                          ],
+                          "type":"string",
+                          "enum": ["Submodel"],
                           "description": "Property. Type (description) of the submodel"
                         },
                         "local": {
@@ -145,8 +151,18 @@
         },
         "conceptDictionaries": {
           "type": "array",
-          "description": "Property. The AAS itself can also define its own dictionary that contains semantic definitions of its submodel elements. These semantic definitions are called concept descriptions (ConceptDescription or concept dictionary).",
-          "items": {}
+          "description": "Property. The AAS itself can also define its own dictionary that contains semantic definitions of its submodel elements. These semantic definitions are called concept descriptions (ConceptDescription or concept dictionary). This array will contain ref ids to RAMI4.0 specific concepts used within this model",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type":"string",
+                  "description": "Property. Link, url or descriptionof the specified data"
+                }
+              }
+            }
+          ]
         },
         "identification": {
           "type": "object",
