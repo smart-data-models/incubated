@@ -5,13 +5,7 @@
   "$id": "https://smart-data-models.github.io/SMARTMANUFACTURING/corosect/I4AAS/schema.json",
   "title": "Smart Data Models - RAMI4.0 Asset Administrtion Shell -AAS- Generic schema",
   "description": "Describes a generic Asset Administration Shell - AAS - tree, component of the RAMI4.0",
-  "type": {
-          "type": "string",
-          "enum": [
-            "I4AAS"
-          ],
-          "description": "Property. It has to be RAMI4.0 I4AAS NGSI Entity type to represent a RAMI4.0 AAS Digital Twin"
-        },
+  "type": "object"
   "derivedFrom": "IDTA-01001-3-0 https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf",
   "license": "",
   "allOf": [
@@ -23,6 +17,13 @@
     },
     {
       "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "I4AAS"
+          ],
+          "description": "Property. It has to be RAMI4.0 I4AAS NGSI Entity type to represent a RAMI4.0 AAS Digital Twin"
+        },
         "refI4AssetId": {
           "type": "string",
           "description": "Relationship. References the root Asset linked to this AAS"
