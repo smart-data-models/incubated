@@ -17,10 +17,6 @@
     },
     {
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Property. Identity information that unambiguously distinguishes one AAS from another one within the NGSI context"
-        },
         "type": {
           "type": "string",
           "enum": [
@@ -30,22 +26,21 @@
         },
         "refI4AssetId": {
           "type": "string",
+          "format": "uri",
           "description": "Relationship. References the root Asset linked to this AAS"
         },
         "hasDataSpecification": {
           "type": "array",
           "description": "Property. Data specification defines the additional attributes an asset may have. RAMI4.0 specification",
-          "items": [
-            {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type":"string",
-                  "description": "Property. Link, url or descriptionof the specified data"
-                }
+          "items":{
+            "type": "object",
+            "properties": {
+              "type": {
+                "type":"string",
+                "description": "Property. Link, url or descriptionof the specified data"
               }
             }
-          ]
+          }
         },
         "asset": {
           "type": "object",
@@ -152,17 +147,15 @@
         "conceptDictionaries": {
           "type": "array",
           "description": "Property. The AAS itself can also define its own dictionary that contains semantic definitions of its submodel elements. These semantic definitions are called concept descriptions (ConceptDescription or concept dictionary). This array will contain ref ids to RAMI4.0 specific concepts used within this model",
-          "items": [
-            {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type":"string",
-                  "description": "Property. Link, url or descriptionof the specified data"
-                }
+          "items":{
+            "type": "object",
+            "properties": {
+              "type": {
+                "type":"string",
+                "description": "Property. Link, url, reference or description of the specified I4.0 concept"
               }
             }
-          ]
+          }
         },
         "identification": {
           "type": "object",
