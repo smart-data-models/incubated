@@ -146,7 +146,7 @@
         },
         "conceptDictionaries": {
           "type": "array",
-          "description": "Property. The AAS itself can also define its own dictionary that contains semantic definitions of its submodel elements. These semantic definitions are called concept descriptions (ConceptDescription or concept dictionary). This array will contain ref ids to RAMI4.0 specific concepts used within this model",
+          "description": "Property. The Asset itself can also define its own dictionary that contains semantic definitions of its submodel elements. These semantic definitions are called concept descriptions (ConceptDescription or concept dictionary). This array will contain ref ids to RAMI4.0 specific concepts used within this model",
           "items":{
             "type": "object",
             "properties": {
@@ -208,7 +208,7 @@
           "properties": {
             "name": {
               "type": "string",
-              "description": "Property. Property of the item"
+              "description": "Property. Description of the referenced property of the item"
             }
           },
           "required": [
@@ -238,22 +238,25 @@
             }
           ]
         }
-      }
+      },
+      "required": [
+        "type",
+        "refI4AssetId",
+        "hasDataSpecification",
+        "asset",
+        "submodels",
+        "conceptDictionaries",
+        "identification",
+        "administration",
+        "idShort",
+        "category",
+        "modelType",
+        "descriptions"
+      ]
     }
   ],
   "required": [
     "id",
-    "type",
-    "refI4AssetId",
-    "hasDataSpecification",
-    "asset",
-    "submodels",
-    "conceptDictionaries",
-    "identification",
-    "administration",
-    "idShort",
-    "category",
-    "modelType",
-    "descriptions"
+    "type"
   ]
 }
