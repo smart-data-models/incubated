@@ -1,11 +1,11 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$schemaVersion": "0.0.1",
+  "$schemaVersion": "0.0.2",
   "modelTags": "",
-  "$id": "https://smart-data-models.github.io/SMARTMANUFACTURING/corosect/I4Asset/schema.json",
+  "$id": "https://github.com/IgnacioElicegui/incubated/blob/master/SMARTMANUFACTURING/corosect/I4Asset/schema.json",
   "title": "Smart Data Models - RAMI4.0 Asset Administrtion Shell -Asset- Generic schema",
-  "description": "Defines the Asset -instance- linked to a given AAS a generic Asset Administration Shell - AAS -  component of the RAMI4.0",
-  "derivedFrom": "IEC 63278-1 https://portal.effra.eu/taxonomylisttaxon/view/1577s",
+  "description": "Based on IDTA-01001-3-0, defines the Asset -instance- linked to a given AAS a generic Asset Administration Shell - AAS -  component of the RAMI4.0",
+  "derivedFrom": "https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf",
   "license": "",
   "type": "object",
   "allOf": [
@@ -17,10 +17,6 @@
     },
     {
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Property. Id of the NGSI entity"
-        },
         "type": {
           "type": "string",
           "enum": [
@@ -29,9 +25,17 @@
           "description": "Property. it has to be RAMI4.0 I4Asset NGSI Entity type"
         },
         "hasDataSpecification": {
-            "type": "array",
-            "description": "Property. Data specification defines the additional attributes an element may or shall have",
-            "items": {}
+          "type": "array",
+          "description": "Property. Data specification defines the additional attributes an asset may have. RAMI4.0 specification",
+          "items":{
+            "type": "object",
+            "properties": {
+              "type": {
+                "type":"string",
+                "description": "Property. Link, url or descriptionof the specified data"
+              }
+            }
+          }
         },
         "assetIdentificationModelRef": {
           "type": "object",
@@ -48,16 +52,20 @@
                       "type": "string"
                     },
                     "local": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "Property. True if this is local item. False if not"
                     },
                     "value": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Property. Value of the item"
                     },
                     "index": {
-                      "type": "integer"
+                      "type": "integer",
+                      "description": "Property. Integer related to the item"
                     },
                     "idType": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Property. idType of the item"
                     }
                   },
                   "required": [
@@ -164,11 +172,11 @@
         },
         "modelType": {
           "type": "object",
-          "description": "Property. Instance type",
+          "description": "Property. Instance model type according to IDTA",
           "properties": {
             "name": {
               "type": "string",
-              "description": "Property. Type of the item"
+              "description": "Property. Type of the referenced item"
             }
           },
           "required": [
@@ -207,7 +215,6 @@
         }
       },
       "required": [
-        "id",
         "type",
         "hasDataSpecification",
         "assetIdentificationModelRef",
