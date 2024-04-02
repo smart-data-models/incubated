@@ -2,11 +2,11 @@
   "$schema": "http://json-schema.org/schema#",
   "$schemaVersion": "0.0.1",
   "modelTags": "",
-  "$id": "https://smart-data-models.github.io/SMARTMANUFACTURING/corosect/I4SubmodelElementProperty/schema.json",
+  "$id": "https://github.com/IgnacioElicegui/incubated/blob/master/SMARTMANUFACTURING/corosect/I4SubmodelElementProperty/schema.json",
   "title": "Smart Data Models - RAMI4.0 Asset Administrtion Shell -AAS- Generic Submodel Element Property schema",
-  "description": "Maps a generic RAMI4.0 SubmodelElement representing a PROPERTY or attribute of a referrenced AAS. RAMI4.0 Standard ",
+  "description": "Based on IDTA-01001-3-0, maps a generic RAMI4.0 SubmodelElement representing a PROPERTY or attribute of a referrenced AAS. RAMI4.0 Standard ",
   "type": "object",
-  "derivedFrom": "IEC 63278-1 https://portal.effra.eu/taxonomylisttaxon/view/1577s",
+  "derivedFrom": "https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf",
   "license": "",
   "allOf": [
     {
@@ -17,10 +17,6 @@
     },
     {
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Property. Identity information that unambiguously distinguishes one AAS I4SubmodelElementProperty from another one within the NGSI context"
-        },
         "type": {
           "type": "string",
           "enum": [
@@ -43,7 +39,15 @@
         "hasDataSpecification": {
           "type": "array",
           "description": "Property. Data specification defines the additional attributes a Submodel Element may have. RAMI4.0 specification",
-          "items": {}
+          "items":{
+            "type": "object",
+            "properties": {
+              "type": {
+                "type":"string",
+                "description": "Property. Link, url or descriptionof the specified data"
+              }
+            }
+          }
         },      
         "idShort": {
           "type": "string",
@@ -95,21 +99,26 @@
           "properties": {
             "keys": {
               "type": "array",
+              "description": "Property. Set of keys linked to the sematicID of the model",
               "items": [
                 {
                   "type": "object",
                   "properties": {
                     "local": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "Property. Describes a local or not item"
                     },
                     "value": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Property. Describes/includes the corresponding value"
                     },
                     "index": {
-                      "type": "integer"
+                      "type": "integer",
+                      "description": "Property. Integer value of the item"
                     },
                     "idType": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Property. References the ID of the type"
                     }
                   },
                   "required": [
@@ -137,8 +146,8 @@
           "items": {}
         },
         "value": {
-          "type": "string",
-          "description": "Property.The given value in string format."
+          "type": ["integer", "string", "number"],
+          "description": "Property.The given value in string/integer format."
         },
         "valueId": {
           "type": "string",
@@ -153,7 +162,8 @@
               "description": "Property. Property of the item. string, integer, float, num etc. are used set for this type.",
               "properties":{
                 "name":{
-                  "type":"string"
+                  "type":"string",
+                  "description": "Property. Name of the property"
                 }
               },
               "required": [
