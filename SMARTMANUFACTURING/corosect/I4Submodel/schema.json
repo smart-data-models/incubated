@@ -61,37 +61,33 @@
         "submodelElements": {
           "type": "array",
           "description": "Property. Data element which includes the list of Elements -Operations or Commands AND Properties- I4SubmodelElementOperation for RAMI commands / I4SubmodelElementProperty for RAMI Properties",
-          "items": [
-            {
-              "type": "object",
-              "description": "Property. Link to the RAMI40 element -I4SubmodelElementOperation or I4SubmodelElementProperty- that maps the Command/Property of the RAMI Submodel",
-              "properties": {
-                "refI4SubmodelElement": {
-                  "type": "string",
-                  "description": "Property. Link to the NGSI entity -I4SubmodelElementOperation or I4SubmodelElementProperty- that maps the Command/Property of the Submodel"
-                },
-                "idShort": {
-                  "type": "string",
-                  "description": "Property. short id is the (short) name of the Submodel within RAMI40 environment"
-                },
-                "category": {
-                  "type": "string",
-                  "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the element"
-
-                },
-                "modelType": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "Property. Property of the item. Name of the model type"
-
-                    }
+          "items": {
+            "type": "object",
+            "description": "Property. Link to the RAMI40 element -I4SubmodelElementOperation or I4SubmodelElementProperty- that maps the Command/Property of the RAMI Submodel",
+            "properties": {
+              "refI4SubmodelElement": {
+                "type": "string",
+                "description": "Property. Link to the NGSI entity -I4SubmodelElementOperation or I4SubmodelElementProperty- that maps the Command/Property of the Submodel"
+              },
+              "idShort": {
+                "type": "string",
+                "description": "Property. short id is the (short) name of the Submodel within RAMI40 environment"
+              },
+              "category": {
+                "type": "string",
+                "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the element"
+              },
+              "modelType": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Property. Property of the item. Name of the model type"
                   }
                 }
               }
             }
-          ]
+          }
         },
         "identification": {
           "type": "object",
