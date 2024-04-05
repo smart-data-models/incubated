@@ -38,7 +38,6 @@
         },
         "hasDataSpecification": {
           "type": "array",
-
           "description": "Property. Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification",
           "items":{
             "type": "object",
@@ -94,6 +93,7 @@
           "properties": {
             "keys": {
               "type": "array",
+              "description": "Property. keys for the semantic id",
               "items": [
                 {
                   "type": "object",
@@ -351,17 +351,12 @@
                       "description": "Property. Property of the item. string, integer, float, num etc. are used set for this type.",
                       "properties":{
                         "name":{
-                          "type":"string"
+                          "type":"string",
+                          "description": "Property. Property of the item. Object type."
                         }
-                      },
-                      "required": [
-                        "name"
-                      ]
+                      }
                     }
-                  },
-                  "required": [
-                      "dataObjectType"
-                    ]
+                  }
                 },
                 "idShort": {
                   "type": "string",
@@ -379,10 +374,7 @@
                       "type": "string",
                       "description": "Property. Property of the item."
                     }
-                  },
-                  "required": [
-                    "name"
-                  ]
+                  }
                 },
                 "descriptions": {
                   "type": "array",
@@ -399,11 +391,7 @@
                           "type": "string",
                           "description": "Property. The Description text is filled here"
                         }
-                      },
-                      "required": [
-                        "language",
-                        "text"
-                      ]
+                      }
                     }
                   ]
                 },
@@ -437,12 +425,7 @@
                     }
                   }
                 }
-              },
-              "required": [
-                "value",
-                "valueType",
-                "idShort"
-              ]
+              }
             }
           ]
         },
@@ -468,11 +451,11 @@
             },
             "messages": {
               "type": "array",
-              "description": "Additional message containing information for the requester",
+              "description": "Property. Additional message containing information for the requester",
               "items": [
                 {
                   "type": "object",
-                  "description": "Property. Item object",
+                  "description": "Property. Item object for the messages",
                   "properties": {
                     "messageType": {
                       "type": "string",
