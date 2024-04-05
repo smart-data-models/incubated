@@ -38,17 +38,19 @@
         },
         "hasDataSpecification": {
           "type": "array",
-          "description": "Property. Data specification defines the additional attributes a Submodel Element may have. RAMI4.0 specification",
-          "items": {
+
+          "description": "Property. Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification",
+          "items":{
             "type": "object",
             "properties": {
               "type": {
-                "type": "string",
-                "description": "Property. Link, url or description of the specified data"
+                "type":"string",
+                "description": "Property. Link, url or description of the specified data. DataSpecification template conformant to IEC61360"
               }
             }
           }
-        },
+        },     
+
         "idShort": {
           "type": "string",
           "description": "Property. short id is the (short) name of the SubmodelElement within RAMI40 environment"
@@ -84,7 +86,7 @@
                 }
               }
             }
-          ]
+          ]biznaga
         },
         "semanticId": {
           "type": "object",
@@ -201,13 +203,29 @@
                 },
                 "hasDataSpecification": {
                   "type": "array",
-                  "description": "Property. Data specification defines the additional attributes an Input Variable may have. RAMI4.0 specification",
-                  "items": {}
+                  "description": "Property. Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification",
+                  "items":{
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type":"string",
+                        "description": "Property. Link, url or description of the specified data. DataSpecification template conformant to IEC61360"
+                      }
+                    }
+                  }
                 },
                 "constraints": {
                   "type": "array",
-                  "description": "Property. Constraints an Input Variable may have. RAMI4.0 specification",
-                  "items": {}
+                  "description": "Property. Constraints an Input Variable may have. RAMI4.0 Asset Administration Shell specification. Version 3.0RC02",
+                  "items":{
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type":"string",
+                        "description": "Property. Link, url, constraint ID (AAS Version 3.0RC02) or description of the constrain to be applied."
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -284,13 +302,29 @@
                 },
                 "hasDataSpecification": {
                   "type": "array",
-                  "description": "Property. Data specification defines the additional attributes an Output Variable may have. RAMI4.0 specification",
-                  "items": {}
+                  "description": "Property. Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification",
+                  "items":{
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type":"string",
+                        "description": "Property. Link, url or description of the specified data. DataSpecification template conformant to IEC61360"
+                      }
+                    }
+                  }
                 },
                 "constraints": {
                   "type": "array",
-                  "description": "Property. Constraints an Output Variable may have. RAMI4.0 specification",
-                  "items": {}
+                  "description": "Property. Constraints an Output Variable may have. RAMI4.0 Asset Administration Shell specification. Version 3.0RC02",
+                  "items":{
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type":"string",
+                        "description": "Property. Link, url, constraint ID (AAS Version 3.0RC02) or description of the constrain to be applied."
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -298,8 +332,119 @@
         },
         "inoutputVariable": {
           "type": "array",
-          "description": "Property.Parameter that is input and output of the operation ",
-          "items": {}
+          "description": "Property. Array with parameters that are input and output of the operation",
+          "items": [
+            {
+              "type": "object",
+              "description": "Property. Defines an inoutput variable for this command request",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "description": "Property. The obtained value in string format."
+                },
+                "valueType": {
+                  "type": "object",
+                  "description": "Property. The value type used in string format.",
+                  "properties": {
+                    "dataObjectType": {
+                      "type": "object",
+                      "description": "Property. Property of the item. string, integer, float, num etc. are used set for this type.",
+                      "properties":{
+                        "name":{
+                          "type":"string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    }
+                  },
+                  "required": [
+                      "dataObjectType"
+                    ]
+                },
+                "idShort": {
+                  "type": "string",
+                  "description": "Property. short id is the (short) name of the inoutput Value -varable name- within RAMI40 environment"
+                },
+                "category": {
+                  "type": "string",
+                  "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the element"
+                },
+                "modelType": {
+                  "type": "object",
+                  "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used.",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "Property. Property of the item."
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                "descriptions": {
+                  "type": "array",
+                  "description": "Property. For adding detailed knowldedge about the Element in different languages",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "language": {
+                          "type": "string",
+                          "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
+                        },
+                        "text": {
+                          "type": "string",
+                          "description": "Property. The Description text is filled here"
+                        }
+                      },
+                      "required": [
+                        "language",
+                        "text"
+                      ]
+                    }
+                  ]
+                },
+                "kind": {
+                  "type": "string",
+                  "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used"
+                },
+                "hasDataSpecification": {
+                  "type": "array",
+                  "description": "Property. Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification",
+                  "items":{
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type":"string",
+                        "description": "Property. Link, url or description of the specified data. DataSpecification template conformant to IEC61360"
+                      }
+                    }
+                  }
+                },
+                "constraints": {
+                  "type": "array",
+                  "description": "Property. Constraints an inoutput Variable may have. RAMI4.0 Asset Administration Shell specification. Version 3.0RC02",
+                  "items":{
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type":"string",
+                        "description": "Property. Link, url, constraint ID (AAS Version 3.0RC02) or description of the constrain to be applied."
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "value",
+                "valueType",
+                "idShort"
+              ]
+            }
+          ]
         },
         "operationResult": {
           "type": "object",
@@ -315,8 +460,7 @@
             },
             "entity": {
               "type": "object",
-              "description": "Property. Set of properties linked to the operation results",
-              "properties": {}
+              "description":"Property. Set of properties linked to the operation results"
             },
             "entityType": {
               "type": "string",
