@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "$schemaVersion": "0.0.1",
-  "modelTags": "",
-  "$id": "https://github.com/IgnacioElicegui/incubated/blob/master/SMARTMANUFACTURING/corosect/I4SubmodelElementProperty/schema.json",
-  "title": "Smart Data Models - RAMI4.0 Asset Administrtion Shell -AAS- Generic Submodel Element Property schema",
-  "description": "Based on IDTA-01001-3-0, maps a generic RAMI4.0 SubmodelElement representing a PROPERTY or attribute of a referrenced AAS. RAMI4.0 Standard ",
+  "modelTags": "Corosect",
+  "$id": "https://smart-data-models.github.io/dataModel.AAS/I4SubmodelElementProperty/schema.json",
+  "title": "Smart Data Models - RAMI4.0 Asset Administration Shell -AAS- Generic Submodel Element Property schema",
+  "description": "Based on IDTA-01001-3-0, maps a generic RAMI4.0 SubmodelElement representing a PROPERTY or attribute of a referenced AAS. RAMI4.0 Standard ",
   "type": "object",
   "derivedFrom": "https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf",
   "license": "",
@@ -38,6 +38,7 @@
         },
         "hasDataSpecification": {
           "type": "array",
+
           "description": "Property. Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification",
           "items":{
             "type": "object",
@@ -45,10 +46,11 @@
               "type": {
                 "type":"string",
                 "description": "Property. Link, url or description of the specified data. DataSpecification template conformant to IEC61360"
+
               }
             }
           }
-        },      
+        },
         "idShort": {
           "type": "string",
           "description": "Property. short id is the (short) name of the SubmodelElement within RAMI40 environment"
@@ -65,14 +67,11 @@
               "type": "string",
               "description": "Property. Property of the item. Usually -Operation- is set for this type."
             }
-          },
-          "required": [
-            "name"
-          ]
+          }
         },
         "descriptions": {
           "type": "array",
-          "description": "Property. For adding detailed knowldedge about the Element in different languages",
+          "description": "Property. For adding detailed knowledge about the Element in different languages",
           "items": [
             {
               "type": "object",
@@ -85,11 +84,7 @@
                   "type": "string",
                   "description": "Property. The Description text is filled here"
                 }
-              },
-              "required": [
-                "language",
-                "text"
-              ]
+              }
             }
           ]
         },
@@ -120,21 +115,11 @@
                       "type": "string",
                       "description": "Property. References the ID of the type"
                     }
-                  },
-                  "required": [
-                    "type",
-                    "local",
-                    "value",
-                    "index",
-                    "idType"
-                  ]
+                  }
                 }
               ]
             }
-          },
-          "required": [
-            "keys"
-          ]
+          }
         },
         "kind": {
           "type": "string",
@@ -154,7 +139,11 @@
           }
         },
         "value": {
-          "type": ["integer", "string", "number"],
+          "type": [
+            "integer",
+            "string",
+            "number"
+          ],
           "description": "Property.The given value in string/integer format."
         },
         "valueId": {
@@ -168,39 +157,16 @@
             "dataObjectType": {
               "type": "object",
               "description": "Property. Property of the item. string, integer, float, num etc. are used set for this type.",
-              "properties":{
-                "name":{
-                  "type":"string",
+              "properties": {
+                "name": {
+                  "type": "string",
                   "description": "Property. Name of the property"
                 }
-              },
-              "required": [
-                "name"
-              ]
+              }
             }
-          },
-          "required": [
-              "dataObjectType"
-            ]
+          }
         }
-      },
-      "required": [
-        "id",
-        "type",
-        "refI4AssetId",
-        "refI4AASId",
-        "refI4SubmodelId",
-        "idShort",
-        "semanticId",
-        "hasDataSpecification",
-        "category",
-        "modelType",
-        "kind",
-        "descriptions",
-        "value",
-        "valueId",
-        "valueType"
-      ]
+      }
     }
   ],
   "required": [
