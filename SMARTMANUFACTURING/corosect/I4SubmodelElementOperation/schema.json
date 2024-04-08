@@ -39,12 +39,12 @@
         "hasDataSpecification": {
           "type": "array",
           "description": "Property. Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification",
-          "items":{
+          "items": {
             "type": "object",
             "description": "Property. Object containing the elements of the data specification",
             "properties": {
               "type": {
-                "type":"string",
+                "type": "string",
                 "description": "Property. Link, url or description of the specified data. DataSpecification template conformant to IEC61360"
               }
             }
@@ -71,22 +71,20 @@
         "descriptions": {
           "type": "array",
           "description": "Property. For adding detailed knowledge about the Element in different languages",
-          "items": [
-            {
-              "type": "object",
-              "description": "Property. Every object containing a description",
-              "properties": {
-                "language": {
-                  "type": "string",
-                  "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
-                },
-                "text": {
-                  "type": "string",
-                  "description": "Property. The Description text is filled here"
-                }
+          "items": {
+            "type": "object",
+            "description": "Property. Every object containing a description",
+            "properties": {
+              "language": {
+                "type": "string",
+                "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
+              },
+              "text": {
+                "type": "string",
+                "description": "Property. The Description text is filled here"
               }
             }
-          ]
+          }
         },
         "semanticId": {
           "type": "object",
@@ -95,30 +93,28 @@
             "keys": {
               "type": "array",
               "description": "Property. Keys for the semantic id",
-              "items": [
-                {
-                  "type": "object",
-                  "description": "Property. Every object containing the keys for the semantic id",
-                  "properties": {
-                    "local": {
-                      "type": "boolean",
-                      "description": "Property. Describes a local or not item"
-                    },
-                    "value": {
-                      "type": "string",
-                      "description": "Property. Describes/includes the corresponding value"
-                    },
-                    "index": {
-                      "type": "integer",
-                      "description": "Property. Integer value of the item"
-                    },
-                    "idType": {
-                      "type": "string",
-                      "description": "Property. References the ID of the type"
-                    }
+              "items": {
+                "type": "object",
+                "description": "Property. Every object containing the keys for the semantic id",
+                "properties": {
+                  "local": {
+                    "type": "boolean",
+                    "description": "Property. Describes a local or not item"
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "Property. Describes/includes the corresponding value"
+                  },
+                  "index": {
+                    "type": "integer",
+                    "description": "Property. Integer value of the item"
+                  },
+                  "idType": {
+                    "type": "string",
+                    "description": "Property. References the ID of the type"
                   }
                 }
-              ]
+              }
             }
           }
         },
@@ -137,308 +133,296 @@
         "inputVariable": {
           "type": "array",
           "description": "Property. Array with input parameters of the operation",
-          "items": [
-            {
-              "type": "object",
-              "description": "Property. Defines an Input variable for this command request",
-              "properties": {
-                "value": {
-                  "type": "string",
-                  "description": "Property. The given value in string format"
-                },
-                "valueType": {
-                  "type": "object",
-                  "description": "Property. The value type used in string format",
-                  "properties": {
-                    "dataObjectType": {
-                      "type": "object",
-                      "description": "Property. Property of the item. string, integer, float, num etc. are used set for this type",
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "description": "Property. Property of the item. Object type"
-                        }
+          "items": {
+            "type": "object",
+            "description": "Property. Defines an Input variable for this command request",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "Property. The given value in string format"
+              },
+              "valueType": {
+                "type": "object",
+                "description": "Property. The value type used in string format",
+                "properties": {
+                  "dataObjectType": {
+                    "type": "object",
+                    "description": "Property. Property of the item. string, integer, float, num etc. are used set for this type",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "Property. Property of the item. Object type"
                       }
                     }
                   }
-                },
-                "idShort": {
-                  "type": "string",
-                  "description": "Property. short id is the (short) name of the Input Value -variable name- within RAMI40 environment"
-                },
-                "category": {
-                  "type": "string",
-                  "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the element"
-                },
-                "modelType": {
+                }
+              },
+              "idShort": {
+                "type": "string",
+                "description": "Property. short id is the (short) name of the Input Value -variable name- within RAMI40 environment"
+              },
+              "category": {
+                "type": "string",
+                "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the element"
+              },
+              "modelType": {
+                "type": "object",
+                "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Property. Property of the item. Usually -OperationVariable- is set for this type"
+                  }
+                }
+              },
+              "descriptions": {
+                "type": "array",
+                "description": "Property. For adding detailed knowledge about the Element in different languages",
+                "items": {
                   "type": "object",
-                  "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used",
+                  "description": "Property. Every object containing the descriptions properties",
                   "properties": {
-                    "name": {
+                    "language": {
                       "type": "string",
-                      "description": "Property. Property of the item. Usually -OperationVariable- is set for this type"
+                      "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "Property. The Description text is filled here"
                     }
                   }
-                },
-                "descriptions": {
-                  "type": "array",
-                  "description": "Property. For adding detailed knowledge about the Element in different languages",
-                  "items": [
-                    {
-                      "type": "object",
-                      "description": "Property. Every object containing the descriptions properties",
-                      "properties": {
-                        "language": {
-                          "type": "string",
-                          "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
-                        },
-                        "text": {
-                          "type": "string",
-                          "description": "Property. The Description text is filled here"
-                        }
-                      }
-                    }
-                  ]
-                },
-                "kind": {
-                  "type": "string",
-                  "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used"
-                },
-                "hasDataSpecification": {
-                  "type": "array",
-                  "description": "Property. Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification",
-                  "items":{
-                    "type": "object",
-                    "description": "Property. Every object containing the attributes of the data specification",
-                    "properties": {
-                      "type": {
-                        "type":"string",
-                        "description": "Property. Link, url or description of the specified data. DataSpecification template conformant to IEC61360"
-                      }
+                }
+              },
+              "kind": {
+                "type": "string",
+                "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used"
+              },
+              "hasDataSpecification": {
+                "type": "array",
+                "description": "Property. Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification",
+                "items": {
+                  "type": "object",
+                  "description": "Property. Every object containing the attributes of the data specification",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Property. Link, url or description of the specified data. DataSpecification template conformant to IEC61360"
                     }
                   }
-                },
-                "constraints": {
-                  "type": "array",
-                  "description": "Property. Constraints an Input Variable may have. RAMI4.0 Asset Administration Shell specification. Version 3.0RC02",
-                  "items":{
-                    "type": "object",
-                    "description": "Property. The object containing the constraints",
-                    "properties": {
-                      "type": {
-                        "type":"string",
-                        "description": "Property. Link, url, constraint ID (AAS Version 3.0RC02) or description of the constrain to be applied"
-                      }
+                }
+              },
+              "constraints": {
+                "type": "array",
+                "description": "Property. Constraints an Input Variable may have. RAMI4.0 Asset Administration Shell specification. Version 3.0RC02",
+                "items": {
+                  "type": "object",
+                  "description": "Property. The object containing the constraints",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Property. Link, url, constraint ID (AAS Version 3.0RC02) or description of the constrain to be applied"
                     }
                   }
                 }
               }
             }
-          ]
+          }
         },
         "outputVariable": {
           "type": "array",
           "description": "Property. Array with Output parameters of the operation",
-          "items": [
-            {
-              "type": "object",
-              "description": "Property. Defines an Output variable for this command request",
-              "properties": {
-                "value": {
-                  "type": "string",
-                  "description": "Property. The obtained value in string format"
-                },
-                "valueType": {
-                  "type": "object",
-                  "description": "Property. The value type used in string format",
-                  "properties": {
-                    "dataObjectType": {
-                      "type": "object",
-                      "description": "Property. Property of the item. string, integer, float, num etc. are used set for this type",
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                           "description": "Property. Property of the item. Object type"
-                        }
+          "items": {
+            "type": "object",
+            "description": "Property. Defines an Output variable for this command request",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "Property. The obtained value in string format"
+              },
+              "valueType": {
+                "type": "object",
+                "description": "Property. The value type used in string format",
+                "properties": {
+                  "dataObjectType": {
+                    "type": "object",
+                    "description": "Property. Property of the item. string, integer, float, num etc. are used set for this type",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "Property. Property of the item. Object type"
                       }
                     }
                   }
-                },
-                "idShort": {
-                  "type": "string",
-                  "description": "Property. short id is the (short) name of the Output Value -variable name- within RAMI40 environment"
-                },
-                "category": {
-                  "type": "string",
-                  "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the element"
-                },
-                "modelType": {
+                }
+              },
+              "idShort": {
+                "type": "string",
+                "description": "Property. short id is the (short) name of the Output Value -variable name- within RAMI40 environment"
+              },
+              "category": {
+                "type": "string",
+                "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the element"
+              },
+              "modelType": {
+                "type": "object",
+                "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Property. Property of the item. Usually -OperationVariable- is set for this type"
+                  }
+                }
+              },
+              "descriptions": {
+                "type": "array",
+                "description": "Property. For adding detailed knowledge about the Element in different languages",
+                "items": {
                   "type": "object",
-                  "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used",
+                  "description": "Property. Every object containing the attributes of the descriptions",
                   "properties": {
-                    "name": {
+                    "language": {
                       "type": "string",
-                      "description": "Property. Property of the item. Usually -OperationVariable- is set for this type"
+                      "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "Property. The Description text is filled here"
                     }
                   }
-                },
-                "descriptions": {
-                  "type": "array",
-                  "description": "Property. For adding detailed knowledge about the Element in different languages",
-                  "items": [
-                    {
-                      "type": "object",
-                      "description": "Property. Every object containing the attributes of the descriptions",
-                      "properties": {
-                        "language": {
-                          "type": "string",
-                          "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
-                        },
-                        "text": {
-                          "type": "string",
-                          "description": "Property. The Description text is filled here"
-                        }
-                      }
-                    }
-                  ]
-                },
-                "kind": {
-                  "type": "string",
-                  "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used"
-                },
-                "hasDataSpecification": {
-                  "type": "array",
-                  "description": "Property. Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification",
-                  "items":{
-                    "type": "object",
-                    "description": "Property. Every object containing the details of the data specification",
-                    "properties": {
-                      "type": {
-                        "type":"string",
-                        "description": "Property. Link, url or description of the specified data. DataSpecification template conformant to IEC61360"
-                      }
+                }
+              },
+              "kind": {
+                "type": "string",
+                "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used"
+              },
+              "hasDataSpecification": {
+                "type": "array",
+                "description": "Property. Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification",
+                "items": {
+                  "type": "object",
+                  "description": "Property. Every object containing the details of the data specification",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Property. Link, url or description of the specified data. DataSpecification template conformant to IEC61360"
                     }
                   }
-                },
-                "constraints": {
-                  "type": "array",
-                  "description": "Property. Constraints an Output Variable may have. RAMI4.0 Asset Administration Shell specification. Version 3.0RC02",
-                  "items":{
-                    "type": "object",
-                    "description": "Property. Every object containing the description of the constraints",
-                    "properties": {
-                      "type": {
-                        "type":"string",
-                        "description": "Property. Link, url, constraint ID (AAS Version 3.0RC02) or description of the constrain to be applied"
-                      }
+                }
+              },
+              "constraints": {
+                "type": "array",
+                "description": "Property. Constraints an Output Variable may have. RAMI4.0 Asset Administration Shell specification. Version 3.0RC02",
+                "items": {
+                  "type": "object",
+                  "description": "Property. Every object containing the description of the constraints",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Property. Link, url, constraint ID (AAS Version 3.0RC02) or description of the constrain to be applied"
                     }
                   }
                 }
               }
             }
-          ]
+          }
         },
         "inoutputVariable": {
           "type": "array",
           "description": "Property. Array with parameters that are input and output of the operation",
-          "items": [
-            {
-              "type": "object",
-              "description": "Property. Defines an inoutput variable for this command request",
-              "properties": {
-                "value": {
-                  "type": "string",
-                  "description": "Property. The obtained value in string format"
-                },
-                "valueType": {
-                  "type": "object",
-                  "description": "Property. The value type used in string format",
-                  "properties": {
-                    "dataObjectType": {
-                      "type": "object",
-                      "description": "Property. Property of the item. string, integer, float, num etc. are used set for this type",
-                      "properties":{
-                        "name":{
-                          "type":"string",
-                          "description": "Property. Property of the item. Object type"
-                        }
+          "items": {
+            "type": "object",
+            "description": "Property. Defines an inoutput variable for this command request",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "Property. The obtained value in string format"
+              },
+              "valueType": {
+                "type": "object",
+                "description": "Property. The value type used in string format",
+                "properties": {
+                  "dataObjectType": {
+                    "type": "object",
+                    "description": "Property. Property of the item. string, integer, float, num etc. are used set for this type",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "Property. Property of the item. Object type"
                       }
                     }
                   }
-                },
-                "idShort": {
-                  "type": "string",
-                  "description": "Property. short id is the (short) name of the inoutput Value -variable name- within RAMI40 environment"
-                },
-                "category": {
-                  "type": "string",
-                  "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the element"
-                },
-                "modelType": {
+                }
+              },
+              "idShort": {
+                "type": "string",
+                "description": "Property. short id is the (short) name of the inoutput Value -variable name- within RAMI40 environment"
+              },
+              "category": {
+                "type": "string",
+                "description": "Property. The category is a value that gives further meta information w.r.t. to the class of the element"
+              },
+              "modelType": {
+                "type": "object",
+                "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Property. Property of the item"
+                  }
+                }
+              },
+              "descriptions": {
+                "type": "array",
+                "description": "Property. For adding detailed knowledge about the Element in different languages",
+                "items": {
                   "type": "object",
-                  "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used",
+                  "description": "Property. Every object containing the attributes of the descriptions",
                   "properties": {
-                    "name": {
+                    "language": {
                       "type": "string",
-                      "description": "Property. Property of the item"
+                      "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "Property. The Description text is filled here"
                     }
                   }
-                },
-                "descriptions": {
-                  "type": "array",
-                  "description": "Property. For adding detailed knowledge about the Element in different languages",
-                  "items": [
-                    {
-                      "type": "object",
-                      "description": "Property. Every object containing the attributes of the descriptions",
-                      "properties": {
-                        "language": {
-                          "type": "string",
-                          "description": "Property. Substring identifying the language. Acronym according to ISO 639-1"
-                        },
-                        "text": {
-                          "type": "string",
-                          "description": "Property. The Description text is filled here"
-                        }
-                      }
-                    }
-                  ]
-                },
-                "kind": {
-                  "type": "string",
-                  "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used"
-                },
-                "hasDataSpecification": {
-                  "type": "array",
-                  "description": "Property. Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification",
-                  "items":{
-                    "type": "object",
-                    "description": "Property. Every object containing the descriptions of the data specification",
-                    "properties": {
-                      "type": {
-                        "type":"string",
-                        "description": "Property. Link, url or description of the specified data. DataSpecification template conformant to IEC61360"
-                      }
+                }
+              },
+              "kind": {
+                "type": "string",
+                "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used"
+              },
+              "hasDataSpecification": {
+                "type": "array",
+                "description": "Property. Element that can be extended by using data specification templates. A data specification template defines a named set of additional attributes an element may or shall have. RAMI4.0 specification",
+                "items": {
+                  "type": "object",
+                  "description": "Property. Every object containing the descriptions of the data specification",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Property. Link, url or description of the specified data. DataSpecification template conformant to IEC61360"
                     }
                   }
-                },
-                "constraints": {
-                  "type": "array",
-                  "description": "Property. Constraints an inoutput Variable may have. RAMI4.0 Asset Administration Shell specification. Version 3.0RC02",
-                  "items":{
-                    "type": "object",
-                    "description": "Property. Every object containing the constraints ",
-                    "properties": {
-                      "type": {
-                        "type":"string",
-                        "description": "Property. Link, url, constraint ID (AAS Version 3.0RC02) or description of the constrain to be applied"
-                      }
+                }
+              },
+              "constraints": {
+                "type": "array",
+                "description": "Property. Constraints an inoutput Variable may have. RAMI4.0 Asset Administration Shell specification. Version 3.0RC02",
+                "items": {
+                  "type": "object",
+                  "description": "Property. Every object containing the constraints ",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "description": "Property. Link, url, constraint ID (AAS Version 3.0RC02) or description of the constrain to be applied"
                     }
                   }
                 }
               }
             }
-          ]
+          }
         },
         "operationResult": {
           "type": "object",
@@ -454,7 +438,7 @@
             },
             "entity": {
               "type": "object",
-              "description":"Property. Set of properties linked to the operation results"
+              "description": "Property. Set of properties linked to the operation results"
             },
             "entityType": {
               "type": "string",
@@ -463,32 +447,30 @@
             "messages": {
               "type": "array",
               "description": "Property. Additional message containing information for the requester",
-              "items": [
-                {
-                  "type": "object",
-                  "description": "Property. Item object for the messages",
-                  "properties": {
-                    "messageType": {
-                      "type": "string",
-                      "description": "Property. The message type enum",
-                      "enum": [
-                        "error",
-                        "exception",
-                        "info",
-                        "warning"
-                      ]
-                    },
-                    "text": {
-                      "type": "string",
-                      "description": "Property. A message containing more information for the requester about a certain happening in the backend"
-                    },
-                    "code": {
-                      "type": "string",
-                      "description": "Property. Technology-dependent status or error code"
-                    }
+              "items": {
+                "type": "object",
+                "description": "Property. Item object for the messages",
+                "properties": {
+                  "messageType": {
+                    "type": "string",
+                    "description": "Property. The message type enum",
+                    "enum": [
+                      "error",
+                      "exception",
+                      "info",
+                      "warning"
+                    ]
+                  },
+                  "text": {
+                    "type": "string",
+                    "description": "Property. A message containing more information for the requester about a certain happening in the backend"
+                  },
+                  "code": {
+                    "type": "string",
+                    "description": "Property. Technology-dependent status or error code"
                   }
                 }
-              ]
+              }
             }
           }
         },
