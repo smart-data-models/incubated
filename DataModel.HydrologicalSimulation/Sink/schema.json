@@ -1,0 +1,157 @@
+{{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://smart-data-models.github.io/data-models.HydrologicalSuimulation/Sink/schema.json",
+    "title": "Hydrological Model - Sink",
+    "description": "This entity contains a harmonised description of a generic sink, which describes a sink with one or more inflows but no outflow.",
+    "$schemaVersion": "0.0.1",
+    "type": "object",
+    "allOf":[
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Sink"
+                    ],
+                    "description": "Property. NGSI-LD Entity Type. It has to be Sink"
+                },
+                "name":{
+                    "type": "string",
+                    "description": "Unique identifier (required)"
+                },
+                "description":{
+                    "type": "string",
+                    "description": "Optional text with important information about the sink"
+
+                },
+                "basinName":{
+                    "type": "string",
+                    "description": "A string specifying the name of the Basin"                
+                },
+                "refLabel": {
+                    "type": "string",
+                    "description": "Text, the label of the reference flow. (optional)"
+                },
+                "refFlow": {
+                    "type": "number",
+                    "description": "A number, specifying the reference flow that assists the interpretation of the computed flow results. (optional) Units: m3/s"
+                }, 
+                "observedFlow": {
+                    "type": "property",
+                    "observedBy":{
+                        "type": "string",
+                        "value":{
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 256,
+                                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                                    "description": "Property. Identifier format of any NGSI entity"
+                                },
+                                {
+                                    "type": "string",
+                                    "format": "uri",
+                                    "description": "Property. Identifier format of any NGSI entity"
+                                }
+                            ],
+                        },                              
+                        "description": "The measured water flow at the sink. Units: m3/s (optional)"                    
+                    },
+                    "dateObserved": {
+                        "type": "string",
+                        "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"
+                    },
+                    "flow": {
+                        "type": "number",
+                        "description": "A number, specifying the reference flow that assists the interpretation of the computed flow results. (optional) Units: m3/s"
+                    },                    
+                },                                     
+                "observedStage":{
+                   "type": "property",
+                   "observedBy":{
+                        "type": "string",
+                        "value":{
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 256,
+                                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                                    "description": "Property. Identifier format of any NGSI entity"
+                                },
+                                {
+                                    "type": "string",
+                                    "format": "uri",
+                                    "description": "Property. Identifier format of any NGSI entity"
+                                }
+                            ],
+                        },                              
+                        "description": "The measured water stage at the sink. Units: m (optional)"                              
+                   },
+                   "dateObserved": {
+                       "type": "string",
+                       "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"
+                   },
+                   "stage": {
+                       "type": "number",
+                       "description": "The measured water stage of the sink. Units: m (optional)"
+                   },                         
+                }                               
+                "inBasin":{
+                    "type": "string",
+                    "value":{
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 256,
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            },
+                            {
+                                "type": "string",
+                                "format": "uri",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ],
+                    },                              
+                    "description": "A relationship indicating the ID of the basin entity in which the subbasin entity belongs to"                                                     
+                },
+                "observedBy":{
+                    "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons"               
+                    "description": "A relationship to the device that provides the flow, velocity, depth, quality and waterOutflow property value. Reference to an entity of type Device"                                                  
+                },
+                "hasStageDishCurve":{
+                    "type": "string",
+                    "value":{
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 256,
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            },
+                            {
+                                "type": "string",
+                                "format": "uri",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ],
+                    },                              
+                    "description": "A relationship to the ID label of the stage-discharge curve. Reference to an entity of type curve"                                                  
+                },                
+            }
+        }
+    ],
+    "required": [
+        "name",
+    ]  
+}

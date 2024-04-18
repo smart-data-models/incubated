@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://smart-data-models.github.io/data-models.HydrologicalSuimulation/SimpleCanopy/schema.json",
+    "title": "Hydrological Model - SimpleCanopy",
+    "description": "This entity contains a harmonised description of the simple canopy entity, which describes the method used to represent the plant canopy of the basin. It is associated with the Subasin entity.",
+    "$schemaVersion": "0.0.1",
+    "type": "object",
+    "allOf":[
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "SimpleCanopy"
+                    ],
+                    "description": "Property. NGSI-LD Entity Type. It has to be SimpleCanopy"
+                },
+                "initialStorage":{
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100,
+                    "description": "A number representing the initial conditions of the canopy. Units: %"
+                },
+                "maxStorage":{
+                    "type": "number",
+                    "description": "A number representing the maximum amount of water that can be held on leaves before the throughfall to the surface begins. Units: MM or IN (depending on the metric system). (required)"
+                },   
+                "cropCoeff":{
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "A number specifying the ratio applied to potential evapotranspiration when computing the amount of water to extract from the soil"
+                }, 
+                "evapotranspiration":{
+                    "type": "string",
+                    "enum":[
+                        "Wet and Dry periods",
+                        "Only Dry Periods",
+                    ],                    
+                    "description": "A text specifying when evapotranspiration will be included in the calculations."
+                },         
+                "uptakeMethod":{
+                    "type": "string",
+                    "enum":[
+                        "None",
+                        "Simple",
+                        "TensionReduction"
+                    ],                    
+                    "description": "A text specifying the uptake method used to extract water from the soil."
+                },       
+
+            }
+        }
+    ],
+    "required": [
+        "maxStorage",
+    ]  
+}

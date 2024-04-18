@@ -1,0 +1,66 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://smart-data-models.github.io/data-models.HydrologicalSuimulation/TSGage/schema.json",
+    "title": "Hydrological Model - TSGage",
+    "description": "This entity contains a harmonised description of a generic gage (time series object) for Hydrologic Simulation model.",
+    "$schemaVersion": "0.0.1",
+    "type": "object",
+    "allOf":[
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "TSGage"
+                    ],
+                    "description": "Property. NGSI-LD Entity Type. It has to be TSGage"
+                },
+                "id":{
+                    "type": "string",
+                    "description": "Unique identifier (required)"
+                },
+                "description":{
+                    "type": "string",
+                    "description": "Optional text with important information about the basin"
+
+                },
+                "timeStep":{
+                    "type": "string",
+                    "description": "The timestep of the time series. Number. All units are accepted"
+                },
+                "startDate":{
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/DateTime'. The start date and time of the time series. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"                    
+                },
+                "endDate":{
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/DateTime'. The end date and time of the time series. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"                    
+                },
+                "data":{
+                    "type": "array",
+                    "items":{
+                        "type": "number"
+                     },
+                    "description": "An array providing the timeseries values",                    
+                },                
+                "timestamps":{
+                    "type": "array",
+                    "items":{
+                        "type": "string"
+                     },
+                    "description": "An array providing the timeseries values in ISO8601 UTCformat.",                    
+                },                
+                
+            }
+        }
+    ],
+    "required": [
+        "name",
+    ]  
+}

@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://smart-data-models.github.io/data-models.HydrologicalSimulation/Curve/schema.json",
+    "title": "Hydrological Model - Curve",
+    "description": "This entity contains a harmonised description of a generic curve made for Hydrologic Simulation model.",
+    "$schemaVersion": "0.0.1",
+    "type": "object",
+    "allOf":[
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Curve"
+                    ],
+                    "description": "Property. NGSI-LD Entity Type. It has to be Curve"
+                },
+                "id":{
+                    "type": "string",
+                    "description": "Unique identifier (required)"
+
+                },                
+                "tag": {
+                  "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/tag"
+                },
+                "curveType": {
+                    "type": "string",
+                    "enum":[
+                        "Storage-Discharge Functions",
+                        "Elevation-Storage Functions",
+                        "Elevation-Area Function",
+                        "Elevation-Discharge functions"
+                        
+                    ],
+                    "description": "The curve type"                
+                },
+                "xData": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                    "description": "X data points for the curve"                
+                },
+                "yData": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }                    
+                    "description": "Y data points for the curve"                
+                }
+            }
+        }               
+                           
+    ]
+    "required": [
+        "id"
+    ]    
+}

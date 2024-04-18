@@ -1,0 +1,142 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://smart-data-models.github.io/data-models.HydrologicalSimulation/GriddedDataset/schema.json",
+    "title": "Hydrological Model - GriddedDataset",
+    "description": "Is a harmonized description of an entity containing information in a normal grid.",
+    "$schemaVersion": "0.0.1",
+    "type": "object",
+    "allOf":[
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "GriddedDataset"
+                    ],
+                    "description": "Property. NGSI-LD Entity Type. It has to be GriddedDataset"
+                },
+                "name":{
+                    "type": "string",
+                    "description": "Unique identifier (required)"
+                },
+                "spatialResolution":{
+                    "type": "number",
+                    "discription": "A number specifying the spatial resolution of the gridded data. Units: degrees or meters."
+                },  
+                "timeStep":{
+                    "type": "string",
+                    "description": "A character specifying the time step (temporal resolution) of the variable. Optional."
+                },
+                "title":{
+                    "type": "string",
+                    "discription": "The title of the dataset"                                            
+                },
+                "institution": {
+                    "type": "string",
+                    "discription": "The type of the dataset"                                                            
+                },
+                "reference": {
+                    "type": "string",
+                    "discription": "The reference of the dataset"                                            
+                },
+                "history": {
+                    "type": "string",
+                    "discription": "The history of the dataset"                                            
+                },
+                "hasVar":{
+                    "type": "string",
+                    "value":{
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 256,
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            },
+                            {
+                                "type": "string",
+                                "format": "uri",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ],
+                    },                    
+                    "description": "A relationship indicating the ID of the entity describing the variable. Reference to an entity of type GriddedVariable"                    
+                },
+                "dimTime":{
+                    "type": "property",
+                    "standard_name": {
+                        "type": "string",
+                        "discription": "The name of the dimension (required). e.g., time"                        
+                     },
+                     "calendar": {
+                        "type": "string",
+                        "discription": "A text specifying the type of the calendar used (required)"
+                     },
+                     "axis": {
+                        "type": "string",
+                        "discription": "A letter. Value restricted to: T"                         
+                     },
+                    "size": {
+                        "type": "number",
+                        "discription": "A number, specifying the number of time instances. (required)"
+                    },
+                    "units": {
+                        "type": "string",
+                        "discription": "A text specifying the time units. (required)"                                             
+                    }
+                },
+                "dimLat":{
+                    "type": "Property",
+                    "standard_name": {
+                        "type": "string",
+                        "discription": "The name of the dimension (required). e.g., latitude"                        
+                    },
+                    "axis": {
+                        "type": "string",
+                        "discription": "A letter. Value restricted to: Y"                         
+                    },
+                    "size": {
+                        "type": "number",
+                        "discription": "A number, specifying the number of time instances. (required)"
+                    },
+                    "units": {
+                        "type": "string",
+                        "discription": "A text specifying the time units. (required)"                                             
+                    }
+                },
+                "dimLon":{
+                    "type": "Property",
+                    "standard_name": {
+                        "type": "string",
+                        "discription": "The name of the dimension (required). e.g., longitude"                        
+                     },
+                     "axis": {
+                        "type": "string",
+                        "discription": "A letter. Value restricted to: X"                         
+                     },
+                    "size": {
+                        "type": "number",
+                        "discription": "A number, specifying the number of time instances. (required)"
+                    },
+                    "units": {
+                        "type": "string",
+                        "discription": "A text specifying the time units. (required)"                                             
+                    }
+                }                
+                
+                
+            } // properties
+
+        }        
+    ],
+    "required": [
+        "name",
+    ]    
+}

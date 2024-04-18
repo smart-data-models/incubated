@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://smart-data-models.github.io/data-models.HydrologicalSuimulation/SimpleSurface/schema.json",
+    "title": "Hydrological Model - SimpleSurface",
+    "description": "This entity contains a harmonised description of the simple surface method which describes the method used to represent the soil surface of the basin. It is associated with the Subasin entity.",
+    "$schemaVersion": "0.0.1",
+    "type": "object",
+    "allOf":[
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "SimpleSurface"
+                    ],
+                    "description": "Property. NGSI-LD Entity Type. It has to be SimpleSurface"
+                },
+                "initialStorage":{
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "A number specifying the initial conditions of the surface storage (at the beginning of the simulation). Percentage"
+                },
+                "maxStorage":{
+                    "type": "number",
+                    "minimum": 0,
+                    "description": ": A number representing the maximum amount of water that can be held on the soil surface. Units: mm or in, depending on the metric system"
+                },   
+            }
+        }
+    ],
+    "required": [
+        "maxStorage",
+    ]  
+}

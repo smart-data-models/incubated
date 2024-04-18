@@ -1,0 +1,194 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://smart-data-models.github.io/data-models.HydrologicalSuimulation/Basin/schema.json",
+    "title": "Hydrological Model - Basin",
+    "description": "Global Description: This entity contains a harmonised description of a generic basin entity, which represents the main component of the model. Its principal purpose is to convert atmospheric conditions into streamflow at specific locations in the watershed.",
+    "$schemaVersion": "0.0.1",
+    "type": "object",
+    "allOf":[
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "Basin"
+                    ],
+                    "description": "Property. NGSI-LD Entity Type. It has to be Basin"
+                },
+                "name":{
+                    "type": "string",
+                    "description": "Unique identifier (required)"
+                },
+                "description":{
+                    "type": "string",
+                    "description": "Optional text with important information about the basin"
+
+                },
+                "unitSystem":{
+                    "type": "string",
+                    "enum":[
+                        "Metric",
+                        "U.S. Customary"
+                    ],
+                    "description": "A text specifying the unit system"
+                },
+                "sediment":{
+                    "type": "string",
+                    "enum":[
+                        "Yes",
+                        "No"
+                    ],
+                    "description": "A text specifying whether the sediment calculations will be included or not"
+                },
+                "replaceMissing":{
+                    "type": "string",
+                    "enum":[
+                        "Yes",
+                        "No"
+                    ],
+                    "description": "A text specifying whether missing values will be replaced automatically"
+                },
+                "localFlow":{
+                    "type": "string",
+                    "enum":[
+                        "Yes",
+                        "No"
+                    ],
+                    "description": "A text specifying whether local flow will be computed at the junctions"
+                },
+                "unregulatedOutputs":{
+                    "type": "string",
+                    "enum":[
+                        "Yes",
+                        "No"
+                    ],
+                    "description": "A text specifying whether unregulated outputs will be computed at elements downstream of regulating structures"
+                },
+                "flowRatios":{
+                    "type": "string",
+                    "enum":[
+                        "Yes",
+                        "No"
+                    ],
+                    "description": "A text specifying whether the computed flow is increased or decreased by a fixed ratio"
+                },
+                "isCOmposedOf": {
+                    "type": "array",
+                    "description": "Reference to the ID of an entity of type Subasin, Reach, Junction, Sink",
+                    "items": {
+                        "type": "string",
+                        "value": {
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 256,
+                                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                                    "description": "Property. Identifier format of any NGSI entity"
+                                },
+                                {
+                                    "type": "string",
+                                    "format": "uri",
+                                    "description": "Property. Identifier format of any NGSI entity"
+                                }                                
+                            ]
+                        }
+
+                    }
+                    
+                },
+                "hasTerrain": {
+                    "type": "string",
+                    "value":{
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 256,
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            },
+                            {
+                                "type": "string",
+                                "format": "uri",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ],
+                    },
+                    "description": "A relationship indicating the ID of the entity selected as the terrain data. Reference to an entity of type Terrain"
+                },
+                "hasMeteoModel": {
+                    "type": "string",
+                    "value":{
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 256,
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            },
+                            {
+                                "type": "string",
+                                "format": "uri",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ],
+                    },                    
+                    "description": "A relationship indicating the ID of an entity of type MeteorologyModel"
+                },
+                "hasGriddedPrecipitation": {
+                    "type": "string",
+                    "value":{
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 256,
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            },
+                            {
+                                "type": "string",
+                                "format": "uri",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ],
+                    },                    
+                    "description": "A relationship indicating the ID of the entity selected as precipitation data"
+                },
+                "hasGriddedEvapotranspiration": {
+                    "type": "string",
+                    "value":{
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 256,
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            },
+                            {
+                                "type": "string",
+                                "format": "uri",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ],
+                    },                    
+                    "description": "A relationship indicating the ID of the entity selected as evapotranspiration data"
+                },                
+
+            } // properties
+
+        }        
+    ],
+    "required": [
+        "name",
+    ]    
+}
