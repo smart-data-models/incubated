@@ -53,5 +53,5 @@ def ttl_to_json_schema(ttl_data):
 
 # Convert TTL data from a file
 # with open("./examples/air_quality_sensors/air_quality_sensor_example.ttl", "r") as f:
-with open("Brick.ttl", "r") as f:
+with open("mini_brick.ttl", "r") as f:
     json_schema = ttl_to_json_schema(f.read())

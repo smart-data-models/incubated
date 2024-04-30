@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Gaia-X/CPU/schema.json",
+  "title": "cpu",
+  "description": "Computational processing unit of virtual and physical machines.",
+  "modelTags": "Gaia-X",
+  "derivedFrom": "https://w3id.org/gaia-x/ONTOLOGY_VERSION#cpu",
+  "license": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "cpuArchitecture": {
+          "description": "Property. Architecture of CPU as defined per .name string of structure static const X86CPUDefinition builtin_x86_defs defined in https://gitlab.com/qemu-project/qemu/-/blob/master/target/i386/cpu.c. Non-listed architectures to be designated as 'other'Enum:'x86-32', 'x86-64', 'AArch-32', 'AArch-64', 'RISC-V', 'Other'",
+          "type": "string",
+          "enum": [
+            "x86-32",
+            "x86-64",
+            "AArch-32",
+            "AArch-64",
+            "RISC-V",
+            "Other"
+          ]
+        },
+        "cpuFlag": {
+          "description": "Property. CPU flags as documented by lscpu and defined in https://github.com/torvalds/linux/blob/master/tools/arch/x86/include/asm/cpufeatures.h. Non-listed flags to be designated as 'other'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "smtEnabled": {
+          "description": "Property. Is simultaneous multithreading (SMT) or hyper threading (HT) active in this CPU? Default 'False'.",
+          "type": "boolean"
+        },
+        "numberOfCores": {
+          "description": "Property. Number of cores of the CPU.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "numberOfThreads": {
+          "description": "Property. Number of threads of the CPU.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "baseFrequency": {
+          "description": "Property. Base frequency of the CPU.",
+          "type": "number"
+        },
+        "boostFrequency": {
+          "description": "Property. Boost frequency of the CPU.",
+          "type": "number"
+        },
+        "lastLevelCacheSize": {
+          "description": "Property. Last Level Cache size of the CPU.",
+          "type": "number"
+        },
+        "thermalDesignPower": {
+          "description": "Property. CPU Thermal Design Power.",
+          "type": "number"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "CPU"
+          ],
+          "description": "Property. NGSI entity type. It has to be CPU"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}

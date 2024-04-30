@@ -1,0 +1,19 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+
+brick:Steam_System a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "Steam System" ;
+    rdfs:subClassOf brick:Heating_Ventilation_Air_Conditioning_System ;
+    skos:definition "The equipment, devices and conduits that handle the production and distribution of steam in a building"@en ;
+    sh:rule [ a sh:TripleRule ;
+            sh:object tag:Steam ;
+            sh:predicate brick:hasTag ;
+            sh:subject sh:this ],
+        [ a sh:TripleRule ;
+            sh:object tag:System ;
+            sh:predicate brick:hasTag ;
+            sh:subject sh:this ] ;
+    brick:hasAssociatedTag tag:Steam,
+        tag:System .
