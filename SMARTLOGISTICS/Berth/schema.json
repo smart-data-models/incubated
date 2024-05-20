@@ -1,0 +1,280 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "ESHUV",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/Berth/schema.json",
+  "title": "Smart Data models Berth schema",
+  "description": "This data model is intended to provide information about Berths. We define 'berth' to each stop of a ship during a PortCall, both for a port-facility (berth) and as an anchorage area. Each berth has a berthing time (estimated, planned, etc.), a lifecycle (estimated, requested, approved, etc.), an main activity during the stop (commercial operations, major repair, etc.) and a number of attributes described below. When commercial operations take place, an Operation entity will define the details of each commercial operation",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be Berth or, alternatively Stop (in some international standards is also known as Ship's Stop]",
+          "enum": [
+            "Berth"
+          ]
+        },
+        "mrn": {
+          "type": "string",
+          "description": "Property. MRN coded identifier. It has to be related to the entity in a way that is well-known by different organisms the meaning and the initiator of the entity, and all next parties will maintain on its origianl value. This identifier must be an UNIQUE identifier of the PortCall entity assigned by the system who created on first the entity. This URN should Conforms MRN & IETF specifically RFC 2141, RFC 5234, and RFC 8141.  The propossed format is     id::='urn:mrn:<OID>:<ONSS>:portcalls:berth:id:[0-9]+' where OID:= Organisation UN/LOCODE, OONSS:=Organization Name of Service, 9999999 an increasing, unique identifier that the issuer of the Berth entity will identify on his sistems (i.e. a SQL row-id), i.e. urn:mrn:eshuv:portcalls:berth:id:2024012. See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)In international standards is also known as [Ship's Visit]"
+        },
+        "portCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Code of the port of the call. "
+        },
+        "year": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Year of the init of the berthing. "
+        },
+        "portCallNumber": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. PortCall identifier. "
+        },
+        "portCallRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship.Reference to parent PortCall entity. "
+        },
+        "stopRank": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Rank or Number of this stop in the PortCall activity ordered by arrival time in the sequence of stops (berthin/anchor area). "
+        },
+        "terminal": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Terminal name. "
+        },
+        "berthCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Code identifying the port-facility for this stop of the vessel. Format: <oid>:berth:99999 "
+        },
+        "berthName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Name of the port-facility for this stop of the vessel. "
+        },
+        "gln": {
+          "type": "number",
+          "description": "Property. ISO/IEC 6523:'https://schema.org/Number'. Optional code of the location. The Global Location Number (GLN) is a 13 digits-unique number that is assigned to locations to enable them to be identified uniquely worldwide, allocated to any location in the supply chain. These GLNs can be used to identify any legal, physical and functional locations "
+        },
+        "firstBollard": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. First bollard identifier in port facility. "
+        },
+        "lastBollard": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Last bollard identifier in port facility. "
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ACCEPTED",
+            "AUTHORIZED",
+            "CANCELLED",
+            "COMPLETED",
+            "DENIED",
+            "INITIATED",
+            "REQUESTED",
+            "REJECTED",
+            "INVOICING",
+            "INVOICED"
+          ],
+          "description": "Property. Model:'https://schema.org/Text'. Current status of the Berthing in its lifetime, from request to authorization and completion. Enum: ACCEPTED, AUTHORIZED, CANCELLED, COMPLETED, DENIED, INITIATED, REQUESTED, REJECTED, INVOICING, INVOICED. [EMSWe: DE-019-07] [EDI: BGM-1225] [S211: serviceState: timeSequence:VESSEL] "
+        },
+        "requestedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of the berthin request by the ship agent. "
+        },
+        "authorizedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of authorization by porthAuthority and Maritime Authority. "
+        },
+        "berthingTypeCode": {
+          "type": "string",
+          "enum": [
+            "ABV",
+            "ABX",
+            "AB1",
+            "AB2",
+            "AEX",
+            "AX1",
+            "AEV",
+            "REM",
+            "REX",
+            "RE1",
+            "RE2",
+            "RPM",
+            "RPV",
+            "RPX",
+            "RXM",
+            "RXV",
+            "RXX",
+            "RX1",
+            "AE1",
+            "AE2",
+            "APM",
+            "APV",
+            "APX",
+            "AXM",
+            "AXV",
+            "AXX",
+            "AX2",
+            "FBM",
+            "FBV",
+            "FBX",
+            "FB1",
+            "FB2",
+            "FEM",
+            "FEV",
+            "FEX",
+            "FE1",
+            "FE2",
+            "FPM",
+            "FPV",
+            "FPX",
+            "FP1",
+            "FP2",
+            "FXM",
+            "FXV",
+            "FX1",
+            "FX2",
+            "RBM",
+            "RBX",
+            "RB1",
+            "RB2",
+            "RX2",
+            "YBM",
+            "YBV",
+            "YBX",
+            "YB1",
+            "YB2",
+            "YEM",
+            "YEV",
+            "YEX",
+            "YE1",
+            "YE2",
+            "YPM",
+            "YPV",
+            "YPX",
+            "YP1",
+            "YP2",
+            "YXM",
+            "YXV",
+            "YX1",
+            "YX2",
+            "ABM",
+            "AEM",
+            "FXX",
+            "YXX",
+            "AP1",
+            "AP2",
+            "RBV",
+            "REV"
+          ],
+          "description": "Property. Model:'https://schema.org/Text'. Codes for identifying the Type of berthing/mooring in the interface ship-port. Enum: ABV=Board port to ship; ABX=Port berthed; AB1=Bouched port by bow; AB2=Bouched port by stern; AEX=Starboard docked; AX1=Docked by bow; AEV=Board starboard to ship; REM=Boarded starboard at the pier; REX=Starboard bow; RE1=Starboard bow by bow; RE2=Cracked starboard by stern; RPM=Toe-to-spring twisting; RPV=Boarded from tip to ship; RPX=Ringed point ; RXM=Arbarloado al muelle; RXV=Abarloado a buque; RXX=Abarloado ; RX1=Tangled by bow; AE1=Bouched starboard by bow; AE2=Bouched starboard by stern; APM=Pocketed to the pier; APV=Pocket to ship; APX=Point docking; AXM=docked at the pier; AXV=Boarded to ship; AXX=docked; AX2=Docked by stern; FBM=Anchored port side at the pier; FBV=Anchored port side to ship; FBX=Port anchored; FB1=Anchored port by bow; FB2=Anchored port by stern; FEM=Anchored starboard to the pier; FEV=Anchored starboard to ship; FEX=Anchored starboard; FE1=Anchored starboard by bow; FE2=Anchored starboard by stern; FPM=Toe-to-pier mooring; FPV=Anchoring tip to ship; FPX=Point anchoring; FP1=Anchoring tip by bow; FP2=Anchoring tip by stern; FXM=Anchored at the pier; FXV=Anchored to ship; FX1=Anchored by bow; FX2=Anchored by stern; RBM=Abarloado babor al muelle; RBX=Battered port side; RB1=Bulked port by bow; RB2=Bulked on port side by stern; RX2=Tangled by stern; YBM=Tethered to the port buoy at the pier; YBV=Tethered to the buoy on the port side of the ship; YBX=Tethered to port buoy; YB1=Tied to port buoy by bow; YB2=Tied to port buoy by stern; YEM=Tethered to the starboard buoy at the pier; YEV=Tethered to the starboard buoy of the ship; YEX=Tethered to starboard buoy; YE1=Tied to starboard buoy by bow; YE2=Tied to starboard buoy by stern; YPM=Tethered to the end buoy at the pier; YPV=Tethered to the buoy end-to-ship; YPX=Tied to tip buoy; YP1=Tethered to tip buoy by bow; YP2=Tied to the tip buoy by stern; YXM=Tethered to the buoy at the pier; YXV=Tethered to the buoy to the ship; YX1=Tethered to buoy by bow; YX2=Tethered to buoy by stern; ABM=Port berthed to the pier; AEM=Moored starboard to dock; FXX=Anchoring; YXX=Tethered to buoy without further indication; AP1=Boarding tip by bow; AP2=Pocketed fore and aft; RBV=Bulked port to ship; REV=Wheeled starboard to ship;. "
+        },
+        "mooringLines": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Number of mooring lines. "
+        },
+        "activityCode": {
+          "type": "string",
+          "enum": ["ZGR", "ZPV", "ZCA", "ZRA", "ZRF", "ZRT", "ZDA", "ZTA", "ZTF", "ZVO", "ZAF", "ZIN", "ZIP", "ZAR", "ZAO", "ZAB", "ZOP", "ZCT", "ZTI", "ZBO", "ZCO", "ZRE", "ZDE", "ZAP", "ZDR", "ZPB", "ZCL", "ZDJ", "ZMR", "ZPR", "ZRM", "ZVA", "ZDS", "ZOT", "EST", "ZSA", "ZSH", "ZSE", "ZSC", "ZSV"],
+          "description": "Property. Model:'https://schema.org/Text'. Activity during the stop in berth. It can be cargo operations or a number of activities related to the ship-port activities. Enum: ZGR=Major repair; ZPV=Provisioning; ZCA=Shipyard Construction; ZRA=Major shipyard repair; ZRF=Repair afloat with crew personnel; ZRT=Repair at anchor with personnel other than the crew; ZDA=Shipyard scrapping; ZTA=Shipyard Transformation; ZTF=Transformation; ZVO=Official visit; ZAF=Forced arrival; ZIN=Inactive; ZIP=Fishing inactivity; ZAR=Provisioning at docking; ZAO=Provisioning at anchor; ZAB=Provisioning at docking by barge; ZOP=Port operations of commercial traffic; ZCT=Sightseeing cruises; ZTI=Internal traffic; ZBO=Launching; ZCO=Construction; ZRE=Vessel intended for towing service; ZDE=Scrapyard; ZAP=Fishing and artisanal vessels in loading and unloading operations of fresh fish; ZDR=Vessel intended for dredging; ZPB=Biological stoppage; ZCL=No license; ZDJ=Judicial deposit; ZMR=Vessel intended for mooring service; ZPR=Vessel intended for pilotage service; ZRM=Trailer; ZVA=Access to slipway; ZDS=Vessel in dry dock; ZOT=Other; EST=Stay; ZSA=Water Supply; ZSH=Ice Supply; ZSE=Electrical Energy Supply; ZSC=Fuel Supply; ZSV=Victualling;. "
+        },
+        "etaBerth": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of Estimated Time of Arrival to Berth expected by Port Authority  (ISO 8601 UTC format).. [EMSWe: DE-005-09] [EDI: DTM-2005-132] [S211: locationState.timeType.ESTIMATED] [IMO: IMO0064] "
+        },
+        "rtaBerth": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of Requested Time of Arrival by ship-agent (ISO 8601 UTC format).. [EMSWe: DE-005-09] [EDI: DTM-2005-132] [S211: locationState.timeType.ESTIMATED] [IMO: IMO0064] "
+        },
+        "ptaBerth": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Planned time of arrival to Berth. "
+        },
+        "ataBerth": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Actual time of arrival to Berth. "
+        },
+        "etdBerth": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of Estimated Time of Departure  from Berth, expected by Port Authority . [EMSWe: DE-005-04] [EDI: DTM-2005-133] [S211: locationState.timeType.ESTIMATED] [IMO: IMO0066] "
+        },
+        "rtdBerth": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of Requested Time of Departure by ship-agent (ISO 8601 UTC format).. [EMSWe: DE-005-09] [EDI: DTM-2005-132] [S211: locationState.timeType.ESTIMATED] [IMO: IMO0064] "
+        },
+        "ptdBerth": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Planned time of departure from Berth. "
+        },
+        "atdBerth": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Actual time of departure from Berth. "
+        },
+        "arrivalDraught": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Draught at first-line secured for arriving navigation. "
+        },
+        "departureDraught": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Draught at last-line released for departure navigation. "
+        },
+        "remarks": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Remarks of the berthing, by Agent at Port or others. "
+        },
+        "authorizationRemarks": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Conditions to the berthing written by Port Authority. "
+        },
+        "agentName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Name of PortCall's ship Agent. "
+        },
+        "agentLegalCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Legal identifier code of the PortCall's ship Agent. "
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "portCallRef",
+    "stopRank"
+  ]
+}
