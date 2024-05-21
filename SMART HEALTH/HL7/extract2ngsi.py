@@ -23,14 +23,20 @@
 # contact alain.galdemas@mail.com
 
 import json
+import os
 import copy
 import pathlib
+import sys
 import jsonschema
+from jsonschema import Draft7Validator, validate
+
 
 global_schema_file = 'overall_schema.json' # HL7/FHIR origin schema file name
 definition_file = 'common-hl7-schema.json' # common base definitions for HL7/FHIR mapping
 
-base_id_url = "https://github.com/smart-data-models/dataModel.Hl7/"
+# define the base url for "$id"
+base_id_url = 'http://github.com/agaldemas/incubated/tree/master/SMART%20HEALTH/HL7/'
+#"http://github.com/smart-data-models/dataModel.Hl7/"
 
 # Load the JSON schema file into a Python dictionary
 with open(global_schema_file) as f:
@@ -77,7 +83,7 @@ for root, definitions in base_definitions.items():
 # add header SMART HEALTH/HL7/common-hl7-definitions.json
 definition_header = {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "$id": "https://github.com/smart-data-models/dataModel.Hl7/" + definition_file,
+    "$id": base_id_url + definition_file,
     "title": "Common HL7/FHIR definitions for NGSI-LD Harmonized Data Models",
     "definitions": {}
 }
@@ -93,7 +99,7 @@ with open(definition_file, 'w') as f:
 schemaHeader = {
     "$schema": "http://json-schema.org/schema#",
     "$schemaVersion": "0.0.1",
-    "$id": "https://smart-data-models.github.io/dataModel.HL7/XXXX/schema.json",
+    "$id": base_id_url + "XXXX/schema.json",
     "title": "Smart Data Models - ",
     "description": "",
     "modelTags": "HL7",
@@ -103,15 +109,15 @@ schemaHeader = {
     "required": ["id", "type"],
     "allOf": [
         {
-            "$ref": "https://smart-data-models.github.io/dataModel.Hl7/hl7-schema.json#/definitions/GSMA-Commons"
+            "$ref": "http://smart-data-models.github.io/dataModel.Hl7/hl7-schema.json#/definitions/GSMA-Commons"
         },
         {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+            "$ref": "http://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
         }
     ],
     "anyOf": [
         {
-            "$ref": "https://github.com/smart-data-models/dataModel.Hl7/common-hl7-definitions.json"
+            "$ref": "http://github.com/smart-data-models/dataModel.Hl7/common-hl7-definitions.json"
         }
     ]
 }
@@ -120,7 +126,7 @@ schemaHeader = {
 resources_definitions = {k: v for k, v in hl7_definitions.items() if k in hl7_resource_types}
 
 for entity_type, entity_def in resources_definitions.items():
-    # print('entity_type: ' + entity_type)
+    print('>>>>>>>>> process entity_type: ' + entity_type)
 
     # replace extension property content with "extension_dict"
     for prop, content in entity_def['properties'].items():
@@ -133,26 +139,51 @@ for entity_type, entity_def in resources_definitions.items():
             content['items'].update(extension_dict)
 
     # prepare dict with the header and the entity def
-    entity_dict = schemaHeader
-    entity_dict.update(entity_def)
+    entity_schema = schemaHeader
+    entity_schema.update(entity_def)
     # set things in header
-    entity_dict["$id"] = entity_dict["$id"].replace("XXXX", entity_type)
-    entity_dict["title"] += entity_type + " data model based on HL7 equivalent resource"
+    entity_schema["$id"] = entity_schema["$id"].replace("XXXX", entity_type)
+    entity_schema["title"] += entity_type + " data model based on HL7 equivalent resource"
+    # remove "$id" to be able to valid locally !
+    # del entity_schema["$id"]
 
+    # validate the entity schema itself
     try:
-        validator = jsonschema.Draft7Validator(entity_dict)
+        validator = Draft7Validator(entity_schema)
     except Exception as e:
         print("Error:", e)
     else:
-        print("Entity schema for " + entity_type + " is valid !")
+        print("Entity schema for " + entity_type + " is valid against Draft7Validator !")
 
+    directory_path = "./_examples/hl7.fhir.r4b.examples/package"
+    for filename in os.listdir(directory_path):
+        if filename.startswith(entity_type) and filename.endswith(".json"):
+            print('>>>>>>>>>>> try to validate json file: ' + filename)
+            try:
+                file_path = os.path.join(directory_path, filename)
+                
+                with open(file_path, 'r') as f:
+                    json_data = json.load(f)
+            except Exception as e:
+                print("!!!!!!!!!! Error opening file {}: {} {}".format(filename, e.__class__, str(e)))
+
+            try:
+                # validate(instance=json_data, schema=entity_schema)
+                validator = Draft7Validator(json_data)
+            except jsonschema.exceptions.ValidationError as e:
+                print('!!!!!! ValidationError: ', e)
+            except Exception as e:
+                print('!!!!!!!!!! Error validating file ', filename)              
+            else:
+                print("file {}: validate against schema".format(filename))
+                
+    
     # create directory for the entity resource type
     path = pathlib.Path(entity_type)
     path.mkdir(parents=True, exist_ok=True)
     # write schema file in the directory
     exportfilename = './' + entity_type  + '/schema.json'
     with open(exportfilename, "w+") as exportfile:
-        json.dump(entity_dict, exportfile, indent=4, separators=(", ", ": "))
-
-
-
+        json.dump(entity_schema, exportfile, indent=4, separators=(", ", ": "))
+    print('>>>>>> wrote schema file for entity type ' + entity_type)
+# end for loop on resources definitions
