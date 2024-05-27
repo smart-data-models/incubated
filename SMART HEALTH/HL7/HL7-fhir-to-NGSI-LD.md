@@ -1,5 +1,12 @@
  # How to map HL7 resources to NGSI-LD entities
 
+Preliminary diagram fo how it works:
+
+ ![Generate NGSI-LD models from FHIR schema](img/HL7-FHIR2NGSI.drawio.png)
+
+Extract definitions of basic element in a global schema file, and reference it in every entity type schema file
+then loop on resource types, to create a directory for each, an entity type for each FHIR resource type
+
  the hardest issue is the recursivity of `extension`property, which reference an "**Extension**" object and is used in almost all HL7 Resource types, because "Extension" object can have itself an `extension`property, it is impossible to manage a json schema with this imbrication without limiting the depth... (a dpeth of 2 was observed by @albertoabellagarcia, they try to generate with depth 4, it genrerates schemas on several ten thousand lines...)
  
  there's also `modifierExtension`' property which reference an "**Extension**" object, 
@@ -44,6 +51,8 @@ in the schema for any 'hl7-resource':
     }
 ```
 **The main takeway** is we have transformed the `extension` property content of an HL7/FHIR resource in an entity in a related entity of type "**Extension**"
+
+we need to create an entity type for Extension, to be able to use it in NGSI-LD
 
 ### Consequences for usage
 
@@ -254,16 +263,38 @@ Nevertheless some features have to be added:
 - change content of 'extension' and 'modifierExtension' properties in global definitions file => DONE
 
 #### @TODO: 
-- question remove or merge FHIR "id" with NGSI-LD ? (it is already incliuded )
+- question remove or merge FHIR "id" with NGSI-LD ? (it is already incliuded ), => to remove
 #### @TODO: 
 - add function (def) to load and save global hl7 schema from hl7.org directly !
 - Retrieve schema from hl7_schema_url = https://www.hl7.org/fhir/fhir.schema.json.zip, and unzip it to SMART HEALTH/HL7/overall_schema.json file !
 
 ### some questions:
-- Do we need an entity type for Extension, with schema and example: to me it's necessary !
-- Do we need to have an entity type schema for "Element" (in global definitions file)
+- Do we need an entity type for Extension, with schema and example: **yes it's necessary !**
+- Do we need to have an entity type schema for "Element" (in global definitions file): no since it's never instanciated, it is the base model for any FHIR resource.
 - Think to change "derivedFrom": "https://hl7.org/fhir/R4B/", to the right url in case of changing version of FHIR schema (now it's R5?)...
-- can we keep "$ref" to definitions for properties (as soon the url is correct), with 'type':'object',   ?
+- can we keep "$ref" to definitions for properties (as soon the url is correct), with 'type':'object' ?
+
+
+
+### meeting with Alberto on 2024_05_27
+
+Alberto Abella 13:45: 
+- https://smartdatamodels.org/index.php/data-models-contribution-api/
+
+Alberto Abella 13:55:
+- https://github.com/smart-data-models/data-models/tree/master/templates/dataModel_for_submision
+- https://bit.ly/contribution_manual
+
+Alberto Abella 14:03:
+- https://github.com/smart-data-models/dataModel.Agrifood/
+- https://github.com/smart-data-models/dataModel.Agrifood/blob/master/agrifood-schema.json
+- https://github.com/smart-data-models/dataModel.Hl7/blob/master/hl7-schema.json
+
+Alberto Abella 14:12:
+- https://github.com/smart-data-models/data-models/tree/master/templates/dataModel_for_submision
+
+Alberto Abella 14:15:
+- https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels
 
 
 
