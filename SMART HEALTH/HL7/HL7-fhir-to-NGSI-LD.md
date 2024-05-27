@@ -14,15 +14,27 @@ then loop on resource types, to create a directory for each, an entity type for 
  and this is problematic for SMD (SmartDataModels) tools and NGSI-LD HL7/FHIR definition...
 
  In order to avoid the problem of generating a very long json schema:
+ 1. have a global file containing base definitions
+ 1. break the problem by creating an Extension entity type, and use a relation to reference it in entities which use it (in properties "extension" & "modifierExtension")
 
- the idea should be to have `Extension` as an entity type in itself (with an ID), and which is refered as a Relationship property in the resource schema such as in an entity :
+ the idea is be to have `Extension` as an entity type in itself (with an ID), and which is refered as a Relationship property in the resource schema such as in an entity :
 
 ```json
- "extension": {
-		"type": "Relationship",
-		"value": "urn:ngsi-ld:Extension:XXXXX"
+ "extension": [
+	{
+        "type": "Relationship",
+        "value": "urn:ngsi-ld:Extension:XXXXX"
+    }
+
+ ]
 	},
 ```
+or more symply:
+```json
+ "extension": ["urn:ngsi-ld:Extension:XXXXX", "urn:ngsi-ld:Extension:YYYYY"]
+	},
+```
+
 
 in the schema for any 'hl7-resource':
 
@@ -50,6 +62,10 @@ in the schema for any 'hl7-resource':
         ...
     }
 ```
+
+same thing for "modifierExtension" propertiy
+
+
 **The main takeway** is we have transformed the `extension` property content of an HL7/FHIR resource in an entity in a related entity of type "**Extension**"
 
 we need to create an entity type for Extension, to be able to use it in NGSI-LD
@@ -259,20 +275,23 @@ Now following commit id:[d3b0b24](https://github.com/smart-data-models/incubated
 
 Nevertheless some features have to be added:
 
-#### @TODO: 
+#### : 'extension' and 'modifierExtension' properties in definitions
 - change content of 'extension' and 'modifierExtension' properties in global definitions file => DONE
 
-#### @TODO: 
-- question remove or merge FHIR "id" with NGSI-LD ? (it is already incliuded ), => to remove
-#### @TODO: 
+#### remove FHIR "id" 
+- question remove or merge FHIR "id" with NGSI-LD ? (it is already incliuded ), => DONE OK removed
+
+#### @TODO load schema from hl7: 
 - add function (def) to load and save global hl7 schema from hl7.org directly !
 - Retrieve schema from hl7_schema_url = https://www.hl7.org/fhir/fhir.schema.json.zip, and unzip it to SMART HEALTH/HL7/overall_schema.json file !
 
 ### some questions:
-- Do we need an entity type for Extension, with schema and example: **yes it's necessary !**
+- Do we need an entity type for Extension, with schema and example: **yes it's necessary !** => DONE
 - Do we need to have an entity type schema for "Element" (in global definitions file): no since it's never instanciated, it is the base model for any FHIR resource.
 - Think to change "derivedFrom": "https://hl7.org/fhir/R4B/", to the right url in case of changing version of FHIR schema (now it's R5?)...
-- can we keep "$ref" to definitions for properties (as soon the url is correct), with 'type':'object' ?
+- can we keep "$ref" to definitions for properties (as soon the url is correct), with 'type':'object' ? => no objection for the moment
+
+- use of "@type": "Extension" to indicate the type of object in "extension" properties of resource entities ? => @TODO check in schema specifications
 
 
 
@@ -296,5 +315,13 @@ Alberto Abella 14:12:
 Alberto Abella 14:15:
 - https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels
 
+## work on validation
+there's a loop in the program, which try to validate examples against the produced schema, 
+first we should have a working RefResolver
+don't forget to install certifi (to avoid ssl cert issues when accessing https uri)
+
+`pip install --upgrade certifi` or `pip3 install --upgrade certifi`
+
+restart the terminal to be sure !
 
 

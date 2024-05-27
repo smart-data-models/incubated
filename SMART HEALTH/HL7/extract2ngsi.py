@@ -29,9 +29,10 @@ import copy
 import pathlib
 import sys
 import jsonschema
-from jsonschema import Draft7Validator, validate
+from jsonschema import Draft7Validator, validate, RefResolver
 
-
+###############################################################################
+# global variables
 global_schema_file = "overall_schema_4.3.json"  #'fhir.schema.5.0.json' # # HL7/FHIR origin schema file name
 definition_file = (
     "common-hl7-schema.json"  # common base definitions for HL7/FHIR mapping
@@ -45,7 +46,8 @@ base_id_url = (
 # this following should be the final one
 # "https://github.com/smart-data-models/dataModel.Hl7/"
 
-
+###############################################################################
+# Functions
 # infer content of property based on the definition got from definitions dictionary
 def infer_type(hl7_type: str, definition_dict: dict):
     """
@@ -79,7 +81,7 @@ def infer_type(hl7_type: str, definition_dict: dict):
     return def_dict if def_dict else None
 
 
-######################################
+###############################################################################
 # now the main loop that do the job
 # Load the JSON schema file into a Python dictionary
 with open(global_schema_file) as f:
@@ -117,15 +119,6 @@ extension_dict = {
     ],
 }
 
-# loop to replace "extension" property in the right place
-#for definitions in base_definitions.items():
-# for def_name, def_element in base_definitions.items():
-#         print('TTTTTTTTTT examine definition: <', def_name + '> !!!')
-#         for prop, content in def_element.items():
-#             if prop == 'extension' or 'modifierExtension':
-#                 # replace with the new dict
-#                 # del content["items"]["$ref"]
-#                 content["items"].update(extension_dict)
 # loop to replace "extension" property in the right place
 for def_name, definitions in base_definitions.items():
     for key, property in definitions.items():
@@ -183,6 +176,9 @@ schema_header = {
     ],
 }
 
+# add "Extension" to hl7_resource_types to create an entity schema for it
+hl7_resource_types.append('Extension')
+
 # now prepare dict of definitions which are not in "ResourceList"
 resources_definitions = {
     k: v for k, v in hl7_definitions.items() if k in hl7_resource_types
@@ -194,11 +190,8 @@ for entity_type, entity_def in resources_definitions.items():
     print(">>>>>>>>> process hl7 resource for entity_type: <" + entity_type + ">")
     #print('>>>>>>>>> process hl7 resource for entity_def: ', entity_def)
 
-    # replace extension property content with "extension_dict"
+    # loop on entity properties to prepare it for destination schema
     for prop, content in entity_def["properties"].items():
-        # if entity_type == 'Account':
-        #     print('entity_def', entity_def)
-        #     print('prop: ', prop)
         # add necessary "Property. Model:’https://schema.org/<type of property value>"
         # in description of the property to match NGSI-LD rules
         #
@@ -222,11 +215,21 @@ for entity_type, entity_def in resources_definitions.items():
             and content["type"] == "array"
             and content.get("items", None)
         ):
-            hl7_type = content["items"]["$ref"].replace("#/definitions/", "")
+            if content['items'].get('$ref'):
+                hl7_type = content['items']['$ref'].replace('#/definitions/', '')
+            elif entity_type == 'Extension':
+                hl7_type = 'Extension'
+                # normally we already changed the content....
+            else:
+                # in theory it doesn't occur !
+                print('EEEEEEE entity type <{}> has no $ref for property <{}>', entity_type, prop)
+                print ('content: ', content)
+
             # we don't need "$ref" inside property definition, but "properties" block must be inside "allOf" block !
             # content['items']['$ref'] = content['items']['$ref'].replace('#/definitions/', base_id_url + definition_file + '#/definitions/')
             # then remove it
-            del content["items"]["$ref"]
+            if content['items'].get('$ref'):
+                del content["items"]["$ref"]
             # property "type" exist it's an array, but the type of "items"
             # can be hl7 original type or a "$ref" (it seems it's always a $ref, since no exception occur)
             type_dict = infer_type(hl7_type, definition_schema)
@@ -267,10 +270,10 @@ for entity_type, entity_def in resources_definitions.items():
             del content['oneOf']
 
         # manage id
-        if prop == "id":
-            # change "id" property content to match NGSI-LD rules
-            # or change name for "fhirHL7Id" and add NGSI "id"
-            print("id content:", content)
+        # if prop == "id":
+        #     # change "id" property content to match NGSI-LD rules
+        #     # or change name for "fhirHL7Id" and add NGSI "id"
+        #     print("id content:", content)
 
         # type exist in some hl7/FHIR resource objects
         #
@@ -311,12 +314,15 @@ for entity_type, entity_def in resources_definitions.items():
         "type": {
             "type": "string",
             "enum": [entity_type],
-            "description": "Property. NGSI Entity type. It has to be " + entity_type,
+            "description": "Property. NGSI Entity type. It has to be '" + entity_type + "'",
         }
     }
     # if hl7_type:
     #     entity_def['properties'].update(hl7_type)
     entity_def["properties"].update(type_prop)
+    # remove "id"
+    if entity_def["properties"].get('id',None):
+        del entity_def["properties"]["id"]
     # print('TTTTTTTTTTTTTTT entity_def: ', entity_def['properties'])
     # prepare dict with the header and the entity def
     entity_schema['allOf'].append({'properties': entity_def['properties']})
@@ -328,39 +334,23 @@ for entity_type, entity_def in resources_definitions.items():
 
     # validate the entity schema itself
     try:
-        validator = Draft7Validator(entity_schema)
+        resolver = RefResolver(base_uri=base_id_url, referrer=entity_schema)
     except Exception as e:
-        print("Error:", e)
+        print("RefResolver Error:", e)
+    else:
+        print(
+            "resolver for: " + entity_type + " is !",
+            resolver
+        )
+
+    try:
+        validator = Draft7Validator(entity_schema, resolver=resolver)
+    except Exception as e:
+        print("Draft7Validator Error:", e)
     else:
         print(
             "Entity schema for " + entity_type + " is valid against Draft7Validator !"
         )
-
-    # directory_path = "./_examples/hl7.fhir.r4b.examples/package"
-    # for filename in os.listdir(directory_path):
-    #     if filename.startswith(entity_type) and filename.endswith(".json"):
-    #         print('>>>>>>>>>>> try to validate json file: ' + filename)
-    #         try:
-    #             file_path = os.path.join(directory_path, filename)
-
-    #             with open(file_path, 'r') as f:
-    #                 json_data = json.load(f)
-    #         except Exception as e:
-    #             print("!!!!!!!!!! Error opening file {}: {} {}".format(filename, e.__class__, str(e)))
-
-    #         try:
-    #             validator = Draft7Validator(json_data)
-    #             print('++++++++++ file {} is valid against Draft7Validator'.format(filename))
-    #             #validate(instance=json_data, schema=entity_schema)
-
-    #         except jsonschema.exceptions.ValidationError as e:
-    #             print('!!!!!!!!!! Error validating file ', filename)
-    #             print('ValidationError occured: ', e)
-    #         except Exception as e:
-    #             print('!!!!!!!!!! Error validating file ', filename)
-    #             print('Exception occured: ', e)
-    #         else:
-    #             print("++++++++++ file {}: validate against schema".format(filename))
 
     # create directory for the entity resource type
     path = pathlib.Path(entity_type)
@@ -372,5 +362,38 @@ for entity_type, entity_def in resources_definitions.items():
     print(">>>>>> wrote schema file for entity type " + entity_type)
     print("=============================================")
     # del entity_schema
+    
+    #========================== validation loop
+    if 0:
+        print("start validation loop on exmples:")
+        directory_path = "./_examples/hl7.fhir.r4b.examples/package"
+        for filename in os.listdir(directory_path):
+            if filename.startswith(entity_type) and filename.endswith(".json"):
+                print('>>>>>>>>>>> try to validate json file: ' + filename)
+                try:
+                    file_path = os.path.join(directory_path, filename)
+
+                    with open(file_path, 'r') as f:
+                        json_data = json.load(f)
+                except Exception as e:
+                    print("!!!!!!!!!! Error opening file {}: {} {}".format(filename, e.__class__, str(e)))
+
+                try:
+                    # validator = Draft7Validator(json_data)
+                    # print('++++++++++ file {} is valid against Draft7Validator'.format(filename))
+                    validate(instance=json_data, schema=entity_schema, resolver=resolver)
+
+                except jsonschema.exceptions.ValidationError as e:
+                    print('!!!!!!!!!! Error validating file ', filename)
+                    print('ValidationError occured: ', e)
+                except Exception as e:
+                    print('!!!!!!!!!! Error validating file ', filename)
+                    print('Exception occured: ', e)
+                    # os._exit(1)
+                else:
+                    print("++++++++++ file {}: validate against schema".format(filename))
+        print("======end validation loop=======================================")
+
+    # end validation loop
 # end for loop on resources definitions
 print('job finished !!!!')
