@@ -64,7 +64,7 @@ def infer_type(hl7_type: str, definition_dict: dict):
         dict or None: If the hl7_type definition is found, it returns a dictionary
                       containing the definition; otherwise, it returns None.
     """
-    print("infer type for hl7 <{}> definition".format(hl7_type))
+    # print("infer type for hl7 <{}> definition".format(hl7_type))
     def_dict = definition_dict.get("definitions", {}).get(hl7_type)
     # if it contains "properties" keep the "$ref" to definition,
     # and set "type" to "object"
@@ -84,12 +84,13 @@ def infer_type(hl7_type: str, definition_dict: dict):
 # Load the JSON schema file into a Python dictionary
 with open(global_schema_file) as f:
     schema = json.load(f)
-# Extract the list of resource types from the dictionary
+# Extract the list of resource types from the global schema dictionary
 hl7_resource_types = list(schema["discriminator"]["mapping"].keys())
 # print(hl7_resource_types)
 
-# Extract the "definitions" key except 'ResourceList' from the loaded dictionary
-hl7_definitions = {k: v for k, v in schema["definitions"].items() if True}
+# Extract the "definitions" key from the loaded dictionary
+condition = True
+hl7_definitions = {k: v for k, v in schema["definitions"].items() if condition}
 # Create a new dictionary by filtering out any elements whose keys are present in hl7_resource_types
 base_definitions = {
     k: v for k, v in hl7_definitions.items() if k not in hl7_resource_types
@@ -117,14 +118,28 @@ extension_dict = {
 }
 
 # loop to replace "extension" property in the right place
-for root, definitions in base_definitions.items():
+#for definitions in base_definitions.items():
+# for def_name, def_element in base_definitions.items():
+#         print('TTTTTTTTTT examine definition: <', def_name + '> !!!')
+#         for prop, content in def_element.items():
+#             if prop == 'extension' or 'modifierExtension':
+#                 # replace with the new dict
+#                 # del content["items"]["$ref"]
+#                 content["items"].update(extension_dict)
+# loop to replace "extension" property in the right place
+for def_name, definitions in base_definitions.items():
     for key, property in definitions.items():
-        if key == "properties":
+        if key == 'properties':
             for prop, content in property.items():
-                if prop == "extension":
+                if prop == 'extension' or prop == 'modifierExtension':
                     # replace with the new dict
-                    del content["items"]["$ref"]
-                    content["items"].update(extension_dict)
+                    if content.get('items', None):
+                        content["items"].update(extension_dict)
+                        del content["items"]["$ref"]
+                    else:
+                        print('TTTTTTTTTT definiton of {} => found Extension dependance on property {} without "items" : ', def_name, prop )
+ 
+
 
 # add header to definitions schema
 # to build global common definitions
@@ -143,6 +158,7 @@ definition_schema["definitions"].update(base_definitions)
 with open(definition_file, "w") as f:
     json.dump(definition_schema, f, indent=4, separators=(", ", ": "))
 
+# ==============================
 # define the schema header to include in each schema file
 # note it contains $ref to global base definitions file definition_file "common-hl7-definitions.json"
 schema_header = {
@@ -279,14 +295,11 @@ for entity_type, entity_def in resources_definitions.items():
 
     # remove "properties" in "allOff" array !
     index = -1
-    i = 0
-    for elem in entity_schema["allOf"]:
-        print ('allOf elem: ', elem)
-        if elem.get('properties',None):
+    for i, elem in enumerate(entity_schema["allOf"]):
+        if elem.get('properties', None):
             index = i
             break
-        i +=1
-        
+           
     if index > -1:    
         del entity_schema["allOf"][index]
     # del entity_schema["allOf"].key("properties")
@@ -304,7 +317,7 @@ for entity_type, entity_def in resources_definitions.items():
     # if hl7_type:
     #     entity_def['properties'].update(hl7_type)
     entity_def["properties"].update(type_prop)
-    print('TTTTTTTTTTTTTTT entity_def: ', entity_def['properties'])
+    # print('TTTTTTTTTTTTTTT entity_def: ', entity_def['properties'])
     # prepare dict with the header and the entity def
     entity_schema['allOf'].append({'properties': entity_def['properties']})
 

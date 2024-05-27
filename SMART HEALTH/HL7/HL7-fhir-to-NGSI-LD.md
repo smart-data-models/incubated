@@ -242,12 +242,28 @@ pip3 install jsonschema
 OK added creation of a jsonschema validator & each schema validates without error...
 
 
-### TODO : add function (def) to load and save global hl7 schema from hl7.org directly !
-retrieve from hl7_schema_url = https://www.hl7.org/fhir/fhir.schema.json.zip 
-
-and unzip it to SMART HEALTH/HL7/overall_schema.json file !
 
 - clean old json files : `rm ./*/*_processed?.json` in the directory !
 
+## review of the latest developments (2024-05-27)
+Now following commit id:[d3b0b24](https://github.com/smart-data-models/incubated/commit/d3b0b24cf4da089fadf0092e5b6ee8702a486184), we have something about to be usable...
 
-OK
+Nevertheless some features have to be added:
+
+#### @TODO: 
+- change content of 'extension' and 'modifierExtension' properties in global definitions file => DONE
+
+#### @TODO: 
+- question remove or merge FHIR "id" with NGSI-LD ? (it is already incliuded )
+#### @TODO: 
+- add function (def) to load and save global hl7 schema from hl7.org directly !
+- Retrieve schema from hl7_schema_url = https://www.hl7.org/fhir/fhir.schema.json.zip, and unzip it to SMART HEALTH/HL7/overall_schema.json file !
+
+### some questions:
+- Do we need an entity type for Extension, with schema and example: to me it's necessary !
+- Do we need to have an entity type schema for "Element" (in global definitions file)
+- Think to change "derivedFrom": "https://hl7.org/fhir/R4B/", to the right url in case of changing version of FHIR schema (now it's R5?)...
+- can we keep "$ref" to definitions for properties (as soon the url is correct), with 'type':'object',   ?
+
+
+
