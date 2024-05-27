@@ -1,364 +1,388 @@
 {
-    "$schema": "http://json-schema.org/schema#", 
+    "$schema": "https://json-schema.org/schema#", 
     "$schemaVersion": "0.0.1", 
-    "$id": "http://github.com/agaldemas/incubated/tree/master/SMART%20HEALTH/HL7/Account/schema.json", 
-    "title": "Smart Data Models - Account data model based on HL7 equivalent resourceActivityDefinition data model based on HL7 equivalent resourceAdministrableProductDefinition data model based on HL7 equivalent resourceAdverseEvent data model based on HL7 equivalent resourceAllergyIntolerance data model based on HL7 equivalent resourceAppointment data model based on HL7 equivalent resourceAppointmentResponse data model based on HL7 equivalent resourceAuditEvent data model based on HL7 equivalent resourceBasic data model based on HL7 equivalent resourceBinary data model based on HL7 equivalent resourceBiologicallyDerivedProduct data model based on HL7 equivalent resourceBodyStructure data model based on HL7 equivalent resourceBundle data model based on HL7 equivalent resourceCapabilityStatement data model based on HL7 equivalent resourceCarePlan data model based on HL7 equivalent resourceCareTeam data model based on HL7 equivalent resourceCatalogEntry data model based on HL7 equivalent resourceChargeItem data model based on HL7 equivalent resourceChargeItemDefinition data model based on HL7 equivalent resourceCitation data model based on HL7 equivalent resourceClaim data model based on HL7 equivalent resourceClaimResponse data model based on HL7 equivalent resourceClinicalImpression data model based on HL7 equivalent resourceClinicalUseDefinition data model based on HL7 equivalent resourceCodeSystem data model based on HL7 equivalent resourceCommunication data model based on HL7 equivalent resourceCommunicationRequest data model based on HL7 equivalent resourceCompartmentDefinition data model based on HL7 equivalent resourceComposition data model based on HL7 equivalent resourceConceptMap data model based on HL7 equivalent resourceCondition data model based on HL7 equivalent resourceConsent data model based on HL7 equivalent resourceContract data model based on HL7 equivalent resourceCoverage data model based on HL7 equivalent resourceCoverageEligibilityRequest data model based on HL7 equivalent resourceCoverageEligibilityResponse data model based on HL7 equivalent resourceDetectedIssue data model based on HL7 equivalent resourceDevice data model based on HL7 equivalent resourceDeviceDefinition data model based on HL7 equivalent resourceDeviceMetric data model based on HL7 equivalent resourceDeviceRequest data model based on HL7 equivalent resourceDeviceUseStatement data model based on HL7 equivalent resourceDiagnosticReport data model based on HL7 equivalent resourceDocumentManifest data model based on HL7 equivalent resourceDocumentReference data model based on HL7 equivalent resourceEncounter data model based on HL7 equivalent resourceEndpoint data model based on HL7 equivalent resourceEnrollmentRequest data model based on HL7 equivalent resourceEnrollmentResponse data model based on HL7 equivalent resourceEpisodeOfCare data model based on HL7 equivalent resourceEventDefinition data model based on HL7 equivalent resourceEvidence data model based on HL7 equivalent resourceEvidenceReport data model based on HL7 equivalent resourceEvidenceVariable data model based on HL7 equivalent resourceExampleScenario data model based on HL7 equivalent resourceExplanationOfBenefit data model based on HL7 equivalent resource", 
-    "description": "This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+    "$id": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Account/schema.json", 
+    "title": "ExplanationOfBenefit data model based on HL7 equivalent resource", 
+    "description": "", 
     "modelTags": "HL7", 
-    "derivedFrom": "http://hl7.org/fhir/R4B/", 
-    "license": "http://www.hl7.org/implement/standards/fhir/license.html", 
+    "derivedFrom": "https://hl7.org/fhir/R4B/", 
+    "license": "https://www.hl7.org/implement/standards/fhir/license.html", 
     "type": "object", 
     "required": [
-        "insurance", 
-        "provider", 
-        "patient", 
-        "insurer", 
-        "type", 
-        "resourceType"
+        "id", 
+        "type"
     ], 
     "allOf": [
         {
-            "$ref": "http://smart-data-models.github.io/dataModel.Hl7/hl7-schema.json#/definitions/GSMA-Commons"
+            "$ref": "https://smart-data-models.github.io/dataModel.Hl7/hl7-schema.json#/definitions/GSMA-Commons"
         }, 
         {
-            "$ref": "http://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-        }
-    ], 
-    "anyOf": [
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        }, 
         {
-            "$ref": "http://github.com/smart-data-models/dataModel.Hl7/common-hl7-definitions.json"
-        }
-    ], 
-    "properties": {
-        "resourceType": {
-            "description": "This is a ExplanationOfBenefit resource", 
-            "const": "ExplanationOfBenefit"
+            "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-definitions.json"
         }, 
-        "id": {
-            "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.", 
-            "$ref": "#/definitions/string"
-        }, 
-        "meta": {
-            "description": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.", 
-            "$ref": "#/definitions/Meta"
-        }, 
-        "implicitRules": {
-            "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.", 
-            "$ref": "#/definitions/uri"
-        }, 
-        "_implicitRules": {
-            "description": "Extensions for implicitRules", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "language": {
-            "description": "The base language in which the resource is written.", 
-            "$ref": "#/definitions/code"
-        }, 
-        "_language": {
-            "description": "Extensions for language", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "text": {
-            "description": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.", 
-            "$ref": "#/definitions/Narrative"
-        }, 
-        "contained": {
-            "description": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.", 
-            "items": {
-                "$ref": "#/definitions/ResourceList"
-            }, 
-            "type": "array"
-        }, 
-        "extension": {
-            "description": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.", 
-            "items": {
-                "@type": "Extension", 
-                "anyOf": [
-                    {
-                        "type": "string", 
-                        "minLength": 1, 
-                        "maxLength": 256, 
-                        "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
-                        "description": "Property. Identifier format of any NGSI entity"
+        {
+            "properties": {
+                "resourceType": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/' This is a ExplanationOfBenefit resource", 
+                    "const": "ExplanationOfBenefit"
+                }, 
+                "id": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/string' A sequence of Unicode characters", 
+                    "pattern": "^[ \\r\\n\\t\\S]+$", 
+                    "type": "string"
+                }, 
+                "meta": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Meta' The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Meta"
+                }, 
+                "implicitRules": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/uri' String of characters used to identify a name or a resource", 
+                    "pattern": "^\\S*$", 
+                    "type": "string"
+                }, 
+                "_implicitRules": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "language": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_language": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "text": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Narrative' A human-readable summary of the resource conveying the essential clinical and business information for the resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Narrative"
+                }, 
+                "contained": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ResourceList' These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.", 
+                    "items": {
+                        "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ResourceList"
                     }, 
-                    {
-                        "type": "string", 
-                        "format": "uri", 
-                        "description": "Property. Identifier format of any NGSI entity"
-                    }
-                ]
-            }, 
-            "type": "array"
-        }, 
-        "modifierExtension": {
-            "description": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).", 
-            "items": {
-                "@type": "Extension", 
-                "anyOf": [
-                    {
-                        "type": "string", 
-                        "minLength": 1, 
-                        "maxLength": 256, 
-                        "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
-                        "description": "Property. Identifier format of any NGSI entity"
+                    "type": "array"
+                }, 
+                "extension": {
+                    "description": "Relationship. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Extension' Optional Extension Element - found in all resources.", 
+                    "items": {
+                        "@type": "Extension", 
+                        "anyOf": [
+                            {
+                                "type": "string", 
+                                "minLength": 1, 
+                                "maxLength": 256, 
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }, 
+                            {
+                                "type": "string", 
+                                "format": "uri", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ]
                     }, 
-                    {
-                        "type": "string", 
-                        "format": "uri", 
-                        "description": "Property. Identifier format of any NGSI entity"
-                    }
-                ]
-            }, 
-            "type": "array"
-        }, 
-        "identifier": {
-            "description": "A unique identifier assigned to this explanation of benefit.", 
-            "items": {
-                "$ref": "#/definitions/Identifier"
-            }, 
-            "type": "array"
-        }, 
-        "status": {
-            "description": "The status of the resource instance.", 
-            "$ref": "#/definitions/code"
-        }, 
-        "_status": {
-            "description": "Extensions for status", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "type": {
-            "description": "The category of claim, e.g. oral, pharmacy, vision, institutional, professional.", 
-            "$ref": "#/definitions/CodeableConcept"
-        }, 
-        "subType": {
-            "description": "A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service.", 
-            "$ref": "#/definitions/CodeableConcept"
-        }, 
-        "use": {
-            "description": "A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.", 
-            "$ref": "#/definitions/code"
-        }, 
-        "_use": {
-            "description": "Extensions for use", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "patient": {
-            "description": "The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimbursement is sought.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "billablePeriod": {
-            "description": "The period for which charges are being submitted.", 
-            "$ref": "#/definitions/Period"
-        }, 
-        "created": {
-            "description": "The date this resource was created.", 
-            "$ref": "#/definitions/dateTime"
-        }, 
-        "_created": {
-            "description": "Extensions for created", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "enterer": {
-            "description": "Individual who created the claim, predetermination or preauthorization.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "insurer": {
-            "description": "The party responsible for authorization, adjudication and reimbursement.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "provider": {
-            "description": "The provider which is responsible for the claim, predetermination or preauthorization.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "priority": {
-            "description": "The provider-required urgency of processing the request. Typical values include: stat, routine deferred.", 
-            "$ref": "#/definitions/CodeableConcept"
-        }, 
-        "fundsReserveRequested": {
-            "description": "A code to indicate whether and for whom funds are to be reserved for future claims.", 
-            "$ref": "#/definitions/CodeableConcept"
-        }, 
-        "fundsReserve": {
-            "description": "A code, used only on a response to a preauthorization, to indicate whether the benefits payable have been reserved and for whom.", 
-            "$ref": "#/definitions/CodeableConcept"
-        }, 
-        "related": {
-            "description": "Other claims which are related to this claim such as prior submissions or claims for related services or for the same event.", 
-            "items": {
-                "$ref": "#/definitions/ExplanationOfBenefit_Related"
-            }, 
-            "type": "array"
-        }, 
-        "prescription": {
-            "description": "Prescription to support the dispensing of pharmacy, device or vision products.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "originalPrescription": {
-            "description": "Original prescription which has been superseded by this prescription to support the dispensing of pharmacy services, medications or products.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "payee": {
-            "description": "The party to be reimbursed for cost of the products and services according to the terms of the policy.", 
-            "$ref": "#/definitions/ExplanationOfBenefit_Payee"
-        }, 
-        "referral": {
-            "description": "A reference to a referral resource.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "facility": {
-            "description": "Facility where the services were provided.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "claim": {
-            "description": "The business identifier for the instance of the adjudication request: claim predetermination or preauthorization.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "claimResponse": {
-            "description": "The business identifier for the instance of the adjudication response: claim, predetermination or preauthorization response.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "outcome": {
-            "description": "The outcome of the claim, predetermination, or preauthorization processing.", 
-            "$ref": "#/definitions/code"
-        }, 
-        "_outcome": {
-            "description": "Extensions for outcome", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "disposition": {
-            "description": "A human readable description of the status of the adjudication.", 
-            "$ref": "#/definitions/string"
-        }, 
-        "_disposition": {
-            "description": "Extensions for disposition", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "preAuthRef": {
-            "description": "Reference from the Insurer which is used in later communications which refers to this adjudication.", 
-            "items": {
-                "$ref": "#/definitions/string"
-            }, 
-            "type": "array"
-        }, 
-        "_preAuthRef": {
-            "description": "Extensions for preAuthRef", 
-            "items": {
-                "$ref": "#/definitions/Element"
-            }, 
-            "type": "array"
-        }, 
-        "preAuthRefPeriod": {
-            "description": "The timeframe during which the supplied preauthorization reference may be quoted on claims to obtain the adjudication as provided.", 
-            "items": {
-                "$ref": "#/definitions/Period"
-            }, 
-            "type": "array"
-        }, 
-        "careTeam": {
-            "description": "The members of the team who provided the products and services.", 
-            "items": {
-                "$ref": "#/definitions/ExplanationOfBenefit_CareTeam"
-            }, 
-            "type": "array"
-        }, 
-        "supportingInfo": {
-            "description": "Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues.", 
-            "items": {
-                "$ref": "#/definitions/ExplanationOfBenefit_SupportingInfo"
-            }, 
-            "type": "array"
-        }, 
-        "diagnosis": {
-            "description": "Information about diagnoses relevant to the claim items.", 
-            "items": {
-                "$ref": "#/definitions/ExplanationOfBenefit_Diagnosis"
-            }, 
-            "type": "array"
-        }, 
-        "procedure": {
-            "description": "Procedures performed on the patient relevant to the billing items with the claim.", 
-            "items": {
-                "$ref": "#/definitions/ExplanationOfBenefit_Procedure"
-            }, 
-            "type": "array"
-        }, 
-        "precedence": {
-            "description": "This indicates the relative order of a series of EOBs related to different coverages for the same suite of services.", 
-            "$ref": "#/definitions/positiveInt"
-        }, 
-        "_precedence": {
-            "description": "Extensions for precedence", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "insurance": {
-            "description": "Financial instruments for reimbursement for the health care products and services specified on the claim.", 
-            "items": {
-                "$ref": "#/definitions/ExplanationOfBenefit_Insurance"
-            }, 
-            "type": "array"
-        }, 
-        "accident": {
-            "description": "Details of a accident which resulted in injuries which required the products and services listed in the claim.", 
-            "$ref": "#/definitions/ExplanationOfBenefit_Accident"
-        }, 
-        "item": {
-            "description": "A claim line. Either a simple (a product or service) or a 'group' of details which can also be a simple items or groups of sub-details.", 
-            "items": {
-                "$ref": "#/definitions/ExplanationOfBenefit_Item"
-            }, 
-            "type": "array"
-        }, 
-        "addItem": {
-            "description": "The first-tier service adjudications for payor added product or service lines.", 
-            "items": {
-                "$ref": "#/definitions/ExplanationOfBenefit_AddItem"
-            }, 
-            "type": "array"
-        }, 
-        "adjudication": {
-            "description": "The adjudication results which are presented at the header level rather than at the line-item or add-item levels.", 
-            "items": {
-                "$ref": "#/definitions/ExplanationOfBenefit_Adjudication"
-            }, 
-            "type": "array"
-        }, 
-        "total": {
-            "description": "Categorized monetary totals for the adjudication.", 
-            "items": {
-                "$ref": "#/definitions/ExplanationOfBenefit_Total"
-            }, 
-            "type": "array"
-        }, 
-        "payment": {
-            "description": "Payment details for the adjudication of the claim.", 
-            "$ref": "#/definitions/ExplanationOfBenefit_Payment"
-        }, 
-        "formCode": {
-            "description": "A code for the form to be used for printing the content.", 
-            "$ref": "#/definitions/CodeableConcept"
-        }, 
-        "form": {
-            "description": "The actual form, by reference or inclusion, for printing the content or an EOB.", 
-            "$ref": "#/definitions/Attachment"
-        }, 
-        "processNote": {
-            "description": "A note that describes or explains adjudication results in a human readable form.", 
-            "items": {
-                "$ref": "#/definitions/ExplanationOfBenefit_ProcessNote"
-            }, 
-            "type": "array"
-        }, 
-        "benefitPeriod": {
-            "description": "The term of the benefits documented in this response.", 
-            "$ref": "#/definitions/Period"
-        }, 
-        "benefitBalance": {
-            "description": "Balance by Benefit Category.", 
-            "items": {
-                "$ref": "#/definitions/ExplanationOfBenefit_BenefitBalance"
-            }, 
-            "type": "array"
+                    "type": "array", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Extension"
+                }, 
+                "modifierExtension": {
+                    "description": "Relationship. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Extension' Optional Extension Element - found in all resources.", 
+                    "items": {
+                        "@type": "Extension", 
+                        "anyOf": [
+                            {
+                                "type": "string", 
+                                "minLength": 1, 
+                                "maxLength": 256, 
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }, 
+                            {
+                                "type": "string", 
+                                "format": "uri", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ]
+                    }, 
+                    "type": "array", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Extension"
+                }, 
+                "identifier": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Identifier' An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Identifier"
+                }, 
+                "status": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_status": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "type": {
+                    "type": "string", 
+                    "enum": [
+                        "ExplanationOfBenefit"
+                    ], 
+                    "description": "Property. NGSI Entity type. It has to be ExplanationOfBenefit"
+                }, 
+                "subType": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/CodeableConcept' A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/CodeableConcept"
+                }, 
+                "use": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_use": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "patient": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "billablePeriod": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Period' A time period defined by a start and end date and optionally time.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Period"
+                }, 
+                "created": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/dateTime' A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.", 
+                    "pattern": "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$", 
+                    "type": "string"
+                }, 
+                "_created": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "enterer": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "insurer": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "provider": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "priority": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/CodeableConcept' A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/CodeableConcept"
+                }, 
+                "fundsReserveRequested": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/CodeableConcept' A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/CodeableConcept"
+                }, 
+                "fundsReserve": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/CodeableConcept' A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/CodeableConcept"
+                }, 
+                "related": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_Related' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_Related"
+                }, 
+                "prescription": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "originalPrescription": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "payee": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_Payee' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_Payee"
+                }, 
+                "referral": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "facility": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "claim": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "claimResponse": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "outcome": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_outcome": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "disposition": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/string' A sequence of Unicode characters", 
+                    "pattern": "^[ \\r\\n\\t\\S]+$", 
+                    "type": "string"
+                }, 
+                "_disposition": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "preAuthRef": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/string' A sequence of Unicode characters", 
+                    "items": {}, 
+                    "type": "string", 
+                    "pattern": "^[ \\r\\n\\t\\S]+$"
+                }, 
+                "_preAuthRef": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "preAuthRefPeriod": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Period' A time period defined by a start and end date and optionally time.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Period"
+                }, 
+                "careTeam": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_CareTeam' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_CareTeam"
+                }, 
+                "supportingInfo": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_SupportingInfo' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_SupportingInfo"
+                }, 
+                "diagnosis": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_Diagnosis' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_Diagnosis"
+                }, 
+                "procedure": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_Procedure' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_Procedure"
+                }, 
+                "precedence": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/positiveInt' An integer with a value that is positive (e.g. >0)", 
+                    "pattern": "^[1-9][0-9]*$", 
+                    "type": "number"
+                }, 
+                "_precedence": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "insurance": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_Insurance' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_Insurance"
+                }, 
+                "accident": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_Accident' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_Accident"
+                }, 
+                "item": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_Item' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_Item"
+                }, 
+                "addItem": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_AddItem' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_AddItem"
+                }, 
+                "adjudication": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_Adjudication' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_Adjudication"
+                }, 
+                "total": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_Total' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_Total"
+                }, 
+                "payment": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_Payment' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_Payment"
+                }, 
+                "formCode": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/CodeableConcept' A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/CodeableConcept"
+                }, 
+                "form": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Attachment' For referring to data content defined in other formats.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Attachment"
+                }, 
+                "processNote": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_ProcessNote' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_ProcessNote"
+                }, 
+                "benefitPeriod": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Period' A time period defined by a start and end date and optionally time.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Period"
+                }, 
+                "benefitBalance": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ExplanationOfBenefit_BenefitBalance' This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ExplanationOfBenefit_BenefitBalance"
+                }
+            }
         }
-    }, 
-    "additionalProperties": false
+    ]
 }

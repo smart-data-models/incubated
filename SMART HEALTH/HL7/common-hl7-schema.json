@@ -1,8 +1,435 @@
 {
-    "$schema": "http://json-schema.org/draft-06/schema#", 
-    "$id": "http://github.com/agaldemas/incubated/tree/master/SMART%20HEALTH/HL7/common-hl7-schema.json", 
+    "$schema": "https://json-schema.org/draft-06/schema#", 
+    "$id": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json", 
     "title": "Common HL7/FHIR definitions for NGSI-LD Harmonized Data Models", 
     "definitions": {
+        "ResourceList": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/Account"
+                }, 
+                {
+                    "$ref": "#/definitions/ActivityDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/AdministrableProductDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/AdverseEvent"
+                }, 
+                {
+                    "$ref": "#/definitions/AllergyIntolerance"
+                }, 
+                {
+                    "$ref": "#/definitions/Appointment"
+                }, 
+                {
+                    "$ref": "#/definitions/AppointmentResponse"
+                }, 
+                {
+                    "$ref": "#/definitions/AuditEvent"
+                }, 
+                {
+                    "$ref": "#/definitions/Basic"
+                }, 
+                {
+                    "$ref": "#/definitions/Binary"
+                }, 
+                {
+                    "$ref": "#/definitions/BiologicallyDerivedProduct"
+                }, 
+                {
+                    "$ref": "#/definitions/BodyStructure"
+                }, 
+                {
+                    "$ref": "#/definitions/Bundle"
+                }, 
+                {
+                    "$ref": "#/definitions/CapabilityStatement"
+                }, 
+                {
+                    "$ref": "#/definitions/CarePlan"
+                }, 
+                {
+                    "$ref": "#/definitions/CareTeam"
+                }, 
+                {
+                    "$ref": "#/definitions/CatalogEntry"
+                }, 
+                {
+                    "$ref": "#/definitions/ChargeItem"
+                }, 
+                {
+                    "$ref": "#/definitions/ChargeItemDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/Citation"
+                }, 
+                {
+                    "$ref": "#/definitions/Claim"
+                }, 
+                {
+                    "$ref": "#/definitions/ClaimResponse"
+                }, 
+                {
+                    "$ref": "#/definitions/ClinicalImpression"
+                }, 
+                {
+                    "$ref": "#/definitions/ClinicalUseDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/CodeSystem"
+                }, 
+                {
+                    "$ref": "#/definitions/Communication"
+                }, 
+                {
+                    "$ref": "#/definitions/CommunicationRequest"
+                }, 
+                {
+                    "$ref": "#/definitions/CompartmentDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/Composition"
+                }, 
+                {
+                    "$ref": "#/definitions/ConceptMap"
+                }, 
+                {
+                    "$ref": "#/definitions/Condition"
+                }, 
+                {
+                    "$ref": "#/definitions/Consent"
+                }, 
+                {
+                    "$ref": "#/definitions/Contract"
+                }, 
+                {
+                    "$ref": "#/definitions/Coverage"
+                }, 
+                {
+                    "$ref": "#/definitions/CoverageEligibilityRequest"
+                }, 
+                {
+                    "$ref": "#/definitions/CoverageEligibilityResponse"
+                }, 
+                {
+                    "$ref": "#/definitions/DetectedIssue"
+                }, 
+                {
+                    "$ref": "#/definitions/Device"
+                }, 
+                {
+                    "$ref": "#/definitions/DeviceDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/DeviceMetric"
+                }, 
+                {
+                    "$ref": "#/definitions/DeviceRequest"
+                }, 
+                {
+                    "$ref": "#/definitions/DeviceUseStatement"
+                }, 
+                {
+                    "$ref": "#/definitions/DiagnosticReport"
+                }, 
+                {
+                    "$ref": "#/definitions/DocumentManifest"
+                }, 
+                {
+                    "$ref": "#/definitions/DocumentReference"
+                }, 
+                {
+                    "$ref": "#/definitions/Encounter"
+                }, 
+                {
+                    "$ref": "#/definitions/Endpoint"
+                }, 
+                {
+                    "$ref": "#/definitions/EnrollmentRequest"
+                }, 
+                {
+                    "$ref": "#/definitions/EnrollmentResponse"
+                }, 
+                {
+                    "$ref": "#/definitions/EpisodeOfCare"
+                }, 
+                {
+                    "$ref": "#/definitions/EventDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/Evidence"
+                }, 
+                {
+                    "$ref": "#/definitions/EvidenceReport"
+                }, 
+                {
+                    "$ref": "#/definitions/EvidenceVariable"
+                }, 
+                {
+                    "$ref": "#/definitions/ExampleScenario"
+                }, 
+                {
+                    "$ref": "#/definitions/ExplanationOfBenefit"
+                }, 
+                {
+                    "$ref": "#/definitions/FamilyMemberHistory"
+                }, 
+                {
+                    "$ref": "#/definitions/Flag"
+                }, 
+                {
+                    "$ref": "#/definitions/Goal"
+                }, 
+                {
+                    "$ref": "#/definitions/GraphDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/Group"
+                }, 
+                {
+                    "$ref": "#/definitions/GuidanceResponse"
+                }, 
+                {
+                    "$ref": "#/definitions/HealthcareService"
+                }, 
+                {
+                    "$ref": "#/definitions/ImagingStudy"
+                }, 
+                {
+                    "$ref": "#/definitions/Immunization"
+                }, 
+                {
+                    "$ref": "#/definitions/ImmunizationEvaluation"
+                }, 
+                {
+                    "$ref": "#/definitions/ImmunizationRecommendation"
+                }, 
+                {
+                    "$ref": "#/definitions/ImplementationGuide"
+                }, 
+                {
+                    "$ref": "#/definitions/Ingredient"
+                }, 
+                {
+                    "$ref": "#/definitions/InsurancePlan"
+                }, 
+                {
+                    "$ref": "#/definitions/Invoice"
+                }, 
+                {
+                    "$ref": "#/definitions/Library"
+                }, 
+                {
+                    "$ref": "#/definitions/Linkage"
+                }, 
+                {
+                    "$ref": "#/definitions/List"
+                }, 
+                {
+                    "$ref": "#/definitions/Location"
+                }, 
+                {
+                    "$ref": "#/definitions/ManufacturedItemDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/Measure"
+                }, 
+                {
+                    "$ref": "#/definitions/MeasureReport"
+                }, 
+                {
+                    "$ref": "#/definitions/Media"
+                }, 
+                {
+                    "$ref": "#/definitions/Medication"
+                }, 
+                {
+                    "$ref": "#/definitions/MedicationAdministration"
+                }, 
+                {
+                    "$ref": "#/definitions/MedicationDispense"
+                }, 
+                {
+                    "$ref": "#/definitions/MedicationKnowledge"
+                }, 
+                {
+                    "$ref": "#/definitions/MedicationRequest"
+                }, 
+                {
+                    "$ref": "#/definitions/MedicationStatement"
+                }, 
+                {
+                    "$ref": "#/definitions/MedicinalProductDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/MessageDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/MessageHeader"
+                }, 
+                {
+                    "$ref": "#/definitions/MolecularSequence"
+                }, 
+                {
+                    "$ref": "#/definitions/NamingSystem"
+                }, 
+                {
+                    "$ref": "#/definitions/NutritionOrder"
+                }, 
+                {
+                    "$ref": "#/definitions/NutritionProduct"
+                }, 
+                {
+                    "$ref": "#/definitions/Observation"
+                }, 
+                {
+                    "$ref": "#/definitions/ObservationDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/OperationDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/OperationOutcome"
+                }, 
+                {
+                    "$ref": "#/definitions/Organization"
+                }, 
+                {
+                    "$ref": "#/definitions/OrganizationAffiliation"
+                }, 
+                {
+                    "$ref": "#/definitions/PackagedProductDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/Parameters"
+                }, 
+                {
+                    "$ref": "#/definitions/Patient"
+                }, 
+                {
+                    "$ref": "#/definitions/PaymentNotice"
+                }, 
+                {
+                    "$ref": "#/definitions/PaymentReconciliation"
+                }, 
+                {
+                    "$ref": "#/definitions/Person"
+                }, 
+                {
+                    "$ref": "#/definitions/PlanDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/Practitioner"
+                }, 
+                {
+                    "$ref": "#/definitions/PractitionerRole"
+                }, 
+                {
+                    "$ref": "#/definitions/Procedure"
+                }, 
+                {
+                    "$ref": "#/definitions/Provenance"
+                }, 
+                {
+                    "$ref": "#/definitions/Questionnaire"
+                }, 
+                {
+                    "$ref": "#/definitions/QuestionnaireResponse"
+                }, 
+                {
+                    "$ref": "#/definitions/RegulatedAuthorization"
+                }, 
+                {
+                    "$ref": "#/definitions/RelatedPerson"
+                }, 
+                {
+                    "$ref": "#/definitions/RequestGroup"
+                }, 
+                {
+                    "$ref": "#/definitions/ResearchDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/ResearchElementDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/ResearchStudy"
+                }, 
+                {
+                    "$ref": "#/definitions/ResearchSubject"
+                }, 
+                {
+                    "$ref": "#/definitions/RiskAssessment"
+                }, 
+                {
+                    "$ref": "#/definitions/Schedule"
+                }, 
+                {
+                    "$ref": "#/definitions/SearchParameter"
+                }, 
+                {
+                    "$ref": "#/definitions/ServiceRequest"
+                }, 
+                {
+                    "$ref": "#/definitions/Slot"
+                }, 
+                {
+                    "$ref": "#/definitions/Specimen"
+                }, 
+                {
+                    "$ref": "#/definitions/SpecimenDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/StructureDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/StructureMap"
+                }, 
+                {
+                    "$ref": "#/definitions/Subscription"
+                }, 
+                {
+                    "$ref": "#/definitions/SubscriptionStatus"
+                }, 
+                {
+                    "$ref": "#/definitions/SubscriptionTopic"
+                }, 
+                {
+                    "$ref": "#/definitions/Substance"
+                }, 
+                {
+                    "$ref": "#/definitions/SubstanceDefinition"
+                }, 
+                {
+                    "$ref": "#/definitions/SupplyDelivery"
+                }, 
+                {
+                    "$ref": "#/definitions/SupplyRequest"
+                }, 
+                {
+                    "$ref": "#/definitions/Task"
+                }, 
+                {
+                    "$ref": "#/definitions/TerminologyCapabilities"
+                }, 
+                {
+                    "$ref": "#/definitions/TestReport"
+                }, 
+                {
+                    "$ref": "#/definitions/TestScript"
+                }, 
+                {
+                    "$ref": "#/definitions/ValueSet"
+                }, 
+                {
+                    "$ref": "#/definitions/VerificationResult"
+                }, 
+                {
+                    "$ref": "#/definitions/VisionPrescription"
+                }
+            ]
+        }, 
         "Element": {
             "description": "Base definition for all elements in a resource.", 
             "properties": {

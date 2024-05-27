@@ -1,252 +1,282 @@
 {
-    "$schema": "http://json-schema.org/schema#", 
+    "$schema": "https://json-schema.org/schema#", 
     "$schemaVersion": "0.0.1", 
-    "$id": "http://github.com/agaldemas/incubated/tree/master/SMART%20HEALTH/HL7/Account/schema.json", 
-    "title": "Smart Data Models - Account data model based on HL7 equivalent resourceActivityDefinition data model based on HL7 equivalent resourceAdministrableProductDefinition data model based on HL7 equivalent resourceAdverseEvent data model based on HL7 equivalent resourceAllergyIntolerance data model based on HL7 equivalent resourceAppointment data model based on HL7 equivalent resourceAppointmentResponse data model based on HL7 equivalent resourceAuditEvent data model based on HL7 equivalent resourceBasic data model based on HL7 equivalent resourceBinary data model based on HL7 equivalent resourceBiologicallyDerivedProduct data model based on HL7 equivalent resourceBodyStructure data model based on HL7 equivalent resourceBundle data model based on HL7 equivalent resourceCapabilityStatement data model based on HL7 equivalent resourceCarePlan data model based on HL7 equivalent resourceCareTeam data model based on HL7 equivalent resourceCatalogEntry data model based on HL7 equivalent resourceChargeItem data model based on HL7 equivalent resourceChargeItemDefinition data model based on HL7 equivalent resourceCitation data model based on HL7 equivalent resourceClaim data model based on HL7 equivalent resourceClaimResponse data model based on HL7 equivalent resourceClinicalImpression data model based on HL7 equivalent resourceClinicalUseDefinition data model based on HL7 equivalent resourceCodeSystem data model based on HL7 equivalent resourceCommunication data model based on HL7 equivalent resourceCommunicationRequest data model based on HL7 equivalent resourceCompartmentDefinition data model based on HL7 equivalent resourceComposition data model based on HL7 equivalent resourceConceptMap data model based on HL7 equivalent resourceCondition data model based on HL7 equivalent resourceConsent data model based on HL7 equivalent resourceContract data model based on HL7 equivalent resourceCoverage data model based on HL7 equivalent resourceCoverageEligibilityRequest data model based on HL7 equivalent resourceCoverageEligibilityResponse data model based on HL7 equivalent resourceDetectedIssue data model based on HL7 equivalent resourceDevice data model based on HL7 equivalent resourceDeviceDefinition data model based on HL7 equivalent resourceDeviceMetric data model based on HL7 equivalent resourceDeviceRequest data model based on HL7 equivalent resourceDeviceUseStatement data model based on HL7 equivalent resourceDiagnosticReport data model based on HL7 equivalent resourceDocumentManifest data model based on HL7 equivalent resourceDocumentReference data model based on HL7 equivalent resourceEncounter data model based on HL7 equivalent resourceEndpoint data model based on HL7 equivalent resourceEnrollmentRequest data model based on HL7 equivalent resourceEnrollmentResponse data model based on HL7 equivalent resourceEpisodeOfCare data model based on HL7 equivalent resourceEventDefinition data model based on HL7 equivalent resourceEvidence data model based on HL7 equivalent resourceEvidenceReport data model based on HL7 equivalent resourceEvidenceVariable data model based on HL7 equivalent resourceExampleScenario data model based on HL7 equivalent resourceExplanationOfBenefit data model based on HL7 equivalent resourceFamilyMemberHistory data model based on HL7 equivalent resourceFlag data model based on HL7 equivalent resourceGoal data model based on HL7 equivalent resourceGraphDefinition data model based on HL7 equivalent resourceGroup data model based on HL7 equivalent resourceGuidanceResponse data model based on HL7 equivalent resourceHealthcareService data model based on HL7 equivalent resourceImagingStudy data model based on HL7 equivalent resourceImmunization data model based on HL7 equivalent resourceImmunizationEvaluation data model based on HL7 equivalent resourceImmunizationRecommendation data model based on HL7 equivalent resourceImplementationGuide data model based on HL7 equivalent resourceIngredient data model based on HL7 equivalent resourceInsurancePlan data model based on HL7 equivalent resourceInvoice data model based on HL7 equivalent resourceLibrary data model based on HL7 equivalent resourceLinkage data model based on HL7 equivalent resourceList data model based on HL7 equivalent resourceLocation data model based on HL7 equivalent resourceManufacturedItemDefinition data model based on HL7 equivalent resourceMeasure data model based on HL7 equivalent resourceMeasureReport data model based on HL7 equivalent resourceMedia data model based on HL7 equivalent resource", 
-    "description": "A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.", 
+    "$id": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Account/schema.json", 
+    "title": "Media data model based on HL7 equivalent resource", 
+    "description": "", 
     "modelTags": "HL7", 
-    "derivedFrom": "http://hl7.org/fhir/R4B/", 
-    "license": "http://www.hl7.org/implement/standards/fhir/license.html", 
+    "derivedFrom": "https://hl7.org/fhir/R4B/", 
+    "license": "https://www.hl7.org/implement/standards/fhir/license.html", 
     "type": "object", 
     "required": [
-        "content", 
-        "resourceType"
+        "id", 
+        "type"
     ], 
     "allOf": [
         {
-            "$ref": "http://smart-data-models.github.io/dataModel.Hl7/hl7-schema.json#/definitions/GSMA-Commons"
+            "$ref": "https://smart-data-models.github.io/dataModel.Hl7/hl7-schema.json#/definitions/GSMA-Commons"
         }, 
         {
-            "$ref": "http://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-        }
-    ], 
-    "anyOf": [
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        }, 
         {
-            "$ref": "http://github.com/smart-data-models/dataModel.Hl7/common-hl7-definitions.json"
-        }
-    ], 
-    "properties": {
-        "resourceType": {
-            "description": "This is a Media resource", 
-            "const": "Media"
+            "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-definitions.json"
         }, 
-        "id": {
-            "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.", 
-            "$ref": "#/definitions/string"
-        }, 
-        "meta": {
-            "description": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.", 
-            "$ref": "#/definitions/Meta"
-        }, 
-        "implicitRules": {
-            "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.", 
-            "$ref": "#/definitions/uri"
-        }, 
-        "_implicitRules": {
-            "description": "Extensions for implicitRules", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "language": {
-            "description": "The base language in which the resource is written.", 
-            "$ref": "#/definitions/code"
-        }, 
-        "_language": {
-            "description": "Extensions for language", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "text": {
-            "description": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.", 
-            "$ref": "#/definitions/Narrative"
-        }, 
-        "contained": {
-            "description": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.", 
-            "items": {
-                "$ref": "#/definitions/ResourceList"
-            }, 
-            "type": "array"
-        }, 
-        "extension": {
-            "description": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.", 
-            "items": {
-                "@type": "Extension", 
-                "anyOf": [
-                    {
-                        "type": "string", 
-                        "minLength": 1, 
-                        "maxLength": 256, 
-                        "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
-                        "description": "Property. Identifier format of any NGSI entity"
+        {
+            "properties": {
+                "resourceType": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/' This is a Media resource", 
+                    "const": "Media"
+                }, 
+                "id": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/string' A sequence of Unicode characters", 
+                    "pattern": "^[ \\r\\n\\t\\S]+$", 
+                    "type": "string"
+                }, 
+                "meta": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Meta' The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Meta"
+                }, 
+                "implicitRules": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/uri' String of characters used to identify a name or a resource", 
+                    "pattern": "^\\S*$", 
+                    "type": "string"
+                }, 
+                "_implicitRules": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "language": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_language": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "text": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Narrative' A human-readable summary of the resource conveying the essential clinical and business information for the resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Narrative"
+                }, 
+                "contained": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ResourceList' These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.", 
+                    "items": {
+                        "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ResourceList"
                     }, 
-                    {
-                        "type": "string", 
-                        "format": "uri", 
-                        "description": "Property. Identifier format of any NGSI entity"
-                    }
-                ]
-            }, 
-            "type": "array"
-        }, 
-        "modifierExtension": {
-            "description": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).", 
-            "items": {
-                "@type": "Extension", 
-                "anyOf": [
-                    {
-                        "type": "string", 
-                        "minLength": 1, 
-                        "maxLength": 256, 
-                        "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
-                        "description": "Property. Identifier format of any NGSI entity"
+                    "type": "array"
+                }, 
+                "extension": {
+                    "description": "Relationship. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Extension' Optional Extension Element - found in all resources.", 
+                    "items": {
+                        "@type": "Extension", 
+                        "anyOf": [
+                            {
+                                "type": "string", 
+                                "minLength": 1, 
+                                "maxLength": 256, 
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }, 
+                            {
+                                "type": "string", 
+                                "format": "uri", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ]
                     }, 
-                    {
-                        "type": "string", 
-                        "format": "uri", 
-                        "description": "Property. Identifier format of any NGSI entity"
-                    }
-                ]
-            }, 
-            "type": "array"
-        }, 
-        "identifier": {
-            "description": "Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.", 
-            "items": {
-                "$ref": "#/definitions/Identifier"
-            }, 
-            "type": "array"
-        }, 
-        "basedOn": {
-            "description": "A procedure that is fulfilled in whole or in part by the creation of this media.", 
-            "items": {
-                "$ref": "#/definitions/Reference"
-            }, 
-            "type": "array"
-        }, 
-        "partOf": {
-            "description": "A larger event of which this particular event is a component or step.", 
-            "items": {
-                "$ref": "#/definitions/Reference"
-            }, 
-            "type": "array"
-        }, 
-        "status": {
-            "description": "The current state of the {{title}}.", 
-            "$ref": "#/definitions/code"
-        }, 
-        "_status": {
-            "description": "Extensions for status", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "type": {
-            "description": "A code that classifies whether the media is an image, video or audio recording or some other media category.", 
-            "$ref": "#/definitions/CodeableConcept"
-        }, 
-        "modality": {
-            "description": "Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.", 
-            "$ref": "#/definitions/CodeableConcept"
-        }, 
-        "view": {
-            "description": "The name of the imaging view e.g. Lateral or Antero-posterior (AP).", 
-            "$ref": "#/definitions/CodeableConcept"
-        }, 
-        "subject": {
-            "description": "Who/What this Media is a record of.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "encounter": {
-            "description": "The encounter that establishes the context for this media.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "createdDateTime": {
-            "description": "The date and time(s) at which the media was collected.", 
-            "pattern": "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$", 
-            "type": "string"
-        }, 
-        "_createdDateTime": {
-            "description": "Extensions for createdDateTime", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "createdPeriod": {
-            "description": "The date and time(s) at which the media was collected.", 
-            "$ref": "#/definitions/Period"
-        }, 
-        "issued": {
-            "description": "The date and time this version of the media was made available to providers, typically after having been reviewed.", 
-            "$ref": "#/definitions/instant"
-        }, 
-        "_issued": {
-            "description": "Extensions for issued", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "operator": {
-            "description": "The person who administered the collection of the image.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "reasonCode": {
-            "description": "Describes why the event occurred in coded or textual form.", 
-            "items": {
-                "$ref": "#/definitions/CodeableConcept"
-            }, 
-            "type": "array"
-        }, 
-        "bodySite": {
-            "description": "Indicates the site on the subject's body where the observation was made (i.e. the target site).", 
-            "$ref": "#/definitions/CodeableConcept"
-        }, 
-        "deviceName": {
-            "description": "The name of the device / manufacturer of the device  that was used to make the recording.", 
-            "$ref": "#/definitions/string"
-        }, 
-        "_deviceName": {
-            "description": "Extensions for deviceName", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "device": {
-            "description": "The device used to collect the media.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "height": {
-            "description": "Height of the image in pixels (photo/video).", 
-            "$ref": "#/definitions/positiveInt"
-        }, 
-        "_height": {
-            "description": "Extensions for height", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "width": {
-            "description": "Width of the image in pixels (photo/video).", 
-            "$ref": "#/definitions/positiveInt"
-        }, 
-        "_width": {
-            "description": "Extensions for width", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "frames": {
-            "description": "The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.", 
-            "$ref": "#/definitions/positiveInt"
-        }, 
-        "_frames": {
-            "description": "Extensions for frames", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "duration": {
-            "description": "The duration of the recording in seconds - for audio and video.", 
-            "$ref": "#/definitions/decimal"
-        }, 
-        "_duration": {
-            "description": "Extensions for duration", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "content": {
-            "description": "The actual content of the media - inline or by direct reference to the media source file.", 
-            "$ref": "#/definitions/Attachment"
-        }, 
-        "note": {
-            "description": "Comments made about the media by the performer, subject or other participants.", 
-            "items": {
-                "$ref": "#/definitions/Annotation"
-            }, 
-            "type": "array"
+                    "type": "array", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Extension"
+                }, 
+                "modifierExtension": {
+                    "description": "Relationship. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Extension' Optional Extension Element - found in all resources.", 
+                    "items": {
+                        "@type": "Extension", 
+                        "anyOf": [
+                            {
+                                "type": "string", 
+                                "minLength": 1, 
+                                "maxLength": 256, 
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }, 
+                            {
+                                "type": "string", 
+                                "format": "uri", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ]
+                    }, 
+                    "type": "array", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Extension"
+                }, 
+                "identifier": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Identifier' An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Identifier"
+                }, 
+                "basedOn": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "partOf": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "status": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_status": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "type": {
+                    "type": "string", 
+                    "enum": [
+                        "Media"
+                    ], 
+                    "description": "Property. NGSI Entity type. It has to be Media"
+                }, 
+                "modality": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/CodeableConcept' A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/CodeableConcept"
+                }, 
+                "view": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/CodeableConcept' A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/CodeableConcept"
+                }, 
+                "subject": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "encounter": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "createdDateTime": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/' The date and time(s) at which the media was collected.", 
+                    "pattern": "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$", 
+                    "type": "string"
+                }, 
+                "_createdDateTime": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "createdPeriod": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Period' A time period defined by a start and end date and optionally time.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Period"
+                }, 
+                "issued": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/instant' An instant in time - known at least to the second", 
+                    "pattern": "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$", 
+                    "type": "string"
+                }, 
+                "_issued": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "operator": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "reasonCode": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/CodeableConcept' A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/CodeableConcept"
+                }, 
+                "bodySite": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/CodeableConcept' A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/CodeableConcept"
+                }, 
+                "deviceName": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/string' A sequence of Unicode characters", 
+                    "pattern": "^[ \\r\\n\\t\\S]+$", 
+                    "type": "string"
+                }, 
+                "_deviceName": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "device": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "height": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/positiveInt' An integer with a value that is positive (e.g. >0)", 
+                    "pattern": "^[1-9][0-9]*$", 
+                    "type": "number"
+                }, 
+                "_height": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "width": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/positiveInt' An integer with a value that is positive (e.g. >0)", 
+                    "pattern": "^[1-9][0-9]*$", 
+                    "type": "number"
+                }, 
+                "_width": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "frames": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/positiveInt' An integer with a value that is positive (e.g. >0)", 
+                    "pattern": "^[1-9][0-9]*$", 
+                    "type": "number"
+                }, 
+                "_frames": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "duration": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/decimal' A rational number with implicit precision", 
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?([eE][+-]?[0-9]+)?$", 
+                    "type": "number"
+                }, 
+                "_duration": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "content": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Attachment' For referring to data content defined in other formats.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Attachment"
+                }, 
+                "note": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Annotation' A  text note which also  contains information about who made the statement and when.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Annotation"
+                }
+            }
         }
-    }, 
-    "additionalProperties": false
+    ]
 }

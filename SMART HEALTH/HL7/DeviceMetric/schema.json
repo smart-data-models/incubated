@@ -1,170 +1,189 @@
 {
-    "$schema": "http://json-schema.org/schema#", 
+    "$schema": "https://json-schema.org/schema#", 
     "$schemaVersion": "0.0.1", 
-    "$id": "http://github.com/agaldemas/incubated/tree/master/SMART%20HEALTH/HL7/Account/schema.json", 
-    "title": "Smart Data Models - Account data model based on HL7 equivalent resourceActivityDefinition data model based on HL7 equivalent resourceAdministrableProductDefinition data model based on HL7 equivalent resourceAdverseEvent data model based on HL7 equivalent resourceAllergyIntolerance data model based on HL7 equivalent resourceAppointment data model based on HL7 equivalent resourceAppointmentResponse data model based on HL7 equivalent resourceAuditEvent data model based on HL7 equivalent resourceBasic data model based on HL7 equivalent resourceBinary data model based on HL7 equivalent resourceBiologicallyDerivedProduct data model based on HL7 equivalent resourceBodyStructure data model based on HL7 equivalent resourceBundle data model based on HL7 equivalent resourceCapabilityStatement data model based on HL7 equivalent resourceCarePlan data model based on HL7 equivalent resourceCareTeam data model based on HL7 equivalent resourceCatalogEntry data model based on HL7 equivalent resourceChargeItem data model based on HL7 equivalent resourceChargeItemDefinition data model based on HL7 equivalent resourceCitation data model based on HL7 equivalent resourceClaim data model based on HL7 equivalent resourceClaimResponse data model based on HL7 equivalent resourceClinicalImpression data model based on HL7 equivalent resourceClinicalUseDefinition data model based on HL7 equivalent resourceCodeSystem data model based on HL7 equivalent resourceCommunication data model based on HL7 equivalent resourceCommunicationRequest data model based on HL7 equivalent resourceCompartmentDefinition data model based on HL7 equivalent resourceComposition data model based on HL7 equivalent resourceConceptMap data model based on HL7 equivalent resourceCondition data model based on HL7 equivalent resourceConsent data model based on HL7 equivalent resourceContract data model based on HL7 equivalent resourceCoverage data model based on HL7 equivalent resourceCoverageEligibilityRequest data model based on HL7 equivalent resourceCoverageEligibilityResponse data model based on HL7 equivalent resourceDetectedIssue data model based on HL7 equivalent resourceDevice data model based on HL7 equivalent resourceDeviceDefinition data model based on HL7 equivalent resourceDeviceMetric data model based on HL7 equivalent resource", 
-    "description": "Describes a measurement, calculation or setting capability of a medical device.", 
+    "$id": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Account/schema.json", 
+    "title": "DeviceMetric data model based on HL7 equivalent resource", 
+    "description": "", 
     "modelTags": "HL7", 
-    "derivedFrom": "http://hl7.org/fhir/R4B/", 
-    "license": "http://www.hl7.org/implement/standards/fhir/license.html", 
+    "derivedFrom": "https://hl7.org/fhir/R4B/", 
+    "license": "https://www.hl7.org/implement/standards/fhir/license.html", 
     "type": "object", 
     "required": [
-        "type", 
-        "resourceType"
+        "id", 
+        "type"
     ], 
     "allOf": [
         {
-            "$ref": "http://smart-data-models.github.io/dataModel.Hl7/hl7-schema.json#/definitions/GSMA-Commons"
+            "$ref": "https://smart-data-models.github.io/dataModel.Hl7/hl7-schema.json#/definitions/GSMA-Commons"
         }, 
         {
-            "$ref": "http://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-        }
-    ], 
-    "anyOf": [
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        }, 
         {
-            "$ref": "http://github.com/smart-data-models/dataModel.Hl7/common-hl7-definitions.json"
-        }
-    ], 
-    "properties": {
-        "resourceType": {
-            "description": "This is a DeviceMetric resource", 
-            "const": "DeviceMetric"
+            "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-definitions.json"
         }, 
-        "id": {
-            "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.", 
-            "$ref": "#/definitions/string"
-        }, 
-        "meta": {
-            "description": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.", 
-            "$ref": "#/definitions/Meta"
-        }, 
-        "implicitRules": {
-            "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.", 
-            "$ref": "#/definitions/uri"
-        }, 
-        "_implicitRules": {
-            "description": "Extensions for implicitRules", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "language": {
-            "description": "The base language in which the resource is written.", 
-            "$ref": "#/definitions/code"
-        }, 
-        "_language": {
-            "description": "Extensions for language", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "text": {
-            "description": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.", 
-            "$ref": "#/definitions/Narrative"
-        }, 
-        "contained": {
-            "description": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.", 
-            "items": {
-                "$ref": "#/definitions/ResourceList"
-            }, 
-            "type": "array"
-        }, 
-        "extension": {
-            "description": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.", 
-            "items": {
-                "@type": "Extension", 
-                "anyOf": [
-                    {
-                        "type": "string", 
-                        "minLength": 1, 
-                        "maxLength": 256, 
-                        "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
-                        "description": "Property. Identifier format of any NGSI entity"
+        {
+            "properties": {
+                "resourceType": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/' This is a DeviceMetric resource", 
+                    "const": "DeviceMetric"
+                }, 
+                "id": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/string' A sequence of Unicode characters", 
+                    "pattern": "^[ \\r\\n\\t\\S]+$", 
+                    "type": "string"
+                }, 
+                "meta": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Meta' The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Meta"
+                }, 
+                "implicitRules": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/uri' String of characters used to identify a name or a resource", 
+                    "pattern": "^\\S*$", 
+                    "type": "string"
+                }, 
+                "_implicitRules": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "language": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_language": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "text": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Narrative' A human-readable summary of the resource conveying the essential clinical and business information for the resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Narrative"
+                }, 
+                "contained": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ResourceList' These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.", 
+                    "items": {
+                        "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ResourceList"
                     }, 
-                    {
-                        "type": "string", 
-                        "format": "uri", 
-                        "description": "Property. Identifier format of any NGSI entity"
-                    }
-                ]
-            }, 
-            "type": "array"
-        }, 
-        "modifierExtension": {
-            "description": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).", 
-            "items": {
-                "@type": "Extension", 
-                "anyOf": [
-                    {
-                        "type": "string", 
-                        "minLength": 1, 
-                        "maxLength": 256, 
-                        "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
-                        "description": "Property. Identifier format of any NGSI entity"
+                    "type": "array"
+                }, 
+                "extension": {
+                    "description": "Relationship. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Extension' Optional Extension Element - found in all resources.", 
+                    "items": {
+                        "@type": "Extension", 
+                        "anyOf": [
+                            {
+                                "type": "string", 
+                                "minLength": 1, 
+                                "maxLength": 256, 
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }, 
+                            {
+                                "type": "string", 
+                                "format": "uri", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ]
                     }, 
-                    {
-                        "type": "string", 
-                        "format": "uri", 
-                        "description": "Property. Identifier format of any NGSI entity"
-                    }
-                ]
-            }, 
-            "type": "array"
-        }, 
-        "identifier": {
-            "description": "Unique instance identifiers assigned to a device by the device or gateway software, manufacturers, other organizations or owners. For example: handle ID.", 
-            "items": {
-                "$ref": "#/definitions/Identifier"
-            }, 
-            "type": "array"
-        }, 
-        "type": {
-            "description": "Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc.", 
-            "$ref": "#/definitions/CodeableConcept"
-        }, 
-        "unit": {
-            "description": "Describes the unit that an observed value determined for this metric will have. For example: Percent, Seconds, etc.", 
-            "$ref": "#/definitions/CodeableConcept"
-        }, 
-        "source": {
-            "description": "Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacturer, serial number, etc.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "parent": {
-            "description": "Describes the link to the  Device that this DeviceMetric belongs to and that provide information about the location of this DeviceMetric in the containment structure of the parent Device. An example would be a Device that represents a Channel. This reference can be used by a client application to distinguish DeviceMetrics that have the same type, but should be interpreted based on their containment location.", 
-            "$ref": "#/definitions/Reference"
-        }, 
-        "operationalStatus": {
-            "description": "Indicates current operational state of the device. For example: On, Off, Standby, etc.", 
-            "$ref": "#/definitions/code"
-        }, 
-        "_operationalStatus": {
-            "description": "Extensions for operationalStatus", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "color": {
-            "description": "Describes the color representation for the metric. This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth for example; the parameters are displayed in different characteristic colors, such as HR-blue, BP-green, and PR and SpO2- magenta.", 
-            "$ref": "#/definitions/code"
-        }, 
-        "_color": {
-            "description": "Extensions for color", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "category": {
-            "description": "Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation.", 
-            "$ref": "#/definitions/code"
-        }, 
-        "_category": {
-            "description": "Extensions for category", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "measurementPeriod": {
-            "description": "Describes the measurement repetition time. This is not necessarily the same as the update period. The measurement repetition time can range from milliseconds up to hours. An example for a measurement repetition time in the range of milliseconds is the sampling rate of an ECG. An example for a measurement repetition time in the range of hours is a NIBP that is triggered automatically every hour. The update period may be different than the measurement repetition time, if the device does not update the published observed value with the same frequency as it was measured.", 
-            "$ref": "#/definitions/Timing"
-        }, 
-        "calibration": {
-            "description": "Describes the calibrations that have been performed or that are required to be performed.", 
-            "items": {
-                "$ref": "#/definitions/DeviceMetric_Calibration"
-            }, 
-            "type": "array"
+                    "type": "array", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Extension"
+                }, 
+                "modifierExtension": {
+                    "description": "Relationship. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Extension' Optional Extension Element - found in all resources.", 
+                    "items": {
+                        "@type": "Extension", 
+                        "anyOf": [
+                            {
+                                "type": "string", 
+                                "minLength": 1, 
+                                "maxLength": 256, 
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }, 
+                            {
+                                "type": "string", 
+                                "format": "uri", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ]
+                    }, 
+                    "type": "array", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Extension"
+                }, 
+                "identifier": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Identifier' An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Identifier"
+                }, 
+                "type": {
+                    "type": "string", 
+                    "enum": [
+                        "DeviceMetric"
+                    ], 
+                    "description": "Property. NGSI Entity type. It has to be DeviceMetric"
+                }, 
+                "unit": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/CodeableConcept' A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/CodeableConcept"
+                }, 
+                "source": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "parent": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "operationalStatus": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_operationalStatus": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "color": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_color": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "category": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_category": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "measurementPeriod": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Timing' Specifies an event that may occur multiple times. Timing schedules are used to record when things are planned, expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds, and may be used for reporting the schedule to which past regular activities were carried out.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Timing"
+                }, 
+                "calibration": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/DeviceMetric_Calibration' Describes a measurement, calculation or setting capability of a medical device.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/DeviceMetric_Calibration"
+                }
+            }
         }
-    }, 
-    "additionalProperties": false
+    ]
 }

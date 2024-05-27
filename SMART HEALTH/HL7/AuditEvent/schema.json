@@ -1,186 +1,201 @@
 {
-    "$schema": "http://json-schema.org/schema#", 
+    "$schema": "https://json-schema.org/schema#", 
     "$schemaVersion": "0.0.1", 
-    "$id": "http://github.com/agaldemas/incubated/tree/master/SMART%20HEALTH/HL7/Account/schema.json", 
-    "title": "Smart Data Models - Account data model based on HL7 equivalent resourceActivityDefinition data model based on HL7 equivalent resourceAdministrableProductDefinition data model based on HL7 equivalent resourceAdverseEvent data model based on HL7 equivalent resourceAllergyIntolerance data model based on HL7 equivalent resourceAppointment data model based on HL7 equivalent resourceAppointmentResponse data model based on HL7 equivalent resourceAuditEvent data model based on HL7 equivalent resource", 
-    "description": "A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.", 
+    "$id": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Account/schema.json", 
+    "title": "AuditEvent data model based on HL7 equivalent resource", 
+    "description": "", 
     "modelTags": "HL7", 
-    "derivedFrom": "http://hl7.org/fhir/R4B/", 
-    "license": "http://www.hl7.org/implement/standards/fhir/license.html", 
+    "derivedFrom": "https://hl7.org/fhir/R4B/", 
+    "license": "https://www.hl7.org/implement/standards/fhir/license.html", 
     "type": "object", 
     "required": [
-        "agent", 
-        "source", 
-        "type", 
-        "resourceType"
+        "id", 
+        "type"
     ], 
     "allOf": [
         {
-            "$ref": "http://smart-data-models.github.io/dataModel.Hl7/hl7-schema.json#/definitions/GSMA-Commons"
+            "$ref": "https://smart-data-models.github.io/dataModel.Hl7/hl7-schema.json#/definitions/GSMA-Commons"
         }, 
         {
-            "$ref": "http://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-        }
-    ], 
-    "anyOf": [
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        }, 
         {
-            "$ref": "http://github.com/smart-data-models/dataModel.Hl7/common-hl7-definitions.json"
-        }
-    ], 
-    "properties": {
-        "resourceType": {
-            "description": "This is a AuditEvent resource", 
-            "const": "AuditEvent"
+            "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-definitions.json"
         }, 
-        "id": {
-            "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.", 
-            "$ref": "#/definitions/string"
-        }, 
-        "meta": {
-            "description": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.", 
-            "$ref": "#/definitions/Meta"
-        }, 
-        "implicitRules": {
-            "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.", 
-            "$ref": "#/definitions/uri"
-        }, 
-        "_implicitRules": {
-            "description": "Extensions for implicitRules", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "language": {
-            "description": "The base language in which the resource is written.", 
-            "$ref": "#/definitions/code"
-        }, 
-        "_language": {
-            "description": "Extensions for language", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "text": {
-            "description": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.", 
-            "$ref": "#/definitions/Narrative"
-        }, 
-        "contained": {
-            "description": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.", 
-            "items": {
-                "$ref": "#/definitions/ResourceList"
-            }, 
-            "type": "array"
-        }, 
-        "extension": {
-            "description": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.", 
-            "items": {
-                "@type": "Extension", 
-                "anyOf": [
-                    {
-                        "type": "string", 
-                        "minLength": 1, 
-                        "maxLength": 256, 
-                        "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
-                        "description": "Property. Identifier format of any NGSI entity"
+        {
+            "properties": {
+                "resourceType": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/' This is a AuditEvent resource", 
+                    "const": "AuditEvent"
+                }, 
+                "id": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/string' A sequence of Unicode characters", 
+                    "pattern": "^[ \\r\\n\\t\\S]+$", 
+                    "type": "string"
+                }, 
+                "meta": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Meta' The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Meta"
+                }, 
+                "implicitRules": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/uri' String of characters used to identify a name or a resource", 
+                    "pattern": "^\\S*$", 
+                    "type": "string"
+                }, 
+                "_implicitRules": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "language": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_language": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "text": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Narrative' A human-readable summary of the resource conveying the essential clinical and business information for the resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Narrative"
+                }, 
+                "contained": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/ResourceList' These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.", 
+                    "items": {
+                        "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/ResourceList"
                     }, 
-                    {
-                        "type": "string", 
-                        "format": "uri", 
-                        "description": "Property. Identifier format of any NGSI entity"
-                    }
-                ]
-            }, 
-            "type": "array"
-        }, 
-        "modifierExtension": {
-            "description": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).", 
-            "items": {
-                "@type": "Extension", 
-                "anyOf": [
-                    {
-                        "type": "string", 
-                        "minLength": 1, 
-                        "maxLength": 256, 
-                        "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
-                        "description": "Property. Identifier format of any NGSI entity"
+                    "type": "array"
+                }, 
+                "extension": {
+                    "description": "Relationship. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Extension' Optional Extension Element - found in all resources.", 
+                    "items": {
+                        "@type": "Extension", 
+                        "anyOf": [
+                            {
+                                "type": "string", 
+                                "minLength": 1, 
+                                "maxLength": 256, 
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }, 
+                            {
+                                "type": "string", 
+                                "format": "uri", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ]
                     }, 
-                    {
-                        "type": "string", 
-                        "format": "uri", 
-                        "description": "Property. Identifier format of any NGSI entity"
-                    }
-                ]
-            }, 
-            "type": "array"
-        }, 
-        "type": {
-            "description": "Identifier for a family of the event.  For example, a menu item, program, rule, policy, function code, application name or URL. It identifies the performed function.", 
-            "$ref": "#/definitions/Coding"
-        }, 
-        "subtype": {
-            "description": "Identifier for the category of event.", 
-            "items": {
-                "$ref": "#/definitions/Coding"
-            }, 
-            "type": "array"
-        }, 
-        "action": {
-            "description": "Indicator for type of action performed during the event that generated the audit.", 
-            "$ref": "#/definitions/code"
-        }, 
-        "_action": {
-            "description": "Extensions for action", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "period": {
-            "description": "The period during which the activity occurred.", 
-            "$ref": "#/definitions/Period"
-        }, 
-        "recorded": {
-            "description": "The time when the event was recorded.", 
-            "$ref": "#/definitions/instant"
-        }, 
-        "_recorded": {
-            "description": "Extensions for recorded", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "outcome": {
-            "description": "Indicates whether the event succeeded or failed.", 
-            "$ref": "#/definitions/code"
-        }, 
-        "_outcome": {
-            "description": "Extensions for outcome", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "outcomeDesc": {
-            "description": "A free text description of the outcome of the event.", 
-            "$ref": "#/definitions/string"
-        }, 
-        "_outcomeDesc": {
-            "description": "Extensions for outcomeDesc", 
-            "$ref": "#/definitions/Element"
-        }, 
-        "purposeOfEvent": {
-            "description": "The purposeOfUse (reason) that was used during the event being recorded.", 
-            "items": {
-                "$ref": "#/definitions/CodeableConcept"
-            }, 
-            "type": "array"
-        }, 
-        "agent": {
-            "description": "An actor taking an active role in the event or activity that is logged.", 
-            "items": {
-                "$ref": "#/definitions/AuditEvent_Agent"
-            }, 
-            "type": "array"
-        }, 
-        "source": {
-            "description": "The system that is reporting the event.", 
-            "$ref": "#/definitions/AuditEvent_Source"
-        }, 
-        "entity": {
-            "description": "Specific instances of data or objects that have been accessed.", 
-            "items": {
-                "$ref": "#/definitions/AuditEvent_Entity"
-            }, 
-            "type": "array"
+                    "type": "array", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Extension"
+                }, 
+                "modifierExtension": {
+                    "description": "Relationship. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Extension' Optional Extension Element - found in all resources.", 
+                    "items": {
+                        "@type": "Extension", 
+                        "anyOf": [
+                            {
+                                "type": "string", 
+                                "minLength": 1, 
+                                "maxLength": 256, 
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }, 
+                            {
+                                "type": "string", 
+                                "format": "uri", 
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ]
+                    }, 
+                    "type": "array", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Extension"
+                }, 
+                "type": {
+                    "type": "string", 
+                    "enum": [
+                        "AuditEvent"
+                    ], 
+                    "description": "Property. NGSI Entity type. It has to be AuditEvent"
+                }, 
+                "subtype": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Coding' A reference to a code defined by a terminology system.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Coding"
+                }, 
+                "action": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_action": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "period": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Period' A time period defined by a start and end date and optionally time.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Period"
+                }, 
+                "recorded": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/instant' An instant in time - known at least to the second", 
+                    "pattern": "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$", 
+                    "type": "string"
+                }, 
+                "_recorded": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "outcome": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_outcome": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "outcomeDesc": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/string' A sequence of Unicode characters", 
+                    "pattern": "^[ \\r\\n\\t\\S]+$", 
+                    "type": "string"
+                }, 
+                "_outcomeDesc": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "purposeOfEvent": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/CodeableConcept' A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/CodeableConcept"
+                }, 
+                "agent": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/AuditEvent_Agent' A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/AuditEvent_Agent"
+                }, 
+                "source": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/AuditEvent_Source' A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.", 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/AuditEvent_Source"
+                }, 
+                "entity": {
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/AuditEvent_Entity' A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.", 
+                    "items": {}, 
+                    "type": "object", 
+                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/AuditEvent_Entity"
+                }
+            }
         }
-    }, 
-    "additionalProperties": false
+    ]
 }

@@ -243,5 +243,11 @@ OK added creation of a jsonschema validator & each schema validates without erro
 
 
 ### TODO : add function (def) to load and save global hl7 schema from hl7.org directly !
+retrieve from hl7_schema_url = https://www.hl7.org/fhir/fhir.schema.json.zip 
+
+and unzip it to SMART HEALTH/HL7/overall_schema.json file !
 
 - clean old json files : `rm ./*/*_processed?.json` in the directory !
+
+
+OK
