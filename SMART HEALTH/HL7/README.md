@@ -1,5 +1,7 @@
  # How to map HL7 resources to NGSI-LD entities
 
+convert HL7-fhir json schemas to NGSI-LD entities schemas
+
 Preliminary diagram fo how it works:
 
  ![Generate NGSI-LD models from FHIR schema](img/HL7-FHIR2NGSI.drawio.png)
