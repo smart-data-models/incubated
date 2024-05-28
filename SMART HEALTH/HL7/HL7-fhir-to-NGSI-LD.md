@@ -71,11 +71,14 @@ same thing for "modifierExtension" propertiy
 we need to create an entity type for Extension, to be able to use it in NGSI-LD
 
 ### Consequences for usage
+if there will be almost exact correspondance between FHIR and matching NGSI-LD SMD schema, to ingest directly json FHIR object, will need an adapter, but only for the porperties of type 'Extension'
 
 #### convert from json HL7/FHIR to NGSI-LD, to inject in CB
-This means that in case once want to convert an HL7/FHIR json object to NGSI-LD, you'll have to take care about `extension` and `modifierExtension`properties:
+This means that: in case you want to convert an HL7/FHIR json object to NGSI-LD, 
 
-by iterating on the property take the content and create an Extension entity with the same end portion of ID
+You'll have to take care about `extension` and `modifierExtension`properties:
+
+by iterating on the property take the content and create an Extension entity with the same end portion of "id", such as:
 
 example for a Patient entity with ID:
 `"id": "urn:ngsi-ld:Patient:Pat01"`
@@ -281,9 +284,10 @@ Nevertheless some features have to be added:
 #### remove FHIR "id" 
 - question remove or merge FHIR "id" with NGSI-LD ? (it is already incliuded ), => DONE OK removed
 
-#### @TODO load schema from hl7: 
+#### @TODO load schema from hl7 directly: 
 - add function (def) to load and save global hl7 schema from hl7.org directly !
 - Retrieve schema from hl7_schema_url = https://www.hl7.org/fhir/fhir.schema.json.zip, and unzip it to SMART HEALTH/HL7/overall_schema.json file !
+- Take care: when changing of version of FHIR schema: don't forget to remove all directories holding entity schemas, because resources types are evolving, some new appears, some disappear, from one version to another
 
 ### some questions:
 - Do we need an entity type for Extension, with schema and example: **yes it's necessary !** => DONE
@@ -323,5 +327,10 @@ don't forget to install certifi (to avoid ssl cert issues when accessing https u
 `pip install --upgrade certifi` or `pip3 install --upgrade certifi`
 
 restart the terminal to be sure !
+
+use of RefResolver deprecated:
+python3 extract2ngsi.py>log-extract.txt
+extract2ngsi.py:32: DeprecationWarning: jsonschema.RefResolver is deprecated as of v4.18.0, in favor of the https://github.com/python-jsonschema/referencing library, which provides more compliant referencing behavior as well as more flexible APIs for customization. A future release will remove RefResolver. Please file a feature request (on referencing) if you are missing an API for the kind of customization you need.
+  from jsonschema import Draft7Validator, validate, RefResolver !
 
 

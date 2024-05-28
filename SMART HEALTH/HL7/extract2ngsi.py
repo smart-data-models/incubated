@@ -355,6 +355,19 @@ for entity_type, entity_def in resources_definitions.items():
     # create directory for the entity resource type
     path = pathlib.Path(entity_type)
     path.mkdir(parents=True, exist_ok=True)
+    
+    # delete already present json files
+
+    # delete already present json files in entity directory
+    files = os.listdir(path)
+    print('files: ', files)
+    for file in files:
+        if file.endswith('.json'):
+            try:
+                os.remove('./'+ entity_type + '/' + file)
+            except FileNotFoundError:
+                print('file not found !')
+
     # write schema file in the directory
     exportfilename = "./" + entity_type + "/schema.json"
     with open(exportfilename, "w+") as exportfile:
