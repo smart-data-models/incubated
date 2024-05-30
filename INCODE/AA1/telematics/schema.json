@@ -1,0 +1,95 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.1.0",
+    "modelTags": "INCODE",
+    "$id": "https://smart-data-models.github.io/dataModel.Telematics/schema.json",
+    "title": "Telematics Data Model",
+    "description": "Data model for telematics entity based on Smart Data Models standards.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI entity type. It has to be Telematics",
+                    "enum": [
+                        "Telematics"
+                    ]
+                },
+                "UUID": {
+                    "type": "string",
+                    "description": "Unique identifier for the telematics data."
+                },
+                "IMEI": {
+                    "type": "string",
+                    "description": "International Mobile Equipment Identity."
+                },
+                "messageReceivedTime": {
+                    "type": "string",
+                    "description": "Time when the message was received."
+                },
+                "direction": {
+                    "type": "integer",
+                    "description": "220"
+                },
+                "engineStatus": {
+                    "type": "integer",
+                    "description": "1"
+                },
+                "phi": {
+                    "type": "number",
+                    "description": "37.8745952"
+                },
+                "lamda": {
+                    "type": "number",
+                    "description": "23.921456"
+                },
+                "z": {
+                    "type": "number",
+                    "description": "87"
+                },
+                "velocity": {
+                    "type": "integer",
+                    "description": "50"
+                },
+                "outerVoltage": {
+                    "type": "float",
+                    "description": "Voltage measured outside the vehicle."
+                },
+                "gpsSignalStrength": {
+                    "type": "float",
+                    "description": "Strength of the GPS signal."
+                },
+                "satellites": {
+                    "type": "integer",
+                    "description": "Number of satellites used for GPS signal."
+                },
+                "receivedHash": {
+                    "type": "string",
+                    "description": "Hash value received for data validation."
+                }
+            }
+        }
+    ],
+    "required": [
+        "UUID",
+        "IMEI",
+        "messageReceivedTime",
+        "direction",
+        "engineStatus",
+        "phi",
+        "lamda",
+        "z",
+        "velocity",
+        "outerVoltage",
+        "gpsSignalStrength",
+        "satellites",
+        "receivedHash"
+    ]
+}
