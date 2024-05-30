@@ -78,6 +78,9 @@ def infer_type(hl7_type: str, definition_dict: dict):
             "type": "object",
             "$ref": "#/definitions/" + hl7_type,
         }
+    # take care with 'ResourceList'
+    if hl7_type == 'ResourceList':
+        return {'$ref': '#/definitions/ResourceList'}
     return def_dict if def_dict else None
 
 
@@ -259,14 +262,6 @@ for entity_type, entity_def in resources_definitions.items():
             )
             content["items"].update(extension_dict)
             content["type"] = "array"
-
-        # contained is a 'oneOf' array of '$ref' to definitions
-        # change with link...
-        if prop == "contained" and content.get("oneOf"):
-            # manage content of "$ref" and del "oneOf"
-            items = {"items": {"$ref": base_id_url + definition_file + "#/definitions/ResourceList"}}
-            content.update(items)
-            del content['oneOf']
 
         # manage id
         # if prop == "id":

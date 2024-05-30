@@ -336,6 +336,16 @@ extract2ngsi.py:32: DeprecationWarning: jsonschema.RefResolver is deprecated as 
 
 # some issues detected
 "link" of type "#ref": "Patient_Link" in "Patient" entity type/FHIR resource type
-
-
+fixed the problem !
+remains issue with "contained"
+```json
+        "contained": {
+          "description": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.",
+          "items": {
+            "$ref": "#/definitions/ResourceList"
+          },
+          "type": "array"
+        }
+```
+developped with content of "ResourceList" in each generated schema ?
 
