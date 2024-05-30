@@ -37,6 +37,7 @@ global_schema_file = "overall_schema_4.3.json"  #'fhir.schema.5.0.json' # # HL7/
 definition_file = (
     "common-hl7-schema.json"  # common base definitions for HL7/FHIR mapping
 )
+schema_url = "https://json-schema.org/draft-06/schema#"
 
 # define the base url for "$id" don't forget a "/" at the end !
 base_id_url = (
@@ -140,7 +141,7 @@ for def_name, definitions in base_definitions.items():
 # add header to definitions schema
 # to build global common definitions
 definition_schema = {
-    "$schema": "https://json-schema.org/draft-06/schema#",
+    "$schema": schema_url,
     "$id": base_id_url + definition_file,
     "title": "Common HL7/FHIR definitions for NGSI-LD Harmonized Data Models",
     "definitions": {},
@@ -158,7 +159,7 @@ with open(definition_file, "w") as f:
 # define the schema header to include in each schema file
 # note it contains $ref to global base definitions file definition_file "common-hl7-definitions.json"
 schema_header = {
-    "$schema": "https://json-schema.org/schema#",
+    "$schema": schema_url,
     "$schemaVersion": "0.0.1",
     "$id": base_id_url + "XXXX/schema.json",
     "title": "Smart Data Models - ",

@@ -349,3 +349,6 @@ remains issue with "contained"
 ```
 developped with content of "ResourceList" in each generated schema ?
 
+fixed schema url: http://json-schema.org/draft-06/schema#
+ change to http://json-schema.org/draft-07/schema# ?
+
