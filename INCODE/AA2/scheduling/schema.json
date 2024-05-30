@@ -1,0 +1,95 @@
+{
+    "$schema":"http://json-schema.org/schema#",
+    "$schemaVersion": "0.1.0",
+    "modelTags": "INCODE",
+    "$id":"https://smart-data-models.github.io/SDM_JSON_Schema/scheduling/schema.json",
+    "title":"Smart Data Models - Scheduling",
+    "description":"A Data Model of scheduling a device data",
+    "type":"object",
+    "allOf":[
+        {
+            "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI entity type. It has to be Scheduling",
+                    "enum": [
+                        "Scheduling"
+                    ]
+                },
+                "timestamp":{
+                    "type":"number",
+                    "description":"Timestamp of the scheduling data"
+                },
+                "imbalance_cost":{
+                    "type":"number",
+                    "description":"Cost due to imbalance"
+                },
+                "switching_cost":{
+                    "type":"number",
+                    "description":"Cost due to switching"
+                },
+                "overall_cost":{
+                    "type":"number",
+                    "description":"Overall cost of scheduling"
+                },
+                "task_location":{
+                    "type":"string",
+                    "description":"Location of the task"
+                },
+                "node1_load":{
+                    "type":"object",
+                    "description":"Load information for node1",
+                    "properties":{
+                        "cpu_usage":{
+                            "type":"number",
+                            "description":"CPU usage percentage of node1"
+                        },
+                        "memory_usage":{
+                            "type":"number",
+                            "description":"Memory usage percentage of node1"
+                        }
+                    }
+                },
+                "node1_power_consumption":{
+                    "type":"number",
+                    "description":"Power consumption of node1"
+                },
+                "node2_load":{
+                    "type":"object",
+                    "description":"Load information for node2",
+                    "properties":{
+                        "cpu_usage":{
+                            "type":"number",
+                            "description":"CPU usage percentage of node2"
+                        },
+                        "memory_usage":{
+                            "type":"number",
+                            "description":"Memory usage percentage of node2"
+                        }
+                    }
+                },
+                "node2_power_consumption":{
+                    "type":"number",
+                    "description":"Power consumption of node2"
+                }
+            },
+            "required":[
+                "timestamp",
+                "imbalance_cost",
+                "switching_cost",
+                "overall_cost",
+                "task_location",
+                "node1_load",
+                "node1_power_consumption",
+                "node2_load",
+                "node2_power_consumption"
+            ]
+        }
+    ]
+}

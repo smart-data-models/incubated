@@ -1,0 +1,108 @@
+{
+    "$schema":"http://json-schema.org/schema#",
+    "$schemaVersion": "0.1.0",
+    "modelTags": "INCODE",
+    "$id":"https://smart-data-models.github.io/SDM_JSON_Schema/telemetry_UAV/schema.json",
+    "title":"Smart Data Models - Telemetry UAV",
+    "description":"A Data Model of UAV telemetry data",
+    "type":"object",
+    "allOf":[
+        {
+            "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI entity type. It has to be telemetryUAV",
+                    "enum": [
+                        "telemetryUAV"
+                    ]
+                },
+                "droneID":{
+                    "type":"string",
+                    "description":"Identifier of the drone"
+                },
+                "aircraftLongitude":{
+                    "type":"number",
+                    "description":"Longitude of the drone's current position"
+                },
+                "aircraftLatitude":{
+                    "type":"number",
+                    "description":"Latitude of the drone's current position"
+                },
+                "aircraftAltitude":{
+                    "type":"number",
+                    "description":"Altitude of the drone's current position"
+                },
+                "distanceToHome":{
+                    "type":"number",
+                    "description":"Distance of the drone from its home location"
+                },
+                "homeAltitude":{
+                    "type":"number",
+                    "description":"Altitude of the drone's home location"
+                },
+                "homeLatitude":{
+                    "type":"number",
+                    "description":"Latitude of the drone's home location"
+                },
+                "homeLongitude":{
+                    "type":"number",
+                    "description":"Longitude of the drone's home location"
+                },
+                "gimbal_PITCH":{
+                    "type":"number",
+                    "description":"Pitch angle of the drone's gimbal"
+                },
+                "gimbal_YAW":{
+                    "type":"number",
+                    "description":"Yaw angle of the drone's gimbal"
+                },
+                "gimbal_ROLL":{
+                    "type":"number",
+                    "description":"Roll angle of the drone's gimbal"
+                },
+                "headingDroneDegress":{
+                    "type":"number",
+                    "description":"Heading of the drone in degrees"
+                },
+                "isInMission":{
+                    "type":"boolean",
+                    "description":"Indicates whether the drone is in a mission"
+                },
+                "missionPlan":{
+                    "type":"string",
+                    "description":"Details of the drone's mission plan (null if not available)"
+                },
+                "currentWaypointMissionPlanner":{
+                    "type":"string",
+                    "description":"Identifier of the current waypoint in the mission planner (null if not available)"
+                },
+                "batteryPercentage":{
+                    "type":"number",
+                    "description":"Battery percentage of the drone"
+                }
+            },
+            "required":[
+                "droneID",
+                "aircraftLongitude",
+                "aircraftLatitude",
+                "aircraftAltitude",
+                "distanceToHome",
+                "homeAltitude",
+                "homeLatitude",
+                "homeLongitude",
+                "gimbal_PITCH",
+                "gimbal_YAW",
+                "gimbal_ROLL",
+                "headingDroneDegress",
+                "isInMission",
+                "batteryPercentage"
+            ]
+        }
+    ]
+}
