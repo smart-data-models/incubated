@@ -1,0 +1,63 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.1.0",
+    "modelTags": "INCODE",
+    "$id": "https://smart-data-models.github.io/mission_planner/schema.json",
+    "title": "Smart Data Models - Mission Planner",
+    "description": "A Data Model of tracking the location and waypoints of a mission planner",
+    "type": "object",
+    "allOf": [
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      },
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+      },
+      {
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Property. NGSI entity type. It has to be MissionPlanner",
+            "enum": [
+              "MissionPlanner"
+            ]
+          },
+          "vehicleID": {
+            "type": "string",
+            "description": "Identifier of the vehicle associated with the mission e.g drone"
+          },
+          "ListOfWaypoints": {
+            "type": "array",
+            "description": "List of waypoints for the mission",
+            "items": {
+              "type": "object",
+              "required": [
+                "latitude",
+                "longitude",
+                "altitude",
+                "speed"
+              ],
+              "properties": {
+                "latitude": {
+                  "type": "number",
+                  "description": "Latitude of the waypoint"
+                },
+                "longitude": {
+                  "type": "number",
+                  "description": "Longitude of the waypoint"
+                },
+                "altitude": {
+                  "type": "number",
+                  "description": "Altitude of the waypoint"
+                },
+                "speed": {
+                  "type": "number",
+                  "description": "Speed at the waypoint"
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }

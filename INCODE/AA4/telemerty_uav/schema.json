@@ -1,0 +1,99 @@
+{
+    "$schema":"http://json-schema.org/schema#",
+    "$schemaVersion": "0.1.0",
+    "modelTags": "INCODE",
+    "$id":"https://smart-data-models.github.io/telemetry_uva/schema.json",
+    "title":"Smart Data Models - telemetry_uva",
+    "description":"A Data Model of telemetry data of Unmanned Aerial Vehicle (UAV)",
+    "type":"object",
+    "allOf":[
+        {
+            "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI entity type. It has to be TelemetryUAV",
+                    "enum": [
+                        "TelemetryUAV"
+                    ]
+                },
+                "droneID":{
+                    "type":"string",
+                    "description":"Identifier of the drone"
+                },
+                "aircraftLongitude":{
+                    "type":"number",
+                    "description":"Longitude of the aircraft"
+                },
+                "aircraftLatitude":{
+                    "type":"number",
+                    "description":"Latitude of the aircraft"
+                },
+                "aircraftAltitude":{
+                    "type":"number",
+                    "description":"Altitude of the aircraft"
+                },
+                "distanceToHome":{
+                    "type":"number",
+                    "description":"Distance to home location"
+                },
+                "homeAltitude":{
+                    "type":"number",
+                    "description":"Altitude of the home location"
+                },
+                "homeLatitude":{
+                    "type":"number",
+                    "description":"Latitude of the home location"
+                },
+                "homeLongitude":{
+                    "type":"number",
+                    "description":"Longitude of the home location"
+                },
+                "gimbal_PITCH":{
+                    "type":"number",
+                    "description":"Pitch angle of the gimbal"
+                },
+                "gimbal_YAW":{
+                    "type":"number",
+                    "description":"Yaw angle of the gimbal"
+                },
+                "gimbal_ROLL":{
+                    "type":"number",
+                    "description":"Roll angle of the gimbal"
+                },
+                "headingDroneDegress":{
+                    "type":"number",
+                    "description":"Heading of the drone in degrees"
+                },
+                "isInMission":{
+                    "type":"boolean",
+                    "description":"Flag indicating if the drone is currently in a mission"
+                },
+                "missionPlan":{
+                    "type":"string",
+                    "description":"Details of the mission plan (null if not available)"
+                },
+                "currentWaypointMissionPlanner":{
+                    "type":"string",
+                    "description":"Current waypoint according to the mission planner (null if not available)"
+                },
+                "batteryPercentage":{
+                    "type":"number",
+                    "description":"Battery percentage of the drone"
+                }
+            },
+            "required":[
+                "droneID",
+                "aircraftLongitude",
+                "aircraftLatitude",
+                "aircraftAltitude",
+                "batteryPercentage"
+            ]
+        }
+    ]
+}

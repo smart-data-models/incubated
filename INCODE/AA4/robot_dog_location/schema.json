@@ -1,0 +1,60 @@
+{
+    "$schema":"http://json-schema.org/schema#",
+    "$schemaVersion": "0.1.0",
+    "modelTags": ["INCODE", "ROBOT"],
+    "$id":"https://smart-data-models.github.io/dog_location/schema.json",
+    "title":"Smart Data Models - robot_dog_location",
+    "description":"A Data Model of tracking the location of a Unmanned Ground Vehicle - UGV e.g robot dog",
+    "type":"object",
+    "allOf":[
+        {
+            "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI entity type. It has to be DogLocation",
+                    "enum": [
+                        "RobotDogLocation"
+                    ]
+                },
+                "vehicleID":{
+                    "type":"string",
+                    "description":"Identifier of the vehicle (robot dog)"
+                },
+                "Location":{
+                    "type":"object",
+                    "description":"Location information",
+                    "properties":{
+                        "latitude":{
+                            "type":"string",
+                            "description":"Latitude of the vehicle (robot dog)"
+                        },
+                        "longitude":{
+                            "type":"string",
+                            "description":"Longitude of the vehicle (robot dog)"
+                        },
+                        "Time":{
+                            "type":"string",
+                            "format":"date-time",
+                            "description":"Timestamp of the location data"
+                        }
+                    },
+                    "required":[
+                        "latitude",
+                        "longitude",
+                        "Time"
+                    ]
+                }
+            },
+            "required":[
+                "vehicleID",
+                "Location"
+            ]
+        }
+    ]
+}
