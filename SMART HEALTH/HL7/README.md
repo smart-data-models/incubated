@@ -29,12 +29,12 @@ then loop on resource types, to create a directory for each, an entity type for 
     }
 
  ]
-	},
+	}
 ```
 or more symply:
 ```json
  "extension": ["urn:ngsi-ld:Extension:XXXXX", "urn:ngsi-ld:Extension:YYYYY"]
-	},
+	}
 ```
 
 
@@ -92,11 +92,10 @@ then the property "extension" should be
 ```json
 "extension": [
     {
-    "object": "urn:ngsi-ld:Extension:Pat01",
-    "type": "Relationship"
+        "object": "urn:ngsi-ld:Extension:Pat01",
+        "type": "Relationship"
     }
-    ]
-}
+]
 ```
 if there is also a `modifierExtension` property another "**Extension**" entity have to be created with a different id such as
 `"id": "urn:ngsi-ld:Extension:modifier:Patient:Pat01"`
@@ -334,5 +333,9 @@ use of RefResolver deprecated:
 python3 extract2ngsi.py>log-extract.txt
 extract2ngsi.py:32: DeprecationWarning: jsonschema.RefResolver is deprecated as of v4.18.0, in favor of the https://github.com/python-jsonschema/referencing library, which provides more compliant referencing behavior as well as more flexible APIs for customization. A future release will remove RefResolver. Please file a feature request (on referencing) if you are missing an API for the kind of customization you need.
   from jsonschema import Draft7Validator, validate, RefResolver !
+
+# some issues detected
+"link" of type "#ref": "Patient_Link" in "Patient" entity type/FHIR resource type
+
 
 

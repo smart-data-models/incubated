@@ -136,7 +136,7 @@ def generatevalue(data,outdict):
                     arraypath = data[key]['items']['$ref'].split('/')
                     arraydict = {}
                     arraydictobj = {}
-                    arrayproperties = jsondata['definitions'][arraypath[2]]['properties']
+                    arrayproperties = jsondata['allOf'][index]['properties']
                     arraydictobj[key] = generatevalue(arrayproperties,arraydict)
                     arrayofdict.append(arraydictobj)    
                 else:
@@ -154,10 +154,11 @@ def generatevalue(data,outdict):
     outlist.append(outdict)
     return outlist
 
+# main part:
 letters = string.ascii_uppercase
 now = datetime.now()
 
-filename = 'Python Test Schema1.json'
+filename = './Patient/schema.json'
 schemafile = open(filename)
 jsondata = json.load(schemafile)
 dictobj = {}
@@ -165,7 +166,21 @@ initobj = {}
 arrayofdict = []
 finaldict = {}
 
-properties = jsondata['definitions']['properties']
+key = 'definitions'
+if not jsondata.get(key,None) and jsondata.get('allOf',None):
+    key = 'allOf'
+
+index = -1
+for i, elem in enumerate(jsondata[key]):
+    if elem.get('properties', None):
+        index = i
+        break
+        
+if index > -1:    
+    properties = jsondata[key][index]['properties']
+else:
+    print('no property found ')
+
 dictobj["root"] = generatevalue(properties,initobj)
 arrayofdict.append(dictobj)
 
@@ -177,6 +192,6 @@ for obj in arrayofdict:
         for key,value in obj.items():
             finaldict[key] = value
 
-with open('Python Test payload.json', 'w') as f:
+with open('Patient.json', 'w') as f:
     json.dump(finaldict, f)
 

@@ -91,16 +91,22 @@
                     "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Element"
                 }, 
                 "link": {
-                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Bundle_Link' A container for a collection of resources.", 
-                    "items": {}, 
-                    "type": "object", 
-                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Bundle_Link"
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Bundle_Link' A series of links that provide context to this bundle.", 
+                    "items": {
+                        "description": "A container for a collection of resources.", 
+                        "type": "object", 
+                        "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Bundle_Link"
+                    }, 
+                    "type": "array"
                 }, 
                 "entry": {
-                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Bundle_Entry' A container for a collection of resources.", 
-                    "items": {}, 
-                    "type": "object", 
-                    "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Bundle_Entry"
+                    "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Bundle_Entry' An entry in a bundle resource - will either contain a resource or information about a resource (transactions and history only).", 
+                    "items": {
+                        "description": "A container for a collection of resources.", 
+                        "type": "object", 
+                        "$ref": "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/common-hl7-schema.json#/definitions/Bundle_Entry"
+                    }, 
+                    "type": "array"
                 }, 
                 "signature": {
                     "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/Signature' A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities.", 

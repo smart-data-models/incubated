@@ -209,10 +209,10 @@ for entity_type, entity_def in resources_definitions.items():
 
             type_dict = infer_type(hl7_type, definition_schema)
             # print('TTTTTTTTTTTT type_dict: ', type_dict)
+            content.update(type_dict)
 
         elif (
-            content.get("type")
-            and content["type"] == "array"
+            content.get("type",None) == "array"
             and content.get("items", None)
         ):
             if content['items'].get('$ref'):
@@ -234,9 +234,8 @@ for entity_type, entity_def in resources_definitions.items():
             # can be hl7 original type or a "$ref" (it seems it's always a $ref, since no exception occur)
             type_dict = infer_type(hl7_type, definition_schema)
             # print('TTTTTTTTTTTT in items type_dict: ', type_dict)
+            content['items'].update(type_dict)
 
-        if type_dict != None:
-            content.update(type_dict)
 
         origDesc = content["description"]
         # compute new description
@@ -285,10 +284,15 @@ for entity_type, entity_def in resources_definitions.items():
             # del entity_def['properties']['type']
         # else:
         # update "$ref" with url SMART HEALTH/HL7/common-hl7-schema.json
-        if content.get("$ref"):
+        if content.get("$ref",None):
             content["$ref"] = content["$ref"].replace(
                 "#/definitions/", base_id_url + definition_file + "#/definitions/"
             )
+        if content.get('items',None) and content.get("items",None).get("$ref",None):
+            content["items"]["$ref"] = content["items"]["$ref"].replace(
+                "#/definitions/", base_id_url + definition_file + "#/definitions/"
+            )
+
     # end loop on properties
 
     # prepare entity schema and set things in header
