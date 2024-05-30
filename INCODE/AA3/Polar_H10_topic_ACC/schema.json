@@ -1,0 +1,75 @@
+{
+    "$schema":"http://json-schema.org/schema#",
+    "$schemaVersion": "0.1.0",
+    "modelTags": "INCODE",
+    "$id":"https://smart-data-models.github.io/Polar_H10_topic_ACC/schema.json",
+    "title":"Smart Data Models - Polar H10 ACC Topic",
+    "description":"A Data Model of Polar H10 Accelerometer Topic",
+    "type":"object",
+    "allOf":[
+        {
+            "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI entity type. It has to be PolarH10TopicACC",
+                    "enum": [
+                        "PolarH10TopicACC"
+                    ]
+                },
+                "clientId":{
+                    "type":"string",
+                    "description":"Client ID"
+                },
+                "deviceId":{
+                    "type":"string",
+                    "description":"Device ID"
+                },
+                "sessionId":{
+                    "type":"integer",
+                    "description":"Session ID"
+                },
+                "sampleRate":{
+                    "type":"integer",
+                    "description":"Data acquisition rate"
+                },
+                "timeStamp":{
+                    "type":"integer",
+                    "description":"Phone Timestamp"
+                },
+                "sensorTimeStamp":{
+                    "type":"integer",
+                    "description":"Sensor Timestamp"
+                },
+                "acc":{
+                    "type":"array",
+                    "description":"Accelerometer data points",
+                    "items":{
+                        "type":"array",
+                        "items":{
+                            "type":"integer"
+                        },
+                        "minItems":3,
+                        "maxItems":3
+                    },
+                    "minItems":36,
+                    "maxItems":36
+                }
+            },
+            "required":[
+                "clientId",
+                "deviceId",
+                "sessionId",
+                "sampleRate",
+                "timeStamp",
+                "sensorTimeStamp",
+                "acc"
+            ]
+        }
+    ]
+}
