@@ -41,9 +41,11 @@ schema_url = "https://json-schema.org/draft-06/schema#"
 
 # define the base url for "$id" don't forget a "/" at the end !
 base_id_url = (
-    "https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/"
+    "https://github.com/agaldemas/incubated/raw/master/SMART%20HEALTH/HL7/"
 )
-# 'https://github.com/agaldemas/incubated/tree/master/SMART%20HEALTH/HL7/'
+# 'https://github.com/agaldemas/incubated/blob/master/SMART%20HEALTH/HL7/
+# 'https://github.com/agaldemas/incubated/raw/master/SMART%20HEALTH/HL7/
+# https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/
 # this following should be the final one
 # "https://github.com/smart-data-models/dataModel.Hl7/"
 
@@ -176,7 +178,7 @@ schema_header = {
         {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
         },
-        {"$ref": base_id_url + "common-hl7-definitions.json"},
+        {"$ref": base_id_url + definition_file},
     ],
 }
 
