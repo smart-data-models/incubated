@@ -1,0 +1,84 @@
+{
+    "$schema": "https://json-schema.org/draft-06/schema#", 
+    "$schemaVersion": "0.0.1", 
+    "$id": "https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/Extension/schema.json", 
+    "title": "Binary data model based on HL7 equivalent resource", 
+    "description": "", 
+    "modelTags": "HL7", 
+    "derivedFrom": "https://hl7.org/fhir/R4B/", 
+    "license": "https://www.hl7.org/implement/standards/fhir/license.html", 
+    "type": "object", 
+    "required": [
+        "id", 
+        "type"
+    ], 
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/dataModel.Hl7/hl7-schema.json#/definitions/GSMA-Commons"
+        }, 
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        }, 
+        {
+            "$ref": "https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/common-hl7-schema.json"
+        }, 
+        {
+            "properties": {
+                "resourceType": {
+                    "description": "Property. Model:'https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/' This is a Binary resource", 
+                    "const": "Binary"
+                }, 
+                "meta": {
+                    "description": "Property. Model:'https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/Meta' The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.", 
+                    "$ref": "https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/common-hl7-schema.json#/definitions/Meta"
+                }, 
+                "implicitRules": {
+                    "description": "Property. Model:'https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/uri' String of characters used to identify a name or a resource", 
+                    "pattern": "^\\S*$", 
+                    "type": "string"
+                }, 
+                "_implicitRules": {
+                    "description": "Property. Model:'https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "$ref": "https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "language": {
+                    "description": "Property. Model:'https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_language": {
+                    "description": "Property. Model:'https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "$ref": "https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "contentType": {
+                    "description": "Property. Model:'https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$", 
+                    "type": "string"
+                }, 
+                "_contentType": {
+                    "description": "Property. Model:'https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "$ref": "https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "securityContext": {
+                    "description": "Property. Model:'https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/Reference' A reference from one resource to another.", 
+                    "$ref": "https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/common-hl7-schema.json#/definitions/Reference"
+                }, 
+                "data": {
+                    "description": "Property. Model:'https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/base64Binary' A stream of bytes", 
+                    "type": "string"
+                }, 
+                "_data": {
+                    "description": "Property. Model:'https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/Element' Base definition for all elements in a resource.", 
+                    "$ref": "https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/common-hl7-schema.json#/definitions/Element"
+                }, 
+                "type": {
+                    "type": "string", 
+                    "enum": [
+                        "Binary"
+                    ], 
+                    "description": "Property. NGSI Entity type. It has to be 'Binary'"
+                }
+            }
+        }
+    ]
+}
