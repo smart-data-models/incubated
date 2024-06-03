@@ -29,7 +29,10 @@ import copy
 import pathlib
 import sys
 import jsonschema
-from jsonschema import Draft7Validator, validate, RefResolver
+from jsonschema import validate, RefResolver, Draft202012Validator
+import requests
+import jsonref
+import pysmartdatamodels as sdm
 
 ###############################################################################
 # global variables
@@ -37,7 +40,7 @@ global_schema_file = "overall_schema_4.3.json"  #'fhir.schema.5.0.json' # # HL7/
 definition_file = (
     "common-hl7-schema.json"  # common base definitions for HL7/FHIR mapping
 )
-schema_url = "https://json-schema.org/draft-06/schema#"
+schema_url = "https://json-schema.org/draft-2020-12/schema#"
 
 # define the base url for "$id" don't forget a "/" at the end !
 base_id_url = (
@@ -51,6 +54,39 @@ base_id_url = (
 
 ###############################################################################
 # Functions
+def open_jsonref(fileUrl: str):
+    """
+    Opens a JSON file given its URL or path and returns the loaded content as a JSON object.
+    Capable of parsing JSON file with $ref
+    Parameters:
+    - file_url (str): The URL or path of the JSON file.
+    Returns:
+    - dict: The loaded JSON content if successful, none otherwise.
+    Example:
+    open_jsonref("https://example.com/data.json")
+    {...}
+    open_jsonref("local_file.json")
+    {...}
+    open_jsonref("invalid-url")
+    None
+    """
+    if fileUrl[0:4] == "http":
+        # es URL
+        try:
+            pointer = requests.get(fileUrl)
+            output = jsonref.loads(pointer.content.decode('utf-8'), load_on_repr=True, merge_props=True)
+            return output
+        except:
+            return None
+    else:
+        # es file
+        try:
+            file = open(fileUrl, "r")
+            return jsonref.loads(file.read(), load_on_repr=True, merge_props=True)
+        except:
+            return None
+
+
 # infer content of property based on the definition got from definitions dictionary
 def infer_type(hl7_type: str, definition_dict: dict):
     """
@@ -78,7 +114,7 @@ def infer_type(hl7_type: str, definition_dict: dict):
         description = def_dict.get("description", "no description available")
         return {
             "description": description,
-            #"type": "object",
+            #"type": "object", # may be not needed with "$ref"
             "$ref": "#/definitions/" + hl7_type,
         }
     # take care with 'ResourceList'
@@ -346,12 +382,12 @@ for entity_type, entity_def in resources_definitions.items():
         )
 
     try:
-        validator = Draft7Validator(entity_schema, resolver=resolver)
+        validator = Draft202012Validator(entity_schema, resolver=resolver)
     except Exception as e:
-        print("Draft7Validator Error:", e)
+        print("Draft202012Validator Error:", e)
     else:
         print(
-            "Entity schema for " + entity_type + " is valid against Draft7Validator !"
+            "Entity schema for " + entity_type + " is valid against Draft202012Validator !"
         )
 
     # create directory for the entity resource type

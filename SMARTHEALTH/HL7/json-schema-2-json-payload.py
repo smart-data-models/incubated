@@ -341,5 +341,5 @@ for obj in arrayofdict:
             finaldict[key] = value
 # write output json file
 with open('Patient.json', 'w') as f:
-    json.dump(finaldict, f)
+    json.dump(finaldict, f, indent=4, separators=(", ", ": "))
 
