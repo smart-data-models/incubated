@@ -1,3 +1,7 @@
+# try to genrate json payload from json schema...
+# not very usable !!!!
+
+
 import pandas as pd
 import json
 import requests

@@ -1,6 +1,8 @@
- # How to map HL7 resources to NGSI-LD entities
+ # Map HL7 FHIR resources to NGSI-LD entities smart data models
 
-convert HL7-fhir json schemas to NGSI-LD entities schemas
+## how to prepare schemas for NGSI-LD
+
+convert HL7-fhir json schemas to NGSI-LD entities schemas, following smartdatamodels.org recommendations
 
 Preliminary diagram fo how it works:
 
@@ -73,7 +75,7 @@ same thing for "modifierExtension" propertiy
 we need to create an entity type for Extension, to be able to use it in NGSI-LD
 
 ### Consequences for usage
-if there will be almost exact correspondance between FHIR and matching NGSI-LD SMD schema, to ingest directly json FHIR object, will need an adapter, but only for the porperties of type 'Extension'
+if there will be almost exact correspondance between FHIR and matching NGSI-LD SDM schema, to ingest directly json FHIR object, will need an adapter, but only for the porperties of type 'Extension'
 
 #### convert from json HL7/FHIR to NGSI-LD, to inject in CB
 This means that: in case you want to convert an HL7/FHIR json object to NGSI-LD, 
@@ -350,5 +352,5 @@ remains issue with "contained"
 developped with content of "ResourceList" in each generated schema ?
 
 fixed schema url: http://json-schema.org/draft-06/schema#
- change to http://json-schema.org/draft-07/schema# ?
+ change to http://json-schema.org/draft-07/schema# ? => now Draft202012Validator
 

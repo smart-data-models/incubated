@@ -43,7 +43,7 @@ definition_file = (
 schema_url = "https://json-schema.org/draft-2020-12/schema#"
 
 # define the base url for "$id" don't forget a "/" at the end !
-base_id_url = (
+base_repo_url = (
     "https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/"
 )
 # 'https://github.com/agaldemas/incubated/blob/master/SMART%20HEALTH/HL7/
@@ -51,6 +51,9 @@ base_id_url = (
 # https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/
 # this following should be the final one
 # "https://github.com/smart-data-models/dataModel.Hl7/"
+
+# path to FHIR release for a specific directory
+fhir_release_path='FHIR-R4/'
 
 ###############################################################################
 # Functions
@@ -180,7 +183,7 @@ for def_name, definitions in base_definitions.items():
 # to build global common definitions
 definition_schema = {
     "$schema": schema_url,
-    "$id": base_id_url + definition_file,
+    "$id": base_repo_url + fhir_release_path + definition_file,
     "title": "Common HL7/FHIR definitions for NGSI-LD Harmonized Data Models",
     "definitions": {},
 }
@@ -189,6 +192,11 @@ print("definition_schema: ", definition_schema)
 
 # merge with base_definitions dict
 definition_schema["definitions"].update(base_definitions)
+
+# create directory for the entity resource type
+path = pathlib.Path(fhir_release_path)
+path.mkdir(parents=True, exist_ok=True)
+
 # Save the extracted base definitions to a new JSON file
 with open(definition_file, "w") as f:
     json.dump(definition_schema, f, indent=4, separators=(", ", ": "))
@@ -199,7 +207,7 @@ with open(definition_file, "w") as f:
 schema_header = {
     "$schema": schema_url,
     "$schemaVersion": "0.0.1",
-    "$id": base_id_url + "XXXX/schema.json",
+    "$id": base_repo_url + "XXXX/schema.json",
     "title": "Smart Data Models - ",
     "description": "",
     "modelTags": "HL7",
@@ -214,7 +222,9 @@ schema_header = {
         {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
         },
-        {"$ref": base_id_url + definition_file},
+        {
+            "$ref": base_repo_url + fhir_release_path + definition_file
+        },
     ],
 }
 
@@ -285,7 +295,7 @@ for entity_type, entity_def in resources_definitions.items():
         # like the base_id_url ?
         # because the model is coming from the "$ref" content definition,
         # which are in 'SMART HEALTH/HL7/common-hl7-schema.json' file
-        base_url = base_id_url  # "https://hl7.org/fhir/" # take care to '/'
+        base_url = base_repo_url + fhir_release_path  # "https://hl7.org/fhir/" # take care to '/'
         description = "Property. Model:'" + base_url + hl7_type + "' " + origDesc
         content["description"] = content["description"].replace(origDesc, description)
 
@@ -320,11 +330,11 @@ for entity_type, entity_def in resources_definitions.items():
         # update "$ref" with url SMART HEALTH/HL7/common-hl7-schema.json
         if content.get("$ref",None):
             content["$ref"] = content["$ref"].replace(
-                "#/definitions/", base_id_url + definition_file + "#/definitions/"
+                "#/definitions/", base_repo_url + fhir_release_path + definition_file + "#/definitions/"
             )
         if content.get('items',None) and content.get("items",None).get("$ref",None):
             content["items"]["$ref"] = content["items"]["$ref"].replace(
-                "#/definitions/", base_id_url + definition_file + "#/definitions/"
+                "#/definitions/", base_repo_url + fhir_release_path + definition_file + "#/definitions/"
             )
 
     # end loop on properties
@@ -372,7 +382,7 @@ for entity_type, entity_def in resources_definitions.items():
 
     # validate the entity schema itself
     try:
-        resolver = RefResolver(base_uri=base_id_url, referrer=entity_schema)
+        resolver = RefResolver(base_uri= base_repo_url + fhir_release_path, referrer=entity_schema)
     except Exception as e:
         print("RefResolver Error:", e)
     else:
@@ -391,7 +401,7 @@ for entity_type, entity_def in resources_definitions.items():
         )
 
     # create directory for the entity resource type
-    path = pathlib.Path(entity_type)
+    path = pathlib.Path(fhir_release_path + entity_type)
     path.mkdir(parents=True, exist_ok=True)
     
     # delete already present json files
@@ -402,12 +412,12 @@ for entity_type, entity_def in resources_definitions.items():
     for file in files:
         if file.endswith('.json'):
             try:
-                os.remove('./'+ entity_type + '/' + file)
+                os.remove('./' + fhir_release_path + entity_type + '/' + file)
             except FileNotFoundError:
                 print('file not found !')
 
     # write schema file in the directory
-    exportfilename = "./" + entity_type + "/schema.json"
+    exportfilename = "./" + fhir_release_path + entity_type + "/schema.json"
     with open(exportfilename, "w+") as exportfile:
         json.dump(entity_schema, exportfile, indent=4, separators=(", ", ": "))
     print(">>>>>> wrote schema file for entity type " + entity_type)
