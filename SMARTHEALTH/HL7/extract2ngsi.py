@@ -222,8 +222,10 @@ schema_header = {
         {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
         },
+    ],
+    "anyOf": [
         {
-            "$ref": base_repo_url + fhir_release_path + definition_file
+            "$ref": base_repo_url + fhir_release_path + definition_file + "#/definitions"
         },
     ],
 }
