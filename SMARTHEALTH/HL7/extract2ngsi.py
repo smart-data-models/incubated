@@ -198,7 +198,7 @@ path = pathlib.Path(fhir_release_path)
 path.mkdir(parents=True, exist_ok=True)
 
 # Save the extracted base definitions to a new JSON file
-with open(definition_file, "w") as f:
+with open(fhir_release_path + definition_file, "w") as f:
     json.dump(definition_schema, f, indent=4, separators=(", ", ": "))
 
 # ==============================
