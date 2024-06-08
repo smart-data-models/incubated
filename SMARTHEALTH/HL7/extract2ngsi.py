@@ -44,7 +44,7 @@ schema_url = "https://json-schema.org/draft-07/schema#"
 
 # define the base url for "$id" don't forget a "/" at the end !
 base_repo_url = (
-    "https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/"
+    "https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/"
 )
 # 'https://github.com/agaldemas/incubated/blob/master/SMART%20HEALTH/HL7/
 # 'https://github.com/agaldemas/incubated/raw/master/SMART%20HEALTH/HL7/
