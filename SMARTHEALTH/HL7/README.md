@@ -354,3 +354,10 @@ developped with content of "ResourceList" in each generated schema ?
 fixed schema url: http://json-schema.org/draft-06/schema#
  change to http://json-schema.org/draft-07/schema# ? => now Draft202012Validator
 
+
+2024-06_06 D-Day after meeting with Alberto, decision to use a subdirectory of HL7 : FHIR-R4 or fhir-r4
+
+fixed the issue with pysmartdatamodels package (see `__init__.py`)
+
+but still same issue with my schemas "$ref": "link to definitions" is not OK
+with all "properties" inside "allOf" is it the issue

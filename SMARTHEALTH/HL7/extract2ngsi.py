@@ -40,7 +40,7 @@ global_schema_file = "overall_schema_4.3.json"  #'fhir.schema.5.0.json' # # HL7/
 definition_file = (
     "common-hl7-schema.json"  # common base definitions for HL7/FHIR mapping
 )
-schema_url = "https://json-schema.org/draft/2020-12/schema#"
+schema_url = "https://json-schema.org/draft07/schema#"
 
 # define the base url for "$id" don't forget a "/" at the end !
 base_repo_url = (
@@ -185,7 +185,13 @@ definition_schema = {
     "$schema": schema_url,
     "$id": base_repo_url + fhir_release_path + definition_file,
     "title": "Common HL7/FHIR definitions for NGSI-LD Harmonized Data Models",
-    "definitions": {},
+    "definitions": {
+        "hl7-commons": {
+            "description": "common properties for HL7",
+            "type": "object",
+            "properties": {}
+        },
+    }
 }
 print("definition_schema: ", definition_schema)
 
@@ -222,10 +228,10 @@ schema_header = {
         {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
         },
-    ],
-    "anyOf": [
+    # ],
+    # "anyOf": [
         {
-            "$ref": base_repo_url + fhir_release_path + definition_file + "#/definitions"
+            "$ref": base_repo_url + fhir_release_path + definition_file + "#/definitions/Element"
         },
     ],
 }
