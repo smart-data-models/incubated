@@ -164,11 +164,12 @@ extension_dict = {
     ],
 }
 
-# loop to replace "extension" property in the right place
-for def_name, definitions in base_definitions.items():
-    for key, property in definitions.items():
+# loop on all definitions to replace "extension" property in the right place
+for def_name, definition in base_definitions.items():
+    # iterate on element of the definition
+    for key, element in definition.items():
         if key == 'properties':
-            for prop, content in property.items():
+            for prop, content in element.items():
                 if prop == 'extension' or prop == 'modifierExtension':
                     # replace with the new dict
                     if content.get('items', None):
@@ -176,6 +177,15 @@ for def_name, definitions in base_definitions.items():
                         del content["items"]["$ref"]
                     else:
                         print('TTTTTTTTTT definiton of {} => found Extension dependance on property {} without "items" : ', def_name, prop )
+
+
+# loop on all definitions to radd 'type': 'object' to definition
+for def_name, definition in base_definitions.items():
+    if 'properties' in definition:
+        # add 'type': 'object' to definition
+        definition.update({'type':'object'})
+            
+                
  
 
 
