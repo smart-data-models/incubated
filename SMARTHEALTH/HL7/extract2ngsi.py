@@ -40,7 +40,7 @@ global_schema_file = "overall_schema_4.3.json"  #'fhir.schema.5.0.json' # # HL7/
 definition_file = (
     "common-hl7-schema.json"  # common base definitions for HL7/FHIR mapping
 )
-schema_url = "https://json-schema.org/draft-07/schema#"
+schema_url = "http://json-schema.org/schema#"
 
 # define the base url for "$id" don't forget a "/" at the end !
 base_repo_url = (
@@ -193,6 +193,7 @@ for def_name, definition in base_definitions.items():
 # to build global common definitions
 definition_schema = {
     "$schema": schema_url,
+    "description": "Base definitions for HL7 FHIR resources mapping to NGSI-LD",
     "$id": base_repo_url + fhir_release_path + definition_file,
     "title": "Common HL7/FHIR definitions for NGSI-LD Harmonized Data Models",
     "definitions": {
