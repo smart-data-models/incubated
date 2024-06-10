@@ -194,7 +194,7 @@ for def_name, definition in base_definitions.items():
 definition_schema = {
     "$schema": schema_url,
     "description": "Base definitions for HL7 FHIR resources mapping to NGSI-LD",
-    "$id": base_repo_url + fhir_release_path + definition_file,
+    #"$id": base_repo_url + fhir_release_path + definition_file,
     "title": "Common HL7/FHIR definitions for NGSI-LD Harmonized Data Models",
     "definitions": {
         # "hl7-commons": {
@@ -224,9 +224,9 @@ with open(fhir_release_path + definition_file, "w") as f:
 schema_header = {
     "$schema": schema_url,
     "$schemaVersion": "0.0.1",
-    "$id": base_repo_url + "XXXX/schema.json",
-    "title": "Smart Data Models - ",
-    "description": "",
+    "$id": base_repo_url + fhir_release_path + "XXXX/schema.json",
+    "title": "Smart Data Models - HL7/FHIR",
+    "description": "Smart Data Models for HL7/FHIR mapping",
     "modelTags": "HL7",
     "derivedFrom": "https://hl7.org/fhir/R4B/",
     "license": "https://www.hl7.org/implement/standards/fhir/license.html",
@@ -347,11 +347,11 @@ for entity_type, entity_def in resources_definitions.items():
             # del entity_def['properties']['type']
         # else:
         # update "$ref" with url SMART HEALTH/HL7/common-hl7-schema.json
-        if content.get("$ref",None):
+        if "$ref" in content:
             content["$ref"] = content["$ref"].replace(
                 "#/definitions/", base_repo_url + fhir_release_path + definition_file + "#/definitions/"
             )
-        if content.get('items',None) and content.get("items",None).get("$ref",None):
+        if 'items' in content and content.get("items",None).get("$ref",None):
             content["items"]["$ref"] = content["items"]["$ref"].replace(
                 "#/definitions/", base_repo_url + fhir_release_path + definition_file + "#/definitions/"
             )
@@ -360,8 +360,9 @@ for entity_type, entity_def in resources_definitions.items():
 
     # prepare entity schema and set things in header
     entity_schema = schema_header
-    entity_schema["$id"] = entity_schema["$id"].replace("XXXX", entity_type)
+    entity_schema["$id"] = base_repo_url + fhir_release_path + entity_type + "/schema.json"
     entity_schema["title"] = entity_type + " data model based on HL7 equivalent resource"
+    entity_schema["description"] = "Smart Data Models for " + entity_type + " HL7/FHIR resource type"
 
     # remove "properties" in "allOff" array !
     index = -1
