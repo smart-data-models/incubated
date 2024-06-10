@@ -341,9 +341,9 @@ for entity_type, entity_def in resources_definitions.items():
         #
         if prop == "type":
             # change "type" to "hl7Type"
-            print('TTTTTTTTTT resource <{}> contains a "type" property"', entity_type)
+            # print('TTTTTTTTTT resource <{}> contains a "type" property"', entity_type)
             hl7_type = {"hl7Type": content}
-            # print ('TTTTTTTTT hl7_type dict:', hl7_type)
+            print ('TTTTTTTTT hl7_type dict:', hl7_type)
             # del entity_def['properties']['type']
         # else:
         # update "$ref" with url SMART HEALTH/HL7/common-hl7-schema.json
