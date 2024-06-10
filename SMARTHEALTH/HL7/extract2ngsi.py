@@ -260,16 +260,18 @@ resources_definitions = {
 for entity_type, entity_def in resources_definitions.items():
     print(">>>>>>>>> process hl7 resource for entity_type: <" + entity_type + ">")
     #print('>>>>>>>>> process hl7 resource for entity_def: ', entity_def)
-
+    
+    hl7_type_content = None
     # loop on entity properties to prepare it for destination schema
     for prop, content in entity_def["properties"].items():
+        print('Process <' + prop + '> property')
         # add necessary "Property. Model:’https://schema.org/<type of property value>"
         # in description of the property to match NGSI-LD rules
         #
-        hl7_type = ""
+        hl7_type = ''
         type_dict = None
         item_type = "string"
-        if content.get("$ref", None):
+        if "$ref" in content:
             hl7_type = content["$ref"].replace("#/definitions/", "")
             # we don't need "$ref" inside property definition, but "properties" block must be inside "allOf" block !
             # content['$ref'] = content['$ref'].replace('#/definitions/', base_id_url + definition_file + '/')
@@ -284,7 +286,7 @@ for entity_type, entity_def in resources_definitions.items():
 
         elif (
             content.get("type",None) == "array"
-            and content.get("items", None)
+            and "items" in content
         ):
             if content['items'].get('$ref'):
                 hl7_type = content['items']['$ref'].replace('#/definitions/', '')
@@ -315,7 +317,7 @@ for entity_type, entity_def in resources_definitions.items():
         # because the model is coming from the "$ref" content definition,
         # which are in 'SMART HEALTH/HL7/common-hl7-schema.json' file
         base_url = base_repo_url + fhir_release_path  # "https://hl7.org/fhir/" # take care to '/'
-        description = "Property. Model:'" + base_url + hl7_type + "' " + origDesc
+        description = "Property. Model:'" + base_url + fhir_release_path + hl7_type + "' " + origDesc
         content["description"] = content["description"].replace(origDesc, description)
 
         # manage 'extension' and 'modifierExtension' properties with a special treatment:
@@ -342,9 +344,9 @@ for entity_type, entity_def in resources_definitions.items():
         if prop == "type":
             # change "type" to "hl7Type"
             # print('TTTTTTTTTT resource <{}> contains a "type" property"', entity_type)
-            hl7_type = {"hl7Type": content}
-            print ('TTTTTTTTT hl7_type dict:', hl7_type)
-            # del entity_def['properties']['type']
+            hl7_type_content = {"hl7Type": content}
+            print ('TTTTTTTTT hl7_type dict:', hl7_type_content)
+            # entity_def['properties'].update(hl7_type)
         # else:
         # update "$ref" with url SMART HEALTH/HL7/common-hl7-schema.json
         if "$ref" in content:
@@ -355,7 +357,6 @@ for entity_type, entity_def in resources_definitions.items():
             content["items"]["$ref"] = content["items"]["$ref"].replace(
                 "#/definitions/", base_repo_url + fhir_release_path + definition_file + "#/definitions/"
             )
-
     # end loop on properties
 
     # prepare entity schema and set things in header
@@ -385,8 +386,10 @@ for entity_type, entity_def in resources_definitions.items():
             "description": "Property. NGSI Entity type. It has to be '" + entity_type + "'",
         }
     }
-    # if hl7_type:
-    #     entity_def['properties'].update(hl7_type)
+    if hl7_type_content:
+        #del entity_def['properties']['type']
+        entity_def['properties'].update(hl7_type_content)
+
     entity_def["properties"].update(type_prop)
     # remove "id"
     if entity_def["properties"].get('id',None):
