@@ -44,7 +44,7 @@ schema_url = "https://json-schema.org/draft-07/schema#"
 
 # define the base url for "$id" don't forget a "/" at the end !
 base_schema_url = (
-    "https://github.com/agaldemas/incubated/raw/master/SMARTHEALTH/HL7/"
+    "https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/"
 )
 # path to FHIR release for a specific directory
 fhir_release_path='FHIR-R4/'
@@ -59,11 +59,25 @@ entity_type = 'Patient'
 results = {}
 
 # try:
-schemaUrl = base_schema_url + fhir_release_path + entity_type + '/schema.json'
-print('>>>>>>>>> schemaUrl: ', schemaUrl)
-results = sdm.validate_data_model_schema(schemaUrl)
+# base_schema = 'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/common-hl7-schema.json'
+# print('validate base schema: ' + base_schema)
+# results = sdm.validate_data_model_schema(base_schema)
+# print(results)
+print('=================================================')
 
+schema_url = base_schema_url + fhir_release_path + entity_type + '/schema.json'
+# schema_url = 'https://raw.githubusercontent.com/smart-data-models/dataModel.Transportation/eb97b0d8cc77d3258ea4a96da5dfe6e5597f229a/RoadSegment/schema.json'
+# schema_url = 'https://raw.githubusercontent.com/smart-data-models/incubated/blob/master/SMARTCITIES/SMARTPORTS/NEW_PORT/MarineTransport-schema.json'
+schema_url = 'https://raw.githubusercontent.com/smart-data-models/dataModel.Environment/master/MosquitoDensity/schema.json'
+
+print('>>>>>>>>> schemaUrl: ', schema_url)
+results = sdm.validate_data_model_schema(schema_url)
 print(results)
+# print('=================================================')
+# example = sdm.ngsi_ld_example_generator(schema_url)
+# print('example of json:')
+# print(example)
+
 #except Exception as e:
 #    print("An error occurred while validating the data model schema:", e)
     # sys.exit(1)
