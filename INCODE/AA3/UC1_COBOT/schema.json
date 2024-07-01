@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "INCODE",
+    "$id": "https://smart-data-models.github.io/dataModel.Device/ProductionLineStatus/schema.json",
+    "title": "Smart Data models - UC1_COBOT",
+    "description": "A Data Model of the assembly mode in a production line UC1_COBOT",
+    "type": "object",
+    "allOf": [
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      },
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+      },
+      {
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Property. NGSI Entity identifier. It has to be ProductionLineAssemblyMode",
+            "enum": [
+              "UC1_COBOT"
+            ]
+          },
+          "timeStamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Property. The timestamp of the production line status update"
+          },
+          "automatic": {
+            "type": "boolean",
+            "description": "Property. Indicates whether the assembly mode in the production line is in automatic or manual mode"
+          }
+        }
+      }
+    ],
+    "required": [
+      "id",
+      "type",
+      "timeStamp",
+      "automatic"
+    ]
+  }

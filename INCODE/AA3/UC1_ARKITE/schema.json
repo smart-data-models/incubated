@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "INCODE",
+    "$id": "https://smart-data-models.github.io/dataModel.Device/ProductionLineStatus/schema.json",
+    "title": "Smart Data models - UC1_ARKITE",
+    "description": "A Data Model of the status of a production line UC1_ARKITE",
+    "type": "object",
+    "allOf": [
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      },
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+      },
+      {
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Property. NGSI Entity identifier. It has to be ProductionLineStatus",
+            "enum": [
+              "UC1_ARKITE"
+            ]
+          },
+          "timeStamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Property. The timestamp of the production line status update"
+          },
+          "automatic": {
+            "type": "boolean",
+            "description": "Property. Indicates whether the production line is in automatic or manual mode"
+          },
+          "lineSpeed": {
+            "type": "string",
+            "description": "Property. The current speed mode of the production line (fast/slow)"
+          }
+        }
+      }
+    ],
+    "required": [
+      "id",
+      "type",
+      "timeStamp",
+      "automatic",
+      "lineSpeed"
+    ]
+  }
