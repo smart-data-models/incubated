@@ -10,6 +10,9 @@
   "type": "object",
   "allOf": [
     {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
     {
@@ -23,10 +26,7 @@
         },
         "mrn": {
           "type": "string",
-          "description": "Property. MRN coded identifier. It has to be related to the entity in a way that is well-known by different organisms the meaning and the initiator of the entity, and all next parties will maintain on its origianl value. This identifier must be an UNIQUE identifier of the Operation entity assigned by the system who created on first the entity. This URN should Conforms MRN & IETF specifically RFC 2141, RFC 5234, and RFC 8141. \n    The propossed format is \n    id::='urn:mrn:<OID>:<ONSS>:portcalls:operation:id:[0-9]+' \n    where OID:= Organisation UN/LOCODE, OONSS:=Organization Name of Service, 9999999 an increasing, unique identifier that the issuer of the Berth entity will identify on his sistems (i.e. a SQL row-id), \n    i.e. urn:mrn:eshuv:portcalls:operation:id:2024012 \n     See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)In international standards is also known as [Ship's Visit]",
-          "enum": [
-            "PortCall"
-          ]
+          "description": "Property. MRN coded identifier. It has to be related to the entity in a way that is well-known by different organisms the meaning and the initiator of the entity, and all next parties will maintain on its origianl value. This identifier must be an UNIQUE identifier of the Operation entity assigned by the system who created on first the entity. This URN should Conforms MRN & IETF specifically RFC 2141, RFC 5234, and RFC 8141. The propossed format is id::='urn:mrn:<OID>:<ONSS>:portcalls:operation:id:[0-9]+' where OID:= Organisation UN/LOCODE, OONSS:=Organization Name of Service, 9999999 an increasing, unique identifier that the issuer of the Berth entity will identify on his sistems (i.e. a SQL row-id), i.e. urn:mrn:eshuv:portcalls:operation:id:2024012 See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)In international standards is also known as [Ship's Visit]"
         },
         "portCode": {
           "type": "string",
@@ -41,27 +41,55 @@
           "description": "Property. Model:'https://schema.org/Text'. PortCall identifier in urn format. MarineTransport:PortCall:portCallNumber [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
         },
         "portCallRef": {
-          "type": "Relationship",
-          "description": "Relationship.Reference to parent MarineTransport:PortCall entity. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to parent MarineTransport:PortCall entity. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
         },
         "berthRef": {
-          "type": "Relationship",
-          "description": "Relationship.Reference to parent MarineTransport:Berth entity. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to parent MarineTransport:Berth entity. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
         },
         "stopRank": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Rank or Number of this stop in the stop (berth or anchor area) ordered by  time sequence. [EMSWe: -] [EDI: -] [S211: -] [IMO: -]"
+          "description": "Property. Model:'https://schema.org/Number'. Rank or Number of this stop in the stop (berth or anchor area) ordered by time sequence. [EMSWe: -] [EDI: -] [S211: -] [IMO: -]"
         },
         "operationRank": {
           "type": "number",
           "description": "Property. Model:'https://schema.org/Number'. Rank or Number of this Operation in all the commercial operations made in berth in the sequence of operations (dischargue, charge, ...). [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
         },
         "ets": {
-          "type": "datetime",
+          "type": "string",
+          "format": "date-time",
           "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of Estimated Time of starting the operation.. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
         },
         "etc": {
-          "type": "datetime",
+          "type": "string",
+          "format": "date-time",
           "description": "Property. Model:'https://schema.org/Text' represented by an ISO 8601 UTC format, Date and time of Estimated Time of Arrival to Berth expected by Port Authority  (ISO 8601 UTC format). If this is the first berthing, the ETA-berth should be the same than ETA-PBP. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
         },
         "operationTypeCode": {
@@ -82,31 +110,31 @@
         },
         "maxWeightPerUnit": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Maximum Weight per unit loading/discharge in Tm. [EMSWe: DE-019-07] [EDI: BGM-1225] [S211: serviceState: timeSequence:VESSEL] "
-        },
-        "terminal": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Terminal where the operation takes place. [EMSWe: DE-005-04] [EDI: DTM-2005-133] [S211: locationState.timeType.ESTIMATED] [IMO: IMO0066] "
-        },
-        "location": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Text specifying the location in the port where the operations has place. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
-        },
-        "remarks": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Remarks of the operation. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
-        },
-        "manipulationMeansCode": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Code identifying the manipulation means. Enum: 1=Vessel's own resources, 2=Roll-on-roll-off ramp,  3=Dock cranes, 4=Automotive cranes, 5=Pipes, 6=Conveyor belts, 7=Pneumatic pumping installations, 8=Special installations, 9=Other means. [EMSWe: -] [EDI: -] [S211: -] [IMO: -]"
-        },
-        "manipulationMeansNumber": {
-          "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Number of manipulation means. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
-        },
-        "stevedoreRef": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Id of the stevedore. Format urn:mrn:<oid>:portcalls:operation:stevedore:9999. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
+          "description": "Property. Model:'https://schema.org/Number'. Maximum Weight per unit loading/discharge in Tm. [EMSWe: DE-019-07] [EDI: BGM-1225] [S211: serviceState: timeSequence:VESSEL] ",
+          "terminal": {
+            "type": "string",
+            "description": "Property. Model:'https://schema.org/Text'. Terminal where the operation takes place. [EMSWe: DE-005-04] [EDI: DTM-2005-133] [S211: locationState.timeType.ESTIMATED] [IMO: IMO0066] "
+          },
+          "position": {
+            "type": "string",
+            "description": "Property. Model:'https://schema.org/Text'. Text specifying the location in the port where the operations has place. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
+          },
+          "remarks": {
+            "type": "string",
+            "description": "Property. Model:'https://schema.org/Text'. Remarks of the operation. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
+          },
+          "manipulationMeansCode": {
+            "type": "string",
+            "description": "Property. Model:'https://schema.org/Text'. Code identifying the manipulation means. Enum: 1=Vessel's own resources, 2=Roll-on-roll-off ramp,  3=Dock cranes, 4=Automotive cranes, 5=Pipes, 6=Conveyor belts, 7=Pneumatic pumping installations, 8=Special installations, 9=Other means. [EMSWe: -] [EDI: -] [S211: -] [IMO: -]"
+          },
+          "manipulationMeansNumber": {
+            "type": "number",
+            "description": "Property. Model:'https://schema.org/Number'. Number of manipulation means. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
+          },
+          "stevedoreRef": {
+            "type": "string",
+            "description": "Property. Model:'https://schema.org/Text'. Id of the stevedore. Format urn:mrn:<oid>:portcalls:operation:stevedore:9999. [EMSWe: -] [EDI: -] [S211: -] [IMO: -] "
+          }
         }
       }
     }
@@ -114,7 +142,6 @@
   "required": [
     "id",
     "type",
-    "portCallRef",
     "stopRank"
   ]
 }
