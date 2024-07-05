@@ -51,22 +51,20 @@
                 },
                 "hasVar":{
                     "type": "string",
-                    "value":{
-                        "anyOf": [
-                            {
-                                "type": "string",
-                                "minLength": 1,
-                                "maxLength": 256,
-                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                                "description": "Property. Identifier format of any NGSI entity"
-                            },
-                            {
-                                "type": "string",
-                                "format": "uri",
-                                "description": "Property. Identifier format of any NGSI entity"
-                            }
-                        ],
-                    },                    
+                    "anyOf":[
+                        {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 256,
+                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                            "description": "Property. Identifier format of any NGSI entity"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "Property. Identifier format of any NGSI entity"
+                        }
+                    ],
                     "description": "A relationship indicating the ID of the entity describing the variable. Reference to an entity of type GriddedVariable"                    
                 },
                 "dimTime":{
