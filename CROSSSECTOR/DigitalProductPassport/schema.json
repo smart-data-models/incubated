@@ -1,0 +1,180 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://smart-data-models.github.io/XXXsubjectXXX/XXXdataModelXXX/schema.json",
+  "title": "Digital Product Passport",
+  "description": "Digital Product Passport according to EU regulation",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "description": "Property. NGSI Entity type. It has to be DigitalProductPassport",
+          "enum": [
+            "DigitalProductPassport"
+          ]
+        },
+        "productIdentification": {
+          "type": "object",
+          "properties": {
+            "globalTradeItemNumber": {
+              "type": "number",
+              "description": "Property. "
+            },
+            "serialNumber": {
+              "type": "string",
+              "description": "Property. Serial number of the element. "
+            }
+          },
+          "description": "Property. "
+        },
+        "productAttributes": {
+          "type": "object",
+          "properties": {
+            "materialComposition": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "material": {
+                    "type": "string",
+                    "description": "Property. Element construction material (type)"
+                  },
+                  "percentageByWeight": {
+                    "type": "number",
+                    "description": "Property. "
+                  }
+                },
+                "description": "Property. "
+              },
+              "description": "Property. "
+            },
+            "repairability": {
+              "type": "object",
+              "properties": {
+                "sparePartsAvailability": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "toolsRequired": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "description": "Property. "
+                  },
+                  "description": "Property. "
+                }
+              },
+              "description": "Property. "
+            },
+            "recyclability": {
+              "type": "object",
+              "properties": {
+                "recycledContentPercentage": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "disassemblyInstructions": {
+                  "type": "string",
+                  "description": "Property. "
+                }
+              },
+              "description": "Property. "
+            },
+            "energyEfficiency": {
+              "type": "object",
+              "properties": {
+                "energyEfficiencyClass": {
+                  "type": "string",
+                  "description": "Property. "
+                },
+                "annualEnergyConsumption": {
+                  "type": "number",
+                  "description": "Property. "
+                }
+              },
+              "description": "Property. "
+            },
+            "carbonFootprint": {
+              "type": "object",
+              "properties": {
+                "productCarbonFootprint": {
+                  "type": "number",
+                  "description": "Property. "
+                },
+                "unit": {
+                  "type": "string",
+                  "description": "Property. Units of the measurement "
+                }
+              },
+              "description": "Property. "
+            }
+          },
+          "description": "Property. "
+        },
+        "supplyChainData": {
+          "type": "object",
+          "properties": {
+            "manufacturingLocation": {
+              "type": "string",
+              "description": "Property. "
+            },
+            "manufacturingDate": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Property. "
+            },
+            "certifications": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Property. The name of this item"
+                  },
+                  "url": {
+                    "type": "string",
+                    "description": "Property. URL which provides a description or further information about this item"
+                  }
+                },
+                "description": "Property. "
+              },
+              "description": "Property. "
+            }
+          },
+          "description": "Property. "
+        },
+        "endOfLife": {
+          "type": "object",
+          "properties": {
+            "disposalInstructions": {
+              "type": "string",
+              "description": "Property. "
+            },
+            "recyclingInstructions": {
+              "type": "string",
+              "description": "Property. "
+            }
+          },
+          "description": "Property. "
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
+
+
