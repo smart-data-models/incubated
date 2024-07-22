@@ -46,11 +46,11 @@ schema_url = "https://json-schema.org/schema#"
 base_repo_url = (
     "https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/"
 )
-# 'https://github.com/agaldemas/incubated/blob/master/SMART%20HEALTH/HL7/
-# 'https://github.com/agaldemas/incubated/raw/master/SMART%20HEALTH/HL7/
-# https://raw.githubusercontent.com/agaldemas/incubated/master/SMART%20HEALTH/HL7/
+# need absolutely point 'raw.githubusercontent.com' this does not work
+# 'https://github.com/agaldemas/incubated/blob/master/SMARTHEALTH/HL7/ 
+
 # this following should be the final one
-# "https://github.com/smart-data-models/dataModel.Hl7/"
+# "https://github.com/smart-data-models/dataModel.SMARTHEALTH.Hl7/"
 
 # path to FHIR release for a specific directory
 fhir_release_path='FHIR-R4/'
