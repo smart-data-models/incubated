@@ -1,0 +1,173 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://smart-data-models.github.io/data-models.HydrologicalSuimulation/MeteorologyModel/schema.json",
+    "title": "Hydrological Model - MeteorologyModel",
+    "description": "This entity contains a harmonised description of a Meteorology model for a basin.",
+    "$schemaVersion": "0.0.1",
+    "type": "object",
+    "allOf":[
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "MeteorologyModel"
+                    ],
+                    "description": "Property. NGSI-LD Entity Type. It has to be MeteorologyModel"
+                },
+                "metName":{
+                    "type": "string",
+                    "description": "Unique identifier (required)"
+                },
+                "description":{
+                    "type": "string",
+                    "description": "Optional text with important information about the model"
+                },
+                "unitSystem":{
+                    "type": "string",
+                    "enum":[
+                        "Metric",
+                        "U.S. Customary"
+                    ],
+                    "description": "A text indicating the unit system used for the calculations"
+                },                
+                "shortWaveModel":{
+                    "type": "string",
+                    "enum":[
+                        "None",
+                        "Bristow Campbell",
+                        "FAO56",
+                        "Gridded Hargreaves",
+                        "Gridded Shortwave",
+                        "Hargreaves",
+                        "Interpolated Shortwave",
+                        "Specified Pyranograph"
+                    ],
+                    "description": "A text indicating the shortwave method used for the calculations"
+                },             
+               "longWaveModel":{
+                "type": "string",
+                    "enum":[
+                        "None",
+                        "FAO56",
+                        "Gridded Longwave",
+                        "Satterlund",
+                        "Specified Pyranograph"
+                        ],
+                    "description": "A text indicating the longwave method used for the calculations"
+                },       
+                "precipModel":{
+                "type": "string",
+                "enum":[
+                    "None",
+                    "Frequency Storm",
+                    "Gage Weights",
+                    "Gridded Precipitation",
+                    "HMR52 Storm",
+                    "Hypothetical Storm",
+                    "Interpolated Precipitation",
+                    "Inverse Distance",
+                    "Specified Hyetograph",
+                    "Standard Project Storm"
+                    ],
+                    "description": "A text indicating the precipitation method used in the meteorological model."
+                },
+                "EvapMethod":{
+                    "type": "string",
+                    "enum":[
+                        "None",
+                        "Annual Evapotranspiration",
+                        "Gridded Hammon",
+                        "Gridded Hargreaves",
+                        "Gridded Penman Monteith",
+                        "Gridded Priestley Taylor",
+                        "Hamon",
+                        "Hargreaves",
+                        "Interpolated Evapotranspiration",
+                        "Monthly Average",
+                        "Penman Monteith",
+                        "Priestley Taylor",
+                        "Specified Evapotranspiration"
+                        ],
+                    "description": "A text indicating the method used to calculate losses due to evapotranspiration."
+                },                
+                "dewPoint":{
+                    "type": "string",
+                    "enum":[
+                        "None",
+                        "Gridded Dew Point Temperature",
+                        "Gridded Humidity",
+                        "Interpolated Dew Point Temperature",
+                        "Specified Dew Point Thermograph",
+                        "Specified Humidograph"
+                        ],
+                    "description": "A text indicating the dew point method used for the calculations."
+                },
+               "pressure":{
+                    "type": "string",
+                    "enum":[
+                        "None",
+                        "Gridded Pressure",
+                        "Specified Barograph"
+                    ],
+                    "description": "A text indicating the pressure method used for the calculations"
+                },                
+               "windSpeed":{
+                    "type": "string",
+                    "enum":[
+                        "None",
+                        "Gridded Windspeed",
+                        "Interpolated Windspeed",
+                        "Specified Anemograph"
+                    ],
+                    "description": "A text indicating the wind speed method used for the calculations"
+                },                   
+               "tempModel":{
+                    "type": "string",
+                    "enum":[
+                        "None",
+                        "Gridded Temperature",
+                        "Interpolated Temperature",
+                        "Specified Anemograph"
+                    ],
+                    "description": "A text indicating the temperature method used for the calculations"
+                },                 
+               "replaceMissing":{
+                    "type": "string",
+                    "enum":[
+                        "Abort Compute",
+                        "Set To Deafult"
+                    ],
+                    "description": "A text indicating how the missing values are handled"
+                },                  
+                "forBasinModel":{
+                    "type": "string",
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 256,
+                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                            "description": "Property. Identifier format of any NGSI entity"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "Property. Identifier format of any NGSI entity"
+                        }
+                    ],
+                    "description": "A relationship indicating the ID of the basin model for which the basin model refers to"                    
+                }
+            }
+        }
+    ],
+    "required": [
+        "metName"
+    ]  
+}
