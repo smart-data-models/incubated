@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Gaia-X/VM_Image/schema.json",
+  "title": "VM-image data model from Gaia-x service characteristics group",
+  "description": "Image for virtual machines.",
+  "modelTags": "Gaia-X",
+  "derivedFrom": "https://gitlab.com/gaia-x/technical-committee/service-characteristics/-/tree/develop/single-point-of-truth",
+  "license": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "vmImageDiskFormat": {
+          "description": "Property. Disk format og the VM image. Default 'RAW'Enum:'RAW', 'QCOW2', 'VHD', 'VMDK', 'ISO', 'CVF', 'CVA'",
+          "type": "string",
+          "enum": [
+            "RAW",
+            "QCOW2",
+            "VHD",
+            "VMDK",
+            "ISO",
+            "CVF",
+            "CVA"
+          ]
+        },
+        "hypervisorType": {
+          "description": "Property. Hypervisor type required by the imageEnum:",
+          "type": "string",
+          "enum": []
+        },
+        "firmwareType": {
+          "description": "Property. Type of firmware which which guests are booted.Enum:'BIOS', 'UEFI', 'other'",
+          "type": "string",
+          "enum": [
+            "BIOS",
+            "UEFI",
+            "other"
+          ]
+        },
+        "hwRngTypeOfImage": {
+          "description": "Property. Type of physical phenomena hardware random number generator (RNG) this image prefers.Enum:'Electrical noise', 'Chaos-based', 'Free-running oscillators', 'Quantum', 'None'",
+          "type": "string",
+          "enum": [
+            "Electrical noise",
+            "Chaos-based",
+            "Free-running oscillators",
+            "Quantum",
+            "None"
+          ]
+        },
+        "watchDogAction": {
+          "description": "Property. Define the action to be performed if server hangs.Enum:'disabled', 'reset', 'poweroff', 'pause', 'none'",
+          "type": "string",
+          "enum": [
+            "disabled",
+            "reset",
+            "poweroff",
+            "pause",
+            "none"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "VM_Image"
+          ],
+          "description": "Property. NGSI entity type. It has to be VM_Image"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
