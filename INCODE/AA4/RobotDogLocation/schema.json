@@ -1,9 +1,9 @@
 {
     "$schema":"http://json-schema.org/schema#",
-    "$schemaVersion": "0.1.0",
+    "$schemaVersion": "0.0.1",
     "modelTags": ["INCODE", "ROBOT"],
-    "$id":"https://smart-data-models.github.io/dog_location/schema.json",
-    "title":"Smart Data Models - robot_dog_location",
+    "$id":"https://smart-data-models.github.io/dataModel.Device/DogLocation/schema.json",
+    "title":"Smart Data Models - RobotDogLocation",
     "description":"A Data Model of tracking the location of a Unmanned Ground Vehicle - UGV e.g robot dog",
     "type":"object",
     "allOf":[
@@ -26,7 +26,7 @@
                     "type":"string",
                     "description":"Identifier of the vehicle (robot dog)"
                 },
-                "Location":{
+                "location":{
                     "type":"object",
                     "description":"Location information",
                     "properties":{
@@ -38,7 +38,7 @@
                             "type":"string",
                             "description":"Longitude of the vehicle (robot dog)"
                         },
-                        "Time":{
+                        "time":{
                             "type":"string",
                             "format":"date-time",
                             "description":"Timestamp of the location data"
@@ -47,14 +47,14 @@
                     "required":[
                         "latitude",
                         "longitude",
-                        "Time"
+                        "time"
                     ]
                 }
             },
             "required":[
                 "type",
                 "vehicleID",
-                "Location"
+                "location"
             ]
         }
     ]
