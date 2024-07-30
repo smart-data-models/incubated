@@ -46,6 +46,8 @@ schema_url = "https://json-schema.org/schema#"
 base_repo_url = (
     "https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/"
 )
+# by AA:
+extra_repo = 'https://smartdatamodels.org/extra/' #common-hl7-schema.json'
 # need absolutely point 'raw.githubusercontent.com' this does not work
 # 'https://github.com/agaldemas/incubated/blob/master/SMARTHEALTH/HL7/ 
 
@@ -210,13 +212,11 @@ print("definition_schema: ", definition_schema)
 # merge with base_definitions dict
 definition_schema["definitions"].update(base_definitions)
 
+
 # create directory for the entity resource type
 path = pathlib.Path(fhir_release_path)
 path.mkdir(parents=True, exist_ok=True)
 
-# Save the extracted base definitions to a new JSON file
-with open(fhir_release_path + definition_file, "w") as f:
-    json.dump(definition_schema, f, indent=4, separators=(", ", ": "))
 
 # ==============================
 # define the schema header to include in each schema file
@@ -242,7 +242,8 @@ schema_header = {
     # ],
     # "anyOf": [
         {
-            "$ref": base_repo_url + fhir_release_path + definition_file + "#/definitions/Element"
+            #"$ref": base_repo_url + fhir_release_path + definition_file + "#/definitions/Element"
+            "$ref": extra_repo + definition_file + "#/definitions/Element"
         },
     ],
 }
@@ -348,15 +349,26 @@ for entity_type, entity_def in resources_definitions.items():
             print ('TTTTTTTTT hl7_type dict:', hl7_type_content)
             # entity_def['properties'].update(hl7_type)
         # else:
+
         # update "$ref" with url SMART HEALTH/HL7/common-hl7-schema.json
+        # if "$ref" in content:
+        #     content["$ref"] = content["$ref"].replace(
+        #         "#/definitions/", base_repo_url + fhir_release_path + definition_file + "#/definitions/"
+        #     )
+        # if 'items' in content and content.get("items",None).get("$ref",None):
+        #     content["items"]["$ref"] = content["items"]["$ref"].replace(
+        #         "#/definitions/", base_repo_url + fhir_release_path + definition_file + "#/definitions/"
+        #     )
+
         if "$ref" in content:
             content["$ref"] = content["$ref"].replace(
-                "#/definitions/", base_repo_url + fhir_release_path + definition_file + "#/definitions/"
+                "#/definitions/", extra_repo + definition_file + "#/definitions/"
             )
         if 'items' in content and content.get("items",None).get("$ref",None):
             content["items"]["$ref"] = content["items"]["$ref"].replace(
-                "#/definitions/", base_repo_url + fhir_release_path + definition_file + "#/definitions/"
+                "#/definitions/", extra_repo + definition_file + "#/definitions/"
             )
+
     # end loop on properties
 
     # prepare entity schema and set things in header
@@ -448,6 +460,8 @@ for entity_type, entity_def in resources_definitions.items():
     # del entity_schema
     
     #========================== validation loop
+    # this loop try to validate examples toward entity schema, which is somehow a bit stupid,
+    # because the objects should be adapted to NGSI-LD before, even the schema remains almost the same except for Extension
     if 0:
         print("start validation loop on exmples:")
         directory_path = "./_examples/hl7.fhir.r4b.examples/package"
@@ -465,6 +479,7 @@ for entity_type, entity_def in resources_definitions.items():
                 try:
                     # validator = Draft7Validator(json_data)
                     # print('++++++++++ file {} is valid against Draft7Validator'.format(filename))
+
                     validate(instance=json_data, schema=entity_schema, resolver=resolver)
 
                 except jsonschema.exceptions.ValidationError as e:
@@ -480,4 +495,14 @@ for entity_type, entity_def in resources_definitions.items():
 
     # end validation loop
 # end for loop on resources definitions
+
+# remove Extension from base_definitions
+if 'Extension' in definition_schema["definitions"]:
+    print('>>>>>> delete Extension definition')
+    del definition_schema["definitions"]['Extension']
+
+# Save the extracted base definitions to a new JSON file
+with open(fhir_release_path + definition_file, "w") as f:
+    json.dump(definition_schema, f, indent=4, separators=(", ", ": "))
+
 print('job finished !!!!')

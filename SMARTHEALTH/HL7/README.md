@@ -361,3 +361,13 @@ fixed the issue with pysmartdatamodels package (see `__init__.py`)
 
 but still same issue with my schemas "$ref": "link to definitions" is not OK
 with all "properties" inside "allOf" is it the issue
+
+created venv in incubated/SMARTHEALTH
+python3 -m venv HL7
+
+to get in venv:
+in incubated/SMARTHEALTH
+source HL7/bin/activate
+
+cd HL7
+python3 extract2ngsi.py > log-extract.txt
