@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://smart-data-models.github.io/data-models.HydrologicalSimulation/LagMethod/schema.json",
+    "title": "Hydrological Model - LagMethod",
+    "description": "This entity contains a harmonised description of the lag entity, which describes the lag routing method that represents the translation of the flood waves. It is associated with the reach entity.",
+    "$schemaVersion": "0.0.1",
+    "type": "object",
+    "allOf":[
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "LagMethod"
+                    ],
+                    "description": "Property. NGSI-LD Entity Type. It has to be LagMethod"
+                },
+                "initialType":{
+                    "type": "string",
+                    "enum":[
+                        "Discharge=Inflow",
+                        "Specified Discharge"
+                    ],
+                    "description": "A text that describes the initial conditions. Values restricted to [Discharge=Inflow] and [Specified Discharge]"
+                },      
+                "lag": {
+                    "type": "number",
+                    "discription": "A number specifying the lag time. Units: Hours. (required). Units: min"
+                },                
+                "initialDischarge":{
+                    "type": "number",
+                    "description": "A number specifying the initial discharge. Units: m3/s or cfs depending on the metric system. Initial Discharge values need to be specified only when [Specified Discharge] in selected as the InitialType. Units: m3/s"
+                }
+            }
+        }               
+    ],
+    "required": [
+        "initialType", "lag"
+    ]    
+}

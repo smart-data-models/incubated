@@ -1,0 +1,1 @@
+Data model about gas quality coming from ENERSHARE project
