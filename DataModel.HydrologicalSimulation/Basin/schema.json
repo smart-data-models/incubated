@@ -4,6 +4,7 @@
     "title": "Hydrological Model - Basin",
     "description": "Global Description: This entity contains a harmonised description of a generic basin entity, which represents the main component of the model. Its principal purpose is to convert atmospheric conditions into streamflow at specific locations in the watershed.",
     "$schemaVersion": "0.0.1",
+    "modelTags": "",
     "type": "object",
     "allOf":[
         {
@@ -27,7 +28,7 @@
                         "Metric",
                         "U.S. Customary"
                     ],
-                    "description": "A text specifying the unit system"
+                    "description": "Property. A text specifying the unit system"
                 },
                 "sediment":{
                     "type": "string",
@@ -35,7 +36,7 @@
                         "Yes",
                         "No"
                     ],
-                    "description": "A text specifying whether the sediment calculations will be included or not"
+                    "description": "Property. A text specifying whether the sediment calculations will be included or not"
                 },
                 "replaceMissing":{
                     "type": "string",
@@ -43,7 +44,7 @@
                         "Yes",
                         "No"
                     ],
-                    "description": "A text specifying whether missing values will be replaced automatically"
+                    "description": "Property. A text specifying whether missing values will be replaced automatically"
                 },
                 "localFlow":{
                     "type": "string",
@@ -51,7 +52,7 @@
                         "Yes",
                         "No"
                     ],
-                    "description": "A text specifying whether local flow will be computed at the junctions"
+                    "description": "Property. A text specifying whether local flow will be computed at the junctions"
                 },
                 "unregulatedOutputs":{
                     "type": "string",
@@ -59,7 +60,7 @@
                         "Yes",
                         "No"
                     ],
-                    "description": "A text specifying whether unregulated outputs will be computed at elements downstream of regulating structures"
+                    "description": "Property. A text specifying whether unregulated outputs will be computed at elements downstream of regulating structures"
                 },
                 "flowRatios":{
                     "type": "string",
@@ -67,11 +68,11 @@
                         "Yes",
                         "No"
                     ],
-                    "description": "A text specifying whether the computed flow is increased or decreased by a fixed ratio"
+                    "description": "Property. A text specifying whether the computed flow is increased or decreased by a fixed ratio"
                 },
                 "isComposedOf": {
                     "type": "array",
-                    "description": "Reference to the ID of an entity of type Subasin, Reach, Junction, Sink",
+                    "description": "Relationship. Reference to the ID of an entity of type Subasin, Reach, Junction, Sink",
                     "items": {
                         "type": "string",
                         "anyOf": [
@@ -107,7 +108,7 @@
                             "description": "Property. Identifier format of any NGSI entity"
                         }
                     ],
-                    "description": "A relationship indicating the ID of the entity selected as the terrain data. Reference to an entity of type Terrain"
+                    "description": "Relationship. A relationship indicating the ID of the entity selected as the terrain data. Reference to an entity of type Terrain"
                 },
                 "hasMeteoModel": {
                     "type": "string",
@@ -125,7 +126,7 @@
                             "description": "Property. Identifier format of any NGSI entity"
                         }
                     ],
-                    "description": "A relationship indicating the ID of an entity of type MeteorologyModel"
+                    "description": "Relationship. A relationship indicating the ID of an entity of type MeteorologyModel"
                 },
                 "hasGriddedPrecipitation": {
                     "type": "string",
@@ -143,7 +144,7 @@
                             "description": "Property. Identifier format of any NGSI entity"
                         }
                     ],
-                    "description": "A relationship indicating the ID of the entity selected as precipitation data"
+                    "description": "Relationship. A relationship indicating the ID of the entity selected as precipitation data"
                 },
                 "hasGriddedEvapotranspiration": {
                     "type": "string",
@@ -161,12 +162,14 @@
                             "description": "Property. Identifier format of any NGSI entity"
                         }
                     ],
-                    "description": "A relationship indicating the ID of the entity selected as evapotranspiration data"
+                    "description": "Relationship. A relationship indicating the ID of the entity selected as evapotranspiration data"
                 }
             }
         }        
     ],
     "required": [
-        "name"
+        "id",
+        "name",
+        "type"
     ]    
 }
