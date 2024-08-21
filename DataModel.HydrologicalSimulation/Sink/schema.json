@@ -22,28 +22,21 @@
           ],
           "description": "Property. NGSI-LD Entity Type. It has to be Sink"
         },
-        "name": {
-          "type": "string",
-          "description": "Unique identifier (required)"
-        },
-        "description": {
-          "type": "string",
-          "description": "Optional text with important information about the sink"
-        },
         "basinName": {
           "type": "string",
-          "description": "A string specifying the name of the Basin"
+          "description": "Property. A string specifying the name of the Basin"
         },
         "refLabel": {
           "type": "string",
-          "description": "Text, the label of the reference flow. (optional)"
+          "description": "Property. Text, the label of the reference flow. (optional)"
         },
         "refFlow": {
           "type": "number",
-          "description": "A number, specifying the reference flow that assists the interpretation of the computed flow results. (optional) Units: m3/s"
+          "description": "Property. A number, specifying the reference flow that assists the interpretation of the computed flow results. (optional) Units: m3/s"
         },
         "observedFlow": {
           "type": "object",
+          "description": "",
           "properties": {
             "observedBy": {
               "type": "string",
@@ -61,20 +54,22 @@
                   "description": "Property. Identifier format of any NGSI entity"
                 }
               ],
-              "description": "The measured water flow at the sink. Units: m3/s (optional)"
+              "description": "Relationship. The measured water flow at the sink. Units: m3/s (optional)"
             },
             "dateObserved": {
               "type": "string",
+              "format": "date-time",
               "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"
             },
             "flow": {
               "type": "number",
-              "description": "A number, specifying the reference flow that assists the interpretation of the computed flow results. (optional) Units: m3/s"
+              "description": "Property. A number, specifying the reference flow that assists the interpretation of the computed flow results. (optional) Units: m3/s"
             }
           }
         },
         "observedStage": {
           "type": "object",
+          "description": "Property. ",
           "properties": {
             "observedBy": {
               "anyOf": [
@@ -91,15 +86,16 @@
                   "description": "Property. Identifier format of any NGSI entity"
                 }
               ],
-              "description": "The measured water stage at the sink. Units: m (optional)"
+              "description": "Relationship. The measured water stage at the sink. Units: m (optional)"
             },
             "dateObserved": {
               "type": "string",
+              "format": "date-time",
               "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"
             },
             "stage": {
               "type": "number",
-              "description": "The measured water stage of the sink. Units:'m'. (optional)"
+              "description": "Property. The measured water stage of the sink. Units:'m'. (optional)"
             }
           }
         },
@@ -118,11 +114,11 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "A relationship indicating the ID of the basin entity in which the subbasin entity belongs to"
+          "description": "Relationship. A relationship indicating the ID of the basin entity in which the subbasin entity belongs to"
         },
         "observedBy": {
           "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons",
-          "description": "A relationship to the device that provides the flow, velocity, depth, quality and waterOutflow property value. Reference to an entity of type Device"
+          "description": "Relationship. A relationship to the device that provides the flow, velocity, depth, quality and waterOutflow property value. Reference to an entity of type Device"
         },
         "hasStageDishCurve": {
           "anyOf": [
@@ -139,7 +135,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "A relationship to the ID label of the stage-discharge curve. Reference to an entity of type curve"
+          "description": "Relationship. A relationship to the ID label of the stage-discharge curve. Reference to an entity of type curve"
         }
       }
     }

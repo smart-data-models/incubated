@@ -162,7 +162,6 @@
           "description": "Property. The potential evapotranspiration at the subbasin. Units: mm.",
           "properties": {
             "observedBy": {
-              "type": "string",
               "anyOf": [
                 {
                   "type": "string",
@@ -181,6 +180,7 @@
             },
             "dateObserved": {
               "type": "string",
+              "format": "date-time",
               "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"
             },
             "hasTSGage": {
@@ -208,10 +208,11 @@
                   "description": "Property. Identifier format of any NGSI entity"
                 }
               ],
-              "description": "A relationship indicating the ID of the device that observes the flow"
+              "description": "Relationship. A relationship indicating the ID of the device that observes the flow"
             },
             "dateObserved": {
               "type": "string",
+              "format": "date-time",
               "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"
             },
             "hasTSGage": {

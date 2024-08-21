@@ -25,18 +25,18 @@
         "initialStorage": {
           "type": "number",
           "minimum": 0,
-          "maximum": 100,
-          "description": "A number representing the initial conditions of the canopy. Units: %"
+          "maximum": 1,
+          "description": "Property. A number representing the initial conditions of the canopy."
         },
         "maxStorage": {
           "type": "number",
-          "description": "A number representing the maximum amount of water that can be held on leaves before the throughfall to the surface begins. Units: MM or IN (depending on the metric system) (required)"
+          "description": "Property. A number representing the maximum amount of water that can be held on leaves before the throughfall to the surface begins. Units:' MM or IN' (depending on the metric system) (required)"
         },
         "cropCoeff": {
           "type": "number",
           "minimum": 0,
           "maximum": 1,
-          "description": "A number specifying the ratio applied to potential evapotranspiration when computing the amount of water to extract from the soil"
+          "description": "Property. A number specifying the ratio applied to potential evapotranspiration when computing the amount of water to extract from the soil"
         },
         "evapotranspiration": {
           "type": "string",
@@ -44,7 +44,7 @@
             "Wet and Dry periods",
             "Only Dry Periods"
           ],
-          "description": "A text specifying when evapotranspiration will be included in the calculations."
+          "description": "Property. A text specifying when evapotranspiration will be included in the calculations."
         },
         "uptakeMethod": {
           "type": "string",
@@ -53,12 +53,14 @@
             "Simple",
             "TensionReduction"
           ],
-          "description": "A text specifying the uptake method used to extract water from the soil."
+          "description": "Property. A text specifying the uptake method used to extract water from the soil."
         }
       }
     }
   ],
   "required": [
+    "id",
+    "type",
     "maxStorage"
   ]
 }

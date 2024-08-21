@@ -22,32 +22,23 @@
           ],
           "description": "Property. NGSI-LD Entity Type. It has to be Junction"
         },
-        "name": {
-          "type": "string",
-          "description": "Unique identifier (required)"
-        },
-        "description": {
-          "type": "string",
-          "description": "Optional text with important information about the junction"
-        },
         "basinName": {
           "type": "string",
-          "description": "A string specifying the name of the Basin"
+          "description": "Property. A string specifying the name of the Basin"
         },
         "downstream": {
           "type": "string",
-          "description": "A text specifying the name of the downstream connection (sub-basin, reach, junction, sink)."
+          "description": "Property. A text specifying the name of the downstream connection (sub-basin, reach, junction, sink)."
         },
         "refLabel": {
           "type": "string",
-          "description": "Text, the label of the reference flow. (optional)"
+          "description": "Property. Text, the label of the reference flow. (optional)"
         },
         "refFlow": {
           "type": "number",
-          "description": "A number, specifying the reference flow that assists the interpretation of the computed flow results. (optional) Units: m3/s"
+          "description": "Property. A number, specifying the reference flow that assists the interpretation of the computed flow results. (optional) Units: m3/s"
         },
         "downstreamCon": {
-          "type": "string",
           "anyOf": [
             {
               "type": "string",
@@ -62,10 +53,9 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "A relationship indicating the ID of the downstream entity (junction, reach, reservoir, sink)."
+          "description": "Relationship. A relationship indicating the ID of the downstream entity (junction, reach, reservoir, sink)."
         },
         "inBasin": {
-          "type": "string",
           "anyOf": [
             {
               "type": "string",
@@ -83,7 +73,6 @@
           "description": "Relationship. A relationship indicating the ID of the basin entity in which the subbasin entity belongs to"
         },
         "hasStageDischCurve": {
-          "type": "string",
           "anyOf": [
             {
               "type": "string",
@@ -98,7 +87,7 @@
               "description": "Property. Identifier format of any NGSI entity"
             }
           ],
-          "description": "A relationship to the ID label of the stage-discharge curve"
+          "description": "Relationship. A relationship to the ID label of the stage-discharge curve"
         },
         "observedFlow": {
           "type": "object",
@@ -118,7 +107,7 @@
                   "description": "Property. Identifier format of any NGSI entity"
                 }
               ],
-              "description": "A relationship indicating the ID of the device that observes the flow"
+              "description": "Relationship. A relationship indicating the ID of the device that observes the flow"
             },
             "dateObserved": {
               "type": "string",
@@ -126,7 +115,7 @@
             },
             "flow": {
               "type": "number",
-              "description": "A number, specifying the reference flow that assists the interpretation of the computed flow results. (optional) Units: m3/s"
+              "description": "Property. A number, specifying the reference flow that assists the interpretation of the computed flow results. (optional) Units: m3/s"
             }
           }
         },
@@ -147,7 +136,7 @@
                 "description": "Property. Identifier format of any NGSI entity"
               }
             ],
-            "description": "A relationship indicating the ID of the device that observes the measured water stage of the reach. Units: m (optional)"
+            "description": "Relationship. A relationship indicating the ID of the device that observes the measured water stage of the reach. Units: m (optional)"
           },
           "dateObserved": {
             "type": "string",
@@ -155,7 +144,7 @@
           },
           "stage": {
             "type": "number",
-            "description": "The measured water stage of the reach. Units: m (optional)"
+            "description": "Property. The measured water stage of the reach. Units: m (optional)"
           }
         }
       }
