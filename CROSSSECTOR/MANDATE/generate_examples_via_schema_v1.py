@@ -195,7 +195,7 @@ for file in files:
             json.dump(exampleLDKeyvalues, outputFile, indent=2)
         with open(path + "/examples/example-normalized.json", "w") as outputFile:
             json.dump(exampleV2Normalized, outputFile, indent=2)
-        with open(path + "/examples/example-normalized.jsonld", "w") as outputFile:
+        with open(path + "/examples/example.jsonld", "w") as outputFile:
             json.dump(exampleLDNormalized, outputFile, indent=2)
 
 

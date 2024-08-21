@@ -1,80 +1,81 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "$id": "https://smart-data-models.github.io/data-models.HydrologicalSimulation/GriddedVariable/schema.json",
-    "title": "Hydrological Model - GriddedVariable",
-    "description": "This entity is a harmonized description of the variable of the gridded file.",
-    "$schemaVersion": "0.0.1",
-    "modelTags": "",
-    "type": "object",
-    "allOf":[
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/data-models.HydrologicalSimulation/GriddedVariable/schema.json",
+  "title": "Hydrological Model - GriddedVariable",
+  "description": "This entity is a harmonized description of the variable of the gridded file.",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "GriddedVariable"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It has to be GriddedVariable"
         },
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        "name": {
+          "type": "string",
+          "description": "Unique identifier (required)"
         },
-        {
-            "properties":{
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "GriddedVariable"
-                    ],
-                    "description": "Property. NGSI-LD Entity Type. It has to be GriddedVariable"
-                },
-                "name":{
-                    "type": "string",
-                    "description": "Unique identifier (required)"
-
-                },
-                "standardName":{
-                    "type": "string",
-                    "description": "Unique identifier (required)"
-
-                },
-                "maxLat": {
-                    "type": "number",
-                    "description": "A number specifying the maximum latitude of the grid"
-                },
-                "maxLon": {
-                    "type": "number",
-                    "description": "A number specifying the maximum longtitude of the grid"
-                },
-                "minLat": {
-                    "type": "number",
-                    "description": "A number specifying the minimum latitude of the grid"
-                },
-                "minLon": {
-                    "type": "number",
-                    "description": "A number specifying the minimum latitude of the grid"
-                },
-                "size":{
-                    "type": "array",
-                    "items": {
-                        "type": "number"
-                     },
-                     "description": "Three numbers, separated by commas, specifying the dimensions of the grid. The first value represents the time dimension, the second represents the latitude size, and the third represents the longitude size."
-                },
-                "time_step": {
-                    "type": "string",
-                    "description": "A character specifying the time step (temporal resolution) of the variable. Optional"
-                },
-                "spatialResolution": {
-                    "type": "number",
-                    "description": "A number specifying the spatial resolution of the gridded data. Units: degrees or meters"
-                },
-                "fillValue": {
-                    "type": "number",
-                    "description": "A number representing the fill value in case of missing data"
-                },
-                "missingValue": {
-                    "type": "number",
-                    "description": "A number representing the fill value in case of missing data"
-                }
-            }
-        }        
-    ],
-    "required": [
-        "name", "standardName"
-    ]    
+        "standardName": {
+          "type": "string",
+          "description": "Unique identifier (required)"
+        },
+        "maxLat": {
+          "type": "number",
+          "description": "A number specifying the maximum latitude of the grid"
+        },
+        "maxLon": {
+          "type": "number",
+          "description": "A number specifying the maximum longtitude of the grid"
+        },
+        "minLat": {
+          "type": "number",
+          "description": "A number specifying the minimum latitude of the grid"
+        },
+        "minLon": {
+          "type": "number",
+          "description": "A number specifying the minimum latitude of the grid"
+        },
+        "size": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "Three numbers, separated by commas, specifying the dimensions of the grid. The first value represents the time dimension, the second represents the latitude size, and the third represents the longitude size."
+        },
+        "time_step": {
+          "type": "string",
+          "description": "A character specifying the time step (temporal resolution) of the variable. Optional"
+        },
+        "spatialResolution": {
+          "type": "number",
+          "description": "A number specifying the spatial resolution of the gridded data. Units: degrees or meters"
+        },
+        "fillValue": {
+          "type": "number",
+          "description": "A number representing the fill value in case of missing data"
+        },
+        "missingValue": {
+          "type": "number",
+          "description": "A number representing the fill value in case of missing data"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name",
+    "standardName"
+  ]
 }

@@ -1,412 +1,415 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "$id": "https://smart-data-models.github.io/data-models.HydrologicalSuimulation/Subbasin/schema.json",
-    "title": "Hydrological Model - Subbasin",
-    "description": "This entity contains a harmonised description of a generic subbasin, which represents an element with no inflow and one outflow. ",
-    "$schemaVersion": "0.0.1",
-    "modelTags": "",
-    "type": "object",
-    "allOf":[
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/data-models.HydrologicalSuimulation/Subbasin/schema.json",
+  "title": "Hydrological Model - Subbasin",
+  "description": "This entity contains a harmonised description of a generic subbasin, which represents an element with no inflow and one outflow. ",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Subbasin"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It has to be Subbasin"
         },
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        "basinName": {
+          "type": "string",
+          "description": "Property. A string specifying the name of the Basin."
         },
-        {
-            "properties":{
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "Subbasin"
-                    ],
-                    "description": "Property. NGSI-LD Entity Type. It has to be Subbasin"
+        "downstream": {
+          "type": "string",
+          "description": "Property. A text specifying the name of the downstream connection (sub-basin, reach, junction, sink)."
+        },
+        "area": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. The total area that the subbasin covers. The units are either km2 or mi2 depending on the metric system selected (required)."
+        },
+        "lat": {
+          "type": "number",
+          "description": "Property. A number representing the latitude of the subbasin. The units are defined by the projection system selected (required)."
+        },
+        "lon": {
+          "type": "number",
+          "description": "Property. A number representing the longitude of the subbasin. The units are defined by the projection system selected (required)."
+        },
+        "canopyMethod": {
+          "type": "string",
+          "enum": [
+            "None",
+            "Dynamic Canopy",
+            "Simple Canopy",
+            "Gridded Simple Canopy"
+          ],
+          "description": "Property. A text specifying the canopy method used."
+        },
+        "surfaceMethod": {
+          "type": "string",
+          "enum": [
+            "None",
+            "Simple Surface",
+            "Gridded Simple Surface"
+          ],
+          "description": "Property. A text specifying the surface method used."
+        },
+        "lossMethod": {
+          "type": "string",
+          "enum": [
+            "None",
+            "Deficit and Constant",
+            "Exponential",
+            "Green and Ampt",
+            "Gridded SCS Curve Number",
+            "Gridded Soil Moisture Accounting",
+            "Initial and Constnat",
+            "Layered Green and Ampt",
+            "SCS Curve Number",
+            "Smith Parlange",
+            "Soil Moisture Accounting"
+          ],
+          "description": "Property. A text specifying the loss method used."
+        },
+        "transformMethod": {
+          "type": "string",
+          "enum": [
+            "None",
+            "Clark Unit Hydrograph",
+            "Kinematic Wave",
+            "ModClark",
+            "SCS Unit Hydrograph",
+            "Snyder Unit Hydrograph",
+            "User-specified S-graph",
+            "User-specified Unit Hydrograph",
+            "2D Diffusion Wave"
+          ],
+          "description": "Property. A text specifying the transform method used."
+        },
+        "baseflowMethod": {
+          "type": "string",
+          "enum": [
+            "None",
+            "Linear Reservoir",
+            "Bounded Recession",
+            "Constant Monthly",
+            "Nonlinear Boussines",
+            "Recession"
+          ],
+          "description": "Property. A text specifying the baseflow method used."
+        },
+        "evapMethod": {
+          "type": "string",
+          "enum": [
+            "None",
+            "Annual Evapotranspiration",
+            "Gridded Hammon",
+            "Gridded Hargreaves",
+            "Gridded Penman Monteith",
+            "Gridded Priestley Taylor",
+            "Hamon",
+            "Hargreaves",
+            "Interpolated Evapotranspiration",
+            "Monthly Average",
+            "Penman Monteith",
+            "Priestley Taylor",
+            "Specified Evapotranspiration"
+          ],
+          "description": "Property. A text, specifying the evapotranspiration method used."
+        },
+        "discrMethod": {
+          "type": "string",
+          "enum": [
+            "None",
+            "Structured",
+            "Unstructured",
+            "File-specified"
+          ],
+          "description": "Property. A text specifying the discretization method used."
+        },
+        "snowMethod": {
+          "type": "string",
+          "enum": [
+            "None",
+            "Temperature Index",
+            "Gridded Temperature Index"
+          ],
+          "description": "Property. A text specifying the snow method used."
+        },
+        "monthlyAverageEvap": {
+          "type": "array",
+          "description": "Property. An array providing the average evaporation per month. 12 values. Units: mm/month. Optional.",
+          "items": {
+            "type": "number",
+            "description": "Property. any of the items of the monthly average evaporation rate"
+          },
+
+        },
+        "annualEvap": {
+          "type": "number",
+          "description": "Property. A number providing the annual evapotranspiration in mm/d. Units: mm/d. Optional."
+        },
+        "specifiedEvap": {
+          "type": "object",
+          "description": "Property. The potential evapotranspiration at the subbasin. Units: mm.",
+          "properties": {
+            "observedBy": {
+              "type": "string",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256,
+                  "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                  "description": "Property. Identifier format of any NGSI entity"
                 },
-                "id":{
-                    "type": "string",
-                    "description": "Unique identifier (required)"
-                },
-                "description":{
-                    "type": "string",
-                    "description": "Optional text with important information about the subbasin"
-                },
-                "basinName":{
-                    "type": "string",
-                    "description": "A string specifying the name of the Basin."
-                },                
-                "downstream":{
-                    "type": "string",
-                    "description": "A text specifying the name of the downstream connection (sub-basin, reach, junction, sink)."
-                },    
-                "area":{
-                    "type": "number",
-                    "minimum": 0,                    
-                    "description": "The total area that the subbasin covers. The units are either km2 or mi2 depending on the metric system selected (required)."
-                },                
-                "lat":{
-                    "type": "number",
-                    "description": "A number representing the latitude of the subbasin. The units are defined by the projection system selected (required)."                    
-                },
-                "lon":{
-                    "type": "number",
-                    "description": "A number representing the longitude of the subbasin. The units are defined by the projection system selected (required)."                    
-                },
-                "canopyMethod":{
-                    "type": "string",
-                    "enum": [
-                        "None",
-                        "Dynamic Canopy",
-                        "Simple Canopy",
-                        "Gridded Simple Canopy"
-                     ],
-                    "description": "A text specifying the canopy method used."
-                },    
-                "surfaceMethod":{
-                    "type": "string",
-                    "enum": [
-                        "None",
-                        "Simple Surface",
-                        "Gridded Simple Surface"
-                    ],
-                    "description": "A text specifying the surface method used."
-                },    
-                "lossMethod":{
-                    "type": "string",
-                    "enum": [
-                        "None",
-                        "Deficit and Constant",
-                        "Exponential",
-                        "Green and Ampt",
-                        "Gridded SCS Curve Number",
-                        "Gridded Soil Moisture Accounting",
-                        "Initial and Constnat",
-                        "Layered Green and Ampt",
-                        "SCS Curve Number",
-                        "Smith Parlange",
-                        "Soil Moisture Accounting"
-                    ],
-                    "description": "A text specifying the loss method used."
-                },    
-                "transformMethod":{
-                    "type": "string",
-                    "enum": [
-                        "None",
-                        "Clark Unit Hydrograph",
-                        "Kinematic Wave",
-                        "ModClark",
-                        "SCS Unit Hydrograph",
-                        "Snyder Unit Hydrograph",
-                        "User-specified S-graph",
-                        "User-specified Unit Hydrograph",
-                        "2D Diffusion Wave"
-                    ],
-                    "description": "A text specifying the transform method used."
-                },    
-                "baseflowMethod":{
-                    "type": "string",
-                    "enum": [
-                        "None",
-                        "Linear Reservoir",
-                        "Bounded Recession",
-                        "Constant Monthly",
-                        "Nonlinear Boussines",
-                        "Recession"
-                    ],
-                    "description": "A text specifying the baseflow method used."
-                },    
-                "evapMethod":{
-                    "type": "string",
-                    "enum": [
-                        "None",
-                        "Annual Evapotranspiration",
-                        "Gridded Hammon",
-                        "Gridded Hargreaves",
-                        "Gridded Penman Monteith",
-                        "Gridded Priestley Taylor",
-                        "Hamon",
-                        "Hargreaves",
-                        "Interpolated Evapotranspiration",
-                        "Monthly Average",
-                        "Penman Monteith",
-                        "Priestley Taylor",
-                        "Specified Evapotranspiration"
-                    ],
-                    "description": "A text, specifying the evapotranspiration method used."
-                },    
-                "discrMethod":{
-                    "type": "string",
-                    "enum": [
-                        "None",
-                        "Structured",
-                        "Unstructured",
-                        "File-specified"
-                    ],
-                    "description": "A text specifying the discretization method used."
-                },    
-                "snowMethod":{
-                    "type": "string",
-                    "enum": [
-                        "None",
-                        "Temperature Index",
-                        "Gridded Temperature Index"
-                    ],
-                    "description": "A text specifying the snow method used."
-                },    
-                "monthlyAverageEvap":{
-                    "type": "array",
-                    "items":{
-                        "type": "number"
-                     },
-                    "description": "An array providing the average evaporation per month. 12 values. Units: mm/month. Optional."
-                },
-                "annualEvap":{
-                    "type": "number",
-                    "description": "A number providing the annual evapotranspiration in mm/d. Units: mm/d. Optional."
-                },                
-                "specifiedEvap":{
-                    "type": "property",
-                    "observedBy":{
-                        "type": "string",
-                        "anyOf": [
-                            {
-                                "type": "string",
-                                "minLength": 1,
-                                "maxLength": 256,
-                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                                "description": "Property. Identifier format of any NGSI entity"
-                            },
-                            {
-                                "type": "string",
-                                "format": "uri",
-                                "description": "Property. Identifier format of any NGSI entity"
-                            }
-                        ],
-                        "description": "A relationship indicating the ID of the device that observes the flow"                    
-                    },
-                    "dateObserved": {
-                        "type": "string",
-                        "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"
-                    },
-                    "hasTSGage": {
-                        "type": "string",
-                        "description": "hasTSGage"
-                    },                    
-                    "description": "The potential evapotranspiration at the subbasin. Units: mm."
-                },                
-                "specifiedHyetograph":{
-                    "type": "property",
-                    "observedBy":{
-                        "type": "string",
-                        "anyOf": [
-                            {
-                                "type": "string",
-                                "minLength": 1,
-                                "maxLength": 256,
-                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                                "description": "Property. Identifier format of any NGSI entity"
-                            },
-                            {
-                                "type": "string",
-                                "format": "uri",
-                                "description": "Property. Identifier format of any NGSI entity"
-                            }
-                        ],
-                        "description": "A relationship indicating the ID of the device that observes the flow"                    
-                    },
-                    "dateObserved": {
-                        "type": "string",
-                        "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"
-                    },
-                    "hasTSGage": {
-                        "type": "string",
-                        "description": "A relationship indicating the ID of an entity of type TSGage. Reference to a time series object."
-                    },                    
-                    "description": "The hyetograph at the at the subbasin. Units: mm. Optional."
-                },                                      
-                "downstreamCon":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": "A relationship indicating the ID of the downstream entity (junction, reach, reservoir, sink)."                    
-                },
-                "inBasin":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": "A relationship indicating the ID of the basin entity in which the subbasin entity belongs to"                    
-                },
-                "hasLossMethod":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": "A relationship indicating the ID of the entity selected as the loss mehthod. Optional"                    
-                },
-                "hasSnowMethod":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": "A relationship indicating the ID of the entity selected as the snow method. Optional"                    
-                },
-                "hasDiscrMethod":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": "A relationship indicating the ID of the entity selected as the discretization method. Optional"                    
-                },
-                "hasCanopyMethod":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": "A relationship indicating the ID of the entity selected as the canopy method. Optional"                    
-                },
-                "hasSurfMethod":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": "A relationship indicating the ID of the entity selected as the surface method. Optional"                    
-                },
-                "hasBaseflowMethod":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": "A relationship indicating the ID of the entity used as the baseflow method. Optional"                    
-                },                
-                "hasTransformMethod":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": "A relationship indicating the ID of the entity used as the transform method.  Optional"                    
-                },                
-                "hasMetModel":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": "A relationship indicating the ID of Meteorological model. Reference to the Meteorology Model for this subbasin"                    
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Property. Identifier format of any NGSI entity"
                 }
+              ],
+              "description": "Relationship. A relationship indicating the ID of the device that observes the flow"
+            },
+            "dateObserved": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"
+            },
+            "hasTSGage": {
+              "type": "string",
+              "description": "Relationship. XXX"
             }
-        }        
-    ],
-    "required": [
-        "id", "area", "lat", "lon"
-    ]    
+          }
+        },
+        "specifiedHyetograph": {
+          "type": "object",
+          "description": "Property. The hyetograph at the at the subbasin. Units: mm. Optional.",
+          "properties": {
+            "observedBy": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256,
+                  "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                  "description": "Property. Identifier format of any NGSI entity"
+                },
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Property. Identifier format of any NGSI entity"
+                }
+              ],
+              "description": "A relationship indicating the ID of the device that observes the flow"
+            },
+            "dateObserved": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"
+            },
+            "hasTSGage": {
+              "description": "Relationship. A relationship indicating the ID of an entity of type TSGage. Reference to a time series object.",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256,
+                  "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                  "description": "Property. Identifier format of any NGSI entity"
+                },
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Property. Identifier format of any NGSI entity"
+                }
+              ]
+            }
+          }
+        },
+        "downstreamCon": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the downstream entity (junction, reach, reservoir, sink)."
+        },
+        "inBasin": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the basin entity in which the subbasin entity belongs to"
+        },
+        "hasLossMethod": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the entity selected as the loss mehthod. Optional"
+        },
+        "hasSnowMethod": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the entity selected as the snow method. Optional"
+        },
+        "hasDiscrMethod": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the entity selected as the discretization method. Optional"
+        },
+        "hasCanopyMethod": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the entity selected as the canopy method. Optional"
+        },
+        "hasSurfMethod": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the entity selected as the surface method. Optional"
+        },
+        "hasBaseflowMethod": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the entity used as the baseflow method. Optional"
+        },
+        "hasTransformMethod": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the entity used as the transform method.  Optional"
+        },
+        "hasMetModel": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of Meteorological model. Reference to the Meteorology Model for this subbasin"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "area",
+    "lat",
+    "lon"
+  ]
 }

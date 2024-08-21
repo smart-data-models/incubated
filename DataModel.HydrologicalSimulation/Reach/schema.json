@@ -1,229 +1,223 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "$id": "https://smart-data-models.github.io/data-models.HydrologicalSuimulation/Reach/schema.json",
-    "title": "Hydrological Model - Reach",
-    "description": "This entity contains a harmonised description of a reach entity, which describes an element with one or more inflows and only one outflow.",
-    "$schemaVersion": "0.0.1",
-    "modelTags": "",
-    "type": "object",
-    "allOf":[
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/data-models.HydrologicalSuimulation/Reach/schema.json",
+  "title": "Hydrological Model - Reach",
+  "description": "This entity contains a harmonised description of a reach entity, which describes an element with one or more inflows and only one outflow.",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Reach"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It has to be Reach"
         },
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        "name": {
+          "type": "string",
+          "description": "Property. Unique identifier (required)"
         },
-        {
-            "properties":{
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "Reach"
-                    ],
-                    "description": "Property. NGSI-LD Entity Type. It has to be Reach"
+        "downstream": {
+          "type": "string",
+          "description": "Property. A text specifying the name of the downstream connection (sub-basin, reach, junction, sink)."
+        },
+        "routingMethod": {
+          "type": "string",
+          "enum": [
+            "None",
+            "Kinematic Wave",
+            "Lag",
+            "Lag & K",
+            "Modefied Puls",
+            "Muskingum",
+            "Muskingum-Cunge",
+            "Normal Depth",
+            "Straddle Stagger"
+          ],
+          "description": "Property. A text specifying the routing method used"
+        },
+        "lossGainMethod": {
+          "type": "string",
+          "enum": [
+            "None",
+            "Constant",
+            "Percolation"
+          ],
+          "description": "Property. A text specifying the loss/gain method used"
+        },
+        "refLabel": {
+          "type": "string",
+          "description": "Property. Text, the label of the reference flow. (optional)"
+        },
+        "refFlow": {
+          "type": "number",
+          "description": "Property. A number, specifying the reference flow that assists the interpretation of the computed flow results. (optional) Units: m3/s"
+        },
+        "observedFlow": {
+          "type": "object",
+          "properties": {
+            "observedBy": {
+              "type": "string",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256,
+                  "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                  "description": "Property. Identifier format of any NGSI entity"
                 },
-                "name":{
-                    "type": "string",
-                    "description": "Unique identifier (required)"
-                },
-                "description":{
-                    "type": "string",
-                    "description": "Optional text with important information about the basin"
-
-                },
-                "downstream":{
-                    "type": "string",
-                    "description": "A text specifying the name of the downstream connection (sub-basin, reach, junction, sink)."                
-                },
-                "routingMethod":{
-                    "type": "string",
-                    "enum":[
-                        "None",
-                        "Kinematic Wave",
-                        "Lag",
-                        "Lag & K",
-                        "Modefied Puls",
-                        "Muskingum",
-                        "Muskingum-Cunge",
-                        "Normal Depth",
-                        "Straddle Stagger"
-                    ],
-                    "description": "A text specifying the routing method used"                    
-                },
-                "lossGainMethod":{
-                    "type": "string",
-                    "enum":[
-                        "None",
-                        "Constant",
-                        "Percolation"
-                    ],
-                    "description": "A text specifying the loss/gain method used"                    
-                    
-                },
-                "refLabel": {
-                    "type": "string",
-                    "description": "Text, the label of the reference flow. (optional)"
-                },
-                "refFlow": {
-                    "type": "number",
-                    "description": "A number, specifying the reference flow that assists the interpretation of the computed flow results. (optional) Units: m3/s"
-                }, 
-                "observedFlow": {
-                    "type": "property",
-                    "observedBy":{
-                        "type": "string",
-                        "anyOf": [
-                            {
-                                "type": "string",
-                                "minLength": 1,
-                                "maxLength": 256,
-                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                                "description": "Property. Identifier format of any NGSI entity"
-                            },
-                            {
-                                "type": "string",
-                                "format": "uri",
-                                "description": "Property. Identifier format of any NGSI entity"
-                            }
-                        ],
-                        "description": "A relationship indicating the ID of the device that observes the flow"                    
-                    },
-                    "dateObserved": {
-                        "type": "string",
-                        "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"
-                    },
-                    "flow": {
-                        "type": "number",
-                        "description": "A number, specifying the reference flow that assists the interpretation of the computed flow results. (optional) Units: m3/s"
-                    }
-                },                                     
-                "observedStage":{
-                   "type": "property",
-                   "observedBy":{
-                        "type": "string",
-                        "anyOf": [
-                            {
-                                "type": "string",
-                                "minLength": 1,
-                                "maxLength": 256,
-                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                                "description": "Property. Identifier format of any NGSI entity"
-                            },
-                            {
-                                "type": "string",
-                                "format": "uri",
-                                "description": "Property. Identifier format of any NGSI entity"
-                            }
-                        ],
-                        "description": "A relationship indicating the ID of the device that observes the measured water stage of the reach. Units: m (optional)"                              
-                   },
-                   "dateObserved": {
-                       "type": "string",
-                       "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"
-                   },
-                   "stage": {
-                       "type": "number",
-                       "description": "The measured water stage of the reach. Units: m (optional)"
-                   }                        
-                },                
-                "downstreamCon":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": "A relationship indicating the ID of the downstream entity (junction, reach, reservoir, sink)."                                                  
-                },
-                "inBasin":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": "A relationship indicating the ID of the basin entity in which the subbasin entity belongs to"                                                     
-                },
-                "observedBy":{
-                    "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons",               
-                    "description": "A relationship to the device that provides the discharge and/or water level. Reference to an entity of type Device"                                                  
-                },
-                "hasLossGainMethod":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": ": A relationship indicating the ID of the Loss/Gain entity method selected"                                                  
-                },
-                "hasRoutingMethod":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": "A relationship indicating the ID of the RoutingMethod entity method selected"                                                  
-                },
-                "hasStageDishCurve":{
-                    "type": "string",
-                    "anyOf": [
-                        {
-                            "type": "string",
-                            "minLength": 1,
-                            "maxLength": 256,
-                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "Property. Identifier format of any NGSI entity"
-                        }
-                    ],
-                    "description": "A relationship to the ID label of the stage-discharge curve. Reference to an entity of type curve"                                                  
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Property. Identifier format of any NGSI entity"
                 }
+              ],
+              "description": "A relationship indicating the ID of the device that observes the flow"
+            },
+            "dateObserved": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"
+            },
+            "flow": {
+              "type": "number",
+              "description": "A number, specifying the reference flow that assists the interpretation of the computed flow results. (optional) Units: m3/s"
             }
+          }
+        },
+        "observedStage": {
+          "type": "object",
+          "properties": {
+            "observedBy": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256,
+                  "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                  "description": "Property. Identifier format of any NGSI entity"
+                },
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Property. Identifier format of any NGSI entity"
+                }
+              ],
+              "description": "A relationship indicating the ID of the device that observes the measured water stage of the reach. Units: m (optional)"
+            },
+            "dateObserved": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/DateTime'. The date and time of this observation in ISO8601 UTCformat. It can be represented by an specific time instant or by an ISO8601 interval"
+            },
+            "stage": {
+              "type": "number",
+              "description": "The measured water stage of the reach. Units: m (optional)"
+            }
+          }
+        },
+        "downstreamCon": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the downstream entity (junction, reach, reservoir, sink)."
+        },
+        "inBasin": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the basin entity in which the subbasin entity belongs to"
+        },
+        "observedBy": {
+          "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons",
+          "description": "A relationship to the device that provides the discharge and/or water level. Reference to an entity of type Device"
+        },
+        "hasLossGainMethod": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the Loss/Gain entity method selected"
+        },
+        "hasRoutingMethod": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship indicating the ID of the RoutingMethod entity method selected"
+        },
+        "hasStageDishCurve": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A relationship to the ID label of the stage-discharge curve. Reference to an entity of type curve"
         }
-    ],
-    "required": [
-        "name"
-    ]  
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name"
+  ]
 }

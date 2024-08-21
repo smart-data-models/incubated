@@ -42,7 +42,7 @@ def list_directories_and_read_schema():
                     keyvalues = sdm.ngsi_ld_keyvalue_example_generator(pathSchema)
                     # github_push_from_variable(json.dumps(keyvalues, indent=4), "incubated", "SMART AERONAUTICS/ACRIS/" + directory + "/examples/example.json", "Example created", globalUser, token)
                     normalized = sdm.ngsi_ld_example_generator(pathSchema)
-                    github_push_from_variable(json.dumps(keyvalues, indent=4), "incubated", "SMART AERONAUTICS/ACRIS/" + directory + "/examples/example-normalized.jsonld", "Example created", globalUser, token)
+                    github_push_from_variable(json.dumps(keyvalues, indent=4), "incubated", "SMART AERONAUTICS/ACRIS/" + directory + "/examples/example.jsonld", "Example created", globalUser, token)
                     print(normalized)
 
 

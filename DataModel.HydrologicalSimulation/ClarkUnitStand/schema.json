@@ -1,60 +1,60 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "$id": "https://smart-data-models.github.io/data-models.HydrologicalSimulation/ClarkUnitStand/schema.json",
-    "title": "Hydrological Model - ClarkUnitStand",
-    "description": "This entity contains a harmonised description of ClarkUnitStandard entity, which describes the standard synthetic Clark Unit Hydrograph method (it produces a unit hydrograph that theoretically has an infinite number of ordinates). It is associated with the Subasin entity.",
-    "$schemaVersion": "0.0.1",
-    "modelTags": "",
-    "type": "object",
-    "allOf":[
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "https://smart-data-models.github.io/data-models.HydrologicalSimulation/ClarkUnitStand/schema.json",
+  "title": "Hydrological Model - ClarkUnitStand",
+  "description": "This entity contains a harmonised description of ClarkUnitStandard entity, which describes the standard synthetic Clark Unit Hydrograph method (it produces a unit hydrograph that theoretically has an infinite number of ordinates). It is associated with the Subasin entity.",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "ClarkUnitStand"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It has to be ClarkUnitStand"
         },
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        "method": {
+          "type": "string",
+          "enum": [
+            "Standard",
+            "VariableParameter",
+            "Maricopa County AZ USA"
+          ],
+          "description": "Property. A text defining the method used for the Clark Unit hydrograph transformation"
         },
-        {
-            "properties":{
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "ClarkUnitStand"
-                    ],
-                    "description": "Property. NGSI-LD Entity Type. It has to be ClarkUnitStand"
-                },            
-                "method":{
-                    "type": "string",
-                    "enum":[
-                        "Standard",
-                        "VariableParameter",
-                        "Maricopa County AZ USA"
-                    ],
-                    "description": "Property. A text defining the method used for the Clark Unit hydrograph transformation"
-                },
-                "timeOfConc":{
-                    "type": "number",
-                    "description": "Property. A number defining the maximum travel time in the subbasin. Units: Hours"
-                },  
-                "timeAreaMethod":{
-                    "type": "string",
-                    "enum":[
-                        "Default",
-                        "Percentage Curve"
-                    ],
-                    "description": "Property. A text defining the time-area curve used"
-                },                
-                "storageCoef":{
-                    "type": "number",
-                    "description": "Property. A number defining the time water can remain in the basin. Units: Hours"
-                }
-            }
+        "timeOfConc": {
+          "type": "number",
+          "description": "Property. A number defining the maximum travel time in the subbasin. Units: Hours"
+        },
+        "timeAreaMethod": {
+          "type": "string",
+          "enum": [
+            "Default",
+            "Percentage Curve"
+          ],
+          "description": "Property. A text defining the time-area curve used"
+        },
+        "storageCoef": {
+          "type": "number",
+          "description": "Property. A number defining the time water can remain in the basin. Units: Hours"
         }
-    ],
-    "required": [
-        "id",
-        "method",
-        "timeOfConc", 
-        "storageCoef",
-        "type"
-    ]    
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "method",
+    "timeOfConc",
+    "storageCoef",
+    "type"
+  ]
 }
