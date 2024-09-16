@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.3",
+  "modelTags": "",
+  "$id": "https://github.com/smart-data-models/incubated/SMARTAGRIFOOD/wineInformation/schema.json",
+  "title": "Smart Data Models - AgriWineProcessed",
+  "type": "object",
+  "allOf": [
+      {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      },
+      {
+          "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/AgriFood-Commons"
+      },
+      {
+          "description": "This entity contains a harmonised description of wine information.",
+          "properties": {
+              "type": {
+                  "description": "Property. NGSI Entity Type: It has to be AgriWineInformation.",
+                  "enum": [
+                      "AgriWineProcessed"
+                  ],
+                  "type": "string"
+              },
+              "GTIN": {
+                  "description": "Property. Global Trade Item Number for the wine.",
+                  "type": "string",
+                  "pattern": "\\d{13,14}$"
+              },
+              "origins": {
+                  "Final_Vat_GRAI": {
+                    "description": "Property. Global Returnable Asset Identifier for the final vat.",
+                    "type": "string",
+                    "pattern": "^8003\\d{7,30}\\d{1}([a-zA-Z0-9]*)$"
+                  },
+                  "Intermediate_Vats_GRAI": {
+                    "description": "Property. Global Returnable Asset Identifiers for the intermediate vats/juice containers.",
+                    "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^8003\\d{7,30}\\d{1}([a-zA-Z0-9]*)$"
+                      }
+                  },
+                  "Vineyards_GLN": {
+                    "description": "Property. Global Location Numbers for the vineyards.",
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "\\d{13}"
+                      }
+                  }
+              }
+          }
+      }
+  ],
+  "required": [
+      "id",
+      "type"
+  ]
+}
