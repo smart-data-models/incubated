@@ -8,450 +8,456 @@
   "derivedFrom": "",
   "license": "https://opensource.org/licenses/MIT",
   "modelTags": "Agrifood, AgriFertilize",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Unique identifier for the AgriFertilize entity."
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
     },
-    "type": {
-      "type": "string",
-      "description": "Property. NGSI Entity Type. It has to be AgriFertilize.",
-      "enum": ["AgriFertilize"]
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
-    "dateCreated": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Property. The date and time when the entity was created."
-    },
-    "dateModified": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Property. The date and time when the entity was last modified."
-    },
-    "dose": {
-      "type": "number",
-      "description": "Property. Fertilizer dose administered."
-    },
-    "enddate": {
-      "type": "string",
-      "description": "Property. Final date of fertilizer process. This field can be empty."
-    },
-    "inidate": {
-      "type": "string",
-      "description": "Property. The start date of the fertilization process."
-    },
-    "measure": {
-      "type": "object",
-      "description": "Property. Details of the measure.",
+    {
       "properties": {
-        "detail": {
-          "type": "string",
-          "description": "Property. Notes about the measurement."
-        },
-        "id": {
-          "type": "string",
-          "description": "Property. Identifier of the measure."
-        },
-        "name": {
-          "type": "string",
-          "description": "Property. Name assigned to the measure."
-        },
-        "prior": {
-          "type": "string",
-          "description": "Property. Level of importance of the measure. Available values ​​are between 0 (priority) and 10 (least priority)."
-        },
         "type": {
           "type": "string",
-          "description": "Property. Type of the measure."
+          "description": "Property. NGSI Entity Type. It has to be AgriFertilize.",
+          "enum": [
+            "AgriFertilize"
+          ]
         },
-        "code": {
-          "type": "number",
-          "description": "Property. Ministry code assigned to the measure."
-        },
-        "symbol": {
+        "dateCreated": {
           "type": "string",
-          "description": "Property. Symbol assigned to the measure."
-        }
-      }
-    },
-    "name": {
-      "type": "string",
-      "description": "Property. Name of the AgriFertilize entity."
-    },
-    "subtype": {
-      "type": "object",
-      "description": "Property. Subtype details of the AgriFertilize entity.",
-      "properties": {
-        "aacm": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          },
-          "description": "Property. Array of aacm objects associated with the subtype."
+          "format": "date-time",
+          "description": "Property. The date and time when the entity was created."
         },
-        "accm": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          },
-          "description": "Property. Information about fertilizer type acids."
-        },
-        "check": {
-          "type": "number",
-          "description": "Property. Check value associated with the subtype."
-        },
-        "code": {
+        "dateModified": {
           "type": "string",
-          "description": "Property. Code of the subtype."
+          "format": "date-time",
+          "description": "Property. The date and time when the entity was last modified."
         },
-        "comp": {
+        "dose": {
+          "type": "number",
+          "description": "Property. Fertilizer dose administered."
+        },
+        "enddate": {
+          "type": "string",
+          "description": "Property. Final date of fertilizer process. This field can be empty."
+        },
+        "inidate": {
+          "type": "string",
+          "description": "Property. The start date of the fertilization process."
+        },
+        "measure": {
           "type": "object",
-          "description": "Property. Details of the company associated with the subtype.",
+          "description": "Property. Details of the measure.",
           "properties": {
+            "detail": {
+              "type": "string",
+              "description": "Property. Notes about the measurement."
+            },
             "id": {
-              "type": "number",
-              "description": "Property. Identifier of the company."
+              "type": "string",
+              "description": "Property. Identifier of the measure."
             },
             "name": {
               "type": "string",
-              "description": "Property. Name of the company."
+              "description": "Property. Name assigned to the measure."
             },
-            "nif": {
+            "prior": {
               "type": "string",
-              "description": "Property. NIF of the company."
+              "description": "Property. Level of importance of the measure. Available values ​​are between 0 (priority) and 10 (least priority)."
             },
             "type": {
               "type": "string",
-              "description": "Property. Type of the company."
+              "description": "Property. Type of the measure."
+            },
+            "code": {
+              "type": "number",
+              "description": "Property. Ministry code assigned to the measure."
+            },
+            "symbol": {
+              "type": "string",
+              "description": "Property. Symbol assigned to the measure."
             }
           }
         },
-        "hecm": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          },
-          "description": "Property. Information on heavy metals of the fertilizer type."
-        },
-        "id": {
-          "type": "number",
-          "description": "Property. Identifier of the subtype."
-        },
-        "macm": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          },
-          "description": "Property. Information on other macronutrients of the fertilizer type."
-        },
-        "manure": {
-          "type": ["null", "string"],
-          "description": "Property. Manure details, if any."
-        },
-        "matdet": {
-          "type": ["null", "string"],
-          "description": "Property. Material fertilize detail, if any."
-        },
-        "material": {
+        "subtype": {
           "type": "object",
-          "description": "Property. Material details associated with the subtype.",
+          "description": "Property. Subtype details of the AgriFertilize entity.",
           "properties": {
+            "aacm": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Property. Array of aacm objects associated with the subtype."
+            },
+            "accm": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Property. Information about fertilizer type acids."
+            },
+            "check": {
+              "type": "number",
+              "description": "Property. Check value associated with the subtype."
+            },
+            "code": {
+              "type": "string",
+              "description": "Property. Code of the subtype."
+            },
+            "comp": {
+              "type": "object",
+              "description": "Property. Details of the company associated with the subtype.",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "Property. Identifier of the company."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Property. Name of the company."
+                },
+                "nif": {
+                  "type": "string",
+                  "description": "Property. NIF of the company."
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Property. Type of the company."
+                }
+              }
+            },
+            "hecm": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Property. Information on heavy metals of the fertilizer type."
+            },
             "id": {
               "type": "number",
-              "description": "Property. Identifier of the material."
+              "description": "Property. Identifier of the subtype."
             },
-            "name": {
-              "type": "string",
-              "description": "Property. Name of the material."
+            "macm": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Property. Information on other macronutrients of the fertilizer type."
             },
-            "type": {
-              "type": "string",
-              "description": "Property. Type of the material."
-            }
-          }
-        },
-        "metadata": {
-          "type": "array",
-          "description": "Property. Array of metadata objects associated with the subtype.",
-          "items": {
-            "type": "object",
-            "properties": {
-              "date": {
-                "type": "string",
-                "format": "date-time",
-                "description": "Property. Date associated with the metadata."
-              },
-              "type": {
-                "type": "string",
-                "description": "Property. Type of metadata."
-              },
-              "user": {
+            "manure": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Property. Manure details, if any."
+            },
+            "matdet": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Property. Material fertilize detail, if any."
+            },
+            "material": {
+              "type": "object",
+              "description": "Property. Material details associated with the subtype.",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "Property. Identifier of the material."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Property. Name of the material."
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Property. Type of the material."
+                }
+              }
+            },
+            "metadata": {
+              "type": "array",
+              "description": "Property. Array of metadata objects associated with the subtype.",
+              "items": {
                 "type": "object",
-                "description": "Property. User details associated with the metadata.",
                 "properties": {
-                  "email": {
+                  "date": {
                     "type": "string",
-                    "description": "Property. Email of the user."
-                  },
-                  "id": {
-                    "type": "string",
-                    "description": "Property. Identifier of the user."
-                  },
-                  "loginname": {
-                    "type": "string",
-                    "description": "Property. Login name of the user."
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Property. Name of the user."
-                  },
-                  "nif": {
-                    "type": "string",
-                    "description": "Property. NIF of the user."
-                  },
-                  "surname": {
-                    "type": "string",
-                    "description": "Property. Surname of the user."
+                    "format": "date-time",
+                    "description": "Property. Date associated with the metadata."
                   },
                   "type": {
                     "type": "string",
-                    "description": "Property. Type of the user."
-                  }
-                }
-              }
-            }
-          }
-        },
-        "micm": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          },
-          "description": "Property. Array of micm objects associated with the subtype."
-        },
-        "mmcm": {
-          "type": "array",
-          "items": {
-            "properties": {              
-              "type": {
-                "type": "string",
-                "description": "Property. This field contains the type associated to the mmcm."
-              },
-              "id": {
-                "type": "number",
-                "description": "Property. Identifier of mmcm."
-              },
-              "value": {
-                "type": "number",
-                "description": "Property. This field contains the value associated to the mmcm."
-              },
-              "subtype": {
-                "type": "object",
-                "description": "Property. Subtype details of mmcm.",
-                "properties": {
-                  "code": {
-                    "type": "number",
-                    "description": "Property. Code of the mmcm subtype."
+                    "description": "Property. Type of metadata."
                   },
-                  "id": {
-                    "type": "number",
-                    "description": "Property. Identifier of the mmcm subtype."
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Property. Name of the mmcm subtype."
-                  },
-                  "subtype": {
+                  "user": {
                     "type": "object",
-                    "description": "Property. Nested subtype details of mmcm.",
+                    "description": "Property. User details associated with the metadata.",
                     "properties": {
+                      "email": {
+                        "type": "string",
+                        "description": "Property. Email of the user."
+                      },
                       "id": {
-                        "type": "number",
-                        "description": "Property. Identifier of the nested mmcm subtype."
+                        "type": "string",
+                        "description": "Property. Identifier of the user."
+                      },
+                      "loginname": {
+                        "type": "string",
+                        "description": "Property. Login name of the user."
                       },
                       "name": {
                         "type": "string",
-                        "description": "Property. Name of the nested mmcm subtype."
+                        "description": "Property. Name of the user."
+                      },
+                      "nif": {
+                        "type": "string",
+                        "description": "Property. NIF of the user."
+                      },
+                      "surname": {
+                        "type": "string",
+                        "description": "Property. Surname of the user."
                       },
                       "type": {
                         "type": "string",
-                        "description": "Property. Type of the nested mmcm subtype."
+                        "description": "Property. Type of the user."
                       }
                     }
-                  },
-                  "symbol": {
-                    "type": "string",
-                    "description": "Property. Symbol of the mmcm subtype."
-                  },
-                  "type": {
-                    "type": "string",
-                    "description": "Property. Type of the mmcm subtype."
                   }
                 }
               }
+            },
+            "micm": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "Property. Array of micm objects associated with the subtype."
+            },
+            "mmcm": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "Property. This field contains the type associated to the mmcm."
+                  },
+                  "id": {
+                    "type": "number",
+                    "description": "Property. Identifier of mmcm."
+                  },
+                  "value": {
+                    "type": "number",
+                    "description": "Property. This field contains the value associated to the mmcm."
+                  },
+                  "subtype": {
+                    "type": "object",
+                    "description": "Property. Subtype details of mmcm.",
+                    "properties": {
+                      "code": {
+                        "type": "number",
+                        "description": "Property. Code of the mmcm subtype."
+                      },
+                      "id": {
+                        "type": "number",
+                        "description": "Property. Identifier of the mmcm subtype."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Property. Name of the mmcm subtype."
+                      },
+                      "subtype": {
+                        "type": "object",
+                        "description": "Property. Nested subtype details of mmcm.",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "description": "Property. Identifier of the nested mmcm subtype."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Property. Name of the nested mmcm subtype."
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Property. Type of the nested mmcm subtype."
+                          }
+                        }
+                      },
+                      "symbol": {
+                        "type": "string",
+                        "description": "Property. Symbol of the mmcm subtype."
+                      },
+                      "type": {
+                        "type": "string",
+                        "description": "Property. Type of the mmcm subtype."
+                      }
+                    }
+                  }
+                }
+              },
+              "description": "Property. Array of mmcm objects associated with the subtype."
+            },
+            "name": {
+              "type": "string",
+              "description": "Property. Name of the subtype."
+            },
+            "notes": {
+              "type": "string",
+              "description": "Property. Notes associated with the subtype."
+            },
+            "subcode": {
+              "type": "string",
+              "description": "Property. Subcode of the subtype."
+            },
+            "symbol": {
+              "type": "string",
+              "description": "Property. Symbol of the subtype."
             }
-          },
-          "description": "Property. Array of mmcm objects associated with the subtype."
+          }
         },
-        "name": {
+        "target": {
           "type": "string",
-          "description": "Property. Name of the subtype."
+          "description": "Property. Target details for the AgriFertilize entity."
         },
-        "notes": {
+        "typsoil": {
           "type": "string",
-          "description": "Property. Notes associated with the subtype."
+          "description": "Property. Type of soil associated with the AgriFertilize entity."
         },
-        "subcode": {
+        "bill": {
           "type": "string",
-          "description": "Property. Subcode of the subtype."
+          "description": "Property. Invoice or delivery note number."
         },
-        "symbol": {
-          "type": "string",
-          "description": "Property. Symbol of the subtype."
-        }
-      }
-    },
-    "target": {
-      "type": "string",
-      "description": "Property. Target details for the AgriFertilize entity."
-    },
-    "typsoil": {
-      "type": "string",
-      "description": "Property. Type of soil associated with the AgriFertilize entity."
-    },
-    "bill": {
-      "type": "string",
-      "description": "Property. Invoice or delivery note number."
-    },
-    "detail": {
-      "type": "string",
-      "description": "Property. User notes on administered fertilizer."
-    },   
-    "idcp": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "description": "Property.  IDs of the CropSigpac on which the fertilizer is applied in the campaign."
-    },
-    "machine": {
-      "type": "array",
-      "items": {
-        "type": "object"
-      },
-      "description": "Property.  Information on the machinery assigned to the application of the fertilizer as well as information on its hygiene."
-    },
-    "maf": {
-      "type": "object",
-      "description": "Property. Details of the MAF.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Property. Identifier of the MAF."
-        },
-        "name": {
-          "type": "string",
-          "description": "Property. Name of the MAF."
-        },
-        "type": {
-          "type": "string",
-          "description": "Property. Type of the MAF."
-        }
-      }
-    },    
-    "msoup": {
-      "type": "object",
-      "description": "Property. Details of the MSOUP.",
-      "properties": {
         "detail": {
           "type": "string",
-          "description": "Property. Details of the msoup."
+          "description": "Property. User notes on administered fertilizer."
         },
-        "id": {
-          "type": "string",
-          "description": "Property. Identifier of the msoup."
+        "idcp": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Property.  IDs of the CropSigpac on which the fertilizer is applied in the campaign."
         },
-        "name": {
-          "type": "string",
-          "description": "Property. Name of the msoup."
+        "machine": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "description": "Property.  Information on the machinery assigned to the application of the fertilizer as well as information on its hygiene."
         },
-        "prior": {
-          "type": "string",
-          "description": "Property. Prior details of the msoup."
+        "maf": {
+          "type": "object",
+          "description": "Property. Details of the MAF.",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Property. Identifier of the MAF."
+            },
+            "name": {
+              "type": "string",
+              "description": "Property. Name of the MAF."
+            },
+            "type": {
+              "type": "string",
+              "description": "Property. Type of the MAF."
+            }
+          }
         },
-        "type": {
-          "type": "string",
-          "description": "Property. Type of the msoup."
+        "msoup": {
+          "type": "object",
+          "description": "Property. Details of the MSOUP.",
+          "properties": {
+            "detail": {
+              "type": "string",
+              "description": "Property. Details of the msoup."
+            },
+            "id": {
+              "type": "string",
+              "description": "Property. Identifier of the msoup."
+            },
+            "name": {
+              "type": "string",
+              "description": "Property. Name of the msoup."
+            },
+            "prior": {
+              "type": "string",
+              "description": "Property. Prior details of the msoup."
+            },
+            "type": {
+              "type": "string",
+              "description": "Property. Type of the msoup."
+            },
+            "code": {
+              "type": "number",
+              "description": "Property. Type of the msoup."
+            },
+            "symbol": {
+              "type": "string",
+              "description": "Property. Type of the msoup."
+            }
+          }
         },
-        "code": {
+        "mud": {
           "type": "number",
-          "description": "Property. Type of the msoup."
+          "description": "Property. Indicates whether sewage sludge application document has been used or not."
         },
-        "symbol": {
+        "plan": {
           "type": "string",
-          "description": "Property. Type of the msoup."
-        }
-      }
-    },
-    "mud": {
-      "type": "number",
-      "description": "Property. Indicates whether sewage sludge application document has been used or not."
-    },
-    "plan": {
-      "type": ["null", "string"],
-      "description": "Property. Information about the subscriber plans that are part of the campaign."
-    },
-    "r10": {
-      "type": "string",
-      "description": "Property. Waste authorization number R10."
-    },
-    "soup": {
-      "type": "number",
-      "description": "Property. Final soup amount administered."
-    },
-    "taf": {
-      "type": "object",
-      "description": "Property. Details of the TAF.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Property. Identifier of the TAF."
+          "description": "Property. Information about the subscriber plans that are part of the campaign."
         },
-        "name": {
+        "r10": {
           "type": "string",
-          "description": "Property. Name of the TAF."
+          "description": "Property. Waste authorization number R10."
         },
-        "type": {
-          "type": "string",
-          "description": "Property. Type of the TAF."
-        }
-      }
-    },
-    "tgp": {
-      "type": "array",
-      "items": {
-        "type": "object"
-      },
-      "description": "Property.  Information on good practices of fertilizer applied in the campaign."
-    },
-    "tmi": {
-      "type": "object",
-      "description": "Property. Details of the TMI.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Property. Identifier of the TMI."
+        "soup": {
+          "type": "number",
+          "description": "Property. Final soup amount administered."
         },
-        "name": {
-          "type": "string",
-          "description": "Property. Name of the TMI."
+        "taf": {
+          "type": "object",
+          "description": "Property. Details of the TAF.",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Property. Identifier of the TAF."
+            },
+            "name": {
+              "type": "string",
+              "description": "Property. Name of the TAF."
+            },
+            "type": {
+              "type": "string",
+              "description": "Property. Type of the TAF."
+            }
+          }
         },
-        "type": {
-          "type": "string",
-          "description": "Property. Type of the TMI."
+        "tmi": {
+          "type": "object",
+          "description": "Property. Details of the TMI.",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Property. Identifier of the TMI."
+            },
+            "name": {
+              "type": "string",
+              "description": "Property. Name of the TMI."
+            },
+            "type": {
+              "type": "string",
+              "description": "Property. Type of the TMI."
+            }
+          }
         }
       }
     }
-  },
-  "required": ["id", "type"]
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
 }
