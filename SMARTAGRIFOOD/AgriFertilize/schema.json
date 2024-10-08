@@ -3,7 +3,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
   "title": "AgriFertilize Schema",
-  "description": "Schema for AgriFertilize entity. To fertilize land means to improve its quality in order to make plants grow well on it, by spreading solid animal waste or a chemical mixture on it.",
+  "description": "Schema for AgriFertilize entity. To fertilize land means to improve its quality in order to make plants grow well on it, by spreading solid animal waste or a chemical mixture on it",
   "type": "object",
   "derivedFrom": "",
   "license": "https://opensource.org/licenses/MIT",
@@ -19,100 +19,102 @@
       "properties": {
         "type": {
           "type": "string",
-          "description": "Property. NGSI Entity Type. It has to be AgriFertilize.",
+          "description": "Property. NGSI Entity Type. It has to be AgriFertilize",
           "enum": [
             "AgriFertilize"
           ]
         },
         "dose": {
           "type": "number",
-          "description": "Property. Fertilizer dose administered."
+          "description": "Property. Fertilizer dose administered"
         },
         "enddate": {
           "type": "string",
-          "description": "Property. Final date of fertilizer process. This field can be empty."
+          "description": "Property. Final date of fertilizer process. This field can be empty"
         },
         "inidate": {
           "type": "string",
-          "description": "Property. The start date of the fertilization process."
+          "description": "Property. The start date of the fertilization process"
         },
         "measure": {
           "type": "object",
-          "description": "Property. Details of the measure.",
+          "description": "Property. Details of the measure",
           "properties": {
             "detail": {
               "type": "string",
-              "description": "Property. Notes about the measurement."
+              "description": "Property. Notes about the measurement"
             },
             "id": {
               "type": "string",
-              "description": "Property. Identifier of the measure."
+              "description": "Property. Identifier of the measure"
             },
             "name": {
               "type": "string",
-              "description": "Property. Name assigned to the measure."
+              "description": "Property. Name assigned to the measure"
             },
             "prior": {
               "type": "string",
-              "description": "Property. Level of importance of the measure. Available values ​​are between 0 (priority) and 10 (least priority)."
+              "description": "Property. Level of importance of the measure. Available values are between 0 (priority) and 10 (least priority)"
             },
             "type": {
               "type": "string",
-              "description": "Property. Type of the measure."
+              "description": "Property. Type of the measure"
             },
             "code": {
               "type": "number",
-              "description": "Property. Ministry code assigned to the measure."
+              "description": "Property. Ministry code assigned to the measure"
             },
             "symbol": {
               "type": "string",
-              "description": "Property. Symbol assigned to the measure."
+              "description": "Property. Symbol assigned to the measure"
             }
           }
         },
         "subtype": {
           "type": "object",
-          "description": "Property. Subtype details of the AgriFertilize entity.",
+          "description": "Property. Subtype details of the AgriFertilize entity",
           "properties": {
             "aacm": {
               "type": "array",
               "items": {
                 "type": "object",
+                "description": "Property. Every element in the array aacm",
                 "properties": {
                   "exampleObjectKey": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Property. Internal value of the object aacm"
                   }
                 }
               },
-              "description": "Property. Array of aacm objects associated with the subtype."
+              "description": "Property. Array of aacm objects associated with the subtype"
             },
             "check": {
               "type": "number",
-              "description": "Property. Check value associated with the subtype."
+              "description": "Property. Check value associated with the subtype"
             },
             "code": {
               "type": "string",
-              "description": "Property. Code of the subtype."
+              "description": "Property. Code of the subtype"
             },
             "comp": {
               "type": "object",
-              "description": "Property. Details of the company associated with the subtype.",
+              "description": "Property. Details of the company associated with the subtype",
               "properties": {
                 "id": {
                   "type": "number",
-                  "description": "Property. Identifier of the company."
+                  "description": "Property. Identifier of the company"
                 },
                 "name": {
                   "type": "string",
-                  "description": "Property. Name of the company."
+                  "description": "Property. Name of the company"
                 },
-                "nif": {
+                "vat": {
                   "type": "string",
-                  "description": "Property. NIF of the company."
+                  "description": "Property. VAT of the company"
                 },
                 "type": {
                   "type": "string",
-                  "description": "Property. Type of the company."
+                  "description": "Property. Type of the company"
                 }
               }
             },
@@ -120,102 +122,107 @@
               "type": "array",
               "items": {
                 "type": "object",
+                "description": "Property. Ever element of the array hecm",
                 "properties": {
                   "exampleObjectKey": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Property. Internal value of the object hecm"
                   }
                 }
               },
-              "description": "Property. Information on heavy metals of the fertilizer type."
+              "description": "Property. Information on heavy metals of the fertilizer type"
             },
             "id": {
               "type": "number",
-              "description": "Property. Identifier of the subtype."
+              "description": "Property. Identifier of the subtype"
             },
             "macm": {
               "type": "array",
               "items": {
                 "type": "object",
+                "description": "Property. Every element of the array macronutrients",
                 "properties": {
                   "exampleObjectKey": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Property. Internal value of the object macronutrients"
                   }
                 }
               },
-              "description": "Property. Information on other macronutrients of the fertilizer type."
+              "description": "Property. Information on other macronutrients of the fertilizer type"
             },
             "manure": {
               "type": "string",
-              "description": "Property. Manure details, if any."
+              "description": "Property. Manure details, if any"
             },
             "matdet": {
               "type": "string",
-              "description": "Property. Material fertilize detail, if any."
+              "description": "Property. Material fertilize detail, if any"
             },
             "material": {
               "type": "object",
-              "description": "Property. Material details associated with the subtype.",
+              "description": "Property. Material details associated with the subtype",
               "properties": {
                 "id": {
                   "type": "number",
-                  "description": "Property. Identifier of the material."
+                  "description": "Property. Identifier of the material"
                 },
                 "name": {
                   "type": "string",
-                  "description": "Property. Name of the material."
+                  "description": "Property. Name of the material"
                 },
                 "type": {
                   "type": "string",
-                  "description": "Property. Type of the material."
+                  "description": "Property. Type of the material"
                 }
               }
             },
             "metadata": {
               "type": "array",
-              "description": "Property. Array of metadata objects associated with the subtype.",
+              "description": "Property. Array of metadata objects associated with the subtype",
               "items": {
                 "type": "object",
+                "description": "Property. Every group of elements in the metadata",
                 "properties": {
                   "date": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Property. Date associated with the metadata."
+                    "description": "Property. Date associated with the metadata"
                   },
                   "type": {
                     "type": "string",
-                    "description": "Property. Type of metadata."
+                    "description": "Property. Type of metadata"
                   },
                   "user": {
                     "type": "object",
-                    "description": "Property. User details associated with the metadata.",
+                    "description": "Property. User details associated with the metadata",
                     "properties": {
                       "email": {
                         "type": "string",
-                        "description": "Property. Email of the user."
+                        "description": "Property. Email of the user"
                       },
                       "id": {
                         "type": "string",
-                        "description": "Property. Identifier of the user."
+                        "description": "Property. Identifier of the user"
                       },
                       "loginname": {
                         "type": "string",
-                        "description": "Property. Login name of the user."
+                        "description": "Property. Login name of the user"
                       },
                       "name": {
                         "type": "string",
-                        "description": "Property. Name of the user."
+                        "description": "Property. Name of the user"
                       },
-                      "nif": {
+                      "vat": {
                         "type": "string",
-                        "description": "Property. NIF of the user."
+                        "description": "Property. VAT of the user"
                       },
                       "surname": {
                         "type": "string",
-                        "description": "Property. Surname of the user."
+                        "description": "Property. Surname of the user"
                       },
                       "type": {
                         "type": "string",
-                        "description": "Property. Type of the user."
+                        "description": "Property. Type of the user"
                       }
                     }
                   }
@@ -226,13 +233,14 @@
               "type": "array",
               "items": {
                 "type": "object",
+                "description": "Property. Every element of the array of objects micm",
                 "properties": {
                   "exampleObjectKey": {
                     "type": "string"
                   }
                 }
               },
-              "description": "Property. Array of micm objects associated with the subtype."
+              "description": "Property. Array of micm objects associated with the subtype"
             },
             "mmcm": {
               "type": "array",
@@ -240,218 +248,220 @@
                 "properties": {
                   "type": {
                     "type": "string",
-                    "description": "Property. This field contains the type associated to the mmcm."
+                    "description": "Property. This field contains the type associated to the mmcm"
                   },
                   "id": {
                     "type": "number",
-                    "description": "Property. Identifier of mmcm."
+                    "description": "Property. Identifier of mmcm"
                   },
                   "value": {
                     "type": "number",
-                    "description": "Property. This field contains the value associated to the mmcm."
+                    "description": "Property. This field contains the value associated to the mmcm"
                   },
                   "subtype": {
                     "type": "object",
-                    "description": "Property. Subtype details of mmcm.",
+                    "description": "Property. Subtype details of mmcm",
                     "properties": {
                       "code": {
                         "type": "number",
-                        "description": "Property. Code of the mmcm subtype."
+                        "description": "Property. Code of the mmcm subtype"
                       },
                       "id": {
                         "type": "number",
-                        "description": "Property. Identifier of the mmcm subtype."
+                        "description": "Property. Identifier of the mmcm subtype"
                       },
                       "name": {
                         "type": "string",
-                        "description": "Property. Name of the mmcm subtype."
+                        "description": "Property. Name of the mmcm subtype"
                       },
                       "subtype": {
                         "type": "object",
-                        "description": "Property. Nested subtype details of mmcm.",
+                        "description": "Property. Nested subtype details of mmcm",
                         "properties": {
                           "id": {
                             "type": "number",
-                            "description": "Property. Identifier of the nested mmcm subtype."
+                            "description": "Property. Identifier of the nested mmcm subtype"
                           },
                           "name": {
                             "type": "string",
-                            "description": "Property. Name of the nested mmcm subtype."
+                            "description": "Property. Name of the nested mmcm subtype"
                           },
                           "type": {
                             "type": "string",
-                            "description": "Property. Type of the nested mmcm subtype."
+                            "description": "Property. Type of the nested mmcm subtype"
                           }
                         }
                       },
                       "symbol": {
                         "type": "string",
-                        "description": "Property. Symbol of the mmcm subtype."
+                        "description": "Property. Symbol of the mmcm subtype"
                       },
                       "type": {
                         "type": "string",
-                        "description": "Property. Type of the mmcm subtype."
+                        "description": "Property. Type of the mmcm subtype"
                       }
                     }
                   }
                 }
               },
-              "description": "Property. Array of mmcm objects associated with the subtype."
+              "description": "Property. Array of mmcm objects associated with the subtype"
             },
             "name": {
               "type": "string",
-              "description": "Property. Name of the subtype."
+              "description": "Property. Name of the subtype"
             },
             "notes": {
               "type": "string",
-              "description": "Property. Notes associated with the subtype."
+              "description": "Property. Notes associated with the subtype"
             },
             "subcode": {
               "type": "string",
-              "description": "Property. Subcode of the subtype."
+              "description": "Property. Subcode of the subtype"
             },
             "symbol": {
               "type": "string",
-              "description": "Property. Symbol of the subtype."
+              "description": "Property. Symbol of the subtype"
             }
           }
         },
         "target": {
           "type": "string",
-          "description": "Property. Target details for the AgriFertilize entity."
+          "description": "Property. Target details for the AgriFertilize entity"
         },
         "typsoil": {
           "type": "string",
-          "description": "Property. Type of soil associated with the AgriFertilize entity."
+          "description": "Property. Type of soil associated with the AgriFertilize entity"
         },
         "bill": {
           "type": "string",
-          "description": "Property. Invoice or delivery note number."
+          "description": "Property. Invoice or delivery note number"
         },
         "detail": {
           "type": "string",
-          "description": "Property. User notes on administered fertilizer."
+          "description": "Property. User notes on administered fertilizer"
         },
         "idcp": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "description": "Property.  IDs of the CropSigpac on which the fertilizer is applied in the campaign."
+          "description": "Property.  IDs of the CropSigpac on which the fertilizer is applied in the campaign"
         },
         "machine": {
           "type": "array",
+          "description": "Property. Every element of the array of machines used",
           "items": {
             "type": "object",
             "properties": {
               "exampleObjectKey": {
-                "type": "string"
+                "type": "string",
+                "description": "Property. Internal value of the object machine"
               }
             }
           },
-          "description": "Property.  Information on the machinery assigned to the application of the fertilizer as well as information on its hygiene."
+          "description": "Property.  Information on the machinery assigned to the application of the fertilizer as well as information on its hygiene"
         },
         "maf": {
           "type": "object",
-          "description": "Property. Details of the MAF.",
+          "description": "Property. Details of the MAF",
           "properties": {
             "id": {
               "type": "string",
-              "description": "Property. Identifier of the MAF."
+              "description": "Property. Identifier of the MAF"
             },
             "name": {
               "type": "string",
-              "description": "Property. Name of the MAF."
+              "description": "Property. Name of the MAF"
             },
             "type": {
               "type": "string",
-              "description": "Property. Type of the MAF."
+              "description": "Property. Type of the MAF"
             }
           }
         },
         "msoup": {
           "type": "object",
-          "description": "Property. Details of the MSOUP.",
+          "description": "Property. Details of the MSOUP",
           "properties": {
             "detail": {
               "type": "string",
-              "description": "Property. Details of the msoup."
+              "description": "Property. Details of the msoup"
             },
             "id": {
               "type": "string",
-              "description": "Property. Identifier of the msoup."
+              "description": "Property. Identifier of the msoup"
             },
             "name": {
               "type": "string",
-              "description": "Property. Name of the msoup."
+              "description": "Property. Name of the msoup"
             },
             "prior": {
               "type": "string",
-              "description": "Property. Prior details of the msoup."
+              "description": "Property. Prior details of the msoup"
             },
             "type": {
               "type": "string",
-              "description": "Property. Type of the msoup."
+              "description": "Property. Type of the msoup"
             },
             "code": {
               "type": "number",
-              "description": "Property. Type of the msoup."
+              "description": "Property. Type of the msoup"
             },
             "symbol": {
               "type": "string",
-              "description": "Property. Type of the msoup."
+              "description": "Property. Type of the msoup"
             }
           }
         },
         "mud": {
           "type": "number",
-          "description": "Property. Indicates whether sewage sludge application document has been used or not."
+          "description": "Property. Indicates whether sewage sludge application document has been used or not"
         },
         "plan": {
           "type": "string",
-          "description": "Property. Information about the subscriber plans that are part of the campaign."
+          "description": "Property. Information about the subscriber plans that are part of the campaign"
         },
         "r10": {
           "type": "string",
-          "description": "Property. Waste authorization number R10."
+          "description": "Property. Waste authorization number R10"
         },
         "soup": {
           "type": "number",
-          "description": "Property. Final soup amount administered."
+          "description": "Property. Final soup amount administered"
         },
         "taf": {
           "type": "object",
-          "description": "Property. Details of the TAF.",
+          "description": "Property. Details of the TAF",
           "properties": {
             "id": {
               "type": "string",
-              "description": "Property. Identifier of the TAF."
+              "description": "Property. Identifier of the TAF"
             },
             "name": {
               "type": "string",
-              "description": "Property. Name of the TAF."
+              "description": "Property. Name of the TAF"
             },
             "type": {
               "type": "string",
-              "description": "Property. Type of the TAF."
+              "description": "Property. Type of the TAF"
             }
           }
         },
         "tmi": {
           "type": "object",
-          "description": "Property. Details of the TMI.",
+          "description": "Property. Details of the TMI",
           "properties": {
             "id": {
               "type": "string",
-              "description": "Property. Identifier of the TMI."
+              "description": "Property. Identifier of the TMI"
             },
             "name": {
               "type": "string",
-              "description": "Property. Name of the TMI."
+              "description": "Property. Name of the TMI"
             },
             "type": {
               "type": "string",
-              "description": "Property. Type of the TMI."
+              "description": "Property. Type of the TMI"
             }
           }
         }
