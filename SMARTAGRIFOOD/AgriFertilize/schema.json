@@ -230,18 +230,69 @@
               }
             },
             "micm": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "description": "Property. Every element of the array of objects micm, information on micronutrients of the type of fertilizer",
-                "properties": {
-                  "exampleObjectKey": {
-                    "type": "string"
-                  }
-                }
-              },
-              "description": "Property. Array of micm objects associated with the subtype, information on micronutrients of the type of fertilizer"
-            },
+							"type": "array",
+							"items": {
+								"properties": {
+									"type": {
+										"type": "string",
+										"description": "Property. This field contains the type associated to the micm, information on micronutrients of the type of fertilizer"
+									},
+									"id": {
+										"type": "number",
+										"description": "Property. Identifier of micm"
+									},
+									"value": {
+										"type": "number",
+										"description": "Property. This field contains the value associated to the micm"
+									},
+									"subtype": {
+										"type": "object",
+										"description": "Property. Subtype details of micm",
+										"properties": {
+											"code": {
+												"type": "number",
+												"description": "Property. Code of the micm subtype"
+											},
+											"id": {
+												"type": "number",
+												"description": "Property. Identifier of the micm subtype"
+											},
+											"name": {
+												"type": "string",
+												"description": "Property. Name of the micronutrients of the type of fertilizer"
+											},
+											"subtype": {
+												"type": "object",
+												"description": "Property. Nested subtype details of micm",
+												"properties": {
+													"id": {
+														"type": "number",
+														"description": "Property. Identifier of the nested micm subtype"
+													},
+													"name": {
+														"type": "string",
+														"description": "Property. Name of the nested micm subtype"
+													},
+													"type": {
+														"type": "string",
+														"description": "Property. Type of the nested micm subtype"
+													}
+												}
+											},
+											"symbol": {
+												"type": "string",
+												"description": "Property. Symbol of the micm subtype"
+											},
+											"type": {
+												"type": "string",
+												"description": "Property. Type of the micm subtype"
+											}
+										}
+									}
+								}
+							},
+							"description": "Property. Array of micm objects associated with the subtype, information on micronutrients of the type of fertilizer"
+						},
             "mmcm": {
               "type": "array",
               "items": {
