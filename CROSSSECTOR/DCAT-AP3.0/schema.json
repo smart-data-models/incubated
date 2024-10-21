@@ -8,6 +8,14 @@
   "type": "object",
   "allOf": [
     {
+      "id": {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons/properties/id"
+      }
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/smart-data-models/data-models/refs/heads/master/common-schema.json#/definitions/Location-Commons"
+    },
+    {
       "properties": {
         "type": {
           "type": "string",
@@ -87,27 +95,6 @@
           "items": {
             "type": "string",
             "description": "Property. Every service available at an end-point"
-          }
-        },
-        "servesDataset": {
-          "type": "array",
-          "description": "Relationship. Model:'https://www.w3.org/ns/dcat#servesDataset'. This property refers to a collection of data that this data service can distribute",
-          "items": {
-            "description": "Property. Model:'http://www.w3.org/ns/dcat#Dataset'. This property refers to a collection of data that this data service can distribute",
-            "anyOf": [
-              {
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 256,
-                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                "description": "Property. Identifier format of any NGSI entity"
-              },
-              {
-                "type": "string",
-                "format": "uri",
-                "description": "Property. Identifier format of any NGSI entity"
-              }
-            ]
           }
         },
         "accessRights": {
