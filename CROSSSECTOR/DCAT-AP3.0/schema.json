@@ -34,57 +34,26 @@
             "description": "Property. Every root location"
           }
         },
-        "title": {
-          "description": "LanguageProperty. Model:'http://purl.org/dc/terms/title'. This property contains a name given to the Data Service. This property can be repeated for parallel language versions of the name",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "languageMap": {
-                  "type": "object",
-                  "description": "Property, Model:'https://www.w3.org/2000/01/rdf-schema#Literal'.  A JSON object consisting of a series of key-value pairs where the keys shall be JSON strings representing IETF RFC 5646 (https://www.rfc-editor.org/info/rfc5646) language codes.",
-                  "properties": {
-                    "en": {
-                      "type": "string"
-                    },
-                    "de": {
-                      "type": "string"
-                    },
-                    "es": {
-                      "type": "string"
-                    },
-                    "fr": {
-                      "type": "string"
-                    },
-                    "it": {
-                      "type": "string"
-                    },
-                    "ja": {
-                      "type": "string"
-                    },
-                    "ko": {
-                      "type": "string"
-                    },
-                    "zh": {
-                      "type": "string"
-                    },
-                    "el": {
-                      "type": "string"
-                    },
-                    "nl": {
-                      "type": "string"
-                    },
-                    "fi": {
-                      "type": "string"
-                    }
-                  }
-                }
+        "servesDataset": {
+          "type": "array",
+          "description": "Relationship. Model:'https://www.w3.org/ns/dcat#servesDataset'. This property refers to a collection of data that this data service can distribute",
+          "items": {
+            "description": "Property. Model:'http://www.w3.org/ns/dcat#Dataset'. This property refers to a collection of data that this data service can distribute",
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                "description": "Property. Identifier format of any NGSI entity"
+              },
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "Property. Identifier format of any NGSI entity"
               }
-            },
-            {
-              "type": "string"
-            }
-          ]
+            ]
+          }
         },
         "endpointDescription": {
           "type": "array",
