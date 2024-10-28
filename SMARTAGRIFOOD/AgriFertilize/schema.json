@@ -1,702 +1,700 @@
 {
-	"$id": "https://smart-data-models.github.io/dataModel.Agrifood/AgriFertilize/schema.json",
-	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$schemaVersion": "0.0.1",
-	"title": "AgriFertilize Schema",
-	"description": "Schema for AgriFertilize entity. To fertilize land means to improve its quality in order to make plants grow well on it, by spreading solid animal waste or a chemical mixture on it",
-	"type": "object",
-	"derivedFrom": "",
-	"license": "https://opensource.org/licenses/MIT",
-	"modelTags": "Agrifood, AgriFertilize",
-	"allOf": [{
-			"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
-		},
-		{
-			"$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-		},
-		{
-			"properties": {
-				"type": {
-					"type": "string",
-					"description": "Property. NGSI Entity Type. It has to be AgriFertilize",
-					"enum": [
-						"AgriFertilize"
-					]
-				},
-				"dose": {
-					"type": "number",
-					"description": "Property. Fertilizer dose administered"
-				},
-				"enddate": {
-					"type": "string",
-					"description": "Property. Final date of fertilizer process. This field can be empty"
-				},
-				"inidate": {
-					"type": "string",
-					"description": "Property. The start date of the fertilization process"
-				},
-				"measure": {
-					"type": "object",
-					"description": "Property. Details of the measure",
-					"properties": {
-						"detail": {
-							"type": "string",
-							"description": "Property. Notes about the measurement"
-						},
-						"id": {
-							"type": "string",
-							"description": "Property. Identifier of the measure"
-						},
-						"name": {
-							"type": "string",
-							"description": "Property. Name assigned to the measure"
-						},
-						"prior": {
-							"type": "string",
-							"description": "Property. Level of importance of the measure. Available values are between 0 (priority) and 10 (least priority)"
-						},
-						"type": {
-							"type": "string",
-							"description": "Property. Type of the measure"
-						},
-						"code": {
-							"type": "number",
-							"description": "Property. Ministry code assigned to the measure"
-						},
-						"symbol": {
-							"type": "string",
-							"description": "Property. Symbol assigned to the measure"
-						}
-					}
-				},
-				"subtype": {
-					"type": "object",
-					"description": "Property. Subtype details of the AgriFertilize entity",
-					"properties": {
-						"aacm": {
-							"type": "array",
-							"description": "Property. Array of aacm objects associated with the subtype, information on amino acids of the fertilizer type",
-							"items": {
-								"type": "object",
-								"description": "Property. Every element of the accm ",
-								"properties": {
-									"type": {
-										"type": "string",
-										"description": "Property. This field contains the type associated to the aacm, information on amino acids of the fertilizer type"
-									},
-									"id": {
-										"type": "number",
-										"description": "Property. Identifier of aacm"
-									},
-									"value": {
-										"type": "number",
-										"description": "Property. This field contains the value associated to the aacm"
-									},
-									"subtype": {
-										"type": "object",
-										"description": "Property. Subtype details of aacm",
-										"properties": {
-											"code": {
-												"type": "number",
-												"description": "Property. Code of the aacm subtype"
-											},
-											"id": {
-												"type": "number",
-												"description": "Property. Identifier of the aacm subtype"
-											},
-											"name": {
-												"type": "string",
-												"description": "Property. Name of the amino acids of the fertilizer type"
-											},
-											"subtype": {
-												"type": "object",
-												"description": "Property. Nested subtype details of aacm",
-												"properties": {
-													"id": {
-														"type": "number",
-														"description": "Property. Identifier of the nested aacm subtype"
-													},
-													"name": {
-														"type": "string",
-														"description": "Property. Name of the nested aacm subtype"
-													},
-													"type": {
-														"type": "string",
-														"description": "Property. Type of the nested aacm subtype"
-													}
-												}
-											},
-											"symbol": {
-												"type": "string",
-												"description": "Property. Symbol of the aacm subtype"
-											},
-											"type": {
-												"type": "string",
-												"description": "Property. Type of the aacm subtype"
-											}
-										}
-									}
-								}
-							}
-						},
-						"check": {
-							"type": "number",
-							"description": "Property. Check value associated with the subtype"
-						},
-						"code": {
-							"type": "string",
-							"description": "Property. Code of the subtype"
-						},
-						"comp": {
-							"type": "object",
-							"description": "Property. Details of the company associated with the subtype",
-							"properties": {
-								"id": {
-									"type": "number",
-									"description": "Property. Identifier of the company"
-								},
-								"name": {
-									"type": "string",
-									"description": "Property. Name of the company that owns the fertilizer"
-								},
-								"vat": {
-									"type": "string",
-									"description": "Property. VAT of the company that owns the fertilizer"
-								},
-								"type": {
-									"type": "string",
-									"description": "Property. Type of the company"
-								}
-							}
-						},
-						"hecm": {
-							"type": "array",
-							"description": "Property. Array of hecm objects associated with the subtype, information heavy metals of the fertilizer type",
-							"items": {
-								"properties": {
-									"type": {
-										"type": "string",
-										"description": "Property. This field contains the type associated to the hecm, information on heavy metals of the fertilizer type"
-									},
-									"id": {
-										"type": "number",
-										"description": "Property. Identifier of hecm"
-									},
-									"value": {
-										"type": "number",
-										"description": "Property. This field contains the value associated to the hecm"
-									},
-									"subtype": {
-										"type": "object",
-										"description": "Property. Subtype details of hecm",
-										"properties": {
-											"code": {
-												"type": "number",
-												"description": "Property. Code of the hecm subtype"
-											},
-											"id": {
-												"type": "number",
-												"description": "Property. Identifier of the hecm subtype"
-											},
-											"name": {
-												"type": "string",
-												"description": "Property. Name of the heavy metals of the fertilizer type"
-											},
-											"subtype": {
-												"type": "object",
-												"description": "Property. Nested subtype details of hecm",
-												"properties": {
-													"id": {
-														"type": "number",
-														"description": "Property. Identifier of the nested hecm subtype"
-													},
-													"name": {
-														"type": "string",
-														"description": "Property. Name of the nested hecm subtype"
-													},
-													"type": {
-														"type": "string",
-														"description": "Property. Type of the nested hecm subtype"
-													}
-												}
-											},
-											"symbol": {
-												"type": "string",
-												"description": "Property. Symbol of the hecm subtype"
-											},
-											"type": {
-												"type": "string",
-												"description": "Property. Type of the hecm subtype"
-											}
-										}
-									}
-								}
-							}
-
-						},
-						"id": {
-							"type": "number",
-							"description": "Property. Identifier of the subtype"
-						},
-						"macm": {
-							"type": "array",
-							"description": "Property. Array of macm objects associated with the subtype, information on other macronutrients of the fertilizer type",
-							"items": {
-								"type": "object",
-								"description": "Property. The individual objects inside the macm",
-								"properties": {
-									"type": {
-										"type": "string",
-										"description": "Property. This field contains the type associated to the macm, information on other macronutrients of the fertilizer type"
-									},
-									"id": {
-										"type": "number",
-										"description": "Property. Identifier of macm"
-									},
-									"value": {
-										"type": "number",
-										"description": "Property. This field contains the value associated to the macm"
-									},
-									"subtype": {
-										"type": "object",
-										"description": "Property. Subtype details of macm",
-										"properties": {
-											"code": {
-												"type": "number",
-												"description": "Property. Code of the macm subtype"
-											},
-											"id": {
-												"type": "number",
-												"description": "Property. Identifier of the macm subtype"
-											},
-											"name": {
-												"type": "string",
-												"description": "Property. Name of the other macronutrients of the fertilizer type"
-											},
-											"subtype": {
-												"type": "object",
-												"description": "Property. Nested subtype details of macm",
-												"properties": {
-													"id": {
-														"type": "number",
-														"description": "Property. Identifier of the nested macm subtype"
-													},
-													"name": {
-														"type": "string",
-														"description": "Property. Name of the nested macm subtype"
-													},
-													"type": {
-														"type": "string",
-														"description": "Property. Type of the nested macm subtype"
-													}
-												}
-											},
-											"symbol": {
-												"type": "string",
-												"description": "Property. Symbol of the macm subtype"
-											},
-											"type": {
-												"type": "string",
-												"description": "Property. Type of the macm subtype"
-											}
-										}
-									}
-								}
-							}
-
-						},
-						"manure": {
-							"type": "string",
-							"description": "Property. Manure details, if any"
-						},
-						"matdet": {
-							"type": "string",
-							"description": "Property. Material fertilize detail, if any"
-						},
-						"material": {
-							"type": "object",
-							"description": "Property. Material details associated with the subtype",
-							"properties": {
-								"id": {
-									"type": "number",
-									"description": "Property. Identifier of the material"
-								},
-								"name": {
-									"type": "string",
-									"description": "Property. Name of the material that uses compost or fertilizer"
-								},
-								"type": {
-									"type": "string",
-									"description": "Property. Type of the material that uses compost or fertilizer"
-								}
-							}
-						},
-						"metadata": {
-							"type": "array",
-							"description": "Property. Array of metadata objects associated with the subtype",
-							"items": {
-								"type": "object",
-								"description": "Property. Every group of elements in the metadata",
-								"properties": {
-									"date": {
-										"type": "string",
-										"format": "date-time",
-										"description": "Property. Date associated with the metadata"
-									},
-									"type": {
-										"type": "string",
-										"description": "Property. Type of metadata"
-									},
-									"user": {
-										"type": "object",
-										"description": "Property. User details associated with the metadata",
-										"properties": {
-											"email": {
-												"type": "string",
-												"description": "Property. Email of the user"
-											},
-											"id": {
-												"type": "string",
-												"description": "Property. Identifier of the user"
-											},
-											"loginname": {
-												"type": "string",
-												"description": "Property. Login name of the user"
-											},
-											"name": {
-												"type": "string",
-												"description": "Property. Name of the user in the system"
-											},
-											"vat": {
-												"type": "string",
-												"description": "Property. VAT (identification number) of the user"
-											},
-											"surname": {
-												"type": "string",
-												"description": "Property. Surname of the user"
-											},
-											"type": {
-												"type": "string",
-												"description": "Property. Type of the user"
-											}
-										}
-									}
-								}
-							}
-						},
-						"micm": {
-							"type": "array",
-							"description": "Property. Array of micm objects associated with the subtype, information on micronutrients of the type of fertilizer",
-							"items": {
-								"type": "object",
-								"description": "Property. Every element of te micm",
-								"properties": {
-									"type": {
-										"type": "string",
-										"description": "Property. This field contains the type associated to the micm, information on micronutrients of the type of fertilizer"
-									},
-									"id": {
-										"type": "number",
-										"description": "Property. Identifier of micm"
-									},
-									"value": {
-										"type": "number",
-										"description": "Property. This field contains the value associated to the micm"
-									},
-									"subtype": {
-										"type": "object",
-										"description": "Property. Subtype details of micm",
-										"properties": {
-											"code": {
-												"type": "number",
-												"description": "Property. Code of the micm subtype"
-											},
-											"id": {
-												"type": "number",
-												"description": "Property. Identifier of the micm subtype"
-											},
-											"name": {
-												"type": "string",
-												"description": "Property. Name of the micronutrients of the type of fertilizer"
-											},
-											"subtype": {
-												"type": "object",
-												"description": "Property. Nested subtype details of micm",
-												"properties": {
-													"id": {
-														"type": "number",
-														"description": "Property. Identifier of the nested micm subtype"
-													},
-													"name": {
-														"type": "string",
-														"description": "Property. Name of the nested micm subtype"
-													},
-													"type": {
-														"type": "string",
-														"description": "Property. Type of the nested micm subtype"
-													}
-												}
-											},
-											"symbol": {
-												"type": "string",
-												"description": "Property. Symbol of the micm subtype"
-											},
-											"type": {
-												"type": "string",
-												"description": "Property. Type of the micm subtype"
-											}
-										}
-									}
-								}
-							}
-
-						},
-						"mmcm": {
-							"type": "array",
-							"description": "Property. Array of mmcm objects associated with the subtype",
-							"items": {
-								"type": "object",
-								"description": "Property. Every element in the mmdm array",
-								"properties": {
-									"type": {
-										"type": "string",
-										"description": "Property. This field contains the type associated to the mmcm, information on the main macronutrients of the fertilizer type"
-									},
-									"id": {
-										"type": "number",
-										"description": "Property. Identifier of mmcm"
-									},
-									"value": {
-										"type": "number",
-										"description": "Property. This field contains the value associated to the mmcm"
-									},
-									"subtype": {
-										"type": "object",
-										"description": "Property. Subtype details of mmcm",
-										"properties": {
-											"code": {
-												"type": "number",
-												"description": "Property. Code of the mmcm subtype"
-											},
-											"id": {
-												"type": "number",
-												"description": "Property. Identifier of the mmcm subtype"
-											},
-											"name": {
-												"type": "string",
-												"description": "Property. Name of the main macronutrient of the fertilizer type"
-											},
-											"subtype": {
-												"type": "object",
-												"description": "Property. Nested subtype details of mmcm",
-												"properties": {
-													"id": {
-														"type": "number",
-														"description": "Property. Identifier of the nested mmcm subtype"
-													},
-													"name": {
-														"type": "string",
-														"description": "Property. Name of the nested mmcm subtype"
-													},
-													"type": {
-														"type": "string",
-														"description": "Property. Type of the nested mmcm subtype"
-													}
-												}
-											},
-											"symbol": {
-												"type": "string",
-												"description": "Property. Symbol of the mmcm subtype"
-											},
-											"type": {
-												"type": "string",
-												"description": "Property. Type of the mmcm subtype"
-											}
-										}
-									}
-								}
-							}
-						},
-						"name": {
-							"type": "string",
-							"description": "Property. Name of the type of fertilizer used and associated with the fertilization code"
-						},
-						"notes": {
-							"type": "string",
-							"description": "Property. Notes associated with the subtype"
-						},
-						"subcode": {
-							"type": "string",
-							"description": "Property. Subcode of the subtype"
-						},
-						"symbol": {
-							"type": "string",
-							"description": "Property. Symbol of the subtype"
-						}
-					}
-				},
-				"target": {
-					"type": "string",
-					"description": "Property. Target details for the AgriFertilize entity"
-				},
-				"typsoil": {
-					"type": "string",
-					"description": "Property. Type of soil associated with the AgriFertilize entity"
-				},
-				"bill": {
-					"type": "string",
-					"description": "Property. Invoice or delivery note number"
-				},
-				"detail": {
-					"type": "string",
-					"description": "Property. User notes on administered fertilizer"
-				},
-				"idcp": {
-					"type": "array",
-					"items": {
-						"type": "string"
-					},
-					"description": "Property.  IDs of the CropSigpac on which the fertilizer is applied in the campaign"
-				},
-				"machine": {
-					"type": "array",
-					"description": "Property. Information on the machinery assigned to the application of the fertilizer as well as information on its hygiene",
-					"items": {
-						"type": "object",
-						"description": "Property. Every element in the array of machines used",
-						"properties": {
-							"type": {
-								"type": "string",
-								"description": "Property. This field contains the type of machine"
-							},
-							"id": {
-								"type": "string",
-								"description": "Property. Identifier unique of the machine"
-							},
-							"product": {
-								"type": "string",
-								"description": "Property. This field contains the value associated to the product that the machine applies"
-							},
-							"detail": {
-								"type": "string",
-								"description": "Property. This field contains the value associated to the machine"
-							},
-							"idmachine": {
-								"type": "string",
-								"description": "Property. This field contains the value associated to the internal id"
-							}
-						}
-					}
-				},
-				"maf": {
-					"type": "object",
-					"description": "Property. Information on fertilizer application methods",
-					"properties": {
-						"id": {
-							"type": "string",
-							"description": "Property. Identifier of fertilizer application mode"
-						},
-						"name": {
-							"type": "string",
-							"description": "Property. Name of fertilizer application mode"
-						},
-						"type": {
-							"type": "string",
-							"description": "Property. Type of fertilizer application mode"
-						}
-					}
-				},
-				"msoup": {
-					"type": "object",
-					"description": "Property. Information on the measurement used for the final amount of broth administered",
-					"properties": {
-						"detail": {
-							"type": "string",
-							"description": "Property. Details of the msoup"
-						},
-						"id": {
-							"type": "string",
-							"description": "Property. Identifier of the msoup"
-						},
-						"name": {
-							"type": "string",
-							"description": "Property. Name of the measure used for the final amount of broth administered"
-						},
-						"prior": {
-							"type": "string",
-							"description": "Property. Prior details of the measure used for the final amount of broth administered"
-						},
-						"type": {
-							"type": "string",
-							"description": "Property. Type of the measure used for the final amount of broth administered"
-						},
-						"code": {
-							"type": "number",
-							"description": "Property. Code of the measure used for the final amount of broth administered"
-						},
-						"symbol": {
-							"type": "string",
-							"description": "Property. Symbol of the measure used for the final amount of broth administered"
-						}
-					}
-				},
-				"mud": {
-					"type": "number",
-					"description": "Property. Indicates whether sewage sludge application document has been used or not"
-				},
-				"plan": {
-					"type": "string",
-					"description": "Property. Information about the subscriber plans that are part of the campaign"
-				},
-				"r10": {
-					"type": "string",
-					"description": "Property. Waste authorisation number R10. The treatment of soil by applying waste to the land is considered a recovery operation coded as R1001. Residues must be applied to agricultural soils exclusively for the purpose of producing a benefit to agriculture or an ecological improvement of the same"
-				},
-				"soup": {
-					"type": "number",
-					"description": "Property. Final soup amount administered"
-				},
-				"taf": {
-					"type": "object",
-					"description": "Property. Information on types of fertilizer application",
-					"properties": {
-						"id": {
-							"type": "string",
-							"description": "Property. Identifier of the TAF"
-						},
-						"name": {
-							"type": "string",
-							"description": "Property. Name of the types of fertilizer application"
-						},
-						"type": {
-							"type": "string",
-							"description": "Property. Type of the types of fertilizer application"
-						}
-					}
-				},
-				"tmi": {
-					"type": "object",
-					"description": "Property. Information on the types of inhibitory molecule",
-					"properties": {
-						"id": {
-							"type": "string",
-							"description": "Property. Identifier of the types of inhibitory molecule"
-						},
-						"name": {
-							"type": "string",
-							"description": "Property. Name of the types of inhibitory molecule"
-						},
-						"type": {
-							"type": "string",
-							"description": "Property. Type of the types of inhibitory molecule"
-						}
-					}
-				}
-			}
-		}
-	],
-	"required": [
-		"id",
-		"type"
-	]
+  "$id": "https://smart-data-models.github.io/dataModel.Agrifood/AgriFertilize/schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "title": "AgriFertilize Schema",
+  "description": "Schema for AgriFertilize entity. To fertilize land means to improve its quality in order to make plants grow well on it, by spreading solid animal waste or a chemical mixture on it",
+  "type": "object",
+  "derivedFrom": "",
+  "license": "https://opensource.org/licenses/MIT",
+  "modelTags": "Agrifood, AgriFertilize",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity Type. It has to be AgriFertilize",
+          "enum": [
+            "AgriFertilize"
+          ]
+        },
+        "dose": {
+          "type": "number",
+          "description": "Property. Fertilizer dose administered"
+        },
+        "enddate": {
+          "type": "string",
+          "description": "Property. Final date of fertilizer process. This field can be empty"
+        },
+        "inidate": {
+          "type": "string",
+          "description": "Property. The start date of the fertilization process"
+        },
+        "measure": {
+          "type": "object",
+          "description": "Property. Details of the measure",
+          "properties": {
+            "detail": {
+              "type": "string",
+              "description": "Property. Notes about the measurement"
+            },
+            "id": {
+              "type": "string",
+              "description": "Property. Identifier of the measure"
+            },
+            "name": {
+              "type": "string",
+              "description": "Property. Name assigned to the measure"
+            },
+            "prior": {
+              "type": "string",
+              "description": "Property. Level of importance of the measure. Available values are between 0 (priority) and 10 (least priority)"
+            },
+            "type": {
+              "type": "string",
+              "description": "Property. Type of the measure"
+            },
+            "code": {
+              "type": "number",
+              "description": "Property. Ministry code assigned to the measure"
+            },
+            "symbol": {
+              "type": "string",
+              "description": "Property. Symbol assigned to the measure"
+            }
+          }
+        },
+        "subtype": {
+          "type": "object",
+          "description": "Property. Subtype details of the AgriFertilize entity",
+          "properties": {
+            "aacm": {
+              "type": "array",
+              "description": "Property. Array of aacm objects associated with the subtype, information on amino acids of the fertilizer type",
+              "items": {
+                "type": "object",
+                "description": "Property. Every element of the accm ",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "Property. This field contains the type associated to the aacm, information on amino acids of the fertilizer type"
+                  },
+                  "id": {
+                    "type": "number",
+                    "description": "Property. Identifier of aacm"
+                  },
+                  "value": {
+                    "type": "number",
+                    "description": "Property. This field contains the value associated to the aacm"
+                  },
+                  "subtype": {
+                    "type": "object",
+                    "description": "Property. Subtype details of aacm",
+                    "properties": {
+                      "code": {
+                        "type": "number",
+                        "description": "Property. Code of the aacm subtype"
+                      },
+                      "id": {
+                        "type": "number",
+                        "description": "Property. Identifier of the aacm subtype"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Property. Name of the amino acids of the fertilizer type"
+                      },
+                      "subtype": {
+                        "type": "object",
+                        "description": "Property. Nested subtype details of aacm",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "description": "Property. Identifier of the nested aacm subtype"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Property. Name of the nested aacm subtype"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Property. Type of the nested aacm subtype"
+                          }
+                        }
+                      },
+                      "symbol": {
+                        "type": "string",
+                        "description": "Property. Symbol of the aacm subtype"
+                      },
+                      "type": {
+                        "type": "string",
+                        "description": "Property. Type of the aacm subtype"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "check": {
+              "type": "number",
+              "description": "Property. Check value associated with the subtype"
+            },
+            "code": {
+              "type": "string",
+              "description": "Property. Code of the subtype"
+            },
+            "comp": {
+              "type": "object",
+              "description": "Property. Details of the company associated with the subtype",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "Property. Identifier of the company"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Property. Name of the company that owns the fertilizer"
+                },
+                "vat": {
+                  "type": "string",
+                  "description": "Property. VAT of the company that owns the fertilizer"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Property. Type of the company"
+                }
+              }
+            },
+            "hecm": {
+              "type": "array",
+              "description": "Property. Array of hecm objects associated with the subtype, information heavy metals of the fertilizer type",
+              "items": {
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "Property. This field contains the type associated to the hecm, information on heavy metals of the fertilizer type"
+                  },
+                  "id": {
+                    "type": "number",
+                    "description": "Property. Identifier of hecm"
+                  },
+                  "value": {
+                    "type": "number",
+                    "description": "Property. This field contains the value associated to the hecm"
+                  },
+                  "subtype": {
+                    "type": "object",
+                    "description": "Property. Subtype details of hecm",
+                    "properties": {
+                      "code": {
+                        "type": "number",
+                        "description": "Property. Code of the hecm subtype"
+                      },
+                      "id": {
+                        "type": "number",
+                        "description": "Property. Identifier of the hecm subtype"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Property. Name of the heavy metals of the fertilizer type"
+                      },
+                      "subtype": {
+                        "type": "object",
+                        "description": "Property. Nested subtype details of hecm",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "description": "Property. Identifier of the nested hecm subtype"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Property. Name of the nested hecm subtype"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Property. Type of the nested hecm subtype"
+                          }
+                        }
+                      },
+                      "symbol": {
+                        "type": "string",
+                        "description": "Property. Symbol of the hecm subtype"
+                      },
+                      "type": {
+                        "type": "string",
+                        "description": "Property. Type of the hecm subtype"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "id": {
+              "type": "number",
+              "description": "Property. Identifier of the subtype"
+            },
+            "macm": {
+              "type": "array",
+              "description": "Property. Array of macm objects associated with the subtype, information on other macronutrients of the fertilizer type",
+              "items": {
+                "type": "object",
+                "description": "Property. The individual objects inside the macm",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "Property. This field contains the type associated to the macm, information on other macronutrients of the fertilizer type"
+                  },
+                  "id": {
+                    "type": "number",
+                    "description": "Property. Identifier of macm"
+                  },
+                  "value": {
+                    "type": "number",
+                    "description": "Property. This field contains the value associated to the macm"
+                  },
+                  "subtype": {
+                    "type": "object",
+                    "description": "Property. Subtype details of macm",
+                    "properties": {
+                      "code": {
+                        "type": "number",
+                        "description": "Property. Code of the macm subtype"
+                      },
+                      "id": {
+                        "type": "number",
+                        "description": "Property. Identifier of the macm subtype"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Property. Name of the other macronutrients of the fertilizer type"
+                      },
+                      "subtype": {
+                        "type": "object",
+                        "description": "Property. Nested subtype details of macm",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "description": "Property. Identifier of the nested macm subtype"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Property. Name of the nested macm subtype"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Property. Type of the nested macm subtype"
+                          }
+                        }
+                      },
+                      "symbol": {
+                        "type": "string",
+                        "description": "Property. Symbol of the macm subtype"
+                      },
+                      "type": {
+                        "type": "string",
+                        "description": "Property. Type of the macm subtype"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "manure": {
+              "type": "string",
+              "description": "Property. Manure details, if any"
+            },
+            "matdet": {
+              "type": "string",
+              "description": "Property. Material fertilize detail, if any"
+            },
+            "material": {
+              "type": "object",
+              "description": "Property. Material details associated with the subtype",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "description": "Property. Identifier of the material"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Property. Name of the material that uses compost or fertilizer"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Property. Type of the material that uses compost or fertilizer"
+                }
+              }
+            },
+            "metadata": {
+              "type": "array",
+              "description": "Property. Array of metadata objects associated with the subtype",
+              "items": {
+                "type": "object",
+                "description": "Property. Every group of elements in the metadata",
+                "properties": {
+                  "date": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Date associated with the metadata"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Property. Type of metadata"
+                  },
+                  "user": {
+                    "type": "object",
+                    "description": "Property. User details associated with the metadata",
+                    "properties": {
+                      "email": {
+                        "type": "string",
+                        "description": "Property. Email of the user"
+                      },
+                      "id": {
+                        "type": "string",
+                        "description": "Property. Identifier of the user"
+                      },
+                      "loginname": {
+                        "type": "string",
+                        "description": "Property. Login name of the user"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Property. Name of the user in the system"
+                      },
+                      "vat": {
+                        "type": "string",
+                        "description": "Property. VAT (identification number) of the user"
+                      },
+                      "surname": {
+                        "type": "string",
+                        "description": "Property. Surname of the user"
+                      },
+                      "type": {
+                        "type": "string",
+                        "description": "Property. Type of the user"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "micm": {
+              "type": "array",
+              "description": "Property. Array of micm objects associated with the subtype, information on micronutrients of the type of fertilizer",
+              "items": {
+                "type": "object",
+                "description": "Property. Every element of te micm",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "Property. This field contains the type associated to the micm, information on micronutrients of the type of fertilizer"
+                  },
+                  "id": {
+                    "type": "number",
+                    "description": "Property. Identifier of micm"
+                  },
+                  "value": {
+                    "type": "number",
+                    "description": "Property. This field contains the value associated to the micm"
+                  },
+                  "subtype": {
+                    "type": "object",
+                    "description": "Property. Subtype details of micm",
+                    "properties": {
+                      "code": {
+                        "type": "number",
+                        "description": "Property. Code of the micm subtype"
+                      },
+                      "id": {
+                        "type": "number",
+                        "description": "Property. Identifier of the micm subtype"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Property. Name of the micronutrients of the type of fertilizer"
+                      },
+                      "subtype": {
+                        "type": "object",
+                        "description": "Property. Nested subtype details of micm",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "description": "Property. Identifier of the nested micm subtype"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Property. Name of the nested micm subtype"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Property. Type of the nested micm subtype"
+                          }
+                        }
+                      },
+                      "symbol": {
+                        "type": "string",
+                        "description": "Property. Symbol of the micm subtype"
+                      },
+                      "type": {
+                        "type": "string",
+                        "description": "Property. Type of the micm subtype"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "mmcm": {
+              "type": "array",
+              "description": "Property. Array of mmcm objects associated with the subtype",
+              "items": {
+                "type": "object",
+                "description": "Property. Every element in the mmdm array",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "Property. This field contains the type associated to the mmcm, information on the main macronutrients of the fertilizer type"
+                  },
+                  "id": {
+                    "type": "number",
+                    "description": "Property. Identifier of mmcm"
+                  },
+                  "value": {
+                    "type": "number",
+                    "description": "Property. This field contains the value associated to the mmcm"
+                  },
+                  "subtype": {
+                    "type": "object",
+                    "description": "Property. Subtype details of mmcm",
+                    "properties": {
+                      "code": {
+                        "type": "number",
+                        "description": "Property. Code of the mmcm subtype"
+                      },
+                      "id": {
+                        "type": "number",
+                        "description": "Property. Identifier of the mmcm subtype"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Property. Name of the main macronutrient of the fertilizer type"
+                      },
+                      "subtype": {
+                        "type": "object",
+                        "description": "Property. Nested subtype details of mmcm",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "description": "Property. Identifier of the nested mmcm subtype"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Property. Name of the nested mmcm subtype"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Property. Type of the nested mmcm subtype"
+                          }
+                        }
+                      },
+                      "symbol": {
+                        "type": "string",
+                        "description": "Property. Symbol of the mmcm subtype"
+                      },
+                      "type": {
+                        "type": "string",
+                        "description": "Property. Type of the mmcm subtype"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "name": {
+              "type": "string",
+              "description": "Property. Name of the type of fertilizer used and associated with the fertilization code"
+            },
+            "notes": {
+              "type": "string",
+              "description": "Property. Notes associated with the subtype"
+            },
+            "subcode": {
+              "type": "string",
+              "description": "Property. Subcode of the subtype"
+            },
+            "symbol": {
+              "type": "string",
+              "description": "Property. Symbol of the subtype"
+            }
+          }
+        },
+        "target": {
+          "type": "string",
+          "description": "Property. Target details for the AgriFertilize entity"
+        },
+        "typsoil": {
+          "type": "string",
+          "description": "Property. Type of soil associated with the AgriFertilize entity"
+        },
+        "bill": {
+          "type": "string",
+          "description": "Property. Invoice or delivery note number"
+        },
+        "detail": {
+          "type": "string",
+          "description": "Property. User notes on administered fertilizer"
+        },
+        "idcp": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Property.  IDs of the CropSigpac on which the fertilizer is applied in the campaign"
+        },
+        "machine": {
+          "type": "array",
+          "description": "Property. Information on the machinery assigned to the application of the fertilizer as well as information on its hygiene",
+          "items": {
+            "type": "object",
+            "description": "Property. Every element in the array of machines used",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "Property. This field contains the type of machine"
+              },
+              "id": {
+                "type": "string",
+                "description": "Property. Identifier unique of the machine"
+              },
+              "product": {
+                "type": "string",
+                "description": "Property. This field contains the value associated to the product that the machine applies"
+              },
+              "detail": {
+                "type": "string",
+                "description": "Property. This field contains the value associated to the machine"
+              },
+              "idmachine": {
+                "type": "string",
+                "description": "Property. This field contains the value associated to the internal id"
+              }
+            }
+          }
+        },
+        "maf": {
+          "type": "object",
+          "description": "Property. Information on fertilizer application methods",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Property. Identifier of fertilizer application mode"
+            },
+            "name": {
+              "type": "string",
+              "description": "Property. Name of fertilizer application mode"
+            },
+            "type": {
+              "type": "string",
+              "description": "Property. Type of fertilizer application mode"
+            }
+          }
+        },
+        "msoup": {
+          "type": "object",
+          "description": "Property. Information on the measurement used for the final amount of broth administered",
+          "properties": {
+            "detail": {
+              "type": "string",
+              "description": "Property. Details of the msoup"
+            },
+            "id": {
+              "type": "string",
+              "description": "Property. Identifier of the msoup"
+            },
+            "name": {
+              "type": "string",
+              "description": "Property. Name of the measure used for the final amount of broth administered"
+            },
+            "prior": {
+              "type": "string",
+              "description": "Property. Prior details of the measure used for the final amount of broth administered"
+            },
+            "type": {
+              "type": "string",
+              "description": "Property. Type of the measure used for the final amount of broth administered"
+            },
+            "code": {
+              "type": "number",
+              "description": "Property. Code of the measure used for the final amount of broth administered"
+            },
+            "symbol": {
+              "type": "string",
+              "description": "Property. Symbol of the measure used for the final amount of broth administered"
+            }
+          }
+        },
+        "mud": {
+          "type": "number",
+          "description": "Property. Indicates whether sewage sludge application document has been used or not"
+        },
+        "plan": {
+          "type": "string",
+          "description": "Property. Information about the subscriber plans that are part of the campaign"
+        },
+        "r10": {
+          "type": "string",
+          "description": "Property. Waste authorisation number R10. The treatment of soil by applying waste to the land is considered a recovery operation coded as R1001. Residues must be applied to agricultural soils exclusively for the purpose of producing a benefit to agriculture or an ecological improvement of the same"
+        },
+        "soup": {
+          "type": "number",
+          "description": "Property. Final soup amount administered"
+        },
+        "taf": {
+          "type": "object",
+          "description": "Property. Information on types of fertilizer application",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Property. Identifier of the TAF"
+            },
+            "name": {
+              "type": "string",
+              "description": "Property. Name of the types of fertilizer application"
+            },
+            "type": {
+              "type": "string",
+              "description": "Property. Type of the types of fertilizer application"
+            }
+          }
+        },
+        "tmi": {
+          "type": "object",
+          "description": "Property. Information on the types of inhibitory molecule",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Property. Identifier of the types of inhibitory molecule"
+            },
+            "name": {
+              "type": "string",
+              "description": "Property. Name of the types of inhibitory molecule"
+            },
+            "type": {
+              "type": "string",
+              "description": "Property. Type of the types of inhibitory molecule"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
 }
