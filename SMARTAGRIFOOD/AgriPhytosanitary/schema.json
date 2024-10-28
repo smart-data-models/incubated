@@ -50,10 +50,11 @@
             },
             "names": {
               "type": "array",
+              "description": "Property. Common names of the type of phytosanitary.",
               "items": {
-                "type": "string"
-              },
-              "description": "Property. Common names of the type of phytosanitary."
+                "type": "string",
+                "description": "Property. Every element in the names array "
+              }
             },
             "idate": {
               "type": "string",
@@ -73,7 +74,7 @@
             },
             "ldate": {
               "type": "string",
-              "description": "Property.Sale limit date of the type of phytosanitary product."
+              "description": "Property. Sale limit date of the type of phytosanitary product."
             },
             "mix": {
               "type": "number",
@@ -81,10 +82,11 @@
             },
             "idtf": {
               "type": "array",
+              "description": "Property. Identifiers of the function types of the phytosanitary type.",
               "items": {
+                "description": "Property. Every element in the idft array",
                 "type": "number"
-              },
-              "description": "Property. Identifiers of the function types of the phytosanitary type."
+              }
             },
             "comp": {
               "type": "object",
@@ -98,9 +100,9 @@
                   "type": "string",
                   "description": "Property. Name of the company."
                 },
-                "nif": {
+                "vat": {
                   "type": "string",
-                  "description": "Property. NIF of the company."
+                  "description": "Property. VAT of the company."
                 },
                 "type": {
                   "type": "string",
@@ -146,10 +148,11 @@
             },
             "ci": {
               "type": "array",
+              "description": "Property. Information on crops and infections of the phytosanitary type.",
               "items": {
+                "description": "Property. Every element in the array of crops and infections of the phytosanitary type.",
                 "type": "string"
-              },
-              "description": "Property. Information on crops and infections of the phytosanitary type."
+              }
             }
           }
         },
@@ -197,17 +200,19 @@
         },
         "tj": {
           "type": "array",
+          "description": "Property. Information on the types of justification that motivate the administration of non-chemical phytosanitary defense in the campaign.",
           "items": {
-            "type": "string"
-          },
-          "description": "Property. Information on the types of justification that motivate the administration of non-chemical phytosanitary defense in the campaign."
+            "type": "string",
+            "description": "Property. Every element of the array of types of justification that motivate the administration of non-chemical phytosanitary defense"
+          }
         },
         "idtpismv": {
           "type": "array",
+          "description": "Property. IDs of stock entries linked to the phytosanitary product administered in the campaign.",
           "items": {
-            "type": "string"
-          },
-          "description": "Property. IDs of stock entries linked to the phytosanitary product administered in the campaign."
+            "type": "string",
+            "description": "Property. Every element of the  stock entries linked to the phytosanitary product administered in the campaign."
+          }
         },
         "distributed": {
           "type": "string",
@@ -226,10 +231,7 @@
           "description": "Property. Date related to the product's distribution or usage."
         },
         "mdt": {
-          "type": [
-            "null",
-            "string"
-          ],
+          "type": "string",
           "description": "Property. Modification date, if applicable."
         },
         "st": {
@@ -237,10 +239,7 @@
           "description": "Property. Status of the phytosanitary product."
         },
         "mst": {
-          "type": [
-            "null",
-            "string"
-          ],
+          "type": "string",
           "description": "Property. Modification status, if applicable."
         },
         "preventive": {
@@ -272,39 +271,41 @@
           "description": "Property. Secondary limit or threshold for the product's application."
         },
         "machine": {
-					"type": "array",
-					"items": {
-						"properties": {
-							"type": {
-								"type": "string",
-								"description": "Property. This field contains the type of machine"
-							},
-							"id": {
-								"type": "string",
-								"description": "Property. Identifier unique of the machine"
-							},
-							"product": {
-								"type": "string",
-								"description": "Property. This field contains the value associated to the product that the machine applies"
-							},
-							"detail": {
-								"type": "string",
-								"description": "Property. This field contains the value associated to the machine"
-							},
-							"idmachine": {
-								"type": "string",
-								"description": "Property. This field contains the value associated to the internal id"
-							}
-						}
-					},
-					"description": "Property. Information on the machinery assigned to the application of the phytosanitary as well as information on its hygiene."
-				},
-        "idcp": {
           "type": "array",
           "items": {
-            "type": "string"
-          },
-          "description": "Property. IDs of the CropSigpac on which the non-chemical phytosanitary defense is administered in the campaign."
+            "type": "object",
+            "description": "Property. Every element of he array of machinery assigned to the application of the phytosanitary ",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "Property. This field contains the type of machine"
+              },
+              "id": {
+                "type": "string",
+                "description": "Property. Identifier unique of the machine"
+              },
+              "product": {
+                "type": "string",
+                "description": "Property. This field contains the value associated to the product that the machine applies"
+              },
+              "detail": {
+                "type": "string",
+                "description": "Property. This field contains the value associated to the machine"
+              },
+              "idmachine": {
+                "type": "string",
+                "description": "Property. This field contains the value associated to the internal id"
+              }
+            }
+          }
+        },
+        "idcp": {
+          "type": "array",
+          "description": "Property. IDs of the CropSigpac on which the non-chemical phytosanitary defense is administered in the campaign.",
+          "items": {
+            "type": "string",
+            "description": "Property. Every element in the CropSigpac on which the non-chemical phytosanitary defense is administered in the campaign."
+          }
         },
         "measur": {
           "type": "string",
