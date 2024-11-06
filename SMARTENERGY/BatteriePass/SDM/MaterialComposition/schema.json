@@ -1,13 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.SUBJECT/DATAMODEL/schema.json",
-  "title": "Smart Data Models - SUBJECT / DATAMODEL",
-  "description": "Description of the data model DATAMODEL ",
-  "modelTags": "",
-  "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.SUBJECT/DATAMODEL/LICENSE.md",
+  "description": "Mandatory data: Battery chemistry; critical raw materials; materials used in the cathode, anode, and \nelectrolyte; hazardous substances; impact of substances on the environment and on human health or \nsafety\n\nCopyright \u00c2\u00a9 2024 Circulor (for and on behalf of the Battery Pass Consortium). This work is li-censed under a Creative Commons License Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Readers may reproduce material for their own publications, as long as it is not sold com-mercially and is given appropriate attribution. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#MaterialComposition)",
   "type": "object",
+  "required": [
+    "criticalRawMaterials",
+    "productChemistry",
+    "batteryMaterials",
+    "hazardousSubstances",
+    "id",
+    "type"
+  ],
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -17,395 +19,172 @@
     },
     {
       "properties": {
+        "criticalRawMaterials": {
+          "description": "'Critical raw materials contained in the battery above a concentration of 0.1 % weight by weight. Reference to COM(2020)474: ?Those raw materials that are most important economically and have a high supply risk?. The fourth list of critical raw materials for the EU lists 30 raw materials as critical in 2020. An updated version has been included in Annex II of the EU Critical Raw Materials Act Regulation (CRMA)\n\nEUBR: Annex XIII (1b) ? Annex VI Part A (10) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#CriticalRawMaterialsList)",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "productChemistry": {
+          "description": "Detailed composition, including materials used in the cathode, anode, and electrolyte.\nAll common cells have two electrodes and an electrolyte. The specific combination of materials used to make these components is called \"chemistry.\" A cell's chemistry largely determines its properties, while most variations within it are caused by additives, purification, and design elements.\n\nEUBR: Annex XIII (1b) ? Annex VI Part A (7) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryChemistryEntityList)",
+          "type": "object",
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "shortName": {
+                  "type": "string",
+                  "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Text)"
+                },
+                "clearName": {
+                  "type": "string",
+                  "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
+                }
+              },
+              "required": [
+                "shortName",
+                "clearName"
+              ],
+              "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryChemistry)"
+            }
+          ]
+        },
+        "batteryMaterials": {
+          "description": "Detailed composition, including materials used in the cathode, anode, and electrolyte\n\nEUBR: Annex XIII (2a) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryMaterialList)",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "batteryMaterialLocation": {
+                "type": "object",
+                "allOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "componentName": {
+                        "type": "string",
+                        "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
+                      },
+                      "componentId": {
+                        "type": "string",
+                        "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
+                      }
+                    },
+                    "required": [
+                      "componentName"
+                    ],
+                    "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryComponent)"
+                  }
+                ],
+                "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryMaterialLocation)"
+              },
+              "materialIdentifier": {
+                "type": "string",
+                "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#MaterialIdentifierTrait)",
+                "pattern": "\\d{4}-\\d{2}-\\d"
+              },
+              "batteryMaterialName": {
+                "type": "string",
+                "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Text)"
+              },
+              "batteryMaterialWeight": {
+                "type": "number",
+                "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Weight)"
+              }
+            },
+            "required": [
+              "batteryMaterialLocation",
+              "materialIdentifier",
+              "batteryMaterialName",
+              "batteryMaterialWeight"
+            ],
+            "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryMaterial)"
+          }
+        },
+        "hazardousSubstances": {
+          "description": "Hazardous substances contained in the battery other than mercury, cadmium or lead. Substance as a chemical element and its compounds in the natural state or the result of a manufacturing process (ECHA). Battery Regulation narrows reporting to substances falling under defined hazard classes and categories of the CLP regulation.\n\nEUBR: Annex XIII (1b) ? Annex VI Part A (8) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#HazardousSubstancesList)",
+          "type": "array",
+          "items": {
+            "description": "Hazardous substances (No. 19-23): Name (agreed substance nomenclature, e.g. IUPAC or chemical name) all hazardous substance (as ?any substance that poses a threat to human health and the environment?). Suggested above 0.1 % weight by weight within each (sub-)component. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#HazardousSubstance)",
+            "type": "object",
+            "properties": {
+              "hazardousSubstanceClass": {
+                "type": "string",
+                "enum": [
+                  "AcuteToxicity",
+                  "SkinCorrosionOrIrritation",
+                  "EyeDamageOrIrritation"
+                ],
+                "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#HazardousSubstanceClassChrateristicEnum)"
+              },
+              "hazardousSubstanceName": {
+                "type": "string",
+                "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Text)"
+              },
+              "hazardousSubstanceConcentration": {
+                "type": "number",
+                "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#HazardousSubstanceConcentrationCharacteristic)"
+              },
+              "hazardousSubstanceImpact": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Text)"
+                },
+                "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#ImpactList)"
+              },
+              "hazardousSubstanceLocation": {
+                "description": "\"The impact of substances, in particular, hazardous substances, contained in batteries on the environment and on human health or safety of persons, including impact due to inappropriate discarding of waste batteries such as littering or discarding as unsorted municipal waste?. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#HubstanceSubstanceLocationEntity)",
+                "type": "object",
+                "allOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "componentName": {
+                        "type": "string",
+                        "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
+                      },
+                      "componentId": {
+                        "type": "string",
+                        "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
+                      }
+                    },
+                    "required": [
+                      "componentName"
+                    ],
+                    "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryComponent)"
+                  }
+                ]
+              },
+              "hazardousSubstanceIdentifier": {
+                "type": "string",
+                "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#MaterialIdentifierTrait)",
+                "pattern": "\\d{4}-\\d{2}-\\d"
+              }
+            },
+            "required": [
+              "hazardousSubstanceClass",
+              "hazardousSubstanceName",
+              "hazardousSubstanceConcentration",
+              "hazardousSubstanceImpact",
+              "hazardousSubstanceLocation",
+              "hazardousSubstanceIdentifier"
+            ]
+          }
+        },
         "type": {
           "type": "string",
           "enum": [
-            "ThreePhaseAcMeasurement"
+            "MaterialComposition"
           ],
-          "description": "Property. It must be equal to `ThreePhaseAcMeasurement`."
-        },
-        "refDevice": {
-          "type": "array",
-          "description": "Relationship. Device(s) used to obtain the measurement.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
-          "minItems": 1,
-          "uniqueItems": true
-        },
-        "refTargetDevice": {
-          "type": "array",
-          "description": "Relationship. Device(s) for which the measurement was taken.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
-          "minItems": 1,
-          "uniqueItems": true
-        },
-        "dateEnergyMeteringStarted": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Property. Model:'http://schema.org/DateTime'. The starting date for metering energy."
-        },
-        "totalActiveEnergyImport": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilowatt hour (kWh)'. Total energy imported i.e. consumed since metering started (since `dateEnergyMeteringStarted`)."
-        },
-        "totalReactiveEnergyImport": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilovolt-ampere-reactive-hour (kVArh)'. Total energy imported i.e. consumed (with regards to fundamental frequency reactive power) since the metering start date (`dateEnergyMeteringStarted`)"
-        },
-        "totalApparentEnergyImport": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilovolt-ampere-hour (kVAh)'. Total energy imported i.e. consumed (with regards to apparent power) since the metering start date (`dateEnergyMeteringStarted`)"
-        },
-        "totalActiveEnergyExport": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilowatt hour (kWh)'. Total energy exported since metering started (since `dateEnergyMeteringStarted`)."
-        },
-        "totalReactiveEnergyExport": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilovolt-ampere-reactive-hour (kVArh)'. Total fundamental frequency reactive energy exported since metering started (since `dateEnergyMeteringStarted`)."
-        },
-        "totalApparentEnergyExport": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilovolt-ampere-reactive-hour (kVArh)'. Total energy exported (with regards to apparent power) since the metering start date (`dateEnergyMeteringStarted`)"
-        },
-        "frequency": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'http://schema.org/Number'. Units:'Hertz (Hz)'. The frequency of the circuit."
-        },
-        "totalActivePower": {
-          "type": "number",
-          "description": "Property. Model:'http://schema.org/Number'. Units:'watt (W)'. Active power consumed (counting all phases)"
-        },
-        "totalReactivePower": {
-          "type": "number",
-          "description": "Property. Model:'http://schema.org/Number'. Units:'volt-ampere-reactive (VAr)'. Reactive power consumed (counting all phases)"
-        },
-        "totalApparentPower": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'http://schema.org/Number'. Units:'volt-ampere (VA)'. Apparent power consumed (counting all phases)."
-        },
-        "activeEnergyImport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilowatt hour (kWh)'. Active energy imported i.e. consumed per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "reactiveEnergyImport": {
-          "type": "object",
-          "description": "Property. Model:'kilovolt-ampere-reactive-hour (kVArh)'. Units:'http://schema.org/StructuredValue'. Fundamental frequency reactive energy imported i.e. consumed per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "apparentEnergyImport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilovolt-ampere-hour (kVAh)'. Apparent energy imported i.e. consumed per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "activeEnergyExport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilowatt hour (kWh)'. Active energy exported per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "reactiveEnergyExport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilovolt-ampere-reactive-hour (kVArh)'. Fundamental frequency reactive energy exported per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "apparentEnergyExport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilovolt-ampere-hour (kVAh)'. Apparent energy exported per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "activePower": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'watt (W)'.Active power consumed per phase. The actual values will beconveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3. ",
-          "properties": {
-            "L1": {
-              "type": "number"
-            },
-            "L2": {
-              "type": "number"
-            },
-            "L3": {
-              "type": "number"
-            }
-          }
-        },
-        "reactivePower": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'volts-ampere-reactive (VAr)'. Fundamental frequency reactive power. The actual values will be conveyed by subproperties whose names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number"
-            },
-            "L2": {
-              "type": "number"
-            },
-            "L3": {
-              "type": "number"
-            }
-          }
-        },
-        "apparentPower": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'volt-ampere (VA)'. Apparent power consumed per phase. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "totalPowerFactor": {
-          "type": "number",
-          "description": "Property. Model:'http://schema.org/Number'. Units:'-1 to +1'. Power factor including all phases",
-          "minimum": -1,
-          "maximum": 1
-        },
-        "powerFactor": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'-1 to +1'. Power factor for each phase. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            },
-            "L2": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            },
-            "L3": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            }
-          }
-        },
-        "totalDisplacementPowerFactor": {
-          "type": "number",
-          "description": "Property. Model:'http://schema.org/Number'. Units:'-1 to +1'. Displacement power factor including all phases. The quantity is based on the fundamental frequency of the system",
-          "minimum": -1,
-          "maximum": 1
-        },
-        "displacementPowerFactor": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'-1 to +1'. Displacement power factor for each phase. The quantity is based on the fundamental frequency of the system. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            },
-            "L2": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            },
-            "L3": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            }
-          }
-        },
-        "current": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'Ampers (A)'. Electrical current. The actual values will be conveyed by one subproperty per alternating current phase and the neutral wire: L1, L2, L3 and N.",
-          "properties": {
-            "L1": {
-              "type": "number"
-            },
-            "L2": {
-              "type": "number"
-            },
-            "L3": {
-              "type": "number"
-            },
-            "N": {
-              "type": "number"
-            }
-          }
-        },
-        "phaseVoltage": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'Volts (V)'. The voltage between each phase and neutral conductor. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "phaseToPhaseVoltage": {
-          "type": "object",
-          "description": "Property. Model:'(http://schema.org/StructuredValue'. Units:'Volts (V)'. Voltage between phases. A value for each phase pair: phases 1 and 2 (L12), phases 2 and 3 (L32), phases 3 and 1 (L31).",
-          "properties": {
-            "L12": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L23": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L31": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "thdVoltage": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'0 to 1'. Total harmonic distortion of voltage for each phase. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            }
-          }
-        },
-        "thdCurrent": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'0 to 1'. Total harmonic distortion of electrical current. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            }
-          }
+          "description": "Property. NGSI Entity type. It has to be MaterialComposition"
         }
       }
     }
   ],
-  "required": [
-    "id",
-    "type"
-  ]
+  "$schemaVersion": "0.0.1",
+  "modelTags": "BatteriePass",
+  "$id": "https://smart-data-models.github.io/dataModel.BatterieLifeCycle/schema.json",
+  "title": "MaterialComposition"
 }

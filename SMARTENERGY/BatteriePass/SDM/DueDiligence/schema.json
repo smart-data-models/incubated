@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Data model for Battery due diligence\n\nCopyright \u00c2\u00a9 2024 Circulor (for and on behalf of the Battery Pass Consortium). This work is li-censed under a Creative Commons License Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Readers may reproduce material for their own publications, as long as it is not sold com-mercially and is given appropriate attribution. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#SupplyChainDueDiligence)",
+  "type": "object",
+  "required": [
+    "supplyChainDueDiligenceReport",
+    "thirdPartyAussurances",
+    "euTaxonomyDisclosureStatement",
+    "sustainabilityReport",
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "supplyChainDueDiligenceReport": {
+          "type": "string",
+          "format": "uri",
+          "description": "The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
+        },
+        "thirdPartyAussurances": {
+          "type": "string",
+          "format": "uri",
+          "description": "The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
+        },
+        "euTaxonomyDisclosureStatement": {
+          "type": "string",
+          "format": "uri",
+          "description": "The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
+        },
+        "sustainabilityReport": {
+          "type": "string",
+          "format": "uri",
+          "description": "The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "DueDiligence"
+          ],
+          "description": "Property. NGSI Entity type. It has to be DueDiligence"
+        }
+      }
+    }
+  ],
+  "$schemaVersion": "0.0.1",
+  "modelTags": "BatteriePass",
+  "$id": "https://smart-data-models.github.io/dataModel.BatterieLifeCycle/schema.json",
+  "title": "DueDiligence"
+}
