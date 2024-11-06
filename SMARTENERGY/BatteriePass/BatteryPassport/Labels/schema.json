@@ -1,17 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "BatteriePass",
+  "$id": "https://smart-data-models.github.io/dataModel.BatteryPassport/Labels/schema.json",
+  "title": "Labels",
   "description": "Data model for battery labels and conformity Copyright 2024 Circulor (for and on behalf of the Battery Pass Consortium). This work is licensed under a Creative Commons License Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Readers may reproduce material for their own publications, as long as it is not sold commercially and is given appropriate attribution. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Labels)",
-    "derivedFrom": "https://github.com/batterypass/BatteryPassDataModel",
+  "derivedFrom": "https://github.com/batterypass/BatteryPassDataModel",
   "type": "object",
-  "required": [
-    "declarationOfConformity",
-    "resultOfTestReport",
-    "euDeclarationOfConformityId",
-    "separateCollection",
-    "materialSymbols",
-    "id",
-    "type"
-  ],
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -21,6 +16,13 @@
     },
     {
       "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Labels"
+          ],
+          "description": "Property. NGSI Entity type. It has to be Labels"
+        },
         "declarationOfConformity": {
           "type": "string",
           "format": "uri",
@@ -37,6 +39,7 @@
         },
         "separateCollection": {
           "type": "object",
+          "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#SeperateCollection)",
           "allOf": [
             {
               "description": "Explanation of the meaning of all symbols and labels (including separate collection; cadmium and lead; and carbon footprint and carbon footprint performance class symbols; and symbols and labels printed on batteries or their accompanying documents but not accessible via the battery passport). x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#SeparateCollection)",
@@ -57,8 +60,8 @@
                 "separateCollectionDescription"
               ]
             }
-          ],
-          "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#SeperateCollection)"
+          ]
+
         },
         "materialSymbols": {
           "description": "Cadmium and lead symbols indicating the metal is contained in the battery above a defined threshold. To be printed on the physical label and displayed via the battery passport, suggested to be translated also to text to ensure machine readability. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#MaterialSymbols)",
@@ -83,19 +86,17 @@
             "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#MaterialSymbol)"
           },
           "uniqueItems": true
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Labels"
-          ],
-          "description": "Property. NGSI Entity type. It has to be Labels"
         }
       }
     }
   ],
-  "$schemaVersion": "0.0.1",
-  "modelTags": "BatteriePass",
-  "$id": "https://smart-data-models.github.io/dataModel.BatterieLifeCycle/schema.json",
-  "title": "Labels"
+  "required": [
+    "declarationOfConformity",
+    "resultOfTestReport",
+    "euDeclarationOfConformityId",
+    "separateCollection",
+    "materialSymbols",
+    "id",
+    "type"
+  ]
 }

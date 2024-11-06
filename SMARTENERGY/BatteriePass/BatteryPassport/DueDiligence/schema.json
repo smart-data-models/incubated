@@ -1,16 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "BatteriePass",
+  "$id": "https://smart-data-models.github.io/dataModel.BatteryPassport/DueDiligence/schema.json",
+  "title": "DueDiligence",
   "description": "Data model for Battery due diligence Copyright 2024 Circulor (for and on behalf of the Battery Pass Consortium). This work is licensed under a Creative Commons License Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Readers may reproduce material for their own publications, as long as it is not sold commercially and is given appropriate attribution. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#SupplyChainDueDiligence)",
-    "derivedFrom": "https://github.com/batterypass/BatteryPassDataModel",
+  "derivedFrom": "https://github.com/batterypass/BatteryPassDataModel",
   "type": "object",
-  "required": [
-    "supplyChainDueDiligenceReport",
-    "thirdPartyAussurances",
-    "euTaxonomyDisclosureStatement",
-    "sustainabilityReport",
-    "id",
-    "type"
-  ],
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -20,38 +16,42 @@
     },
     {
       "properties": {
-        "supplyChainDueDiligenceReport": {
-          "type": "string",
-          "format": "uri",
-          "description": "The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
-        },
-        "thirdPartyAussurances": {
-          "type": "string",
-          "format": "uri",
-          "description": "The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
-        },
-        "euTaxonomyDisclosureStatement": {
-          "type": "string",
-          "format": "uri",
-          "description": "The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
-        },
-        "sustainabilityReport": {
-          "type": "string",
-          "format": "uri",
-          "description": "The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
-        },
         "type": {
           "type": "string",
           "enum": [
             "DueDiligence"
           ],
           "description": "Property. NGSI Entity type. It has to be DueDiligence"
+        },
+        "supplyChainDueDiligenceReport": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
+        },
+        "thirdPartyAussurances": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property.The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
+        },
+        "euTaxonomyDisclosureStatement": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
+        },
+        "sustainabilityReport": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
         }
       }
     }
   ],
-  "$schemaVersion": "0.0.1",
-  "modelTags": "BatteriePass",
-  "$id": "https://smart-data-models.github.io/dataModel.BatterieLifeCycle/schema.json",
-  "title": "DueDiligence"
+  "required": [
+    "supplyChainDueDiligenceReport",
+    "thirdPartyAussurances",
+    "euTaxonomyDisclosureStatement",
+    "sustainabilityReport",
+    "id",
+    "type"
+  ]
 }

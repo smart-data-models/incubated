@@ -1,21 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "BatteriePass",
+  "$id": "https://smart-data-models.github.io/dataModel.BatteriePassport/GeneralProductInformation/schema.json",
+  "title": "GeneralProductInformation",
   "description": "Mandatory data: Product identification; manufacturer?s identification; manufacturing place; manufacturing date; battery category; battery weight; battery status (Annex VI, Part A and Annex XIII) Copyright 2023 Circulor (for and on behalf of the Battery Pass Consortium). This work is licensed under a Creative Commons License Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Readers may reproduce material for their own publications, as long as it is not sold commercially and is given appropriate attribution. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#GeneralProductInformation)",
-    "derivedFrom": "https://github.com/batterypass/BatteryPassDataModel",
+  "derivedFrom": "https://github.com/batterypass/BatteryPassDataModel",
   "type": "object",
-  "required": [
-    "productIdentifier",
-    "productPassportIdentifier",
-    "batteryCategory",
-    "manufacturerIdentification",
-    "manufacturingDate",
-    "batteryStatus",
-    "batteryWeight",
-    "manufacturingPlace",
-    "economicOperator",
-    "id",
-    "type"
-  ],
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -25,13 +16,20 @@
     },
     {
       "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "GeneralProductInformation"
+          ],
+          "description": "Property. NGSI Entity type. It has to be GeneralProductInformation"
+        },
         "productIdentifier": {
           "type": "string",
-          "description": "A unique identifier is defined as \"a unique string of characters for the identification of batteries that also enables a web link to the battery passport\" (Art. 3(66)), to be attributed by the economic operator placing the battery on the market (Art. 77(3)). The unique identifier shall comply with the standard (?ISO/IEC?) 15459:2015 or equivalent (Art. 77(3)). A QR code shall provide access to the battery passport and be linked to the unique identifier (Art. 77(3)). Batteries shall ?bear a model identification and batch or serial number, or product number or another element allowing their identification? (Art. 38(6)). \n\nBattery Regulation Reference: Art. 77(3); Art. 3(66); Art. 38(6) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#ProductIdentifierCode)"
+          "description": "Property. A unique identifier is defined as a unique string of characters for the identification of batteries that also enables a web link to the battery passport (Art. 3(66)), to be attributed by the economic operator placing the battery on the market (Art. 77(3)). The unique identifier shall comply with the standard (?ISO/IEC?) 15459:2015 or equivalent (Art. 77(3)). A QR code shall provide access to the battery passport and be linked to the unique identifier (Art. 77(3)). Batteries shall ?bear a model identification and batch or serial number, or product number or another element allowing their identification? (Art. 38(6)). Battery Regulation Reference: Art. 77(3); Art. 3(66); Art. 38(6) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#ProductIdentifierCode)"
         },
         "productPassportIdentifier": {
           "type": "string",
-          "description": "Code constraint for URN x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#ProductPassportIdentifierTrait)",
+          "description": "Property. Code constraint for URN x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#ProductPassportIdentifierTrait)",
           "pattern": "^urn:[a-z0-9]+:[a-z0-9]+$"
         },
         "batteryCategory": {
@@ -42,20 +40,20 @@
             "industrial",
             "stationary"
           ],
-          "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryCategoryEnum)"
+          "description": "Property. Category of the Battery. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryCategoryEnum)"
         },
         "manufacturerIdentification": {
           "type": "string",
-          "description": "Manufacturer's identification by stating the name; registered trade name or registered trademark; the postal address, indicating a single contact point; a web address, where one exists; an e-mail address, where one exists (Art. 38(7)). Manufacturer as ?any natural or legal person who manufactures a battery or has a battery designed or manufactured, and markets that battery under its own name or trademark or puts it into service for its own purposes? (Art. 3(33)). \n\nRegulation reference: Annex XIII (1a) ? Annex VI Part A (1); Art. 3(33); Art. 38(7); ESPR Art. 2(32) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#ManufacturerIdentificationCode)"
+          "description": "Property. Manufacturer's identification by stating the name; registered trade name or registered trademark; the postal address, indicating a single contact point; a web address, where one exists; an e-mail address, where one exists (Art. 38(7)). Manufacturer as ?any natural or legal person who manufactures a battery or has a battery designed or manufactured, and markets that battery under its own name or trademark or puts it into service for its own purposes? (Art. 3(33)).   Regulation reference: Annex XIII (1a) ? Annex VI Part A (1); Art. 3(33); Art. 38(7); ESPR Art. 2(32) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#ManufacturerIdentificationCode)"
         },
         "manufacturingDate": {
           "type": "string",
           "format": "date-time",
-          "description": "Manufacturing date (month and year)\nRegulation Reference: Annex XIII (1a) ? Annex VI Part A (4); Annex VII Part B (1) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#ManufacturingDateTimeStamp)"
+          "description": "Property. Manufacturing date (month and year) Regulation Reference: Annex XIII (1a) ? Annex VI Part A (4); Annex VII Part B (1) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#ManufacturingDateTimeStamp)"
         },
         "batteryStatus": {
           "type": "string",
-          "description": "Lifecycle status of the battery. Status defined from a list, with the options suggested as follows: 'original', 'repurposed', 'reused', 'remanufactured', 'waste' EUBR: Annex XIII (4c) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryStatusEnumeration)",
+          "description": "Property. Lifecycle status of the battery. Status defined from a list, with the options suggested as follows: 'original', 'repurposed', 'reused', 'remanufactured', 'waste' EUBR: Annex XIII (4c) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryStatusEnumeration)",
           "enum": [
             "Original",
             "Repurposed",
@@ -66,7 +64,7 @@
         },
         "batteryWeight": {
           "type": "number",
-          "description": "Weight of the battery\nEUBR: Annex XIII (1a) ? Annex VI Part A (5) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryWeightMeasurement)"
+          "description": "Property. Weight of the battery EUBR: Annex XIII (1a) ? Annex VI Part A (5) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryWeightMeasurement)"
         },
         "manufacturingPlace": {
           "type": "object",
@@ -76,15 +74,15 @@
               "properties": {
                 "addressCountry": {
                   "type": "string",
-                  "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
+                  "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
                 },
                 "postalCode": {
                   "type": "string",
-                  "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
+                  "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
                 },
                 "streetAddress": {
                   "type": "string",
-                  "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
+                  "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
                 }
               },
               "required": [
@@ -99,20 +97,22 @@
         },
         "economicOperator": {
           "type": "string",
-          "description": "Not demanded by the EU Battery Regulation x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#EconomicOperatorCode)"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "GeneralProductInformation"
-          ],
-          "description": "Property. NGSI Entity type. It has to be GeneralProductInformation"
+          "description": "Property. Not demanded by the EU Battery Regulation x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#EconomicOperatorCode)"
         }
       }
     }
   ],
-  "$schemaVersion": "0.0.1",
-  "modelTags": "BatteriePass",
-  "$id": "https://smart-data-models.github.io/dataModel.BatterieLifeCycle/schema.json",
-  "title": "GeneralProductInformation"
+  "required": [
+    "productIdentifier",
+    "productPassportIdentifier",
+    "batteryCategory",
+    "manufacturerIdentification",
+    "manufacturingDate",
+    "batteryStatus",
+    "batteryWeight",
+    "manufacturingPlace",
+    "economicOperator",
+    "id",
+    "type"
+  ]
 }

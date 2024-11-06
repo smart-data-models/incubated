@@ -1,18 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "description": "Dismantling information (including at least: exploded diagrams of the battery system/pack showing the\nlocation of battery cells; disassembly sequences; type and number of fastening techniques to be un-\nlocked; tools required for disassembly; warnings if risk of damaging parts exists; amount of cells used\nand layout); part numbers for components and contact details of sources for replacement spares;\nsafety measures (Annex XIII (2b-d)); usable extinguishing agent (Annex VI, Part A(9)).\n\n2024 Circulor (for and on behalf of the Battery Pass Consortium). This work is licensed under a Creative Commons License Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Readers may reproduce material for their own publications, as long as it is not sold com-mercially and is given appropriate attribution. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Circularity)",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "BatteriePass",
+  "$id": "https://smart-data-models.github.io/dataModel.BatteryPassport/Circularity/schema.json",
+  "title": "Circularity data model",
+  "description": "Dismantling information (including at least: exploded diagrams of the battery system/pack showing the location of battery cells; disassembly sequences; type and number of fastening techniques to be un- ocked; tools required for disassembly; warnings if risk of damaging parts exists; amount of cells used and layout); part numbers for components and contact details of sources for replacement spares; safety measures (Annex XIII (2b-d)); usable extinguishing agent (Annex VI, Part A(9)).  2024 Circulor (for and on behalf of the Battery Pass Consortium). This work is licensed under a Creative Commons License Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Readers may reproduce material for their own publications, as long as it is not sold com-mercially and is given appropriate attribution. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Circularity)",
   "derivedFrom": "https://github.com/batterypass/BatteryPassDataModel",
   "type": "object",
-  "required": [
-    "dismantlingAndRemovalInformation",
-    "sourceForSpareParts",
-    "recycledContent",
-    "safetyRequirements",
-    "endOfLifeInformation",
-    "renewableContent",
-    "id",
-    "type"
-  ],
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -22,11 +16,18 @@
     },
     {
       "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Circularity"
+          ],
+          "description": "Property. NGSI Entity type. It has to be Circularity"
+        },
         "dismantlingAndRemovalInformation": {
-          "description": "A set of required documentation to support EoL actions x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#SetOfDocumentation)",
+          "description": "Property. A set of required documentation to support EoL actions x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#SetOfDocumentation)",
           "type": "array",
           "items": {
-            "description": "Dismantling and Removal information, including at least:\n- Exploded diagrams of the battery system/pack showing the location of battery cells\n- Disassembly sequences\n- Type and number of fastening techniques to be unlocked\n- Tools required for disassembly\n- Warnings if risk of damaging parts exists\n- Amount of cells used and layout\n\nEUBR: Annex XIII (2c) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#DismantlingandRemovalDocumentation)",
+            "description": "Property. Dismantling and Removal information, including at least: - Exploded diagrams of the battery system/pack showing the location of battery cells - Disassembly sequences - Type and number of fastening techniques to be unlocked - Tools required for disassembly - Warnings if risk of damaging parts exists - Amount of cells used and layout EUBR: Annex XIII (2c) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#DismantlingandRemovalDocumentation)",
             "type": "object",
             "properties": {
               "documentType": {
@@ -43,12 +44,12 @@
               },
               "mimeType": {
                 "type": "string",
-                "description": "A MIME type as defined in RFC 2046, for example \"application/pdf\". x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#MimeType)"
+                "description": "Property. A MIME type as defined in RFC 2046, for example 'application/pdf'. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#MimeType)"
               },
               "documentURL": {
                 "type": "string",
                 "format": "uri",
-                "description": "The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
+                "description": "Property. The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
               }
             },
             "required": [
@@ -60,12 +61,13 @@
         },
         "sourceForSpareParts": {
           "type": "array",
+          "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#SetOfSparePartSources)",
           "items": {
             "type": "object",
             "properties": {
               "nameOfSupplier": {
                 "type": "string",
-                "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.digitaltwin:1.0.0#Text)"
+                "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.digitaltwin:1.0.0#Text)"
               },
               "addressOfSupplier": {
                 "type": "object",
@@ -83,7 +85,7 @@
                       },
                       "streetAddress": {
                         "type": "string",
-                        "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
+                        "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
                       }
                     },
                     "required": [
@@ -98,23 +100,23 @@
               },
               "emailAddressOfSupplier": {
                 "type": "string",
-                "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#EmailAddressOfSupplierTrait)",
+                "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#EmailAddressOfSupplierTrait)",
                 "pattern": "^[\\w.-]+@[\\w.-]+\\.[A-Za-z]{2,}$"
               },
               "supplierWebAddress": {
                 "type": "string",
                 "format": "uri",
-                "description": "The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
+                "description": "Property. The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
               },
               "components": {
-                "description": "List of components available at supplier x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#ComponentList)",
+                "description": "Property. List of components available at supplier x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#ComponentList)",
                 "type": "array",
                 "items": {
                   "type": "object",
                   "properties": {
                     "partName": {
                       "type": "string",
-                      "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Text)"
+                      "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Text)"
                     },
                     "partNumber": {
                       "type": "string",
@@ -138,11 +140,11 @@
             ],
             "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#SparePartSupplier)"
           },
-          "uniqueItems": true,
-          "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#SetOfSparePartSources)"
+          "uniqueItems": true
         },
         "recycledContent": {
           "type": "array",
+          "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#RecycledContentSet)",
           "items": {
             "type": "object",
             "properties": {
@@ -180,11 +182,11 @@
             ],
             "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#RecycledContent)"
           },
-          "uniqueItems": true,
-          "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#RecycledContentSet)"
+          "uniqueItems": true
         },
         "safetyRequirements": {
           "type": "object",
+          "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#SafetyRequirements)",
           "allOf": [
             {
               "type": "object",
@@ -208,11 +210,12 @@
               ],
               "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#SafetyRequirementEntity)"
             }
-          ],
-          "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#SafetyRequirements)"
+          ]
+
         },
         "endOfLifeInformation": {
           "type": "object",
+          "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#EndOfLifeInformation)",
           "allOf": [
             {
               "type": "object",
@@ -240,25 +243,24 @@
               ],
               "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#EndOfLifeInformationEnity)"
             }
-          ],
-          "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#EndOfLifeInformation)"
+          ]
+
         },
         "renewableContent": {
           "type": "number",
           "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#RenewableContent)"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "Circularity"
-          ],
-          "description": "Property. NGSI Entity type. It has to be Circularity"
         }
       }
     }
   ],
-  "$schemaVersion": "0.0.1",
-  "modelTags": "BatteriePass",
-  "$id": "https://smart-data-models.github.io/dataModel.BatterieLifeCycle/schema.json",
-  "title": "Circularity"
+  "required": [
+    "dismantlingAndRemovalInformation",
+    "sourceForSpareParts",
+    "recycledContent",
+    "safetyRequirements",
+    "endOfLifeInformation",
+    "renewableContent",
+    "id",
+    "type"
+  ]
 }

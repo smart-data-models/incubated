@@ -1,16 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$schemaVersion": "0.0.1",
+  "modelTags": "BatteriePass",
+  "$id": "https://smart-data-models.github.io/dataModel.BatteriePassport/MaterialComposition/schema.json",
+  "title": "MaterialComposition",
   "description": "Mandatory data: Battery chemistry; critical raw materials; materials used in the cathode, anode, and electrolyte; hazardous substances; impact of substances on the environment and on human health or safety Copyright  2024 Circulor (for and on behalf of the Battery Pass Consortium). This work is licensed under a Creative Commons License Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Readers may reproduce material for their own publications, as long as it is not sold commercially and is given appropriate attribution. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#MaterialComposition)",
   "derivedFrom": "https://github.com/batterypass/BatteryPassDataModel",
   "type": "object",
-  "required": [
-    "criticalRawMaterials",
-    "productChemistry",
-    "batteryMaterials",
-    "hazardousSubstances",
-    "id",
-    "type"
-  ],
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -20,42 +16,50 @@
     },
     {
       "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "MaterialComposition"
+          ],
+          "description": "Property. NGSI Entity type. It has to be MaterialComposition"
+        },
         "criticalRawMaterials": {
-          "description": "'Critical raw materials contained in the battery above a concentration of 0.1 % weight by weight. Reference to COM(2020)474: ?Those raw materials that are most important economically and have a high supply risk?. The fourth list of critical raw materials for the EU lists 30 raw materials as critical in 2020. An updated version has been included in Annex II of the EU Critical Raw Materials Act Regulation (CRMA)\n\nEUBR: Annex XIII (1b) ? Annex VI Part A (10) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#CriticalRawMaterialsList)",
+          "description": "Property. Critical raw materials contained in the battery above a concentration of 0.1 % weight by weight. Reference to COM(2020)474: ?Those raw materials that are most important economically and have a high supply risk?. The fourth list of critical raw materials for the EU lists 30 raw materials as critical in 2020. An updated version has been included in Annex II of the EU Critical Raw Materials Act Regulation (CRMA) EUBR: Annex XIII (1b) ? Annex VI Part A (10) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#CriticalRawMaterialsList)",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
         "productChemistry": {
-          "description": "Detailed composition, including materials used in the cathode, anode, and electrolyte.\nAll common cells have two electrodes and an electrolyte. The specific combination of materials used to make these components is called \"chemistry.\" A cell's chemistry largely determines its properties, while most variations within it are caused by additives, purification, and design elements.\n\nEUBR: Annex XIII (1b) ? Annex VI Part A (7) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryChemistryEntityList)",
+          "description": "Property. Detailed composition, including materials used in the cathode, anode, and electrolyte. All common cells have two electrodes and an electrolyte. The specific combination of materials used to make these components is called 'chemistry.' A cell's chemistry largely determines its properties, while most variations within it are caused by additives, purification, and design elements.  EUBR: Annex XIII (1b) ? Annex VI Part A (7) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryChemistryEntityList)",
           "type": "object",
           "allOf": [
             {
               "type": "object",
+              "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryChemistry)",
               "properties": {
                 "shortName": {
                   "type": "string",
-                  "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Text)"
+                  "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Text)"
                 },
                 "clearName": {
                   "type": "string",
-                  "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
+                  "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
                 }
               },
               "required": [
                 "shortName",
                 "clearName"
-              ],
-              "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryChemistry)"
+              ]
             }
           ]
         },
         "batteryMaterials": {
-          "description": "Detailed composition, including materials used in the cathode, anode, and electrolyte\n\nEUBR: Annex XIII (2a) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryMaterialList)",
+          "description": "Property. Detailed composition, including materials used in the cathode, anode, and electrolyte  EUBR: Annex XIII (2a) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryMaterialList)",
           "type": "array",
           "items": {
             "type": "object",
+            "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryMaterial)",
             "properties": {
               "batteryMaterialLocation": {
                 "type": "object",
@@ -82,12 +86,12 @@
               },
               "materialIdentifier": {
                 "type": "string",
-                "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#MaterialIdentifierTrait)",
+                "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#MaterialIdentifierTrait)",
                 "pattern": "\\d{4}-\\d{2}-\\d"
               },
               "batteryMaterialName": {
                 "type": "string",
-                "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Text)"
+                "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Text)"
               },
               "batteryMaterialWeight": {
                 "type": "number",
@@ -99,25 +103,25 @@
               "materialIdentifier",
               "batteryMaterialName",
               "batteryMaterialWeight"
-            ],
-            "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryMaterial)"
+            ]
           }
         },
         "hazardousSubstances": {
-          "description": "Hazardous substances contained in the battery other than mercury, cadmium or lead. Substance as a chemical element and its compounds in the natural state or the result of a manufacturing process (ECHA). Battery Regulation narrows reporting to substances falling under defined hazard classes and categories of the CLP regulation.\n\nEUBR: Annex XIII (1b) ? Annex VI Part A (8) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#HazardousSubstancesList)",
+          "description": "Property. Hazardous substances contained in the battery other than mercury, cadmium or lead. Substance as a chemical element and its compounds in the natural state or the result of a manufacturing process (ECHA). Battery Regulation narrows reporting to substances falling under defined hazard classes and categories of the CLP regulation. EUBR: Annex XIII (1b) ? Annex VI Part A (8) x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#HazardousSubstancesList)",
           "type": "array",
           "items": {
-            "description": "Hazardous substances (No. 19-23): Name (agreed substance nomenclature, e.g. IUPAC or chemical name) all hazardous substance (as ?any substance that poses a threat to human health and the environment?). Suggested above 0.1 % weight by weight within each (sub-)component. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#HazardousSubstance)",
+            "description": "Property. Hazardous substances (No. 19-23): Name (agreed substance nomenclature, e.g. IUPAC or chemical name) all hazardous substance (as ?any substance that poses a threat to human health and the environment?). Suggested above 0.1 % weight by weight within each (sub-)component. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#HazardousSubstance)",
             "type": "object",
             "properties": {
               "hazardousSubstanceClass": {
                 "type": "string",
+                "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#HazardousSubstanceClassChrateristicEnum)",
                 "enum": [
                   "AcuteToxicity",
                   "SkinCorrosionOrIrritation",
                   "EyeDamageOrIrritation"
-                ],
-                "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#HazardousSubstanceClassChrateristicEnum)"
+                ]
+
               },
               "hazardousSubstanceName": {
                 "type": "string",
@@ -129,14 +133,14 @@
               },
               "hazardousSubstanceImpact": {
                 "type": "array",
+                "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#ImpactList)",
                 "items": {
                   "type": "string",
-                  "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Text)"
-                },
-                "description": "Property. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#ImpactList)"
+                  "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#Text)"
+                }
               },
               "hazardousSubstanceLocation": {
-                "description": "\"The impact of substances, in particular, hazardous substances, contained in batteries on the environment and on human health or safety of persons, including impact due to inappropriate discarding of waste batteries such as littering or discarding as unsorted municipal waste?. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#HubstanceSubstanceLocationEntity)",
+                "description": "Property. The impact of substances, in particular, hazardous substances, contained in batteries on the environment and on human health or safety of persons, including impact due to inappropriate discarding of waste batteries such as littering or discarding as unsorted municipal waste?. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#HubstanceSubstanceLocationEntity)",
                 "type": "object",
                 "allOf": [
                   {
@@ -144,11 +148,11 @@
                     "properties": {
                       "componentName": {
                         "type": "string",
-                        "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
+                        "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
                       },
                       "componentId": {
                         "type": "string",
-                        "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
+                        "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text)"
                       }
                     },
                     "required": [
@@ -160,7 +164,7 @@
               },
               "hazardousSubstanceIdentifier": {
                 "type": "string",
-                "description": "Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#MaterialIdentifierTrait)",
+                "description": "Property. Describes a Property which contains plain text. This is intended exclusively for human readable strings, not for identifiers, measurement values, etc. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#MaterialIdentifierTrait)",
                 "pattern": "\\d{4}-\\d{2}-\\d"
               }
             },
@@ -173,19 +177,16 @@
               "hazardousSubstanceIdentifier"
             ]
           }
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "MaterialComposition"
-          ],
-          "description": "Property. NGSI Entity type. It has to be MaterialComposition"
         }
       }
     }
   ],
-  "$schemaVersion": "0.0.1",
-  "modelTags": "BatteriePass",
-  "$id": "https://smart-data-models.github.io/dataModel.BatterieLifeCycle/schema.json",
-  "title": "MaterialComposition"
+  "required": [
+    "criticalRawMaterials",
+    "productChemistry",
+    "batteryMaterials",
+    "hazardousSubstances",
+    "id",
+    "type"
+  ]
 }
