@@ -1,7 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "description": "Data model for battery varbon footprint\nCopyright \u00c2\u00a9 2024 Circulor (for and on behalf of the Battery Pass Consortium). This work is licensed under a Creative Commons License Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Readers may reproduce material for their own publications, as long as it is not sold com-mercially and is given appropriate attribution. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#CarbonFootprint)",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.BatterYPassport/CarbonFootprint/schema.json",
+  "description": "Data model for battery carbon footprint Copyright 2024 Circulor (for and on behalf of the Battery Pass Consortium). This work is licensed under a Creative Commons License Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Readers may reproduce material for their own publications, as long as it is not sold commercially and is given appropriate attribution. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#CarbonFootprint)",
   "type": "object",
+  "derivedFrom": "https://github.com/batterypass/BatteryPassDataModel",
   "required": [
     "batteryCarbonFootprint",
     "carbonFootprintPerLifecycleStage",
@@ -19,15 +22,22 @@
     },
     {
       "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "CarbonFootprint"
+          ],
+          "description": "Property. NGSI Entity type. It has to be CarbonFootprint"
+        },
         "batteryCarbonFootprint": {
           "type": "number",
-          "description": "The battery carbon footprint is an aggregation of the carbon footprint of the individual lifecycle stages x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryCarbonFootprint)"
+          "description": "Property. The battery carbon footprint is an aggregation of the carbon footprint of the individual lifecycle stages x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#BatteryCarbonFootprint)"
         },
         "carbonFootprintPerLifecycleStage": {
-          "description": "CarbainFootprints per lifecycle stage x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#CarbonFootprints)",
+          "description": "Property. CarbonFootprints per lifecycle stage x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#CarbonFootprints)",
           "type": "array",
           "items": {
-            "description": "The carbon footprint of the battery as share of total Battery Carbon Footprint, differentiated per life cycle stage x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#CarbonFootprintPerLifecycleStageEntity)",
+            "description": "Property. The carbon footprint of the battery as share of total Battery Carbon Footprint, differentiated per life cycle stage x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#CarbonFootprintPerLifecycleStageEntity)",
             "type": "object",
             "properties": {
               "lifecycleStage": {
@@ -53,19 +63,12 @@
         },
         "carbonFootprintPerformanceClass": {
           "type": "string",
-          "description": "EV, industrial and LMT batteries shall bear a conspicuous, clearly legible and indelible label indicating the carbon footprint of the battery and the carbon footprint performance class that the relevant battery model per manufacturing plant corresponds to. The carbon footprint performance class shall be accessible via the battery passport. A meaningful number of classes of performance will be developed (?) with category A being the best class with the lowest carbon footprint life cycle impact. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#CarbonFootprintPerformanceClass)"
+          "description": "Property. EV, industrial and LMT batteries shall bear a conspicuous, clearly legible and indelible label indicating the carbon footprint of the battery and the carbon footprint performance class that the relevant battery model per manufacturing plant corresponds to. The carbon footprint performance class shall be accessible via the battery passport. A meaningful number of classes of performance will be developed (?) with category A being the best class with the lowest carbon footprint life cycle impact. x-samm-aspect-model-urn: (urn:samm:BatteryPass:1.0.0#CarbonFootprintPerformanceClass)"
         },
         "carbonFootprintStudy": {
           "type": "string",
           "format": "uri",
-          "description": "The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "CarbonFootprint"
-          ],
-          "description": "Property. NGSI Entity type. It has to be CarbonFootprint"
+          "description": "Property. The path of a resource. x-samm-aspect-model-urn: (urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#ResourcePath)"
         }
       }
     }
