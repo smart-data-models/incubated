@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "$schemaVersion": "0.0.4",
+  "$schemaVersion": "0.0.1",
   "$id": "https://smart-data-models.github.io/dataModel.TimeSeries/TimeSeries/schema.json",
   "title": "Sample information model for TimeSeries following AAS submodel specification",
   "description": "Time Series can represent raw data, but can also represent main characteristics, textual descriptions or events in a concise way.",
@@ -17,89 +17,116 @@
     {
       "properties": {
         "type": {
-          "type": "string"
+          "type": "string",
+          "enum": ["TimeSeries"],
+          "description": "Property. "
         },
         "timeSeries": {
           "type": "object",
+          "description": "Property. ",
           "properties": {
             "segments": {
               "type": "array",
+              "description": "Property. ",
               "items": [
                 {
                   "type": "object",
                   "properties": {
                     "name": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Property. "
                     },
                     "description": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Property. "
                     },
                     "recordCount": {
-                      "type": "integer"
+                      "type": "integer",
+                      "description": "Property. "
                     },
                     "startTime": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Property. "
                     },
                     "endTime": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Property. "
                     },
                     "duration": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Property. "
                     },
                     "samplingInterval": {
-                      "type": "integer"
+                      "type": "integer",
+                      "description": "Property. "
                     },
                     "samplingRate": {
-                      "type": "integer"
+                      "type": "integer",
+                      "description": "Property. "
                     },
                     "state": {
-                      "type": "integer"
+                      "type": "integer",
+                      "description": "Property. "
                     },
                     "lastUpdate": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Property. "
                     },
                     "externalSegment": {
                       "type": "object",
+                      "description": "Property. ",
                       "properties": {
                         "data": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Property. "
                         }
                       }
                     },
                     "linkedSegment": {
                       "type": "object",
+                      "description": "Property. ",
                       "properties": {
                         "endpoint": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Property. "
                         },
                         "query": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Property. "
                         }
                       }
                     },
                     "internalSegment": {
                       "type": "object",
+                      "description": "Property. ",
                       "properties": {
                         "records": {
                           "type": "array",
+                          "description": "Property. ",
                           "items": [
                             {
                               "type": "object",
+                              "description": "Property. ",
                               "properties": {
                                 "record00": {
                                   "type": "object",
+                                  "description": "Property. ",
                                   "properties": {
                                     "time": {
-                                      "type": "string"
+                                      "type": "string",
+                                      "description": "Property. "
                                     },
                                     "sampleAccelerationX": {
-                                      "type": "number"
+                                      "type": "number",
+                                      "description": "Property. "
                                     },
                                     "sampleAccelerationY": {
-                                      "type": "number"
+                                      "type": "number",
+                                      "description": "Property. "
                                     },
                                     "sampleAccelerationZ": {
-                                      "type": "number"
+                                      "type": "number",
+                                      "description": "Property. "
                                     }
                                   }
                                 }
@@ -115,27 +142,35 @@
             },
             "metadata": {
               "type": "object",
+              "description": "Property. ",
               "properties": {
                 "name": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Property. "
                 },
                 "description": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Property. "
                 },
                 "record": {
                   "type": "object",
+                  "description": "Property. ",
                   "properties": {
                     "time": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Property. "
                     },
                     "sampleAccelerationX": {
-                      "type": "number"
+                      "type": "number",
+                      "description": "Property. "
                     },
                     "sampleAccelerationY": {
-                      "type": "number"
+                      "type": "number",
+                      "description": "Property. "
                     },
                     "sampleAccelerationZ": {
-                      "type": "number"
+                      "type": "number",
+                      "description": "Property. "
                     }
                   }
                 }

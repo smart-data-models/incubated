@@ -17,36 +17,49 @@
     {
       "properties": {
         "type": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "MachineTool"
+          ],
+          "description": "Property. NGSI type. It has to be MachineTool"
         },
         "myMachine": {
           "type": "array",
+          "description": "Property. ",
           "items": [
             {
               "type": "object",
+              "description": "Property. ",
               "properties": {
                 "notification": {
                   "type": "object",
+                  "description": "Property. ",
                   "properties": {
                     "messages": {
                       "type": "array",
+                      "description": "Property. ",
                       "items": [
                         {
                           "type": "object",
+                          "description": "Property. ",
                           "properties": {
                             "alertType": {
                               "type": "object",
+                              "description": "Property. ",
                               "properties": {
                                 "errorCode": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "Property. "
                                 }
                               }
                             },
                             "notificationEventType": {
                               "type": "object",
+                              "description": "Property. ",
                               "properties": {
                                 "identifier": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "Property. "
                                 }
                               }
                             }
@@ -56,20 +69,25 @@
                     },
                     "prognoses": {
                       "type": "array",
+                      "description": "Property. ",
                       "items": [
                         {
                           "type": "object",
+                          "description": "Property. ",
                           "properties": {
                             "prognosisN": {
                               "type": "object",
+                              "description": "Property. ",
                               "properties": {
                                 "predictedTime": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "Property. "
                                 }
                               }
                             },
                             "nodeVersion": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Property. "
                             }
                           }
                         }
@@ -79,87 +97,113 @@
                 },
                 "production": {
                   "type": "object",
+                  "description": "Property. ",
                   "properties": {
                     "activeProgram": {
                       "type": "object",
+                      "description": "Property. ",
                       "properties": {
                         "jobNodeId": {
-                          "type": "integer"
+                          "type": "integer",
+                          "description": "Property. "
                         },
                         "jobIdentifier": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Property. "
                         },
                         "state": {
-                          "type": "integer"
+                          "type": "integer",
+                          "description": "Property. "
                         }
                       }
                     },
                     "productionPlan": {
                       "type": "array",
+                      "description": "Property. ",
                       "items": [
                         {
                           "type": "object",
+                          "description": "Property. ",
                           "properties": {
                             "customerOrderIdentifier": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Property. "
                             },
                             "identifier": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Property. "
                             },
                             "orderIdentifier": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Property. "
                             },
                             "partsCompleted": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Property. "
                             },
                             "partSets": {
                               "type": "array",
+                              "description": "Property. ",
                               "items": [
                                 {
                                   "type": "object",
+                                  "description": "Property. ",
                                   "properties": {
                                     "partSetN": {
                                       "type": "object",
+                                      "description": "Property. ",
                                       "properties": {
                                         "name": {
-                                          "type": "string"
+                                          "type": "string",
+                                          "description": "Property. "
                                         },
                                         "partsPlannedPerRun": {
-                                          "type": "integer"
+                                          "type": "integer",
+                                          "description": "Property. "
                                         },
                                         "partsCompletedPerRun": {
-                                          "type": "integer"
+                                          "type": "integer",
+                                          "description": "Property. "
                                         },
                                         "partsPerRun": {
                                           "type": "array",
+                                          "description": "Property. ",
                                           "items": [
                                             {
                                               "type": "object",
+                                              "description": "Property. ",
                                               "properties": {
                                                 "customerOrderIdentifier": {
-                                                  "type": "string"
+                                                  "type": "string",
+                                                  "description": "Property. "
                                                 },
                                                 "name": {
-                                                  "type": "string"
+                                                  "type": "string",
+                                                  "description": "Property. "
                                                 },
                                                 "identifier": {
-                                                  "type": "string"
+                                                  "type": "string",
+                                                  "description": "Property. "
                                                 },
                                                 "partQuality": {
-                                                  "type": "integer"
+                                                  "type": "integer",
+                                                  "description": "Property. "
                                                 },
                                                 "processIrregularity": {
-                                                  "type": "integer"
+                                                  "type": "integer",
+                                                  "description": "Property. "
                                                 },
                                                 "state": {
-                                                  "type": "integer"
+                                                  "type": "integer",
+                                                  "description": "Property. "
                                                 }
                                               }
                                             }
                                           ]
                                         },
                                         "containsMixedParts": {
-                                          "type": "boolean"
+                                          "type": "boolean",
+                                          "description": "Property. "
                                         }
                                       }
                                     }
@@ -168,30 +212,38 @@
                               ]
                             },
                             "partsGood": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Property. "
                             },
                             "productionPrograms": {
                               "type": "object",
+                              "description": "Property. ",
                               "properties": {
                                 "name": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "Property. "
                                 },
                                 "numberInList": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "Property. "
                                 },
                                 "state": {
-                                  "type": "integer"
+                                  "type": "integer",
+                                  "description": "Property. "
                                 }
                               }
                             },
                             "runsCompleted": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Property. "
                             },
                             "runsPlanned": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Property. "
                             },
                             "state": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Property. "
                             }
                           }
                         }
@@ -199,12 +251,15 @@
                     },
                     "statistics": {
                       "type": "array",
+                      "description": "Property. ",
                       "items": [
                         {
                           "type": "object",
+                          "description": "Property. ",
                           "properties": {
                             "partsProducedInLifetime": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Property. "
                             }
                           }
                         }
@@ -214,35 +269,45 @@
                 },
                 "identification": {
                   "type": "object",
+                  "description": "Property. ",
                   "properties": {
                     "softwareIdentification": {
                       "type": "object",
+                      "description": "Property. ",
                       "properties": {
                         "machineSoftware": {
                           "type": "object",
+                          "description": "Property. ",
                           "properties": {
                             "softwareRevision": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Property. "
                             },
                             "identifier": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Property. "
                             },
                             "manufacturer": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Property. "
                             }
                           }
                         },
                         "hmi": {
                           "type": "object",
+                          "description": "Property. ",
                           "properties": {
                             "softwareRevision": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Property. "
                             },
                             "identifier": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Property. "
                             },
                             "manufacturer": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Property. "
                             }
                           }
                         }
@@ -252,90 +317,115 @@
                 },
                 "components": {
                   "type": "array",
-                  "items": {}
+                  "description": "Property. ",
+                  "items": {
+                    "type": "string",
+                    "description": "Property. (I have included this here because we need an structure of this array)"
+                  }
                 },
                 "equipment": {
                   "type": "object",
+                  "description": "Property. ",
                   "properties": {
                     "tools": {
                       "type": "array",
-                      "items": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "toolN": {
-                              "type": "object",
-                              "properties": {
-                                "name": {
-                                  "type": "string"
-                                },
-                                "identifier": {
-                                  "type": "string"
-                                },
-                                "location": {
-                                  "type": "object",
-                                  "properties": {
-                                    "name": {
-                                      "type": "string"
-                                    },
-                                    "placeNumber": {
-                                      "type": "integer"
-                                    }
+                      "description": "Property. ",
+                      "items": {
+                        "type": "object",
+                        "description": "Property. ",
+                        "properties": {
+                          "toolN": {
+                            "type": "object",
+                            "description": "Property. ",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "description": "Property. "
+                              },
+                              "identifier": {
+                                "type": "string",
+                                "description": "Property. "
+                              },
+                              "location": {
+                                "type": "object",
+                                "description": "Property. ",
+                                "properties": {
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Property. "
+                                  },
+                                  "placeNumber": {
+                                    "type": "integer",
+                                    "description": "Property. "
                                   }
                                 }
                               }
-                            },
-                            "nodeVersion": {
-                              "type": "string"
                             }
+                          },
+                          "nodeVersion": {
+                            "type": "string",
+                            "description": "Property. "
                           }
                         }
-                      ]
+                      }
                     }
                   }
                 },
                 "monitoring": {
                   "type": "object",
+                  "description": "Property. ",
                   "properties": {
                     "monitoredElementN": {
                       "type": "object",
+                      "description": "Property. ",
                       "properties": {
                         "name": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Property. "
                         }
                       }
                     },
                     "machineTool": {
                       "type": "object",
+                      "description": "Property. ",
                       "properties": {
                         "feedOverride": {
-                          "type": "integer"
+                          "type": "integer",
+                          "description": "Property. "
                         },
                         "powerOnDuration": {
-                          "type": "integer"
+                          "type": "integer",
+                          "description": "Property. "
                         },
                         "operationMode": {
-                          "type": "integer"
+                          "type": "integer",
+                          "description": "Property. "
                         },
                         "isWarmUp": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "description": "Property. "
                         }
                       }
                     },
                     "stacklight": {
                       "type": "array",
+                      "description": "Property. ",
                       "items": [
                         {
                           "type": "object",
+                          "description": "Property. ",
                           "properties": {
                             "signalOn": {
-                              "type": "boolean"
+                              "type": "boolean",
+                              "description": "Property. "
                             },
                             "signalColor": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Property. "
                             },
                             "signalMode": {
-                              "type": "integer"
+                              "type": "integer",
+                              "description": "Property. "
                             }
                           }
                         }

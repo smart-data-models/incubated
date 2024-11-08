@@ -1,201 +1,200 @@
 {
-    "id": "urn:ngsi-ld:MachineTool:MachineTool",
-    "type": "MachineTool",
-    "notification": {
+  "id": "urn:ngsi-ld:MachineTool:MachineTool",
+  "type": "MachineTool",
+  "notification": {
+    "type": "Property",
+    "value": {
+      "messages": [
+        {
+          "type": "Property",
+          "alertType": {
+            "type": "Property",
+            "value": {
+              "errorCode": "334"
+            }
+          },
+          "notificationEventType": {
+            "type": "Property",
+            "value": {
+              "identifier": "1"
+            }
+          }
+        }
+      ],
+      "prognoses": [
+        {
+          "type": "Property",
+          "value": {
+            "prognosisN": {
+              "type": "Property",
+              "value": {
+                "predictedTime": "09:59:01Z"
+              }
+            },
+            "nodeVersion": "2"
+          }
+        }
+      ]
+    }
+  },
+  "production": {
+    "type": "Property",
+    "value": {
+      "activeProgram": {
         "type": "Property",
         "value": {
-            "messages": [
-                {
+          "jobNodeId": 1,
+          "jobIdentifier": "JobIdentifier",
+          "state": 1
+        }
+      },
+      "productionPlan": [
+        {
+          "type": "Property",
+          "value": {
+            "customerOrderIdentifier": "CustomerOrderIdentifier",
+            "identifier": "Identifier",
+            "orderIdentifier": "OrderIdentifier",
+            "partsCompleted": 1,
+            "partSets": [
+              {
+                "type": "Property",
+                "value": {
+                  "partSetN": {
                     "type": "Property",
-                    "alertType": {
-                        "type": "Property",
-                        "value": {
-                            "errorCode": "334"
+                    "value": {
+                      "name": "Name",
+                      "partsPlannedPerRun": 0,
+                      "partsCompletedPerRun": 0,
+                      "partsPerRun": [
+                        {
+                          "type": "Property",
+                          "value": {
+                            "customerOrderIdentifier": "CustomerOrderIdentifier",
+                            "name": "Name",
+                            "identifier": "Identifier",
+                            "partQuality": 0,
+                            "processIrregularity": 0,
+                            "state": 0
+                          }
                         }
-                    },
-                    "notificationEventType": {
-                        "type": "Property",
-                        "value": {
-                            "identifier": "1"
-                        }
+                      ],
+                      "containsMixedParts": true
                     }
+                  }
                 }
+              }
             ],
-            "prognoses": [
-                {
-                    "type": "Property",
-                    "value": {
-                        "prognosisN": {
-                            "type": "Property",
-                            "value": {
-                                "predictedTime": "09:59:01Z"
-                            }
-                        },
-                        "nodeVersion": "2"
-                    }
-                }
-            ]
-        }
-    },
-    "production": {
-        "type": "Property",
-        "value": {
-            "activeProgram": {
-                "type": "Property",
-                "value": {
-                    "jobNodeId": 1,
-                    "jobIdentifier": "JobIdentifier",
-                    "state": 1
-                }
+            "partsGood": 1,
+            "productionPrograms": {
+              "type": "Property",
+              "value": {
+                "name": "Name",
+                "numberInList": 0,
+                "state": 0
+              }
             },
-            "productionPlan": [
-                {
-                    "type": "Property",
-                    "value": {
-                        "customerOrderIdentifier": "CustomerOrderIdentifier",
-                        "identifier": "Identifier",
-                        "orderIdentifier": "OrderIdentifier",
-                        "partsCompleted": 1,
-                        "partSets": [
-                            {
-                                "type": "Property",
-                                "value": {
-                                    "partSetN": {
-                                        "type": "Property",
-                                        "value": {
-                                            "name": "Name",
-                                            "partsPlannedPerRun": 0,
-                                            "partsCompletedPerRun": 0,
-                                            "partsPerRun": [
-                                                {
-                                                    "type": "Property",
-                                                    "value": {
-                                                        "customerOrderIdentifier": "CustomerOrderIdentifier",
-                                                        "name": "Name",
-                                                        "identifier": "Identifier",
-                                                        "partQuality": 0,
-                                                        "processIrregularity": 0,
-                                                        "state": 0
-                                                    }
-                                                }
-                                            ],
-                                            "containsMixedParts": true
-                                        }
-                                    }
-                                }
-                            }
-                        ],
-                        "partsGood": 1,
-                        "productionPrograms": {
-                            "type": "Property",
-                            "value": {
-                                "name": "Name",
-                                "numberInList": 0,
-                                "state": 0
-                            }
-                        },
-                        "runsCompleted": 2,
-                        "runsPlanned": 3,
-                        "state": 0
-                    }
-                }
-            ],
-            "statistics": {
-                "type": "Property",
-                "value": [
-                    {
-                        "partsProducedInLifetime": 1
-                    }
-                ]
-            }
+            "runsCompleted": 2,
+            "runsPlanned": 3,
+            "state": 0
+          }
         }
-    },
-    "identification": {
+      ],
+      "statistics": {
+        "type": "Property",
+        "value": [
+          {
+            "partsProducedInLifetime": 1
+          }
+        ]
+      }
+    }
+  },
+  "identification": {
+    "type": "Property",
+    "value": {
+      "softwareIdentification": {
         "type": "Property",
         "value": {
-            "softwareIdentification": {
-                "type": "Property",
-                "value": {
-                    "machineSoftware": {
-                        "type": "Property",
-                        "value": {
-                            "softwareRevision": "0.5-Beta",
-                            "identifier": "MachineSoftware",
-                            "manufacturer": "AManufacturer"
-                        }
-                    },
-                    "hmi": {
-                        "type": "Property",
-                        "value": {
-                            "softwareRevision": "1.5",
-                            "identifier": "HMI-DesktopX",
-                            "manufacturer": "BManufacturer"
-                        }
-                    }
-                }
+          "machineSoftware": {
+            "type": "Property",
+            "value": {
+              "softwareRevision": "0.5-Beta",
+              "identifier": "MachineSoftware",
+              "manufacturer": "AManufacturer"
             }
+          },
+          "hmi": {
+            "type": "Property",
+            "value": {
+              "softwareRevision": "1.5",
+              "identifier": "HMI-DesktopX",
+              "manufacturer": "BManufacturer"
+            }
+          }
         }
-    },
-    "components": [],
-    "equipment": {
+      }
+    }
+  },
+  "components": [],
+  "equipment": {
+    "type": "Property",
+    "value": {
+      "tools": [
+        {
+          "type": "Property",
+          "value": {
+            "toolN": {
+              "type": "Property",
+              "value": {
+                "name": "Name",
+                "identifier": "Identifier",
+                "location": {
+                  "type": "Property",
+                  "value": {
+                    "name": "Name",
+                    "placeNumber": 0
+                  }
+                }
+              },
+              "nodeVersion": "NodeVersion"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "monitoring": {
+    "type": "Property",
+    "value": {
+      "monitoredElementN": {
         "type": "Property",
         "value": {
-            "tools": [
-                {
-                    "type": "Property",
-                    "value": {
-                        "toolN": {
-                            "type": "Property",
-                            "value": {
-                                "name": "Name",
-                                "identifier": "Identifier",
-                                "location": {
-                                    "type": "Property",
-                                    "value": {
-                                        "name": "Name",
-                                        "placeNumber": 0
-                                    }
-                                }
-                            },
-                            "nodeVersion": "NodeVersion"
-                        }
-                    }
-                }
-            ]
+          "name": "MonitoredElement_0"
         }
-    },
-    "monitoring": {
+      },
+      "machineTool": {
         "type": "Property",
         "value": {
-            "monitoredElementN": {
-                "type": "Property",
-                "value": {
-                    "name": "MonitoredElement_0"
-                }
-            },
-            "machineTool": {
-                "type": "Property",
-                "value": {
-                    "feedOverride": 0,
-                    "powerOnDuration": 1,
-                    "operationMode": 2,
-                    "isWarmUp": false
-                }
-            },
-            "stacklight": {
-                "type": "Property",
-                "value": [
-                    {
-                        "signalOn": true,
-                        "signalColor": 0,
-                        "signalMode": 0
-                    }
-                ]
-            }
+          "feedOverride": 0,
+          "powerOnDuration": 1,
+          "operationMode": 2,
+          "isWarmUp": false
         }
-    },
-    "@context": [
-        "https://smart-data-models.github.io/dataModel.OPCUA/context.jsonld",
-        "https://raw.githubusercontent.com/smart-data-models/dataModel.OPCUA/master/context.jsonld"
-    ]
+      },
+      "stacklight": {
+        "type": "Property",
+        "value": [
+          {
+            "signalOn": true,
+            "signalColor": 0,
+            "signalMode": 0
+          }
+        ]
+      }
+    }
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.OPCUA/master/context.jsonld"
+  ]
 }
