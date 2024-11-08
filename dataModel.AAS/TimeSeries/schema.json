@@ -1,0 +1,154 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schemaVersion": "0.0.4",
+  "$id": "https://smart-data-models.github.io/dataModel.TimeSeries/TimeSeries/schema.json",
+  "title": "Sample information model for TimeSeries following AAS submodel specification",
+  "description": "Time Series can represent raw data, but can also represent main characteristics, textual descriptions or events in a concise way.",
+  "derivedFrom": "https://industrialdigitaltwin.org/wp-content/uploads/2023/03/IDTA-02008-1-1_Submodel_TimeSeriesData.pdf",
+  "type": "object",
+  "modelTags": "TimeSeries",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "timeSeries": {
+          "type": "object",
+          "properties": {
+            "segments": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "recordCount": {
+                      "type": "integer"
+                    },
+                    "startTime": {
+                      "type": "string"
+                    },
+                    "endTime": {
+                      "type": "string"
+                    },
+                    "duration": {
+                      "type": "string"
+                    },
+                    "samplingInterval": {
+                      "type": "integer"
+                    },
+                    "samplingRate": {
+                      "type": "integer"
+                    },
+                    "state": {
+                      "type": "integer"
+                    },
+                    "lastUpdate": {
+                      "type": "string"
+                    },
+                    "externalSegment": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "linkedSegment": {
+                      "type": "object",
+                      "properties": {
+                        "endpoint": {
+                          "type": "string"
+                        },
+                        "query": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "internalSegment": {
+                      "type": "object",
+                      "properties": {
+                        "records": {
+                          "type": "array",
+                          "items": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "record00": {
+                                  "type": "object",
+                                  "properties": {
+                                    "time": {
+                                      "type": "string"
+                                    },
+                                    "sampleAccelerationX": {
+                                      "type": "number"
+                                    },
+                                    "sampleAccelerationY": {
+                                      "type": "number"
+                                    },
+                                    "sampleAccelerationZ": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "metadata": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "record": {
+                  "type": "object",
+                  "properties": {
+                    "time": {
+                      "type": "string"
+                    },
+                    "sampleAccelerationX": {
+                      "type": "number"
+                    },
+                    "sampleAccelerationY": {
+                      "type": "number"
+                    },
+                    "sampleAccelerationZ": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "timeSeries"
+  ]
+}
