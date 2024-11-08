@@ -1,0 +1,358 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schemaVersion": "0.0.4",
+  "$id": "https://smart-data-models.github.io/dataModel.MachineTool/MachineTool/schema.json",
+  "title": "Sample information model for MachineTool following OPC UA Companion Specification",
+  "description": "MachineTool is a mechanical device which is fixed (i.e. not mobile) and powered (typically by electricity and compressed air), typically used to process workpieces by selective removal/addition of material or mechanical deformation.",
+  "derivedFrom": "https://reference.opcfoundation.org/MachineTool/v101/docs",
+  "type": "object",
+  "modelTags": "MachineTool",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "myMachine": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "notification": {
+                  "type": "object",
+                  "properties": {
+                    "messages": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "alertType": {
+                              "type": "object",
+                              "properties": {
+                                "errorCode": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "notificationEventType": {
+                              "type": "object",
+                              "properties": {
+                                "identifier": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "prognoses": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "prognosisN": {
+                              "type": "object",
+                              "properties": {
+                                "predictedTime": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "nodeVersion": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "production": {
+                  "type": "object",
+                  "properties": {
+                    "activeProgram": {
+                      "type": "object",
+                      "properties": {
+                        "jobNodeId": {
+                          "type": "integer"
+                        },
+                        "jobIdentifier": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "productionPlan": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "customerOrderIdentifier": {
+                              "type": "string"
+                            },
+                            "identifier": {
+                              "type": "string"
+                            },
+                            "orderIdentifier": {
+                              "type": "string"
+                            },
+                            "partsCompleted": {
+                              "type": "integer"
+                            },
+                            "partSets": {
+                              "type": "array",
+                              "items": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "partSetN": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "string"
+                                        },
+                                        "partsPlannedPerRun": {
+                                          "type": "integer"
+                                        },
+                                        "partsCompletedPerRun": {
+                                          "type": "integer"
+                                        },
+                                        "partsPerRun": {
+                                          "type": "array",
+                                          "items": [
+                                            {
+                                              "type": "object",
+                                              "properties": {
+                                                "customerOrderIdentifier": {
+                                                  "type": "string"
+                                                },
+                                                "name": {
+                                                  "type": "string"
+                                                },
+                                                "identifier": {
+                                                  "type": "string"
+                                                },
+                                                "partQuality": {
+                                                  "type": "integer"
+                                                },
+                                                "processIrregularity": {
+                                                  "type": "integer"
+                                                },
+                                                "state": {
+                                                  "type": "integer"
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        "containsMixedParts": {
+                                          "type": "boolean"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            "partsGood": {
+                              "type": "integer"
+                            },
+                            "productionPrograms": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "numberInList": {
+                                  "type": "integer"
+                                },
+                                "state": {
+                                  "type": "integer"
+                                }
+                              }
+                            },
+                            "runsCompleted": {
+                              "type": "integer"
+                            },
+                            "runsPlanned": {
+                              "type": "integer"
+                            },
+                            "state": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "statistics": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "partsProducedInLifetime": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "identification": {
+                  "type": "object",
+                  "properties": {
+                    "softwareIdentification": {
+                      "type": "object",
+                      "properties": {
+                        "machineSoftware": {
+                          "type": "object",
+                          "properties": {
+                            "softwareRevision": {
+                              "type": "string"
+                            },
+                            "identifier": {
+                              "type": "string"
+                            },
+                            "manufacturer": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "hmi": {
+                          "type": "object",
+                          "properties": {
+                            "softwareRevision": {
+                              "type": "string"
+                            },
+                            "identifier": {
+                              "type": "string"
+                            },
+                            "manufacturer": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "components": {
+                  "type": "array",
+                  "items": {}
+                },
+                "equipment": {
+                  "type": "object",
+                  "properties": {
+                    "tools": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "toolN": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "identifier": {
+                                  "type": "string"
+                                },
+                                "location": {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "placeNumber": {
+                                      "type": "integer"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "nodeVersion": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "monitoring": {
+                  "type": "object",
+                  "properties": {
+                    "monitoredElementN": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "machineTool": {
+                      "type": "object",
+                      "properties": {
+                        "feedOverride": {
+                          "type": "integer"
+                        },
+                        "powerOnDuration": {
+                          "type": "integer"
+                        },
+                        "operationMode": {
+                          "type": "integer"
+                        },
+                        "isWarmUp": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    "stacklight": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "signalOn": {
+                              "type": "boolean"
+                            },
+                            "signalColor": {
+                              "type": "integer"
+                            },
+                            "signalMode": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "myMachine"
+  ]
+}
