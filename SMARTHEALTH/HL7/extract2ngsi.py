@@ -242,8 +242,8 @@ schema_header = {
     # ],
     # "anyOf": [
         {
-            #"$ref": base_repo_url + fhir_release_path + definition_file + "#/definitions/Element"
-            "$ref": extra_repo + definition_file + "#/definitions/Element"
+            "$ref": base_repo_url + fhir_release_path + definition_file + "#/definitions/Element"
+            #"$ref": extra_repo + definition_file + "#/definitions/Element"
         },
     ],
 }
@@ -362,11 +362,11 @@ for entity_type, entity_def in resources_definitions.items():
 
         if "$ref" in content:
             content["$ref"] = content["$ref"].replace(
-                "#/definitions/", extra_repo + definition_file + "#/definitions/"
+                "#/definitions/", base_repo_url + fhir_release_path + definition_file + "#/definitions/"
             )
         if 'items' in content and content.get("items",None).get("$ref",None):
             content["items"]["$ref"] = content["items"]["$ref"].replace(
-                "#/definitions/", extra_repo + definition_file + "#/definitions/"
+                "#/definitions/", base_repo_url + fhir_release_path + definition_file + "#/definitions/"
             )
 
     # end loop on properties
@@ -459,14 +459,14 @@ for entity_type, entity_def in resources_definitions.items():
     print("=============================================")
     # del entity_schema
     
-    #========================== validation loop
+    #========================== validation loop and example generation
     # this loop try to validate examples toward entity schema, which is somehow a bit stupid,
     # because the objects should be adapted to NGSI-LD before, even the schema remains almost the same except for Extension
-    if 0:
+    if 1:
         print("start validation loop on exmples:")
         directory_path = "./_examples/hl7.fhir.r4b.examples/package"
         for filename in os.listdir(directory_path):
-            if filename.startswith(entity_type) and filename.endswith(".json"):
+            if filename.startswith(entity_type) and filename.endswith(".json") and '-example' in filename:
                 print('>>>>>>>>>>> try to validate json file: ' + filename)
                 try:
                     file_path = os.path.join(directory_path, filename)
