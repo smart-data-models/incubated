@@ -1,0 +1,110 @@
+{
+    "resourceType": "PlanDefinition", 
+    "meta": {
+        "tag": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason", 
+                "code": "HTEST", 
+                "display": "test health data"
+            }
+        ]
+    }, 
+    "implicitRules": "implicitRules text", 
+    "_implicitRules": "unknown_type", 
+    "language": "language text", 
+    "_language": "unknown_type", 
+    "text": {
+        "status": "generated", 
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">[Put rendering here]</div>"
+    }, 
+    "contained": [
+        {
+            "resourceType": "ActivityDefinition", 
+            "id": "activitydefinition-medicationrequest-1", 
+            "status": "draft", 
+            "kind": "MedicationRequest", 
+            "productCodeableConcept": {
+                "text": "Medication 1"
+            }
+        }, 
+        {
+            "resourceType": "ActivityDefinition", 
+            "id": "activitydefinition-medicationrequest-2", 
+            "status": "draft", 
+            "kind": "MedicationRequest", 
+            "productCodeableConcept": {
+                "text": "Medication 2"
+            }
+        }
+    ], 
+    "url": "url text", 
+    "_url": "unknown_type", 
+    "version": "version text", 
+    "_version": "unknown_type", 
+    "name": "name text", 
+    "_name": "unknown_type", 
+    "title": "This example illustrates relationships between actions.", 
+    "_title": "unknown_type", 
+    "subtitle": "subtitle text", 
+    "_subtitle": "unknown_type", 
+    "type": "type text", 
+    "status": "draft", 
+    "_status": "unknown_type", 
+    "experimental": true, 
+    "_experimental": "unknown_type", 
+    "subjectCodeableConcept": "unknown_type", 
+    "subjectReference": "unknown_type", 
+    "subjectCanonical": "subjectCanonical text", 
+    "_subjectCanonical": "unknown_type", 
+    "date": "date text", 
+    "_date": "unknown_type", 
+    "publisher": "publisher text", 
+    "_publisher": "unknown_type", 
+    "description": "description text", 
+    "_description": "unknown_type", 
+    "purpose": "purpose text", 
+    "_purpose": "unknown_type", 
+    "usage": "usage text", 
+    "_usage": "unknown_type", 
+    "copyright": "copyright text", 
+    "_copyright": "unknown_type", 
+    "approvalDate": "approvalDate text", 
+    "_approvalDate": "unknown_type", 
+    "lastReviewDate": "lastReviewDate text", 
+    "_lastReviewDate": "unknown_type", 
+    "effectivePeriod": "unknown_type", 
+    "library": [
+        "library text"
+    ], 
+    "action": [
+        {
+            "groupingBehavior": "logical-group", 
+            "selectionBehavior": "all", 
+            "action": [
+                {
+                    "id": "medication-action-1", 
+                    "title": "Administer Medication 1", 
+                    "definitionCanonical": "#activitydefinition-medicationrequest-1"
+                }, 
+                {
+                    "id": "medication-action-2", 
+                    "title": "Administer Medication 2", 
+                    "relatedAction": [
+                        {
+                            "actionId": "medication-action-1", 
+                            "relationship": "after-end", 
+                            "offsetDuration": {
+                                "value": 1, 
+                                "unit": "h", 
+                                "system": "http://unitsofmeasure.org", 
+                                "code": "h"
+                            }
+                        }
+                    ], 
+                    "definitionCanonical": "#activitydefinition-medicationrequest-2"
+                }
+            ]
+        }
+    ], 
+    "hl7Type": "unknown_type"
+}

@@ -1,0 +1,92 @@
+{
+    "resourceType": "GuidanceResponse", 
+    "meta": {
+        "tag": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason", 
+                "code": "HTEST", 
+                "display": "test health data"
+            }
+        ]
+    }, 
+    "implicitRules": "implicitRules text", 
+    "_implicitRules": "unknown_type", 
+    "language": "language text", 
+    "_language": "unknown_type", 
+    "text": {
+        "status": "generated", 
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative</b></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource &quot;example&quot; </p></div><p><b>requestIdentifier</b>: id: guidanceRequest1</p><p><b>identifier</b>: id: guidanceResponse1</p><p><b>module</b>: <a href=\"http://someguidelineprovider.org/radiology-appropriateness-guidelines.html\">http://someguidelineprovider.org/radiology-appropriateness-guidelines.html</a></p><p><b>status</b>: success</p><p><b>subject</b>: <a href=\"patient-example.html\">Patient/example</a> &quot;Peter CHALMERS&quot;</p><p><b>encounter</b>: <a href=\"encounter-example.html\">Encounter/example</a></p><p><b>occurrenceDateTime</b>: 2017-03-10T16:02:00Z</p><p><b>performer</b>: <a href=\"todo.html\">Device/software</a></p><p><b>reasonCode</b>: Guideline Appropriate Ordering Assessment <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> ()</span></p><p><b>outputParameters</b>: <a name=\"outputParameters1\"> </a></p><blockquote><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource &quot;outputParameters1&quot; </p></div><blockquote><p><b>parameter</b></p><p><b>name</b>: score</p><p><b>value</b>: 7</p></blockquote><blockquote><p><b>parameter</b></p><p><b>name</b>: item-assessed</p><p><b>value</b>: CT, head, wo iv contrast <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-CPT.html\">Current Procedural Terminology (CPT\u00ae)</a>#70450)</span></p></blockquote><blockquote><p><b>parameter</b></p><p><b>name</b>: device</p><p><b>value</b>: <a href=\"todo.html\">Device/software</a></p></blockquote><blockquote><p><b>parameter</b></p><p><b>name</b>: guideline-followed</p><p><b>value</b>: <a href=\"http://someguidelineprovider.org/radiology-appropriateness-guidelines.html\">http://someguidelineprovider.org/radiology-appropriateness-guidelines.html</a></p></blockquote></blockquote></div>"
+    }, 
+    "contained": [
+        {
+            "resourceType": "Parameters", 
+            "id": "outputParameters1", 
+            "parameter": [
+                {
+                    "name": "score", 
+                    "valueDecimal": 7
+                }, 
+                {
+                    "name": "item-assessed", 
+                    "valueCodeableConcept": {
+                        "coding": [
+                            {
+                                "system": "http://www.ama-assn.org/go/cpt", 
+                                "code": "70450", 
+                                "display": "CT, head, wo iv contrast"
+                            }
+                        ]
+                    }
+                }, 
+                {
+                    "name": "device", 
+                    "valueReference": {
+                        "reference": "Device/software"
+                    }
+                }, 
+                {
+                    "name": "guideline-followed", 
+                    "valueUri": "http://someguidelineprovider.org/radiology-appropriateness-guidelines.html"
+                }
+            ]
+        }
+    ], 
+    "requestIdentifier": {
+        "system": "http://example.org", 
+        "value": "guidanceRequest1"
+    }, 
+    "identifier": [
+        {
+            "system": "http://example.org", 
+            "value": "guidanceResponse1"
+        }
+    ], 
+    "moduleUri": "http://someguidelineprovider.org/radiology-appropriateness-guidelines.html", 
+    "_moduleUri": "unknown_type", 
+    "moduleCanonical": "moduleCanonical text", 
+    "_moduleCanonical": "unknown_type", 
+    "moduleCodeableConcept": "unknown_type", 
+    "status": "success", 
+    "_status": "unknown_type", 
+    "subject": {
+        "reference": "Patient/example"
+    }, 
+    "encounter": {
+        "reference": "Encounter/example"
+    }, 
+    "occurrenceDateTime": "2017-03-10T16:02:00Z", 
+    "_occurrenceDateTime": "unknown_type", 
+    "performer": {
+        "reference": "Device/software"
+    }, 
+    "reasonCode": [
+        {
+            "text": "Guideline Appropriate Ordering Assessment"
+        }
+    ], 
+    "outputParameters": {
+        "reference": "#outputParameters1"
+    }, 
+    "result": "unknown_type", 
+    "type": "type text"
+}

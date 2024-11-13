@@ -29,6 +29,7 @@ import copy
 import pathlib
 import sys
 import jsonschema
+import shutil as sh
 from jsonschema import validate, RefResolver, Draft202012Validator
 import requests
 import jsonref
@@ -38,7 +39,7 @@ import pysmartdatamodels as sdm
 # global variables
 global_schema_file = "overall_schema_4.3.json"  #'fhir.schema.5.0.json' # # HL7/FHIR origin schema file name
 definition_file = (
-    "common-hl7-schema.json"  # common base definitions for HL7/FHIR mapping
+    "hl7-schema.json"  # common base definitions for HL7/FHIR mapping
 )
 schema_url = "https://json-schema.org/schema#"
 
@@ -47,7 +48,7 @@ base_repo_url = (
     "https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/"
 )
 # by AA:
-extra_repo = 'https://smartdatamodels.org/extra/' #common-hl7-schema.json'
+extra_repo = 'https://smartdatamodels.org/extra/'
 # need absolutely point 'raw.githubusercontent.com' this does not work
 # 'https://github.com/agaldemas/incubated/blob/master/SMARTHEALTH/HL7/ 
 
@@ -127,8 +128,76 @@ def infer_type(hl7_type: str, definition_dict: dict):
         return {'$ref': '#/definitions/ResourceList'}
     return def_dict if def_dict else None
 
+#################################################################
+# function to prepare example json data to be used in examples.
+def prepare_example_json(json_data, schema):
+    """
+    Prepare example json data to be used in examples.
 
+    This function takes an example json and returns it with some modifications.
+    It keeps all the properties that are in the example, but add all missing properties from schema with random values corresponding to the type of the property.
+
+    Args:
+        json_data (dict): A dictionary containing a json example.
+        schema (dict): A dictionary containing the schema definition.
+    Returns:
+        dict or None: If the example is found, it returns a dictionary
+                      containing the modified example; otherwise, it returns None.
+     """
+    # first get "properties" elements from the schema "allOf" array elements.
+    # Initialize an empty list to store property names
+    schema_properties = {}
+
+    # Check if schema is a dictionary and contains "allOf" which is a list
+    if isinstance(schema, dict) and "allOf" in schema:
+        # Iterate through each item in the "allOf" array
+        for item in schema["allOf"]:
+            # Ensure the item is a dictionary before proceeding
+            if isinstance(item, dict):
+                # Check if this specific item has properties defined
+                if "properties" in item:
+                    # Extend the list with keys of each property within this item's properties
+                    schema_properties =item["properties"]
+
+    # Now you can use schema_properties as needed, for example to iterate over it:
+    for prop in schema_properties:
+        print(f"Property found: {prop}")    # iterate through the list of properties in schema
+        output_json = {}
+        for prop in schema_properties.keys():
+            if prop in json_data:
+                output_json[prop] = json_data[prop]
+            else:
+                if "type" in schema_properties[prop]:
+                    type_ = schema_properties[prop]["type"]
+                    if type_ == "array":
+                        # Handle array property
+                        if "items" in schema_properties[prop]:
+                            if "type" in schema_properties[prop]["items"]:
+                                item_type = schema_properties[prop]["items"]["type"]
+                                if item_type == "string":
+                                    output_json[prop] = [(prop + " text")]
+                                elif item_type == "number":
+                                    output_json[prop] = [12345]  # random number
+                                elif item_type == "boolean":
+                                    output_json[prop] = [True if prop.startswith("is") else False]  # random boolean value based on property name prefix
+                                elif item_type == "object":
+                                    output_json[prop] = [{}]
+                        # Add more types as needed for array items
+                    elif type_ == "string":
+                        output_json[prop] = prop + " text"
+                    elif type_ == "number":
+                        output_json[prop] = 12345  # random number
+                    elif type_ == "boolean":
+                        output_json[prop] = True if prop.startswith("is") else False  # random boolean value based on property name prefix
+                    elif type_ == "object":
+                        output_json[prop] = {}
+                    # Add more types as needed
+                else:
+                    output_json[prop] = "unknown_type"  # or handle unknown types appropriately
+    return output_json
+    ##-----------------------
 ###############################################################################
+# MAIN
 # now the main loop that do the job
 # Load the JSON schema file into a Python dictionary
 with open(global_schema_file) as f:
@@ -438,6 +507,9 @@ for entity_type, entity_def in resources_definitions.items():
     # create directory for the entity resource type
     path = pathlib.Path(fhir_release_path + entity_type)
     path.mkdir(parents=True, exist_ok=True)
+    # create dir for example
+    path1 = pathlib.Path(fhir_release_path + entity_type + "/examples")
+    path1.mkdir(parents=True, exist_ok=True)
     
     # delete already present json files
 
@@ -457,13 +529,29 @@ for entity_type, entity_def in resources_definitions.items():
         json.dump(entity_schema, exportfile, indent=4, separators=(", ", ": "))
     print(">>>>>> wrote schema file for entity type " + entity_type)
     print("=============================================")
-    # del entity_schema
+    
+    # add ADOPTERS.yaml file (copy from HL7 directory)
+    # copy HL7 ADOPTERS.yaml file to entity directory
+    sh.copy(
+        "./ADOPTERS.yaml",
+        "./" + fhir_release_path  + entity_type  + "/ADOPTERS.yaml"
+    )
+    # add notes.yaml file
+    sh.copy(
+        "./notes.yaml",
+        "./" + fhir_release_path  + entity_type  + "/notes.yaml"
+    )
+    # add LiCENSE.md file (copy from HL7 directory)
+    sh.copy(
+        "./LiCENSE.md",
+        "./" + fhir_release_path  + entity_type  + "/LiCENSE.md"
+    )
     
     #========================== validation loop and example generation
     # this loop try to validate examples toward entity schema, which is somehow a bit stupid,
     # because the objects should be adapted to NGSI-LD before, even the schema remains almost the same except for Extension
     if 1:
-        print("start validation loop on exmples:")
+        print("start validation loop on examples files:")
         directory_path = "./_examples/hl7.fhir.r4b.examples/package"
         for filename in os.listdir(directory_path):
             if filename.startswith(entity_type) and filename.endswith(".json") and '-example' in filename:
@@ -475,22 +563,33 @@ for entity_type, entity_def in resources_definitions.items():
                         json_data = json.load(f)
                 except Exception as e:
                     print("!!!!!!!!!! Error opening file {}: {} {}".format(filename, e.__class__, str(e)))
+                
+                #======================= adapt json data to NGSI-LD format
+                json_data = prepare_example_json(json_data, entity_schema)
+                if 0: # no validation for now
+                    try:
+                        # validator = Draft7Validator(json_data)
+                        # print('++++++++++ file {} is valid against Draft7Validator'.format(filename))
 
-                try:
-                    # validator = Draft7Validator(json_data)
-                    # print('++++++++++ file {} is valid against Draft7Validator'.format(filename))
+                        validate(instance=json_data, schema=entity_schema, resolver=resolver)
 
-                    validate(instance=json_data, schema=entity_schema, resolver=resolver)
+                    except jsonschema.exceptions.ValidationError as e:
+                        print('!!!!!!!!!! Error validating file ', filename)
+                        print('ValidationError occured: ', e)
+                    except Exception as e:
+                        print('!!!!!!!!!! Error validating file ', filename)
+                        print('Exception occured: ', e)
+                        # os._exit(1)
+                    else:
+                        print("++++++++++ file {}: validate against schema".format(filename))
 
-                except jsonschema.exceptions.ValidationError as e:
-                    print('!!!!!!!!!! Error validating file ', filename)
-                    print('ValidationError occured: ', e)
-                except Exception as e:
-                    print('!!!!!!!!!! Error validating file ', filename)
-                    print('Exception occured: ', e)
-                    # os._exit(1)
-                else:
-                    print("++++++++++ file {}: validate against schema".format(filename))
+                # copy file to example directory copyfile(file_path, os.path.join(path1, 'example.json'))
+                exportfilename = "./" + fhir_release_path + entity_type + "/examples/example.json"
+                with open(exportfilename, "w+") as exportfile:
+                    json.dump(json_data, exportfile, indent=4, separators=(", ", ": "))
+
+                # exit from for loop when a file has been validated and copied to example directory
+                break
         print("======end validation loop=======================================")
 
     # end validation loop
