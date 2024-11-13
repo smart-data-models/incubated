@@ -1,0 +1,128 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.1.2",
+    "modelTags": "INCODE",
+    "$id": "https://smart-data-models.github.io/dataModel.Device/Camera/schema.json",
+    "title": " Smart Data Models - Camera",
+    "description": "A Data Model for camera installations in a city.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI entity type. It has to be Camera",
+                    "enum": [
+                        "Camera"
+                    ]
+                },
+                "cameraName": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Name of the camera corresponding to this observation"
+                },
+                "cameraUsage": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Purpose of the camera corresponding to this observation. Enum: [SURVEILLANCE, RLVD, ANPR/LPR, TRAFFIC]"
+                },
+                "streamURL": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. URL providing video streaming information for the camera corresponding to this observation"
+                },
+                "cameraType": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Type of the camera corresponding to this observation. Enum:'FIXED, PTZ, DOME, DAY/NIGHT, C-MOUNT, BULLET'",
+                    "enum": [
+                        "FIXED",
+                        "PTZ",
+                        "DOME",
+                        "DAY/NIGHT",
+                        "C-MOUNT",
+                        "BULLET"
+                    ]
+                },
+                "endDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'https://schema.org/DateTime'. Reported end time corresponding to this observation"
+                },
+                "cameraOrientation": {
+                    "type": "object",
+                    "description": "Property. Orientation information for the camera corresponding to this observation",
+                    "properties": {
+                        "comments": {
+                            "type": "string"
+                        },
+                        "annotatedMap": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    }
+                },
+                "cameraNum": {
+                    "type": "number",
+                    "description": "Property. Model:'https://schema.org/Number'. Camera number corresponding to this observation"
+                },
+                "mediaURL": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Model:'https://schema.org/Text'. URL providing further information of any image(s) or media of the complaint or place"
+                },
+                "streamName": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Name of the video stream from the camera corresponding to this observation"
+                },
+                "startDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'https://schema.org/DateTime'. Reported start time corresponding to this observation"
+                },
+                "on": {
+                    "type": "boolean",
+                    "description": "Property. Model:'https://schema.org/Boolean'. Indicates if the device is on (true) or off (false)"
+                },
+                "imageSnapshot": {
+                    "type": "string",
+                    "description": "Property. Model:'https://schema.org/Text'. Camera feed snapshot download link for the camera corresponding to this observation"
+                },
+                "cameraID": {
+                    "type": "string",
+                    "description": "Identifier for the camera."
+                },
+                "model": {
+                    "type": "string",
+                    "description": "Model of the camera."
+                },
+                "timestamp": {
+                    "type": "number",
+                    "description": "Timestamp of the data."
+                },
+                "5G capability": {
+                    "type": "boolean",
+                    "description": "5G capability of the camera."
+                },
+                "RTSP Server status": {
+                    "type": "boolean",
+                    "description": "RTSP Server status of the camera."
+                },
+                "GPSLatitude": {
+                    "type": "number",
+                    "description": "Latitude of the camera."
+                },
+                "GPSLongitude": {
+                    "type": "number",
+                    "description": "Longitude of the camera."
+                }
+            }
+        }
+    ],
+    "required": [
+        "id",
+        "type"
+    ]
+}
