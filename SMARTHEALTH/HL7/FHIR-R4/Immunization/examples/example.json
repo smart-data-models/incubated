@@ -1,5 +1,6 @@
 {
     "resourceType": "ImmunizationEvaluation", 
+    "type": "ImmunizationEvaluation", 
     "meta": {
         "tag": [
             {
@@ -9,14 +10,30 @@
             }
         ]
     }, 
-    "implicitRules": "implicitRules text", 
-    "_implicitRules": "unknown_type", 
-    "language": "language text", 
-    "_language": "unknown_type", 
+    "implicitRules": "implicitRules as text", 
+    "_implicitRules": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "language": "language as text", 
+    "_language": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
     "text": {
         "status": "generated", 
         "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative</b></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource &quot;example&quot; </p></div><p><b>identifier</b>: id: urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234</p><p><b>status</b>: completed</p><p><b>patient</b>: <a href=\"patient-example.html\">Patient/example</a> &quot;Peter CHALMERS&quot;</p><p><b>date</b>: 2013-01-10</p><p><b>authority</b>: <a href=\"organization-hl7.html\">Organization/hl7</a> &quot;Health Level Seven International&quot;</p><p><b>targetDisease</b>: Gestational rubella syndrome <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#1857005)</span></p><p><b>immunizationEvent</b>: <a href=\"immunization-example.html\">Immunization/example</a></p><p><b>doseStatus</b>: Valid <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"codesystem-immunization-evaluation-dose-status.html\">Immunization Evaluation Dose Status codes</a>#valid)</span></p><p><b>series</b>: Vaccination Series 1</p><p><b>doseNumber</b>: 1</p><p><b>seriesDoses</b>: 3</p></div>"
     }, 
+    "extension": [
+        "urn:ngsi-ld:Extension:001"
+    ], 
+    "modifierExtension": [
+        "urn:ngsi-ld:Extension:modifier001"
+    ], 
     "identifier": [
         {
             "system": "urn:ietf:rfc:3986", 
@@ -24,33 +41,1083 @@
         }
     ], 
     "status": "completed", 
-    "_status": "unknown_type", 
-    "statusReason": "unknown_type", 
-    "vaccineCode": "unknown_type", 
+    "_status": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "statusReason": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "coding": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "version": "version as Text", 
+            "_version": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "code": "code as Text", 
+            "_code": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "userSelected": false, 
+            "_userSelected": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "text": "text as Text", 
+        "_text": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "vaccineCode": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "coding": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "version": "version as Text", 
+            "_version": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "code": "code as Text", 
+            "_code": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "userSelected": false, 
+            "_userSelected": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "text": "text as Text", 
+        "_text": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
     "patient": {
         "reference": "Patient/example"
     }, 
-    "encounter": "unknown_type", 
-    "occurrenceDateTime": "occurrenceDateTime text", 
-    "_occurrenceDateTime": "unknown_type", 
-    "occurrenceString": "occurrenceString text", 
-    "_occurrenceString": "unknown_type", 
-    "recorded": "recorded text", 
-    "_recorded": "unknown_type", 
+    "encounter": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "reference": "reference as Text", 
+        "_reference": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "type": "type as Text", 
+        "_type": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "identifier": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "_use": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "type": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "value": "value as Text", 
+            "_value": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "period": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "assigner": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "display": "display as Text", 
+        "_display": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "occurrenceDateTime": "occurrenceDateTime as text", 
+    "_occurrenceDateTime": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "occurrenceString": "occurrenceString as text", 
+    "_occurrenceString": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "recorded": "recorded as text", 
+    "_recorded": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
     "primarySource": false, 
-    "_primarySource": "unknown_type", 
-    "reportOrigin": "unknown_type", 
-    "location": "unknown_type", 
-    "manufacturer": "unknown_type", 
-    "lotNumber": "lotNumber text", 
-    "_lotNumber": "unknown_type", 
-    "expirationDate": "expirationDate text", 
-    "_expirationDate": "unknown_type", 
-    "site": "unknown_type", 
-    "route": "unknown_type", 
-    "doseQuantity": "unknown_type", 
+    "_primarySource": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "reportOrigin": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "coding": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "version": "version as Text", 
+            "_version": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "code": "code as Text", 
+            "_code": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "userSelected": false, 
+            "_userSelected": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "text": "text as Text", 
+        "_text": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "location": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "reference": "reference as Text", 
+        "_reference": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "type": "type as Text", 
+        "_type": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "identifier": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "_use": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "type": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "value": "value as Text", 
+            "_value": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "period": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "assigner": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "display": "display as Text", 
+        "_display": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "manufacturer": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "reference": "reference as Text", 
+        "_reference": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "type": "type as Text", 
+        "_type": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "identifier": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "_use": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "type": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "value": "value as Text", 
+            "_value": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "period": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "assigner": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "display": "display as Text", 
+        "_display": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "lotNumber": "lotNumber as text", 
+    "_lotNumber": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "expirationDate": "expirationDate as text", 
+    "_expirationDate": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "site": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "coding": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "version": "version as Text", 
+            "_version": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "code": "code as Text", 
+            "_code": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "userSelected": false, 
+            "_userSelected": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "text": "text as Text", 
+        "_text": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "route": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "coding": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "version": "version as Text", 
+            "_version": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "code": "code as Text", 
+            "_code": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "userSelected": false, 
+            "_userSelected": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "text": "text as Text", 
+        "_text": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "doseQuantity": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "value": 123456, 
+        "_value": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "_comparator": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "unit": "unit as Text", 
+        "_unit": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "system": "system as Text", 
+        "_system": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "code": "code as Text", 
+        "_code": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "performer": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "function": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "coding": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "text": "text as Text", 
+            "_text": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "actor": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "reference": "reference as Text", 
+            "_reference": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "type": "type as Text", 
+            "_type": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "identifier": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }
+    }, 
+    "note": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "authorReference": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "reference": "reference as Text", 
+            "_reference": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "type": "type as Text", 
+            "_type": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "identifier": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "authorString": "authorString as text", 
+        "_authorString": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "time": "time as Text", 
+        "_time": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "text": "text as Text", 
+        "_text": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "reasonCode": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "coding": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "version": "version as Text", 
+            "_version": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "code": "code as Text", 
+            "_code": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "userSelected": false, 
+            "_userSelected": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "text": "text as Text", 
+        "_text": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "reasonReference": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "reference": "reference as Text", 
+        "_reference": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "type": "type as Text", 
+        "_type": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "identifier": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "_use": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "type": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "value": "value as Text", 
+            "_value": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "period": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "assigner": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "display": "display as Text", 
+        "_display": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
     "isSubpotent": true, 
-    "_isSubpotent": "unknown_type", 
-    "fundingSource": "unknown_type", 
-    "type": "type text"
+    "_isSubpotent": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "subpotentReason": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "coding": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "version": "version as Text", 
+            "_version": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "code": "code as Text", 
+            "_code": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "userSelected": false, 
+            "_userSelected": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "text": "text as Text", 
+        "_text": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "education": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "documentType": "documentType as Text", 
+        "_documentType": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "reference": "reference as Text", 
+        "_reference": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "publicationDate": "publicationDate as Text", 
+        "_publicationDate": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "presentationDate": "presentationDate as Text", 
+        "_presentationDate": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "programEligibility": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "coding": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "version": "version as Text", 
+            "_version": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "code": "code as Text", 
+            "_code": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "userSelected": false, 
+            "_userSelected": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "text": "text as Text", 
+        "_text": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "fundingSource": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "coding": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "version": "version as Text", 
+            "_version": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "code": "code as Text", 
+            "_code": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "userSelected": false, 
+            "_userSelected": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "text": "text as Text", 
+        "_text": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "reaction": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "date": "15/11/2024", 
+        "_date": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "detail": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "reference": "reference as Text", 
+            "_reference": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "type": "type as Text", 
+            "_type": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "identifier": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "reported": false, 
+        "_reported": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "protocolApplied": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "series": "series as Text", 
+        "_series": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "authority": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "reference": "reference as Text", 
+            "_reference": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "type": "type as Text", 
+            "_type": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "identifier": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "targetDisease": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "coding": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "text": "text as Text", 
+            "_text": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "doseNumberPositiveInt": 12345, 
+        "_doseNumberPositiveInt": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "doseNumberString": "doseNumberString as text", 
+        "_doseNumberString": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "seriesDosesPositiveInt": 12345, 
+        "_seriesDosesPositiveInt": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "seriesDosesString": "seriesDosesString as text", 
+        "_seriesDosesString": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "id": "urn:ngsi-ld:ImmunizationEvaluation:001", 
+    "description": "an instance of ImmunizationEvaluation"
 }

@@ -34,6 +34,7 @@ from jsonschema import validate, RefResolver, Draft202012Validator
 import requests
 import jsonref
 import pysmartdatamodels as sdm
+from datetime import date, datetime
 
 ###############################################################################
 # global variables
@@ -128,25 +129,51 @@ def infer_type(hl7_type: str, definition_dict: dict):
         return {'$ref': '#/definitions/ResourceList'}
     return def_dict if def_dict else None
 
+
+
+def fill_prop_from_type(type, prop_name, description: str = ""):
+    if type == "string":
+        if 'dateTime' in prop_name:
+            # current date time in Iso8601 format
+            return datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f%z")
+        elif 'date' in prop_name:
+            # date of day in Iso8601 format
+            return datetime.now().strftime("%d/%m/%Y")
+        return description if len (description) > 0 else prop_name + " as Text"
+    elif type == 'number':
+        return 123456
+    elif type == 'boolean':
+        return True if 'Is' in prop_name else False
+    
+    return {}
 #################################################################
 # function to prepare example json data to be used in examples.
-def prepare_example_json(json_data, schema):
+#################################################################
+def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, recurse :bool=True, level  :int=0) -> dict:
     """
-    Prepare example json data to be used in examples.
-
-    This function takes an example json and returns it with some modifications.
-    It keeps all the properties that are in the example, but add all missing properties from schema with random values corresponding to the type of the property.
+    Prepares example JSON data based on the provided JSON data and schema. This function recursively processes the input JSON data according to the rules specified in the schema.
 
     Args:
-        json_data (dict): A dictionary containing a json example.
-        schema (dict): A dictionary containing the schema definition.
+        json_data (dict): The input JSON data that needs to be processed.
+        schema (dict): The schema against which the JSON data is validated.
+        base_definitions (dict): A dictionary containing common definitions for HL7/FHIR resources.
+        recurse (bool, optional): Whether to recursively process nested objects in the JSON data. Defaults to True.
+        level (int, optional): The current recursion depth. Used internally for tracking recursion levels. Defaults to 0.
+
     Returns:
-        dict or None: If the example is found, it returns a dictionary
-                      containing the modified example; otherwise, it returns None.
-     """
-    # first get "properties" elements from the schema "allOf" array elements.
+        dict: A processed dictionary that adheres to the schema and base definitions.
+
+    This function performs the following steps:
+    1. Validates the input JSON data against the provided schema.
+    2. Recursively processes nested objects if `recurse` is set to True.
+    3. Applies type inference from `base_definitions` for properties not explicitly defined in the schema.
+    """
+    # increase recursion level by one
+    level +=1
+    print(f'level is: {level}')
     # Initialize an empty list to store property names
     schema_properties = {}
+    base_def= False
 
     # Check if schema is a dictionary and contains "allOf" which is a list
     if isinstance(schema, dict) and "allOf" in schema:
@@ -157,45 +184,149 @@ def prepare_example_json(json_data, schema):
                 # Check if this specific item has properties defined
                 if "properties" in item:
                     # Extend the list with keys of each property within this item's properties
-                    schema_properties =item["properties"]
+                    schema_properties = item["properties"]
+    elif isinstance(schema, dict):
+        # print('>>>>>>>>>>>>>>>> schema:', schema)
+        if "properties" in schema:
+            schema_properties = schema["properties"]
+        else:
+            # we are in a final object defined by a type
+            schema_properties = schema
+    print('SSSSSSSSSSSSSschema_properties: \n', schema_properties)
+    output_json = {}
+
+    # if "type" in schema_properties and "properties" not in schema_properties:
+    #     print('it is base def')
+    #     base_def= True
+        
+    #     # fill output json with base vaue depending on type
+    #     if schema_properties["type"] == "string":
+    #         output_json = ""
+    #     elif schema_properties["type"] == "number":
+    #         output_json = 0.0
+    #     else:
+    #          print('>>>>>>>>>>>>>>>>>>>')
+    #     return output_json
+
 
     # Now you can use schema_properties as needed, for example to iterate over it:
-    for prop in schema_properties:
-        print(f"Property found: {prop}")    # iterate through the list of properties in schema
-        output_json = {}
-        for prop in schema_properties.keys():
-            if prop in json_data:
-                output_json[prop] = json_data[prop]
-            else:
-                if "type" in schema_properties[prop]:
-                    type_ = schema_properties[prop]["type"]
-                    if type_ == "array":
-                        # Handle array property
-                        if "items" in schema_properties[prop]:
-                            if "type" in schema_properties[prop]["items"]:
-                                item_type = schema_properties[prop]["items"]["type"]
-                                if item_type == "string":
-                                    output_json[prop] = [(prop + " text")]
-                                elif item_type == "number":
-                                    output_json[prop] = [12345]  # random number
-                                elif item_type == "boolean":
-                                    output_json[prop] = [True if prop.startswith("is") else False]  # random boolean value based on property name prefix
-                                elif item_type == "object":
-                                    output_json[prop] = [{}]
-                        # Add more types as needed for array items
-                    elif type_ == "string":
-                        output_json[prop] = prop + " text"
-                    elif type_ == "number":
-                        output_json[prop] = 12345  # random number
-                    elif type_ == "boolean":
-                        output_json[prop] = True if prop.startswith("is") else False  # random boolean value based on property name prefix
-                    elif type_ == "object":
-                        output_json[prop] = {}
-                    # Add more types as needed
+    #for prop in schema_properties:
+    for prop in schema_properties.keys():
+        print(f"MMMMMMMMMM manage Property: ", prop)    # iterate through the list of properties in schema
+        if prop in json_data:
+            output_json[prop] = json_data[prop]
+            if prop == "resourceType":
+                output_json["type"] = output_json["resourceType"]
+        else:
+            if prop == "hl7Type" and "type" in json_data:
+                # get type from json data and set it to the output json
+                output_json["hl7Type"] = json_data["type"]
+            elif prop == "extension" or prop == "modifierExtension" and level < 2:
+                if 'modifier' in prop:
+                    output_json[prop] = ['urn:ngsi-ld:Extension:modifier001']
                 else:
-                    output_json[prop] = "unknown_type"  # or handle unknown types appropriately
+                    output_json[prop] = ['urn:ngsi-ld:Extension:001']
+                continue
+            elif "$ref" in schema_properties[prop]:
+                # Handle reference property
+                ref = schema_properties[prop]["$ref"]
+                #print('>>>>>>>>>>> ref is: ', ref)
+                ref_splitted = ref.split("#")
+                ref_splitted = ref_splitted[len(ref_splitted) - 1].split("/")
+                definition = ref_splitted[len(ref_splitted) -1]
+                print('>>>>>>>>>>> manage #ref definition is: ', definition)
+                if entity_type == 'Account':
+                    print('>>>>>>>>>> base definitions[{definition}]: ', base_definitions[definition])
+                if recurse and definition in base_definitions and level < 4:
+                    if "properties" in base_definitions[definition]:
+                        output_json[prop] = prepare_example_json({}, base_definitions[definition],base_definitions, True, level)
+                    elif "type" in base_definitions[definition]:
+                        print('ZZZZZZZZZZ manage low level definition for prop: ' + prop + " don't recurse")
+                        base_def = True
+                        # fill output_json[prop] according to 'type'
+                        type_ = base_definitions[definition]["type"]
+                        
+                        output_json[prop] = fill_prop_from_type(type_,prop)
+
+                # else:
+                #     desc = 'an object defined by ' + definition                  
+                #     output_json[prop] = {'description': desc}
+
+            elif "type" in schema_properties[prop]:
+                #if level > 0:
+                print("MMMMMMMMMMMMM manage prop with 'type': ", prop)
+                print ("MMMMMMMMMMMMM schema_properties[prop]:", schema_properties[prop])
+                try:
+                    type_ = schema_properties[prop]["type"]
+                except (KeyError, AttributeError, TypeError):
+                    # Handle the case where prop is not in schema_properties or if there are other access issues
+                    print("Warning: Property {prop} might not be correctly defined in schema.".format(prop=prop))
+                    type_ = "string"  # or some default value that makes sense for your application
+                if type_ == "array":
+                    # Handle array property
+                    if "items" in schema_properties[prop]:
+                        if "type" in schema_properties[prop]["items"]:
+                            item_type = schema_properties[prop]["items"]["type"]
+                            if item_type == "string":
+                                output_json[prop] = [(prop + " as text")]
+                            elif item_type == "number":
+                                output_json[prop] = [12345]  # random number
+                            elif item_type == "boolean":
+                                output_json[prop] = [True if prop.startswith("is") else False]  # random boolean value based on property name prefix
+                            elif item_type == "object":
+                                output_json[prop] = [{}]
+                        if "$ref" in schema_properties[prop]["items"]:
+                            # Handle reference property
+                            ref = schema_properties[prop]["items"]["$ref"]
+                            ref_splitted = ref.split("#")
+                            ref_splitted = ref_splitted[len(ref_splitted) - 1].split("/")
+                            definition = ref_splitted[len(ref_splitted) -1]
+                            print ('definition is: ', definition)
+                            if recurse and definition in base_definitions and level < 4:
+                                print('AAAAAAAAAAAarray before base_definitions[definition]: ', base_definitions[definition])
+                                if "properties" in base_definitions[definition]:
+                                    output_json[prop] = prepare_example_json({}, base_definitions[definition],base_definitions, True, level)
+                                elif "type" in base_definitions[definition]:
+                                    print('AAAAAAAAAAAarray manage low level definition for prop: ' + prop + " don't recurse")
+                                    base_def = True
+                                    type_ = base_definitions[definition]["type"]                                    
+                                    output_json[prop] = fill_prop_from_type(type_, prop)
+
+                            # else:
+                            #     desc = 'an object defined by ' + definition                                
+                            #     output_json[prop] = {'description': desc}
+                elif type_ == "object":
+                    # Handle object property
+                    output_json[prop] = {}
+                    for prop2 in schema_properties[prop]["properties"]:
+                        if prop2 not in json_data:
+                            continue
+                        output_json[prop][prop2]  = json_data[prop2]
+
+                    # Add more types as needed for array items
+                elif type_ == "string":
+                    output_json[prop] = prop + " as text"
+                elif type_ == "number":
+                    output_json[prop] = 12345  # random number
+                elif type_ == "boolean":
+                    output_json[prop] = True if prop.startswith("is") else False  # random boolean value based on property name prefix
+                # elif type_ == "object":
+                #     output_json[prop] = {}
+            
+            # else:
+            #     print('>>>>>>>>>> manage unknown property: {prop} level: {level}'.format(prop = prop, level = level))
+            #     output_json[prop] = "unknown_type"  # or handle unknown types appropriately
+    if "resourceType" in output_json:
+        # add NGSI "type" from "resourceType"
+        output_json["type"] = output_json["resourceType"]
+        # add NGSI id property to the output json object
+        output_json["id"] = "urn:ngsi-ld:" + output_json["resourceType"] + ":001"
+        # update description property in the output json object
+        output_json["description"] = "an instance of " + output_json["resourceType"]
     return output_json
     ##-----------------------
+
+
 ###############################################################################
 # MAIN
 # now the main loop that do the job
@@ -565,7 +696,8 @@ for entity_type, entity_def in resources_definitions.items():
                     print("!!!!!!!!!! Error opening file {}: {} {}".format(filename, e.__class__, str(e)))
                 
                 #======================= adapt json data to NGSI-LD format
-                json_data = prepare_example_json(json_data, entity_schema)
+                level = 0
+                json_data = prepare_example_json(json_data, entity_schema, base_definitions, True, level)
                 if 0: # no validation for now
                     try:
                         # validator = Draft7Validator(json_data)
@@ -593,6 +725,8 @@ for entity_type, entity_def in resources_definitions.items():
         print("======end validation loop=======================================")
 
     # end validation loop
+    # if (entity_type == 'Account'):
+    #     break
 # end for loop on resources definitions
 
 # remove Extension from base_definitions

@@ -1,5 +1,6 @@
 {
     "resourceType": "Invoice", 
+    "type": "Invoice", 
     "meta": {
         "tag": [
             {
@@ -9,14 +10,30 @@
             }
         ]
     }, 
-    "implicitRules": "implicitRules text", 
-    "_implicitRules": "unknown_type", 
-    "language": "language text", 
-    "_language": "unknown_type", 
+    "implicitRules": "implicitRules as text", 
+    "_implicitRules": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "language": "language as text", 
+    "_language": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
     "text": {
         "status": "generated", 
         "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Example of Invoice</div>"
     }, 
+    "extension": [
+        "urn:ngsi-ld:Extension:001"
+    ], 
+    "modifierExtension": [
+        "urn:ngsi-ld:Extension:modifier001"
+    ], 
     "identifier": [
         {
             "system": "http://myHospital.org/Invoices", 
@@ -24,16 +41,94 @@
         }
     ], 
     "status": "issued", 
-    "_status": "unknown_type", 
-    "cancelledReason": "cancelledReason text", 
-    "_cancelledReason": "unknown_type", 
-    "type": "type text", 
+    "_status": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "cancelledReason": "cancelledReason as text", 
+    "_cancelledReason": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
     "subject": {
         "reference": "Patient/example"
     }, 
-    "recipient": "unknown_type", 
+    "recipient": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "reference": "reference as Text", 
+        "_reference": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "type": "type as Text", 
+        "_type": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "identifier": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "_use": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "type": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "value": "value as Text", 
+            "_value": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "period": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "assigner": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "display": "display as Text", 
+        "_display": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
     "date": "2017-01-25T08:00:00+01:00", 
-    "_date": "unknown_type", 
+    "_date": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
     "participant": [
         {
             "role": {
@@ -59,6 +154,148 @@
     "account": {
         "reference": "Account/example"
     }, 
+    "lineItem": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "sequence": 123456, 
+        "_sequence": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "chargeItemReference": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "reference": "reference as Text", 
+            "_reference": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "type": "type as Text", 
+            "_type": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "identifier": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "chargeItemCodeableConcept": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "coding": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "text": "text as Text", 
+            "_text": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "priceComponent": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "type": "type as Text", 
+            "_type": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "code": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "factor": 123456, 
+            "_factor": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "amount": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }
+    }, 
+    "totalPriceComponent": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "type": "type as Text", 
+        "_type": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "code": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "coding": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "text": "text as Text", 
+            "_text": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "factor": 123456, 
+        "_factor": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "amount": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "value": 123456, 
+            "_value": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "currency": "currency as Text", 
+            "_currency": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }
+    }, 
     "totalNet": {
         "value": 40, 
         "currency": "EUR"
@@ -67,7 +304,118 @@
         "value": 48, 
         "currency": "EUR"
     }, 
-    "paymentTerms": "paymentTerms text", 
-    "_paymentTerms": "unknown_type", 
-    "hl7Type": "unknown_type"
+    "paymentTerms": "paymentTerms as text", 
+    "_paymentTerms": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "note": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "authorReference": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "reference": "reference as Text", 
+            "_reference": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "type": "type as Text", 
+            "_type": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "identifier": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "authorString": "authorString as text", 
+        "_authorString": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "time": "time as Text", 
+        "_time": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }, 
+        "text": "text as Text", 
+        "_text": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "hl7Type": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "coding": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "system": "system as Text", 
+            "_system": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "version": "version as Text", 
+            "_version": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "code": "code as Text", 
+            "_code": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "display": "display as Text", 
+            "_display": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }, 
+            "userSelected": false, 
+            "_userSelected": {
+                "extension": [
+                    "urn:ngsi-ld:Extension:001"
+                ]
+            }
+        }, 
+        "text": "text as Text", 
+        "_text": {
+            "id": "id as Text", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    }, 
+    "id": "urn:ngsi-ld:Invoice:001", 
+    "description": "an instance of Invoice"
 }

@@ -1,5 +1,6 @@
 {
     "resourceType": "EpisodeOfCare", 
+    "type": "EpisodeOfCare", 
     "meta": {
         "tag": [
             {
@@ -9,14 +10,30 @@
             }
         ]
     }, 
-    "implicitRules": "implicitRules text", 
-    "_implicitRules": "unknown_type", 
-    "language": "language text", 
-    "_language": "unknown_type", 
+    "implicitRules": "implicitRules as text", 
+    "_implicitRules": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "language": "language as text", 
+    "_language": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
     "text": {
         "status": "generated", 
         "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      HACC Program for Peter James Chalmers at HL7 Healthcare 15 Sept 2014 - current<br/>\n\t\t\twas on leave from 22 Sept - 24 Sept while in respite care\n    </div>"
     }, 
+    "extension": [
+        "urn:ngsi-ld:Extension:001"
+    ], 
+    "modifierExtension": [
+        "urn:ngsi-ld:Extension:modifier001"
+    ], 
     "identifier": [
         {
             "system": "http://example.org/sampleepisodeofcare-identifier", 
@@ -24,7 +41,12 @@
         }
     ], 
     "status": "active", 
-    "_status": "unknown_type", 
+    "_status": {
+        "id": "id as Text", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
     "statusHistory": [
         {
             "status": "planned", 
@@ -52,17 +74,6 @@
             "period": {
                 "start": "2014-09-25"
             }
-        }
-    ], 
-    "type": [
-        {
-            "coding": [
-                {
-                    "system": "http://terminology.hl7.org/CodeSystem/episodeofcare-type", 
-                    "code": "hacc", 
-                    "display": "Home and Community Care"
-                }
-            ]
         }
     ], 
     "diagnosis": [
@@ -111,5 +122,18 @@
             "reference": "Account/example", 
             "display": "example account"
         }
-    ]
+    ], 
+    "hl7Type": [
+        {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/episodeofcare-type", 
+                    "code": "hacc", 
+                    "display": "Home and Community Care"
+                }
+            ]
+        }
+    ], 
+    "id": "urn:ngsi-ld:EpisodeOfCare:001", 
+    "description": "an instance of EpisodeOfCare"
 }
