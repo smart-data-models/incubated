@@ -28,6 +28,7 @@ import os
 import copy
 import pathlib
 import sys
+import uuid
 import jsonschema
 import shutil as sh
 from jsonschema import validate, RefResolver, Draft202012Validator
@@ -139,6 +140,13 @@ def fill_prop_from_type(type, prop_name, description: str = ""):
         elif 'date' in prop_name:
             # date of day in Iso8601 format
             return datetime.now().strftime("%d/%m/%Y")
+        elif 'time' in prop_name:
+            # time of day in Iso8601 format
+            return datetime.now().strftime("%H:%M:%S.%f%z")
+        elif prop_name == 'id':
+            # unique id
+            return str(uuid.uuid4())
+
         return description if len (description) > 0 else prop_name + " as Text"
     elif type == 'number':
         return 123456
@@ -149,7 +157,7 @@ def fill_prop_from_type(type, prop_name, description: str = ""):
 #################################################################
 # function to prepare example json data to be used in examples.
 #################################################################
-def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, recurse :bool=True, level  :int=0) -> dict:
+def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, recurse :bool=True, level  :int=0, parent_prop_name:str = '') -> dict:
     """
     Prepares example JSON data based on the provided JSON data and schema. This function recursively processes the input JSON data according to the rules specified in the schema.
 
@@ -170,7 +178,8 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
     """
     # increase recursion level by one
     level +=1
-    print(f'level is: {level}')
+    print(f'LLLLLLLLLLLLLLLlevel is: {level}')
+    print('PPPPPPPPPPPPPparent_prop_name: ', parent_prop_name)
     # Initialize an empty list to store property names
     schema_properties = {}
     base_def= False
@@ -213,15 +222,17 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
     #for prop in schema_properties:
     for prop in schema_properties.keys():
         print(f"MMMMMMMMMM manage Property: ", prop)    # iterate through the list of properties in schema
+        description = schema_properties[prop].get("description", "")
         if prop in json_data:
             output_json[prop] = json_data[prop]
             if prop == "resourceType":
                 output_json["type"] = output_json["resourceType"]
         else:
             if prop == "hl7Type" and "type" in json_data:
+                # hl7Type is a translation of HL7 originated type in NGSI, to not conflict with type in NGSI standard
                 # get type from json data and set it to the output json
                 output_json["hl7Type"] = json_data["type"]
-            elif prop == "extension" or prop == "modifierExtension" and level < 2:
+            elif (prop == "extension" or prop == "modifierExtension") and level < 2:
                 if 'modifier' in prop:
                     output_json[prop] = ['urn:ngsi-ld:Extension:modifier001']
                 else:
@@ -234,30 +245,41 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
                 ref_splitted = ref.split("#")
                 ref_splitted = ref_splitted[len(ref_splitted) - 1].split("/")
                 definition = ref_splitted[len(ref_splitted) -1]
-                print('>>>>>>>>>>> manage #ref definition is: ', definition)
-                if entity_type == 'Account':
-                    print('>>>>>>>>>> base definitions[{definition}]: ', base_definitions[definition])
-                if recurse and definition in base_definitions and level < 4:
+                print('RRRRRRRRR manage #ref definition is: ', definition)
+                #if entity_type == 'Account':
+                print('RRRRRRRRR base definitions[{definition}]: '.format(definition=definition), base_definitions[definition])
+                if definition in base_definitions:
                     if "properties" in base_definitions[definition]:
-                        output_json[prop] = prepare_example_json({}, base_definitions[definition],base_definitions, True, level)
+                        if recurse and level < 4:
+                            output = prepare_example_json({}, base_definitions[definition],base_definitions, True, level, prop)
+                            if 'type' in base_definitions[definition] and base_definitions[definition]["type"] == "array":
+                                output_json[prop] = [output]
+                            else:
+                                output_json[prop] = output
                     elif "type" in base_definitions[definition]:
                         print('ZZZZZZZZZZ manage low level definition for prop: ' + prop + " don't recurse")
                         base_def = True
                         # fill output_json[prop] according to 'type'
                         type_ = base_definitions[definition]["type"]
-                        
-                        output_json[prop] = fill_prop_from_type(type_,prop)
+                        description_ = description
+                        if description_ == '' and parent_prop_name and len (parent_prop_name) > 0 and parent_prop_name in base_definitions and 'description' in base_definitions[parent_prop_name]:
+                            description_ = base_definitions[parent_prop_name]['description']
+                        elif description_ == '' and 'description' in base_definitions[definition]:
+                            description_ = base_definitions[definition]["description"]
+                        output_json[prop] = fill_prop_from_type(type_,prop, description_)
 
                 # else:
                 #     desc = 'an object defined by ' + definition                  
                 #     output_json[prop] = {'description': desc}
-
+            # no "properties" in schema_properties[prop] but "type" in schema_properties[prop]:
+            # it should be a final object ?!
             elif "type" in schema_properties[prop]:
                 #if level > 0:
                 print("MMMMMMMMMMMMM manage prop with 'type': ", prop)
                 print ("MMMMMMMMMMMMM schema_properties[prop]:", schema_properties[prop])
                 try:
                     type_ = schema_properties[prop]["type"]
+                    description = schema_properties[prop].get("description", "")
                 except (KeyError, AttributeError, TypeError):
                     # Handle the case where prop is not in schema_properties or if there are other access issues
                     print("Warning: Property {prop} might not be correctly defined in schema.".format(prop=prop))
@@ -265,54 +287,47 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
                 if type_ == "array":
                     # Handle array property
                     if "items" in schema_properties[prop]:
-                        if "type" in schema_properties[prop]["items"]:
-                            item_type = schema_properties[prop]["items"]["type"]
-                            if item_type == "string":
-                                output_json[prop] = [(prop + " as text")]
-                            elif item_type == "number":
-                                output_json[prop] = [12345]  # random number
-                            elif item_type == "boolean":
-                                output_json[prop] = [True if prop.startswith("is") else False]  # random boolean value based on property name prefix
-                            elif item_type == "object":
-                                output_json[prop] = [{}]
                         if "$ref" in schema_properties[prop]["items"]:
                             # Handle reference property
                             ref = schema_properties[prop]["items"]["$ref"]
                             ref_splitted = ref.split("#")
                             ref_splitted = ref_splitted[len(ref_splitted) - 1].split("/")
                             definition = ref_splitted[len(ref_splitted) -1]
-                            print ('definition is: ', definition)
-                            if recurse and definition in base_definitions and level < 4:
+                            print ('AAAAAAAAAAAarray definition is: ', definition)
+                            if definition in base_definitions:
                                 print('AAAAAAAAAAAarray before base_definitions[definition]: ', base_definitions[definition])
                                 if "properties" in base_definitions[definition]:
-                                    output_json[prop] = prepare_example_json({}, base_definitions[definition],base_definitions, True, level)
+                                    if recurse and level < 4:
+                                        output = prepare_example_json({}, base_definitions[definition],base_definitions, True, level, prop)
+                                        if 'type' in base_definitions[definition] and base_definitions[definition]["type"] == "array":
+                                            output_json[prop] = [output]
+                                        else:
+                                            output_json[prop] = output
+
                                 elif "type" in base_definitions[definition]:
                                     print('AAAAAAAAAAAarray manage low level definition for prop: ' + prop + " don't recurse")
                                     base_def = True
-                                    type_ = base_definitions[definition]["type"]                                    
-                                    output_json[prop] = fill_prop_from_type(type_, prop)
+                                    type_ = base_definitions[definition]["type"]
 
-                            # else:
-                            #     desc = 'an object defined by ' + definition                                
-                            #     output_json[prop] = {'description': desc}
-                elif type_ == "object":
-                    # Handle object property
-                    output_json[prop] = {}
-                    for prop2 in schema_properties[prop]["properties"]:
-                        if prop2 not in json_data:
-                            continue
-                        output_json[prop][prop2]  = json_data[prop2]
-
-                    # Add more types as needed for array items
-                elif type_ == "string":
-                    output_json[prop] = prop + " as text"
-                elif type_ == "number":
-                    output_json[prop] = 12345  # random number
-                elif type_ == "boolean":
-                    output_json[prop] = True if prop.startswith("is") else False  # random boolean value based on property name prefix
-                # elif type_ == "object":
+                                    description_ = description
+                                    # if parent_prop_name and len (parent_prop_name) > 0 and parent_prop_name in base_definitions and 'description' in base_definitions[parent_prop_name]:
+                                    #     description_ = base_definitions[parent_prop_name]['description']                                    
+                                    if description_ == '' and 'description' in base_definitions[definition]:
+                                        description_ = base_definitions[definition]["description"]                                    
+                                    output_json[prop] = [fill_prop_from_type(type_, prop, description_)]
+                        elif "type" in schema_properties[prop]["items"]:
+                            item_type = schema_properties[prop]["items"]["type"]
+                            output_json[prop] = [fill_prop_from_type(item_type, prop, description)]
+                else:
+                    # fill acording to the type
+                    output_json[prop] = fill_prop_from_type(type_, prop, description)
+               # elif type_ == "object":
+                #     # Handle object property
                 #     output_json[prop] = {}
-            
+                #     for prop2 in schema_properties[prop]["properties"]:
+                #         if prop2 not in json_data:
+                #             continue
+                #         output_json[prop][prop2]  = json_data[prop2]            
             # else:
             #     print('>>>>>>>>>> manage unknown property: {prop} level: {level}'.format(prop = prop, level = level))
             #     output_json[prop] = "unknown_type"  # or handle unknown types appropriately
@@ -465,7 +480,7 @@ for entity_type, entity_def in resources_definitions.items():
     hl7_type_content = None
     # loop on entity properties to prepare it for destination schema
     for prop, content in entity_def["properties"].items():
-        print('Process <' + prop + '> property')
+        # print('Process <' + prop + '> property')
         # add necessary "Property. Model:’https://schema.org/<type of property value>"
         # in description of the property to match NGSI-LD rules
         #

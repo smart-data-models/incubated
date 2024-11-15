@@ -10,19 +10,13 @@
             }
         ]
     }, 
-    "implicitRules": "implicitRules as text", 
+    "implicitRules": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/uri' String of characters used to identify a name or a resource", 
     "_implicitRules": {
-        "id": "id as Text", 
-        "extension": [
-            "urn:ngsi-ld:Extension:001"
-        ]
+        "id": "fb219b2c-b15d-4b2b-b777-fe9354fe6774"
     }, 
-    "language": "language as text", 
+    "language": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
     "_language": {
-        "id": "id as Text", 
-        "extension": [
-            "urn:ngsi-ld:Extension:001"
-        ]
+        "id": "fa981d2c-071b-4a1b-8e6a-e9cd373bfca5"
     }, 
     "text": {
         "status": "generated", 
@@ -35,262 +29,170 @@
         "urn:ngsi-ld:Extension:modifier001"
     ], 
     "identifier": {
-        "id": "id as Text", 
-        "extension": [
-            "urn:ngsi-ld:Extension:001"
-        ], 
+        "id": "8f20357c-63c7-445c-9e94-093ee45c7e94", 
         "_use": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ]
+            "id": "8e819485-b5b8-403e-91cf-09f61128dc22"
         }, 
         "type": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "9cfdb944-37c4-40a0-81f5-fdf12e7fc527", 
             "coding": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "a5430802-ad02-412c-b81b-827e2282a14f", 
+                "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                "userSelected": false
             }, 
-            "text": "text as Text", 
+            "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
             "_text": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "f6be7200-3a43-4c86-b2b2-709efc32a36c"
             }
         }, 
-        "system": "system as Text", 
+        "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
         "_system": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ]
+            "id": "9037e326-1466-4a27-82fa-d2cf83c85233"
         }, 
-        "value": "value as Text", 
+        "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.", 
         "_value": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ]
+            "id": "947229e2-879b-4913-8080-8cade673020d"
         }, 
         "period": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
-            "start": "start as Text", 
+            "id": "43a3f3b7-42ca-4871-81be-660a85e171c5", 
+            "start": "The start of the period. The boundary is inclusive.", 
             "_start": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "2784e181-1fa4-4929-a97c-61b29541e54d"
             }, 
-            "end": "end as Text", 
+            "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.", 
             "_end": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "215bb8f3-30f6-4ef0-b235-bb117e8dbac5"
             }
         }, 
         "assigner": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
-            "reference": "reference as Text", 
+            "id": "12664500-8855-42d1-8d45-08f8a042c2b7", 
+            "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
             "_reference": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "f73730ca-f593-4b95-ad80-7ffdad065a84"
             }, 
-            "type": "type as Text", 
+            "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
             "_type": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "999c3381-88f9-4973-a404-a82786929ad3"
             }, 
             "identifier": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "98427572-7717-4373-b4c9-7f3d4e69948a", 
+                "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+                "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
             }, 
-            "display": "display as Text", 
+            "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
             "_display": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "d24d909f-b19f-4e8f-ad1b-371d9536b1b1"
             }
         }
     }, 
     "_type": {
-        "id": "id as Text", 
-        "extension": [
-            "urn:ngsi-ld:Extension:001"
-        ]
+        "id": "f9396d18-7643-4fe4-a4c0-fbaa4ec2d9f6"
     }, 
     "category": {
-        "id": "id as Text", 
-        "extension": [
-            "urn:ngsi-ld:Extension:001"
-        ], 
+        "id": "f70a7f4a-875d-4e8b-9fd1-b79ae4436780", 
         "coding": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
-            "system": "system as Text", 
+            "id": "0f8098ce-4325-4c8f-b342-120a98b1f914", 
+            "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
             "_system": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "41b8e62b-4fb0-4ec3-b6cc-7bdc10e9fb5c"
             }, 
-            "version": "version as Text", 
+            "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
             "_version": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "1da40356-7e2d-4ae8-8ce6-c22820b5762a"
             }, 
-            "code": "code as Text", 
+            "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
             "_code": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "79c2eb81-2815-4665-b8f1-d64eee28d166"
             }, 
-            "display": "display as Text", 
+            "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
             "_display": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "2ccd6509-ef8c-403e-a3bd-b00be2c260b7"
             }, 
             "userSelected": false, 
             "_userSelected": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "080c5b86-7c85-47cc-abc4-ac440213a494"
             }
         }, 
-        "text": "text as Text", 
+        "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
         "_text": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ]
+            "id": "e09d3afa-e8e9-4694-aee2-4277d0e3d84c"
         }
     }, 
     "subject": {
-        "id": "id as Text", 
-        "extension": [
-            "urn:ngsi-ld:Extension:001"
-        ], 
-        "reference": "reference as Text", 
+        "id": "76330125-75be-4bce-80e3-7cce4ac9ff83", 
+        "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
         "_reference": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ]
+            "id": "3f5ba4f7-28af-4ae5-a52d-b1dc3f7e8fb3"
         }, 
-        "type": "type as Text", 
+        "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
         "_type": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ]
+            "id": "7db8fc86-3449-4838-b907-5afbf3046b40"
         }, 
         "identifier": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "0431b269-aa1b-4852-9a02-68d24c338c8c", 
             "_use": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "b2efc5f1-bd8b-4ff4-b411-ad129a83d5a1"
             }, 
             "type": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "97625dd8-5d24-42c5-8bc1-ec145f95d37c", 
+                "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
             }, 
-            "system": "system as Text", 
+            "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
             "_system": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "52e78176-3308-4fb5-8c0d-2a41f5743f37"
             }, 
-            "value": "value as Text", 
+            "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.", 
             "_value": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "c4f40663-3c0c-4fff-8e5b-b5f8af8b9557"
             }, 
             "period": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "30b3c866-a426-4c35-a400-5c3634be7001", 
+                "start": "The start of the period. The boundary is inclusive.", 
+                "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
             }, 
             "assigner": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "8023d679-073a-4c79-8e65-893a6b0c4197", 
+                "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                "display": "Plain text narrative that identifies the resource in addition to the resource reference."
             }
         }, 
-        "display": "display as Text", 
+        "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
         "_display": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ]
+            "id": "7c4d2376-dcf6-4176-87b5-b6c784eb7fcc"
         }
     }, 
     "status": {
-        "id": "id as Text", 
-        "extension": [
-            "urn:ngsi-ld:Extension:001"
-        ], 
+        "id": "0a94cf65-42c4-4e17-ae08-f6cce2375ea2", 
         "coding": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
-            "system": "system as Text", 
+            "id": "e5bebe55-c829-49b5-87b4-3ad63e1c96bb", 
+            "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
             "_system": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "85d95858-b118-460f-875d-3f8194dc849a"
             }, 
-            "version": "version as Text", 
+            "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
             "_version": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "14dabb75-5ce1-40bd-a040-f5219b07a323"
             }, 
-            "code": "code as Text", 
+            "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
             "_code": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "9ab15ee2-4741-4d9a-a1e8-96913a830ee9"
             }, 
-            "display": "display as Text", 
+            "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
             "_display": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "32600651-0d37-4940-a4f0-66b93c1852bf"
             }, 
             "userSelected": false, 
             "_userSelected": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "c385cc4f-8081-4c98-8fba-117b0d5f94f9"
             }
         }, 
-        "text": "text as Text", 
+        "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
         "_text": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ]
+            "id": "0b49c06e-5b43-4829-94f0-ad3fa1cbc36e"
         }
     }, 
     "contraindication": {
@@ -319,380 +221,294 @@
         ]
     }, 
     "indication": {
-        "id": "id as Text", 
-        "extension": [
-            "urn:ngsi-ld:Extension:001"
-        ], 
+        "id": "e17fd4bb-e005-4b0d-b549-56381d95dcac", 
         "diseaseSymptomProcedure": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "38503d6d-b757-49d7-9324-b766e31e57c9", 
             "concept": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "6f122826-945e-4077-9e87-9413bfe1e0fe", 
+                "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
             }, 
             "reference": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "36b98b67-0eeb-451e-8997-550be6bb3126", 
+                "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                "display": "Plain text narrative that identifies the resource in addition to the resource reference."
             }
         }, 
         "diseaseStatus": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "b0786065-9c93-4336-b4dc-d59f79ddcb1d", 
             "concept": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "cd3eabe0-5135-4a36-b2f4-c9db22a1f760", 
+                "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
             }, 
             "reference": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "e57d4e49-a50d-420e-b6d3-387ba4497544", 
+                "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                "display": "Plain text narrative that identifies the resource in addition to the resource reference."
             }
         }, 
         "comorbidity": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "99b8e26a-45bb-489a-8aad-717eb1babd8a", 
             "concept": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "d09167df-93c9-4a72-ae54-44b09a04431b", 
+                "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
             }, 
             "reference": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "c28cbdbc-6b12-4151-8437-9ca890ad07e1", 
+                "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                "display": "Plain text narrative that identifies the resource in addition to the resource reference."
             }
         }, 
         "intendedEffect": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "1a414a61-3811-4492-aaff-d86d08dd6338", 
             "concept": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "c6e3334c-5afe-4e9d-9e82-fe1caacfefd4", 
+                "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
             }, 
             "reference": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "7ba8afea-6227-4dc0-b632-6585affb795d", 
+                "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                "display": "Plain text narrative that identifies the resource in addition to the resource reference."
             }
         }, 
         "durationRange": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "6c86dcf6-740f-4fd6-9af7-bc316c8f6afe", 
             "low": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "4e8f2c34-27f7-4fc3-8404-cd0185282fa6", 
+                "value": 123456, 
+                "unit": "A human-readable form of the unit.", 
+                "system": "The identification of the system that provides the coded form of the unit.", 
+                "code": "A computer processable form of the unit in some unit representation system."
             }, 
             "high": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "1e0b3e4d-28a9-4f4f-8a7a-a21d90d19f21", 
+                "value": 123456, 
+                "unit": "A human-readable form of the unit.", 
+                "system": "The identification of the system that provides the coded form of the unit.", 
+                "code": "A computer processable form of the unit in some unit representation system."
             }
         }, 
-        "durationString": "durationString as text", 
+        "durationString": "Timing or duration information, that may be associated with use with the indicated condition e.g. Adult patients suffering from myocardial infarction (from a few days until less than 35 days), ischaemic stroke (from 7 days until less than 6 months).", 
         "_durationString": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ]
+            "id": "0fe52a1c-9150-47e9-85b1-3cc74170f00b"
         }, 
         "undesirableEffect": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
-            "reference": "reference as Text", 
+            "id": "3f30d7e7-0b40-4ebf-bac7-115fe2dc8f28", 
+            "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
             "_reference": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "43839cb1-c349-4275-bac3-eddb61d18f6e"
             }, 
-            "type": "type as Text", 
+            "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
             "_type": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "2b0c21c4-e189-4b0a-87ee-797d3d86b21c"
             }, 
             "identifier": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "96d1ea5f-8355-4eff-ba8a-84c9ad94909b", 
+                "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+                "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
             }, 
-            "display": "display as Text", 
+            "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
             "_display": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "7195fe7f-55f3-4241-9169-3d70ac8b7a4d"
             }
         }, 
         "otherTherapy": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "9f14eda2-04ca-4a3f-be63-c0debe44fb76", 
             "relationshipType": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "103802d4-001c-4644-b27c-8fcca364b8da", 
+                "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
             }, 
             "therapy": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "ac8a7023-21c0-4ef6-801a-334fd57ae663"
             }
         }
     }, 
     "interaction": {
-        "id": "id as Text", 
-        "extension": [
-            "urn:ngsi-ld:Extension:001"
-        ], 
+        "id": "2e9ba2b0-b115-46fb-9b45-ecbbfe681622", 
         "interactant": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "8c10ecf7-c64a-4bcb-96f6-be3687a350fa", 
             "itemReference": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "b6abec55-dc43-466f-b1ff-cacd76e7bb9c", 
+                "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                "display": "Plain text narrative that identifies the resource in addition to the resource reference."
             }, 
             "itemCodeableConcept": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "04b0c047-3951-422a-b32f-91d7c9bf11be", 
+                "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
             }
         }, 
         "type": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "6189879f-756b-42f9-9c3c-9307fd8ec350", 
             "coding": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "678bdf2f-a7af-450e-83ce-53d793c9e268", 
+                "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                "userSelected": false
             }, 
-            "text": "text as Text", 
+            "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
             "_text": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "ad5034d6-4d19-4c94-9f9c-2604005c36ae"
             }
         }, 
         "effect": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "d2ab2c3b-a201-4470-b1c8-8cb0fdc184d4", 
             "concept": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "5c66b61c-811a-45ee-a0d4-fa9832f680eb", 
+                "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
             }, 
             "reference": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "ebe851da-ff86-4370-8b7f-519ba7a21e4d", 
+                "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                "display": "Plain text narrative that identifies the resource in addition to the resource reference."
             }
         }, 
         "incidence": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "5c13c6b0-7d0b-47a2-98a5-298de6b8d6e1", 
             "coding": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "541e50a3-6d03-4e18-b8e6-d58eb736cfd2", 
+                "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                "userSelected": false
             }, 
-            "text": "text as Text", 
+            "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
             "_text": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "1ea684a2-a18e-4478-8b55-24293a58f073"
             }
         }, 
         "management": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "1093217e-bb04-46b5-945a-4da75d3af386", 
             "coding": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "4093dde4-99bb-43e1-b7e4-87a304f71592", 
+                "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                "userSelected": false
             }, 
-            "text": "text as Text", 
+            "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
             "_text": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "5acc2e5b-d270-47e7-b4fb-7f5597909ecd"
             }
         }
     }, 
     "population": {
-        "id": "id as Text", 
-        "extension": [
-            "urn:ngsi-ld:Extension:001"
-        ], 
-        "reference": "reference as Text", 
+        "id": "361b97ba-193c-4726-a202-958c7de0e32d", 
+        "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
         "_reference": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ]
+            "id": "7b6bad5c-aa30-4657-b0cf-9798487aded8"
         }, 
-        "type": "type as Text", 
+        "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
         "_type": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ]
+            "id": "e6b4ba67-1d60-44cd-a7df-95d39c53a23a"
         }, 
         "identifier": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "1431c964-ff7d-4bbd-a19c-9d2aaa38b827", 
             "_use": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "82fa8451-09a2-4f23-bceb-74c6f1f5f59e"
             }, 
             "type": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "709b1c22-0e49-4bc7-866a-06518ae371bf", 
+                "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
             }, 
-            "system": "system as Text", 
+            "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
             "_system": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "e17a3eca-6846-4d27-93a3-af2c0d9c4eef"
             }, 
-            "value": "value as Text", 
+            "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.", 
             "_value": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "5d4aebd4-884c-4351-a711-f1f9c058d845"
             }, 
             "period": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "ea909349-3e00-4997-87df-f92780d80eeb", 
+                "start": "The start of the period. The boundary is inclusive.", 
+                "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
             }, 
             "assigner": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "6a530c28-a198-4741-8b76-5e8ee9a599cb", 
+                "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                "display": "Plain text narrative that identifies the resource in addition to the resource reference."
             }
         }, 
-        "display": "display as Text", 
+        "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
         "_display": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ]
+            "id": "810ee54c-7588-45c7-8577-eed6c310f635"
         }
     }, 
     "undesirableEffect": {
-        "id": "id as Text", 
-        "extension": [
-            "urn:ngsi-ld:Extension:001"
-        ], 
+        "id": "d29d15ad-5389-40d7-9082-3ed9b8324a5c", 
         "symptomConditionEffect": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "72f78fbf-4546-4c90-941d-aae6cdedea4c", 
             "concept": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "e3aac84a-fac2-4d13-86db-059828ba7664", 
+                "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
             }, 
             "reference": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "c021ef9c-7cdb-4a83-b8a4-b7661bec17fc", 
+                "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                "display": "Plain text narrative that identifies the resource in addition to the resource reference."
             }
         }, 
         "classification": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "52b5bb03-ae90-42d3-8eab-c7244d7e94c1", 
             "coding": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "9b151d28-7b61-468d-aca8-9e37c6885d51", 
+                "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                "userSelected": false
             }, 
-            "text": "text as Text", 
+            "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
             "_text": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "087cb907-ddfe-4740-9c89-a87b0fb796f5"
             }
         }, 
         "frequencyOfOccurrence": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "314c5ee2-27c2-4384-8a31-c8550354d572", 
             "coding": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "1bdd9ce9-d522-407d-91a3-55755efa2247", 
+                "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                "userSelected": false
             }, 
-            "text": "text as Text", 
+            "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
             "_text": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "39ef824e-70a9-4109-aaf5-03b32df4a6eb"
             }
         }
     }, 
     "warning": {
-        "id": "id as Text", 
-        "extension": [
-            "urn:ngsi-ld:Extension:001"
-        ], 
-        "description": "description as Text", 
+        "id": "abe665ba-8b91-45ce-a119-9dc6ce1a4ad6", 
+        "description": "A textual definition of this warning, with formatting.", 
         "_description": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ]
+            "id": "e7f03252-b152-4fc9-9c87-3fec3a1b59ba"
         }, 
         "code": {
-            "id": "id as Text", 
-            "extension": [
-                "urn:ngsi-ld:Extension:001"
-            ], 
+            "id": "2262b608-537f-4f28-898d-a8f22c68eecf", 
             "coding": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "55729ba4-761a-4ffc-94bc-3419471e5a32", 
+                "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                "userSelected": false
             }, 
-            "text": "text as Text", 
+            "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
             "_text": {
-                "extension": [
-                    "urn:ngsi-ld:Extension:001"
-                ]
+                "id": "b59fda0e-dc2d-4073-9d49-652beef8e463"
             }
         }
     }, 
