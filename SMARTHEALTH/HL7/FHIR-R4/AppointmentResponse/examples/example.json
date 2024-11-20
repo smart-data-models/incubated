@@ -12,11 +12,11 @@
     }, 
     "implicitRules": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/uri' String of characters used to identify a name or a resource", 
     "_implicitRules": {
-        "id": "31f1e21d-7667-4615-bfb4-a442bdfd0b5e"
+        "id": "fbf56843-64b6-4aed-bd9c-a48db0d7ea02"
     }, 
     "language": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
     "_language": {
-        "id": "4ebb91db-17ac-4a3d-aa41-4f52d723dc0f"
+        "id": "e041bccb-fda1-4fdb-83fe-e44480e340d6"
     }, 
     "text": {
         "status": "generated", 
@@ -28,119 +28,127 @@
     "modifierExtension": [
         "urn:ngsi-ld:Extension:modifier001"
     ], 
-    "identifier": {
-        "id": "4306b234-a3d3-4597-9bd4-af9df160ce28", 
-        "_use": {
-            "id": "a24d1a1b-42f4-4010-998b-5f787183f1e2"
-        }, 
-        "type": {
-            "id": "be46d27b-1ed7-4917-911a-f8c571897c5d", 
-            "coding": {
-                "id": "a1bb3737-63a9-4b84-93f8-29b8acf9f5d4", 
-                "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
-                "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
-                "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
-                "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
-                "userSelected": false
+    "identifier": [
+        {
+            "id": "d4168b13-2d1e-436f-88fa-17de42883ab1", 
+            "_use": {
+                "id": "c7e0184a-4166-4ecc-b24e-6d917e1a4a83"
             }, 
-            "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
-            "_text": {
-                "id": "ffbf11d3-b607-4401-aa51-7d37a3fec5c3"
-            }
-        }, 
-        "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
-        "_system": {
-            "id": "1f5082f5-e795-4df5-ba05-04d4aaca381f"
-        }, 
-        "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.", 
-        "_value": {
-            "id": "02d6e970-96a2-450e-8a12-13516b866c95"
-        }, 
-        "period": {
-            "id": "807aa959-c082-4290-86c6-466590121148", 
-            "start": "The start of the period. The boundary is inclusive.", 
-            "_start": {
-                "id": "c40d6939-bd14-40fc-9180-b1892331b41e"
+            "type": {
+                "id": "3c66b0e8-7c2d-4928-97ef-3f33f7948e79", 
+                "coding": [
+                    {
+                        "id": "f83d76db-2d22-43f6-a0c8-6cdd4f994687", 
+                        "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                        "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                        "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                        "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                        "userSelected": false
+                    }
+                ], 
+                "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
+                "_text": {
+                    "id": "85b66147-ea7e-421d-9faf-6e06d97254d7"
+                }
             }, 
-            "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.", 
-            "_end": {
-                "id": "53670e84-e965-4f0e-83ac-9597b9e3512d"
-            }
-        }, 
-        "assigner": {
-            "id": "aeb9ee7d-7b88-4e61-8094-9b6e5081354f", 
-            "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
-            "_reference": {
-                "id": "3a8fa3e3-42a5-47dc-9294-f26337970e5e"
+            "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+            "_system": {
+                "id": "16e5ae18-7b3e-47cc-bdaa-8af5b2f23a38"
             }, 
-            "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
-            "_type": {
-                "id": "f26cd271-ea7f-4d99-826a-939bcebf0c00"
+            "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.", 
+            "_value": {
+                "id": "513a5ea0-e9a3-42fd-a4ec-33bab9492b82"
             }, 
-            "identifier": {
-                "id": "4d0eec9b-e0bd-4e47-aedc-3b9ce166c178", 
-                "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
-                "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
+            "period": {
+                "id": "fa713461-f6d3-432f-99f0-2584a42d3f4f", 
+                "start": "The start of the period. The boundary is inclusive.", 
+                "_start": {
+                    "id": "f65602a2-0400-472c-8d5a-89100bf40f84"
+                }, 
+                "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.", 
+                "_end": {
+                    "id": "6d892e5c-5a3a-44bf-97f6-14501badf8ef"
+                }
             }, 
-            "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
-            "_display": {
-                "id": "c8fb2c73-2feb-4e86-9f15-1dfad13790fa"
+            "assigner": {
+                "id": "479098b9-514f-42d4-bb22-7f9899187edc", 
+                "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                "_reference": {
+                    "id": "5bf6a95e-d484-4334-8ff8-986126b3e6ca"
+                }, 
+                "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                "_type": {
+                    "id": "e9c0498c-41d2-416b-bed1-38e8b55c560f"
+                }, 
+                "identifier": {
+                    "id": "033d9faa-053b-4e77-a226-b2e28e9daddb", 
+                    "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+                    "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
+                }, 
+                "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
+                "_display": {
+                    "id": "d1d3297f-ad09-4ed3-8e78-e0e50b8f7520"
+                }
             }
         }
-    }, 
+    ], 
     "appointment": {
         "reference": "Appointment/example", 
         "display": "Brian MRI results discussion"
     }, 
     "start": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/instant' An instant in time - known at least to the second", 
     "_start": {
-        "id": "ad72fa1b-4bd7-4b71-bb25-1e7bfc48ffb2"
+        "id": "3a0a3871-1e62-4e45-ab24-ce821c62a060"
     }, 
     "end": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/instant' An instant in time - known at least to the second", 
     "_end": {
-        "id": "970187b8-b9a6-4c9d-958f-2983f86228a8"
+        "id": "389fa6c0-8926-4fca-bdfd-cf2516bae519"
     }, 
-    "participantType": {
-        "id": "8485d335-53b3-401d-8244-43dc20b93e92", 
-        "coding": {
-            "id": "41a637e2-31ab-401b-8b19-d97e9d799ddc", 
-            "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
-            "_system": {
-                "id": "174b856c-d36d-4e0c-86a7-4e35eabce80a"
-            }, 
-            "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
-            "_version": {
-                "id": "5308eb5e-e236-4d74-bd50-e4332c1fe84d"
-            }, 
-            "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
-            "_code": {
-                "id": "06676b2c-3bd1-4826-9409-2b03482a6225"
-            }, 
-            "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
-            "_display": {
-                "id": "2678f420-a3e4-409d-87df-3b9a43606ce6"
-            }, 
-            "userSelected": false, 
-            "_userSelected": {
-                "id": "628a663f-7cf4-4762-9b65-8179d0acd555"
+    "participantType": [
+        {
+            "id": "c464ccb5-92d6-4287-9ee5-814b199defdd", 
+            "coding": [
+                {
+                    "id": "78662f99-5d8e-4154-a785-a398512cfb28", 
+                    "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                    "_system": {
+                        "id": "e5137501-5e59-4c9b-8e04-5b9488c57493"
+                    }, 
+                    "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                    "_version": {
+                        "id": "81ef715c-a856-4bc7-b314-0caa9e0a4c06"
+                    }, 
+                    "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                    "_code": {
+                        "id": "551e3d3c-ca37-4bd0-a879-758d1ec2b19d"
+                    }, 
+                    "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                    "_display": {
+                        "id": "27bf15c1-15f4-419c-8c2e-fb4577521976"
+                    }, 
+                    "userSelected": false, 
+                    "_userSelected": {
+                        "id": "143317d9-85e7-428c-8e3e-e957a134a337"
+                    }
+                }
+            ], 
+            "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
+            "_text": {
+                "id": "2be452e9-d42d-49ec-965f-b5945d2bbfb7"
             }
-        }, 
-        "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
-        "_text": {
-            "id": "6e9ce9b7-49ce-40e1-9ef5-07ca4cf86d8f"
         }
-    }, 
+    ], 
     "actor": {
         "reference": "Patient/example", 
         "display": "Peter James Chalmers"
     }, 
     "participantStatus": "accepted", 
     "_participantStatus": {
-        "id": "cf498217-7611-442d-b4b3-bc8c085977ed"
+        "id": "376adee9-0b16-4dd4-b1ad-0b86505181dd"
     }, 
     "comment": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/string' A sequence of Unicode characters", 
     "_comment": {
-        "id": "4d902e8c-ccad-41eb-903c-c2786a247132"
+        "id": "7df73980-60be-4252-b258-a0711c6cdb97"
     }, 
     "id": "urn:ngsi-ld:AppointmentResponse:001", 
     "description": "an instance of AppointmentResponse"

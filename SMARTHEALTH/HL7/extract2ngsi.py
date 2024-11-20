@@ -247,12 +247,14 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
                 definition = ref_splitted[len(ref_splitted) -1]
                 print('RRRRRRRRR manage #ref definition is: ', definition)
                 #if entity_type == 'Account':
+                parent_type = schema_properties[prop].get("type", None)
+
                 print('RRRRRRRRR base definitions[{definition}]: '.format(definition=definition), base_definitions[definition])
                 if definition in base_definitions:
                     if "properties" in base_definitions[definition]:
                         if recurse and level < 4:
                             output = prepare_example_json({}, base_definitions[definition],base_definitions, True, level, prop)
-                            if 'type' in base_definitions[definition] and base_definitions[definition]["type"] == "array":
+                            if parent_type and parent_type == "array":
                                 output_json[prop] = [output]
                             else:
                                 output_json[prop] = output
@@ -277,14 +279,14 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
                 #if level > 0:
                 print("MMMMMMMMMMMMM manage prop with 'type': ", prop)
                 print ("MMMMMMMMMMMMM schema_properties[prop]:", schema_properties[prop])
-                try:
-                    type_ = schema_properties[prop]["type"]
-                    description = schema_properties[prop].get("description", "")
-                except (KeyError, AttributeError, TypeError):
+                #try:
+                type_ = schema_properties[prop].get('type', "")
+                description = schema_properties[prop].get("description", "")
+                #except (KeyError, AttributeError, TypeError):
                     # Handle the case where prop is not in schema_properties or if there are other access issues
-                    print("Warning: Property {prop} might not be correctly defined in schema.".format(prop=prop))
-                    type_ = "string"  # or some default value that makes sense for your application
-                if type_ == "array":
+                    # print("Warning: Property {prop} might not be correctly defined in schema.".format(prop=prop))
+                    # type_ = "string"  # or some default value that makes sense for your application
+                if type_ and type_ == "array":
                     # Handle array property
                     if "items" in schema_properties[prop]:
                         if "$ref" in schema_properties[prop]["items"]:
@@ -299,7 +301,7 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
                                 if "properties" in base_definitions[definition]:
                                     if recurse and level < 4:
                                         output = prepare_example_json({}, base_definitions[definition],base_definitions, True, level, prop)
-                                        if 'type' in base_definitions[definition] and base_definitions[definition]["type"] == "array":
+                                        if type_ and type_ == "array":
                                             output_json[prop] = [output]
                                         else:
                                             output_json[prop] = output
