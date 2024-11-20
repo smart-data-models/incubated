@@ -238,6 +238,9 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
                 else:
                     output_json[prop] = ['urn:ngsi-ld:Extension:001']
                 continue
+            elif prop == "contained":
+                output_json[prop] = []
+                continue
             elif "$ref" in schema_properties[prop]:
                 # Handle reference property
                 ref = schema_properties[prop]["$ref"]
