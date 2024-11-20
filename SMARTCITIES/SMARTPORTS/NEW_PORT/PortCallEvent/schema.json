@@ -4,7 +4,7 @@
   "modelTags": "ESHUV",
   "derivedFrom": "",
   "license": "",
-  "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/MasterVessel/schema.json",
+  "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/PortCallEvent/schema.json",
   "title": "Smart Data model PortCallEvent schema",
   "description": "The data model is intended to provide information the events during the PortCall as defined by the international task force Port Call Optimization https://portcalloptimization.org/. It allows to represent almost all events that occur during a PortCall in a simple way. For each event, a context information can be added to inform of simple facts of the event, but the events must have public information only because they are created to improve the works of port community and each event will be sent to all stakeholders. Suggested format: urn:mrn:<oid>:portcalls:portcallevent:id:9999",
   "type": "object",
@@ -26,16 +26,16 @@
         },
         "eventContext": {
           "$ref": "https://smart-data-models.github.io/incubated/SMARTCITIES/SMARTPORTS/NEW_PORT/MarineTransport-schema.json#/definitions/IEventContext",
-          "description": "EventContext is a key-value object in which users are allowed to put custom keys for any purposes. The following keys have pre-defined meanings within the spec. Keys in this object are always optional"
+          "description": "Property. EventContext is a key-value object in which users are allowed to put custom keys for any purposes. The following keys have pre-defined meanings within the spec. Keys in this object are always optional"
         },
         "eventTime": {
-          "description": "Time at which the event occurred/will occur. The meaning of this should be interpreted according to eventType",
+          "description": "Property. Time at which the event occurred/will occur. The meaning of this should be interpreted according to eventType",
           "format": "date-time",
           "type": "string"
         },
         "eventType": {
           "type": "string",
-          "description": "Port Call Optimization event type. Each event type has 3 parts dot-separated: 1) the subject of event; 2) the type event, that is, a timed action (e-estimated, r-requested, p-planned, a-actual)-t-(a-arrival or d-departure) or other (ets/etc of operation) and 3) the information provider",
+          "description": "Property. Port Call Optimization event type. Each event type has 3 parts dot-separated: 1) the subject of event; 2) the type event, that is, a timed action (e-estimated, r-requested, p-planned, a-actual)-t-(a-arrival or d-departure) or other (ets/etc of operation) and 3) the information provider",
           "enum": [
             "120nm.ata.vessel",
             "12nm.ata.vessel",
@@ -243,7 +243,7 @@
         },
         "locationType": {
           "type": "string",
-          "description": "Specifies the type of location",
+          "description": "Property. Specifies the type of location",
           "enum": [
             "anchorArea",
             "approachArea",

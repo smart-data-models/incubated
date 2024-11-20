@@ -4,7 +4,7 @@
   "title": "Common definitions for  Harmonized Data Models",
   "definitions": {
     "EventLocationType": {
-      "description": "Specifies the type of location",
+      "description": "Property. Specifies the type of location",
       "enum": [
         "anchorArea",
         "approachArea",
@@ -19,7 +19,7 @@
       "type": "string"
     },
     "EventType": {
-      "description": "Designates the type of events\nThe format is a string composed of 3 parts, separated by a dot: PortActivity.TimeType.EventParty\nNot all combinations are valid, they are restricted to the following specified event types",
+      "description": "Property. Designates the type of events. The format is a string composed of 3 parts, separated by a dot: PortActivity.TimeType.EventParty. Not all combinations are valid, they are restricted to the following specified event types",
       "enum": [
         "120nm.ata.vessel",
         "12nm.ata.vessel",
@@ -294,7 +294,7 @@
         },
         "serviceShip": {
           "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/SMARTCITIES/SMARTPORTS/NEW_PORT/MarineTransport-schema.json#/definitions/IShip",
-          "description": "The ship associated with a service event, e.g. the bunkers that will provide the bunker fuel"
+          "description": "Property. The ship associated with a service event, e.g. the bunkers that will provide the bunker fuel"
         },
         "serviceShipNumber": {
           "description": "Property. The number of service ships, for when the specific service ships are not known yet",
@@ -304,7 +304,8 @@
         "stakeholders": {
           "description": "Property. The stakeholder's ids that should have access to the data of this event",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Property. Every element of the stakeholder ids array"
           },
           "type": "array"
         }
@@ -363,7 +364,8 @@
           "enum": [
             "Point"
           ],
-          "type": "string"
+          "type": "string",
+          "description": "Property. Constant type of the IPoint"
         }
       },
       "required": [
@@ -424,7 +426,7 @@
         "mmsi": {
           "pattern": "^[0-9]{9}$",
           "type": "string",
-          "description": "Property. XXXX"
+          "description": "Property. Maritime Mobile Service Identity is a unique nine-digit number assigned to ships, vessels, and maritime radio communication stations for identifying and communicating with them"
         },
         "name": {
           "description": "Property. Name is informative only",
