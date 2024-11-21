@@ -2,14 +2,12 @@
   "$schema": "http://json-schema.org/schema",
   "$schemaVersion": "0.0.1",
   "$id": "https://smart-data-models.github.io/XXXSubjectXXX/XXXDataModelXXX/schema.json",
-  "title": "Smart Data models -XXXdataModelXXX schema\"",
-  "modelTags": "\"\"",
+  "title": "Smart Data models -XXXdataModelXXX schema",
+  "modelTags": "",
   "description": "description of a generic entity. You have to change this.",
   "type": "object",
-  "required": [
-    "id",
-    "type"
-  ],
+  "derivedFrom": "",
+  "license": "",
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -21,23 +19,6 @@
           "type": "string",
           "format": "date-time",
           "description": "Property. Model:'https://schema.org/Text'. Date of the observed entity defined by the user"
-        },
-        "id": {
-          "anyOf": [
-            {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 256,
-              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-              "description": "Property. Identifier format of any NGSI entity"
-            },
-            {
-              "type": "string",
-              "format": "uri",
-              "description": "Property. Identifier format of any NGSI entity"
-            }
-          ],
-          "description": "Unique identifier of the entity"
         },
         "type": {
           "type": "string",
@@ -169,6 +150,8 @@
       }
     }
   ],
-  "derivedFrom": "\"\"",
-  "license": "\"\""
+  "required": [
+    "id",
+    "type"
+  ]
 }
