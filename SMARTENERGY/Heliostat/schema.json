@@ -1,0 +1,174 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/XXXSubjectXXX/XXXDataModelXXX/schema.json",
+  "title": "Smart Data models -XXXdataModelXXX schema\"",
+  "modelTags": "\"\"",
+  "description": "description of a generic entity. You have to change this.",
+  "type": "object",
+  "required": [
+    "id",
+    "type"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons",
+      "properties": {
+        "dateObserved": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Date of the observed entity defined by the user"
+        },
+        "id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Unique identifier of the entity"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Heliostat"
+          ],
+          "description": "Property. Model:'https://schema.org/Text. NGSI Entity type"
+        },
+        "battery1Error": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Error of battery 1. Should be true if error exists and false if normal operation state has been archived again"
+        },
+        "battery1Voltage": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Voltage of battery 1. Units:'mV' (millivolt)"
+        },
+        "battery2Error": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Error of battery 2. Should be true if error exists and false if normal operation state has been archived again"
+        },
+        "battery2Voltage": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Voltage of battery 2. Units:'mV' (millivolt)"
+        },
+        "battery3Error": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Error of battery 1. Should be true if error exists and false if normal operation state has been archived again"
+        },
+        "battery3Voltage": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Voltage of battery 3. Units:'mV' (millivolt)"
+        },
+        "totalCurrent": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Total current of the heliostat. Units:'A' (Ampere)"
+        },
+        "caseTemperature": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Temperature of heliostat controller case. Units:'°C' (Degrees Celsius)"
+        },
+        "heliosCScore": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Calibration score of the heliostat"
+        },
+        "heliosState": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. State of the heliostat in control system attribute"
+        },
+        "motor1Blocked": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Error 'motor blocked'. Should be true if error exists and false if normal operation state has been archieved again"
+        },
+        "motor1Moving": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. State 'motor moving'. Should be true if motor is moving and false if motor stops"
+        },
+        "motor1Overcurrent": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Error 'motor overcurrent'. Should be true if error exists and false if normal operation state has been archieved again"
+        },
+        "motor1Overtemp": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Error 'motor overtemp'. Should be true if error exists and false if normal operation state has been archieved again"
+        },
+        "motor1Position": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Position of the motor. Units:'steps' (Number of steps of the stepper motor)"
+        },
+        "motor1PositionDiff": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. State 'motor position difference'. Should be true if there is a difference in motor position and false if there is no difference"
+        },
+        "motor1Timeout": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Error 'motor timeout'. Should be true if error exists and false if normal operation state has been archieved again"
+        },
+        "motor1Undervoltage": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Error 'motor undervoltage'. Should be true if error exists and false if normal operation state has been archieved again"
+        },
+        "motor2Blocked": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Error 'motor blocked'. Should be true if error exists and false if normal operation state has been archieved again"
+        },
+        "motor2Moving": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. State 'motor moving'. Should be true if motor is moving and false if motor stops"
+        },
+        "motor2Overcurrent": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Error 'motor overcurrent'. Should be true if error exists and false if normal operation state has been archieved again"
+        },
+        "motor2Overtemp": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Error 'motor overtemp'. Should be true if error exists and false if normal operation state has been archieved again"
+        },
+        "motor2Position": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Position of the motor. Units:'steps' (Number of steps of the stepper motor)"
+        },
+        "motor2PositionDiff": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. State 'motor position difference'. Should be true if there is a difference in motor position and false if there is no difference"
+        },
+        "motor2Timeout": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Error 'motor timeout'. Should be true if error exists and false if normal operation state has been archieved again"
+        },
+        "motor2Undervoltage": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Error 'motor undervoltage'. Should be true if error exists and false if normal operation state has been archieved again"
+        },
+        "currentAimPointE": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Current aim point at the receiver. East value of the direction vector that has to be used together with currentAimPointN (north) and currentAimPointU (up)"
+        },
+        "currentAimPointN": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Current aim point at the receiver. North value of the direction vector that has to be used together with currentAimPointE (east) and currentAimPointU (up)"
+        },
+        "currentAimPointU": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Current aim point at the receiver. Up value of the direction vector that has to be used together with currentAimPointE (east) and currentAimPointN (north)"
+        }
+      }
+    }
+  ],
+  "derivedFrom": "\"\"",
+  "license": "\"\""
+}
