@@ -49,8 +49,8 @@ schema_url = "https://json-schema.org/schema#"
 base_repo_url = (
     "https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/"
 )
-# by AA:
-extra_repo = 'https://smartdatamodels.org/extra/'
+# by AA: final base URL for #ref and @context url
+base_url = 'https://smartdatamodels.org/dataModel.SMARTHEALTH/HL7/'
 # need absolutely point 'raw.githubusercontent.com' this does not work
 # 'https://github.com/agaldemas/incubated/blob/master/SMARTHEALTH/HL7/ 
 
@@ -347,6 +347,38 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
     ##-----------------------
 
 
+def generate_context(schema, base_url):
+    """
+    Generate a JSON-LD context from a given schema containing definitions and base URL.
+    
+    Parameters:
+    schema (dict): The schema to be used for generating the context.
+                   This should be a dictionary representing the JSON schema.
+                   
+    base_url (str): The base URL that will be used as a prefix in the generated context.
+                    Each property of the schema will have its corresponding entry in the
+                    context with a URI formed by combining this base URL and the property name.
+    
+    Returns:
+    dict: A dictionary representing the JSON-LD context derived from the provided schema
+          and base URL. This can be used to create JSON-LD documents that conform to the given schema.
+    """
+
+    context = {
+        "@context": {
+            "@version": 1.1
+        }
+    }
+    properties = schema.get("definitions", {})
+    for prop, details in properties.items():
+        context["@context"][prop] = f"{base_url}{prop}"
+    return context
+
+def save_context(context, file_path):
+    with open(file_path, 'w') as f:
+        json.dump(context, f, indent=4)
+    print(f"Context saved in {file_path}")
+
 ###############################################################################
 # MAIN
 # now the main loop that do the job
@@ -355,11 +387,17 @@ with open(global_schema_file) as f:
     schema = json.load(f)
 # Extract the list of resource types from the global schema dictionary
 hl7_resource_types = list(schema["discriminator"]["mapping"].keys())
-# print(hl7_resource_types)
 
 # Extract the "definitions" key from the loaded dictionary
 condition = True
 hl7_definitions = {k: v for k, v in schema["definitions"].items() if condition}
+
+# generate jsonld @context from the schema and base URL
+context = generate_context(schema, base_url)
+# save context in file
+context_file = 'context.jsonld'
+save_context(context, context_file)
+
 # Create a new dictionary by filtering out any elements whose keys are present in hl7_resource_types
 base_definitions = {
     k: v for k, v in hl7_definitions.items() if k not in hl7_resource_types
@@ -705,7 +743,7 @@ for entity_type, entity_def in resources_definitions.items():
         print("start validation loop on examples files:")
         directory_path = "./_examples/hl7.fhir.r4b.examples/package"
         for filename in os.listdir(directory_path):
-            if filename.startswith(entity_type) and filename.endswith(".json") and '-example' in filename:
+            if filename.startswith(entity_type + '-') and filename.endswith(".json") and '-example' in filename:
                 print('>>>>>>>>>>> try to validate json file: ' + filename)
                 try:
                     file_path = os.path.join(directory_path, filename)
