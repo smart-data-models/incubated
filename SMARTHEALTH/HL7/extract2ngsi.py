@@ -36,6 +36,7 @@ import requests
 import jsonref
 import pysmartdatamodels as sdm
 from datetime import date, datetime
+from jsf import JSF
 
 ###############################################################################
 # global variables
@@ -204,20 +205,6 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
     print('SSSSSSSSSSSSSschema_properties: \n', schema_properties)
     output_json = {}
 
-    # if "type" in schema_properties and "properties" not in schema_properties:
-    #     print('it is base def')
-    #     base_def= True
-        
-    #     # fill output json with base vaue depending on type
-    #     if schema_properties["type"] == "string":
-    #         output_json = ""
-    #     elif schema_properties["type"] == "number":
-    #         output_json = 0.0
-    #     else:
-    #          print('>>>>>>>>>>>>>>>>>>>')
-    #     return output_json
-
-
     # Now you can use schema_properties as needed, for example to iterate over it:
     #for prop in schema_properties:
     for prop in schema_properties.keys():
@@ -232,15 +219,17 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
                 # hl7Type is a translation of HL7 originated type in NGSI, to not conflict with type in NGSI standard
                 # get type from json data and set it to the output json
                 output_json["hl7Type"] = json_data["type"]
-            elif (prop == "extension" or prop == "modifierExtension") and level < 2:
+            elif (prop == "extension" or prop == "modifierExtension") and level < 3:
                 if 'modifier' in prop:
                     output_json[prop] = ['urn:ngsi-ld:Extension:modifier001']
                 else:
                     output_json[prop] = ['urn:ngsi-ld:Extension:001']
-                continue
+                # fake a resourceType to be Extension for final type
+                #output_json["resourceType"] = "Extension"
+                #continue
             elif prop == "contained":
                 output_json[prop] = []
-                continue
+                #continue
             elif "$ref" in schema_properties[prop]:
                 # Handle reference property
                 ref = schema_properties[prop]["$ref"]
@@ -519,7 +508,7 @@ resources_definitions = {
 for entity_type, entity_def in resources_definitions.items():
     print(">>>>>>>>> process hl7 resource for entity_type: <" + entity_type + ">")
     #print('>>>>>>>>> process hl7 resource for entity_def: ', entity_def)
-    
+
     hl7_type_content = None
     # loop on entity properties to prepare it for destination schema
     for prop, content in entity_def["properties"].items():
@@ -656,6 +645,14 @@ for entity_type, entity_def in resources_definitions.items():
             "description": "Property. NGSI Entity type. It has to be '" + entity_type + "'",
         }
     }
+    if entity_type == 'Extension':
+        type_prop.update({
+            "resourceType": {
+                "description": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/' This is an Extension", 
+                "const": "Account"
+            }
+        })
+
     if hl7_type_content:
         #del entity_def['properties']['type']
         entity_def['properties'].update(hl7_type_content)
@@ -736,7 +733,7 @@ for entity_type, entity_def in resources_definitions.items():
         "./" + fhir_release_path  + entity_type  + "/LiCENSE.md"
     )
     
-    #========================== validation loop and example generation
+    #========================== validation loop and examples generation
     # this loop try to validate examples toward entity schema, which is somehow a bit stupid,
     # because the objects should be adapted to NGSI-LD before, even the schema remains almost the same except for Extension
     if 1:

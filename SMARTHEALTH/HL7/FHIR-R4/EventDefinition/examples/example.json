@@ -12,11 +12,17 @@
     }, 
     "implicitRules": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/uri' String of characters used to identify a name or a resource", 
     "_implicitRules": {
-        "id": "ab12596d-30f6-4408-ab3d-77107f70c5dc"
+        "id": "6254dbf2-1bc2-4f5f-8e0b-3386694919f6", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "language": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
     "_language": {
-        "id": "34a99dd1-bc51-4954-b80d-82214c590472"
+        "id": "5988c8cf-2874-4142-b3ef-a87f6da8c3c6", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "text": {
         "status": "generated", 
@@ -31,19 +37,25 @@
     ], 
     "url": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/uri' String of characters used to identify a name or a resource", 
     "_url": {
-        "id": "05436d16-3553-4f7b-ab47-b4eca760bf89"
+        "id": "08f36f3b-95c8-4395-9327-b91f885a63ab", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "identifier": [
         {
-            "id": "2e5f30bf-0554-4afa-a90d-fda80a7e483b", 
+            "id": "13a2b495-b4bf-4e46-9095-02aa409fedff", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
             "_use": {
-                "id": "1e6f3813-1711-4b41-a380-1a910e4a29e3"
+                "id": "b280ce94-5bc9-4f90-9ab4-aa6bde376c1a"
             }, 
             "type": {
-                "id": "d160ea55-4f6d-41e4-aee7-4d9430cf5c71", 
+                "id": "a9b4c5a3-be51-46a1-8168-86342a181c69", 
                 "coding": [
                     {
-                        "id": "2b24c22c-0a61-4063-8030-bd214bedeacf", 
+                        "id": "73409625-e0b6-49a4-a0a7-ce12917e5e24", 
                         "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
                         "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
                         "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
@@ -53,140 +65,164 @@
                 ], 
                 "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
                 "_text": {
-                    "id": "2e07069c-4533-4ed1-852b-e8e0ed465083"
+                    "id": "85390a2a-2765-461e-b710-04fddb398b75"
                 }
             }, 
             "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
             "_system": {
-                "id": "270a16ea-d6a9-4317-b322-59b35f8e9247"
+                "id": "015808a5-923e-43ea-9583-a2ca3c6a44ac"
             }, 
             "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.", 
             "_value": {
-                "id": "c7d08873-1a1f-4cca-b043-ea5b038cb63a"
+                "id": "58ca6c90-4382-48ee-84bc-797b970ded40"
             }, 
             "period": {
-                "id": "ffd8eed4-99f7-4d5d-9c19-642399533ff1", 
+                "id": "4bea73ab-3777-4384-b747-7416358f3658", 
                 "start": "The start of the period. The boundary is inclusive.", 
                 "_start": {
-                    "id": "e5b97bdb-9b53-4d21-be62-6076f89184c6"
+                    "id": "81dbea6b-6baf-4d6e-9cfd-81afd86a87f4"
                 }, 
                 "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.", 
                 "_end": {
-                    "id": "02943248-3c46-4fd0-b575-31fbf12da5e9"
+                    "id": "692a2f43-a725-494c-bd43-213d6832dcdb"
                 }
             }, 
             "assigner": {
-                "id": "e3751c03-a3dc-49a2-a3ea-aceaa04d7c4c", 
+                "id": "09fd7f3d-ac3f-4558-9f3f-c3b282b1d25b", 
                 "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
                 "_reference": {
-                    "id": "412e8763-13cc-4aac-84aa-b6715a0b6ae6"
+                    "id": "47964f91-fef0-4356-bad1-4b1eb94f2350"
                 }, 
                 "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
                 "_type": {
-                    "id": "cb41e423-7238-461a-8fda-a1409027015d"
+                    "id": "e82f4d80-6b42-4880-8d12-78063929cf82"
                 }, 
                 "identifier": {
-                    "id": "6ff5fa8d-8ec9-41f5-8d78-99a707763d5d", 
+                    "id": "47703600-953b-4e74-82f4-c0b17864ee47", 
                     "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
                     "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
                 }, 
                 "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
                 "_display": {
-                    "id": "5ca93aec-b888-4ec8-8cd9-233169ce2c60"
+                    "id": "b367e22a-d56a-4219-9595-312c08565842"
                 }
             }
         }
     ], 
     "version": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/string' A sequence of Unicode characters", 
     "_version": {
-        "id": "4f6aa7d5-4359-4f39-a5b9-08470f93d412"
+        "id": "6057e941-e534-4cb8-a9ec-17ba9159898b", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "name": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/string' A sequence of Unicode characters", 
     "_name": {
-        "id": "4b413404-166b-4aaa-8256-d5eb4ac28399"
+        "id": "7f5e4720-41d6-46bd-a909-3ccb1c364287", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "title": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/string' A sequence of Unicode characters", 
     "_title": {
-        "id": "4bcdfcd8-0e70-4422-9458-1f13a7fe76d7"
+        "id": "cc0feffe-a052-47b2-b2ca-e44c05bf671b", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "subtitle": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/string' A sequence of Unicode characters", 
     "_subtitle": {
-        "id": "51d2e834-4762-4ba0-a349-8e68723f9636"
+        "id": "7021d56e-e525-4875-bafb-4f5f3e5e57cc", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "status": "draft", 
     "_status": {
-        "id": "36a0ea23-590a-45e0-9452-34334f395d36"
+        "id": "ad9f7557-830e-4599-a4a4-bed5da395b2a", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "experimental": true, 
     "_experimental": {
-        "id": "5a5912b7-2fbe-415c-a6fe-1c3aa559ea0b"
+        "id": "c39384c6-5b00-4773-a347-0a8bb1f927a9", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "subjectCodeableConcept": {
-        "id": "2064dc41-3fcf-4767-ae0b-da8cd9dc2d3f", 
+        "id": "413371a3-dd91-4b82-b341-c0d18523e6c7", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
         "coding": [
             {
-                "id": "ebd299e4-66b7-473c-a961-fd29dde9c46d", 
+                "id": "118799b0-5aab-43b7-bb39-af7704dcfd33", 
                 "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
                 "_system": {
-                    "id": "0705409f-bb18-4108-b886-5c3fc7dfc63f"
+                    "id": "1f1b3071-db8c-4bc1-8202-c8c04ec9f442"
                 }, 
                 "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
                 "_version": {
-                    "id": "11bf8182-c530-4914-886f-c2dd6200f8fa"
+                    "id": "70a7ed64-8689-4901-a532-2c246fa0a202"
                 }, 
                 "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
                 "_code": {
-                    "id": "86d267be-fa9d-4e4a-b954-55387b38b376"
+                    "id": "850effa2-edfc-479e-ac14-0a88f964ce87"
                 }, 
                 "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
                 "_display": {
-                    "id": "62ddff1b-81d4-423f-8efd-2f317ff7545e"
+                    "id": "aeacc368-a942-4ee7-b59e-ca41b77630e1"
                 }, 
                 "userSelected": false, 
                 "_userSelected": {
-                    "id": "b28c3ffd-a323-4ffb-9e45-a628b35f5ac0"
+                    "id": "3cd280b8-4d92-43e9-8393-80717b9be43b"
                 }
             }
         ], 
         "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
         "_text": {
-            "id": "0559ab70-2b2b-4a1c-8aff-8e355402314f"
+            "id": "d39944eb-3889-4d23-9def-1a26b8cd9878"
         }
     }, 
     "subjectReference": {
-        "id": "3a332bff-9985-4ba8-89ae-6714a98385a2", 
+        "id": "2a75d98b-327b-432e-813e-441ce05fda1f", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
         "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
         "_reference": {
-            "id": "59d84a24-e32d-4a56-817c-a43fe7937421"
+            "id": "0970522c-930c-4137-a550-56e3148bbf36"
         }, 
         "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
         "_type": {
-            "id": "303c2de9-9871-4acb-b11c-7252b6c9e03d"
+            "id": "6b1df318-b883-4e5b-b049-8d3fa3e1ace2"
         }, 
         "identifier": {
-            "id": "c7714f59-a1ea-4397-b75c-903c88c9a403", 
+            "id": "ff19ef1a-6db4-4588-83c1-22f852294290", 
             "_use": {
-                "id": "c1d2b80a-8e54-43b4-8ccb-7eb568e38c4a"
+                "id": "f30306bf-1108-44b7-add2-6b1cf9d01e33"
             }, 
             "type": {
-                "id": "59c1a785-3ef4-4475-bef1-566d0def37d8", 
+                "id": "2a2d4a44-56b6-45b7-b9ec-09761e772e5e", 
                 "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
             }, 
             "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
             "_system": {
-                "id": "5f6df85a-9094-46d8-9c4f-bdc6fe75306a"
+                "id": "53d5bb59-dfc2-435a-9c15-fc5df7fcc9af"
             }, 
             "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.", 
             "_value": {
-                "id": "8501330d-3e16-4597-a511-71627f50d8f0"
+                "id": "3368488e-b37e-4019-bdec-ff90c75989be"
             }, 
             "period": {
-                "id": "1e1f3dd9-a385-4bc5-995f-a94783b8a6bf", 
+                "id": "65f8a4a5-0b48-4865-9a34-0cc4a32d1915", 
                 "start": "The start of the period. The boundary is inclusive.", 
                 "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
             }, 
             "assigner": {
-                "id": "55eb89b2-a028-44fa-a619-7667954a5194", 
+                "id": "df5c1060-3377-4176-8fd1-48a17580d3a5", 
                 "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
                 "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
                 "display": "Plain text narrative that identifies the resource in addition to the resource reference."
@@ -194,43 +230,52 @@
         }, 
         "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
         "_display": {
-            "id": "2f9b4fa0-737b-4972-a55a-3ba2eddfcc1d"
+            "id": "cc332bf9-4287-4cbe-86a7-afe3b07e288e"
         }
     }, 
-    "date": "22/11/2024", 
+    "date": "25/11/2024", 
     "_date": {
-        "id": "1e1deaeb-e2bd-4ea9-ad3b-93b4bb84bc25"
+        "id": "ad649a31-b31d-470c-968c-c04c9b28861d", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "publisher": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/string' A sequence of Unicode characters", 
     "_publisher": {
-        "id": "d20bba32-04e7-4cf8-8037-19c22cdab989"
+        "id": "10b08fb7-3efc-4a57-8708-76d4790e2854", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "contact": [
         {
-            "id": "58746a4f-6da9-4cdd-a445-66f5261be7cd", 
+            "id": "1e78ca21-4ab4-473b-a4ea-c46815c6a867", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
             "name": "The name of an individual to contact.", 
             "_name": {
-                "id": "5a40a684-5a6e-4045-be11-5fe5d2f24377"
+                "id": "ceb4b723-022f-48cf-a50d-ae1d1e73e259"
             }, 
             "telecom": [
                 {
-                    "id": "d76cd400-9998-43ad-9b92-f2d4728fc22e", 
+                    "id": "cfbde121-1b44-4cbd-80dd-068769308075", 
                     "_system": {
-                        "id": "b7308643-198b-455a-982a-b373bdb4d7c9"
+                        "id": "0e3ee570-6e5a-4124-9ec8-4e35ff923e77"
                     }, 
                     "value": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).", 
                     "_value": {
-                        "id": "9e087a00-6f84-4458-b5d3-ee382bdbdb60"
+                        "id": "2303626d-c020-4575-a517-d934c32f1d73"
                     }, 
                     "_use": {
-                        "id": "63178083-db50-4caa-9899-57a9b037bb9c"
+                        "id": "763bc75b-ade2-4f8b-8987-0699ee327daf"
                     }, 
                     "rank": 123456, 
                     "_rank": {
-                        "id": "71f5671c-9cf6-48a1-939d-5bcf06a1ab16"
+                        "id": "b8378f40-ab1c-43fd-8faf-5e679b991d32"
                     }, 
                     "period": {
-                        "id": "4b17854c-9761-4b6d-a1d0-543b52db6173", 
+                        "id": "9081ae11-9f75-44d0-99e5-a4fc5a8ff4f2", 
                         "start": "The start of the period. The boundary is inclusive.", 
                         "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
                     }
@@ -240,39 +285,45 @@
     ], 
     "description": "an instance of EventDefinition", 
     "_description": {
-        "id": "b2c3a5ae-c764-4797-bee4-33b41fbf1d30"
+        "id": "012fa3bd-86d7-47d7-a351-c6c128325478", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "useContext": [
         {
-            "id": "6a3dc46a-3dd9-490a-8360-cc24f2e0fa77", 
+            "id": "304f1151-3916-4d06-91dc-cffe71135e20", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
             "code": {
-                "id": "9a2c9e32-2ca4-4892-86ec-13f2e18bbfe0", 
+                "id": "eec344c7-ae2e-4469-b03b-d10c0a6ff837", 
                 "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
                 "_system": {
-                    "id": "d4f8a7be-ed84-4ed4-81ea-6d20f85ea62e"
+                    "id": "be0a3796-f36b-47e8-b867-fa25cdaea8e6"
                 }, 
                 "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
                 "_version": {
-                    "id": "29b55c9c-7571-4cba-8c9e-4fa44366a4a9"
+                    "id": "5c75469b-592b-4ccb-8455-1edf684b88fb"
                 }, 
                 "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
                 "_code": {
-                    "id": "12fda951-635f-446a-9a47-dd2590a56212"
+                    "id": "bd1777ad-1964-437b-bb6e-d231bdbe7d9f"
                 }, 
                 "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
                 "_display": {
-                    "id": "b49f21cc-bcac-4195-a176-e3a2272c1d42"
+                    "id": "e4facd08-ff30-4ec0-a1f4-4a4a7567cb1f"
                 }, 
                 "userSelected": false, 
                 "_userSelected": {
-                    "id": "2a56c2dd-b450-4548-beac-863a997da217"
+                    "id": "9b7177da-7e83-4694-8ee4-a6c58746dca0"
                 }
             }, 
             "valueCodeableConcept": {
-                "id": "d12374fd-7546-458b-a26c-3877be69d91d", 
+                "id": "ce82d7f1-7c0d-4a0b-9155-0586e690fca8", 
                 "coding": [
                     {
-                        "id": "405122b5-1fcf-4fea-af14-a00556223648", 
+                        "id": "833136b5-42e2-4024-b30d-803486fbb73f", 
                         "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
                         "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
                         "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
@@ -282,42 +333,42 @@
                 ], 
                 "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
                 "_text": {
-                    "id": "7bf193c0-6d4a-41ce-8cbe-b31e0329d5fe"
+                    "id": "5673eac0-8b6e-4ac1-9c82-499877998f5b"
                 }
             }, 
             "valueQuantity": {
-                "id": "c66e6f4e-6524-427d-9a5a-ddab959693a5", 
+                "id": "2e98a4d4-c763-4854-b483-32877f158688", 
                 "value": 123456, 
                 "_value": {
-                    "id": "0e67f96b-0cab-420c-87bd-3cd730f1b5e7"
+                    "id": "a755e85a-32c5-48e9-9a9d-9a57266c6260"
                 }, 
                 "_comparator": {
-                    "id": "028afcbf-106c-4def-b89c-6b5642a547b4"
+                    "id": "291b3dce-21cf-46c0-8677-531cca798a5a"
                 }, 
                 "unit": "A human-readable form of the unit.", 
                 "_unit": {
-                    "id": "ee4914c9-5a63-4ba1-ad1a-59fa3ad531f1"
+                    "id": "ff020f65-57ab-450d-b69f-85d9946bd442"
                 }, 
                 "system": "The identification of the system that provides the coded form of the unit.", 
                 "_system": {
-                    "id": "0f0c311e-f6fc-4904-8018-44b088597abf"
+                    "id": "6ae3c948-9472-4857-b706-d6fd4543e262"
                 }, 
                 "code": "A computer processable form of the unit in some unit representation system.", 
                 "_code": {
-                    "id": "47880f44-7477-43a8-98f9-f2a9adab4d25"
+                    "id": "925a3fc5-fa4c-4dde-b034-d6fdb550fcae"
                 }
             }, 
             "valueRange": {
-                "id": "756ec7bd-f72e-44e6-ad9b-b841e3a6553c", 
+                "id": "47412173-bb66-4c60-a981-c21f792c747f", 
                 "low": {
-                    "id": "047daf89-e3eb-470b-b5bc-a3a1ddd82c31", 
+                    "id": "d228f71d-02ae-45aa-ac58-c691a6213247", 
                     "value": 123456, 
                     "unit": "A human-readable form of the unit.", 
                     "system": "The identification of the system that provides the coded form of the unit.", 
                     "code": "A computer processable form of the unit in some unit representation system."
                 }, 
                 "high": {
-                    "id": "8fcb5295-b8e2-4665-bce9-72306fa6f856", 
+                    "id": "118159ac-b0bf-4a95-84b3-9170d270e40c", 
                     "value": 123456, 
                     "unit": "A human-readable form of the unit.", 
                     "system": "The identification of the system that provides the coded form of the unit.", 
@@ -325,152 +376,179 @@
                 }
             }, 
             "valueReference": {
-                "id": "12f10500-a5e2-4674-b944-e8122e1f9ec5", 
+                "id": "70e08235-1f62-4b37-b1e9-7392ffde8b08", 
                 "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
                 "_reference": {
-                    "id": "3322a07f-ebe0-45cb-b8db-e10785700d88"
+                    "id": "5cc3f12d-ed35-4c85-941f-7b00249f1068"
                 }, 
                 "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
                 "_type": {
-                    "id": "fb6a908e-dea2-4c64-b53e-7a47a7b6533c"
+                    "id": "dd93a648-ead7-4df2-902a-51846bcfd9b4"
                 }, 
                 "identifier": {
-                    "id": "b1835cad-fd04-46e2-9203-963832249b2e", 
+                    "id": "51655a3a-35bc-4b47-b372-7007e80755f7", 
                     "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
                     "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
                 }, 
                 "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
                 "_display": {
-                    "id": "2fedabde-e576-4357-a3b3-afa4928253a2"
+                    "id": "1efd6cb4-dcf5-49e7-9c3e-2daa6b37dd1d"
                 }
             }
         }
     ], 
     "jurisdiction": [
         {
-            "id": "947f8aaa-ccbe-4c82-ab66-50b5f035d89a", 
+            "id": "7e8ca555-f71a-4bf1-a719-6814f9a2a0ad", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
             "coding": [
                 {
-                    "id": "7eb0c471-a930-4d53-8a9b-794d8ba6d3c4", 
+                    "id": "ffb747b9-0263-40cf-a565-ef307bcb9ff7", 
                     "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
                     "_system": {
-                        "id": "d23cbb43-bde6-4e85-8cd4-4cc5b61e89d7"
+                        "id": "a40d43c7-5b57-43ea-8da3-c3af906912a2"
                     }, 
                     "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
                     "_version": {
-                        "id": "ff9b2a14-2544-45ed-8b7b-d75347d56a7a"
+                        "id": "d2c5422f-a8e3-4d8f-a6f1-9f39695301a8"
                     }, 
                     "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
                     "_code": {
-                        "id": "7ceab507-aba6-466f-910d-f49837d0a076"
+                        "id": "544272a7-5d9f-42cb-9fca-6b3c494b54a2"
                     }, 
                     "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
                     "_display": {
-                        "id": "4ec3f20a-c8f3-45d7-b510-ac12d142ca7d"
+                        "id": "de0123a0-bca3-42ee-b402-e3fb1c5deef9"
                     }, 
                     "userSelected": false, 
                     "_userSelected": {
-                        "id": "4743348a-eb6e-4296-8d57-019457f1cba0"
+                        "id": "6dca68d4-5c87-47d5-82c6-61730d822a3e"
                     }
                 }
             ], 
             "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
             "_text": {
-                "id": "a10e30e2-8f36-4be9-8836-16ed2d12edf3"
+                "id": "1d154c6d-3064-48f0-8bb7-48130a70379d"
             }
         }
     ], 
     "purpose": "Monitor all admissions to Emergency", 
     "_purpose": {
-        "id": "758a40a3-45c2-4b5e-a0cc-a5750236054f"
+        "id": "9ae14ef0-c949-4ec3-8f1b-a25c2614db67", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "usage": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/string' A sequence of Unicode characters", 
     "_usage": {
-        "id": "4a888d6d-17e4-45f5-8ae2-f1c35f63e395"
+        "id": "678cad7d-8cb6-4db6-a4ef-0e6a94776f4a", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "copyright": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/markdown' A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine", 
     "_copyright": {
-        "id": "7a506477-9c6d-41ae-9e27-8a0e3dc53fa8"
+        "id": "8f359a3d-9c98-41a8-8560-0caf7cd9ea18", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "approvalDate": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/date' A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.", 
     "_approvalDate": {
-        "id": "fcded6aa-f4ce-44c7-a744-a095b898db96"
+        "id": "8237346a-2ec0-48d1-b2f6-3b5c101b433e", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "lastReviewDate": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/date' A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.", 
     "_lastReviewDate": {
-        "id": "cf7eb995-df70-4c56-80c5-b023f444fd73"
+        "id": "45bb310e-f094-4729-a19f-e87f00f092ba", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
     }, 
     "effectivePeriod": {
-        "id": "24983354-dd54-46e1-a0f2-9b9d621d4d3f", 
+        "id": "9a221bf8-f5e6-417c-b6cd-71a2bacd264d", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
         "start": "The start of the period. The boundary is inclusive.", 
         "_start": {
-            "id": "e8e919fd-fa7c-4587-bf37-99c2da551317"
+            "id": "a1b789ed-8d65-4724-88b2-9e8d0b399558"
         }, 
         "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.", 
         "_end": {
-            "id": "6bec4735-a2a0-4022-a4d2-1e00fa5f8b28"
+            "id": "0b2c452f-5629-4afd-a4c4-5a781a5745a3"
         }
     }, 
     "topic": [
         {
-            "id": "388ac782-5b9e-4cf8-9b36-f23ec3136476", 
+            "id": "f6d85004-6fdd-412c-8306-cfec67f72ef1", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
             "coding": [
                 {
-                    "id": "9c05f43d-6224-4f77-8f46-8a431a208b49", 
+                    "id": "388a5063-834f-4e10-bc47-c698e155092a", 
                     "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
                     "_system": {
-                        "id": "6b420918-a907-4d94-b58e-eb507a48a6a0"
+                        "id": "0dfd79c1-ed7d-48da-8c53-0cd94112b440"
                     }, 
                     "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
                     "_version": {
-                        "id": "cd25a1cd-f034-4924-a187-e29b005cec12"
+                        "id": "1c8f293c-f5e5-41d5-a011-7e75f83efc4e"
                     }, 
                     "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
                     "_code": {
-                        "id": "88548ec0-bbae-437a-95a9-b69c6c63a6c5"
+                        "id": "d2741854-c954-4235-9f93-47a765cf1b35"
                     }, 
                     "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
                     "_display": {
-                        "id": "e6962255-3a88-47e1-bfd0-c1f33bedcdd2"
+                        "id": "d402e8dd-58f1-46ff-84e6-4236df05eb2c"
                     }, 
                     "userSelected": false, 
                     "_userSelected": {
-                        "id": "eb588680-3b0a-4662-85da-b616f0c5c130"
+                        "id": "93d40c74-0b1e-4619-8aa5-4e4f25669bfa"
                     }
                 }
             ], 
             "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
             "_text": {
-                "id": "621fe663-f39c-442b-b701-a9ad44ca6974"
+                "id": "853a30b9-68a0-4b29-86bc-9b369367cdf1"
             }
         }
     ], 
     "author": [
         {
-            "id": "aed88be6-3a53-4b3e-9e48-f6d155a4a34f", 
+            "id": "a34d6532-d88a-4554-8896-9f9ab5348290", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
             "name": "The name of an individual to contact.", 
             "_name": {
-                "id": "7c3d50ae-673f-44d3-8f3f-a50b369c9447"
+                "id": "1a22b847-4f96-4c50-acce-f7502a53fd07"
             }, 
             "telecom": [
                 {
-                    "id": "0d58d1b3-9990-4e77-8aba-a0ab6563a638", 
+                    "id": "cf1ffe3f-67f3-4d69-927a-48c290f09e64", 
                     "_system": {
-                        "id": "970056a2-7b72-4905-afb2-2528638439db"
+                        "id": "9bd9c151-73f3-49ea-9c0f-9e7653ea43a1"
                     }, 
                     "value": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).", 
                     "_value": {
-                        "id": "4eb6b6c4-be06-4bf5-8c3d-88ddad57a7ff"
+                        "id": "13c8f556-0bfe-47a3-8c30-dfa988f52d3a"
                     }, 
                     "_use": {
-                        "id": "f74008ae-6ba9-42ef-bb7e-5778753c2914"
+                        "id": "e805fe7a-38ed-4d24-b43a-23e519239835"
                     }, 
                     "rank": 123456, 
                     "_rank": {
-                        "id": "2be3325d-f6f6-4849-968c-e1f6d0d9c1a7"
+                        "id": "a2592a76-01bb-406a-a836-0b1b032691ce"
                     }, 
                     "period": {
-                        "id": "b7cb9afd-0444-42aa-aea1-5a0641d72797", 
+                        "id": "ca1204ee-6ef6-4ac0-b8e5-62aed88243de", 
                         "start": "The start of the period. The boundary is inclusive.", 
                         "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
                     }
@@ -480,30 +558,33 @@
     ], 
     "editor": [
         {
-            "id": "c5862ff5-7baf-47cf-af7a-181c1e985267", 
+            "id": "720feff3-5a44-4756-b589-380a3af0b355", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
             "name": "The name of an individual to contact.", 
             "_name": {
-                "id": "8801bcbb-8d39-4bd7-b69d-7b9c438f9e8d"
+                "id": "10fb33c5-4820-4b66-82b4-6ab6d1ff4304"
             }, 
             "telecom": [
                 {
-                    "id": "665f8c21-cacf-4d0a-8679-f9bcaaf5fb7e", 
+                    "id": "313133d9-76e6-49c0-8c57-0773dc6993ef", 
                     "_system": {
-                        "id": "a107d1f5-e053-4019-a6e9-8f292a4d5fff"
+                        "id": "620ed4cf-525f-4b5b-b1be-b31a11ca6169"
                     }, 
                     "value": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).", 
                     "_value": {
-                        "id": "6730a1a4-6c6d-4fd6-90be-732180775eaa"
+                        "id": "78179cdd-7553-435c-806c-949b94c0005b"
                     }, 
                     "_use": {
-                        "id": "74efb458-4a68-4b0b-87df-8ad4e9b54933"
+                        "id": "d112c870-5bf2-464e-b0df-5a422703fc73"
                     }, 
                     "rank": 123456, 
                     "_rank": {
-                        "id": "655d81bf-9040-42fd-90cd-5bbd94b7b7b9"
+                        "id": "994b78e6-0f05-47dc-a0e5-ab2206499176"
                     }, 
                     "period": {
-                        "id": "e1e4a041-8e5d-4bab-b44f-21515c43ded6", 
+                        "id": "1ef47d35-8f8c-46d4-9842-beab9a6d0a41", 
                         "start": "The start of the period. The boundary is inclusive.", 
                         "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
                     }
@@ -513,30 +594,33 @@
     ], 
     "reviewer": [
         {
-            "id": "8439e20d-c699-4734-a940-60220181cfbb", 
+            "id": "c1d0e5bf-fa30-48cb-8fc6-54b9fa42900e", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
             "name": "The name of an individual to contact.", 
             "_name": {
-                "id": "e50d4804-d67c-43b2-aaa2-5ea24d547e97"
+                "id": "7f4258d4-2289-40c2-8e5b-858f1d9331f0"
             }, 
             "telecom": [
                 {
-                    "id": "ebc6d203-c902-4c9e-955b-9b930da1a579", 
+                    "id": "7c92d3ce-720b-4754-938a-27a83504e509", 
                     "_system": {
-                        "id": "dc29b426-f8da-46ba-bdca-220fa3f694c6"
+                        "id": "5ab27049-f48f-470a-9df4-70e0dd059c28"
                     }, 
                     "value": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).", 
                     "_value": {
-                        "id": "3ece0239-31af-4c8b-952c-9fe8fb84cce8"
+                        "id": "3dae948f-a247-4b2c-95b3-30aa4274f7c3"
                     }, 
                     "_use": {
-                        "id": "971df80a-750e-49cb-85a5-87e4b82224a6"
+                        "id": "e00fb24e-1b1d-469c-8e89-4c1ab13140d9"
                     }, 
                     "rank": 123456, 
                     "_rank": {
-                        "id": "88e2378b-dbbb-4217-a25b-a10979924e03"
+                        "id": "c6bbd7cd-d181-4c9d-a558-639d2b835c0a"
                     }, 
                     "period": {
-                        "id": "f82efe93-2458-402b-b015-58fad0d34a33", 
+                        "id": "98ab6f65-24f5-4c86-956e-8a7ba7989210", 
                         "start": "The start of the period. The boundary is inclusive.", 
                         "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
                     }
@@ -546,30 +630,33 @@
     ], 
     "endorser": [
         {
-            "id": "c7c63bf1-0acb-4791-895e-1def196b6f54", 
+            "id": "bec95546-90f2-41c9-957c-e356f22eb42c", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
             "name": "The name of an individual to contact.", 
             "_name": {
-                "id": "c327c1eb-3d02-428e-9bba-3650ef7aba47"
+                "id": "894cd45a-35cb-4f36-8f40-e90da4de0951"
             }, 
             "telecom": [
                 {
-                    "id": "24dbc626-99b0-4d1a-a37e-11e873f505a0", 
+                    "id": "397c4490-808f-423f-9d84-5ca0ef0a49c6", 
                     "_system": {
-                        "id": "fa7dfed2-965d-4e23-b594-03e0ad2d018d"
+                        "id": "48a4702b-0f44-4f95-b58a-248bf9672acc"
                     }, 
                     "value": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).", 
                     "_value": {
-                        "id": "eb801550-b066-42c4-b183-2ab3b4024beb"
+                        "id": "290cbb7e-1bfc-4f08-9044-66f0ce1b8933"
                     }, 
                     "_use": {
-                        "id": "6f3ee34e-5b23-402e-8c79-b65b14a191ee"
+                        "id": "66f6f6c7-0a96-49a2-bc8b-c0bcd945a435"
                     }, 
                     "rank": 123456, 
                     "_rank": {
-                        "id": "dfff796f-36c2-44fb-9e31-864d33a801de"
+                        "id": "01b99efa-a361-4583-840f-fd87f08ea3a9"
                     }, 
                     "period": {
-                        "id": "247554ea-8882-49b7-91e0-e12cb2da03b3", 
+                        "id": "5974c8e0-fc07-429d-8707-5cd39306de8f", 
                         "start": "The start of the period. The boundary is inclusive.", 
                         "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
                     }
@@ -579,59 +666,62 @@
     ], 
     "relatedArtifact": [
         {
-            "id": "5b0279f7-2782-4c75-9518-ab6b594a85a6", 
+            "id": "42a34c59-bbf1-4f83-8950-8e6bb2d20282", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
             "_type": {
-                "id": "fd586f44-b312-49d9-bec3-7dcedf55ccca"
+                "id": "4230e72b-d757-409b-83b8-d6462bd6c115"
             }, 
             "label": "A short label that can be used to reference the citation from elsewhere in the containing artifact, such as a footnote index.", 
             "_label": {
-                "id": "fba118b4-c96e-4773-9add-4282f20722c7"
+                "id": "956e9e69-0b05-4bfe-97be-3ec24233e815"
             }, 
             "display": "A brief description of the document or knowledge resource being referenced, suitable for display to a consumer.", 
             "_display": {
-                "id": "709af6b7-0a95-444b-9038-6a1b9d6c0b0e"
+                "id": "98b806f4-c551-4789-9560-1410a54deda9"
             }, 
             "citation": "A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.", 
             "_citation": {
-                "id": "da345048-eebb-4c8f-baf7-f3d45e4d5eb9"
+                "id": "a8a6d8a1-ca2f-40a4-bae5-aae9736edb61"
             }, 
             "url": "A url for the artifact that can be followed to access the actual content.", 
             "_url": {
-                "id": "c5f3ad47-e434-440f-ab07-c2431ba3888f"
+                "id": "36f74aff-e749-41e1-8df3-e51ba4c0382f"
             }, 
             "document": {
-                "id": "80bea563-671b-45fa-a796-6baa425bee5f", 
+                "id": "a05c3813-f854-4798-963a-e020bbfd6514", 
                 "contentType": "Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.", 
                 "_contentType": {
-                    "id": "7148c87b-d7c7-47f7-9689-31dcff29c27d"
+                    "id": "3af74aea-7bb3-457b-82cb-e894b3d1d414"
                 }, 
                 "language": "The human language of the content. The value can be any valid value according to BCP 47.", 
                 "_language": {
-                    "id": "a989427a-f982-4c64-8e99-d5dfa00ffee4"
+                    "id": "96d4daa7-03cc-46fd-bb34-d1bc45c21ecc"
                 }, 
                 "data": "The actual data of the attachment - a sequence of bytes, base64 encoded.", 
                 "_data": {
-                    "id": "10c4b1ba-801d-4f48-ac6c-3bfaeb848ddd"
+                    "id": "12016476-60b5-4e0c-8ee4-563f295d214f"
                 }, 
                 "url": "A location where the data can be accessed.", 
                 "_url": {
-                    "id": "7d860f76-a690-45cd-9ee1-8808f248be9d"
+                    "id": "6e4587fd-969e-4924-9040-2c64a85e4b0c"
                 }, 
                 "size": 123456, 
                 "_size": {
-                    "id": "44953b82-adb7-4e43-b668-871826c111f2"
+                    "id": "e231639d-fe0a-45c3-8b5b-fe47cafb5fa8"
                 }, 
                 "hash": "The calculated hash of the data using SHA-1. Represented using base64.", 
                 "_hash": {
-                    "id": "31ccb7f5-ab63-4e18-ac16-e698a307bec8"
+                    "id": "973a836b-bb59-4b4e-9d64-e2d8fb2ce7b3"
                 }, 
                 "title": "A label or set of text to display in place of the data.", 
                 "_title": {
-                    "id": "d5f58376-b2ee-4c9d-95d5-6d4be88f9c96"
+                    "id": "2bec725f-70dc-4f36-8474-4f384f579bb8"
                 }, 
                 "creation": "The date that the attachment was first created.", 
                 "_creation": {
-                    "id": "7bd564a0-36f1-4fa5-8411-e435802e2238"
+                    "id": "d5b7bbe1-9128-4277-9ab6-cb93362a8752"
                 }
             }, 
             "resource": "The related resource, such as a library, value set, profile, or other knowledge resource."
