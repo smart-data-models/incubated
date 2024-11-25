@@ -1,0 +1,688 @@
+{
+    "resourceType": "ExampleScenario", 
+    "type": "ExampleScenario", 
+    "meta": {
+        "tag": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason", 
+                "code": "HTEST", 
+                "display": "test health data"
+            }
+        ]
+    }, 
+    "implicitRules": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/uri' String of characters used to identify a name or a resource", 
+    "_implicitRules": {
+        "id": "29ebe77c-00a8-45d9-8de1-11f8c79e7326", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "language": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+    "_language": {
+        "id": "858d0cd5-e1e4-4ea8-b805-4fcca74f8f6e", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "text": {
+        "status": "generated", 
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative</b></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource &quot;example&quot; </p></div><p><b>status</b>: draft</p><p><b>purpose</b>: Purpose: this serves to enable remote performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR.</p><blockquote><p><b>actor</b></p><p><b>actorId</b>: Nurse</p><p><b>type</b>: person</p><p><b>name</b>: Nurse</p><p><b>description</b>: The Nurse</p></blockquote><blockquote><p><b>actor</b></p><p><b>actorId</b>: MAP</p><p><b>type</b>: entity</p><p><b>name</b>: Nurse's Tablet</p><p><b>description</b>: The entity that receives the Administration Requests to show the nurse to perform them</p></blockquote><blockquote><p><b>actor</b></p><p><b>actorId</b>: OP</p><p><b>type</b>: entity</p><p><b>name</b>: MAR / Scheduler</p><p><b>description</b>: The Medication Administration Order Placer</p></blockquote><blockquote><p><b>actor</b></p><p><b>actorId</b>: MAC</p><p><b>type</b>: entity</p><p><b>name</b>: MAR / EHR</p><p><b>description</b>: The entity that receives the Medication Administration reports</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001</p><p><b>resourceType</b>: MedicationRequest</p><p><b>name</b>: Initial Prescription</p><p><b>description</b>: The initial prescription which describes &quot;medication X, 3 times per day&quot; - the exact scheduling is not   in the initial prescription (it is left for the care teams to decide on the schedule).</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001.001</p><p><b>resourceType</b>: MedicationRequest</p><p><b>name</b>: Request for day 1, morning</p><p><b>description</b>: The administration request for day 1, morning</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001.002</p><p><b>resourceType</b>: MedicationRequest</p><p><b>name</b>: Request for day 1, lunch</p><p><b>description</b>: The administration request for day 1, lunch</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001.003</p><p><b>resourceType</b>: MedicationRequest</p><p><b>name</b>: Request for day 1, evening</p><p><b>description</b>: The administration request for day 1, evening</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001.004</p><p><b>resourceType</b>: MedicationRequest</p><p><b>name</b>: Request for day 2, morning</p><p><b>description</b>: The administration request for day 2, morning</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001.005</p><p><b>resourceType</b>: MedicationRequest</p><p><b>name</b>: Request for day 2, lunch</p><p><b>description</b>: The administration request for day 2, lunch</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001.006</p><p><b>resourceType</b>: MedicationRequest</p><p><b>name</b>: Request for day 2, evening</p><p><b>description</b>: The administration request for day 2, evening</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iheadm001a</p><p><b>resourceType</b>: MedicationAdministration</p><p><b>name</b>: Morning meds - taken</p><p><b>description</b>: Administration report for day 1, morning: Taken</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iheadm001b</p><p><b>resourceType</b>: MedicationAdministration</p><p><b>name</b>: Morning meds - not taken</p><p><b>description</b>: Administration report for day 1, morning: NOT Taken</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001bundle</p><p><b>resourceType</b>: MedicationRequest</p><p><b>name</b>: Bundle of Medication Requests</p><p><b>description</b>: All the medication Requests for Day 1</p><blockquote><p><b>containedInstance</b></p><p><b>resourceId</b>: iherx001.001</p></blockquote><blockquote><p><b>containedInstance</b></p><p><b>resourceId</b>: iherx001.002</p></blockquote><blockquote><p><b>containedInstance</b></p><p><b>resourceId</b>: iherx001.003</p></blockquote><blockquote><p><b>containedInstance</b></p><p><b>resourceId</b>: iherx001.004</p></blockquote><blockquote><p><b>containedInstance</b></p><p><b>resourceId</b>: iherx001.005</p></blockquote><blockquote><p><b>containedInstance</b></p><p><b>resourceId</b>: iherx001.006</p></blockquote></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iheadm002</p><p><b>resourceType</b>: MedicationAdministration</p><p><b>name</b>: Lunch meds - taken</p><p><b>description</b>: Administration report for day 1, lunch: Taken</p><blockquote><p><b>version</b></p><p><b>versionId</b>: iheadm002v1</p><p><b>description</b>: Medication just taken</p></blockquote><blockquote><p><b>version</b></p><p><b>versionId</b>: iheadm002v2</p><p><b>description</b>: Medication rejected</p></blockquote></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherxqry</p><p><b>resourceType</b>: SearchParameter</p><p><b>name</b>: Search query1</p><p><b>description</b>: The search administration request for day 1, morning</p></blockquote><blockquote><p><b>process</b></p><p><b>title</b>: Mobile Medication Administration</p><p><b>description</b>: This scenario demonstrates the process of getting the relevant medication instructions for a patient visit and reporting the results of administration. The scenario is as follows: After the prescription is issued, the institution schedules each individual administration event in the Medication Administration Record (MAR). When preparing for a visit, the nurse queries the MAR for the scheduled administrations, obtaining a bundle of records. The nurse then performs the care activities and registers the results in the device. Upon synchronization of the device and the institution, the results of administration are uploaded to the EHR, thus updating the MAR.</p><p><b>preConditions</b>: Medication administration requests are in the EHR / MAR, scheduled for each individual intake.</p><p><b>postConditions</b>: Medication administration Reports are submitted, EHR is updated.</p><blockquote><p><b>step</b></p><h3>Operations</h3><table class=\"grid\"><tr><td>-</td><td><b>Number</b></td><td><b>Name</b></td><td><b>Initiator</b></td><td><b>Receiver</b></td></tr><tr><td>*</td><td>1</td><td>1. Get today's schedule</td><td>Nurse</td><td>MAP</td></tr></table></blockquote><blockquote><p><b>step</b></p><blockquote><p><b>process</b></p><p><b>title</b>: P1. Query Administration Requests</p><p><b>description</b>: Query for medication administration orders,\\n- For today's shifts\\n- For today's patients</p></blockquote></blockquote><blockquote><p><b>step</b></p><p><b>pause</b>: true</p></blockquote><blockquote><p><b>step</b></p><h3>Operations</h3><table class=\"grid\"><tr><td>-</td><td><b>Number</b></td><td><b>Name</b></td><td><b>Initiator</b></td><td><b>Receiver</b></td></tr><tr><td>*</td><td>4</td><td>Notify (alert)</td><td>MAP</td><td>Nurse</td></tr></table></blockquote><blockquote><p><b>step</b></p><h3>Operations</h3><table class=\"grid\"><tr><td>-</td><td><b>Number</b></td><td><b>Name</b></td><td><b>Initiator</b></td><td><b>Receiver</b></td></tr><tr><td>*</td><td>5</td><td>Read orders</td><td>Nurse</td><td>MAP</td></tr></table></blockquote><blockquote><p><b>step</b></p><p><b>pause</b>: true</p></blockquote><blockquote><p><b>step</b></p><h3>Operations</h3><table class=\"grid\"><tr><td>-</td><td><b>Number</b></td><td><b>Name</b></td><td><b>Initiator</b></td><td><b>Receiver</b></td></tr><tr><td>*</td><td>5</td><td>Ask if patient took meds</td><td>Nurse</td><td>Nurse</td></tr></table></blockquote><blockquote><p><b>step</b></p><blockquote><p><b>alternative</b></p><p><b>title</b>: Patient took drugs</p><p><b>description</b>: Invoke if patient took medications</p><blockquote><p><b>step</b></p></blockquote></blockquote><blockquote><p><b>alternative</b></p><p><b>title</b>: No drugs</p><p><b>description</b>: No, patient did not take drugs</p><blockquote><p><b>step</b></p></blockquote></blockquote><blockquote><p><b>alternative</b></p><p><b>title</b>: Not clear</p><p><b>description</b>: Unknown whether patient took medications or not</p><h3>Steps</h3><table class=\"grid\"><tr><td>-</td><td><b>Pause</b></td></tr><tr><td>*</td><td>true</td></tr></table></blockquote></blockquote><blockquote><p><b>step</b></p><p><b>pause</b>: true</p></blockquote><blockquote><p><b>step</b></p><h3>Operations</h3><table class=\"grid\"><tr><td>-</td><td><b>Number</b></td><td><b>Name</b></td><td><b>Initiator</b></td><td><b>Receiver</b></td></tr><tr><td>*</td><td>6</td><td>Administer drug</td><td>Nurse</td><td>Nurse</td></tr></table></blockquote><blockquote><p><b>step</b></p><h3>Operations</h3><table class=\"grid\"><tr><td>-</td><td><b>Number</b></td><td><b>Name</b></td><td><b>Initiator</b></td><td><b>Receiver</b></td><td><b>InitiatorActive</b></td></tr><tr><td>*</td><td>7</td><td>Register administration</td><td>Nurse</td><td>MAP</td><td>true</td></tr></table></blockquote><blockquote><p><b>step</b></p><p><b>pause</b>: true</p></blockquote><blockquote><p><b>step</b></p><blockquote><p><b>process</b></p><p><b>title</b>: P2. Update administration reports</p></blockquote></blockquote><blockquote><p><b>step</b></p><p><b>pause</b>: true</p></blockquote><blockquote><p><b>step</b></p><blockquote><p><b>process</b></p><p><b>title</b>: P3. Upload administration reports</p><p><b>description</b>: The nurse's system uploads the administration results to the server</p></blockquote></blockquote></blockquote></div>"
+    }, 
+    "contained": [], 
+    "extension": [
+        "urn:ngsi-ld:Extension:001"
+    ], 
+    "modifierExtension": [
+        "urn:ngsi-ld:Extension:modifier001"
+    ], 
+    "url": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/uri' String of characters used to identify a name or a resource", 
+    "_url": {
+        "id": "b96dc985-b3c2-44b7-a519-78ca13b8d135", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "identifier": [
+        {
+            "id": "11883604-9e85-4366-8cc8-3b7838694a16", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "_use": {
+                "id": "7f8828a8-9252-4c54-b58b-54744eb326e0"
+            }, 
+            "type": {
+                "id": "78f61399-4044-4049-9af8-8b3a28b60d6b", 
+                "coding": [
+                    {
+                        "id": "1a421cd9-9502-4e0c-a1c2-3d4550cf769a", 
+                        "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                        "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                        "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                        "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                        "userSelected": false
+                    }
+                ], 
+                "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
+                "_text": {
+                    "id": "1507708b-de35-43a4-9957-35e780c4e69e"
+                }
+            }, 
+            "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+            "_system": {
+                "id": "bc7120dd-33e0-4e19-82ab-8beb2d653d6b"
+            }, 
+            "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.", 
+            "_value": {
+                "id": "a1e26e29-270e-4883-99a6-20345bd7331c"
+            }, 
+            "period": {
+                "id": "13256551-422a-4269-8abc-bf5e84a00730", 
+                "start": "The start of the period. The boundary is inclusive.", 
+                "_start": {
+                    "id": "869c6658-340e-4190-906c-93eb5a94f66f"
+                }, 
+                "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.", 
+                "_end": {
+                    "id": "db6d90a5-311d-41e7-800d-cede14ddeeb6"
+                }
+            }, 
+            "assigner": {
+                "id": "20c337ae-cff4-4cac-84c2-0388440f91fb", 
+                "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                "_reference": {
+                    "id": "6227e50b-c138-402a-a838-6a3c9a6d4130"
+                }, 
+                "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                "_type": {
+                    "id": "19c8f623-acff-45b2-bb96-3b71de59868b"
+                }, 
+                "identifier": {
+                    "id": "3fd2033e-2765-4536-bea1-176d2179613c", 
+                    "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+                    "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
+                }, 
+                "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
+                "_display": {
+                    "id": "4b712390-81c0-482e-b959-4c3b621feec8"
+                }
+            }
+        }
+    ], 
+    "version": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/string' A sequence of Unicode characters", 
+    "_version": {
+        "id": "33613768-5597-4cb0-8214-ee89209bb541", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "name": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/string' A sequence of Unicode characters", 
+    "_name": {
+        "id": "5ef004fc-c0ef-4fc7-b950-6465efcf9b9e", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "status": "draft", 
+    "_status": {
+        "id": "3df2afaa-1d53-41c4-842f-1647fbd99e02", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "experimental": true, 
+    "_experimental": {
+        "id": "3bc199d1-7af4-4c7b-9757-0161a86bc491", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "date": "25/11/2024", 
+    "_date": {
+        "id": "268a614e-d9fc-4f22-92f1-0c84a4cca806", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "publisher": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/string' A sequence of Unicode characters", 
+    "_publisher": {
+        "id": "cf319da5-7803-42ef-9760-c77bfcf04b8a", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "contact": [
+        {
+            "id": "7d95095f-1e73-407c-af51-77388c8d30a8", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "name": "The name of an individual to contact.", 
+            "_name": {
+                "id": "814d81c5-d2aa-4a5a-96cc-535355b029b6"
+            }, 
+            "telecom": [
+                {
+                    "id": "595f8910-30c9-4f85-9a97-f7b2140467f3", 
+                    "_system": {
+                        "id": "3b80b635-577a-4dd2-8c03-616bf5b94aca"
+                    }, 
+                    "value": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).", 
+                    "_value": {
+                        "id": "1f86ad49-a739-42f6-957f-8b1f2be133c9"
+                    }, 
+                    "_use": {
+                        "id": "7cd83348-f5a3-4cd4-84d9-a49b3fe768f2"
+                    }, 
+                    "rank": 123456, 
+                    "_rank": {
+                        "id": "500debf7-0dc0-46bd-bb18-362824213e20"
+                    }, 
+                    "period": {
+                        "id": "93881564-1c0f-4fec-920f-96b7b6ce5aa8", 
+                        "start": "The start of the period. The boundary is inclusive.", 
+                        "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+                    }
+                }
+            ]
+        }
+    ], 
+    "useContext": [
+        {
+            "id": "3682431e-8fff-4995-b45d-8b36504ab62d", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "code": {
+                "id": "5df864b7-be63-48f6-8d86-f6d8a72dc441", 
+                "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                "_system": {
+                    "id": "3066b78e-14e9-4ae1-a911-fae702466f4b"
+                }, 
+                "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                "_version": {
+                    "id": "8886569c-7d42-47ed-8a61-a6299bd31edc"
+                }, 
+                "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                "_code": {
+                    "id": "f20f953d-e42b-4716-8451-cca622330880"
+                }, 
+                "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                "_display": {
+                    "id": "3465d950-5e06-4d59-a37e-59094181f71b"
+                }, 
+                "userSelected": false, 
+                "_userSelected": {
+                    "id": "93871c33-a377-4ac3-9f3f-b7686101a447"
+                }
+            }, 
+            "valueCodeableConcept": {
+                "id": "b62e534d-734a-4665-bb6e-34f0d39116d5", 
+                "coding": [
+                    {
+                        "id": "b44d3485-a518-42d2-81cb-b273a6680d15", 
+                        "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                        "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                        "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                        "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                        "userSelected": false
+                    }
+                ], 
+                "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
+                "_text": {
+                    "id": "96e28e7b-8749-4b7d-ba6e-e1ea7bfc6a90"
+                }
+            }, 
+            "valueQuantity": {
+                "id": "eace16a6-9ba1-44a5-af39-35f73a3ba9da", 
+                "value": 123456, 
+                "_value": {
+                    "id": "b300f38f-272e-40b7-90a1-5bd85a3f4140"
+                }, 
+                "_comparator": {
+                    "id": "d5d0717e-3b45-4e5e-acf4-3bb3e6469826"
+                }, 
+                "unit": "A human-readable form of the unit.", 
+                "_unit": {
+                    "id": "2984286e-8ab0-4bc6-acd7-c12fe4f074e5"
+                }, 
+                "system": "The identification of the system that provides the coded form of the unit.", 
+                "_system": {
+                    "id": "f8a3cedd-9164-4cb8-86b5-4ec09d0a0686"
+                }, 
+                "code": "A computer processable form of the unit in some unit representation system.", 
+                "_code": {
+                    "id": "0bbcba46-b136-49a7-aae3-79f086252180"
+                }
+            }, 
+            "valueRange": {
+                "id": "d4779c75-1fb5-4209-9d7e-8cd7dde3d0a2", 
+                "low": {
+                    "id": "ea065509-9897-4df2-8607-ccead3dfd77c", 
+                    "value": 123456, 
+                    "unit": "A human-readable form of the unit.", 
+                    "system": "The identification of the system that provides the coded form of the unit.", 
+                    "code": "A computer processable form of the unit in some unit representation system."
+                }, 
+                "high": {
+                    "id": "361701c8-247a-46c3-b2ff-b40ca52a2c93", 
+                    "value": 123456, 
+                    "unit": "A human-readable form of the unit.", 
+                    "system": "The identification of the system that provides the coded form of the unit.", 
+                    "code": "A computer processable form of the unit in some unit representation system."
+                }
+            }, 
+            "valueReference": {
+                "id": "45da42db-fee1-4548-94a1-2ebaedae4566", 
+                "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                "_reference": {
+                    "id": "1abda136-e4ac-464f-8e66-1b7dece350ce"
+                }, 
+                "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                "_type": {
+                    "id": "b92242b9-c921-40ef-8a2f-f6d1908da347"
+                }, 
+                "identifier": {
+                    "id": "066704e1-1550-4c8c-994e-6301959c06cd", 
+                    "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+                    "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
+                }, 
+                "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
+                "_display": {
+                    "id": "4b91a6e9-e265-47bc-9185-7ca4cc21f802"
+                }
+            }
+        }
+    ], 
+    "jurisdiction": [
+        {
+            "id": "d1a22559-0aa7-400e-be9b-8c7cc96e680c", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "coding": [
+                {
+                    "id": "f68ff493-f1cc-40eb-9acf-1b946a465132", 
+                    "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                    "_system": {
+                        "id": "75aeebc6-f82b-4dab-971f-f26e288132d3"
+                    }, 
+                    "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                    "_version": {
+                        "id": "3354824a-2b55-4e1f-8910-2519c4d78291"
+                    }, 
+                    "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                    "_code": {
+                        "id": "18ccc1d3-f7b1-4554-8254-182af4274108"
+                    }, 
+                    "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                    "_display": {
+                        "id": "8e7e3f39-23cf-4d34-a838-ab5d4ab28147"
+                    }, 
+                    "userSelected": false, 
+                    "_userSelected": {
+                        "id": "02ababf1-5275-4cb8-8314-c35b3f8a728d"
+                    }
+                }
+            ], 
+            "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
+            "_text": {
+                "id": "74c87bf3-0ec9-42eb-b51e-0d9e379c6037"
+            }
+        }
+    ], 
+    "copyright": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/markdown' A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine", 
+    "_copyright": {
+        "id": "42f664a3-fdfa-4b84-a541-b78e0136af9d", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "purpose": "Purpose: this serves to enable remote performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR.", 
+    "_purpose": {
+        "id": "e1678bd2-e295-43bc-a9e6-dd85e82a65e2", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "actor": [
+        {
+            "actorId": "Nurse", 
+            "type": "person", 
+            "name": "Nurse", 
+            "description": "The Nurse"
+        }, 
+        {
+            "actorId": "MAP", 
+            "type": "entity", 
+            "name": "Nurse's Tablet", 
+            "description": "The entity that receives the Administration Requests to show the nurse to perform them"
+        }, 
+        {
+            "actorId": "OP", 
+            "type": "entity", 
+            "name": "MAR / Scheduler", 
+            "description": "The Medication Administration Order Placer"
+        }, 
+        {
+            "actorId": "MAC", 
+            "type": "entity", 
+            "name": "MAR / EHR", 
+            "description": "The entity that receives the Medication Administration reports"
+        }
+    ], 
+    "instance": [
+        {
+            "resourceId": "iherx001", 
+            "resourceType": "MedicationRequest", 
+            "name": "Initial Prescription", 
+            "description": "The initial prescription which describes \"medication X, 3 times per day\" - the exact scheduling is not   in the initial prescription (it is left for the care teams to decide on the schedule)."
+        }, 
+        {
+            "resourceId": "iherx001.001", 
+            "resourceType": "MedicationRequest", 
+            "name": "Request for day 1, morning", 
+            "description": "The administration request for day 1, morning"
+        }, 
+        {
+            "resourceId": "iherx001.002", 
+            "resourceType": "MedicationRequest", 
+            "name": "Request for day 1, lunch", 
+            "description": "The administration request for day 1, lunch"
+        }, 
+        {
+            "resourceId": "iherx001.003", 
+            "resourceType": "MedicationRequest", 
+            "name": "Request for day 1, evening", 
+            "description": "The administration request for day 1, evening"
+        }, 
+        {
+            "resourceId": "iherx001.004", 
+            "resourceType": "MedicationRequest", 
+            "name": "Request for day 2, morning", 
+            "description": "The administration request for day 2, morning"
+        }, 
+        {
+            "resourceId": "iherx001.005", 
+            "resourceType": "MedicationRequest", 
+            "name": "Request for day 2, lunch", 
+            "description": "The administration request for day 2, lunch"
+        }, 
+        {
+            "resourceId": "iherx001.006", 
+            "resourceType": "MedicationRequest", 
+            "name": "Request for day 2, evening", 
+            "description": "The administration request for day 2, evening"
+        }, 
+        {
+            "resourceId": "iheadm001a", 
+            "resourceType": "MedicationAdministration", 
+            "name": "Morning meds - taken", 
+            "description": "Administration report for day 1, morning: Taken"
+        }, 
+        {
+            "resourceId": "iheadm001b", 
+            "resourceType": "MedicationAdministration", 
+            "name": "Morning meds - not taken", 
+            "description": "Administration report for day 1, morning: NOT Taken"
+        }, 
+        {
+            "resourceId": "iherx001bundle", 
+            "resourceType": "MedicationRequest", 
+            "name": "Bundle of Medication Requests", 
+            "description": "All the medication Requests for Day 1", 
+            "containedInstance": [
+                {
+                    "resourceId": "iherx001.001"
+                }, 
+                {
+                    "resourceId": "iherx001.002"
+                }, 
+                {
+                    "resourceId": "iherx001.003"
+                }, 
+                {
+                    "resourceId": "iherx001.004"
+                }, 
+                {
+                    "resourceId": "iherx001.005"
+                }, 
+                {
+                    "resourceId": "iherx001.006"
+                }
+            ]
+        }, 
+        {
+            "resourceId": "iheadm002", 
+            "resourceType": "MedicationAdministration", 
+            "name": "Lunch meds - taken", 
+            "description": "Administration report for day 1, lunch: Taken", 
+            "version": [
+                {
+                    "versionId": "iheadm002v1", 
+                    "description": "Medication just taken"
+                }, 
+                {
+                    "versionId": "iheadm002v2", 
+                    "description": "Medication rejected"
+                }
+            ]
+        }, 
+        {
+            "resourceId": "iherxqry", 
+            "resourceType": "SearchParameter", 
+            "name": "Search query1", 
+            "description": "The search administration request for day 1, morning"
+        }
+    ], 
+    "process": [
+        {
+            "title": "Mobile Medication Administration", 
+            "description": "This scenario demonstrates the process of getting the relevant medication instructions for a patient visit and reporting the results of administration. The scenario is as follows: After the prescription is issued, the institution schedules each individual administration event in the Medication Administration Record (MAR). When preparing for a visit, the nurse queries the MAR for the scheduled administrations, obtaining a bundle of records. The nurse then performs the care activities and registers the results in the device. Upon synchronization of the device and the institution, the results of administration are uploaded to the EHR, thus updating the MAR.", 
+            "preConditions": "Medication administration requests are in the EHR / MAR, scheduled for each individual intake.", 
+            "postConditions": "Medication administration Reports are submitted, EHR is updated.", 
+            "step": [
+                {
+                    "operation": {
+                        "number": "1", 
+                        "name": "1. Get today's schedule", 
+                        "initiator": "Nurse", 
+                        "receiver": "MAP"
+                    }
+                }, 
+                {
+                    "process": [
+                        {
+                            "title": "P1. Query Administration Requests", 
+                            "description": "Query for medication administration orders,\\n- For today's shifts\\n- For today's patients", 
+                            "step": [
+                                {
+                                    "operation": {
+                                        "number": "2", 
+                                        "name": "2.Query for medication administration orders,\\n- For today's shifts\\n- For today's patients", 
+                                        "initiator": "MAP", 
+                                        "receiver": "OP", 
+                                        "request": {
+                                            "resourceId": "iherxqry"
+                                        }, 
+                                        "response": {
+                                            "resourceId": "iherx001bundle"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }, 
+                {
+                    "pause": true
+                }, 
+                {
+                    "operation": {
+                        "number": "4", 
+                        "name": "Notify (alert)", 
+                        "initiator": "MAP", 
+                        "receiver": "Nurse"
+                    }
+                }, 
+                {
+                    "operation": {
+                        "number": "5", 
+                        "name": "Read orders", 
+                        "initiator": "Nurse", 
+                        "receiver": "MAP"
+                    }
+                }, 
+                {
+                    "pause": true
+                }, 
+                {
+                    "operation": {
+                        "number": "5", 
+                        "name": "Ask if patient took meds", 
+                        "initiator": "Nurse", 
+                        "receiver": "Nurse"
+                    }
+                }, 
+                {
+                    "alternative": [
+                        {
+                            "title": "Patient took drugs", 
+                            "description": "Invoke if patient took medications", 
+                            "step": [
+                                {
+                                    "process": [
+                                        {
+                                            "title": "Register Meds taken", 
+                                            "step": [
+                                                {
+                                                    "operation": {
+                                                        "number": "1a", 
+                                                        "name": "Register Meds taken", 
+                                                        "initiator": "Nurse", 
+                                                        "receiver": "MAP", 
+                                                        "initiatorActive": true
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }, 
+                        {
+                            "title": "No drugs", 
+                            "description": "No, patient did not take drugs", 
+                            "step": [
+                                {
+                                    "process": [
+                                        {
+                                            "title": "Register Meds NOT taken", 
+                                            "step": [
+                                                {
+                                                    "operation": {
+                                                        "number": "1b", 
+                                                        "name": "Register Meds NOT taken", 
+                                                        "initiator": "Nurse", 
+                                                        "receiver": "MAP", 
+                                                        "initiatorActive": true
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }, 
+                        {
+                            "title": "Not clear", 
+                            "description": "Unknown whether patient took medications or not", 
+                            "step": [
+                                {
+                                    "pause": true
+                                }
+                            ]
+                        }
+                    ]
+                }, 
+                {
+                    "pause": true
+                }, 
+                {
+                    "operation": {
+                        "number": "6", 
+                        "name": "Administer drug", 
+                        "initiator": "Nurse", 
+                        "receiver": "Nurse"
+                    }
+                }, 
+                {
+                    "operation": {
+                        "number": "7", 
+                        "name": "Register administration", 
+                        "initiator": "Nurse", 
+                        "receiver": "MAP", 
+                        "initiatorActive": true
+                    }
+                }, 
+                {
+                    "pause": true
+                }, 
+                {
+                    "process": [
+                        {
+                            "title": "P2. Update administration reports", 
+                            "step": [
+                                {
+                                    "operation": {
+                                        "number": "8", 
+                                        "name": "Nurse updates administration report", 
+                                        "initiator": "Nurse", 
+                                        "receiver": "MAP", 
+                                        "initiatorActive": true, 
+                                        "request": {
+                                            "resourceId": "iheadm002"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }, 
+                {
+                    "pause": true
+                }, 
+                {
+                    "process": [
+                        {
+                            "title": "P3. Upload administration reports", 
+                            "description": "The nurse's system uploads the administration results to the server", 
+                            "step": [
+                                {
+                                    "operation": {
+                                        "number": "9", 
+                                        "name": "Refresh", 
+                                        "initiator": "MAP", 
+                                        "receiver": "MAC", 
+                                        "request": {
+                                            "resourceId": "iheadm001"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ], 
+    "workflow": [
+        "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/canonical' Another nested workflow."
+    ], 
+    "id": "urn:ngsi-ld:ExampleScenario:001", 
+    "description": "an instance of ExampleScenario", 
+    "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld", 
+        "https://raw.githubusercontent.com/smart-data-models/dataModel.SMARTHEALTH/HL7/context.jsonld"
+    ]
+}

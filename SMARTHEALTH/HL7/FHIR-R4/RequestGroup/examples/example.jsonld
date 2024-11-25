@@ -1,0 +1,614 @@
+{
+    "resourceType": "RequestGroup", 
+    "type": "RequestGroup", 
+    "meta": {
+        "tag": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason", 
+                "code": "HTEST", 
+                "display": "test health data"
+            }
+        ]
+    }, 
+    "implicitRules": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/uri' String of characters used to identify a name or a resource", 
+    "_implicitRules": {
+        "id": "7207245e-aaa1-4fdc-bcf5-88f9ade8dcfd", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "language": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+    "_language": {
+        "id": "69f69bc2-bafa-425c-bb27-30d7095221e4", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "text": {
+        "status": "generated", 
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Administer gemcitabine and carboplatin.</div>"
+    }, 
+    "contained": [
+        {
+            "resourceType": "MedicationRequest", 
+            "id": "1111", 
+            "status": "unknown", 
+            "intent": "proposal", 
+            "medicationCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "http://www.nlm.nih.gov/research/umls/rxnorm", 
+                        "code": "12574", 
+                        "display": "gemcitabine"
+                    }
+                ], 
+                "text": "gemcitabine"
+            }, 
+            "subject": {
+                "reference": "Patient/example"
+            }, 
+            "dosageInstruction": [
+                {
+                    "text": "1250 mg/m\u00b2 IV over 30 minutes", 
+                    "timing": {
+                        "repeat": {
+                            "duration": 30, 
+                            "durationUnit": "min"
+                        }
+                    }, 
+                    "route": {
+                        "text": "IV"
+                    }, 
+                    "doseAndRate": [
+                        {
+                            "type": {
+                                "coding": [
+                                    {
+                                        "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type", 
+                                        "code": "ordered", 
+                                        "display": "Ordered"
+                                    }
+                                ]
+                            }, 
+                            "doseQuantity": {
+                                "value": 1250, 
+                                "unit": "mg/m\u00b2"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "resourceType": "MedicationRequest", 
+            "id": "2222", 
+            "status": "unknown", 
+            "intent": "proposal", 
+            "medicationCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "http://www.nlm.nih.gov/research/umls/rxnorm", 
+                        "code": "40048", 
+                        "display": "Carboplatin"
+                    }
+                ], 
+                "text": "CARBOplatin"
+            }, 
+            "subject": {
+                "reference": "Patient/example"
+            }, 
+            "dosageInstruction": [
+                {
+                    "text": "AUC 5 IV over 30 minutes", 
+                    "timing": {
+                        "repeat": {
+                            "duration": 30, 
+                            "durationUnit": "min"
+                        }
+                    }, 
+                    "route": {
+                        "text": "IV"
+                    }, 
+                    "doseAndRate": [
+                        {
+                            "type": {
+                                "coding": [
+                                    {
+                                        "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type", 
+                                        "code": "ordered", 
+                                        "display": "Ordered"
+                                    }
+                                ]
+                            }, 
+                            "doseQuantity": {
+                                "extension": [
+                                    {
+                                        "url": "http://example.org/fhir/AUC-dose", 
+                                        "valueInteger": 5
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ], 
+    "extension": [
+        "urn:ngsi-ld:Extension:001"
+    ], 
+    "modifierExtension": [
+        "urn:ngsi-ld:Extension:modifier001"
+    ], 
+    "identifier": [
+        {
+            "value": "requestgroup-kdn5"
+        }
+    ], 
+    "instantiatesCanonical": [
+        "http://example.org/fhir/PlanDefinition/KDN5"
+    ], 
+    "_instantiatesCanonical": [
+        {
+            "id": "17d50ecd-49be-48a8-b4f4-f92a85803554", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    ], 
+    "instantiatesUri": [
+        "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/uri' A URL referencing an externally defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request."
+    ], 
+    "_instantiatesUri": [
+        {
+            "id": "8682d1c6-4f94-4ecd-b101-654b227609fe", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ]
+        }
+    ], 
+    "basedOn": [
+        {
+            "id": "433845a4-73ff-47cd-aed9-7d4a075e7e71", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+            "_reference": {
+                "id": "c75e68b4-0335-45bb-b35f-55e862683760"
+            }, 
+            "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+            "_type": {
+                "id": "88691fa0-4eb7-459e-b18b-57bc0aa7fc7c"
+            }, 
+            "identifier": {
+                "id": "bef4d080-6d30-490f-92ef-79f413d103df", 
+                "_use": {
+                    "id": "852ec609-2473-45d5-bda1-7d3e6173305d"
+                }, 
+                "type": {
+                    "id": "b727228e-bb4c-46b0-9f59-86799e810c4a", 
+                    "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                }, 
+                "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+                "_system": {
+                    "id": "2a7c50b9-e658-4e08-ab50-7024619b99e7"
+                }, 
+                "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.", 
+                "_value": {
+                    "id": "a2bd19a5-f193-4842-b9bd-ad41b93091a6"
+                }, 
+                "period": {
+                    "id": "7054a559-0cc8-4535-9c58-ef2336276f9b", 
+                    "start": "The start of the period. The boundary is inclusive.", 
+                    "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+                }, 
+                "assigner": {
+                    "id": "385d4e11-c7e4-4feb-9fba-122502860a7a", 
+                    "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                    "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                    "display": "Plain text narrative that identifies the resource in addition to the resource reference."
+                }
+            }, 
+            "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
+            "_display": {
+                "id": "ee6a3034-e495-43e2-adc9-5c74347407e8"
+            }
+        }
+    ], 
+    "replaces": [
+        {
+            "id": "576dc515-133c-414d-87a4-d2221709648d", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+            "_reference": {
+                "id": "e70abe4b-00ba-4a45-9742-ec043a7e70b2"
+            }, 
+            "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+            "_type": {
+                "id": "69466843-6f6b-4e65-8b85-c9fbaa9feb25"
+            }, 
+            "identifier": {
+                "id": "8b792dc4-246b-4ac0-a12b-144c2845c659", 
+                "_use": {
+                    "id": "6d87ee1e-35ea-417d-b500-07f6914e2ec4"
+                }, 
+                "type": {
+                    "id": "4d47bd2f-160f-48b9-a710-54e297987935", 
+                    "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                }, 
+                "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+                "_system": {
+                    "id": "45b0d425-3311-425c-abd9-3d9cf230722b"
+                }, 
+                "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.", 
+                "_value": {
+                    "id": "5930579f-fcda-461c-be14-da45de46cc25"
+                }, 
+                "period": {
+                    "id": "07893031-d9a2-4ae6-ad3a-e32be89b6d5c", 
+                    "start": "The start of the period. The boundary is inclusive.", 
+                    "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+                }, 
+                "assigner": {
+                    "id": "fa0c02d6-f34b-4b85-8230-2939aee1f423", 
+                    "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                    "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                    "display": "Plain text narrative that identifies the resource in addition to the resource reference."
+                }
+            }, 
+            "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
+            "_display": {
+                "id": "4d65e306-d82b-48f7-a59e-4fe19b086b9f"
+            }
+        }
+    ], 
+    "groupIdentifier": {
+        "id": "f2e13354-7cfa-40b0-929c-e3c7f5e174cb", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "_use": {
+            "id": "90c017b8-9a87-4485-a308-8f774773e4cb"
+        }, 
+        "type": {
+            "id": "337e9d52-28cc-404f-a859-b79f70ce814c", 
+            "coding": [
+                {
+                    "id": "4330218a-19ee-475e-aa1d-3820b3cae00b", 
+                    "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                    "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                    "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                    "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                    "userSelected": false
+                }
+            ], 
+            "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
+            "_text": {
+                "id": "9a28ddba-cdd9-49fc-84fe-f5435ad5945b"
+            }
+        }, 
+        "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+        "_system": {
+            "id": "eb9797f0-b0bf-49bc-995f-aaa75b5b96d7"
+        }, 
+        "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.", 
+        "_value": {
+            "id": "f7315c28-b401-4595-8118-465ab45b1513"
+        }, 
+        "period": {
+            "id": "7fe8408b-d0d7-418e-a560-5713a02edd50", 
+            "start": "The start of the period. The boundary is inclusive.", 
+            "_start": {
+                "id": "61d2ea8c-180e-4dad-a124-8d5b345659f3"
+            }, 
+            "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.", 
+            "_end": {
+                "id": "e50da5c3-4df8-4c90-82a0-c1c8567810c0"
+            }
+        }, 
+        "assigner": {
+            "id": "7cbb3cc3-4258-4178-9d29-59dab2e45c84", 
+            "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+            "_reference": {
+                "id": "8074ae72-6421-4d24-83d6-993f34f4c121"
+            }, 
+            "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+            "_type": {
+                "id": "c926fa92-8613-4721-8fd9-830e38d916a1"
+            }, 
+            "identifier": {
+                "id": "dc42fa0e-628e-4243-abb5-f2f8da4e8757", 
+                "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+                "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
+            }, 
+            "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
+            "_display": {
+                "id": "cab57ef7-086c-4130-9634-82e4e19513ff"
+            }
+        }
+    }, 
+    "status": "draft", 
+    "_status": {
+        "id": "3ff465a9-68eb-40b6-8a80-a1d6f8dfcf84", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "intent": "plan", 
+    "_intent": {
+        "id": "24002df9-0508-494f-b6b8-e6662b8499f8", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "priority": "routine", 
+    "_priority": {
+        "id": "db6e09a5-6af5-45ba-8c7f-97fde49df1ad", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "code": {
+        "id": "a0b9adaf-48b9-4ad5-9b3f-e91c6069cbb2", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ], 
+        "coding": [
+            {
+                "id": "f8f147d7-e12c-4f75-a47c-fd7e7f44cb60", 
+                "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                "_system": {
+                    "id": "76412c26-b5a2-4950-8ce9-4a4566cb7cf7"
+                }, 
+                "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                "_version": {
+                    "id": "3626a8e8-d99b-4cb3-86b9-020008a70523"
+                }, 
+                "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                "_code": {
+                    "id": "ce2d341d-b901-4dde-8676-6152751db0ed"
+                }, 
+                "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                "_display": {
+                    "id": "9ea1515f-8360-41a1-9cfa-14c50f0bf4b7"
+                }, 
+                "userSelected": false, 
+                "_userSelected": {
+                    "id": "2a4290e5-d5bb-46df-8111-b8b59ee0e469"
+                }
+            }
+        ], 
+        "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
+        "_text": {
+            "id": "85ab3a91-084b-48e2-b0f4-d6af37e02a8d"
+        }
+    }, 
+    "subject": {
+        "reference": "Patient/example"
+    }, 
+    "encounter": {
+        "reference": "Encounter/example"
+    }, 
+    "authoredOn": "2017-03-06T17:31:00Z", 
+    "_authoredOn": {
+        "id": "7162a60a-cf39-4a2a-948f-93ebb232f90a", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "author": {
+        "reference": "Practitioner/1"
+    }, 
+    "reasonCode": [
+        {
+            "id": "7d146d0b-9204-4c8e-b5b8-c1bfddcf9c92", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "coding": [
+                {
+                    "id": "08663e39-ce2f-49bd-8df5-58730de9c194", 
+                    "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                    "_system": {
+                        "id": "d419edcb-be47-4c60-a520-65452a79fece"
+                    }, 
+                    "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                    "_version": {
+                        "id": "83ebe20e-9289-42cd-9b88-cdceda1a0f01"
+                    }, 
+                    "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                    "_code": {
+                        "id": "87ea2570-c836-4031-b21a-5099273fc6de"
+                    }, 
+                    "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                    "_display": {
+                        "id": "1c180af4-bb2b-4a61-8b44-257bab95c9cb"
+                    }, 
+                    "userSelected": false, 
+                    "_userSelected": {
+                        "id": "02add02b-6437-4948-b320-9e5506466711"
+                    }
+                }
+            ], 
+            "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
+            "_text": {
+                "id": "700f6797-a3c8-48d1-83fd-5216ea319eea"
+            }
+        }
+    ], 
+    "reasonReference": [
+        {
+            "id": "146c4ce3-ce9a-415c-bd37-6daf7696472e", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+            "_reference": {
+                "id": "d8575e4a-014e-4d67-8ec8-63666c6bcaf4"
+            }, 
+            "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+            "_type": {
+                "id": "04a302c9-e550-4082-ae69-f5dea29f1349"
+            }, 
+            "identifier": {
+                "id": "f5539f18-9d53-480b-a585-de17ceb57fb4", 
+                "_use": {
+                    "id": "ba6a6504-93ec-4079-8d8c-afe18b7865d0"
+                }, 
+                "type": {
+                    "id": "36464910-3d48-41fc-af4f-445c225db781", 
+                    "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                }, 
+                "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+                "_system": {
+                    "id": "0038eece-0afa-4031-ab9d-9fb95a125f7e"
+                }, 
+                "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.", 
+                "_value": {
+                    "id": "d6cc97a7-84a5-47b5-b50f-08fc6897a69c"
+                }, 
+                "period": {
+                    "id": "e49a414c-2332-426f-84b6-49206971674d", 
+                    "start": "The start of the period. The boundary is inclusive.", 
+                    "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+                }, 
+                "assigner": {
+                    "id": "4bfa99d1-d63a-4ff4-b757-cdfba6c3cd5f", 
+                    "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                    "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                    "display": "Plain text narrative that identifies the resource in addition to the resource reference."
+                }
+            }, 
+            "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
+            "_display": {
+                "id": "60f025aa-3b2f-482d-b695-f6b6a7290ed1"
+            }
+        }
+    ], 
+    "note": [
+        {
+            "id": "4032644d-c6b3-4bee-9d33-3e4a61b6cc6a", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "authorReference": {
+                "id": "5b06009e-3752-4989-bf3f-4195405fdfa3", 
+                "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                "_reference": {
+                    "id": "d500790a-fe15-4602-9e63-21e168fafb49"
+                }, 
+                "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                "_type": {
+                    "id": "b2add4cf-d66c-42ed-bc99-f3fd6784d82d"
+                }, 
+                "identifier": {
+                    "id": "0f3ad9a6-1bd2-4ecd-adff-fd937786f748", 
+                    "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+                    "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
+                }, 
+                "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
+                "_display": {
+                    "id": "f60dfbe2-1f55-42cd-9b83-3e4432b6600f"
+                }
+            }, 
+            "authorString": "The individual responsible for making the annotation.", 
+            "_authorString": {
+                "id": "2f3f1800-8ff1-458d-bb8c-3f8f536ba841"
+            }, 
+            "time": "16:16:37.431159", 
+            "_time": {
+                "id": "c2bf7fc5-5569-427d-93a4-3f95a4e0d3a5"
+            }, 
+            "text": "The text of the annotation in markdown format.", 
+            "_text": {
+                "id": "206b7b99-6786-45af-8e75-97f9e57f6023"
+            }
+        }
+    ], 
+    "action": [
+        {
+            "selectionBehavior": "exactly-one", 
+            "action": [
+                {
+                    "selectionBehavior": "all", 
+                    "action": [
+                        {
+                            "groupingBehavior": "sentence-group", 
+                            "selectionBehavior": "exactly-one", 
+                            "action": [
+                                {
+                                    "id": "cycle-definition-1", 
+                                    "textEquivalent": "21-day cycle for 6 cycles", 
+                                    "timingTiming": {
+                                        "repeat": {
+                                            "count": 6, 
+                                            "duration": 21, 
+                                            "durationUnit": "d"
+                                        }
+                                    }, 
+                                    "action": [
+                                        {
+                                            "id": "action-1", 
+                                            "extension": [
+                                                {
+                                                    "url": "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle", 
+                                                    "extension": [
+                                                        {
+                                                            "url": "day", 
+                                                            "valueInteger": 1
+                                                        }, 
+                                                        {
+                                                            "url": "day", 
+                                                            "valueInteger": 8
+                                                        }
+                                                    ]
+                                                }
+                                            ], 
+                                            "textEquivalent": "Gemcitabine 1250 mg/m\u00b2 IV over 30 minutes on days 1 and 8", 
+                                            "resource": {
+                                                "reference": "#1111"
+                                            }
+                                        }, 
+                                        {
+                                            "id": "action-2", 
+                                            "extension": [
+                                                {
+                                                    "url": "http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle", 
+                                                    "extension": [
+                                                        {
+                                                            "url": "day", 
+                                                            "valueInteger": 1
+                                                        }
+                                                    ]
+                                                }
+                                            ], 
+                                            "textEquivalent": "CARBOplatin AUC 5 IV over 30 minutes on Day 1", 
+                                            "relatedAction": [
+                                                {
+                                                    "actionId": "action-1", 
+                                                    "relationship": "concurrent-with-start"
+                                                }
+                                            ], 
+                                            "resource": {
+                                                "reference": "#2222"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ], 
+    "id": "urn:ngsi-ld:RequestGroup:001", 
+    "description": "an instance of RequestGroup", 
+    "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld", 
+        "https://raw.githubusercontent.com/smart-data-models/dataModel.SMARTHEALTH/HL7/context.jsonld"
+    ]
+}

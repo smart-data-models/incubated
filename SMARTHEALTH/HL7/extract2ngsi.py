@@ -774,6 +774,15 @@ for entity_type, entity_def in resources_definitions.items():
                 exportfilename = "./" + fhir_release_path + entity_type + "/examples/example.json"
                 with open(exportfilename, "w+") as exportfile:
                     json.dump(json_data, exportfile, indent=4, separators=(", ", ": "))
+                
+                # add @context for jsonld example
+                json_data["@context"] = [
+                    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+                    "https://raw.githubusercontent.com/smart-data-models/dataModel.SMARTHEALTH/HL7/context.jsonld"
+                ]
+                exportfilename = "./" + fhir_release_path   + entity_type   + "/examples/example.jsonld"
+                with open(exportfilename, "w+") as exportfile:
+                    json.dump(json_data, exportfile, indent=4, separators=(", ",  ": "))
 
                 # exit from for loop when a file has been validated and copied to example directory
                 break

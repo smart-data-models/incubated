@@ -1,0 +1,291 @@
+{
+    "resourceType": "CareTeam", 
+    "type": "CareTeam", 
+    "meta": {
+        "tag": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason", 
+                "code": "HTEST", 
+                "display": "test health data"
+            }
+        ]
+    }, 
+    "implicitRules": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/uri' String of characters used to identify a name or a resource", 
+    "_implicitRules": {
+        "id": "294034b2-0004-4065-8861-51d9caebebe2", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "language": "Property. Model:'https://raw.githubusercontent.com/agaldemas/incubated/master/SMARTHEALTH/HL7/FHIR-R4/FHIR-R4/code' A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents", 
+    "_language": {
+        "id": "41c5a227-aeeb-4e93-b044-bdf05e52fcda", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "text": {
+        "status": "generated", 
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Care Team</div>"
+    }, 
+    "contained": [
+        {
+            "resourceType": "Practitioner", 
+            "id": "pr1", 
+            "name": [
+                {
+                    "family": "Dietician", 
+                    "given": [
+                        "Dorothy"
+                    ]
+                }
+            ]
+        }
+    ], 
+    "extension": [
+        "urn:ngsi-ld:Extension:001"
+    ], 
+    "modifierExtension": [
+        "urn:ngsi-ld:Extension:modifier001"
+    ], 
+    "identifier": [
+        {
+            "value": "12345"
+        }
+    ], 
+    "status": "active", 
+    "_status": {
+        "id": "f06d07a9-a642-4de4-9fcb-6611cf8de861", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "category": [
+        {
+            "coding": [
+                {
+                    "system": "http://loinc.org", 
+                    "code": "LA27976-2", 
+                    "display": "Encounter-focused care team"
+                }
+            ]
+        }
+    ], 
+    "name": "Peter James Charlmers Care Plan for Inpatient Encounter", 
+    "_name": {
+        "id": "656627f7-2275-4ef3-bb51-7ba87f1539cf", 
+        "extension": [
+            "urn:ngsi-ld:Extension:001"
+        ]
+    }, 
+    "subject": {
+        "reference": "Patient/example", 
+        "display": "Peter James Chalmers"
+    }, 
+    "encounter": {
+        "reference": "Encounter/example"
+    }, 
+    "period": {
+        "end": "2013-01-01"
+    }, 
+    "participant": [
+        {
+            "role": [
+                {
+                    "text": "responsiblePerson"
+                }
+            ], 
+            "member": {
+                "reference": "Patient/example", 
+                "display": "Peter James Chalmers"
+            }
+        }, 
+        {
+            "role": [
+                {
+                    "text": "adviser"
+                }
+            ], 
+            "member": {
+                "reference": "#pr1", 
+                "display": "Dorothy Dietition"
+            }, 
+            "onBehalfOf": {
+                "reference": "Organization/f001"
+            }, 
+            "period": {
+                "end": "2013-01-01"
+            }
+        }
+    ], 
+    "reasonCode": [
+        {
+            "id": "9821a82a-78e0-418d-94a8-2971280a0d11", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "coding": [
+                {
+                    "id": "08771dbf-e235-4867-809e-f49f4a8e59bb", 
+                    "system": "The identification of the code system that defines the meaning of the symbol in the code.", 
+                    "_system": {
+                        "id": "15d0f6cb-3c7c-4184-be48-4a44e1befe2f"
+                    }, 
+                    "version": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 
+                    "_version": {
+                        "id": "209f9d5a-aeec-4615-b8a2-9703e9c3b049"
+                    }, 
+                    "code": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 
+                    "_code": {
+                        "id": "58e2dffc-9112-4988-9a49-9db23d63e60d"
+                    }, 
+                    "display": "A representation of the meaning of the code in the system, following the rules of the system.", 
+                    "_display": {
+                        "id": "479da425-3a37-4d8b-9ba3-f245ea5eeb53"
+                    }, 
+                    "userSelected": false, 
+                    "_userSelected": {
+                        "id": "075c4c05-51b2-4413-a6aa-7c4cbd3ac88a"
+                    }
+                }
+            ], 
+            "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.", 
+            "_text": {
+                "id": "048e88e1-c0f6-4314-9e92-20c025b5a13e"
+            }
+        }
+    ], 
+    "reasonReference": [
+        {
+            "id": "3fc7cba2-4c8e-4feb-8529-b1c09b61372a", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+            "_reference": {
+                "id": "82144863-e2e0-4c77-b478-d4dbddcb6fe7"
+            }, 
+            "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+            "_type": {
+                "id": "19d245ef-c063-4b75-88eb-47629fa2d9e8"
+            }, 
+            "identifier": {
+                "id": "f533a60e-219f-4f96-990c-d525316572a5", 
+                "_use": {
+                    "id": "6473c8b1-d054-4ea3-9e11-d9112a4e830b"
+                }, 
+                "type": {
+                    "id": "3a7625d3-9f36-4674-9964-748922437387", 
+                    "text": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user."
+                }, 
+                "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+                "_system": {
+                    "id": "a1659f3d-b81d-46d5-b9f5-8a1bc932cc58"
+                }, 
+                "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.", 
+                "_value": {
+                    "id": "d5be77c0-c378-4f20-839b-3ae791f76af7"
+                }, 
+                "period": {
+                    "id": "5ebe0a90-8135-40c0-a0e4-94c202b9d0cc", 
+                    "start": "The start of the period. The boundary is inclusive.", 
+                    "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time."
+                }, 
+                "assigner": {
+                    "id": "7ad33775-21c5-410e-9a62-bf5b85cc29cf", 
+                    "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                    "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                    "display": "Plain text narrative that identifies the resource in addition to the resource reference."
+                }
+            }, 
+            "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
+            "_display": {
+                "id": "3b703d1e-6294-433a-a922-5af32778fa13"
+            }
+        }
+    ], 
+    "managingOrganization": [
+        {
+            "reference": "Organization/f001"
+        }
+    ], 
+    "telecom": [
+        {
+            "id": "42d3c4da-8c05-4e43-877b-641386d4a3cc", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "_system": {
+                "id": "0cb369ae-e8ce-4941-b945-02f7d5c0ac47"
+            }, 
+            "value": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).", 
+            "_value": {
+                "id": "edc15443-e102-4a4b-8853-48a97f5fde47"
+            }, 
+            "_use": {
+                "id": "47bb73f3-1d27-4d6b-8b69-97e7df4da5c3"
+            }, 
+            "rank": 123456, 
+            "_rank": {
+                "id": "91bc5a59-afb9-43a1-8a05-43e897a0f52f"
+            }, 
+            "period": {
+                "id": "333b1f05-2401-44fa-a9cd-038c150b7c12", 
+                "start": "The start of the period. The boundary is inclusive.", 
+                "_start": {
+                    "id": "f82a6acf-52b7-4d07-9f71-f92f6018ea19"
+                }, 
+                "end": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.", 
+                "_end": {
+                    "id": "1ae3e26d-6e1c-4b61-9180-694393c8f6d7"
+                }
+            }
+        }
+    ], 
+    "note": [
+        {
+            "id": "12753b3d-c771-4ce8-92dc-7db7744c2108", 
+            "extension": [
+                "urn:ngsi-ld:Extension:001"
+            ], 
+            "authorReference": {
+                "id": "446a8876-3b7c-46fb-8136-052655195b70", 
+                "reference": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 
+                "_reference": {
+                    "id": "0f6acc7b-d262-4c06-9292-c007f2ab6e18"
+                }, 
+                "type": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).", 
+                "_type": {
+                    "id": "3199cf27-6537-4511-8a32-ac4e330909c6"
+                }, 
+                "identifier": {
+                    "id": "14bd0030-bb8f-47e8-87ea-79c8c56bc542", 
+                    "system": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 
+                    "value": "The portion of the identifier typically relevant to the user and which is unique within the context of the system."
+                }, 
+                "display": "Plain text narrative that identifies the resource in addition to the resource reference.", 
+                "_display": {
+                    "id": "d1578f75-9e04-40e9-aa8a-f48fb0e76c05"
+                }
+            }, 
+            "authorString": "The individual responsible for making the annotation.", 
+            "_authorString": {
+                "id": "e8083595-ef5e-4159-ad00-5d2f47a1cc7c"
+            }, 
+            "time": "16:16:36.874408", 
+            "_time": {
+                "id": "87b0e99d-9804-4191-9d3f-f29bf26bc963"
+            }, 
+            "text": "The text of the annotation in markdown format.", 
+            "_text": {
+                "id": "4483748e-2578-41a7-af4e-3e85b164221b"
+            }
+        }
+    ], 
+    "id": "urn:ngsi-ld:CareTeam:001", 
+    "description": "an instance of CareTeam", 
+    "@context": [
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld", 
+        "https://raw.githubusercontent.com/smart-data-models/dataModel.SMARTHEALTH/HL7/context.jsonld"
+    ]
+}
