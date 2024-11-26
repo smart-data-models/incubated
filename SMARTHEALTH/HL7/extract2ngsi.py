@@ -179,8 +179,8 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
     """
     # increase recursion level by one
     level +=1
-    print(f'LLLLLLLLLLLLLLLlevel is: {level}')
-    print('PPPPPPPPPPPPPparent_prop_name: ', parent_prop_name)
+    #print(f'LLLLLLLLLLLLLLLlevel is: {level}')
+    #print('PPPPPPPPPPPPPparent_prop_name: ', parent_prop_name)
     # Initialize an empty list to store property names
     schema_properties = {}
     base_def= False
@@ -202,7 +202,7 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
         else:
             # we are in a final object defined by a type
             schema_properties = schema
-    print('SSSSSSSSSSSSSschema_properties: \n', schema_properties)
+    #print('SSSSSSSSSSSSSschema_properties: \n', schema_properties)
     output_json = {}
 
     # Now you can use schema_properties as needed, for example to iterate over it:
@@ -237,7 +237,7 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
                 ref_splitted = ref.split("#")
                 ref_splitted = ref_splitted[len(ref_splitted) - 1].split("/")
                 definition = ref_splitted[len(ref_splitted) -1]
-                print('RRRRRRRRR manage #ref definition is: ', definition)
+                #print('RRRRRRRRR manage #ref definition is: ', definition)
                 #if entity_type == 'Account':
                 parent_type = schema_properties[prop].get("type", None)
 
@@ -251,7 +251,7 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
                             else:
                                 output_json[prop] = output
                     elif "type" in base_definitions[definition]:
-                        print('ZZZZZZZZZZ manage low level definition for prop: ' + prop + " don't recurse")
+                        #print('ZZZZZZZZZZ manage low level definition for prop: ' + prop + " don't recurse")
                         base_def = True
                         # fill output_json[prop] according to 'type'
                         type_ = base_definitions[definition]["type"]
@@ -287,9 +287,9 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
                             ref_splitted = ref.split("#")
                             ref_splitted = ref_splitted[len(ref_splitted) - 1].split("/")
                             definition = ref_splitted[len(ref_splitted) -1]
-                            print ('AAAAAAAAAAAarray definition is: ', definition)
+                            #print ('AAAAAAAAAAAarray definition is: ', definition)
                             if definition in base_definitions:
-                                print('AAAAAAAAAAAarray before base_definitions[definition]: ', base_definitions[definition])
+                                #print('AAAAAAAAAAAarray before base_definitions[definition]: ', base_definitions[definition])
                                 if "properties" in base_definitions[definition]:
                                     if recurse and level < 4:
                                         output = prepare_example_json({}, base_definitions[definition],base_definitions, True, level, prop)
@@ -299,7 +299,7 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
                                             output_json[prop] = output
 
                                 elif "type" in base_definitions[definition]:
-                                    print('AAAAAAAAAAAarray manage low level definition for prop: ' + prop + " don't recurse")
+                                    #print('AAAAAAAAAAAarray manage low level definition for prop: ' + prop + " don't recurse")
                                     base_def = True
                                     type_ = base_definitions[definition]["type"]
 
@@ -744,7 +744,7 @@ for entity_type, entity_def in resources_definitions.items():
 
     # delete already present json files in entity directory
     files = os.listdir(path)
-    print('files: ', files)
+    #print('files: ', files)
     for file in files:
         if file.endswith('.json'):
             try:
@@ -784,7 +784,7 @@ for entity_type, entity_def in resources_definitions.items():
         directory_path = "./_examples/hl7.fhir.r4b.examples/package"
         for filename in os.listdir(directory_path):
             if filename.startswith(entity_type + '-') and filename.endswith(".json") and '-example' in filename:
-                print('>>>>>>>>>>> try to validate json file: ' + filename)
+                print('>>>>>>>>>>> transform example json file: ' + filename)
                 try:
                     file_path = os.path.join(directory_path, filename)
 
