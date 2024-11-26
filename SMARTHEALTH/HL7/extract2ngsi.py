@@ -208,7 +208,7 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
     # Now you can use schema_properties as needed, for example to iterate over it:
     #for prop in schema_properties:
     for prop in schema_properties.keys():
-        print(f"MMMMMMMMMM manage Property: ", prop)    # iterate through the list of properties in schema
+        #print(f"MMMMMMMMMM manage Property: ", prop)    # iterate through the list of properties in schema
         description = schema_properties[prop].get("description", "")
         if prop in json_data:
             output_json[prop] = json_data[prop]
@@ -241,7 +241,7 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
                 #if entity_type == 'Account':
                 parent_type = schema_properties[prop].get("type", None)
 
-                print('RRRRRRRRR base definitions[{definition}]: '.format(definition=definition), base_definitions[definition])
+                #print('RRRRRRRRR base definitions[{definition}]: '.format(definition=definition), base_definitions[definition])
                 if definition in base_definitions:
                     if "properties" in base_definitions[definition]:
                         if recurse and level < 4:
@@ -269,8 +269,8 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
             # it should be a final object ?!
             elif "type" in schema_properties[prop]:
                 #if level > 0:
-                print("MMMMMMMMMMMMM manage prop with 'type': ", prop)
-                print ("MMMMMMMMMMMMM schema_properties[prop]:", schema_properties[prop])
+                # print("MMMMMMMMMMMMM manage prop with 'type': ", prop)
+                # print ("MMMMMMMMMMMMM schema_properties[prop]:", schema_properties[prop])
                 #try:
                 type_ = schema_properties[prop].get('type', "")
                 description = schema_properties[prop].get("description", "")
@@ -372,7 +372,7 @@ def generate_normalized_v2_example(json_data: dict) -> dict:
     normalized_data = {}
     # loop over json_data and fill output normalized_data with normalized data
     for prop in json_data.keys():
-        print ('VVVVVVVVVVVVVVVVVVV prop is: ', prop)
+        # print ('VVVVVVVVVVVVVVVVVVV prop is: ', prop)
         type="Text"
         if prop =="id" or prop =="type" or prop == '@context':
             normalized_data[prop] = json_data [prop]      
@@ -397,7 +397,7 @@ def generate_normalized_ld_example(json_data: dict) -> dict:
     normalized_data = {}
     # loop over json_data and fill output normalized_data with normalized data
     for prop in json_data.keys():
-        print ('NNNNNNNNNNNNNNNNNNNN prop is: ', prop)
+        # print ('NNNNNNNNNNNNNNNNNNNN prop is: ', prop)
         type="Property"
         if prop =="id" or prop =="type" or prop == '@context':
             normalized_data[prop] = json_data [prop]      
