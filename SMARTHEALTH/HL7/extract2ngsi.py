@@ -158,7 +158,7 @@ def fill_prop_from_type(type, prop_name, description: str = ""):
 #################################################################
 # function to prepare example json data to be used in examples.
 #################################################################
-def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, recurse :bool=True, level  :int=0, parent_prop_name:str = '') -> dict:
+def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, recurse :bool=True, level:int=0, parent_prop_name:str = '') -> dict:
     """
     Prepares example JSON data based on the provided JSON data and schema. This function recursively processes the input JSON data according to the rules specified in the schema.
 
@@ -367,6 +367,49 @@ def save_context(context, file_path):
     with open(file_path, 'w') as f:
         json.dump(context, f, indent=4)
     print(f"Context saved in {file_path}")
+
+def generate_normalized_v2_example(json_data: dict) -> dict:
+    normalized_data = {}
+    # loop over json_data and fill output normalized_data with normalized data
+    for prop in json_data.keys():
+        print ('VVVVVVVVVVVVVVVVVVV prop is: ', prop)
+        type="Text"
+        if prop =="id" or prop =="type" or prop == '@context':
+            normalized_data[prop] = json_data [prop]      
+        elif prop == "extension" or prop == "modifierExtension":
+            type="StructuredValue"
+            normalized_data[prop] = [{ "value": json_data[prop],"type":type}]
+        elif isinstance(json_data[prop],list):
+            normalized_data[prop] = [{ "value": json_data[prop],"type":"StructuredValue"}]
+        elif isinstance(json_data[prop],dict):
+            normalized_data[prop] = [{ "value": json_data[prop],"type":"StructuredValue"}]
+        elif isinstance(json_data[prop],(int,float)):
+            normalized_data[prop] = [{ "value": json_data[prop],"type":"Number"}]
+        elif isinstance(json_data[prop],bool):
+            normalized_data[prop] = [{ "value": json_data[prop],"type":"Boolean"}]
+        else:
+            normalized_data[prop] = { "value": json_data[prop],"type":type}
+
+    return normalized_data
+
+
+def generate_normalized_ld_example(json_data: dict) -> dict:
+    normalized_data = {}
+    # loop over json_data and fill output normalized_data with normalized data
+    for prop in json_data.keys():
+        print ('NNNNNNNNNNNNNNNNNNNN prop is: ', prop)
+        type="Property"
+        if prop =="id" or prop =="type" or prop == '@context':
+            normalized_data[prop] = json_data [prop]      
+        elif prop == "extension" or prop == "modifierExtension":
+            type="Relationship"
+            normalized_data[prop] = [{ "value": json_data[prop],"type":type}]
+        elif isinstance(json_data[prop],list):
+            normalized_data[prop] = [{ "value": json_data[prop],"type":type}]
+        else:
+            normalized_data[prop] = { "value": json_data[prop],"type":type}
+
+    return normalized_data
 
 ###############################################################################
 # MAIN
@@ -775,6 +818,23 @@ for entity_type, entity_def in resources_definitions.items():
                 with open(exportfilename, "w+") as exportfile:
                     json.dump(json_data, exportfile, indent=4, separators=(", ", ": "))
                 
+                # generate mormalized example for NGSI-V2
+                """
+                "property_name": "content",
+                become:
+                "property_name": {
+                    "type": "Text"
+                    "value": "content"
+                }
+                depending on type of property
+                "type" in ["Text","Number", "StructuredValue", "Boolean", "geo:json"]
+                """
+                normalized_example = generate_normalized_v2_example(json_data)
+                exportfilename = "./" + fhir_release_path    + entity_type    +  "/examples/example-normalized.json"
+                with open(exportfilename, "w+") as exportfile:
+                    json.dump(normalized_example, exportfile, indent=4, separators=(", ", ": "))
+
+                
                 # add @context for jsonld example
                 json_data["@context"] = [
                     "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
@@ -784,7 +844,23 @@ for entity_type, entity_def in resources_definitions.items():
                 with open(exportfilename, "w+") as exportfile:
                     json.dump(json_data, exportfile, indent=4, separators=(", ",  ": "))
 
-                # exit from for loop when a file has been validated and copied to example directory
+                # generate mormalized example for NGSI-LD
+                """
+                "property_name": "content",
+                become:
+                "property_name": {
+                    "type": "Property"
+                    "value": "content"
+                }
+                depending on type of property
+                "type" in ["Property", "Relationship", "GeoProperty"]
+                """
+                normalized_example = generate_normalized_ld_example(json_data)
+                exportfilename = "./" + fhir_release_path    + entity_type    +  "/examples/example-normalized.jsonld"
+                with open(exportfilename, "w+") as exportfile:
+                    json.dump(normalized_example, exportfile, indent=4, separators=(", ", ": "))
+
+                # exit from for loop when a file has been validated/enhanced and copied to example directory
                 break
         print("======end validation loop=======================================")
 
