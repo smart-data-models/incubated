@@ -1,10 +1,10 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$schemaVersion": "0.0.1",
-    "modelTags": "INCODE",
+    "modelTags": "P2CODE",
     "$id": "https://smart-data-models.github.io/dataModel.Aeronautics/UWB/schema.json",
-    "title": "Smart Data Models - UWB",
-    "description": "Data model for the Ultra Wide Band (UWB).",
+    "title": "Smart Data Models - UWB anchor",
+    "description": "Data model for the Ultra Wideband (UWB) Anchor which are electronic devices that detect UWB pulses emitted by UWB Tags and forward them to the location server for calculating tag positions.",
     "type": "object",
     "allOf": [
         {
@@ -19,71 +19,71 @@
                     "type": "string",
                     "description": "Property. NGSI entity type. It has to be Ultra Wide Band (UWB)",
                     "enum": [
-                        "UWB"
+                        "UWB Anchor"
                     ]
                 },
                 "version": {
                     "type": "string",
-                    "description": "Version of the data."
+                    "description": "Property. Version of the data."
                 },
                 "tagId": {
                     "type": "string",
-                    "description": "Tag ID."
+                    "description": "Property. Tag ID."
                 },
                 "timestamp": {
                     "type": "number",
-                    "description": "Timestamp of the data."
+                    "description": "Property. Timestamp of the data."
                 },
                 "success": {
                     "type": "boolean",
-                    "description": "Success status."
+                    "description": "Property. Success status."
                 },
                 "data": {
                     "type": "object",
                     "properties": {
                         "coordinates": {
                             "type": "object",
-                            "description": "Coordinates data.",
+                            "description": "Property. Coordinates data.",
                             "properties": {
                                 "x": {
                                     "type": "number",
-                                    "description": "'x' coordinate."
+                                    "description": "Property. 'x' coordinate."
                                 },
                                 "y": {
                                     "type": "number",
-                                    "description": "'y' coordinate."
+                                    "description": "Property. 'y' coordinate."
                                 },
                                 "z": {
                                     "type": "number",
-                                    "description": "'z' coordinate."
+                                    "description": "Property. 'z' coordinate."
                                 }
                             }
                         },
                         "tagData": {
                             "type": "object",
-                            "description": "Tag data information.",
+                            "description": "Property. Tag data information.",
                             "properties": {
                                 "blinkIndex": {
                                     "type": "number",
-                                    "description": "Blink index value."
+                                    "description": "Property. Blink index value."
                                 },
                                 "accelerometer": {
                                     "type": "array",
-                                    "description": "Accelerometer readings.",
+                                    "description": "Property. Accelerometer readings.",
                                     "items": {
                                         "type": "array",
                                         "items": [
                                             {
                                                 "type": "number",
-                                                "description": "X-axis reading"
+                                                "description": "Property. X-axis reading"
                                             },
                                             {
                                                 "type": "number",
-                                                "description": "Y-axis reading"
+                                                "description": "Property. Y-axis reading"
                                             },
                                             {
                                                 "type": "number",
-                                                "description": "Z-axis reading"
+                                                "description": "Property. Z-axis reading"
                                             }
                                         ]
                                     }
@@ -92,40 +92,40 @@
                         },
                         "anchorData": {
                             "type": "array",
-                            "description": "Anchor data information.",
+                            "description": "Property. Anchor data information.",
                             "items": {
                                 "type": "object",
                                 "properties": {
                                     "anchorId": {
                                         "type": "string",
-                                        "description": "Anchor ID."
+                                        "description": "Property. Anchor ID."
                                     },
                                     "rss": {
                                         "type": "number",
-                                        "description": "RSS value."
+                                        "description": "Property. RSS value."
                                     }
                                 }
                             }
                         },
                         "metrics": {
                             "type": "object",
-                            "description": "Metrics data.",
+                            "description": "Property. Metrics data.",
                             "properties": {
                                 "latency": {
                                     "type": "number",
-                                    "description": "Latency value."
+                                    "description": "Property. Latency value."
                                 },
                                 "rates": {
                                     "type": "object",
-                                    "description": "Rates data.",
+                                    "description": "Property. Rates data.",
                                     "properties": {
                                         "success": {
                                             "type": "number",
-                                            "description": "Success rate."
+                                            "description": "Property. Success rate."
                                         },
                                         "update": {
                                             "type": "number",
-                                            "description": "Update rate."
+                                            "description": "Property. Update rate."
                                         }
                                     }
                                 }
@@ -133,24 +133,24 @@
                         },
                         "zones": {
                             "type": "array",
-                            "description": "Zones information.",
+                            "description": "Property. Zones information.",
                             "items": {
                                 "type": "object",
                                 "properties": {
                                     "id": {
                                         "type": "string",
-                                        "description": "Zone ID."
+                                        "description": "Property. Zone ID."
                                     },
                                     "name": {
                                         "type": "string",
-                                        "description": "Zone name."
+                                        "description": "Property. Zone name."
                                     }
                                 }
                             }
                         },
                         "moving": {
                             "type": "boolean",
-                            "description": "Moving status."
+                            "description": "Property. Moving status."
                         }
                     }
                 }
@@ -159,10 +159,7 @@
     ],
     "required": [
         "type",
-        "version",
-        "tagId",
-        "timestamp",
-        "success",
-        "data"
+        "id",
+        "tagId"
     ]
 }
