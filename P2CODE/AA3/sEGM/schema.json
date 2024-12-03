@@ -1,10 +1,10 @@
 {
     "$schema":"http://json-schema.org/schema#",
     "$schemaVersion": "0.1.0",
-    "modelTags": "INCODE",
+    "modelTags": "P2CODE",
     "$id":"https://smart-data-models.github.io/sEGM/schema.json",
     "title":"Smart Data Models - sEGM",
-    "description":"A Data Model of sEGM (Single-Channel EGM) sensor used to measure muscle activity of the specific muscle (where they are placed)",
+    "description":"A Data Model of sEGM (Single-Channel Electromyography) sensor used to measure muscle activity of the specific muscle (where they are placed)",
     "type":"object",
     "allOf":[
         {
@@ -25,140 +25,106 @@
                 "TimeStamp":{
                     "type":"string",
                     "format":"date-time",
-                    "description":"Timestamp of the data"
+                    "description":"Property. Timestamp of the data"
                 },
                 "index":{
                     "type":"integer",
-                    "description":"Index value indicating the sensor data point number"
+                    "description":"Property. Index value indicating the sensor data point number"
                 },
                 "data":{
                     "type":"object",
-                    "description":"Data for each channel",
+                    "description":"Property. Data for each channel",
                     "properties":{
                         "ch 1":{
                             "type":"object",
-                            "description":"Channel 1 data",
+                            "description":"Property. Channel 1 data",
                             "properties":{
                                 "value":{
                                     "type":"number",
-                                    "description":"Value of channel 1"
+                                    "description":"Property. Value of channel 1"
                                 },
                                 "Feasibility":{
                                     "type":"boolean",
-                                    "description":"Feasibility of channel 1 data"
+                                    "description":"Property. Feasibility of channel 1 data"
                                 }
-                            },
-                            "required":[
-                                "value",
-                                "Feasibility"
-                            ]
+                            }
                         },
                         "ch 2":{
                             "type":"object",
-                            "description":"Channel 2 data",
+                            "description":"Property. Channel 2 data",
                             "properties":{
                                 "value":{
                                     "type":"number",
-                                    "description":"Value of channel 2"
+                                    "description":"Property. Value of channel 2"
                                 },
                                 "Feasibility":{
                                     "type":"boolean",
-                                    "description":"Feasibility of channel 2 data"
+                                    "description":"Property. Feasibility of channel 2 data"
                                 }
-                            },
-                            "required":[
-                                "value",
-                                "Feasibility"
-                            ]
+                            }
                         },
                         "ch 3":{
                             "type":"object",
-                            "description":"Channel 3 data",
+                            "description":"Property. Channel 3 data",
                             "properties":{
                                 "value":{
                                     "type":"number",
-                                    "description":"Value of channel 3"
+                                    "description":"Property. Value of channel 3"
                                 },
                                 "Feasibility":{
                                     "type":"boolean",
-                                    "description":"Feasibility of channel 3 data"
+                                    "description":"Property. Feasibility of channel 3 data"
                                 }
-                            },
-                            "required":[
-                                "value",
-                                "Feasibility"
-                            ]
+                            }
                         },
                         "ch 4":{
                             "type":"object",
-                            "description":"Channel 4 data",
+                            "description":"Property. Channel 4 data",
                             "properties":{
                                 "value":{
                                     "type":"number",
-                                    "description":"Value of channel 4"
+                                    "description":"Property. Value of channel 4"
                                 },
                                 "Feasibility":{
                                     "type":"boolean",
-                                    "description":"Feasibility of channel 4 data"
+                                    "description":"Property. Feasibility of channel 4 data"
                                 }
-                            },
-                            "required":[
-                                "value",
-                                "Feasibility"
-                            ]
+                            }
                         },
                         "ch 5":{
                             "type":"object",
-                            "description":"Channel 5 data",
+                            "description":"Property. Channel 5 data",
                             "properties":{
                                 "value":{
                                     "type":"number",
-                                    "description":"Value of channel 5"
+                                    "description":"Property. Value of channel 5"
                                 },
                                 "Feasibility":{
                                     "type":"boolean",
-                                    "description":"Feasibility of channel 5 data"
+                                    "description":"Property. Feasibility of channel 5 data"
                                 }
-                            },
-                            "required":[
-                                "value",
-                                "Feasibility"
-                            ]
+                            }
                         },
                         "ch 6":{
                             "type":"object",
-                            "description":"Channel 6 data",
+                            "description":"Property. Channel 6 data",
                             "properties":{
                                 "value":{
                                     "type":"number",
-                                    "description":"Value of channel 6"
+                                    "description":"Property. Value of channel 6"
                                 },
                                 "Feasibility":{
                                     "type":"boolean",
-                                    "description":"Feasibility of channel 6 data"
+                                    "description":"Property. Feasibility of channel 6 data"
                                 }
-                            },
-                            "required":[
-                                "value",
-                                "Feasibility"
-                            ]
+                            }
                         }
-                    },
-                    "required":[
-                        "ch 1",
-                        "ch 2",
-                        "ch 3",
-                        "ch 4",
-                        "ch 5",
-                        "ch 6"
-                    ]
+                    }
                 }
             },
             "required":[
                 "type",
-                "TimeStamp",
-                "index",
-                "data"
+                "id"
             ]
         }
     ]

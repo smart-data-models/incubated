@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "$schemaVersion": "0.1.0",
-    "modelTags": "INCODE",
+    "modelTags": "P2CODE",
     "$id": "https://smart-data-models.github.io/dataModel.Aeronautics/MissionPlanner/schema.json",
     "title": "Smart Data Models - MissionPlanner",
     "description": "A Data Model of tracking the location and waypoints of a mission planner",
@@ -24,40 +24,38 @@
           },
           "vehicleID": {
             "type": "string",
-            "description": "Identifier of the vehicle associated with the mission e.g drone"
+            "description": "Property. Identifier of the vehicle associated with the mission e.g drone"
           },
           "listOfWaypoints": {
             "type": "array",
-            "description": "List of waypoints for the mission",
+            "description": "Property. List of waypoints for the mission",
             "items": {
               "type": "object",
-              "required": [
-                "latitude",
-                "longitude",
-                "altitude",
-                "speed"
-              ],
               "properties": {
                 "latitude": {
                   "type": "number",
-                  "description": "Latitude of the waypoint"
+                  "description": "Property. Latitude of the waypoint"
                 },
                 "longitude": {
                   "type": "number",
-                  "description": "Longitude of the waypoint"
+                  "description": "Property. Longitude of the waypoint"
                 },
                 "altitude": {
                   "type": "number",
-                  "description": "Altitude of the waypoint"
+                  "description": "Property. Altitude of the waypoint"
                 },
                 "speed": {
                   "type": "number",
-                  "description": "Speed at the waypoint"
+                  "description": "Property. Speed at the waypoint"
                 }
               }
             }
           }
         }
       }
+    ],
+    "required": [
+        "id",
+        "type"
     ]
   }
