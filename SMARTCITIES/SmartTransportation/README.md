@@ -1,0 +1,1 @@
+This directory is meant to have data models for smart transportation
