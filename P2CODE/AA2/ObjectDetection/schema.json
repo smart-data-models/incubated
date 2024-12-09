@@ -1,0 +1,93 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "P2CODE",
+    "$id": "https://smart-data-models.github.io/dataModel.Device/Detection/schema.json",
+    "title": "Smart Data Models - ObjectDetection",
+    "description": "Data model for object detection events with a camera.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Property.  NGSI entity type. It has to be ObjectDetection",
+                    "enum": [
+                        "ObjectDetection"
+                    ]
+                },
+                "License": {
+                    "type": "string",
+                    "description": "Property. License information for object detection data."
+                },
+                "VNF": {
+                    "type": "string",
+                    "description": "Property. Virtual Network Function (VNF) responsible object detection."
+                },
+                "Frame_ID": {
+                    "type": "number",
+                    "description": "Property. Frame ID associated with object detection event."
+                },
+                "Timestamp_received": {
+                    "type": "number",
+                    "description": "Property. Timestamp when object detection data was received."
+                },
+                "Timestamp_sent": {
+                    "type": "number",
+                    "description": "Property. Timestamp when object detection data was sent."
+                },
+                "Inference": {
+                    "type": "number",
+                    "description": "Property. Inference related to object detection."
+                },
+                "detections": {
+                    "type": "array",
+                    "description": "Property. Array of detected entities.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "x_centre": {
+                                "type": "number",
+                                "description": "Property. X-coordinate of the centre of the detecobject."
+                            },
+                            "y_centre": {
+                                "type": "number",
+                                "description": "Property. Y-coordinate of the centre of the detecobject."
+                            },
+                            "width": {
+                                "type": "number",
+                                "description": "Property. Width of the detecobject."
+                            },
+                            "height": {
+                                "type": "number",
+                                "description": "Property. Height of the detecobject."
+                            },
+                            "confidence": {
+                                "type": "number",
+                                "description": "Property. Confidence level of the detection."
+                            },
+                            "class": {
+                                "type": "number",
+                                "description": "Property. Class of the detecobject."
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "required": [
+        "type",
+        "id"
+
+    ]
+}
