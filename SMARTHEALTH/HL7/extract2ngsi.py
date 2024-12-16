@@ -137,16 +137,16 @@ def fill_prop_from_type(type, prop_name, description: str = ""):
     if type == "string":
         if 'dateTime' in prop_name:
             # current date time in Iso8601 format
-            return datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f%z")
+            return '2024-12-10T14:59:59Z' # datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f%z")
         elif 'date' in prop_name:
             # date of day in Iso8601 format
-            return datetime.now().strftime("%d/%m/%Y")
+            return  '2024-12-10' #datetime.now().strftime("%Y-%m-%d")
         elif 'time' in prop_name:
             # time of day in Iso8601 format
-            return datetime.now().strftime("%H:%M:%S.%f%z")
+            return '14:59:59Z' # datetime.now().strftime("%H:%M:%S.%f%z")
         elif prop_name == 'id':
             # unique id
-            return str(uuid.uuid4())
+            return '85a1e56e-7d09-454f-a590-0e0cb0d377e0' # str(uuid.uuid4())
 
         return description if len (description) > 0 else prop_name + " as Text"
     elif type == 'number':
@@ -608,7 +608,7 @@ for entity_type, entity_def in resources_definitions.items():
         # because the model is coming from the "$ref" content definition,
         # which are in 'SMART HEALTH/HL7/common-hl7-schema.json' file
         base_url = base_repo_url + fhir_release_path  # "https://hl7.org/fhir/" # take care to '/'
-        description = "Property. Model:'" + base_url + fhir_release_path + hl7_type + "' " + origDesc
+        description = "Property. Model:'" + base_url + fhir_release_path + hl7_type + "'. " + origDesc
         content["description"] = content["description"].replace(origDesc, description)
 
         # manage 'extension' and 'modifierExtension' properties with a special treatment:
