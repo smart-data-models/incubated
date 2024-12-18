@@ -6,7 +6,7 @@ Below is an example of how you might generate JSON data using a language model l
 provide a json output about a patient named "Archibald Tuttle", fill other properties with random 
 ... content, don't exceed 256 characters in strings properties 
 
-- response:
+- **response**:
 ```json
 {
   "id": "urn:ngsi-ld:Patient:archie-tuttle",
@@ -49,7 +49,9 @@ provide a json output about a patient named "Archibald Tuttle", fill other prope
 }
 ```
 
-prompt >>> nice just correct "prefrred" property with "preferred" !
+**prompt** >>> nice just correct "prefrred" property with "preferred" !
+- **response**:
+```json
 {
   "id": "urn:ngsi-ld:Patient:archie-tuttle",
   "type": "Patient",
@@ -89,10 +91,11 @@ prompt >>> nice just correct "prefrred" property with "preferred" !
     }
   ]
 }
+```
 
+**prompt** >>> give me another json content for a patient living in Nice, France, set the related properties according
 
-**prompt** >>> give me another json content for a patient living in Nice, France, set the related properties accord
-... ing
+- **response**:
 ```json
 {
   "id": "urn:ngsi-ld:Patient:lucie-christine-martin",
@@ -135,3 +138,5 @@ prompt >>> nice just correct "prefrred" property with "preferred" !
 }
 ```
 **prompt** >>> Send a message (/? for help)
+
+### I adjust a bit the ouput for markdown presentation, but truly the answer was good json !
