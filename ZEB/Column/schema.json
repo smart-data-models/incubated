@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Window/schema.json",
-  "title": "Smart Data Models - Window schema",
-  "description": "Information on a given Window of Building.",
+  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Glass/schema.json",
+  "title": "Smart Data Models - Glass schema",
+  "description": "Information on a given Glass of Building.",
   "modelTags": "Smart Building",
   "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.ZEB/Window/LICENSE.md",
+  "license": "https://smart-data-models.github.io/dataModel.ZEB/Glass/LICENSE.md",
   "type": "object",
   "allOf": [
     {
@@ -20,120 +20,38 @@
         "type": {
           "type": "string",
           "enum": [
-            "Window"
+            "Glass"
           ],
-          "description": "Property. It must be equal to `Window`."
+          "description": "Property. It must be equal to `Glass`."
         },
-        "dateObjectCreated": {
+        "glassColor": {
           "type": "string",
-          "format": "date-time",
-          "description": "Property. Model:'http://schema.org/DateTime'. The registration date and time of this item as an object."
+          "description": "Property. Color(color code) of glass."
         },
-        "dateObjectUpdated": {
+        "glassName": {
           "type": "string",
-          "format": "date-time",
-          "description": "Property. Model:'http://schema.org/DateTime'. The update date and time of this item as an object."
+          "description": "Property. Name of glass. "
         },
-        "flagDeleted": {
-          "type": "boolean",
-          "description": "Property. Flag set when this item is deleted as an object."
-        },
-        "jointDirection": {
-          "type": "array",
-          "description": "Property. Joint Direction of this item and Spatial Objects.",
-          "items": {
-            "type": "Point"
-          }
-        },
-        "jointSurface": {
-          "type": "array",
-          "description": "Property. Joint Surface of this item and Spatial Objects.",
-          "items": {
-            "type": "MultiPoint"
-          }
-        },
-        "jointArea": {
+        "glassSolarRadiationHeatAcquisitionRate": {
           "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Joint Area of this item and Spatial Objects."
+          "description": "Property.  Model:'https://schema.org/Number'. Solar heat acquisition rate of glass material."
         },
-        "objectName": {
-          "type": "string",
-          "description": "Property. Name of this item as an object."
-        },
-        "refArea": {
-          "type": "array",
-          "description": "Relationship.  Reference to the area containing this item.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
-          "minItems": 1,
-          "uniqueItems": true
-        },
-        "refBuilding": {
-          "type": "array",
-          "description": "Relationship. Reference to the building containing this item.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
-          "minItems": 1,
-          "uniqueItems": true
-        },
-        "refGlass": {
-          "type": "array",
-          "description": "Relationship. Reference to the glass containing this item.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
-          "minItems": 1,
-          "uniqueItems": true
-        },
-        "refRoom": {
-          "type": "array",
-          "description": "Relationship. Reference to the room containing this item.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
-          "minItems": 1,
-          "uniqueItems": true
-        },
-        "refStair": {
-          "type": "array",
-          "description": "Relationship. Reference to the stair containing this item.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
-          "minItems": 1,
-          "uniqueItems": true
-        },
-        "shape": {
-          "type": "array",
-          "description": "Property. Shape of this item.",
-          "items": {
-            "type": "MultiPoint"
-          }
-        },
-        "solarRadiationHeatAcquisitionRate": {
+        "glassThermalTransmission": {
           "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Acquisition rate of solar heat."
+          "description": "Property. Model:'https://schema.org/Number'. Thermal transmission of glass material."
         },
-        "surfaceGlass": {
+        "glassVisibleLightTransmittance": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Visible light transmittance of glass material."
+        },
+        "refWindow": {
           "type": "array",
-          "description": "Property.shape of the glass.",
+          "description": "Relationship. Reference to the window containing this item.",
           "items": {
-            "type": "MultiPoint"
-          }
-        },
-        "thermalTransmission": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Thermal transmission of this item."
-        },
-        "volumetricSpecificHeat": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Volumetric specific heat of this item."
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          },
+          "minItems": 1,
+          "uniqueItems": true
         }
       }
     }
