@@ -1,12 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.ZEB/MaterialLayer/schema.json",
-  "title": "Smart Data Models - MaterialLayer schema",
-  "description": "Information on a given MaterialLayer of Building.",
+
+  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Material/schema.json",
+  "title": "Smart Data Models - Material schema",
+  "description": "Information on a given Material of Building.",
   "modelTags": "Smart Building",
   "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.ZEB/MaterialLayer/LICENSE.md",
+  "license": "https://smart-data-models.github.io/dataModel.ZEB/Material/LICENSE.md",
   "type": "object",
   "allOf": [
     {
@@ -20,28 +21,9 @@
         "type": {
           "type": "string",
           "enum": [
-            "MaterialLayer"
+            "Material"
           ],
-          "description": "Property. It must be equal to `MaterialLayer`."
-        },
-        "dateObjectCreated": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Property. Model:'http://schema.org/DateTime'. The registration date and time of this item as an object."
-        },
-        "dateObjectUpdated": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Property. Model:'http://schema.org/DateTime'. The update date and time of this item as an object."
-        },
-        "flagDeleted": {
-          "type": "boolean",
-          "description": "Property. Flag set when this item is deleted as an object."
-        },
-        "layerNumber": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Number of layer. For walls, numbering is from inside to outside. For slabs, numbering is from bottom to top."
+          "description": "Property. It must be equal to `Material`."
         },
         "materialColor": {
           "type": "string",
@@ -59,58 +41,50 @@
           "type": "number",
           "description": "Property. Model:'https://schema.org/Number'. Volumetric specific heat of material."
         },
-        "objectName": {
-          "type": "string",
-          "description": "Property. Name of this item as an object."
-        },
-        "refMaterial": {
+        "refColumn": {
           "type": "array",
-          "description": "Relationship. Reference to the material containing this item.",
+          "description": "Relationship. Reference to the column containing this item.",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           },
           "minItems": 1,
           "uniqueItems": true
         },
-        "refSlab": {
+        "refDoor": {
           "type": "array",
-          "description": "Relationship. Reference to the slab containing this item.",
+          "description": "Relationship. Reference to the door containing this item.",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           },
           "minItems": 1,
           "uniqueItems": true
         },
-        "refWall": {
+        "refMaterialLayer": {
           "type": "array",
-          "description": "Relationship. Reference to the wall containing this item.",
+          "description": "Relationship. Reference to the materialLayer containing this item.",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           },
           "minItems": 1,
           "uniqueItems": true
         },
-        "shape": {
+        "refStair": {
           "type": "array",
-          "description": "Property. Shape of this item.",
+          "description": "Relationship. Reference to the stair containing this item.",
           "items": {
-            "type": "MultiPoint"
-          }
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          },
+          "minItems": 1,
+          "uniqueItems": true
         },
-        "thermalTransmission": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Thermal transmission of this item."
-        },
-        "thickness": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Thickness of this item."
-        },
-        "volumetricSpecificHeat": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Volumetric specific heat of this item."
+        "refWindow": {
+          "type": "array",
+          "description": "Relationship. Reference to the window containing this item.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          },
+          "minItems": 1,
+          "uniqueItems": true
         }
       }
     }
