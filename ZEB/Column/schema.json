@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Slab/schema.json",
-  "title": "Smart Data Models - Slab schema",
-  "description": "Information on a given Slab of Building.",
+  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Column/schema.json",
+  "title": "Smart Data Models - Column schema",
+  "description": "Information on a given Column of Building.",
   "modelTags": "Smart Building",
   "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.ZEB/Slab/LICENSE.md",
+  "license": "https://smart-data-models.github.io/dataModel.ZEB/Column/LICENSE.md",
   "type": "object",
   "allOf": [
     {
@@ -20,9 +20,9 @@
         "type": {
           "type": "string",
           "enum": [
-            "Slab"
+            "Column"
           ],
-          "description": "Property. It must be equal to `Slab`."
+          "description": "Property. It must be equal to `Column`."
         },
         "dateObjectCreated": {
           "type": "string",
@@ -37,6 +37,11 @@
         "flagDeleted": {
           "type": "boolean",
           "description": "Property. Flag set when this item is deleted as an object."
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Height of this item."
         },
         "jointDirection": {
           "type": "array",
@@ -63,7 +68,6 @@
         },
         "refArea": {
           "type": "array",
-
           "description": "Relationship.  Reference to the area containing this item.",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
@@ -80,9 +84,9 @@
           "minItems": 1,
           "uniqueItems": true
         },
-        "refMaterialLayer": {
+        "refMaterial": {
           "type": "array",
-          "description": "Relationship. Reference to the materialLayer containing this item.",
+          "description": "Relationship. Reference to the material containing this item.",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           },
@@ -114,30 +118,9 @@
             "type": "MultiPoint"
           }
         },
-        "slabType": {
-          "type": "array",
-          "description": "Property. Wall type. Enum:'ceiling, floor, roof, base_floor, stair_floor'",
-          "items": {
-            "type": "string",
-            "enum": [
-              "ceiling",
-              "floor",
-              "roof",
-              "base_floor",
-              "stair_floor"
-            ]
-          }
-        },
         "surfaceBase": {
           "type": "array",
           "description": "Property. Base Shape of this item.",
-          "items": {
-            "type": "Polygon"
-          }
-        },
-        "surfaceTop": {
-          "type": "array",
-          "description": "Property. Top Shape of this item.",
           "items": {
             "type": "Polygon"
           }
@@ -146,11 +129,6 @@
           "type": "number",
           "minimum": 0,
           "description": "Property. Model:'https://schema.org/Number'. Thermal transmission of this item."
-        },
-        "thickness": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Thickness of this item."
         },
         "volumetricSpecificHeat": {
           "type": "number",
