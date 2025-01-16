@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Door/schema.json",
-  "title": "Smart Data Models - Door schema",
-  "description": "Information on a given Door of Building.",
+  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Window/schema.json",
+  "title": "Smart Data Models - Window schema",
+  "description": "Information on a given Window of Building.",
   "modelTags": "Smart Building",
   "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.ZEB/Door/LICENSE.md",
+  "license": "https://smart-data-models.github.io/dataModel.ZEB/Window/LICENSE.md",
   "type": "object",
   "allOf": [
     {
@@ -20,9 +20,9 @@
         "type": {
           "type": "string",
           "enum": [
-            "Door"
+            "Window"
           ],
-          "description": "Property. It must be equal to `Door`."
+          "description": "Property. It must be equal to `Window`."
         },
         "dateObjectCreated": {
           "type": "string",
@@ -33,20 +33,6 @@
           "type": "string",
           "format": "date-time",
           "description": "Property. Model:'http://schema.org/DateTime'. The update date and time of this item as an object."
-        },
-        "doorType": {
-          "type": "array",
-          "description": "Property. Door type. Enum: 'single, double, auto_single, auto_double, gate''.",
-          "items": {
-            "type": "string",
-            "enum": [
-              "single",
-              "double",
-              "auto_single",
-              "auto_double",
-              "gate"
-            ]
-          }
         },
         "flagDeleted": {
           "type": "boolean",
@@ -93,9 +79,9 @@
           "minItems": 1,
           "uniqueItems": true
         },
-        "refMateria": {
+        "refGlass": {
           "type": "array",
-          "description": "Relationship. Reference to the material containing this item.",
+          "description": "Relationship. Reference to the glass containing this item.",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           },
@@ -127,6 +113,18 @@
             "type": "MultiPoint"
           }
         },
+        "solarRadiationHeatAcquisitionRate": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Acquisition rate of solar heat."
+        },
+        "surfaceGlass": {
+          "type": "array",
+          "description": "Property.shape of the glass.",
+          "items": {
+            "type": "MultiPoint"
+          }
+        },
         "thermalTransmission": {
           "type": "number",
           "minimum": 0,
@@ -135,7 +133,6 @@
         "volumetricSpecificHeat": {
           "type": "number",
           "minimum": 0,
-
           "description": "Property. Model:'https://schema.org/Number'.  Volumetric specific heat of this item."
         }
       }
