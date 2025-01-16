@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Column/schema.json",
-  "title": "Smart Data Models - Column schema",
-  "description": "Information on a given Column of Building.",
+  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Stair/schema.json",
+  "title": "Smart Data Models - Stair schema",
+  "description": "Information on a given Stair of Building.",
   "modelTags": "Smart Building",
   "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.ZEB/Column/LICENSE.md",
+  "license": "https://smart-data-models.github.io/dataModel.ZEB/Stair/LICENSE.md",
   "type": "object",
   "allOf": [
     {
@@ -20,9 +20,9 @@
         "type": {
           "type": "string",
           "enum": [
-            "Column"
+            "Stair"
           ],
-          "description": "Property. It must be equal to `Column`."
+          "description": "Property. It must be equal to `Stair`."
         },
         "dateObjectCreated": {
           "type": "string",
@@ -37,11 +37,6 @@
         "flagDeleted": {
           "type": "boolean",
           "description": "Property. Flag set when this item is deleted as an object."
-        },
-        "height": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Height of this item."
         },
         "jointDirection": {
           "type": "array",
@@ -61,6 +56,25 @@
           "type": "number",
           "minimum": 0,
           "description": "Property. Model:'https://schema.org/Number'.  Joint Area of this item and Spatial Objects."
+        },
+        "locationBase": {
+          "type": "array",
+          "description": "Property. Coordinates of the bottom line of this item.",
+          "items": {
+            "type": "MultiPoint"
+          }
+        },
+        "locationTop": {
+          "type": "array",
+          "description": "Property. Coordinates of the top line of this item.",
+          "items": {
+            "type": "MultiPoint"
+          }
+        },
+        "numStep": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'.  Steps of this item."
         },
         "objectName": {
           "type": "string",
@@ -84,9 +98,10 @@
           "minItems": 1,
           "uniqueItems": true
         },
+
         "refMaterial": {
           "type": "array",
-          "description": "Relationship. Reference to the material containing this item.",
+          "description": "Relationship. Reference to the materialLayer containing this item.",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           },
@@ -95,7 +110,7 @@
         },
         "refRoom": {
           "type": "array",
-          "description": "Relationship. Reference to the room containing this item.",
+          "description": "Relationship. Reference to the material containing this item.",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           },
@@ -116,6 +131,16 @@
           "description": "Property. Shape of this item.",
           "items": {
             "type": "MultiPoint"
+          }
+        },
+        "stairType": {
+          "type": "array",
+          "description": "Property. Stair type. Enum: strait_run.",
+          "items": {
+            "type": "string",
+            "enum": [
+              "strait_run"
+            ]
           }
         },
         "surfaceBase": {
