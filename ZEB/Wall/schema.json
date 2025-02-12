@@ -3,7 +3,7 @@
   "$schemaVersion": "0.0.1",
   "$id": "https://smart-data-models.github.io/dataModel.ZEB/Wall/schema.json",
   "title": "Smart Data Models - Wall schema",
-  "description": "Information on a given Wall of Building.",
+  "description": "Information on a given Wall of Building　(Shape, thickness, wall type, etc.).",
   "modelTags": "Smart Building",
   "derivedFrom": "",
   "license": "https://smart-data-models.github.io/dataModel.ZEB/Wall/LICENSE.md",
@@ -58,54 +58,36 @@
         "refArea": {
           "type": "array",
           "description": "Relationship.  Reference to the area containing this item.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
           "minItems": 1,
           "uniqueItems": true
         },
         "refBuilding": {
           "type": "array",
           "description": "Relationship. Reference to the building containing this item.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
           "minItems": 1,
           "uniqueItems": true
         },
         "refMaterialLayer": {
           "type": "array",
           "description": "Relationship. Reference to the materialLayer containing this item.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
           "minItems": 1,
           "uniqueItems": true
         },
         "refOpening": {
           "type": "array",
           "description": "Relationship. Reference to the opening containing this item.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
           "minItems": 1,
           "uniqueItems": true
         },
         "refRoom": {
           "type": "array",
           "description": "Relationship. Reference to the room containing this item.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
           "minItems": 1,
           "uniqueItems": true
         },
         "refStair": {
           "type": "array",
           "description": "Relationship. Reference to the stair containing this item.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
           "minItems": 1,
           "uniqueItems": true
         },
@@ -139,14 +121,11 @@
         "wallType": {
           "type": "string",
           "description": "Property. Wall type. Enum:'outer, inner, basement.'",
-          "items": {
-            "type": "string",
-            "enum": [
-              "outer",
-              "inner",
-              "basement"
-            ]
-          }
+          "enum": [
+            "outer",
+            "inner",
+            "basement"
+          ]
         }
       }
     }
