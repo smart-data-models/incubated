@@ -28,12 +28,12 @@
         "dateObjectCreated": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'http://schema.org/DateTime'. The registration date and time of this item as an object."
+          "description": "Property. Model:'http://schema.org/DateTime'. The registration date and time of this item as an object"
         },
         "dateObjectUpdated": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'http://schema.org/DateTime'. The update date and time of this item as an object."
+          "description": "Property. Model:'http://schema.org/DateTime'. The update date and time of this item as an object"
         },
         "flagDeleted": {
           "type": "boolean",
@@ -43,28 +43,28 @@
           "type": "array",
           "description": "Property. Joint Direction of this item and Spatial Objects.",
           "items": {
-            "type": "Point"
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
           }
         },
         "jointSurface": {
           "type": "array",
           "description": "Property. Joint Surface of this item and Spatial Objects.",
           "items": {
-            "type": "MultiPoint"
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
           }
         },
         "jointArea": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Joint Area of this item and Spatial Objects."
+          "description": "Property. Model:'https://schema.org/Number'.  Joint Area of this item and Spatial Objects"
         },
         "objectName": {
           "type": "string",
-          "description": "Property. Name of this item as an object."
+          "description": "Property. Name of this item as an object"
         },
         "refArea": {
           "type": "array",
-          "description": "Relationship.  Reference to the area containing this item.",
+          "description": "Relationship. Reference to the area containing this item",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           },
@@ -82,7 +82,7 @@
         },
         "refWall": {
           "type": "array",
-          "description": "Relationship. Reference to the wall containing this item.",
+          "description": "Relationship. Reference to the wall containing this item",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           },
@@ -100,7 +100,7 @@
         },
         "refStair": {
           "type": "array",
-          "description": "Relationship. Reference to the stair containing this item.",
+          "description": "Relationship. Reference to the stair containing this item",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           },
@@ -109,39 +109,39 @@
         },
         "shape": {
           "type": "array",
-          "description": "Property. Shape of this item.",
+          "description": "Property. Shape of this item",
           "items": {
             "type": "MultiPoint"
           }
         },
         "surfaceInner": {
           "type": "array",
-          "description": "Property. Inner Shape of this item.",
+          "description": "Property. Inner Shape of this item",
           "items": {
-            "type": "MultiPolygon"
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
           }
         },
         "surfaceOuter": {
           "type": "array",
-          "description": "Property. Outer Shape of this item.",
+          "description": "Property. Outer Shape of this item",
           "items": {
-            "type": "MultiPolygon"
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
           }
         },
         "thermalTransmission": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Thermal transmission of this item."
+          "description": "Property. Model:'https://schema.org/Number'. Thermal transmission of this item"
         },
         "thickness": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Thickness of this item."
+          "description": "Property. Model:'https://schema.org/Number'. Thickness of this item"
         },
         "volumetricSpecificHeat": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Volumetric specific heat of this item."
+          "description": "Property. Model:'https://schema.org/Number'.  Volumetric specific heat of this item"
         }
       }
     }
