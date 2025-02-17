@@ -1,1 +1,0 @@
-Readme for the data models of the Wine Traceability Data project

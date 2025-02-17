@@ -3,8 +3,9 @@
   "$schemaVersion": "0.0.3",
   "modelTags": "",
   "$id": "https://github.com/smart-data-models/incubated/SMARTAGRIFOOD/wineInformation/schema.json",
-  "title": "Smart Data Models - AgriWineProcessed",
+  "title": "Smart Data Models - wineProcessed",
   "type": "object",
+  "description": "This entity contains a harmonised description of wine information.",
   "allOf": [
       {
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -13,12 +14,11 @@
           "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/AgriFood-Commons"
       },
       {
-          "description": "This entity contains a harmonised description of wine information.",
           "properties": {
               "type": {
-                  "description": "Property. NGSI Entity Type: It has to be AgriWineInformation.",
+                  "description": "Property. NGSI Entity Type: It has to be wineProcessed.",
                   "enum": [
-                      "AgriWineProcessed"
+                      "wineProcessed"
                   ],
                   "type": "string"
               },
@@ -28,6 +28,9 @@
                   "pattern": "\\d{13,14}$"
               },
               "origins": {
+                "type": "object",
+                "description": "Property. Data about wine origins.",
+                "properties": {
                   "Final_Vat_GRAI": {
                     "description": "Property. Global Returnable Asset Identifier for the final vat.",
                     "type": "string",
@@ -50,6 +53,7 @@
                       }
                   }
               }
+            }
           }
       }
   ],

@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "$schemaVersion": "0.1.1",
+    "$schemaVersion": "0.0.1",
     "modelTags": "",
     "$id": "https://github.com/smart-data-models/incubated/SMARTAGRIFOOD/vineyardData/schema.json",
     "title": "Smart Data Models - Vineyard Block",
@@ -26,7 +26,7 @@
             "type": "string"
           },
           "GLN": {
-            "description": "Global Location Number according to GS1 standard -  Identifier GLN. 13-digit number to uniquely identify specific vineyard parcel.",
+            "description": "Property. Global Location Number according to GS1 standard -  Identifier GLN. 13-digit number to uniquely identify specific vineyard parcel.",
             "type": "string",
             "pattern": "\\d{13}"
           },
@@ -54,7 +54,7 @@
           },
           "inclination": {
               "aspect": {
-                "description": "‘Property. Aspect of the inclination’",
+                "description": "Property. Aspect of the inclination",
                 "enum": [
                   "N",
                   "NE",
@@ -68,41 +68,49 @@
                 "type": "string"
               },
               "slope": {
-                "description": "‘Property. Slope in degrees’",
+                "description": "Property. Slope in degrees.",
                 "type": "string"
               }
           },
           "plants": {
-            "trainingSystem": {
-              "description": "Property. Vine training system.",
-              "type": "string"
-            },
-            "variety": {
-              "description": "Vine variety.",
-              "type": "string"
-            },
-            "clone": {
-              "description": "Property. Vine variety clone.",
-              "type": "string"
-            },
-            "rootstock": {
-              "description": "Property. Vine rootstock type.",
-              "type": "string"
+            "type": "object",
+            "description": "Property. Data about the plants.",
+            "properties": {
+              "trainingSystem": {
+                "description": "Property. Vine training system.",
+                "type": "string"
+              },
+              "variety": {
+                "description": "Property. Vine variety.",
+                "type": "string"
+              },
+              "clone": {
+                "description": "Property. Vine variety clone.",
+                "type": "string"
+              },
+              "rootstock": {
+                "description": "Property. Vine rootstock type.",
+                "type": "string"
+              }
             }
           },
           "microclimate": {
-            "airTemperatureTSA": {
-              "description": "Property. Air temperature time series aggregation.",
-              "type": "object",
-              "$ref": "https://smart-data-models.github.io/dataModel.Environment/Environment-schema.json#/definitions/TimeSeriesAggregation"
-            },
-            "dailyGDD": {
-              "description": "Property. Daily Growing Degree Days value.",
-              "type": "number"
-            },
-            "dailyRainfall": {
-              "description": "Property. Daily rainfall in mm.",
-              "type": "integer"
+            "type": "object",
+            "description": "Property. Data about the microclimate.",
+            "properties": {
+              "airTemperatureTSA": {
+                "description": "Property. Air temperature time series aggregation.",
+                "type": "object",
+                "$ref": "https://smart-data-models.github.io/dataModel.Environment/Environment-schema.json#/definitions/TimeSeriesAggregation"
+              },
+              "dailyGDD": {
+                "description": "Property. Daily Growing Degree Days value.",
+                "type": "number"
+              },
+              "dailyRainfall": {
+                "description": "Property. Daily rainfall in mm.",
+                "type": "integer"
+              }
             }
           },
           "hasAgriSoil": {
@@ -139,8 +147,7 @@
             "enum": [
               "freeForm",
               "rows"
-            ],
-            "type": "string"
+            ]
           }
           
           
