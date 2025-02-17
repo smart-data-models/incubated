@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.SUBJECT/DATAMODEL/schema.json",
-  "title": "Smart Data Models - SUBJECT / DATAMODEL",
-  "description": "Description of the data model DATAMODEL ",
-  "modelTags": "",
+  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Opening/schema.json",
+  "title": "Smart Data Models - Opening schema",
+  "description": "Information on a given Opening of Building (Shape, surface, thickness, etc.).",
+  "modelTags": "Smart Building",
   "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.SUBJECT/DATAMODEL/LICENSE.md",
+  "license": "https://smart-data-models.github.io/dataModel.ZEB/Opening/LICENSE.md",
   "type": "object",
   "allOf": [
     {
@@ -20,386 +20,97 @@
         "type": {
           "type": "string",
           "enum": [
-            "ThreePhaseAcMeasurement"
+            "Opening"
           ],
-          "description": "Property. It must be equal to `ThreePhaseAcMeasurement`."
+          "description": "Property. It must be equal to `Opening`."
         },
-        "refDevice": {
-          "type": "array",
-          "description": "Relationship. Device(s) used to obtain the measurement.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
-          "minItems": 1,
-          "uniqueItems": true
-        },
-        "refTargetDevice": {
-          "type": "array",
-          "description": "Relationship. Device(s) for which the measurement was taken.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
-          "minItems": 1,
-          "uniqueItems": true
-        },
-        "dateEnergyMeteringStarted": {
+        "dateObjectCreated": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'http://schema.org/DateTime'. The starting date for metering energy."
+          "description": "Property. Model:'http://schema.org/DateTime'. The registration date and time of this item as an object."
         },
-        "totalActiveEnergyImport": {
+        "dateObjectUpdated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'http://schema.org/DateTime'. The update date and time of this item as an object."
+        },
+        "flagDeleted": {
+          "type": "string",
+          "description": "Property. Flag set when this item is deleted as an object."
+        },
+        "jointDirection": {
+          "description": "GeoProperty. Joint Direction of this item and Spatial Objects.",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
+        },
+        "jointSurface": {
+          "description": "GeoProperty. Joint Surface of this item and Spatial Objects.",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
+        },
+        "jointArea": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilowatt hour (kWh)'. Total energy imported i.e. consumed since metering started (since `dateEnergyMeteringStarted`)."
+          "description": "Property. Model:'https://schema.org/Number'.  Joint Area of this item and Spatial Objects."
         },
-        "totalReactiveEnergyImport": {
+        "objectName": {
+          "type": "string",
+          "description": "Property. Name of this item as an object."
+        },
+        "refArea": {
+          "type": "array",
+          "description": "Relationship.  Reference to the area containing this item.",
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "refBuilding": {
+          "type": "array",
+          "description": "Relationship. Reference to the building containing this item.",
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "refWall": {
+          "type": "array",
+          "description": "Relationship. Reference to the wall containing this item.",
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "refRoom": {
+          "type": "array",
+          "description": "Relationship. Reference to the room containing this item.",
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "refStair": {
+          "type": "array",
+          "description": "Relationship. Reference to the stair containing this item.",
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "shape": {
+          "description": "GeoProperty. Shape of this item.",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
+        },
+        "surfaceInner": {
+          "description": "GeoProperty. Inner Shape of this item.",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
+        },
+        "surfaceOuter": {
+          "description": "GeoProperty. Outer Shape of this item.",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
+        },
+        "thermalTransmission": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilovolt-ampere-reactive-hour (kVArh)'. Total energy imported i.e. consumed (with regards to fundamental frequency reactive power) since the metering start date (`dateEnergyMeteringStarted`)"
+          "description": "Property. Model:'https://schema.org/Number'. Thermal transmission of this item."
         },
-        "totalApparentEnergyImport": {
+        "thickness": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilovolt-ampere-hour (kVAh)'. Total energy imported i.e. consumed (with regards to apparent power) since the metering start date (`dateEnergyMeteringStarted`)"
+          "description": "Property. Model:'https://schema.org/Number'. Thickness of this item."
         },
-        "totalActiveEnergyExport": {
+        "volumetricSpecificHeat": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilowatt hour (kWh)'. Total energy exported since metering started (since `dateEnergyMeteringStarted`)."
-        },
-        "totalReactiveEnergyExport": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilovolt-ampere-reactive-hour (kVArh)'. Total fundamental frequency reactive energy exported since metering started (since `dateEnergyMeteringStarted`)."
-        },
-        "totalApparentEnergyExport": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilovolt-ampere-reactive-hour (kVArh)'. Total energy exported (with regards to apparent power) since the metering start date (`dateEnergyMeteringStarted`)"
-        },
-        "frequency": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'http://schema.org/Number'. Units:'Hertz (Hz)'. The frequency of the circuit."
-        },
-        "totalActivePower": {
-          "type": "number",
-          "description": "Property. Model:'http://schema.org/Number'. Units:'watt (W)'. Active power consumed (counting all phases)"
-        },
-        "totalReactivePower": {
-          "type": "number",
-          "description": "Property. Model:'http://schema.org/Number'. Units:'volt-ampere-reactive (VAr)'. Reactive power consumed (counting all phases)"
-        },
-        "totalApparentPower": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'http://schema.org/Number'. Units:'volt-ampere (VA)'. Apparent power consumed (counting all phases)."
-        },
-        "activeEnergyImport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilowatt hour (kWh)'. Active energy imported i.e. consumed per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "reactiveEnergyImport": {
-          "type": "object",
-          "description": "Property. Model:'kilovolt-ampere-reactive-hour (kVArh)'. Units:'http://schema.org/StructuredValue'. Fundamental frequency reactive energy imported i.e. consumed per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "apparentEnergyImport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilovolt-ampere-hour (kVAh)'. Apparent energy imported i.e. consumed per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "activeEnergyExport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilowatt hour (kWh)'. Active energy exported per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "reactiveEnergyExport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilovolt-ampere-reactive-hour (kVArh)'. Fundamental frequency reactive energy exported per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "apparentEnergyExport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilovolt-ampere-hour (kVAh)'. Apparent energy exported per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "activePower": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'watt (W)'.Active power consumed per phase. The actual values will beconveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3. ",
-          "properties": {
-            "L1": {
-              "type": "number"
-            },
-            "L2": {
-              "type": "number"
-            },
-            "L3": {
-              "type": "number"
-            }
-          }
-        },
-        "reactivePower": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'volts-ampere-reactive (VAr)'. Fundamental frequency reactive power. The actual values will be conveyed by subproperties whose names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number"
-            },
-            "L2": {
-              "type": "number"
-            },
-            "L3": {
-              "type": "number"
-            }
-          }
-        },
-        "apparentPower": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'volt-ampere (VA)'. Apparent power consumed per phase. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "totalPowerFactor": {
-          "type": "number",
-          "description": "Property. Model:'http://schema.org/Number'. Units:'-1 to +1'. Power factor including all phases",
-          "minimum": -1,
-          "maximum": 1
-        },
-        "powerFactor": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'-1 to +1'. Power factor for each phase. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            },
-            "L2": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            },
-            "L3": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            }
-          }
-        },
-        "totalDisplacementPowerFactor": {
-          "type": "number",
-          "description": "Property. Model:'http://schema.org/Number'. Units:'-1 to +1'. Displacement power factor including all phases. The quantity is based on the fundamental frequency of the system",
-          "minimum": -1,
-          "maximum": 1
-        },
-        "displacementPowerFactor": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'-1 to +1'. Displacement power factor for each phase. The quantity is based on the fundamental frequency of the system. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            },
-            "L2": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            },
-            "L3": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            }
-          }
-        },
-        "current": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'Ampers (A)'. Electrical current. The actual values will be conveyed by one subproperty per alternating current phase and the neutral wire: L1, L2, L3 and N.",
-          "properties": {
-            "L1": {
-              "type": "number"
-            },
-            "L2": {
-              "type": "number"
-            },
-            "L3": {
-              "type": "number"
-            },
-            "N": {
-              "type": "number"
-            }
-          }
-        },
-        "phaseVoltage": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'Volts (V)'. The voltage between each phase and neutral conductor. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "phaseToPhaseVoltage": {
-          "type": "object",
-          "description": "Property. Model:'(http://schema.org/StructuredValue'. Units:'Volts (V)'. Voltage between phases. A value for each phase pair: phases 1 and 2 (L12), phases 2 and 3 (L32), phases 3 and 1 (L31).",
-          "properties": {
-            "L12": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L23": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L31": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "thdVoltage": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'0 to 1'. Total harmonic distortion of voltage for each phase. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            }
-          }
-        },
-        "thdCurrent": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'0 to 1'. Total harmonic distortion of electrical current. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            }
-          }
+          "description": "Property. Model:'https://schema.org/Number'.  Volumetric specific heat of this item."
         }
       }
     }
