@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.3",
+  "modelTags": "",
+  "$id": "https://github.com/maticserc/incubated/tree/master/SMARTAGRIFOOD/wineTraceability/wineProcessed/schema.json",
+  "title": "Smart Data Models - wineProcessed",
+  "type": "object",
+  "description": "This entity contains a harmonised description of wine information.",
+  "allOf": [
+      {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      },
+      {
+          "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/AgriFood-Commons"
+      },
+      {
+          "properties": {
+              "type": {
+                  "description": "Property. NGSI Entity Type: It has to be wineProcessed.",
+                  "enum": [
+                      "wineProcessed"
+                  ],
+                  "type": "string"
+              },
+              "GTIN": {
+                  "description": "Property. Global Trade Item Number for the wine.",
+                  "type": "string",
+                  "pattern": "\\d{13,14}$"
+              },
+              "origins": {
+                "type": "object",
+                "description": "Property. Data about wine origins.",
+                "properties": {
+                  "Final_Vat_GRAI": {
+                    "description": "Property. Global Returnable Asset Identifier for the final vat.",
+                    "type": "string",
+                    "pattern":  "^\\d{7,30}-?[a-zA-Z0-9]*$"
+                  },
+                  "Intermediate_Vats_GRAI": {
+                    "description": "Property. Global Returnable Asset Identifiers for the intermediate vats/juice containers.",
+                    "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern":  "^\\d{7,30}-?[a-zA-Z0-9]*$"
+                      }
+                  },
+                  "Vineyards_GLN": {
+                    "description": "Property. Global Location Numbers for the vineyards.",
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "\\d{13}"
+                      }
+                  }
+              }
+            }
+          }
+      }
+  ],
+  "required": [
+      "id",
+      "type"
+  ]
+}
