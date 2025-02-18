@@ -3,7 +3,7 @@
   "$schemaVersion": "0.0.4",
   "$id": "https://smart-data-models.github.io/dataModel.MachineTool/MachineTool/schema.json",
   "title": "Sample information model for MachineTool following OPC UA Companion Specification",
-  "description": "MachineTool is a mechanical device which is fixed (i.e. not mobile) and powered (typically by electricity and compressed air), typically used to process workpieces by selective removal/addition of material or mechanical deformation.",
+  "description": "MachineTool is a mechanical device which is fixed (i.e. not mobile) and powered (typically by electricity and compressed air), typically used to process workpieces by selective removal/addition of material or mechanical deformation",
   "derivedFrom": "https://reference.opcfoundation.org/MachineTool/v101/docs",
   "type": "object",
   "modelTags": "MachineTool",
@@ -32,14 +32,14 @@
             "properties": {
               "notification": {
                 "type": "object",
-                "description": "Property. It is used to structure information given in the MachineTool. It groups the messages and alerts of the machine and contains the prognoses for the machining operation.",
+                "description": "Property. It is used to structure information given in the MachineTool. It groups the messages and alerts of the machine and contains the prognoses for the machining operation",
                 "properties": {
                   "messages": {
                     "type": "array",
-                    "description": "Property. It is used to define the object sending events. These events are used for errors, warnings and messages.",
+                    "description": "Property. It is used to define the object sending events. These events are used for errors, warnings and messages",
                     "items": {
                       "type": "object",
-                      "description": "Property. It is used to define the object event. This event is used for errors, warnings and messages.",
+                      "description": "Property. It is used to define the object event. This event is used for errors, warnings and messages",
                       "properties": {
                         "alertType": {
                           "type": "object",
@@ -66,14 +66,14 @@
                   },
                   "prognoses": {
                     "type": "array",
-                    "description": "Property. It contains a list of the current prognoses for machine operation. Reliability for any prognosis in the list will rely on the specific case and cannot be guaranteed to be precise.",
+                    "description": "Property. It contains a list of the current prognoses for machine operation. Reliability for any prognosis in the list will rely on the specific case and cannot be guaranteed to be precise",
                     "items": {
                       "type": "object",
-                      "description": "Property. It contains a prognosis for machine operation.",
+                      "description": "Property. It contains a prognosis for machine operation",
                       "properties": {
                         "prognosisN": {
                           "type": "object",
-                          "description": "Property. It contains a prognosis N for machine operation.",
+                          "description": "Property. It contains a prognosis N for machine operation",
                           "properties": {
                             "predictedTime": {
                               "type": "string",
@@ -92,23 +92,23 @@
               },
               "production": {
                 "type": "object",
-                "description": "Property. It is used to structure information given in the MachineTool. It groups the information about the production plan and the production statistics.",
+                "description": "Property. It is used to structure information given in the MachineTool. It groups the information about the production plan and the production statistics",
                 "properties": {
                   "activeProgram": {
                     "type": "object",
-                    "description": "Property. It is used to represent programs that are currently running within the machine.",
+                    "description": "Property. It is used to represent programs that are currently running within the machine",
                     "properties": {
                       "jobNodeId": {
                         "type": "integer",
-                        "description": "Property. It contains the NodeId of the Production Object instance this program is used in."
+                        "description": "Property. It contains the NodeId of the Production Object instance this program is used in"
                       },
                       "jobIdentifier": {
                         "type": "string",
-                        "description": "Property. It holds the same content as the Identifier Property of the Production Object instance this program is used in."
+                        "description": "Property. It holds the same content as the Identifier Property of the Production Object instance this program is used in"
                       },
                       "state": {
                         "type": "integer",
-                        "description": "Property. It is inherited from the Production Program Type and override to be mandatory."
+                        "description": "Property. It is inherited from the Production Program Type and override to be mandatory"
                       }
                     }
                   },
@@ -117,7 +117,7 @@
                     "description": "Property. It  is a type used for structuring objects of Production Job Type in an ordered list structure. ",
                     "items": {
                       "type": "object",
-                      "description": "Property. It provides aggregated production data for running a sequence to produce several parts after one preparation mounting.",
+                      "description": "Property. It provides aggregated production data for running a sequence to produce several parts after one preparation mounting",
                       "properties": {
                         "customerOrderIdentifier": {
                           "type": "string",
@@ -140,23 +140,23 @@
                           "description": "Property. It contains a list of Production Part Set Type nodes related to the job. It is a list of the part sets, which contain the parts produced in the current run of the job. ",
                           "items": {
                             "type": "object",
-                            "description": "Property. It is used to group parts within a production job. It also contains information about the parts in the group.",
+                            "description": "Property. It is used to group parts within a production job. It also contains information about the parts in the group",
                             "properties": {
                               "partSetN": {
                                 "type": "object",
-                                "description": "Property. It describes parts-N within a production job.",
+                                "description": "Property. It describes parts-N within a production job",
                                 "properties": {
                                   "name": {
                                     "type": "string",
-                                    "description": "Property. It is used to specify the type of parts in a group."
+                                    "description": "Property. It is used to specify the type of parts in a group"
                                   },
                                   "partsPlannedPerRun": {
                                     "type": "integer",
-                                    "description": "Property. It indicates how many of the parts in this group are intended to be produced in one run of a job."
+                                    "description": "Property. It indicates how many of the parts in this group are intended to be produced in one run of a job"
                                   },
                                   "partsCompletedPerRun": {
                                     "type": "integer",
-                                    "description": "Property. It indicates how many parts of this group have been completed in the current run of the job. This counter does not give any indication about the part quality."
+                                    "description": "Property. It indicates how many parts of this group have been completed in the current run of the job. This counter does not give any indication about the part quality"
                                   },
                                   "partsPerRun": {
                                     "type": "array",
@@ -175,7 +175,7 @@
                                         },
                                         "identifier": {
                                           "type": "string",
-                                          "description": "Property. It is used to distinguish and identify an individual part in production in a machine. It shall be unique."
+                                          "description": "Property. It is used to distinguish and identify an individual part in production in a machine. It shall be unique"
                                         },
                                         "partQuality": {
                                           "type": "integer",
@@ -183,7 +183,7 @@
                                         },
                                         "processIrregularity": {
                                           "type": "integer",
-                                          "description": "Property. It is used to tell if a process irregularity has been detected. A process irregularity might for example be the breakage of a tool, or exceeding a temperature limit on coolant."
+                                          "description": "Property. It is used to tell if a process irregularity has been detected. A process irregularity might for example be the breakage of a tool, or exceeding a temperature limit on coolant"
                                         },
                                         "state": {
                                           "type": "integer",
@@ -194,7 +194,7 @@
                                   },
                                   "containsMixedParts": {
                                     "type": "boolean",
-                                    "description": "Property. It indicates if the parts in a Production Part Set may be different from each other (True) or if they are parts of the same type (False)."
+                                    "description": "Property. It indicates if the parts in a Production Part Set may be different from each other (True) or if they are parts of the same type (False)"
                                   }
                                 }
                               }
@@ -203,7 +203,7 @@
                         },
                         "partsGood": {
                           "type": "integer",
-                          "description": "Property. It indicates how many good parts have been completed in the current job including all runs."
+                          "description": "Property. It indicates how many good parts have been completed in the current job including all runs"
                         },
                         "productionPrograms": {
                           "type": "object",
@@ -211,11 +211,11 @@
                           "properties": {
                             "name": {
                               "type": "string",
-                              "description": "Property. It is used to distinguish and identify programs on a machine."
+                              "description": "Property. It is used to distinguish and identify programs on a machine"
                             },
                             "numberInList": {
                               "type": "integer",
-                              "description": "Property. It is used to enumerate Production Program  instances used as list elements. This index shall be 0 for the first list element and increase by one for each subsequent list element. If nodes are deleted from the list or inserted into the list, the NumberInList has to be adjusted for all following nodes in the list, such that the NumberInList elements always form a sequential series of numbers."
+                              "description": "Property. It is used to enumerate Production Program  instances used as list elements. This index shall be 0 for the first list element and increase by one for each subsequent list element. If nodes are deleted from the list or inserted into the list, the NumberInList has to be adjusted for all following nodes in the list, such that the NumberInList elements always form a sequential series of numbers"
                             },
                             "state": {
                               "type": "integer",
@@ -225,7 +225,7 @@
                         },
                         "runsCompleted": {
                           "type": "integer",
-                          "description": "Property. It is a counter that increases after each completed run of the job. This means, the run was not aborted and finished regularly. This counter does not give any indication about the part quality."
+                          "description": "Property. It is a counter that increases after each completed run of the job. This means, the run was not aborted and finished regularly. This counter does not give any indication about the part quality"
                         },
                         "runsPlanned": {
                           "type": "integer",
@@ -233,7 +233,7 @@
                         },
                         "state": {
                           "type": "integer",
-                          "description": "Property. It indicates the current state the job is in and the transition used to get into this state."
+                          "description": "Property. It indicates the current state the job is in and the transition used to get into this state"
                         }
                       }
                     }
@@ -256,11 +256,11 @@
               },
               "identification": {
                 "type": "object",
-                "description": "Property. It describes the Machine Tools information model holds static data which shall uniquely identify a machine tool among a pool of the machine tool operating entity.",
+                "description": "Property. It describes the Machine Tools information model holds static data which shall uniquely identify a machine tool among a pool of the machine tool operating entity",
                 "properties": {
                   "softwareIdentification": {
                     "type": "object",
-                    "description": "Property. It contains the machine tool’s software identification information. It allows to add multiple software items, e.g. one for each of PLC, NC and HMI.",
+                    "description": "Property. It contains the machine tool’s software identification information. It allows to add multiple software items, e.g. one for each of PLC, NC and HMI",
                     "properties": {
                       "machineSoftware": {
                         "type": "object",
@@ -272,11 +272,11 @@
                           },
                           "identifier": {
                             "type": "string",
-                            "description": "Property. It provides an identifier to distinguish the software component."
+                            "description": "Property. It provides an identifier to distinguish the software component"
                           },
                           "manufacturer": {
                             "type": "string",
-                            "description": "Property. It refers to the manufacturer/producer of the software."
+                            "description": "Property. It refers to the manufacturer/producer of the software"
                           }
                         }
                       },
@@ -360,7 +360,7 @@
               },
               "monitoring": {
                 "type": "object",
-                "description": "Property. It contains the monitoring information of the machine tool and its subsystems.",
+                "description": "Property. It contains the monitoring information of the machine tool and its subsystems",
                 "properties": {
                   "monitoredElementN": {
                     "type": "object",
@@ -368,35 +368,35 @@
                     "properties": {
                       "name": {
                         "type": "string",
-                        "description": "Property. It refers to a name of the element."
+                        "description": "Property. It refers to a name of the element"
                       }
                     }
                   },
                   "machineTool": {
                     "type": "object",
-                    "description": "Property. It provides overall monitoring information of the machine tool.",
+                    "description": "Property. It provides overall monitoring information of the machine tool",
                     "properties": {
                       "feedOverride": {
                         "type": "integer",
-                        "description": "Property.It is the combined actual feed override value that is effective for the manufacturing program of the machine tool."
+                        "description": "Property. It is the combined actual feed override value that is effective for the manufacturing program of the machine tool"
                       },
                       "powerOnDuration": {
                         "type": "integer",
-                        "description": "Property. It is the duration the machine has been powered, meaning all systems have line voltage. It is counted in full hours. This value only increases during the lifetime of the machine and is not reset when the machine is power cycled."
+                        "description": "Property. It is the duration the machine has been powered, meaning all systems have line voltage. It is counted in full hours. This value only increases during the lifetime of the machine and is not reset when the machine is power cycled"
                       },
                       "operationMode": {
                         "type": "integer",
-                        "description": "Property.It contains a Machine Operation Mode value as defined. It is an enum derived from the MO modes of machinery functional safety standards. For a machine adhering to such a standard, this property shall show the respective mode. For a machine not adhering to such a standard, this property shall be filled with the appropriate mode available from the Machine Operation Mode Enum. "
+                        "description": "Property. It contains a Machine Operation Mode value as defined. It is an enum derived from the MO modes of machinery functional safety standards. For a machine adhering to such a standard, this property shall show the respective mode. For a machine not adhering to such a standard, this property shall be filled with the appropriate mode available from the Machine Operation Mode Enum"
                       },
                       "isWarmUp": {
                         "type": "boolean",
-                        "description": "Property. It being True indicates if the machine tool is performing a warmup task. A warmup is not used for production, it is the mode used to reach a stable operating point for the machine tool. An example is reaching the optimal operating temperature. This might be indicated by a hardware switch on the machine tool, a special control command, a special production program (referenced by program name) or otherwise."
+                        "description": "Property. It being True indicates if the machine tool is performing a warmup task. A warmup is not used for production, it is the mode used to reach a stable operating point for the machine tool. An example is reaching the optimal operating temperature. This might be indicated by a hardware switch on the machine tool, a special control command, a special production program (referenced by program name) or otherwise"
                       }
                     }
                   },
                   "stacklight": {
                     "type": "array",
-                    "description": "Property. It contains the information about a stacklight’s composition and status.",
+                    "description": "Property. It contains the information about a stacklight’s composition and status",
                     "items": {
                       "type": "object",
                       "description": "Property. It describes one item ",
