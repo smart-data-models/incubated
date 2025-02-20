@@ -40,7 +40,7 @@ def list_directories_and_read_schema():
                     pathSchema = "https://raw.githubusercontent.com/smart-data-models/incubated/master/SMART%20AERONAUTICS/ACRIS/" + directory + "/schema.json"
                     print(pathSchema)
                     keyvalues = sdm.ngsi_ld_keyvalue_example_generator(pathSchema)
-                    # github_push_from_variable(json.dumps(keyvalues, indent=4), "incubated", "SMART AERONAUTICS/ACRIS/" + directory + "/examples/example.json", "Example created", globalUser, token)
+                    # github_push_from_variable(json.dumps(keyvalues, indent=4), "incubated", "SMART AERONAUTICS/ACRIS/" + directory + "/examples/example2.json", "Example created", globalUser, token)
                     normalized = sdm.ngsi_ld_example_generator(pathSchema)
                     github_push_from_variable(json.dumps(keyvalues, indent=4), "incubated", "SMART AERONAUTICS/ACRIS/" + directory + "/examples/example.jsonld", "Example created", globalUser, token)
                     print(normalized)

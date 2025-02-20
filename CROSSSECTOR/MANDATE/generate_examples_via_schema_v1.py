@@ -189,7 +189,7 @@ for file in files:
             os.mkdir(path + "/examples")
         except OSError:
             print("Creation of the examples directory %s failed" % path)
-        with open(path + "/examples/example.json", "w") as outputFile:
+        with open(path + "/examples/example2.json", "w") as outputFile:
             json.dump(exampleV2Keyvalues, outputFile, indent=2)
         with open(path + "/examples/example.jsonld", "w") as outputFile:
             json.dump(exampleLDKeyvalues, outputFile, indent=2)

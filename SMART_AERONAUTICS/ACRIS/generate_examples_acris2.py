@@ -66,8 +66,8 @@ def generate_additional_example():
                     # with open(path_example, "w") as example_file:
                     #     example_file.write(json.dumps(normalized, indent=4))
 
-                    # example.json
-                    path_example = "./" + directory + "/examples/example.json"
+                    # example2.json
+                    path_example = "./" + directory + "/examples/example2.json"
                     print(path_example)
                     keyvalues = sdm.ngsi_ld_keyvalue_example_generator(path_schema)
                     print(keyvalues)
