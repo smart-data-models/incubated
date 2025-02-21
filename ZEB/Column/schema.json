@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Opening/schema.json",
-  "title": "Smart Data Models - Opening schema",
-  "description": "Information on a given Opening of Building.",
+  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Column/schema.json",
+  "title": "Smart Data Models - Column schema",
+  "description": "Information on a given Column of Building (Shape, thermalTransmission, volumetricSpecificHeat, etc.).",
   "modelTags": "Smart Building",
   "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.ZEB/Opening/LICENSE.md",
+  "license": "https://smart-data-models.github.io/dataModel.ZEB/Column/LICENSE.md",
   "type": "object",
   "allOf": [
     {
@@ -22,116 +22,91 @@
           "enum": [
             "Column"
           ],
-          "description": "Property. It must be equal to `Column`"
+          "description": "Property. It must be equal to `Column`."
         },
         "dateObjectCreated": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'http://schema.org/DateTime'. The registration date and time of this item as an object"
+          "description": "Property. Model:'http://schema.org/DateTime'. The registration date and time of this item as an object."
         },
         "dateObjectUpdated": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'http://schema.org/DateTime'. The update date and time of this item as an object"
+          "description": "Property. Model:'http://schema.org/DateTime'. The update date and time of this item as an object."
         },
         "flagDeleted": {
-          "type": "boolean",
-          "description": "Property. Flag set when this item is deleted as an object"
+          "type": "string",
+          "description": "Property. Flag set when this item is deleted as an object."
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Height of this item."
         },
         "jointDirection": {
-          "description": "Property. Joint Direction of this item and Spatial Objects",
+          "description": "GeoProperty. Joint Direction of this item and Spatial Objects.",
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
         },
         "jointSurface": {
-          "description": "Property. Joint Surface of this item and Spatial Objects",
+          "description": "GeoProperty. Joint Surface of this item and Spatial Objects.",
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
         },
         "jointArea": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Joint Area of this item and Spatial Objects"
+          "description": "Property. Model:'https://schema.org/Number'.  Joint Area of this item and Spatial Objects."
         },
         "objectName": {
           "type": "string",
-          "description": "Property. Name of this item as an object"
+          "description": "Property. Name of this item as an object."
         },
         "refArea": {
           "type": "array",
-          "description": "Relationship. Reference to the area containing this item",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
+          "description": "Relationship.  Reference to the area containing this item.",
           "minItems": 1,
           "uniqueItems": true
         },
         "refBuilding": {
           "type": "array",
-          "description": "Relationship. Reference to the building containing this item",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
+          "description": "Relationship. Reference to the building containing this item.",
           "minItems": 1,
           "uniqueItems": true
         },
-        "refWall": {
+        "refMaterial": {
           "type": "array",
-          "description": "Relationship. Reference to the wall containing this item",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
+          "description": "Relationship. Reference to the material containing this item.",
           "minItems": 1,
           "uniqueItems": true
         },
         "refRoom": {
           "type": "array",
-          "description": "Relationship. Reference to the room containing this item",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
+          "description": "Relationship. Reference to the room containing this item.",
           "minItems": 1,
           "uniqueItems": true
         },
         "refStair": {
           "type": "array",
-          "description": "Relationship. Reference to the stair containing this item",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
+          "description": "Relationship. Reference to the stair containing this item.",
           "minItems": 1,
           "uniqueItems": true
         },
         "shape": {
-          "description": "Property. Shape of this item",
+          "description": "GeoProperty. Shape of this item.",
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
         },
-        "surfaceInner": {
-          "type": "array",
-          "description": "Property. Inner Shape of this item",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
-          }
-        },
-        "surfaceOuter": {
-          "type": "array",
-          "description": "Property. Outer Shape of this item",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
-          }
+        "surfaceBase": {
+          "description": "GeoProperty. Base Shape of this item.",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
         },
         "thermalTransmission": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Thermal transmission of this item"
-        },
-        "thickness": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Thickness of this item"
+          "description": "Property. Model:'https://schema.org/Number'. Thermal transmission of this item."
         },
         "volumetricSpecificHeat": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Volumetric specific heat of this item"
+          "description": "Property. Model:'https://schema.org/Number'.  Volumetric specific heat of this item."
         }
       }
     }
