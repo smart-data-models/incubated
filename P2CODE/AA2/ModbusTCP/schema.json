@@ -1,0 +1,134 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "P2CODE",
+    "$id": "https://smart-data-models.github.io/dataModel.Device/Modbus/schema.json",
+    "title": "Smart Data models - ModBusTCP data model",
+    "description": "This entity contains a harmonised description of a modbus payload adapted from the modbus application protocol v1.1.b3",
+    "type": "object",
+    "derivedFrom": "https://modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf",
+    "allOf": [
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      },
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+      },
+      {
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Property. NGSI Entity identifier. It has to be Modbus",
+            "enum": [
+              "ModBusTCP"
+            ]
+          },
+          "unitId": {
+            "type": "string",
+            "description": "Property. Identifier of the device"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Property. Identifier of the transaction"
+          },
+          "protocolId": {
+            "type": "string",
+            "description": "Property. Identifier of the protocol. In example 0 means modbus"
+          },
+          "primaryTable": {
+            "type": "string",
+            "description": "Property. Register type of the data in the protocol",
+            "enum": [
+              "coil",
+              "inputRegister",
+              "holdingRegister",
+              "discreteInput"
+            ]
+          },
+          "memoryAddress": {
+            "type": "string",
+            "description": "Property. Address in the device sending data"
+          },
+          "value": {
+            "type": "string",
+            "description": "Property. Value of the data interchanged"
+          },
+          "devices": {
+            "type": "array",
+            "description": "Property. Array of Modbus TCP devices",
+            "items": {
+              "type": "object",
+              "properties": {
+                "deviceName": {
+                  "type": "string",
+                  "description": "Property. Name of the device"
+                },
+                "voltageRegion": {
+                  "type": "string",
+                  "description": "Property.Voltage region of the device"
+                },
+                "noOfMeasurements": {
+                  "type": "number",
+                  "description": "Property. Number of measurements supported by the device"
+                },
+                "ipAddress": {
+                  "type": "string",
+                  "description": "Property. IP address of the device"
+                },
+                "port": {
+                  "type": "number",
+                  "description": "Property. Port number of the device"
+                },
+                "slaveId": {
+                  "type": "number",
+                  "description": "Property. Modbus slave ID"
+                },
+                "modbusFunctionCode": {
+                  "type": "string",
+                  "description": "Property. Modbus function code"
+                },
+                "gates": {
+                  "type": "array",
+                  "description": "Property. Array of gates for the device",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "gateName": {
+                        "type": "string",
+                        "description": "Property. Name of the gate"
+                      },
+                      "measurements": {
+                        "type": "array",
+                        "description": "Property. Array of measurements for the gate",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "measurementDetailedDescription": {
+                              "type": "string",
+                              "description": "Property. Detailed description of the measurement"
+                            },
+                            "measurementStartingAddress": {
+                              "type": "number",
+                              "description": "Property. Starting address of the measurement in decimal"
+                            },
+                            "units": {
+                              "type": "string",
+                              "description": "Property. Units of the measurement"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "required": [
+      "id",
+      "type"
+    ]
+  }
