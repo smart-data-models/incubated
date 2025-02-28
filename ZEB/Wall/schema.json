@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.ZEB/BuildingZEB/schema.json",
-  "title": "Smart Data Models - BuildingZEB schema",
-  "description": "Information on Building of ZEB (Area, cnstruction type, height, etc.).",
+  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Room/schema.json",
+  "title": "Smart Data Models - Room schema",
+  "description": "Information on Room (Area type, height, level, etc.).",
   "modelTags": "Smart Building",
   "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.ZEB/BuildingZEB/LICENSE.md",
+  "license": "https://smart-data-models.github.io/dataModel.ZEB/Room/LICENSE.md",
   "type": "object",
   "allOf": [
     {
@@ -20,22 +20,28 @@
         "type": {
           "type": "string",
           "enum": [
-            "BuildingZEB"
+            "Room"
           ],
-          "description": "Property. It must be equal to `BuildingZEB`."
+          "description": "Property. It must be equal to `Room`."
+        },
+        "areaType": {
+          "type": "string",
+          "description": "Property. Area type. Enum:'ac, vent, light, hw, elv, acs, oa, analyze, cell, sensor'",
+          "enum": [
+            "ac",
+            "vent",
+            "light",
+            "hw",
+            "acs",
+            "oa",
+            "analyze",
+            "cell",
+            "sensor"
+          ]
         },
         "baseSurface": {
           "description": "GeoProperty. Base Surface of this item.",
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
-        },
-        "baseArea": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Base Area of this item."
-        },
-        "constructionType": {
-          "type": "string",
-          "description": "Property. Construction type of this item."
         },
         "dateObjectCreated": {
           "type": "string",
@@ -50,16 +56,6 @@
         "flagDeleted": {
           "type": "string",
           "description": "Property. Flag set when this item is deleted as an object."
-        },
-        "floorAboveGround": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Floor above ground of this item."
-        },
-        "floorBelowGround": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Floor below ground of this item."
         },
         "height": {
           "type": "number",
@@ -79,6 +75,20 @@
           "minimum": 0,
           "description": "Property. Model:'https://schema.org/Number'.  Joint Area of this item and Spatial Objects."
         },
+        "numStoreyLevel": {
+          "type": "string",
+          "description": "Property. num storey level. Enum:'B1F, 1F, M2F, 2F, M3F,3F,4F, RF'",
+          "enum": [
+            "B1F",
+            "1F",
+            "M2F",
+            "2F",
+            "M3F",
+            "3F",
+            "4F",
+            "RF"
+          ]
+        },
         "objectName": {
           "type": "string",
           "description": "Property. Name of this item as an object."
@@ -88,6 +98,24 @@
           "items": {
             "type": "string",
             "description": "Relationship. Reference to the air conditioner terminal containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "refArea": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the area containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "refBuilding": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the building containing this item.",
             "minItems": 1,
             "uniqueItems": true
           }
@@ -209,6 +237,15 @@
             "uniqueItems": true
           }
         },
+        "refStorey": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the storey containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
         "refTotalHeatExchanger": {
           "type": "array",
           "items": {
@@ -245,34 +282,32 @@
             "uniqueItems": true
           }
         },
+        "roomType": {
+          "type": "string",
+          "description": "Property. Wall type. Enum:'room, shaft, above_ceiling, under_floor'",
+          "enum": [
+            "room",
+            "shaft",
+            "above_ceiling",
+            "under_floor"
+          ]
+        },
         "shape": {
           "description": "GeoProperty. Shape of this item.",
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
         },
-        "siteArea": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Site area of this item."
-        },
         "spaceArea": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Space area of this item."
+          "description": "Property. Model:'https://schema.org/Number'.  Space Area of this item and Spatial Objects."
         },
-        "suppliedCool": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Supplied cool of this item."
+        "usageBuilding": {
+          "type": "string",
+          "description": "Property. Usage building of this item as an object."
         },
-        "suppliedHeat": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Supplied heat of this item."
-        },
-        "totalFloorArea": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Total floor area of this item."
+        "usageRoom": {
+          "type": "string",
+          "description": "Property. Usage room of this item as an object."
         }
       }
     }
