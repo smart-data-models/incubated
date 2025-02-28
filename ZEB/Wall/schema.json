@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.ZEB/IndoorAirConditioner/schema.json",
-  "title": "Smart Data Models - IndoorAirConditioner schema",
-  "description": "Information on IndoorAirConditioner (maker, model, specification, etc.).",
+  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Lighting/schema.json",
+  "title": "Smart Data Models - Lighting schema",
+  "description": "Information on Lighting (maker, model, specification, etc.).",
   "modelTags": "Smart Building",
   "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.ZEB/IndoorAirConditioner/LICENSE.md",
+  "license": "https://smart-data-models.github.io/dataModel.ZEB/Lighting/LICENSE.md",
   "type": "object",
   "allOf": [
     {
@@ -20,48 +20,23 @@
         "type": {
           "type": "string",
           "enum": [
-            "IndoorAirConditioner"
+            "Lighting"
           ],
-          "description": "Property. It must be equal to `IndoorAirConditioner`."
-        },
-        "airSupplyQuantitiyCooling": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Air supply quantitiy when cooling of this item."
-        },
-        "airSupplyQuantitiyHeating": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Air supply quantitiy when heating of this item."
-        },
-        "airSupplyQuantitiyHigh": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Air supply quantitiy when set amount of wind is high of this item."
-        },
-        "airSupplyQuantitiyMiddle": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Air supply quantitiy when set amount of wind is middle of this item."
-        },
-        "airSupplyQuantitiyLow": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Air supply quantitiy when set amount of wind is low of this item."
-        },
-        "capacityCooling": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Capacity cooling of this item."
-        },
-        "capacityHeating": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Capacity heating of this item."
+          "description": "Property. It must be equal to `Lighting`."
         },
         "classificationCode": {
           "type": "string",
           "description": "Property. Classification code of this item."
+        },
+        "colorTemp": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Color temp of this item."
+        },
+        "colorTempLow": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Color low temp of this item."
         },
         "dateObjectCreated": {
           "type": "string",
@@ -73,26 +48,6 @@
           "format": "date-time",
           "description": "Property. Model:'http://schema.org/DateTime'. The update date and time of this item as an object."
         },
-        "dryBulbTemperatureIndoorCooling": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Indoor dry bulb temperature when cooling."
-        },
-        "dryBulbTemperatureIndoorHeating": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Indoor dry bulb temperature when heating."
-        },
-        "dryBulbTemperatureOutdoorCooling": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Outdoor dry bulb temperature when cooling."
-        },
-        "dryBulbTemperatureOutdoorHeating": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Outdoor dry bulb temperature when heating."
-        },
         "exteriorShape": {
           "description": "GeoProperty. Exterior shape of this item.",
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
@@ -101,10 +56,13 @@
           "type": "string",
           "description": "Property. Flag set when this item is deleted as an object."
         },
-        "groupNumber": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Group number of this item."
+        "idLightSystem": {
+          "type": "string",
+          "description": "Property. Light system id of this item."
+        },
+        "idLightSystemLow": {
+          "type": "string",
+          "description": "Property. Light system id of this item for variable color temperature model."
         },
         "idMaker": {
           "type": "string",
@@ -114,28 +72,14 @@
           "type": "string",
           "description": "Property. Model id or number of this item."
         },
-        "mnetAddress": {
-          "type": "string",
-          "description": "Property. Mnet address of this item."
-        },
-        "motorOutput": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Fan motor output of this item."
-        },
         "objectName": {
           "type": "string",
           "description": "Property. Name of this item as an object."
         },
-        "powerConsumptionCooling": {
+        "powerConsumption": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Power consumption when cooling of this item."
-        },
-        "powerConsumptionHeating": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Power consumption when heating of this item."
+          "description": "Property. Model:'https://schema.org/Number'. Power consumption of this item."
         },
         "powerFrequency": {
           "type": "number",
@@ -146,15 +90,6 @@
           "type": "number",
           "minimum": 0,
           "description": "Property. Model:'https://schema.org/Number'. Price of this item."
-        },
-        "refAirConditionerTerminal": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "description": "Relationship. Reference to the air conditioner terminal containing this item.",
-            "minItems": 1,
-            "uniqueItems": true
-          }
         },
         "refElectricPowerEquipment": {
           "type": "array",
@@ -174,29 +109,11 @@
             "uniqueItems": true
           }
         },
-        "refIndoorAirConditionerMeasurement": {
+        "refLightingMeasurement": {
           "type": "array",
           "items": {
             "type": "string",
-            "description": "Relationship. Reference to the indoor air conditioner measurement containing this item.",
-            "minItems": 1,
-            "uniqueItems": true
-          }
-        },
-        "refIndoorAirConditionerMentenanceMeasurement": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "description": "Relationship. Reference to the indoor air conditioner mentenance measurement containing this item.",
-            "minItems": 1,
-            "uniqueItems": true
-          }
-        },
-        "refOutdoorAirConditioner": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "description": "Relationship. Reference to the outdoor air conditioner containing this item.",
+            "description": "Relationship. Reference to the lighting measurement containing this item.",
             "minItems": 1,
             "uniqueItems": true
           }
@@ -227,16 +144,6 @@
         "specName": {
           "type": "string",
           "description": "Property. Name of this item."
-        },
-        "wetBulbTemperatureIndoorCooling": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Indoor wet bulb temperature when cooling."
-        },
-        "wetBulbTemperatureOutdoorHeating": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Outdoor wet bulb temperature when heating."
         }
       }
     }
