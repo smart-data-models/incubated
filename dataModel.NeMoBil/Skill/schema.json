@@ -1,28 +1,36 @@
 {
-  "required" : [ "id", "type" ],
-  "type" : "object",
-  "properties" : {
-    "id" : {
-      "type" : "integer",
-      "description" : "Property. Identifier of the skill",
-      "format" : "int32"
+  "description": "Skills and features, which can be fulfilled by vehicles",
+  "$schemaVersion": "1.0.0",
+  "title": "Skill",
+  "$id": "https://raw.githubusercontent.com/NeMo-bil/model/refs/heads/Vehicle/docs/Skill/schema.json",
+  "$schema": "http://json-schema.org/schema#",
+  "modelTags": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
     },
-    "type" : {
-      "type" : "string",
-      "description" : "Property. NGSI Entity type. It has to be Skill",
-      "enum" : [ "Skill" ]
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
-    "name" : {
-      "type" : "string",
-      "description" : "Property. Name of the skill",
-      "nullable" : true
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be Skill",
+          "enum": [
+            "Skill"
+          ]
+        },
+        "identifier": {
+          "type": "integer",
+          "description": "Property. Identifier of the skill"
+        }
+      }
     }
-  },
-  "additionalProperties" : false,
-  "description" : "Skills and features, which can be fulfilled by vehicles",
-  "$schemaVersion" : "1.0.0",
-  "title" : "Skill",
-  "$id" : "https://raw.githubusercontent.com/NeMo-bil/model/refs/heads/Vehicle/docs/Skill/schema.json",
-  "$schema" : "http://json-schema.org/schema#",
-  "modelTags" : ""
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
 }
