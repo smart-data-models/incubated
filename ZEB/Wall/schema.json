@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Room/schema.json",
-  "title": "Smart Data Models - Room schema",
-  "description": "Information on Room (Area type, height, level, etc.).",
+  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Storey/schema.json",
+  "title": "Smart Data Models - Storey schema",
+  "description": "Information on Storey (Area, height, level, etc.).",
   "modelTags": "Smart Building",
   "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.ZEB/Room/LICENSE.md",
+  "license": "https://smart-data-models.github.io/dataModel.ZEB/Storey/LICENSE.md",
   "type": "object",
   "allOf": [
     {
@@ -20,25 +20,9 @@
         "type": {
           "type": "string",
           "enum": [
-            "Room"
+            "Storey"
           ],
-          "description": "Property. It must be equal to `Room`."
-        },
-        "areaType": {
-          "type": "string",
-          "description": "Property. Area type. Enum:'ac, vent, light, hw, elv, acs, oa, analyze, cell, sensor'",
-          "enum": [
-            "ac",
-            "vent",
-            "light",
-            "hw",
-            "elv",
-            "acs",
-            "oa",
-            "analyze",
-            "cell",
-            "sensor"
-          ]
+          "description": "Property. It must be equal to `Storey`."
         },
         "baseSurface": {
           "description": "GeoProperty. Base Surface of this item.",
@@ -78,9 +62,10 @@
         },
         "numStoreyLevel": {
           "type": "string",
-          "description": "Property. num storey level. Enum:'B1F, 1F, M2F, 2F, M3F, 3F, 4F, RF'",
+          "description": "Property. num storey level. Enum:'B1F, GL, 1F, M2F, 2F, M3F,3F,4F, RF'",
           "enum": [
             "B1F",
+            "GL",
             "1F",
             "M2F",
             "2F",
@@ -100,16 +85,6 @@
           "items": {
             "type": "string",
             "description": "Relationship. Reference to the air conditioner terminal containing this item.",
-            "minItems": 1,
-            "uniqueItems": true
-          }
-        },
-        "refArea": {
-          "type": "array",
-          "description": "Relationship. Reference to the area containing this item.",
-          "items": {
-            "type": "string",
-            "description": "Relationship. Reference to the area containing this item.",
             "minItems": 1,
             "uniqueItems": true
           }
@@ -234,6 +209,16 @@
             "uniqueItems": true
           }
         },
+        "refRoom": {
+          "type": "array",
+          "description": "Relationship. Reference to the room containing this item.",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the room containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
         "refSlab": {
           "type": "array",
           "description": "Relationship. Reference to the slab containing this item.",
@@ -250,16 +235,6 @@
           "items": {
             "type": "string",
             "description": "Relationship. Reference to the stair containing this item.",
-            "minItems": 1,
-            "uniqueItems": true
-          }
-        },
-        "refStorey": {
-          "type": "array",
-          "description": "Relationship. Reference to the storey containing this item.",
-          "items": {
-            "type": "string",
-            "description": "Relationship. Reference to the storey containing this item.",
             "minItems": 1,
             "uniqueItems": true
           }
@@ -317,19 +292,6 @@
         "shape": {
           "description": "GeoProperty. Shape of this item.",
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
-        },
-        "spaceArea": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Space Area of this item and Spatial Objects."
-        },
-        "usageBuilding": {
-          "type": "string",
-          "description": "Property. Usage building of this item as an object."
-        },
-        "usageRoom": {
-          "type": "string",
-          "description": "Property. Usage room of this item as an object."
         }
       }
     }
