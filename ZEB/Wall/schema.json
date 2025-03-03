@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Equipment/schema.json",
-  "title": "Smart Data Models - Equipment schema",
-  "description": "Information on Equipment (maker, model, serial number, etc.).",
+  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Fan/schema.json",
+  "title": "Smart Data Models - Fan schema",
+  "description": "Information on Fan (maker, model, specification, etc.).",
   "modelTags": "Smart Building",
   "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.ZEB/Equipment/LICENSE.md",
+  "license": "https://smart-data-models.github.io/dataModel.ZEB/Fan/LICENSE.md",
   "type": "object",
   "allOf": [
     {
@@ -20,31 +20,33 @@
         "type": {
           "type": "string",
           "enum": [
-            "Equipment"
+            "Fan"
           ],
-          "description": "Property. It must be equal to `Equipment`."
+          "description": "Property. It must be equal to `Fan`."
         },
-        "category": {
-          "type": "string",
-          "description": "Property. Equipment Category. Enum:'crin, crout, hfain, hfaout, elockunlock, elocklock, elockstrike, elockmotor, elockauto, elockgate, blind'",
-          "enum": [
-            "crin",
-            "crout",
-            "hfain",
-            "hfaout",
-            "elockunlock",
-            "elocklock",
-            "elockstrike",
-            "elockmotor",
-            "elockauto",
-            "elockgate",
-            "blind"
-          ]
-        },
-        "compartmentNumber": {
+        "airSupplyQuantitiy": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Compartment number of entrance and exit control system."
+          "description": "Property. Model:'https://schema.org/Number'. Air supply quantitiy of this item."
+        },
+        "airSupplyQuantitiyHigh": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Air supply quantitiy when set amount of wind is high of this item."
+        },
+        "airSupplyQuantitiyMiddle": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Air supply quantitiy when set amount of wind is middle of this item."
+        },
+        "airSupplyQuantitiyLow": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Air supply quantitiy when set amount of wind is low of this item."
+        },
+        "classificationCode": {
+          "type": "string",
+          "description": "Property. Classification code of this item."
         },
         "dateObjectCreated": {
           "type": "string",
@@ -72,29 +74,48 @@
           "type": "string",
           "description": "Property. Model id or number of this item."
         },
+        "material": {
+          "type": "string",
+          "description": "Property. Material of this item as an object."
+        },
+        "motorOutput": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Motor output of this item."
+        },
         "objectName": {
           "type": "string",
           "description": "Property. Name of this item as an object."
         },
-        "refActorPositionMeasurement": {
-          "type": "array",
-          "description": "Relationship. Reference to the actor position measurement containing this item.",
-          "items": {
-            "type": "string",
-            "description": "Relationship. Reference to the actor position measurement containing this item.",
-            "minItems": 1,
-            "uniqueItems": true
-          }
+        "powerConsumption": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Power consumption of this item."
         },
-        "refBuildingElement": {
-          "type": "array",
-          "description": "Relationship. Reference to the building element containing this item.",
-          "items": {
-            "type": "string",
-            "description": "Relationship. Reference to the building element containing this item.",
-            "minItems": 1,
-            "uniqueItems": true
-          }
+        "powerConsumptionHigh": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Power consumption when set amount of wind is high of this item."
+        },
+        "powerConsumptionMiddle": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Power consumption when set amount of wind is middle of this item."
+        },
+        "powerConsumptionLow": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Power consumption when set amount of wind is low of this item."
+        },
+        "powerFrequency": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Power frequency of this item."
+        },
+        "price": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Price of this item."
         },
         "refElectricPowerEquipment": {
           "type": "array",
@@ -102,16 +123,6 @@
           "items": {
             "type": "string",
             "description": "Relationship. Reference to the electric power equipment containing this item.",
-            "minItems": 1,
-            "uniqueItems": true
-          }
-        },
-        "refEquipment": {
-          "type": "array",
-          "description": "Relationship. Reference to the equipment containing this item.",
-          "items": {
-            "type": "string",
-            "description": "Relationship. Reference to the equipment containing this item.",
             "minItems": 1,
             "uniqueItems": true
           }
@@ -150,6 +161,23 @@
           "type": "number",
           "minimum": 0,
           "description": "Property. Model:'https://schema.org/Number'.  Serial number of this item."
+        },
+        "specName": {
+          "type": "string",
+          "description": "Property. Name of this item."
+        },
+        "vaneSize": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'.  Vane size of this item."
+        },
+        "ventType": {
+          "type": "string",
+          "description": "Property. Vent type. Enum:'sa, ea'",
+          "enum": [
+            "sa",
+            "ea"
+          ]
         }
       }
     }
