@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Elevator/schema.json",
-  "title": "Smart Data Models - Elevator schema",
-  "description": "Information on Elevator (maker, model, specification, etc.).",
+  "$id": "https://smart-data-models.github.io/dataModel.ZEB/Equipment/schema.json",
+  "title": "Smart Data Models - Equipment schema",
+  "description": "Information on Equipment (maker, model, serial number, etc.).",
   "modelTags": "Smart Building",
   "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.ZEB/Elevator/LICENSE.md",
+  "license": "https://smart-data-models.github.io/dataModel.ZEB/Equipment/LICENSE.md",
   "type": "object",
   "allOf": [
     {
@@ -20,39 +20,31 @@
         "type": {
           "type": "string",
           "enum": [
-            "Elevator"
+            "Equipment"
           ],
-          "description": "Property. It must be equal to `Elevator`."
+          "description": "Property. It must be equal to `Equipment`."
         },
-        "bankNumber": {
+        "category": {
+          "type": "string",
+          "description": "Property. Equipment Category. Enum:'crin, crout, hfain, hfaout, elockunlock, elocklock, elockstrike, elockmotor, elockauto, elockgate, blind'",
+          "enum": [
+            "crin",
+            "crout",
+            "hfain",
+            "hfaout",
+            "elockunlock",
+            "elocklock",
+            "elockstrike",
+            "elockmotor",
+            "elockauto",
+            "elockgate",
+            "blind"
+          ]
+        },
+        "compartmentNumber": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Bank number of this item."
-        },
-        "capacityMotor": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Motor capacity of this item."
-        },
-        "capacityPeople": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. People capacity of this item."
-        },
-        "capacityWeight": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Weight capacity of this item."
-        },
-        "carNumber": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Car number of this item."
-        },
-        "cwRate": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Count rate for simulation of this item."
+          "description": "Property. Model:'https://schema.org/Number'.  Compartment number of entrance and exit control system."
         },
         "dateObjectCreated": {
           "type": "string",
@@ -84,35 +76,25 @@
           "type": "string",
           "description": "Property. Name of this item as an object."
         },
-        "powerFloor": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Power consumption at floor of this item."
+        "refActorPositionMeasurement": {
+          "type": "array",
+          "description": "Relationship. Reference to the actor position measurement containing this item.",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the actor position measurement containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
+          }
         },
-        "powerFrequency": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Power frequency of this item."
-        },
-        "powerLight": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Power light in car of this item."
-        },
-        "powerStandby": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Standby Power consumption of this item."
-        },
-        "ratedSpeed": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Rated speed of this item."
-        },
-        "ratedSpeedMax": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Max rated speed of this item."
+        "refBuildingElement": {
+          "type": "array",
+          "description": "Relationship. Reference to the building element containing this item.",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the building element containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
+          }
         },
         "refElectricPowerEquipment": {
           "type": "array",
@@ -120,6 +102,16 @@
           "items": {
             "type": "string",
             "description": "Relationship. Reference to the electric power equipment containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "refEquipment": {
+          "type": "array",
+          "description": "Relationship. Reference to the equipment containing this item.",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the equipment containing this item.",
             "minItems": 1,
             "uniqueItems": true
           }
@@ -158,11 +150,6 @@
           "type": "number",
           "minimum": 0,
           "description": "Property. Model:'https://schema.org/Number'.  Serial number of this item."
-        },
-        "stepNumber": {
-          "type": "number",
-          "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'.  Step number that the landing place operation panel is set."
         }
       }
     }
