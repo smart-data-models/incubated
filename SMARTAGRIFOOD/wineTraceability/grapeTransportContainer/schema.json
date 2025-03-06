@@ -1,87 +1,87 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "$schemaVersion": "0.0.8",
-    "modelTags": "",
-    "$id": "https://github.com/maticserc/incubated/tree/master/SMARTAGRIFOOD/wineTraceability/grapeTransportContainer/schema.json",
-    "title": "Smart Data Models - Grape Transport Container",
-    "type": "object",
-    "allOf": [
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "",
+  "$id": "https://github.com/maticserc/incubated/tree/master/SMARTAGRIFOOD/wineTraceability/grapeTransportContainer/schema.json",
+  "title": "Smart Data Models - Grape Transport Container",
+  "description": "Data model of the the container for transport grapes",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "description": "This entity contains a harmonised description of a grape transport container (trailer, box of grapes, ...). ",
+      "properties": {
+        "type": {
+          "description": "Property. NGSI Entity Type: It has to be grapeTransportContainer",
+          "enum": [
+            "grapeTransportContainer"
+          ],
+          "type": "string"
         },
-        {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        "GRAI": {
+          "description": "Property. Global Returnable Asset Identifier according to standard GS1 - Identifier GRAI. Up to 30 characters long, combining numeric and alphabetic characters.",
+          "type": "string",
+          "pattern": "^\\d{7,30}-?[a-zA-Z0-9]*$"
         },
-        {
-        "description": "This entity contains a harmonised description of a grape transport container (trailer, box of grapes, ...). ",
-        "properties": {
-          "type": {
-            "description": "Property. NGSI Entity Type: It has to be grapeTransportContainer",
-            "enum": [
-              "grapeTransportContainer"
-            ],
-            "type": "string"
-          },
-          "GRAI": {
-            "description": "Property. Global Returnable Asset Identifier according to standard GS1 - Identifier GRAI. Up to 30 characters long, combining numeric and alphabetic characters.",
+        "volumeEmpty": {
+          "description": "Property. Volume of container in cubic meters.",
+          "type": "number"
+        },
+        "weightEmpty": {
+          "description": "Property. Weight of empty container in kilograms.",
+          "type": "number"
+        },
+        "currentlyHoldsVariety": {
+          "description": "Property. Grape varieties in trailer.",
+          "type": "array",
+          "items": {
             "type": "string",
-            "pattern": "^\\d{7,30}-?[a-zA-Z0-9]*$"
-          },
-          "volumeEmpty": {
-            "description": "Property. Volume of container in cubic meters.",
-            "type": "number"
-          },
-          "weightEmpty": {
-            "description": "Property. Weight of empty container in kilograms.",
-            "type": "number"
-          },
-          "currentlyHoldsVariety": {
-            "description": "Property. Grape varieties in trailer.",
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "currentWeight": {
-            "description": "Property. Weight of the container as last weighted (currently) with cargo (grapes) in kilograms.",
-            "type": "number"
-          },
-          "varietalPurity": {
-            "description": "Property. Percentage of main variety.",
-            "type": "number"
-          },
-          "healthCondition": {
-            "description": "Property. Health condition of grapes, 100% being fully healthy.",
-            "type": "number"
-          },
-          "intakeTimestamp": {
-            "description": "Property. UNIX timestamp of when the container was delivered and emptied to winery.",
-            "type": "number"
-          },
-          "currentlyFromVineyardBlock": {
-            "anyOf": [
-                {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 256,
-                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                    "description": "Property. Identifier format of any NGSI entity"
-                },
-                {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Property. Identifier format of any NGSI entity"
-                }
-            ],
-            "description": "Relationship. Reference to the vineyard block from which the grapes are in container."
+            "description": "Property. Every item in the varieties"
           }
-
+        },
+        "currentWeight": {
+          "description": "Property. Weight of the container as last weighted (currently) with cargo (grapes) in kilograms.",
+          "type": "number"
+        },
+        "varietalPurity": {
+          "description": "Property. Percentage of main variety.",
+          "type": "number"
+        },
+        "healthCondition": {
+          "description": "Property. Health condition of grapes, 100% being fully healthy.",
+          "type": "number"
+        },
+        "intakeTimestamp": {
+          "description": "Property. UNIX timestamp of when the container was delivered and emptied to winery.",
+          "type": "number"
+        },
+        "currentlyFromVineyardBlock": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to the vineyard block from which the grapes are in container."
         }
       }
-    ],
-    "required": [
-        "id",
-        "type"
-    ]
-
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
 }
