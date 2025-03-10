@@ -1,0 +1,150 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Prediction",
+    "type": "object",
+    "properties": {
+        "country": {
+            "type": "string",
+            "description": "The country where the prediction is relevant"
+        },
+        "date": {
+            "type": "string",
+            "format": "date",
+            "description": "The date of the prediction"
+        },
+        "laser": {
+            "type": "string",
+            "description": "Laser-related information"
+        },
+        "head": {
+            "type": "string",
+            "description": "Head-related information"
+        },
+        "runningTime": {
+            "type": "integer",
+            "description": "Running time in minutes"
+        },
+        "param01": {
+            "type": "number",
+            "description": "Parameter 1"
+        },
+        "param02": {
+            "type": "number",
+            "description": "Parameter 2"
+        },
+        "param03": {
+            "type": "number",
+            "description": "Parameter 3"
+        },
+        "param04": {
+            "type": "number",
+            "description": "Parameter 4"
+        },
+        "param05": {
+            "type": "number",
+            "description": "Parameter 5"
+        },
+        "param06": {
+            "type": "number",
+            "description": "Parameter 6"
+        },
+        "param07": {
+            "type": "number",
+            "description": "Parameter 7"
+        },
+        "param08": {
+            "type": "number",
+            "description": "Parameter 8"
+        },
+        "param09": {
+            "type": "number",
+            "description": "Parameter 9"
+        },
+        "param10": {
+            "type": "number",
+            "description": "Parameter 10"
+        },
+        "param11": {
+            "type": "number",
+            "description": "Parameter 11"
+        },
+        "param12": {
+            "type": "number",
+            "description": "Parameter 12"
+        },
+        "param13": {
+            "type": "number",
+            "description": "Parameter 13"
+        },
+        "anomalyType": {
+            "type": "string",
+            "description": "Type of anomaly detected"
+        },
+        "weeksForIntervention": {
+            "type": "integer",
+            "description": "Deadline for intervention, in weeks (if anomalyClas is 'Perfect' and this is 52, no intervention is actually required)"
+        },
+        "exceededThreshold": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of thresholds that have been exceeded"
+        },
+        "maintenanceTypeBin": {
+            "type": "string",
+            "description": "Binary representation of the maintenance type"
+        },
+        "maintenanceTypeDec": {
+            "type": "integer",
+            "description": "Decimal representation of the maintenance type"
+        },
+        "requiresSkill": {
+            "type": "array",
+            "items": {
+                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceSkill/schema.json"
+            },
+            "description": "Skills required"
+        },
+        "requiresComponent": {
+            "type": "array",
+            "items": {
+                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceComponent/schema.json"
+            },
+            "description": "List of all the materials required"
+        },
+        "interventionDuration": {
+            "type": "integer",
+            "description": "Duration of the intervention in minutes"
+        }
+    },
+    "required": [
+        "country",
+        "date",
+        "laser",
+        "head",
+        "runningTime",
+        "param01",
+        "param02",
+        "param03",
+        "param04",
+        "param05",
+        "param06",
+        "param07",
+        "param08",
+        "param09",
+        "param10",
+        "param11",
+        "param12",
+        "param13",
+        "anomalyType",
+        "weeksForIntervention",
+        "exceededThreshold",
+        "maintenanceTypeBin",
+        "maintenanceTypeDec",
+        "requiredSkillLevelBin",
+        "requiredSkillLevelDec",
+        "components",
+        "interventionDuration"
+    ]
+}

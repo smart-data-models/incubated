@@ -1,0 +1,99 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "MaintenancePrediction",
+    "type": "object",
+    "properties": {
+        "machineID": {
+            "type": "string",
+            "description": "Identify the system (S/N or Unique Identifier)"
+        },
+        "customerID": {
+            "type": "string",
+            "description": "Identify the customer"
+        },
+        "address": {
+            "type": "string",
+            "description": "Machine address (Factory address)"
+        },
+        "hasConfiguration": {
+            "type": "array",
+            "items": {
+                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceComponent/schema.json"
+            },
+            "description": "Machine description (List of components & options)"
+        },
+        "anomalyType": {
+            "type": "string",
+            "description": "Class and Grade of anomaly (Classification referred to the maintenance)"
+        },
+        "anomalyIndicators": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Technical information about the anomaly (Information on analysis)"
+        },
+        "maintenanceDeadline": {
+            "type": "string",
+            "format": "date",
+            "description": "Maintenance required by .. (Last date for optimal action)"
+        },
+        "maintenanceDateScheduled": {
+            "type": "string",
+            "format": "date",
+            "description": "Maintenance date proposed (To be confirmed by customer)"
+        },
+        "maintenanceRequired": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Maintenance Service description (List of activity)"
+        },
+        "maintenanceOperator": {
+            "type": "string",
+            "format": "uri",
+            "description": "Name and skill (Operator in charge of the activity)"
+        },
+        "componentsRequired": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri",
+                "description": "Component code and description (List of all the materials required)"
+            },
+            "description": "List of machine components required for the maintenance"
+        },
+        "durationOfOperation": {
+            "type": "integer",
+            "description": "Working time on system (Number of hours to execute the activity)"
+        },
+        "activityRequiredOfCustomer": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Customer preparation activities for maintenance (To be confirmed by customer)"
+        },
+        "costForecast": {
+            "type": "number",
+            "description": "Calculated cost of the activity (To be confirmed at the end of maintenance)"
+        }
+    },
+    "required": [
+        "machineID",
+        "customerID",
+        "address",
+        "machineConfiguration",
+        "anomalyType",
+        "anomalyIndicators",
+        "maintenanceDeadline",
+        "maintenanceDateScheduled",
+        "maintenanceRequired",
+        "maintenanceOperator",
+        "componentsRequired",
+        "durationOfOperation",
+        "activityRequiredOfCustomer",
+        "costForecast"
+    ]
+}
