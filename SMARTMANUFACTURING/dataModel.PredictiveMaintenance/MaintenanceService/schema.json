@@ -5,93 +5,94 @@
     "properties": {
         "machineID": {
             "type": "string",
-            "description": "Identify the system (S/N or Unique Identifier)"
+            "description": "Property. Identify the system (S/N or Unique Identifier)."
         },
         "customerID": {
             "type": "string",
-            "description": "Identify the customer"
+            "description": "Property. Identify the customer."
         },
         "address": {
             "type": "string",
-            "description": "Machine address (Factory address)"
+            "description": "Property. Machine address (Factory address)."
         },
         "hasConfiguration": {
             "type": "array",
             "items": {
                 "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceComponent/schema.json"
             },
-            "description": "Machine description (List of components & options)"
+            "description": "Relationship. Machine description (List of components & options)."
         },
         "anomalyType": {
             "type": "string",
-            "description": "Class and Grade of anomaly (Classification referred to the maintenance)"
+            "description": "Property. Class and Grade of anomaly (Classification referred to the maintenance)."
         },
-        "anomalyIndicators": {
+        "anomalyIndicator": {
             "type": "array",
             "items": {
-                "type": "string"
+                "type": "string",
+                "description": "Technical information about the anomaly (Information on analysis)."
             },
-            "description": "Technical information about the anomaly (Information on analysis)"
+            "description": "Property. Technical information about the anomaly (Information on analysis)."
         },
         "maintenanceDeadline": {
             "type": "string",
             "format": "date",
-            "description": "Maintenance required by .. (Last date for optimal action)"
+            "description": "Property. Maintenance required by .. (Last date for optimal action)."
         },
         "maintenanceDateScheduled": {
             "type": "string",
             "format": "date",
-            "description": "Maintenance date proposed (To be confirmed by customer)"
+            "description": "Property. Maintenance date proposed (To be confirmed by customer)."
         },
         "maintenanceRequired": {
             "type": "array",
             "items": {
                 "type": "string"
             },
-            "description": "Maintenance Service description (List of activity)"
+            "description": "Property. Maintenance Service description (List of activity)."
         },
         "maintenanceOperator": {
             "type": "string",
             "format": "uri",
-            "description": "Name and skill (Operator in charge of the activity)"
+            "description": "Property. Name and skill (Operator in charge of the activity)."
         },
-        "componentsRequired": {
+        "requiresComponent": {
             "type": "array",
             "items": {
                 "type": "string",
                 "format": "uri",
-                "description": "Component code and description (List of all the materials required)"
+                "description": "Component code and description (List of all the materials required)."
             },
-            "description": "List of machine components required for the maintenance"
+            "description": "Property. List of machine components required for the maintenance."
         },
         "durationOfOperation": {
             "type": "integer",
-            "description": "Working time on system (Number of hours to execute the activity)"
+            "description": "Property. Working time on system (Number of hours to execute the activity)."
         },
         "activityRequiredOfCustomer": {
             "type": "array",
             "items": {
                 "type": "string"
             },
-            "description": "Customer preparation activities for maintenance (To be confirmed by customer)"
+            "description": "Property. Customer preparation activities for maintenance (To be confirmed by customer)."
         },
         "costForecast": {
             "type": "number",
-            "description": "Calculated cost of the activity (To be confirmed at the end of maintenance)"
+            "description": "Property. Calculated cost of the activity (To be confirmed at the end of maintenance)."
         }
     },
     "required": [
         "machineID",
         "customerID",
         "address",
-        "machineConfiguration",
+        "hasConfiguration",
         "anomalyType",
-        "anomalyIndicators",
+        "anomalyIndicator",
         "maintenanceDeadline",
         "maintenanceDateScheduled",
         "maintenanceRequired",
         "maintenanceOperator",
-        "componentsRequired",
+        "requiresComponent",
         "durationOfOperation",
         "activityRequiredOfCustomer",
         "costForecast"

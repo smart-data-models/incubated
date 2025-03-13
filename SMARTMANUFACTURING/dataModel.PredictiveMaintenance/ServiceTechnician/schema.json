@@ -5,62 +5,62 @@
     "properties": {
         "technicianID": {
             "type": "string",
-            "description": "Technician Identification Code"
+            "description": "Property. Technician Identification Code."
         },
         "organization": {
             "type": "string",
-            "description": "Organization to which the technician belongs (PRIMA branch or external office)"
+            "description": "Property. Organization to which the technician belongs (PRIMA branch or external office)."
         },
-        "hasSkills": {
+        "hasSkill": {
             "type": "array",
             "items": {
                 "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceSkill/schema.json"
             },
-            "description": "Description of capabilities and experiences"
+            "description": "Property. Description of capabilities and experiences."
         },
-        "toolsProvided": {
+        "toolProvided": {
             "type": "array",
             "items": {
                 "type": "string",
-                "description": "Tool name"
+                "description": "Tool name."
             },
-            "description": "Technical equipment (special equipment not always provided for all teams)"
+            "description": "Property. Technical equipment (special equipment not always provided for all teams)."
         },
         "geographicalArea": {
             "type": "string",
-            "description": "Definition of the area and location"
+            "description": "Property. Definition of the area and location."
         },
         "referenceAddress": {
             "type": "string",
-            "description": "Starting position (Office and Home)"
+            "description": "Property. Starting position (Office and Home)."
         },
         "calendar": {
             "type": "array",
             "items": {
                 "type": "string",
                 "format": "date",
-                "description": "Calendar of activities for the period already planned"
+                "description": "Calendar of activities for the period already planned."
             },
-            "description": "List of planned activities"
+            "description": "Property. List of planned activities."
         },
-        "historicalServices": {
+        "historicalService": {
             "type": "array",
             "items": {
                 "type": "string",
                 "format": "date",
-                "description": "Managed service"
+                "description": "Managed service."
             },
-            "description": "List of managed services"
+            "description": "Property. List of managed services."
         }
     },
     "required": [
         "technicianID",
         "organization",
-        "skillsAndExperiences",
-        "toolsProvided",
+        "hasSkill",
+        "toolProvided",
         "geographicalArea",
         "referenceAddress",
         "calendar",
-        "historicalServices"
+        "historicalService"
     ]
 }

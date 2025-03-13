@@ -1,0 +1,97 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "MaintenanceRequest",
+    "type": "object",
+    "properties": {
+        "machineID": {
+            "type": "string",
+            "description": "Property. Identify the system (S/N or Unique Identifier)."
+        },
+        "customerID": {
+            "type": "string",
+            "description": "Property. Identify the customer (Actual)."
+        },
+        "address": {
+            "type": "string",
+            "description": "Property. Machine address (Factory address)."
+        },
+        "analysisDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Property. Date of the end of analysis."
+        },
+        "analysisTimeWindow": {
+            "type": "array",
+            "items": {
+                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceComponent/schema.json"
+            },
+            "description": "Relationship. Window of the analysis (Calendar & working time)."
+        },
+        "hasConfiguration": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Component and options."
+            },
+            "description": "Property. Machine description (List of components & option)."
+        },
+        "anomalyType": {
+            "type": "string",
+            "description": "Property. Class and Grade of anomaly (Classification referred to the maintenance)."
+        },
+        "anomalyIndicator": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Technical information about the anomaly (Information on analysis)."
+            },
+            "description": "Property. Technical information about the anomaly (Information on analysis)."
+        },
+        "maintenanceDeadline": {
+            "type": "string",
+            "format": "date",
+            "description": "Property. Maintenance required by .. (Last date for optimal action)."
+        },
+        "maintenanceRequired": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Required activities"
+            },
+            "description": "Property. Maintenance Service description (List of activity)."
+        },
+        "requiresSkill": {
+            "type": "array",
+            "items": {
+                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceSkill/schema.json"
+            },
+            "description": "Relationship. Technical skill description (Technical ability required)."
+        },
+        "requiresComponent": {
+            "type": "array",
+            "items": {
+                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceComponent/schema.json"
+            },
+            "description": "Relationship. List of all the materials required."
+        },
+        "durationOfOperation": {
+            "type": "number",
+            "description": "Property. Working time on system (Number of hours to execute the activity)."
+        }
+    },
+    "required": [
+        "machineID",
+        "customerID",
+        "address",
+        "analysisDate",
+        "analysisTimeWindow",
+        "hasConfiguration",
+        "anomalyType",
+        "anomalyIndicator",
+        "maintenanceDeadline",
+        "maintenanceRequired",
+        "requiresSkill",
+        "requiresComponent",
+        "durationOfOperation"
+    ]
+}
