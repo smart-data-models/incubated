@@ -1,6 +1,12 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "AIPrediction",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "maintenance",
+    "derivedFrom": "",
+    "license": "",
+    "description": "Represent an AI forecasted needed maintenance intervention",
+    "$id": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/AIPrediction/schema.json",
+    "title": "AIPrediction entity",
     "type": "object",
     "allOf": [
         {
@@ -11,6 +17,10 @@
         }
     ],
     "properties": {
+        "type": {
+            "type": "string",
+            "description": "Property. The type of the entity (InventoryItem)."
+        },
         "country": {
             "type": "string",
             "description": "Property. The country where the prediction is relevant."
@@ -86,7 +96,7 @@
         },
         "anomalyType": {
             "type": "string",
-            "description": "Property. Type of anomaly detected."
+            "description": "Property. Class and Grade of anomaly (Classification referred to the maintenance)."
         },
         "weeksForIntervention": {
             "type": "integer",
@@ -95,7 +105,8 @@
         "exceededThreshold": {
             "type": "array",
             "items": {
-                "type": "string"
+                "type": "string",
+                "description": "Property. The paramter whose threshold has been exceeded."
             },
             "description": "Property. List of thresholds that have been exceeded."
         },
@@ -110,16 +121,20 @@
         "requiresSkill": {
             "type": "array",
             "items": {
-                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceSkill/schema.json"
+                "type": "string",
+                "format": "uri",
+                "description": "Relationship. Technical skill description."
             },
-            "description": "Relationship. Skills required."
+            "description": "ListProperty. Experience and tools required."
         },
         "requiresComponent": {
             "type": "array",
             "items": {
-                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceComponent/schema.json"
+                "type": "string",
+                "format": "uri",
+                "description": "Relationship. Required machine components."
             },
-            "description": "Relationship. List of all the materials required."
+            "description": "ListProperty. List of machine components required for the maintenance."
         },
         "interventionDuration": {
             "type": "integer",
@@ -127,6 +142,8 @@
         }
     },
     "required": [
+        "id",
+        "type",
         "country",
         "date",
         "laser",
@@ -150,8 +167,7 @@
         "exceededThreshold",
         "maintenanceTypeBin",
         "maintenanceTypeDec",
-        "requiredSkillLevelBin",
-        "requiredSkillLevelDec",
+        "requiresSkill",
         "requiresComponent",
         "interventionDuration"
     ]

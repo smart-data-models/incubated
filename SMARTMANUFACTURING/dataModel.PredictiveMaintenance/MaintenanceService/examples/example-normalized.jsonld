@@ -2,74 +2,77 @@
     "@context": [
         "https://smartdatamodels.org/context.jsonld"
     ],
-    "@type": "MaintenanceService",
-    "@id": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceService/maintenanceServiceID",
+    "id": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceService/maintenanceService01",
+    "type": "MaintenanceService",
     "machineID": {
-        "type": "Text",
+        "type": "Property",
         "value": "S/N123456789"
     },
     "customerID": {
-        "type": "Text",
+        "type": "Property",
         "value": "CUST001"
     },
-    "address": {
-        "type": "Text",
+    "machineAddressLocation": {
+        "type": "Property",
         "value": "123 Factory Street, Anytown, USA"
     },
     "hasConfiguration": {
-        "type": "Relationship",
+        "type": "ListProperty",
         "value": [
             {
-                "type": "MachineComponent",
-                "id": "MachineComponent:machineComponentID"
+                "type": "Relationship",
+                "id": "MachineComponent:machineComponent01"
             }
         ]
     },
     "anomalyType": {
-        "type": "Text",
+        "type": "Property",
         "value": "ClassA-Grade1"
     },
     "anomalyIndicator": {
-        "type": "Text",
+        "type": "ListProperty",
         "value": [
             "High Temperature",
             "Unusual Vibration"
         ]
     },
     "maintenanceDeadline": {
-        "type": "Date",
+        "type": "Property",
         "value": "2023-10-20"
     },
-    "maintenanceDateScheduled": "2023-10-19",
+    "maintenanceDateScheduled": {
+        "type": "Property",
+        "value": "2023-10-19"
+    },
     "maintenanceRequired": {
-        "type": "Text",
+        "type": "ListProperty",
         "value": [
             "Replace ComponentA",
             "Lubricate ComponentB"
         ]
     },
     "requiresComponent": {
-        "type": "Relationship",
+        "type": "ListProperty",
         "value": [
             {
-                "type": "MachineComponent",
-                "id": "MachineComponent:machineComponentID"
+                "type": "Relationship",
+                "id": "MachineComponent:machineComponent01"
             }
         ]
     },
     "durationOfOperation": {
-        "type": "Number",
+        "type": "Property",
         "value": 4.5
     },
     "activityRequiredOfCustomer": {
-        "type": "Text",
+        "type": "Property",
         "value": [
             "Clear workstation",
             "Dispose of WIPs"
         ]
     },
     "costForecast": {
-        "type": "number",
+        "type": "Property",
         "value": 1000
     }
 }

@@ -1,5 +1,11 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "maintenance",
+    "derivedFrom": "",
+    "license": "",
+    "description": "Represent an scheduled appointment for the operator",
+    "$id": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/Appointment/schema.json",
     "type": "object",
     "allOf": [
         {
@@ -10,6 +16,10 @@
         }
     ],
     "properties": {
+        "type": {
+            "type": "string",
+            "description": "Property. The type of the entity (InventoryItem)."
+        },
         "genericKey1": {
             "type": "string",
             "description": "Property. The first generic key for the appointment."
@@ -62,6 +72,8 @@
         }
     },
     "required": [
+        "id",
+        "type",
         "genericKey1",
         "genericKey2",
         "from",

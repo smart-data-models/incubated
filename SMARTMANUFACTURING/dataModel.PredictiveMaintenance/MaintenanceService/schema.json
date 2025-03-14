@@ -1,5 +1,11 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "maintenace",
+    "derivedFrom": "",
+    "license": "",
+    "description": "Represent a scheduled maintenance operation",
+    "$id": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceService/schema.json",
     "title": "MaintenancePrediction",
     "type": "object",
     "allOf": [
@@ -11,6 +17,10 @@
         }
     ],
     "properties": {
+        "type": {
+            "type": "string",
+            "description": "Property. The type of the entity (MaintenanceService)."
+        },
         "machineID": {
             "type": "string",
             "description": "Property. Identify the system (S/N or Unique Identifier)."
@@ -19,16 +29,18 @@
             "type": "string",
             "description": "Property. Identify the customer."
         },
-        "address": {
+        "machineAddressLocation": {
             "type": "string",
             "description": "Property. Machine address (Factory address)."
         },
         "hasConfiguration": {
             "type": "array",
             "items": {
-                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceComponent/schema.json"
+                "type": "string",
+                "format": "uri",
+                "description": "Relationship. List of components & options."
             },
-            "description": "Relationship. Machine description (List of components & options)."
+            "description": "ListProperty. Machine description."
         },
         "anomalyType": {
             "type": "string",
@@ -38,9 +50,9 @@
             "type": "array",
             "items": {
                 "type": "string",
-                "description": "Technical information about the anomaly (Information on analysis)."
+                "description": "Property. Technical information about the anomaly (Information on analysis)."
             },
-            "description": "Property. Technical information about the anomaly (Information on analysis)."
+            "description": "ListProperty. Technical information about the anomaly (Information on analysis)."
         },
         "maintenanceDeadline": {
             "type": "string",
@@ -55,23 +67,24 @@
         "maintenanceRequired": {
             "type": "array",
             "items": {
-                "type": "string"
+                "type": "string",
+                "description": "Property. Required maintenance activity."
             },
-            "description": "Property. Maintenance Service description (List of activity)."
+            "description": "ListProperty. Maintenance Service description (List of activity)."
         },
         "maintenanceOperator": {
             "type": "string",
             "format": "uri",
-            "description": "Property. Name and skill (Operator in charge of the activity)."
+            "description": "Relationship. Operator in charge of the activity."
         },
         "requiresComponent": {
             "type": "array",
             "items": {
                 "type": "string",
                 "format": "uri",
-                "description": "Component code and description (List of all the materials required)."
+                "description": "Relationship. Required machine components."
             },
-            "description": "Property. List of machine components required for the maintenance."
+            "description": "ListProperty. List of machine components required for the maintenance."
         },
         "durationOfOperation": {
             "type": "number",
@@ -80,7 +93,8 @@
         "activityRequiredOfCustomer": {
             "type": "array",
             "items": {
-                "type": "string"
+                "type": "string",
+                "description": "Property. Required activities."
             },
             "description": "Property. Customer preparation activities for maintenance (To be confirmed by customer)."
         },
@@ -90,9 +104,11 @@
         }
     },
     "required": [
+        "id",
+        "type",
         "machineID",
         "customerID",
-        "address",
+        "machineAddressLocation",
         "hasConfiguration",
         "anomalyType",
         "anomalyIndicator",

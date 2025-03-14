@@ -1,5 +1,11 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "maintenance",
+    "derivedFrom": "",
+    "license": "",
+    "description": "Represent a component inside a machine or to be replaced",
+    "$id": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MachineComponent/schema.json",
     "title": "MachineComponent",
     "type": "object",
     "allOf": [
@@ -11,9 +17,9 @@
         }
     ],
     "properties": {
-        "componentPRIMAID": {
+        "type": {
             "type": "string",
-            "description": "Property. PRIMA Code - All components have a PRIMA codification."
+            "description": "Property. The type of the entity (MachineComponent)."
         },
         "componentSupplierID": {
             "type": "string",
@@ -23,12 +29,14 @@
             "type": "string",
             "description": "Property. Product Name and a brief description, also link to supplier site."
         },
-        "needsSkill": {
+        "requiresSkill": {
             "type": "array",
             "items": {
-                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceSkill/schema.json"
+                "type": "string",
+                "format": "uri",
+                "description": "Relationship. Technical skill description."
             },
-            "description": "Relationship. Experience and tools required."
+            "description": "ListProperty. Experience and tools required."
         },
         "supplierID": {
             "type": "string",
@@ -148,10 +156,11 @@
         }
     },
     "required": [
-        "componentPRIMAID",
+        "id",
+        "type",
         "componentSupplierID",
         "componentDescription",
-        "needsSkill",
+        "requiresSkill",
         "supplierID",
         "warehouseID",
         "locationInWarehouse",

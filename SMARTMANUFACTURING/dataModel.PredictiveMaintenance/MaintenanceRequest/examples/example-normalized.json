@@ -1,84 +1,86 @@
 {
+    "id": "urn:ngsi-ld:dataModel.PredictiveMaintenance:MaintenanceRequest:maintenanceRequest01",
+    "type": "MaintenanceRequest",
     "machineID": {
-        "type": "Text",
+        "type": "Property",
         "value": "S/N123456789"
     },
     "customerID": {
-        "type": "Text",
+        "type": "Property",
         "value": "CUST001"
     },
-    "address": {
-        "type": "Text",
+    "machineAddressLocation": {
+        "type": "Property",
         "value": "123 Factory Street, Anytown, USA"
     },
     "analysisDate": {
-        "type": "Date",
+        "type": "Property",
         "value": "2023-10-15"
     },
     "analysisTimeWindow": {
-        "type": "Object",
+        "type": "Property",
         "value": {
             "from": {
-                "type": "Date",
+                "type": "Property",
                 "value": "2023-10-14"
             },
             "to": {
-                "type": "Date",
+                "type": "Property",
                 "value": "2023-10-14"
             }
         }
     },
     "hasConfiguration": {
-        "type": "Relationship",
+        "type": "ListProperty",
         "value": [
             {
-                "type": "MachineComponent",
-                "id": "MachineComponent:machineComponentID"
+                "type": "Relationship",
+                "id": "MachineComponent:machineComponent01"
             }
         ]
     },
     "anomalyType": {
-        "type": "Text",
+        "type": "Property",
         "value": "ClassA-Grade1"
     },
     "anomalyIndicator": {
-        "type": "Text",
+        "type": "ListProperty",
         "value": [
             "High Temperature",
             "Unusual Vibration"
         ]
     },
     "maintenanceDeadline": {
-        "type": "Date",
+        "type": "Property",
         "value": "2023-10-20"
     },
     "maintenanceRequired": {
-        "type": "Text",
+        "type": "Property",
         "value": [
             "Replace ComponentA",
             "Lubricate ComponentB"
         ]
     },
     "requiresSkill": {
-        "type": "Relationship",
+        "type": "ListProperty",
         "value": [
             {
-                "type": "MaintenanceSkill",
-                "id": "MaintenanceSkill:maintenanceSkillID"
+                "type": "Property",
+                "id": "MaintenanceSkill:maintenanceSkill01"
             }
         ]
     },
     "requiresComponent": {
-        "type": "Relationship",
+        "type": "ListProperty",
         "value": [
             {
-                "type": "MachineComponent",
-                "id": "MachineComponent:machineComponentID"
+                "type": "Relationship",
+                "id": "MachineComponent:machineComponent01"
             }
         ]
     },
     "durationOfOperation": {
-        "type": "Number",
+        "type": "Property",
         "value": 4.5
     }
 }

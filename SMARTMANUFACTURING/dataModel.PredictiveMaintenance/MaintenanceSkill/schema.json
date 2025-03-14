@@ -1,5 +1,11 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "maintenace",
+    "derivedFrom": "",
+    "license": "",
+    "description": "Represent a skill required for an intervention or possessed by an operator",
+    "$id": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceSkill/schema.json",
     "title": "MaintenanceSkill",
     "type": "object",
     "allOf": [
@@ -11,9 +17,9 @@
         }
     ],
     "properties": {
-        "skillID": {
+        "type": {
             "type": "string",
-            "description": "Property. Unique identifier for the skill."
+            "description": "Property. The type of the entity (MaintenanceSkill)."
         },
         "skillName": {
             "type": "string",
@@ -30,13 +36,15 @@
         "requiredTool": {
             "type": "array",
             "items": {
-                "type": "string"
+                "type": "string",
+                "description": "Property. Name of the required tool."
             },
             "description": "Property. List of tools required for the skill."
         }
     },
     "required": [
-        "skillID",
+        "id",
+        "type",
         "skillName"
     ]
 }

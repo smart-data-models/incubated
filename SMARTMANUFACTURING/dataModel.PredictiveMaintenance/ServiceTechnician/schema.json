@@ -1,5 +1,11 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "maintenace",
+    "derivedFrom": "",
+    "license": "",
+    "description": "Represent a maintenance operator providing the service",
+    "$id": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/ServiceTechnician/schema.json",
     "title": "ServiceTechnician",
     "type": "object",
     "allOf": [
@@ -11,9 +17,9 @@
         }
     ],
     "properties": {
-        "technicianID": {
+        "type": {
             "type": "string",
-            "description": "Property. Technician Identification Code."
+            "description": "Property. The type of the entity (ServiceTechnician)."
         },
         "organization": {
             "type": "string",
@@ -22,15 +28,17 @@
         "hasSkill": {
             "type": "array",
             "items": {
-                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceSkill/schema.json"
+                "type": "string",
+                "format": "uri",
+                "description": "Relationship. Description of capabilities and experiences."
             },
-            "description": "Property. Description of capabilities and experiences."
+            "description": "ListProperty. Description of capabilities and experiences."
         },
         "toolProvided": {
             "type": "array",
             "items": {
                 "type": "string",
-                "description": "Tool name."
+                "description": "Property. Name of the required tool."
             },
             "description": "Property. Technical equipment (special equipment not always provided for all teams)."
         },
@@ -47,22 +55,23 @@
             "items": {
                 "type": "string",
                 "format": "date",
-                "description": "Calendar of activities for the period already planned."
+                "description": "Property. Calendar of activities for the period already planned."
             },
-            "description": "Property. List of planned activities."
+            "description": "ListProperty. List of planned activities."
         },
         "historicalService": {
             "type": "array",
             "items": {
                 "type": "string",
                 "format": "date",
-                "description": "Managed service."
+                "description": "Property. Managed service."
             },
-            "description": "Property. List of managed services."
+            "description": "ListProperty. List of managed services."
         }
     },
     "required": [
-        "technicianID",
+        "id",
+        "type",
         "organization",
         "hasSkill",
         "toolProvided",
