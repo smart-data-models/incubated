@@ -1,7 +1,15 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "Prediction",
+    "title": "AIPrediction",
     "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        }
+    ],
     "properties": {
         "country": {
             "type": "string",
@@ -102,14 +110,14 @@
         "requiresSkill": {
             "type": "array",
             "items": {
-                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceSkill/schema.json"
+                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceSkill/schema.json"
             },
             "description": "Relationship. Skills required."
         },
         "requiresComponent": {
             "type": "array",
             "items": {
-                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceComponent/schema.json"
+                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceComponent/schema.json"
             },
             "description": "Relationship. List of all the materials required."
         },

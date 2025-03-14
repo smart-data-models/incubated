@@ -2,6 +2,14 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "MachineComponent",
     "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        }
+    ],
     "properties": {
         "componentPRIMAID": {
             "type": "string",
@@ -18,7 +26,7 @@
         "needsSkill": {
             "type": "array",
             "items": {
-                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceSkill/schema.json"
+                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceSkill/schema.json"
             },
             "description": "Relationship. Experience and tools required."
         },

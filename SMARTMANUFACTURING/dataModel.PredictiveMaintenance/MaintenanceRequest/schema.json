@@ -2,6 +2,14 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "MaintenanceRequest",
     "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        }
+    ],
     "properties": {
         "machineID": {
             "type": "string",
@@ -21,17 +29,27 @@
             "description": "Property. Date of the end of analysis."
         },
         "analysisTimeWindow": {
-            "type": "array",
-            "items": {
-                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceComponent/schema.json"
+            "type": "object",
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "to": {
+                    "type": "string",
+                    "format": "date"
+                }
             },
-            "description": "Relationship. Window of the analysis (Calendar & working time)."
+            "required": [
+                "from",
+                "to"
+            ],
+            "description": "Property. Window of the analysis (Calendar & working time)."
         },
         "hasConfiguration": {
             "type": "array",
             "items": {
-                "type": "string",
-                "description": "Component and options."
+                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceComponent/schema.json"
             },
             "description": "Property. Machine description (List of components & option)."
         },
@@ -63,14 +81,14 @@
         "requiresSkill": {
             "type": "array",
             "items": {
-                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceSkill/schema.json"
+                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceSkill/schema.json"
             },
             "description": "Relationship. Technical skill description (Technical ability required)."
         },
         "requiresComponent": {
             "type": "array",
             "items": {
-                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceComponent/schema.json"
+                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceComponent/schema.json"
             },
             "description": "Relationship. List of all the materials required."
         },

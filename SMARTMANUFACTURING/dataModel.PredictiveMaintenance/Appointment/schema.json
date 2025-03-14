@@ -1,6 +1,14 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        }
+    ],
     "properties": {
         "genericKey1": {
             "type": "string",
@@ -12,12 +20,12 @@
         },
         "from": {
             "type": "string",
-            "format": "date-time",
+            "format": "date",
             "description": "Property. The start date and time of the appointment."
         },
         "to": {
             "type": "string",
-            "format": "date-time",
+            "format": "date",
             "description": "Property. The end date and time of the appointment."
         },
         "wholeDay": {
@@ -60,11 +68,7 @@
         "to",
         "wholeDay",
         "recurring",
-        "recurringRule",
-        "recurringException",
-        "note",
         "category",
-        "flag",
         "appointmentDescription"
     ]
 }

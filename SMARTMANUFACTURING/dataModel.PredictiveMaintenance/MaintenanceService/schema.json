@@ -2,6 +2,14 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "MaintenancePrediction",
     "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        }
+    ],
     "properties": {
         "machineID": {
             "type": "string",
@@ -18,7 +26,7 @@
         "hasConfiguration": {
             "type": "array",
             "items": {
-                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenace/MaintenanceComponent/schema.json"
+                "$ref": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceComponent/schema.json"
             },
             "description": "Relationship. Machine description (List of components & options)."
         },
@@ -66,7 +74,7 @@
             "description": "Property. List of machine components required for the maintenance."
         },
         "durationOfOperation": {
-            "type": "integer",
+            "type": "number",
             "description": "Property. Working time on system (Number of hours to execute the activity)."
         },
         "activityRequiredOfCustomer": {

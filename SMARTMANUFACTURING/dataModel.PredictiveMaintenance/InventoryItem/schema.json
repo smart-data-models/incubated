@@ -1,6 +1,14 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        }
+    ],
     "properties": {
         "warehouseID": {
             "type": "string",
@@ -63,10 +71,6 @@
         "warehouseID",
         "itemNumber",
         "name",
-        "physicalStock",
-        "physicalAvailability",
-        "physicalBooked",
-        "availableTotal",
         "researchName",
         "site",
         "location",
