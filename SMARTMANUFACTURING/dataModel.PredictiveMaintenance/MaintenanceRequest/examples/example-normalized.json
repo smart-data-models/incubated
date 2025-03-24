@@ -1,0 +1,86 @@
+{
+    "id": "urn:ngsi-ld:dataModel.PredictiveMaintenance:MaintenanceRequest:maintenanceRequest01",
+    "type": "MaintenanceRequest",
+    "machineID": {
+        "type": "Property",
+        "value": "S/N123456789"
+    },
+    "customerID": {
+        "type": "Property",
+        "value": "CUST001"
+    },
+    "machineAddressLocation": {
+        "type": "Property",
+        "value": "123 Factory Street, Anytown, USA"
+    },
+    "analysisDate": {
+        "type": "Property",
+        "value": "2023-10-15"
+    },
+    "analysisTimeWindow": {
+        "type": "Property",
+        "value": {
+            "from": {
+                "type": "Property",
+                "value": "2023-10-14"
+            },
+            "to": {
+                "type": "Property",
+                "value": "2023-10-14"
+            }
+        }
+    },
+    "hasConfiguration": {
+        "type": "ListProperty",
+        "value": [
+            {
+                "type": "Relationship",
+                "id": "MachineComponent:machineComponent01"
+            }
+        ]
+    },
+    "anomalyType": {
+        "type": "Property",
+        "value": "ClassA-Grade1"
+    },
+    "anomalyIndicator": {
+        "type": "ListProperty",
+        "value": [
+            "High Temperature",
+            "Unusual Vibration"
+        ]
+    },
+    "maintenanceDeadline": {
+        "type": "Property",
+        "value": "2023-10-20"
+    },
+    "maintenanceRequired": {
+        "type": "Property",
+        "value": [
+            "Replace ComponentA",
+            "Lubricate ComponentB"
+        ]
+    },
+    "requiresSkill": {
+        "type": "ListProperty",
+        "value": [
+            {
+                "type": "Property",
+                "id": "MaintenanceSkill:maintenanceSkill01"
+            }
+        ]
+    },
+    "requiresComponent": {
+        "type": "ListProperty",
+        "value": [
+            {
+                "type": "Relationship",
+                "id": "MachineComponent:machineComponent01"
+            }
+        ]
+    },
+    "durationOfOperation": {
+        "type": "Property",
+        "value": 4.5
+    }
+}

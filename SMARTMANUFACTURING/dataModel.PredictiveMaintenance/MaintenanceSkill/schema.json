@@ -1,0 +1,50 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "maintenace",
+    "derivedFrom": "",
+    "license": "",
+    "description": "Represent a skill required for an intervention or possessed by an operator",
+    "$id": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceSkill/schema.json",
+    "title": "MaintenanceSkill",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        }
+    ],
+    "properties": {
+        "type": {
+            "type": "string",
+            "description": "Property. The type of the entity (MaintenanceSkill)."
+        },
+        "skillName": {
+            "type": "string",
+            "description": "Property. Name of the skill."
+        },
+        "skillDifficulty": {
+            "type": "string",
+            "description": "Property. Difficulty of the skill."
+        },
+        "skillDescription": {
+            "type": "string",
+            "description": "Property. Description of the skill."
+        },
+        "requiredTool": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Property. Name of the required tool."
+            },
+            "description": "Property. List of tools required for the skill."
+        }
+    },
+    "required": [
+        "id",
+        "type",
+        "skillName"
+    ]
+}

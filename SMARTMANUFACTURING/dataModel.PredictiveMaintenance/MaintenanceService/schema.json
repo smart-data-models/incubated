@@ -1,0 +1,124 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "maintenace",
+    "derivedFrom": "",
+    "license": "",
+    "description": "Represent a scheduled maintenance operation",
+    "$id": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceService/schema.json",
+    "title": "MaintenancePrediction",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        }
+    ],
+    "properties": {
+        "type": {
+            "type": "string",
+            "description": "Property. The type of the entity (MaintenanceService)."
+        },
+        "machineID": {
+            "type": "string",
+            "description": "Property. Identify the system (S/N or Unique Identifier)."
+        },
+        "customerID": {
+            "type": "string",
+            "description": "Property. Identify the customer."
+        },
+        "machineAddressLocation": {
+            "type": "string",
+            "description": "Property. Machine address (Factory address)."
+        },
+        "hasConfiguration": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri",
+                "description": "Relationship. List of components & options."
+            },
+            "description": "ListProperty. Machine description."
+        },
+        "anomalyType": {
+            "type": "string",
+            "description": "Property. Class and Grade of anomaly (Classification referred to the maintenance)."
+        },
+        "anomalyIndicator": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Property. Technical information about the anomaly (Information on analysis)."
+            },
+            "description": "ListProperty. Technical information about the anomaly (Information on analysis)."
+        },
+        "maintenanceDeadline": {
+            "type": "string",
+            "format": "date",
+            "description": "Property. Maintenance required by .. (Last date for optimal action)."
+        },
+        "maintenanceDateScheduled": {
+            "type": "string",
+            "format": "date",
+            "description": "Property. Maintenance date proposed (To be confirmed by customer)."
+        },
+        "maintenanceRequired": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Property. Required maintenance activity."
+            },
+            "description": "ListProperty. Maintenance Service description (List of activity)."
+        },
+        "maintenanceOperator": {
+            "type": "string",
+            "format": "uri",
+            "description": "Relationship. Operator in charge of the activity."
+        },
+        "requiresComponent": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri",
+                "description": "Relationship. Required machine components."
+            },
+            "description": "ListProperty. List of machine components required for the maintenance."
+        },
+        "durationOfOperation": {
+            "type": "number",
+            "description": "Property. Working time on system (Number of hours to execute the activity)."
+        },
+        "activityRequiredOfCustomer": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Property. Required activities."
+            },
+            "description": "Property. Customer preparation activities for maintenance (To be confirmed by customer)."
+        },
+        "costForecast": {
+            "type": "number",
+            "description": "Property. Calculated cost of the activity (To be confirmed at the end of maintenance)."
+        }
+    },
+    "required": [
+        "id",
+        "type",
+        "machineID",
+        "customerID",
+        "machineAddressLocation",
+        "hasConfiguration",
+        "anomalyType",
+        "anomalyIndicator",
+        "maintenanceDeadline",
+        "maintenanceDateScheduled",
+        "maintenanceRequired",
+        "maintenanceOperator",
+        "requiresComponent",
+        "durationOfOperation",
+        "activityRequiredOfCustomer",
+        "costForecast"
+    ]
+}

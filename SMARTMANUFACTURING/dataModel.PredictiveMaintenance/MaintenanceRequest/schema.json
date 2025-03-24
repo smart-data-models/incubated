@@ -1,0 +1,135 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "maintenance",
+    "derivedFrom": "",
+    "license": "",
+    "description": "Represent a requested maintenance operation",
+    "$id": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/MaintenanceRequest/schema.json",
+    "title": "MaintenanceRequest",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        }
+    ],
+    "properties": {
+        "type": {
+            "type": "string",
+            "description": "Property. The type of the entity (MaintenanceRequest)."
+        },
+        "machineID": {
+            "type": "string",
+            "description": "Property. Identify the system (S/N or Unique Identifier)."
+        },
+        "customerID": {
+            "type": "string",
+            "description": "Property. Identify the customer (Actual)."
+        },
+        "machineAddressLocation": {
+            "type": "string",
+            "description": "Property. Machine address (Factory address)."
+        },
+        "analysisDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Property. Date of the end of analysis."
+        },
+        "analysisTimeWindow": {
+            "type": "object",
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Property. Start date of the analysis."
+                },
+                "to": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Property. End date of the analysis."
+                }
+            },
+            "required": [
+                "from",
+                "to"
+            ],
+            "description": "Property. Window of the analysis (Calendar & working time)."
+        },
+        "hasConfiguration": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri",
+                "description": "Relationship. List of components & options."
+            },
+            "description": "ListProperty. Machine description."
+        },
+        "anomalyType": {
+            "type": "string",
+            "description": "Property. Class and Grade of anomaly (Classification referred to the maintenance)."
+        },
+        "anomalyIndicator": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Property. Technical information about the anomaly (Information on analysis)."
+            },
+            "description": "ListProperty. Technical information about the anomaly (Information on analysis)."
+        },
+        "maintenanceDeadline": {
+            "type": "string",
+            "format": "date",
+            "description": "Property. Maintenance required by .. (Last date for optimal action)."
+        },
+        "maintenanceRequired": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Property. Required maintenance activity."
+            },
+            "description": "ListProperty. Maintenance Service description (List of activity)."
+        },
+        "requiresSkill": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri",
+                "description": "Relationship. Technical skill description."
+            },
+            "description": "ListProperty. List of technical abilities required."
+        },
+        "requiresComponent": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri",
+                "description": "Relationship. Required machine components."
+            },
+            "description": "ListProperty. List of machine components required for the maintenance."
+        },
+        "durationOfOperation": {
+            "type": "number",
+            "description": "Property. Working time on system (Number of hours to execute the activity)."
+        }
+    },
+    "required": [
+        "id",
+        "type",
+        "machineID",
+        "customerID",
+        "machineAddressLocation",
+        "analysisDate",
+        "analysisTimeWindow",
+        "hasConfiguration",
+        "anomalyType",
+        "anomalyIndicator",
+        "maintenanceDeadline",
+        "maintenanceRequired",
+        "requiresSkill",
+        "requiresComponent",
+        "durationOfOperation"
+    ]
+}

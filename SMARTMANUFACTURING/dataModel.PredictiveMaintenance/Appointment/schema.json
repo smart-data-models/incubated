@@ -1,0 +1,86 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "maintenance",
+    "derivedFrom": "",
+    "license": "",
+    "description": "Represent an scheduled appointment for the operator",
+    "$id": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/Appointment/schema.json",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        }
+    ],
+    "properties": {
+        "type": {
+            "type": "string",
+            "description": "Property. The type of the entity (InventoryItem)."
+        },
+        "genericKey1": {
+            "type": "string",
+            "description": "Property. The first generic key for the appointment."
+        },
+        "genericKey2": {
+            "type": "string",
+            "description": "Property. The second generic key for the appointment."
+        },
+        "from": {
+            "type": "string",
+            "format": "date",
+            "description": "Property. The start date and time of the appointment."
+        },
+        "to": {
+            "type": "string",
+            "format": "date",
+            "description": "Property. The end date and time of the appointment."
+        },
+        "wholeDay": {
+            "type": "boolean",
+            "description": "Property. Indicates if the appointment is a whole day event."
+        },
+        "recurring": {
+            "type": "boolean",
+            "description": "Property. Indicates if the appointment is recurring."
+        },
+        "recurringRule": {
+            "type": "string",
+            "description": "Property. The recurring rule for the appointment."
+        },
+        "recurringException": {
+            "type": "string",
+            "description": "Property. The recurring exception for the appointment."
+        },
+        "note": {
+            "type": "string",
+            "description": "Property. Additional notes for the appointment."
+        },
+        "category": {
+            "type": "string",
+            "description": "Property. The category of the appointment."
+        },
+        "flag": {
+            "type": "string",
+            "description": "Property. The flag for the appointment."
+        },
+        "appointmentDescription": {
+            "type": "string",
+            "description": "Property. The description of the appointment."
+        }
+    },
+    "required": [
+        "id",
+        "type",
+        "genericKey1",
+        "genericKey2",
+        "from",
+        "to",
+        "wholeDay",
+        "recurring",
+        "category",
+        "appointmentDescription"
+    ]
+}
