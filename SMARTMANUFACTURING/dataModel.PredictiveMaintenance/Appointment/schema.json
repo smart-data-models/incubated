@@ -6,6 +6,7 @@
     "license": "",
     "description": "Represent an scheduled appointment for the operator",
     "$id": "https://smart-data-models.github.io/dataModel.PredictiveMaintenance/Appointment/schema.json",
+    "title": "Appointment schema",
     "type": "object",
     "allOf": [
         {
@@ -20,13 +21,13 @@
             "type": "string",
             "description": "Property. The type of the entity (InventoryItem)."
         },
-        "genericKey1": {
-            "type": "string",
-            "description": "Property. The first generic key for the appointment."
-        },
-        "genericKey2": {
-            "type": "string",
-            "description": "Property. The second generic key for the appointment."
+        "externalKey": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "Property. The external key for this element."
+            },
+            "description": "ListProperty. The external keys for this element."
         },
         "from": {
             "type": "string",
@@ -74,8 +75,7 @@
     "required": [
         "id",
         "type",
-        "genericKey1",
-        "genericKey2",
+        "externalKey",
         "from",
         "to",
         "wholeDay",
