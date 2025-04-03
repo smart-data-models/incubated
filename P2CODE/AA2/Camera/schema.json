@@ -1,10 +1,12 @@
 {
-    "$schema": "http://json-schema.org/schema#",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$schemaVersion": "0.1.2",
     "modelTags": "P2CODE",
     "$id": "https://smart-data-models.github.io/dataModel.Device/Camera/schema.json",
     "title": " Smart Data Models - Camera",
-    "description": "A Data Model for camera installations in a city.",
+    "description": "A Data Model for camera installations in a city with techincals details.",
+    "derivedFrom": "",
+    "license": "https://creativecommons.org/licenses/by/4.0",
     "type": "object",
     "allOf": [
         {
@@ -28,7 +30,13 @@
                 },
                 "cameraUsage": {
                     "type": "string",
-                    "description": "Property. Model:'https://schema.org/Text'. Purpose of the camera corresponding to this observation. Enum: [SURVEILLANCE, RLVD, ANPR/LPR, TRAFFIC]"
+                    "description": "Property. Model:'https://schema.org/Text'. Purpose of the camera corresponding to this observation",
+                    "enum": [
+                        "SURVEILLANCE",
+                        "RLVD",
+                        "ANPR/LPR",
+                        "TRAFFIC"
+                    ]
                 },
                 "streamURL": {
                     "type": "string",
@@ -56,10 +64,12 @@
                     "description": "Property. Orientation information for the camera corresponding to this observation",
                     "properties": {
                         "comments": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Property. Any comment about the orientation of the camera"
                         },
                         "annotatedMap": {
                             "type": "string",
+                            "description": "Property. A url with the reference to an annotation map",
                             "format": "uri"
                         }
                     }
