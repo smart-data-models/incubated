@@ -1,10 +1,12 @@
 {
-    "$schema": "http://json-schema.org/schema#",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$schemaVersion": "0.0.1",
     "modelTags": "P2CODE",
-    "$id": "https://smart-data-models.github.io/dataModel.ProductionLine/ARKITE/schema.json",
+    "$id": "https://github.com/smart-data-models/dataModel.ManufacturingMachine/ARKITE/schema.json",
     "title": "Smart Data models - ARKITE",
     "description": "A Data Model of the status of a production line ARKITE",
+    "derivedFrom": "",
+    "license": "https://creativecommons.org/licenses/by/4.0",
     "type": "object",
     "allOf": [
       {
@@ -27,13 +29,13 @@
             "format": "date-time",
             "description": "Property. The timestamp of the production line status update"
           },
-          "automatic": {
-            "type": "boolean",
-            "description": "Property. Indicates whether the production line is in automatic or manual mode"
-          },
           "lineSpeed": {
             "type": "string",
-            "description": "Property. The current speed mode of the production line (fast/slow)"
+            "description": "Property. The current speed mode of the production line (fast/slow)",
+            "enum": [
+              "fast",
+              "slow"
+            ]
           }
         }
       }
