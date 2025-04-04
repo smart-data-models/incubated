@@ -1,10 +1,12 @@
 {
-    "$schema":"http://json-schema.org/schema#",
+    "$schema":"https://json-schema.org/draft/2020-12/schema",
     "$schemaVersion": "0.1.0",
     "modelTags": "P2CODE",
-    "$id":"https://smart-data-models.github.io/Polar_H10_topic_ACC/schema.json",
+    "$id":"https://github.com/smart-data-models/dataModel.Device/tree/master/PolarH10/schema.json",
     "title":"Smart Data Models - Polar H10 ACC Topic",
-    "description":"A Data Model of Polar H10 Accelerometer Topic",
+    "description":"A Data Model of Polar H10 Heart Rate Sensor with RR, HRV, HR, and ECG",
+    "derivedFrom": "",
+    "license": "https://creativecommons.org/licenses/by/4.0",
     "type":"object",
     "allOf":[
         {
@@ -19,7 +21,7 @@
                     "type": "string",
                     "description": "Property. NGSI entity type. It has to be PolarH10TopicACC",
                     "enum": [
-                        "PolarH10TopicACC"
+                        "PolarH10"
                     ]
                 },
                 "clientId":{
@@ -48,11 +50,13 @@
                 },
                 "acc":{
                     "type":"array",
-                    "description":"Property. Accelerometer data points",
+                    "description":"Property. Accelerometer data with sample rates of 25Hz, 50Hz, 100Hz and 200Hz and range of 2G, 4G and 8G. Axis specific acceleration data in mG.",
                     "items":{
                         "type":"array",
+                        "description": "Property. Each of the measurement of the accelerometer",
                         "items":{
-                            "type":"integer"
+                            "type":"integer",
+                            "description": "Property. Each of the measurement of the accelerometer in the X, Y, Z coordinates"
                         },
                         "minItems":3,
                         "maxItems":3
@@ -62,32 +66,33 @@
                 },
                 "ecg":{
                     "type":"array",
-                    "description":"Property. Electrocardiogram (ECG) data points",
+                    "description":"Property. Electrocardiography (ECG) data in µV with sample rate 130Hz.",
                     "items":{
-                        "type":"integer"
+                        "type":"integer",
+                        "description": "Property. Each of the ECG meassurements"
                     }
                 },
                 "hr":{
                     "type":"integer",
-                    "description":"Property. Heart Rate"
+                    "description":"Property. Heart Rate (HR) with one second sampletime or with five second sampletime"
                 },
                 "hrv":{
-                    "type":"integer",
-                    "description":"Property. Heart Rate Variability"
+                    "type":"number",
+                    "description":"Property. Heart Rate Variability (HRV) heart rate variability"
                 },
                 "rr":{
                     "type":"array",
-                    "description":"Property. RR Interval",
+                    "description":"Property. Intervals between successive heartbeats (RR) in ms",
                     "items":{
-                        "type":"integer"
+                        "type":"integer",
+                        "description": "Property. Each of the meassurements of the RR"
                     }
                 }
-            },
-            "required":[
-                "type",
-                "id"
-
-            ]
+            }
         }
+    ],
+    "required":[
+        "type",
+        "id"
     ]
 }
