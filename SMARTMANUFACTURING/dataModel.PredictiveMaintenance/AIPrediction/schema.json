@@ -42,57 +42,23 @@
             "type": "integer",
             "description": "Property. Running time in minutes."
         },
-        "param01": {
-            "type": "number",
-            "description": "Property. Value of Parameter 1."
-        },
-        "param02": {
-            "type": "number",
-            "description": "Property. Value of Parameter 2."
-        },
-        "param03": {
-            "type": "number",
-            "description": "Property. Value of Parameter 3."
-        },
-        "param04": {
-            "type": "number",
-            "description": "Property. Value of Parameter 4."
-        },
-        "param05": {
-            "type": "number",
-            "description": "Property. Value of Parameter 5."
-        },
-        "param06": {
-            "type": "number",
-            "description": "Property. Value of Parameter 6."
-        },
-        "param07": {
-            "type": "number",
-            "description": "Property. Value of. Parameter 7"
-        },
-        "param08": {
-            "type": "number",
-            "description": "Property. Value of Parameter 8."
-        },
-        "param09": {
-            "type": "number",
-            "description": "Property. Value of Parameter 9."
-        },
-        "param10": {
-            "type": "number",
-            "description": "Property. Value of Parameter 10."
-        },
-        "param11": {
-            "type": "number",
-            "description": "Property. Value of Parameter 11."
-        },
-        "param12": {
-            "type": "number",
-            "description": "Property. Value of Parameter 12."
-        },
-        "param13": {
-            "type": "number",
-            "description": "Property. Value of Parameter 13."
+        "computedParameters": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Property. The parameter's name."
+                    },
+                    "value": {
+                        "type": "number",
+                        "description": "Property. The value of the parameter."
+                    }
+                },
+                "description": "Property. The computed parameter with its value."
+            },
+            "description": "ListProperty. List of computed parameters."
         },
         "anomalyType": {
             "type": "string",
@@ -106,9 +72,9 @@
             "type": "array",
             "items": {
                 "type": "string",
-                "description": "Property. The paramter whose threshold has been exceeded."
+                "description": "Property. The parameter whose threshold has been exceeded."
             },
-            "description": "Property. List of thresholds that have been exceeded."
+            "description": "ListProperty. List of thresholds that have been exceeded."
         },
         "maintenanceTypeBin": {
             "type": "string",
@@ -144,24 +110,11 @@
     "required": [
         "id",
         "type",
-        "country",
         "date",
         "laser",
         "head",
         "runningTime",
-        "param01",
-        "param02",
-        "param03",
-        "param04",
-        "param05",
-        "param06",
-        "param07",
-        "param08",
-        "param09",
-        "param10",
-        "param11",
-        "param12",
-        "param13",
+        "computedParameters",
         "anomalyType",
         "weeksForIntervention",
         "exceededThreshold",
