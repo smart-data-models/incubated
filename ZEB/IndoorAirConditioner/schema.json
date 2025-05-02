@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.SUBJECT/DATAMODEL/schema.json",
-  "title": "Smart Data Models - SUBJECT / DATAMODEL",
-  "description": "Description of the data model DATAMODEL ",
-  "modelTags": "",
+  "$id": "https://smart-data-models.github.io/dataModel.ZEB/IndoorAirConditioner/schema.json",
+  "title": "Smart Data Models - IndoorAirConditioner schema",
+  "description": "Information on IndoorAirConditioner (maker, model, specification, etc.).",
+  "modelTags": "Smart Building",
   "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.SUBJECT/DATAMODEL/LICENSE.md",
+  "license": "https://smart-data-models.github.io/dataModel.ZEB/IndoorAirConditioner/LICENSE.md",
   "type": "object",
   "allOf": [
     {
@@ -20,386 +20,231 @@
         "type": {
           "type": "string",
           "enum": [
-            "ThreePhaseAcMeasurement"
+            "IndoorAirConditioner"
           ],
-          "description": "Property. It must be equal to `ThreePhaseAcMeasurement`."
+          "description": "Property. It must be equal to `IndoorAirConditioner`."
         },
-        "refDevice": {
-          "type": "array",
-          "description": "Relationship. Device(s) used to obtain the measurement.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
-          "minItems": 1,
-          "uniqueItems": true
+        "airSupplyQuantitiyCooling": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Air supply quantitiy when cooling of this item."
         },
-        "refTargetDevice": {
-          "type": "array",
-          "description": "Relationship. Device(s) for which the measurement was taken.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          },
-          "minItems": 1,
-          "uniqueItems": true
+        "airSupplyQuantitiyHeating": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Air supply quantitiy when heating of this item."
         },
-        "dateEnergyMeteringStarted": {
+        "airSupplyQuantitiyHigh": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Air supply quantitiy when set amount of wind is high of this item."
+        },
+        "airSupplyQuantitiyMiddle": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Air supply quantitiy when set amount of wind is middle of this item."
+        },
+        "airSupplyQuantitiyLow": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Air supply quantitiy when set amount of wind is low of this item."
+        },
+        "capacityCooling": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Capacity cooling of this item."
+        },
+        "capacityHeating": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Capacity heating of this item."
+        },
+        "classificationCode": {
+          "type": "string",
+          "description": "Property. Classification code of this item."
+        },
+        "dateObjectCreated": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'http://schema.org/DateTime'. The starting date for metering energy."
+          "description": "Property. Model:'http://schema.org/DateTime'. The registration date and time of this item as an object."
         },
-        "totalActiveEnergyImport": {
+        "dateObjectUpdated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'http://schema.org/DateTime'. The update date and time of this item as an object."
+        },
+        "dryBulbTemperatureIndoorCooling": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilowatt hour (kWh)'. Total energy imported i.e. consumed since metering started (since `dateEnergyMeteringStarted`)."
+          "description": "Property. Model:'https://schema.org/Number'. Indoor dry bulb temperature when cooling."
         },
-        "totalReactiveEnergyImport": {
+        "dryBulbTemperatureIndoorHeating": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilovolt-ampere-reactive-hour (kVArh)'. Total energy imported i.e. consumed (with regards to fundamental frequency reactive power) since the metering start date (`dateEnergyMeteringStarted`)"
+          "description": "Property. Model:'https://schema.org/Number'. Indoor dry bulb temperature when heating."
         },
-        "totalApparentEnergyImport": {
+        "dryBulbTemperatureOutdoorCooling": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilovolt-ampere-hour (kVAh)'. Total energy imported i.e. consumed (with regards to apparent power) since the metering start date (`dateEnergyMeteringStarted`)"
+          "description": "Property. Model:'https://schema.org/Number'. Outdoor dry bulb temperature when cooling."
         },
-        "totalActiveEnergyExport": {
+        "dryBulbTemperatureOutdoorHeating": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilowatt hour (kWh)'. Total energy exported since metering started (since `dateEnergyMeteringStarted`)."
+          "description": "Property. Model:'https://schema.org/Number'. Outdoor dry bulb temperature when heating."
         },
-        "totalReactiveEnergyExport": {
+        "exteriorShape": {
+          "description": "GeoProperty. Exterior shape of this item.",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
+        },
+        "flagDeleted": {
+          "type": "string",
+          "description": "Property. Flag set when this item is deleted as an object."
+        },
+        "groupNumber": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilovolt-ampere-reactive-hour (kVArh)'. Total fundamental frequency reactive energy exported since metering started (since `dateEnergyMeteringStarted`)."
+          "description": "Property. Model:'https://schema.org/Number'. Group number of this item."
         },
-        "totalApparentEnergyExport": {
+        "idMaker": {
+          "type": "string",
+          "description": "Property. Makerid of this item."
+        },
+        "idModel": {
+          "type": "string",
+          "description": "Property. Model id or number of this item."
+        },
+        "mnetAddress": {
+          "type": "string",
+          "description": "Property. Mnet address of this item."
+        },
+        "motorOutput": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'kilovolt-ampere-reactive-hour (kVArh)'. Total energy exported (with regards to apparent power) since the metering start date (`dateEnergyMeteringStarted`)"
+          "description": "Property. Model:'https://schema.org/Number'. Fan motor output of this item."
         },
-        "frequency": {
+        "objectName": {
+          "type": "string",
+          "description": "Property. Name of this item as an object."
+        },
+        "powerConsumptionCooling": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'http://schema.org/Number'. Units:'Hertz (Hz)'. The frequency of the circuit."
+          "description": "Property. Model:'https://schema.org/Number'. Power consumption when cooling of this item."
         },
-        "totalActivePower": {
-          "type": "number",
-          "description": "Property. Model:'http://schema.org/Number'. Units:'watt (W)'. Active power consumed (counting all phases)"
-        },
-        "totalReactivePower": {
-          "type": "number",
-          "description": "Property. Model:'http://schema.org/Number'. Units:'volt-ampere-reactive (VAr)'. Reactive power consumed (counting all phases)"
-        },
-        "totalApparentPower": {
+        "powerConsumptionHeating": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'http://schema.org/Number'. Units:'volt-ampere (VA)'. Apparent power consumed (counting all phases)."
+          "description": "Property. Model:'https://schema.org/Number'. Power consumption when heating of this item."
         },
-        "activeEnergyImport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilowatt hour (kWh)'. Active energy imported i.e. consumed per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "reactiveEnergyImport": {
-          "type": "object",
-          "description": "Property. Model:'kilovolt-ampere-reactive-hour (kVArh)'. Units:'http://schema.org/StructuredValue'. Fundamental frequency reactive energy imported i.e. consumed per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "apparentEnergyImport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilovolt-ampere-hour (kVAh)'. Apparent energy imported i.e. consumed per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "activeEnergyExport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilowatt hour (kWh)'. Active energy exported per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "reactiveEnergyExport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilovolt-ampere-reactive-hour (kVArh)'. Fundamental frequency reactive energy exported per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "apparentEnergyExport": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'kilovolt-ampere-hour (kVAh)'. Apparent energy exported per phase since the metering start date. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "activePower": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'watt (W)'.Active power consumed per phase. The actual values will beconveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3. ",
-          "properties": {
-            "L1": {
-              "type": "number"
-            },
-            "L2": {
-              "type": "number"
-            },
-            "L3": {
-              "type": "number"
-            }
-          }
-        },
-        "reactivePower": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'volts-ampere-reactive (VAr)'. Fundamental frequency reactive power. The actual values will be conveyed by subproperties whose names will be equal to the name of each of the alternating current phases: L1, L2, L3.",
-          "properties": {
-            "L1": {
-              "type": "number"
-            },
-            "L2": {
-              "type": "number"
-            },
-            "L3": {
-              "type": "number"
-            }
-          }
-        },
-        "apparentPower": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'volt-ampere (VA)'. Apparent power consumed per phase. The actual values will be conveyed by subproperties which names will be equal to the name of each of the alternating current phases: L1, L2, L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        },
-        "totalPowerFactor": {
+        "powerFrequency": {
           "type": "number",
-          "description": "Property. Model:'http://schema.org/Number'. Units:'-1 to +1'. Power factor including all phases",
-          "minimum": -1,
-          "maximum": 1
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Power frequency of this item."
         },
-        "powerFactor": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'-1 to +1'. Power factor for each phase. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            },
-            "L2": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            },
-            "L3": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            }
-          }
-        },
-        "totalDisplacementPowerFactor": {
+        "price": {
           "type": "number",
-          "description": "Property. Model:'http://schema.org/Number'. Units:'-1 to +1'. Displacement power factor including all phases. The quantity is based on the fundamental frequency of the system",
-          "minimum": -1,
-          "maximum": 1
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Price of this item."
         },
-        "displacementPowerFactor": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'-1 to +1'. Displacement power factor for each phase. The quantity is based on the fundamental frequency of the system. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            },
-            "L2": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            },
-            "L3": {
-              "type": "number",
-              "minimum": -1,
-              "maximum": 1
-            }
+        "refAirConditionerTerminal": {
+          "type": "array",
+          "description": "Relationship. Reference to the air conditioner terminal containing this item.",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the air conditioner terminal containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
           }
         },
-        "current": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'Ampers (A)'. Electrical current. The actual values will be conveyed by one subproperty per alternating current phase and the neutral wire: L1, L2, L3 and N.",
-          "properties": {
-            "L1": {
-              "type": "number"
-            },
-            "L2": {
-              "type": "number"
-            },
-            "L3": {
-              "type": "number"
-            },
-            "N": {
-              "type": "number"
-            }
+        "refElectricPowerEquipment": {
+          "type": "array",
+          "description": "Relationship. Reference to the electric power equipment containing this item.",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the electric power equipment containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
           }
         },
-        "phaseVoltage": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'Volts (V)'. The voltage between each phase and neutral conductor. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0
-            }
+        "refGatewayController": {
+          "type": "array",
+          "description": "Relationship. Reference to the gateway controller containing this item.",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the gateway controller containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
           }
         },
-        "phaseToPhaseVoltage": {
-          "type": "object",
-          "description": "Property. Model:'(http://schema.org/StructuredValue'. Units:'Volts (V)'. Voltage between phases. A value for each phase pair: phases 1 and 2 (L12), phases 2 and 3 (L32), phases 3 and 1 (L31).",
-          "properties": {
-            "L12": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L23": {
-              "type": "number",
-              "minimum": 0
-            },
-            "L31": {
-              "type": "number",
-              "minimum": 0
-            }
+        "refIndoorAirConditionerMeasurement": {
+          "type": "array",
+          "description": "Relationship. Reference to the indoor air conditioner measurement containing this item.",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the indoor air conditioner measurement containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
           }
         },
-        "thdVoltage": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'0 to 1'. Total harmonic distortion of voltage for each phase. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            }
+        "refIndoorAirConditionerMentenanceMeasurement": {
+          "type": "array",
+          "description": "Relationship. Reference to the indoor air conditioner mentenance measurement containing this item.",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the indoor air conditioner mentenance measurement containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
           }
         },
-        "thdCurrent": {
-          "type": "object",
-          "description": "Property. Model:'http://schema.org/StructuredValue'. Units:'0 to 1'. Total harmonic distortion of electrical current. The actual values will be conveyed by one subproperty per alternating current phase: L1, L2 and L3",
-          "properties": {
-            "L1": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            },
-            "L2": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            },
-            "L3": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 1
-            }
+        "refOutdoorAirConditioner": {
+          "type": "array",
+          "description": "Relationship. Reference to the outdoor air conditioner containing this item.",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the outdoor air conditioner containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
           }
+        },
+        "refSensor": {
+          "type": "array",
+          "description": "Relationship. Reference to the sensor containing this item.",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the sensor containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "refSpace": {
+          "type": "array",
+          "description": "Relationship. Reference to the space containing this item.",
+          "items": {
+            "type": "string",
+            "description": "Relationship. Reference to the space containing this item.",
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "serialNumber": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'.  Serial number of this item."
+        },
+        "specName": {
+          "type": "string",
+          "description": "Property. Name of this item."
+        },
+        "wetBulbTemperatureIndoorCooling": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Indoor wet bulb temperature when cooling."
+        },
+        "wetBulbTemperatureOutdoorHeating": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Outdoor wet bulb temperature when heating."
         }
       }
     }
