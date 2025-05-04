@@ -1,0 +1,68 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "P2CODE",
+    "$id": "https://smart-data-models.github.io/dataModel.Device/SenseHat/schema.json",
+    "title": "Smart Data Models - SenseHat",
+    "description": "Data model for Sense Hat sensor readings for an array of sensing capabilities for Raspberry Pi.",
+    "derivedFrom": "https://www.berrybase.de/en/sense-hat-c-fuer-raspberry-pi",
+    "license": "https://creativecommons.org/licenses/by/4.0",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI entity type. It has to be SenseHat",
+                    "enum": [
+                        "SenseHat"
+                    ]
+                },
+                "accelerometer": {
+                    "type": "object",
+                    "description": "Property. NGSI Entity type. Accelerometer readings from the sensor.",
+                    "properties": {
+                        "x": {
+                            "type": "number",
+                            "description": "Property. X-axis reading from the accelerometer."
+                        },
+                        "y": {
+                            "type": "number",
+                            "description": "Property. Y-axis reading from the accelerometer."
+                        },
+                        "z": {
+                            "type": "number",
+                            "description": "Property. Z-axis reading from the accelerometer."
+                        }
+                    }
+                },
+                "humidity": {
+                    "type": "number",
+                    "description": "Property. Humidity reading from the sensor."
+                },
+                "temperature": {
+                    "type": "number",
+                    "description": "Property. Temperature reading from the sensor."
+                },
+                "pressure": {
+                    "type": "number",
+                    "description": "Property. Pressure reading from the sensor."
+                },
+                "raspSn": {
+                    "type": "string",
+                    "description": "Property. Serial number of the Raspberry Pi."
+                }
+            }
+        }
+    ],
+    "required": [
+        "type",
+        "id"
+    ]
+}

@@ -1,0 +1,169 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "P2CODE",
+    "$id": "https://smart-data-models.github.io/dataModel.Aeronautics/UWB/schema.json",
+    "title": "Smart Data Models - UWBAnchor",
+    "description": "Data model for the Ultra Wideband (UWB) Anchor which are electronic devices that detect UWB pulses emitted by UWB Tags and forward them to the location server for calculating tag positions.",
+    "derivedFrom": "",
+    "license": "https://creativecommons.org/licenses/by/4.0",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI entity type. It has to be UWBAnchor",
+                    "enum": [
+                        "UWBAnchor"
+                    ]
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Property. Version of the data."
+                },
+                "tagId": {
+                    "type": "string",
+                    "description": "Property. Tag ID."
+                },
+                "timestamp": {
+                    "type": "number",
+                    "description": "Property. Timestamp of the data."
+                },
+                "success": {
+                    "type": "boolean",
+                    "description": "Property. Success status."
+                },
+                "data": {
+                    "type": "object",
+                    "description": "Property. Corresponding data of the UWB Anchor.",
+                    "properties": {
+                        "coordinates": {
+                            "type": "object",
+                            "description": "Property. Coordinates data.",
+                            "properties": {
+                                "x": {
+                                    "type": "number",
+                                    "description": "Property. X-axis reading."
+                                },
+                                "y": {
+                                    "type": "number",
+                                    "description": "Property. Y-axis reading."
+                                },
+                                "z": {
+                                    "type": "number",
+                                    "description": "Property. Z-axis reading."
+                                }
+                            }
+                        },
+                        "tagData": {
+                            "type": "object",
+                            "description": "Property. Tag data information.",
+                            "properties": {
+                                "blinkIndex": {
+                                    "type": "number",
+                                    "description": "Property. Blink index value."
+                                },
+                                "accelerometer": {
+                                    "type": "array",
+                                    "description": "Property. Accelerometer readings.",
+                                    "items": {
+                                        "type": "object",
+                                        "description": "Property. Each of the accelaration measurements in X, Y, and Z-axis",
+                                        "properties": {
+                                            "x": {
+                                                "type": "number",
+                                                "description": "Property. X-axis reading."
+                                            },
+                                            "y": {
+                                                "type": "number",
+                                                "description": "Property. Y-axis reading."
+                                            },
+                                            "z": {
+                                                "type": "number",
+                                                "description": "Property. Z-axis reading."
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "anchorData": {
+                            "type": "array",
+                            "description": "Property. Anchor data information.",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "anchorId": {
+                                        "type": "string",
+                                        "description": "Property. Anchor ID."
+                                    },
+                                    "rss": {
+                                        "type": "number",
+                                        "description": "Property. RSS value."
+                                    }
+                                }
+                            }
+                        },
+                        "metrics": {
+                            "type": "object",
+                            "description": "Property. Metrics data.",
+                            "properties": {
+                                "latency": {
+                                    "type": "number",
+                                    "description": "Property. Latency value."
+                                },
+                                "rates": {
+                                    "type": "object",
+                                    "description": "Property. Rates data.",
+                                    "properties": {
+                                        "success": {
+                                            "type": "number",
+                                            "description": "Property. Success rate."
+                                        },
+                                        "update": {
+                                            "type": "number",
+                                            "description": "Property. Update rate."
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "zones": {
+                            "type": "array",
+                            "description": "Property. Zones information.",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "description": "Property. Zone ID."
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Property. Zone name."
+                                    }
+                                }
+                            }
+                        },
+                        "moving": {
+                            "type": "boolean",
+                            "description": "Property. Moving status."
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "required": [
+        "type",
+        "id",
+        "tagId"
+    ]
+}
