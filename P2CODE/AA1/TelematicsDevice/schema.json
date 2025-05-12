@@ -1,0 +1,86 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "P2CODE",
+    "$id": "https://smart-data-models.github.io/dataModel.Aeronautics/TelematicsDevice/schema.json",
+    "title": "Smart Data Model - TelematicsDevice",
+    "description": "This telematics data model is structured to support various applications in the automotive and transportation sectors, enabling efficient data collection and analysis for vehicle monitoring, navigation, and diagnostics.",
+    "derivedFrom": "",
+    "license": "https://creativecommons.org/licenses/by/4.0",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI entity type. It has to be TelematicsDevice",
+                    "enum": [
+                        "TelematicsDevice"
+                    ]
+                },
+                "UUID": {
+                    "type": "string",
+                    "description": "Property. Unique identifier for the telematics data."
+                },
+                "IMEI": {
+                    "type": "string",
+                    "description": "Property. International Mobile Equipment Identity."
+                },
+                "messageReceivedTime": {
+                    "type": "string",
+                    "description": "Property. Time when the message was received."
+                },
+                "direction": {
+                    "type": "integer",
+                    "description": "Property. Direction of vehicle movement in degrees."
+                },
+                "engineStatus": {
+                    "type": "integer",
+                    "description": "Property. Current status of the engine (e.g., 1 for on and 0 for off)."
+                },
+                "phi": {
+                    "type": "number",
+                    "description": "Property. Geographical coordinate representing latitude."
+                },
+                "lamda": {
+                    "type": "number",
+                    "description": "Property. Geographical coordinate representing longitude."
+                },
+                "z": {
+                    "type": "number",
+                    "description": "Property. Altitude or elevation above sea level."
+                },
+                "velocity": {
+                    "type": "integer",
+                    "description": "Property. Current speed of the vehicle."
+                },
+                "outerVoltage": {
+                    "type": "number",
+                    "description": "Property. Voltage measured outside the vehicle."
+                },
+                "gpsSignalStrength": {
+                    "type": "number",
+                    "description": "Property. Strength of the GPS signal."
+                },
+                "satellites": {
+                    "type": "integer",
+                    "description": "Property. Number of satellites used for GPS signal."
+                },
+                "receivedHash": {
+                    "type": "string",
+                    "description": "Property. Hash value received for data validation."
+                }
+            }
+        }
+    ],
+    "required": [
+        "type",
+        "id"
+    ]
+}
