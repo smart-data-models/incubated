@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.EnergyStorage/FuelCellMeasurement/schema.json,",
+  "title": "Fuel cell measuremet data model",
+  "description": "A instantaneous measure of hydrogen consumption / power generation by a fuel cell",
+  "modelTags": "",
+  "derivedFrom": "",
+  "required": [
+    "id",
+    "type"
+  ],
+  "license": "https://smart-data-models.github.io/dataModel.EnergyStorage/FuelCellMeasurement/LICENSE.md",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri",
+      "description": "Property. Unique ID of the object"
+    },
+    "type": {
+      "type": "string",
+      "description": "Property. Title of the form element"
+    },
+    "powerGenerated": {
+      "type": "number",
+      "description": "Property. Power production (W)"
+    },
+    "hydrogenFlowConsumed": {
+      "type": "number",
+      "description": "Property. Hydrogen flow consumed (Nl/h)"
+    },
+    "dataProvider": {
+      "type": "string",
+      "description": "Property. A sequence of characters identifying the provider of the harmonised data entity"
+    },
+    "dateCreated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Property. Entity creation timestamp."
+    },
+    "dateModified": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Property. Timestamp of the last modification of the entity"
+    },
+    "refFuelCell": {
+      "type": "string",
+      "format": "uri",
+      "description": "Property. A reference to the entity FuelCell which it belongs the measurement"
+    }
+  }
+}
