@@ -1,0 +1,49 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "P2CODE",
+    "$id": "https://github.com/smart-data-models/dataModel.ManufacturingMachine/ARKITE/schema.json",
+    "title": "Smart Data models - ARKITE",
+    "description": "A Data Model of the status of a production line ARKITE",
+    "derivedFrom": "",
+    "license": "https://creativecommons.org/licenses/by/4.0",
+    "type": "object",
+    "allOf": [
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      },
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+      },
+      {
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Property. NGSI Entity identifier. It has to be ProductionLineStatus",
+            "enum": [
+              "ARKITE"
+            ]
+          },
+          "timeStamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Property. The timestamp of the production line status update"
+          },
+          "lineSpeed": {
+            "type": "string",
+            "description": "Property. The current speed mode of the production line (fast/slow)",
+            "enum": [
+              "fast",
+              "slow"
+            ]
+          }
+        }
+      }
+    ],
+    "required": [
+      "id",
+      "type",
+      "timeStamp",
+      "lineSpeed"
+    ]
+  }

@@ -1,0 +1,133 @@
+{
+    "$schema":"https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.1.0",
+    "modelTags": "P2CODE",
+    "$id":"https://github.com/smart-data-models/dataModel.Device/sEGM/schema.json",
+    "title":"Smart Data Models - sEGM",
+    "description":"A Data Model of sEGM (Single-Channel Electromyography) sensor used to measure muscle activity of the specific muscle (where they are placed)",
+    "derivedFrom": "",
+    "license": "https://creativecommons.org/licenses/by/4.0",
+    "type":"object",
+    "allOf":[
+        {
+            "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref":"https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties":{
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI entity type. It has to be sEGM",
+                    "enum": [
+                        "sEGM"
+                    ]
+                },
+                "TimeStamp":{
+                    "type":"string",
+                    "format":"date-time",
+                    "description":"Property. Timestamp of the data"
+                },
+                "index":{
+                    "type":"integer",
+                    "description":"Property. Index value indicating the sensor data point number"
+                },
+                "data":{
+                    "type":"object",
+                    "description":"Property. Data for each channel",
+                    "properties":{
+                        "ch1":{
+                            "type":"object",
+                            "description":"Property. Channel 1 data",
+                            "properties":{
+                                "value":{
+                                    "type":"number",
+                                    "description":"Property. Value of channel 1"
+                                },
+                                "Feasibility":{
+                                    "type":"boolean",
+                                    "description":"Property. Feasibility of channel 1 data"
+                                }
+                            }
+                        },
+                        "ch2":{
+                            "type":"object",
+                            "description":"Property. Channel 2 data",
+                            "properties":{
+                                "value":{
+                                    "type":"number",
+                                    "description":"Property. Value of channel 2"
+                                },
+                                "Feasibility":{
+                                    "type":"boolean",
+                                    "description":"Property. Feasibility of channel 2 data"
+                                }
+                            }
+                        },
+                        "ch3":{
+                            "type":"object",
+                            "description":"Property. Channel 3 data",
+                            "properties":{
+                                "value":{
+                                    "type":"number",
+                                    "description":"Property. Value of channel 3"
+                                },
+                                "Feasibility":{
+                                    "type":"boolean",
+                                    "description":"Property. Feasibility of channel 3 data"
+                                }
+                            }
+                        },
+                        "ch4":{
+                            "type":"object",
+                            "description":"Property. Channel 4 data",
+                            "properties":{
+                                "value":{
+                                    "type":"number",
+                                    "description":"Property. Value of channel 4"
+                                },
+                                "Feasibility":{
+                                    "type":"boolean",
+                                    "description":"Property. Feasibility of channel 4 data"
+                                }
+                            }
+                        },
+                        "ch5":{
+                            "type":"object",
+                            "description":"Property. Channel 5 data",
+                            "properties":{
+                                "value":{
+                                    "type":"number",
+                                    "description":"Property. Value of channel 5"
+                                },
+                                "Feasibility":{
+                                    "type":"boolean",
+                                    "description":"Property. Feasibility of channel 5 data"
+                                }
+                            }
+                        },
+                        "ch6":{
+                            "type":"object",
+                            "description":"Property. Channel 6 data",
+                            "properties":{
+                                "value":{
+                                    "type":"number",
+                                    "description":"Property. Value of channel 6"
+                                },
+                                "Feasibility":{
+                                    "type":"boolean",
+                                    "description":"Property. Feasibility of channel 6 data"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "required":[
+        "type",
+        "id"
+    ]
+}

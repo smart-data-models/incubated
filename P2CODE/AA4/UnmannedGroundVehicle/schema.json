@@ -1,0 +1,59 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": [
+        "P2CODE",
+        "ROBOT"
+    ],
+    "$id": "https://smart-data-models.github.io/dataModel.AutonomousMobileRobot/UnmannedGroundVehicle/schema.json",
+    "title": "Smart Data Models - UnmannedGroundVehicle",
+    "description": "A Data Model of tracking the location of a Unmanned Ground Vehicle - UGV e.g robot dog",
+    "derivedFrom": "",
+    "license": "https://creativecommons.org/licenses/by/4.0",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Property. NGSI entity type. It has to be UnmannedGroundVehicle",
+                    "enum": [
+                        "UnmannedGroundVehicle"
+                    ]
+                },
+                "vehicleID": {
+                    "type": "string",
+                    "description": "Property. Identifier of the unmanned ground vehicle"
+                },
+                "locationUGV": {
+                    "type": "object",
+                    "description": "Property. Location information",
+                    "properties": {
+                        "latitude": {
+                            "type": "number",
+                            "description": "Property. Latitude of the unmanned ground vehicle"
+                        },
+                        "longitude": {
+                            "type": "number",
+                            "description": "Property. Longitude of the unmanned ground vehicle"
+                        },
+                        "timestamp": {
+                            "type": "integer",
+                            "description": "Property. Timestamp of the location data"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "required": [
+        "type",
+        "id"
+    ]
+}
