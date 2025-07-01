@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "1.0.0",
+  "modelTags": "WATERVERSE",
+  "$id": "https://smart-data-models.github.io/dataModel.Environment/FloodForecast/schema.json",
+  "title": "Flood Forecast Data Response",
+  "description": "Data Model corresponding to the execution of a Flood Forecast model",
+  "type": "object",
+  "derivedFrom": "",
+  "license": "https://creativecommons.org/licenses/by/4.0",
+  "allOf": [
+    {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+        "properties": {
+            "id": {
+                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons/properties/id"
+            },
+            "type": {
+                "type": "string",
+                "enum": ["FloodForecast"],
+                "description": "Property. NGSI Entity type. It has to be FloodForecast."
+            },
+            "trafficLights": {
+                "type": "object",
+                "properties": {
+                    "current": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "enum": ["red", "amber", "green", "grey"],
+                                "description": "Red = high risk, amber = medium risk, green = low risk, grey = unknown / non-calculated risk"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["status", "description"]
+                    },
+                    "nowcast": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "enum": ["red", "amber", "green", "grey"],
+                                "description": "Red = high risk, amber = medium risk, green = low risk, grey = unknown / non-calculated risk"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["status", "description"]
+                    },
+                    "forecast": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "enum": ["red", "amber", "green", "grey"],
+                                "description": "Red = high risk, amber = medium risk, green = low risk, grey = unknown / non-calculated risk"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["status", "description"]
+                    }
+                },
+                "required": ["current", "nowcast", "forecast"]
+            },
+            "geoJSON": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "forecast": {
+                            "type": "string",
+                            "enum": ["current", "nowcast", "forecast", "1day", "2day", "end"]
+                        },
+                        "forecastUrl": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    },
+                    "required": ["forecast", "forecastUrl"]
+                }
+            }
+        }
+    }
+  ],
+  "required": ["id", "name", "type", "trafficLights", "geoJSON"]
+}
