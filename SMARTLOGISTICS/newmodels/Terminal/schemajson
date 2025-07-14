@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "1.0.2",
+  "modelTags": "ESHUV",
+  "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/Terminal/schema.json",
+  "title": "Smart Data models Terminal schema",
+  "description": "This data model describes a terminal in a port as a join of facilities and ground, which can be used for various maritime operations.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be Terminal",
+          "enum": [
+            "Terminal"
+          ]
+        },
+        "mrn": {
+          "type": "string",
+          "description": "Property. MRN coded identifier. It has to be related to the entity in a way that is well-known by different organisms the meaning and the initiator of the entity, and all next parties will maintain on its origianl value. This identifier must be an UNIQUE identifier of the PortCall entity assigned by the system who created on first the entity. This URN should Conforms MRN & IETF specifically RFC 2141, RFC 5234, and RFC 8141. \n    The propossed format is \n    id::='urn:mrn:eshuv:<ONSS>:portcalls:terminal:code:[A-Z0-9]+' or  \n    where OID:= Organisation UN/LOCODE, OONSS:=Organization Name of Service, 2099 the year on which the portcall was initiated, 9999999 an increasing, unique identifier that the issuer of the Terminal entity will identify on his sistems (i.e. a SQL row-id), \n    i.e. urn:mrn:eshuv:portcalls:terminal:id:4 \n     See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)In international standards is also known as [Ship's Visit]",
+          "enum": [
+            "PortCall"
+          ]
+        },
+        "portCode": {
+          "type": "string",
+          "description": "Property. Code of the port where this terminal is located."
+        },
+        "terminal": {
+          "type": "string",
+          "description": "Property. Name of the terminal."
+        },
+        "code": {
+          "type": "string",
+          "description": "Property. Code identifying the terminal."
+        },
+        "remarks": {
+          "type": "string",
+          "description": "Property. Additional remarks or notes about the terminal."
+        },
+        "tafTsilocationCode": {
+          "type": "string",
+          "description": "Property. TAF-TSI location code for secondary identification of the terminal."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "portCode",
+    "terminal",
+    "code"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "1.0.2",
+  "modelTags": "ESHUV",
+  "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/NavigationSector/schema.json",
+  "title": "Smart Data models Navigation Sector schema",
+  "description": "This data model describes a navigation sector in a port, including geographic boundaries and operational details.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be NavigationSector",
+          "enum": [
+            "NavigationSector"
+          ]
+        },
+        "mrn": {
+          "type": "string",
+          "description": "Property. MRN coded identifier. It has to be related to the entity in a way that is well-known by different organisms the meaning and the initiator of the entity, and all next parties will maintain on its origianl value. This identifier must be an UNIQUE identifier of the PortCall entity assigned by the system who created on first the entity. This URN should Conforms MRN & IETF specifically RFC 2141, RFC 5234, and RFC 8141. \n    The propossed format is \n    id::='urn:mrn:eshuv:<ONSS>:portcalls:navigationsector:id:[0-9]+' or  \n    where OID:= Organisation UN/LOCODE, OONSS:=Organization Name of Service, 2099 the year on which the portcall was initiated, 9999999 an increasing, unique identifier that the issuer of the Bollard entity will identify on his sistems (i.e. a SQL row-id), \n    i.e. urn:mrn:eshuv:portcalls:navigationsector:id:16 \n     See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)In international standards is also known as [Ship's Visit]",
+          "enum": [
+            "PortCall"
+          ]
+        },
+        "portCode": {
+          "type": "string",
+          "description": "Property. Code of the port where this navigation sector is located."
+        },
+        "navigationSector": {
+          "type": "string",
+          "description": "Property. Identifier for the navigation sector within the port."
+        },
+        "navigationArea": {
+          "type": "string",
+          "description": "Property. The broader navigation area where this sector is situated."
+        },
+        "rank": {
+          "type": "integer",
+          "description": "Property. Rank or priority level of the navigation sector."
+        },
+        "sectorType": {
+          "type": "string",
+          "description": "Property. Type of navigation sector."
+        },
+        "minProbe": {
+          "type": "number",
+          "description": "Property. Minimum depth of water in meters within the sector."
+        },
+        "minProbeDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date when the minimum depth was last recorded."
+        },
+        "remarks": {
+          "type": "string",
+          "description": "Property. Additional remarks or notes about the navigation sector."
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "description": "Property. List of latitude and longitude coordinate pairs defining the navigation sector boundary."
+        },
+        "modifiedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date and time of last modification of the navigation sector entity."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "portCode",
+    "navigationSector",
+    "navigationArea",
+    "rank",
+    "sectorType"
+  ]
+}

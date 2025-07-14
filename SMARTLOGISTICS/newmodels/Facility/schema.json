@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "1.0.2",
+  "modelTags": "ESHUV",
+  "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/Facility/schema.json",
+  "title": "Smart Data models Facility schema",
+  "description": "This data model describes a facility in a port, which may include berths, terminals, or other port infrastructure.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be Facility",
+          "enum": [
+            "Facility"
+          ]
+        },
+        "mrn": {
+          "type": "string",
+          "description": "Property. MRN coded identifier. It has to be related to the entity in a way that is well-known by different organisms the meaning and the initiator of the entity, and all next parties will maintain on its origianl value. This identifier must be an UNIQUE identifier of the PortCall entity assigned by the system who created on first the entity. This URN should Conforms MRN & IETF specifically RFC 2141, RFC 5234, and RFC 8141. \n    The propossed format is \n    id::='urn:mrn:eshuv:<ONSS>:portcalls:facility:code:[0-9]+' or  \n    where OID:= Organisation UN/LOCODE, OONSS:=Organization Name of Service, 2099 the year on which the portcall was initiated, 9999999 an increasing, unique identifier that the issuer of the Facility entity will identify on his sistems (i.e. a SQL row-id), \n    i.e. urn:mrn:eshuv:portcalls:facility:id:196 \n     See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)In international standards is also known as [Ship's Visit]",
+          "enum": [
+            "PortCall"
+          ]
+        },
+        "portCode": {
+          "type": "string",
+          "description": "Property. Code of the port where this facility is located."
+        },
+        "facilityName": {
+          "type": "string",
+          "description": "Property. Name of the facility."
+        },
+        "facilityCode": {
+          "type": "string",
+          "description": "Property. Code identifying the facility."
+        },
+        "facilityType": {
+          "type": "string",
+          "description": "Property. Type of facility, such as BERTH, TERMINAL, etc.",
+          "enum": [
+            "BERTH",
+            "TERMINAL",
+            "ANCHORAGE",
+            "OTHER"
+          ]
+        },
+        "terminal": {
+          "type": "string",
+          "description": "Property. Name of the terminal associated with this facility."
+        },
+        "terminalId/terminalRef": {
+          "type": "string",
+          "description": "Property. Reference to the terminal entity associated with this facility."
+        },
+        "planningGroup": {
+          "type": "string",
+          "description": "Property. Planning group to which the facility belongs."
+        },
+        "navigationSector": {
+          "type": "string",
+          "description": "Property. Navigation sector associated with this facility."
+        },
+        "minimumProbe": {
+          "type": "number",
+          "description": "Property. Minimum depth of the facility in meters."
+        },
+        "minimumProbeDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date when the minimum depth was last recorded."
+        },
+        "displacement": {
+          "type": "number",
+          "description": "Property. Maximum displacement allowed in the facility."
+        },
+        "latitude": {
+          "type": "number",
+          "description": "Property. Latitude coordinate of the facility location."
+        },
+        "longitude": {
+          "type": "number",
+          "description": "Property. Longitude coordinate of the facility location."
+        },
+        "deadweight": {
+          "type": "number",
+          "description": "Property. Maximum deadweight of vessels allowed in the facility."
+        },
+        "maxDraught": {
+          "type": "number",
+          "description": "Property. Maximum draught allowed in meters."
+        },
+        "maxLoa": {
+          "type": "number",
+          "description": "Property. Maximum length overall (LOA) of vessels allowed in meters."
+        },
+        "maxBeam": {
+          "type": "number",
+          "description": "Property. Maximum beam width of vessels allowed in meters."
+        },
+        "remarks": {
+          "type": "string",
+          "description": "Property. Additional remarks or notes about the facility."
+        },
+        "firstBollard": {
+          "type": "integer",
+          "description": "Property. First bollard identifier in the facility."
+        },
+        "lastBollard": {
+          "type": "integer",
+          "description": "Property. Last bollard identifier in the facility."
+        },
+        "closed": {
+          "type": "boolean",
+          "description": "Property. Indicates if the facility is currently closed."
+        },
+        "modifiedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date and time of last modification of the facility entity."
+        },
+        "bollardCodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Property. List of bollard codes available at the facility."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "portCode",
+    "facilityName",
+    "facilityCode",
+    "facilityType",
+    "modifiedAt"
+  ]
+}

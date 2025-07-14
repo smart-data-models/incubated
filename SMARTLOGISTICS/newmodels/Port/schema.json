@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "1.0.2",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://smart-data-models.github.io/dataModel.Ports/Port/schema.json",
+  "title": "Smart Data models Port schema",
+  "description": "The data model is intended to provide information about ports",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be Port",
+          "enum": [
+            "Port"
+          ]
+        },
+        "countryCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. United Nations Code for Trade and Transport Locations. See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)"
+        },
+        "portCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Port where the container is discharged (UN/LOCODE: United Nations Code for Trade and Transport Locations). See [UNTDID - D.95B - Segment LOC - C517 (3225)](https://service.unece.org/trade/untdid/d95b/uncl/uncl3225.htm) and [UN/LOCODE](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory) [EMSWE2:DG-004-04][IALA-S211-portCode][UN-EDIFACT:LOC]"
+        },
+        "portName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Common name of the port"
+        },
+        "portType": {
+          "type": "string",
+          "enum": [
+            "Dry",
+            "Fishing",
+            "Inland",
+            "Sea",
+            "WarmWater"
+          ],
+          "description": "Property. Model:'http://schema.org/Text'. Enum: 'Sea, Inland, Fishing, WarmWater, Dry'. Classification by type of port"
+        },
+        "portArea": {
+          "oneOf": [
+            {
+              "$ref": "https://geojson.org/schema/Polygon.json"
+            },
+            {
+              "$ref": "https://geojson.org/schema/MultiPolygon.json"
+            }
+          ],
+          "description": "GeoProperty. Geojson reference to the item. It can be Polygon or MultiPolygon"
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. The value provided should be among those listed in the IANA Time Zone Database. See [Time Zone Database](https://timezonedb.com/time-zones)"
+        },
+        "gln": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Global Location Number. See [GLN](https://gs1id.org/global-location-number-gln)"
+        },
+        "refPortAuthority": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Model:'https://schema.org/URL'. Reference to the PortAuthority"
+        },
+        "portClosed": {
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. Information about the operational status of the port: closed o open to operations"
+        },
+        "lastOpenCloseTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of the closure of the Port or the Date and time of last port opening after a closure retpresented by an ISO 8601 UTC format"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "portCode",
+    "countryCode"
+  ]
+}

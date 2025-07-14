@@ -1,0 +1,283 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "1.0.2",
+  "$id": "https://example.org/MarineTraffic.schema.json",
+  "title": "MarineTraffic NGSI-LD Schema",
+  "description": "NGSI-LD schema for AisVessel entity, representing vessel AIS information from different AIS data-sources",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "NGSI Entity type. Must be 'AisVessel'",
+          "enum": [
+            "AisVessel"
+          ]
+        },
+        "vesselRef": {
+          "type": "number",
+          "description": "Property. Unique Master Vessel Reference"
+        },
+        "vesselName": {
+          "type": "string",
+          "description": "Property. Name of the vessel"
+        },
+        "imo": {
+          "type": "number",
+          "description": "Property. IMO number of the vessel"
+        },
+        "mmsi": {
+          "type": "number",
+          "description": "Property. MMSI number of the vessel"
+        },
+        "callSign": {
+          "type": "string",
+          "description": "Property. Call sign of the vessel"
+        },
+        "flagCode": {
+          "type": "string",
+          "description": "Property. Country flag code"
+        },
+        "portCode": {
+          "type": "string",
+          "description": "Property. Current port code"
+        },
+        "lastPortCode": {
+          "type": "string",
+          "description": "Property. Previous port code"
+        },
+        "nextPortCode": {
+          "type": "string",
+          "description": "Property. Next port code"
+        },
+        "portCallNumber": {
+          "type": "string",
+          "description": "Property. Number of the port call"
+        },
+        "dataProvider": {
+          "type": "string",
+          "description": "Property. AIS data provider"
+        },
+        "latitude": {
+          "type": "number",
+          "description": "Property. Latitude in decimal degrees"
+        },
+        "longitude": {
+          "type": "number",
+          "description": "Property. Longitude in decimal degrees"
+        },
+        "distanceToPort": {
+          "type": "number",
+          "description": "Property. Distance to the port of Huelva"
+        },
+        "speedOverGround": {
+          "type": "number",
+          "description": "Property. Speed over ground (knots)"
+        },
+        "courseOverGround": {
+          "type": "number",
+          "description": "Property. Course over ground (degrees)"
+        },
+        "navigationStatus": {
+          "type": "number",
+          "description": "Property. Navigation status ID"
+        },
+        "vesselInPort": {
+          "type": "boolean",
+          "description": "Property. Is the vessel currently in port"
+        },
+        "expectedArrival": {
+          "type": "boolean",
+          "description": "Property. Is the vessel expected to arrive"
+        },
+        "observedAt": {
+          "type": "string",
+          "description": "Property. Timestamp of the last observation (ISO 8601)"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Property. Record creation time (ISO 8601)"
+        },
+        "modifiedAt": {
+          "type": "string",
+          "description": "Property. Last modification time (ISO 8601)"
+        },
+        "deletedAt": {
+          "type": "string",
+          "description": "Property. Logical deletion time (ISO 8601)"
+        },
+        "publishedAt": {
+          "type": "string",
+          "description": "Property. Time when record was published (ISO 8601)"
+        },
+        "dsrc": {
+          "type": "string",
+          "description": "Property. AIS source (TER, SAT, ROAM)"
+        },
+        "utcSeconds": {
+          "type": "number",
+          "description": "Property. UTC seconds of AIS timeslot"
+        },
+        "market": {
+          "type": "string",
+          "description": "Property. Vessel's commercial market"
+        },
+        "shipType": {
+          "type": "string",
+          "description": "Property. Ship type from AIS"
+        },
+        "loa": {
+          "type": "number",
+          "description": "Property. Length Overall (meters)"
+        },
+        "beam": {
+          "type": "number",
+          "description": "Property. Beam or width (meters)"
+        },
+        "gt": {
+          "type": "number",
+          "description": "Property. Gross Tonnage"
+        },
+        "dwt": {
+          "type": "number",
+          "description": "Property. Deadweight tonnage"
+        },
+        "draught": {
+          "type": "number",
+          "description": "Property. Draught (meters)"
+        },
+        "yearBuilt": {
+          "type": "number",
+          "description": "Property. Year the vessel was built"
+        },
+        "shipCountry": {
+          "type": "string",
+          "description": "Property. Country of the ship"
+        },
+        "shipClass": {
+          "type": "string",
+          "description": "Property. Class of the vessel"
+        },
+        "rot": {
+          "type": "number",
+          "description": "Property. Rate of Turn"
+        },
+        "typeName": {
+          "type": "string",
+          "description": "Property. MarineTraffic ship type name"
+        },
+        "aisTypeSummary": {
+          "type": "string",
+          "description": "Property. AIS ship type summary"
+        },
+        "destination": {
+          "type": "string",
+          "description": "Property. Destination of the vessel"
+        },
+        "lastPortTime": {
+          "type": "string",
+          "description": "Property. Departure time from last port (ISO 8601)"
+        },
+        "lastPortName": {
+          "type": "string",
+          "description": "Property. Name of last port"
+        },
+        "lastPortId": {
+          "type": "number",
+          "description": "Property. ID of the last port"
+        },
+        "lastPortUnlocode": {
+          "type": "string",
+          "description": "Property. UN/LOCODE of last port"
+        },
+        "lastPortCountry": {
+          "type": "string",
+          "description": "Property. Country of last port"
+        },
+        "currentPortName": {
+          "type": "string",
+          "description": "Property. Current port name"
+        },
+        "currentPortId": {
+          "type": "number",
+          "description": "Property. Current port ID"
+        },
+        "currentPortUnlocode": {
+          "type": "string",
+          "description": "Property. UN/LOCODE of current port"
+        },
+        "currentPortCountry": {
+          "type": "string",
+          "description": "Property. Country of current port"
+        },
+        "nextPortName": {
+          "type": "string",
+          "description": "Property. Next port name"
+        },
+        "nextPortCountry": {
+          "type": "string",
+          "description": "Property. Next port country"
+        },
+        "nextPortId": {
+          "type": "number",
+          "description": "Property. Next port ID"
+        },
+        "nextPortUnlocode": {
+          "type": "string",
+          "description": "Property. UN/LOCODE of next port"
+        },
+        "eta": {
+          "type": "string",
+          "description": "Property. Estimated Time of Arrival (ISO 8601)"
+        },
+        "etaCalculated": {
+          "type": "string",
+          "description": "Property. Calculated ETA (ISO 8601)"
+        },
+        "etaUpdatedAt": {
+          "type": "string",
+          "description": "Property. ETA last updated (ISO 8601)"
+        },
+        "lfore": {
+          "type": "number",
+          "description": "Property. Distance from AIS station to bow"
+        },
+        "wleft": {
+          "type": "number",
+          "description": "Property. Distance from AIS station to port side"
+        },
+        "distanceToGo": {
+          "type": "number",
+          "description": "Property. Remaining distance to destination"
+        },
+        "distanceTravelled": {
+          "type": "number",
+          "description": "Property. Distance travelled since last port"
+        },
+        "averageSpeed": {
+          "type": "number",
+          "description": "Property. Average speed on last voyage"
+        },
+        "maxSpeed": {
+          "type": "number",
+          "description": "Property. Maximum speed recorded"
+        },
+        "heading": {
+          "type": "number",
+          "description": "Property. Heading in degrees"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "mmsi",
+    "latitude",
+    "longitude"
+  ]
+}
