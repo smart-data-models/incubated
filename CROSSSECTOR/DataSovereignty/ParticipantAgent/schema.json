@@ -25,29 +25,100 @@
           "description": "Property. Details of the credential store capabilities.",
           "properties": {
             "vcDataModel": {
-              "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+              "description": "Property. Details of data model(s) used for Verifiable Credentials.",
+              "minItems": 1,
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+                  }
+                },
+                {
+                  "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+                }
+              ]
             },
             "vcIssuanceAPI": {
-              "$ref": "#/definitions/Specification"
+              "description": "Property. Details of the API(s) used for issuing Verifiable Credentials.",
+              "minItems": 1,
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+                  }
+                },
+                {
+                  "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+                }
+              ]
             },
             "vcPresentationAPI": {
-              "$ref": "#/definitions/Specification"
+              "description": "Property. Details of data API(s) used for issuing Verifiable Credentials.",
+              "minItems": 1,
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+                  }
+                },
+                {
+                  "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+                }
+              ]
             }
           }
         },
         "contractNegotiation": {
-          "$ref": "#/definitions/Specification",
-          "description": "Property. Details of the contract negotiation capabilities."
+          "description": "Property. Details of the contract negotiation capabilities.",
+          "minItems": 1,
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+              }
+            },
+            {
+              "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+            }
+          ]
         },
         "transferProcess": {
           "type": "object",
           "description": "Property. Details of the transfer process capabilities.",
           "properties": {
             "protocol": {
-              "$ref": "#/definitions/Specification"
+              "description": "Property. Details of protocol(s) defining the transfer process.",
+              "minItems": 1,
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+                  }
+                },
+                {
+                  "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+                }
+              ]
             },
             "authorization": {
-              "$ref": "#/definitions/Specification"
+              "description": "Property. Details of authorization mechanisms used behind the transfer process.",
+              "minItems": 1,
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+                  }
+                },
+                {
+                  "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+                }
+              ]
             }
           }
         },
@@ -58,29 +129,66 @@
             "type": "object",
             "properties": {
               "apiSpecification": {
-                "$ref": "#/definitions/Specification"
+                "description": "Property. Details of API specification mechanisms used on the data plane.",
+                "minItems": 1,
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+                    }
+                  },
+                  {
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/ParticipantAgent/schema.json#/definitions/Specification"
+                  }
+                ]
               },
               "accepts": {
                 "type": "array",
                 "description": "Property. List of MIME types the data plane can accept for import. Corresponds to HTTP Accept header.",
-                "items": {
-                  "type": "string"
-                }
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
               },
               "contentType": {
                 "type": "array",
                 "description": "Property. List of MIME types the data plane can export. Corresponds to HTTP Content-Type header.",
-                "items": {
-                  "type": "string"
-                }
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
               },
               "openAPI": {
                 "type": "array",
                 "description": "Property. Link(s) to a machine-readable interface of the API. Corresponds to tcat:openAPI.",
-                "items": {
-                  "type": "string",
-                  "format": "uri"
-                }
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                ]
               }
             },
             "required": [
