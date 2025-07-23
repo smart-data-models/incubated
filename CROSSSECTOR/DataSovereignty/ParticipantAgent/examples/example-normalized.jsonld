@@ -1,122 +1,129 @@
 {
-  "id": "urn:ngsi-ld:ToolInformation:Tool-A-1234",
-  "type": "ToolInformation",
-  "title": {
-    "type": "Property",
-    "value": "SuperTool"
-  },
-  "description": {
-    "type": "Property",
-    "value": "A versatile tool for data transformation and analysis in any data space."
-  },
-  "url": {
-    "type": "Property",
-    "value": "https://example.com/supertool"
-  },
-  "hasVersion": {
-    "type": "Property",
-    "value": "1.0.0"
-  },
+  "id": "urn:ngsi-ld:ParticipantAgentService:FIWARE-DSC-2.28.0",
+  "type": "ParticipantAgentService",
+  "title": "FIWARE Data Space Connector",
+  "description": "An integrated suite of components implementing DSBA recommendations",
+  "url": "https://github.com/FIWARE/data-space-connector",
+  "hasVersion": [
+    "2.28.0"
+  ],
   "maintainer": {
-    "type": "Property",
-    "value": {
-      "name": "ExampleCorp",
-      "url": "https://example.com",
-      "logo": "https://example.com/logo.png"
+    "name": "FIWARE Foundation"
+  },
+  "dataspaceProductPurpose": "To provide a ready-to-use component for participants to join and interact within a data space.",
+  "documentation": [
+    "https://github.com/FIWARE/data-space-connector/blob/main/README.md"
+  ],
+  "license": [
+    "https://github.com/FIWARE/data-space-connector/blob/main/LICENSE"
+  ],
+  "licenseDeclared": [
+    "MIT"
+  ],
+  "dataspaceServiceCategory": "Participant Agent services",
+  "dataspaceService": [
+    "Credential Store",
+    "Contract Negotiation",
+    "Transfer Process",
+    "Data Plane"
+  ],
+  "dataspaceBuildingBlock": [
+    "Identity Management",
+    "Contract and Usage Policies",
+    "Data Exchange"
+  ],
+  "technologyReadinessLevel": 8,
+  "credentialStore": {
+    "vcDataModel": {
+      "name": "Verifiable Credentials Data Model",
+      "standardizedBy": "W3C",
+      "conformsTo": [
+        "1.1",
+        "2.0"
+      ],
+      "homepage": "https://www.w3.org/TR/vc-data-model/"
+    },
+    "vcIssuanceAPI": {
+      "name": "OpenID for Verifiable Credential Issuance",
+      "standardizedBy": "OpenID",
+      "conformsTo": [
+        "1.0.15"
+      ],
+      "homepage": "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html"
+    },
+    "vcPresentationAPI": {
+      "name": "OpenID for Verifiable Presentations",
+      "standardizedBy": "OpenID",
+      "conformsTo": [
+        "1.0"
+      ],
+      "homepage": "https://openid.net/specs/openid-4-verifiable-presentations-1_0.html"
     }
   },
-  "dataspaceProductPurpose": {
-    "type": "Property",
-    "value": "To simplify data interoperability and enable advanced analytics for data space participants."
+  "contractNegotiation": {
+    "name": "Agreement Management API",
+    "standardizedBy": "TMForum",
+    "conformsTo": [
+      "5.0.0"
+    ],
+    "homepage": "https://www.tmforum.org/oda/open-apis/agreement"
   },
-  "documentation": {
-    "type": "Property",
-    "value": [
-      "https://docs.example.com/supertool",
-      "https://github.com/ExampleCorp/supertool"
-    ]
+  "transferProcess": {
+    "protocol": {
+      "name": "Dataspace Protocol",
+      "standardizedBy": "DSP",
+      "conformsTo": [
+        "2024-1"
+      ],
+      "homepage": "https://docs.internationaldataspaces.org/dataspace-protocol/"
+    },
+    "authorization": {
+      "name": "ODRL",
+      "standardizedBy": "W3C",
+      "conformsTo": [
+        "2.2"
+      ],
+      "homepage": "https://www.w3.org/TR/odrl-model/"
+    }
   },
-  "image": {
-    "type": "Property",
-    "value": "https://example.com/supertool_screenshot1.png"
-  },
-  "license": {
-    "type": "Property",
-    "value": "https://opensource.org/licenses/MIT"
-  },
-  "licenseDeclared": {
-    "type": "Property",
-    "value": "MIT"
-  },
-  "keywords": {
-    "type": "Property",
-    "value": [
-      "data transformation",
-      "analytics",
-      "interoperability"
-    ]
-  },
-  "dataspaceServiceCategory": {
-    "type": "Property",
-    "value": "Value Creation services"
-  },
-  "dataspaceService": {
-    "type": "Property",
-    "value": "Data Analytics"
-  },
-  "dataspaceBuildingBlock": {
-    "type": "Property",
-    "value": [
-      "Data Processing",
-      "Data Visualization"
-    ]
-  },
-  "technologyReadinessLevel": {
-    "type": "Property",
-    "value": 9
-  },
-  "trlJustification": {
-    "type": "Property",
-    "value": "The tool has been successfully deployed in multiple production environments and is stable."
-  },
-  "deploymentsInOperation": {
-    "type": "Property",
-    "value": "Deployed in the European Mobility Data Space."
-  },
-  "businessOfferings": {
-    "type": "Property",
-    "value": "Available as a SaaS solution with enterprise support plans."
-  },
-  "dependencies": {
-    "type": "Property",
-    "value":  "Requires a Kubernetes cluster for deployment."
-  },
-  "similarTools": {
-    "type": "Property",
-    "value": [
-      "MegaTool",
-      "UltraTool"
-    ]
-  },
-  "functionalApplicationArea": {
-    "type": "Property",
-    "value": [
-      "Data science",
-      "Business intelligence"
-    ]
-  },
-  "domain": {
-    "type": "Property",
-    "value": [
-      "Mobility",
-      "Healthcare"
-    ]
-  },
-  "geographicalApplicationArea": {
-    "type": "Property",
-    "value": "Europe"
-  },
-  "@context": [
-    "https://raw.githubusercontent.com/smart-data-models/dataModel.Dataspace/master/context.jsonld"
+  "dataPlane": [
+    {
+      "apiSpecification": {
+        "name": "NGSI-LD",
+        "standardizedBy": "ETSI",
+        "conformsTo": [
+          "1.8.1",
+          "1.9.1"
+        ],
+        "homepage": "https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.09.01_60/gs_CIM009v010901p.pdf"
+      },
+      "accepts": [
+        "application/json",
+        "application/ld+json"
+      ],
+      "contentType": [
+        "application/json",
+        "application/ld+json",
+        "application/geo+json"
+      ],
+      "openAPI": [
+        "https://forge.etsi.org/rep/cim/ngsi-ld-openapi/-/raw/v1.9.1/ngsi-ld-api-v1.9.1.yaml"
+      ]
+    },
+    {
+      "apiSpecification": {
+        "name": "HTTP File Download",
+        "standardizedBy": "IETF",
+        "conformsTo": [
+          "RFC7231"
+        ],
+        "homepage": "https://tools.ietf.org/html/rfc7231"
+      },
+      "accepts": [],
+      "contentType": [
+        "image/jpeg",
+        "image/png"
+      ]
+    }
   ]
 }
