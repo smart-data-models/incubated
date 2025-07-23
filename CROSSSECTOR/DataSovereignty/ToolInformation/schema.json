@@ -34,12 +34,8 @@
             "description": "Property. A URL to a webpage with more information about the tool. Corresponds to foaf:homepage or schema:url."
         },
         "hasVersion": {
-            "type": "array",
-            "description": "Property. The versions of the implementation. Values must adhere to SemVer 2.0. Corresponds to dc:hasVersion.",
-            "minItems": 1,
-            "items": {
-                "type": "string"
-            }
+            "type": "string",
+            "description": "Property. The versions of the implementation. Values must adhere to SemVer 2.0. Corresponds to dc:hasVersion."
         },
         "maintainer": {
             "type": "object",
@@ -67,45 +63,84 @@
             "description": "Property. Description of how the implementation contributes to DSSC's objectives. Corresponds to tcat:dataspaceProductPurpose."
         },
         "documentation": {
-            "type": "array",
             "description": "Property. Direct links to relevant documents (product page, software repository, API spec, etc.). Corresponds to schema:documentation.",
             "minItems": 1,
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                },
+                {
+                    "type": "string",
+                    "format": "uri"
+                }
+            ]
         },
         "image": {
-            "type": "array",
-            "description": "Property. Relevant pictures or screenshots of the tool’s user interface. Corresponds to schema:image.",
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }
+            "description": "Property. Relevant pictures or screenshots of the tool’s user interface. Corresponds to schema:image.",                
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                },
+                {
+                  "type": "string",
+                  "format": "uri"
+                }
+            ]
+            
         },
         "license": {
-            "type": "array",
             "description": "Property. Links to the license details for accessing and using the tool. Corresponds to schema:license.",
             "minItems": 1,
-            "items": {
-                "type": "string",
-                "format": "uri"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                },
+                {
+                  "type": "string",
+                  "format": "uri"
+                }
+            ]
         },
         "licenseDeclared": {
-            "type": "array",
             "description": "Property. The machine-searchable license type. Value must adhere to SPDX license list (https://spdx.org/licenses/). Corresponds to spdx.org:licenseDeclared.",
             "minItems": 1,
-            "items": {
-                "type": "string"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                  "type": "string"
+                }
+            ]
         },
         "keywords": {
-            "type": "array",
             "description": "Property. Keywords that categorize the tool, preferably from a controlled vocabulary. Corresponds to schema:keywords.",
-            "items": {
-                "type": "string"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                  "type": "string"
+                }
+            ]
         },
         "dataspaceServiceCategory": {
             "type": "string",
@@ -117,34 +152,62 @@
             ]
         },
         "dataspaceService": {
-            "type": "array",
             "description": "Property. The specific data space service(s) this tool implements. Corresponds to tcat:dataspaceService.",
             "minItems": 1,
-            "items": {
-                "type": "string"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                  "type": "string"
+                }
+            ]
         },
         "dataspaceBuildingBlock": {
-            "type": "array",
             "description": "Property. The data space building block(s) this tool is related to. Corresponds to tcat:dataspaceBuildingBlock.",
             "minItems": 1,
-            "items": {
-                "type": "string"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                  "type": "string"
+                }
+            ]
         },
         "additionalBuildingBlock": {
-            "type": "array",
             "description": "Property. Additional building blocks functions offered by this tool. Corresponds to tcat:additionalBuildingBlock.",
-            "items": {
-                "type": "string"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                  "type": "string"
+                }
+            ]
         },
         "additionalBuildingBlockDescription": {
-            "type": "array",
             "description": "Property. Textual description of additional functionalities. Corresponds to tcat:additionalBuildingBlockDescription.",
-            "items": {
-                "type": "string"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                  "type": "string"
+                }
+            ]
         },
         "technologyReadinessLevel": {
             "type": "integer",
@@ -157,61 +220,112 @@
             "description": "Property. Justification for the declared TRL. Corresponds to tcat:technologyReadinessDescription."
         },
         "deploymentsInOperation": {
-            "type": "array",
             "description": "Property. Overview or links to usage/deployments of the tool in operations. Corresponds to tcat:existingDeployments.",
-            "items": {
-                "type": "string"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                  "type": "string"
+                }
+            ]
         },
         "businessOfferings": {
-            "type": "array",
             "description": "Property. Description of business offerings like managed services, SaaS, or support. Corresponds to tcat:businessOfferings.",
-            "items": {
-                "type": "string"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                  "type": "string"
+                }
+            ]
         },
         "dependencies": {
-            "type": "array",
             "description": "Property. Dependencies or prerequisites on other tools or components.",
-            "items": {
-                "type": "string"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                  "type": "string"
+                }
+            ]
         },
         "similarTools": {
-            "type": "array",
             "description": "Property. A list of similar or competing tools.",
-            "items": {
-                "type": "string"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                  "type": "string"
+                }
+            ]
         },
         "supportingAttachments": {
             "type": "array",
             "description": "Property. Additional attachments or links for more information.",
             "items": {
+                "description": "Property. Additional attachments or links for more information.",
+            
                 "type": "string",
                 "format": "uri"
             }
         },
         "functionalApplicationArea": {
-            "type": "array",
             "description": "Property. The applications for which the tool is intended.",
-            "items": {
-                "type": "string"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                  "type": "string"
+                }
+            ]
         },
         "domain": {
-            "type": "array",
             "description": "Property. The domain(s), sector(s), or industry/ies for which the tool is relevant.",
-            "items": {
-                "type": "string"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                  "type": "string"
+                }
+            ]
         },
         "geographicalApplicationArea": {
-            "type": "array",
             "description": "Property. The geographical region for which the tool is intended (e.g., global, Europe).",
-            "items": {
-                "type": "string"
-            }
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                  "type": "string"
+                }
+            ]
         }
     },
     "required": [
