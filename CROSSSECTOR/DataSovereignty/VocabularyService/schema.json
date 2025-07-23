@@ -1,117 +1,181 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://smart-data-models.github.io/dataModels.CIM-Cross-Sector/VocabularyService/schema.json",
-    "title": "Smart Data Models - Vocabulary Service",
-    "description": "A data model for a Vocabulary Service tool. This service manages and hosts data models like vocabularies, ontologies, and schemas. It extends the base ToolInformation model.",
-    "type": "object",
-    "allOf": [
-        {
-            "$ref": "https://smart-data-models.github.io/dataModels.CIM-Cross-Sector/ToolInformation/schema.json#/definitions/ToolInformation-Commons"
-        }
-    ],
-    "properties": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "$id": "https://smart-data-models.github.io/dataModels.CIM-Cross-Sector/VocabularyService/schema.json",
+  "title": "Smart Data Models - Vocabulary Service",
+  "description": "A data model for a Vocabulary Service tool. This service manages and hosts data models like vocabularies, ontologies, and schemas. It extends the base ToolInformation model.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/data-sovereignty-commons.json#/definitions/DataSovereignity-Commons"
+    },
+    {
+      "properties": {
+        "id": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
         "type": {
-            "type": "string",
-            "description": "Property. NGSI entity type. It has to be VocabularyService.",
-            "enum": [
-                "VocabularyService"
-            ]
+          "type": "string",
+          "description": "Property. NGSI entity type. It has to be VocabularyService.",
+          "enum": [
+            "VocabularyService"
+          ]
         },
         "dataModelDomain": {
-            "type": "array",
-            "description": "Property. Describes the subject areas or business domains of the data models managed by the service. Corresponds to dcterms:subject.",
-            "items": {
+          "description": "Property. Describes the subject areas or business domains of the data models managed by the service. Corresponds to dcterms:subject.",
+          "minItems": 1,
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
                 "type": "string"
+              }
+            },
+            {
+              "type": "string"
             }
+          ]
         },
         "dataModelSpecificationType": {
-            "type": "string",
-            "description": "Property. The type of data model specification supported (e.g., Ontology, Data Schema).",
-            "enum": [
-                "Vocabulary",
-                "Ontology",
-                "Application Profile",
-                "Data Schema"
-            ]
+          "type": "string",
+          "description": "Property. The type of data model specification supported (e.g., Ontology, Data Schema).",
+          "enum": [
+            "Vocabulary",
+            "Ontology",
+            "Application Profile",
+            "Data Schema"
+          ]
         },
         "supportedSyntaxes": {
-            "type": "array",
-            "description": "Property. Data model syntaxes the service can process (e.g., OWL, JSON Schema). Corresponds to dc:format.",
-            "minItems": 1,
-            "items": {
+          "description": "Property. Data model syntaxes the service can process (e.g., OWL, JSON Schema). Corresponds to dc:format.",
+          "minItems": 1,
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
                 "type": "string"
+              }
+            },
+            {
+              "type": "string"
             }
+          ]
         },
         "importFormats": {
-            "type": "array",
-            "description": "Property. Data formats the service can import for creating a data model (list of MIME types). Corresponds to dcat:mediatype.",
-            "minItems": 1,
-            "items": {
+          "description": "Property. Data formats the service can import for creating a data model (list of MIME types). Corresponds to dcat:mediatype.",
+          "minItems": 1,
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
                 "type": "string"
+              }
+            },
+            {
+              "type": "string"
             }
+          ]
         },
         "exportFormats": {
-            "type": "array",
-            "description": "Property. Data formats in which the service can export data models (list of MIME types). Corresponds to dcat:mediaType.",
-            "minItems": 1,
-            "items": {
+          "description": "Property. Data formats in which the service can export data models (list of MIME types). Corresponds to dcat:mediaType.",
+          "minItems": 1,
+          "minItems": 1,
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
                 "type": "string"
+              }
+            },
+            {
+              "type": "string"
             }
+          ]
         },
         "dataModelVersioning": {
-            "type": "string",
-            "description": "Property. The approach used for data model versioning. Corresponds to schema:version.",
-            "enum": [
-                "Semantic Versioning",
-                "Full History",
-                "None"
-            ]
+          "type": "string",
+          "description": "Property. The approach used for data model versioning. Corresponds to schema:version.",
+          "enum": [
+            "Semantic Versioning",
+            "Full History",
+            "None"
+          ]
         },
         "referenceDatasetManagement": {
-            "type": "string",
-            "description": "Property. Describes how the service manages reference datasets (codelists)."
+          "type": "string",
+          "description": "Property. Describes how the service manages reference datasets (codelists)."
         },
         "governanceFeatures": {
-            "type": "string",
-            "description": "Property. Governance functionalities, such as role-based access control and workflow management."
+          "type": "string",
+          "description": "Property. Governance functionalities, such as role-based access control and workflow management."
         },
         "publicationAccessibility": {
-            "type": "array",
-            "description": "Property. Methods used to publish and make vocabularies accessible (e.g., SPARQL endpoint). Corresponds to dcat:accessService.",
-            "items": {
+          "description": "Property. Methods used to publish and make vocabularies accessible (e.g., SPARQL endpoint). Corresponds to dcat:accessService.",
+          "minItems": 1,
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
                 "type": "string"
+              }
+            },
+            {
+              "type": "string"
             }
+          ]
         },
         "validationCapabilities": {
-            "type": "array",
-            "description": "Property. Specifies if the service offers validation of data instances against data models.",
-            "items": {
+          "description": "Property. Specifies if the service offers validation of data instances against data models.",
+          "minItems": 1,
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
                 "type": "string",
                 "enum": [
-                    "JSON validator",
-                    "XML validator",
-                    "SHACL validator"
-                ]
+              "JSON validator",
+              "XML validator",
+              "SHACL validator"
+            ]
+              }
+            },
+            {
+              "type": "string",
+              "enum": [
+              "JSON validator",
+              "XML validator",
+              "SHACL validator"
+            ]
             }
+          ]
         },
         "supportedStandards": {
-            "type": "array",
-            "description": "Property. List of specific formal or industry standards that the service supports. Corresponds to dcterms:conformsTo.",
-            "items": {
+          "description": "Property. List of specific formal or industry standards that the service supports. Corresponds to dcterms:conformsTo.",
+          "minItems": 1,
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
                 "type": "string"
+              }
+            },
+            {
+              "type": "string"
             }
+          ]
         },
         "mappingFunctionalities": {
-            "type": "string",
-            "description": "Property. Describes if the service provides functionalities for mapping between different data models."
+          "type": "string",
+          "description": "Property. Describes if the service provides functionalities for mapping between different data models."
         }
-    },
-    "required": [
-        "id",
-        "type",
-        "dataModelSpecificationType",
-        "supportedSyntaxes",
-        "importFormats",
-        "exportFormats"
-    ]
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "dataModelSpecificationType",
+    "supportedSyntaxes",
+    "importFormats",
+    "exportFormats"
+  ]
 }

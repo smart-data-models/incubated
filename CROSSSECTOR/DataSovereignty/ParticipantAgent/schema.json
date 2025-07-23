@@ -1,15 +1,16 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "https://json-schema.org/draft/2020-12/schema#",
     "$id": "https://smart-data-models.github.io/dataModels.CIM-Cross-Sector/VocabularyService/schema.json",
     "title": "Smart Data Models - Vocabulary Service",
     "description": "A data model for a Vocabulary Service tool. This service manages and hosts data models like vocabularies, ontologies, and schemas. It extends the base ToolInformation model.",
     "type": "object",
     "allOf": [
-        {
-            "$ref": "https://smart-data-models.github.io/dataModels.CIM-Cross-Sector/ToolInformation/schema.json#/definitions/ToolInformation-Commons"
-        }
-    ],
+         {
+            "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/master/CROSSSECTOR/DataSovereignty/data-sovereignty-commons.json#/definitions/DataSovereignity-Commons"
+        },
+    ,{
     "properties": {
+        "id": { "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType" },
         "type": {
             "type": "string",
             "description": "Property. NGSI entity type. It has to be VocabularyService.",
@@ -105,7 +106,7 @@
             "type": "string",
             "description": "Property. Describes if the service provides functionalities for mapping between different data models."
         }
-    },
+    }}],
     "required": [
         "id",
         "type",
