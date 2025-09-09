@@ -1,1 +1,0 @@
-testing of AAS mapping
