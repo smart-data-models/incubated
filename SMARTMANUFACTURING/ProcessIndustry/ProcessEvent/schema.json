@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://smart-data-models.github.io/dataModel.ProcessIndustry/ProcessEvent/schema.json",
+  "title": "Smart Data Models - Process event schema",
+  "description": "Schema for generic events in industrial processes",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "ProcessEvent"
+          ],
+          "description": "Property. NGSI Entity type. It has to be ProcessEvent"
+        },
+        "processName": {
+          "type": "string",
+          "description": "Property. Name or identifier of the related production process"
+        },
+        "heatNumber": {
+          "type": "number",
+          "description": "Property. Related production heat number"
+        },
+        "event": {
+          "type": "string",
+          "description": "Property. Name or identifier of the event"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "dateObserved",
+    "processName",
+    "event"
+  ]
+}
