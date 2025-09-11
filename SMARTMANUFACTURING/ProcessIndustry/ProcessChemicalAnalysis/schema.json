@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://smart-data-models.github.io/dataModel.ProcessIndustry/ProcessChemicalAnalysis/schema.json",
+  "title": "Smart Data Models - Process chemical analysis event schema",
+  "description": "Schema for chemical analyses from industrial processes",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "ProcessChemicalAnalysis"
+          ],
+          "description": "Property. NGSI Entity type. It has to be ProcessChemicalAnalysis"
+        },
+        "processName": {
+          "type": "string",
+          "description": "Property. Name or identifier of the related production process"
+        },
+        "heatNumber": {
+          "type": "number",
+          "description": "Property. Related production heat number"
+        },
+        "chemicalAnalysis": {
+          "type": "object",
+          "properties": {
+            "sampleNumber": {
+              "type": "number",
+              "description": "Property. Sample number if multiple samples are taken during a process"
+            },
+            "chemicalConcentration": {
+              "type": "array",
+              "description": "Property. The components in the chemical composition of the material",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "substance": {
+                    "type": "string",
+                    "description": "Property. Chemical substance name or identifier, preferably the chemical symbol"
+                  },
+                  "percentage": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Property. Percentage of the chemical substance"
+                  }
+                },
+                "required": [
+                  "substance",
+                  "percentage"
+                ]
+              }
+            }
+          },
+          "required": [
+            "chemicalConcentration"
+          ]
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "dateObserved",
+    "processName",
+    "chemicalAnalysis"
+  ]
+}
