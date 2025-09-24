@@ -1,0 +1,33 @@
+from pysmartdatamodels import pysmartdatamodels as sdm
+subject = "dataModel.Weather"
+dataModel = "WeatherForecast"
+attribute = "precipitation"
+a = input("Load all data models. Continue?")
+print(sdm.load_all_datamodels())
+a = input("Load all attributes. Continue?")
+print(len(sdm.load_all_attributes())) # there is more than 20.000 to get all listed
+a = input("List all data models. Continue?")
+print(sdm.list_all_datamodels())
+a = input("List all subjects. Continue?")
+print(sdm.list_all_subjects())
+a = input("List data models of the subject " + subject + ". Continue?")
+print(sdm.datamodels_subject("dataModel.Weather"))
+a = input("List descripton of the attribute " + attribute + ". Continue?")
+print(sdm.description_attribute(subject, dataModel, attribute))
+a = input("List the type of the attribute " + attribute + ".  Continue?")
+print(sdm.datatype_attribute(subject, dataModel, attribute))
+a = input("List the model of the attribute " + attribute + ".  Continue?")
+print(sdm.model_attribute(subject, dataModel, attribute))
+a = input("List the units of the attribute " + attribute + ".  Continue?")
+print(sdm.units_attribute(subject, dataModel, attribute))
+a = input("List the attributes of the data model " + dataModel + ". Continue?")
+print(sdm.attributes_datamodel(subject, dataModel))
+a = input("List the link to the repository of the subject " + subject + ". Continue?")
+print(sdm.subject_repolink(subject))
+a = input("List the subjects where this data model " + dataModel + " appears. Continue?")
+print(sdm.datamodel_repolink(dataModel))
+a = input("Print formatted the data model " + dataModel + " of the subject " + subject + ". Continue?")
+print(sdm.print_datamodel(subject, dataModel, ",", ["property", "type", "dataModel", "repoName", "description", "typeNGSI", "modelTags", "format", "units", "model", ]))
+a = input("Update all data models from the central repository. Continue?")
+sdm.update_data()
+print("Thanks for attending this session")
