@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "$id": "https://smart-data-models.github.io/dataModel.ProcessIndustry/ProcessEvent/schema.json",
+  "title": "Smart Data Models - Process event schema",
+  "description": "Schema for generic events in industrial processes",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "ProcessEvent"
+          ],
+          "description": "Property. NGSI Entity type. It has to be ProcessEvent"
+        },
+        "dateObserved": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/dateObserved"
+        },
+        "processName": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/smartmanufacturing-processindustry/SMARTMANUFACTURING/ProcessIndustry/processindustry-schema.json#/definitions/ProcessIndustry-Commons/properties/processName"
+        },
+        "heatNumber": {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/refs/heads/smartmanufacturing-processindustry/SMARTMANUFACTURING/ProcessIndustry/processindustry-schema.json#/definitions/ProcessIndustry-Commons/properties/heatNumber"
+        },
+        "processEvent": {
+          "type": "string",
+          "description": "Property. Name or identifier of the event"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "processEvent"
+  ]
+}
