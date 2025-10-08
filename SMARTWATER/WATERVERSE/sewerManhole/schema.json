@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Schema for customerDetails data model",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the customer details"
+    },
+    "type": {
+      "type": "string",
+      "description": "Entity type, set to 'customerDetails'",
+      "enum": ["customerDetails"]
+    },
+    "dataProvider": {
+      "type": "string",
+      "description": "Data provider name"
+    },
+    "customer": {
+      "type": "string",
+      "description": "Customer identifier or code"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the customer or identifier"
+    },
+    "address": {
+      "type": "string",
+      "description": "Address of the customer"
+    },
+    "postCode": {
+      "type": "string",
+      "description": "Postal code of the customer's location"
+    },
+    "city": {
+      "type": "string",
+      "description": "City of the customer's location"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number of the customer"
+    },
+    "consumption": {
+      "type": "number",
+      "description": "Meter reading or consumption value"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date related to the customer data (e.g., payment date)"
+    },
+    "recipient": {
+      "type": "string",
+      "description": "Recipient of the customer data or service"
+    },
+    "st_astext": {
+      "type": "string",
+      "description": "Geospatial text representation (e.g., LINESTRING)"
+    },
+    "originalId": {
+      "type": "string",
+      "description": "Original identifier of the record"
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the record"
+    },
+    "condition": {
+      "type": "string",
+      "description": "Condition state of the customer or asset"
+    },
+    "comment1": {
+      "type": "string",
+      "description": "First comment field"
+    },
+    "comment2": {
+      "type": "string",
+      "description": "Second comment field"
+    },
+    "comment3": {
+      "type": "string",
+      "description": "Third comment field"
+    },
+    "comment4": {
+      "type": "string",
+      "description": "Fourth comment field"
+    },
+    "followUp": {
+      "type": "string",
+      "description": "Follow-up action or task"
+    },
+    "followUpDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time for follow-up action"
+    },
+    "fileName": {
+      "type": "string",
+      "description": "Name of the associated file"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["Point"]
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "Geographic coordinates [longitude, latitude]"
+        }
+      },
+      "required": ["type", "coordinates"]
+    },
+    "@context": {
+      "type": "string",
+      "description": "Context for NGSI-LD"
+    }
+  },
+  "required": ["id", "type", "location"],
+  "additionalProperties": false
+}
