@@ -1,13 +1,13 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.AAS/I4SubmodelElementCapability/schema.json",
+  "title": "Smart Data Models - RAMI4.0 Asset Administration Shell (AAS) / I4SubmodelElementCapability",
+  "description": "Based on IDTA-01001-3-0, describes a generic RAMI4.0 SubmodelElement representing an Capability of a referenced Asset Administration Shell",
   "modelTags": "",
-  "$id": "https://smart-data-models.github.io/dataModel.AAS/I4SubmodelElementRelationship/schema.json",
-  "title": "Smart Data Models - RAMI4.0 Asset Administration Shell -AAS- Generic Submodel Element Relationship schema",
-  "description": "Based on IDTA-01001-3-0, describes a generic RAMI4.0 SubmodelElement representing an Relationship of a referenced Asset Administration Shell",
-  "type": "object",
   "derivedFrom": "https://industrialdigitaltwin.org/en/wp-content/uploads/sites/2/2023/04/IDTA-01001-3-0_SpecificationAssetAdministrationShell_Part1_Metamodel.pdf",
   "license": "",
+  "type": "object",
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -20,9 +20,9 @@
         "type": {
           "type": "string",
           "enum": [
-            "I4SubmodelElementRelationship"
+            "I4SubmodelElementCapability"
           ],
-          "description": "Property. It has to be RAMI4.0 I4SubmodelElementRelationship NGSI Entity type to represent a RAMI4.0 AAS Digital Twin Submodel Relationship component"
+          "description": "Property. It has to be RAMI4.0 I4SubmodelElementCapability NGSI Entity type to represent a RAMI4.0 AAS Digital Twin Submodel Capability component"
         },
         "refI4AssetId": {
           "type": "string",
@@ -31,6 +31,10 @@
         "refI4AASId": {
           "type": "string",
           "description": "Relationship. References the root Asset Administration Shell which this SubmodelElement belongs to"
+        },
+        "refI4SubmodelId": {
+          "type": "string",
+          "description": "Relationship. References the root Submodel which this SubmodelElement belongs to"
         },
         "hasDataSpecification": {
           "type": "array",
@@ -60,7 +64,7 @@
           "properties": {
             "name": {
               "type": "string",
-              "description": "Property. Property of the item. Usually -Operation- is set for this type"
+              "description": "Property. Property of the item. Usually -Capability- is set for this type"
             }
           }
         },
@@ -117,15 +121,7 @@
         "kind": {
           "type": "string",
           "description": "Property. For the distinction of 'type' and 'instance', the term 'kind' is used"
-        },
-        "first": {
-          "type": "string",
-          "description": "Relationship. References the first Reference Element of the Relationship Element."
-        },
-        "second": {
-          "type": "string",
-          "description": "Relationship. References the second Reference Element of the Relationship Element."
-        }            
+        }
       }
     }
   ],
