@@ -1,0 +1,42 @@
+{
+  "id": "urn:ngsi-ld:Service:WebApp01:Component:Backend",
+  "type": "ServiceComponent",
+  "infrastructureElement": "urn:ngsi-ld:InfrastructureElement:Cloud:00155dc09474",
+  "service": "urn:ngsi-ld:Service:WebApp01",
+  "serviceComponentStatus": "Starting",
+  "infrastructureElementRequirements": "urn:ngsi-ld:Service:WebApp01:Component:Backend:InfrastructureElementRequirements",
+  "containerImage": "ravaga/webapp-backend:1.5.1",
+  "cliArgs": [
+    {
+      "key": "-app-env",
+      "value": "production"
+    },
+    {
+      "key": "-db-url",
+      "value": "http://db-svc.default.svc.cluster.local:27017"
+    }
+  ],
+  "envVars": [
+    {
+      "key": "APP_ENV",
+      "value": "production"
+    },
+    {
+      "key": "DB_URL",
+      "value": "http://db-svc.default.svc.cluster.local:27017"
+    }
+  ],
+  "networkPorts": [
+    "urn:ngsi-ld:NetworkPort:01",
+    "urn:ngsi-ld:NetworkPort:02"
+  ],
+  "persistentStorage": [
+    "urn:ngsi-ld:PersistentStorage:01",
+    "urn:ngsi-ld:PersistentStorage:02"
+  ],
+  "isJob": false,
+  "internalSubnetIP": "10.0.0.15",
+  "@context": [
+    "https://smartdatamodels.org/context.jsonld"
+  ]
+}
