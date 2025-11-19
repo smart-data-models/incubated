@@ -36,7 +36,7 @@ import requests
 import jsonref
 import pysmartdatamodels as sdm
 from datetime import date, datetime
-from jsf import JSF
+# from jsf import JSF
 
 ###############################################################################
 # global variables
@@ -608,7 +608,7 @@ for entity_type, entity_def in resources_definitions.items():
         # because the model is coming from the "$ref" content definition,
         # which are in 'SMART HEALTH/HL7/common-hl7-schema.json' file
         base_url = base_repo_url + fhir_release_path  # "https://hl7.org/fhir/" # take care to '/'
-        description = "Property. Model:'" + base_url + fhir_release_path + hl7_type + "'. " + origDesc
+        description = "Property. Model:'" + base_url + hl7_type + "'. " + origDesc
         content["description"] = content["description"].replace(origDesc, description)
 
         # manage 'extension' and 'modifierExtension' properties with a special treatment:
