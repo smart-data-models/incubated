@@ -44,7 +44,7 @@ global_schema_file = "overall_schema_4.3.json"  #'fhir.schema.5.0.json' # # HL7/
 definition_file = (
     "hl7-schema.json"  # common base definitions for HL7/FHIR mapping
 )
-schema_url = "https://json-schema.org/schema#"
+schema_url = "https://json-schema.org/draft/2020-12/schema"
 
 # define the base url for "$id" don't forget a "/" at the end !
 base_repo_url = (
