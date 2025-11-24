@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Irrigation valve/schema.json",
+  "title": "Smart Data Models - Ucifi / Irrigation valve",
+  "description": "Property. The uCIFI irrigation valve provides a way to control and monitor an irrigation valve.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3425.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Irrigation valve"
+          ],
+          "description": "Property. It must be equal to `Irrigation valve`."
+        },
+        "Default status": {
+          "description": "Property. Default status (level of opening of the valve from 0 to 100%) that is applied when the device is powered ON.",
+          "x-lwm2m-resource": {
+            "resourceID": 1,
+            "operations": "RW",
+            "multipleInstances": "Single",
+            "mandatory": "Optional",
+            "units": "/100"
+          },
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Status": {
+          "description": "Property. Actual level of opening of the valve (from 0 to 100%).",
+          "x-lwm2m-resource": {
+            "resourceID": 2,
+            "operations": "R",
+            "multipleInstances": "Single",
+            "mandatory": "Optional",
+            "units": "/100"
+          },
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Command": {
+          "description": "Property. Command (e.g. manual override, scheduler) sent to the irrigation valve.",
+          "x-lwm2m-resource": {
+            "resourceID": 3,
+            "operations": "RW",
+            "multipleInstances": "Single",
+            "mandatory": "Optional",
+            "units": "/100"
+          },
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Command in action": {
+          "description": "Property. For devices connected on slow LPWAN networks, the command in action (this resource) may differ from a command that was sent (resource ID: 3). The command in action is the actual value of the command in action on the irrigation valve.",
+          "x-lwm2m-resource": {
+            "resourceID": 4,
+            "operations": "R",
+            "multipleInstances": "Single",
+            "mandatory": "Optional",
+            "units": "/100"
+          },
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Scheduler ID": {
+          "description": "Property. Identifiers of the schedulers that are assigned to the Command of this irrigation valve.",
+          "x-lwm2m-resource": {
+            "resourceID": 5,
+            "operations": "RW",
+            "multipleInstances": "Multiple",
+            "mandatory": "Optional"
+          },
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Invalid scheduler": {
+          "description": "Property. Set to True when one of the schedulers can’t be executed or is not supported by this irrigation valve. Otherwise set to False.",
+          "x-lwm2m-resource": {
+            "resourceID": 6,
+            "operations": "R",
+            "multipleInstances": "Single",
+            "mandatory": "Optional"
+          },
+          "type": "boolean"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.",
+          "x-lwm2m-resource": {
+            "resourceID": 5518,
+            "operations": "R",
+            "multipleInstances": "Single",
+            "mandatory": "Optional"
+          },
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).",
+          "x-lwm2m-resource": {
+            "resourceID": 6050,
+            "operations": "R",
+            "multipleInstances": "Single",
+            "mandatory": "Optional",
+            "units": "s"
+          },
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "x-lwm2m-metadata": {
+        "objectID": 3425,
+        "objectURN": "urn:oma:lwm2m:ext:3425:1.1",
+        "lwm2mVersion": "1.0",
+        "objectVersion": "1.1",
+        "multipleInstances": "Multiple",
+        "mandatory": "Optional"
+      }
+    }
+  ]
+}
