@@ -438,22 +438,33 @@ base_definitions = {
 # now replace "extension" properties content of each definition with this dict :
 # @TODO: check in NGSI-LD, or schem if possible to constrain the type of entity/object in schema ?
 # for the moment I added "@type": "Extension" to achieve this, check if it's licit in schema ?
+# extension_dict = {
+#     "@type": "Extension",
+#     "anyOf": [
+#         {
+#             "type": "string",
+#             "minLength": 1,
+#             "maxLength": 256,
+#             "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+#             "description": "Property. Identifier format of any NGSI entity",
+#         },
+#         {
+#             "type": "string",
+#             "format": "uri",
+#             "description": "Property. Identifier format of any NGSI entity",
+#             "pattern": "^\\S*$",
+#         },
+#     ],
+# }
+
+# new simpler definition of Extension
 extension_dict = {
     "@type": "Extension",
-    "anyOf": [
-        {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 256,
-            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-            "description": "Property. Identifier format of any NGSI entity",
-        },
-        {
-            "type": "string",
-            "format": "uri",
-            "description": "Property. Identifier format of any NGSI entity",
-        },
-    ],
+    "type": "array",
+    "description": "Property. Id(s) of optional Extension(s) used by the resource. Model:'https://schema.org/URL'. Relationship. List of references to entities of type Extension",
+    "items": {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+    }
 }
 
 # loop on all definitions to replace "extension" property in the right place
