@@ -487,6 +487,7 @@ for def_name, definition in base_definitions.items():
     if 'properties' in definition:
         # add 'type': 'object' to definition
         definition.update({'type':'object'})
+        definition.update({'additionalProperties': True})
             
                 
  
