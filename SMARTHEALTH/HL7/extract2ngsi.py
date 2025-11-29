@@ -150,7 +150,7 @@ def fill_prop_from_type(type, prop_name, description: str = ""):
         elif prop_name == 'language':
             return 'EN-US' 
         # strip description remove the part before the last '.'
-        description = description.split('.')[-1]
+        description = description.split('. ')[-1]
         return description if len (description) > 0 else prop_name + " as Text"
     elif type == 'number':
         return 123456
