@@ -874,9 +874,9 @@ for entity_type, entity_def in resources_definitions.items():
 #     print('>>>>>> delete Extension definition')
 #     del definition_schema["definitions"]['Extension']
 
-if 'ResourceList' in definition_schema["definitions"]:
-    print('>>>>>> delete ResourceList definition')
-    del definition_schema["definitions"]['ResourceList']
+# if 'ResourceList' in definition_schema["definitions"]:
+#     print('>>>>>> delete ResourceList definition')
+#     del definition_schema["definitions"]['ResourceList']
 
 # Save the extracted base definitions to a new JSON file
 with open(fhir_release_path + definition_file, "w") as f:
