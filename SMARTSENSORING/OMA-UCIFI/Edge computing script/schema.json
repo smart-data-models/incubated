@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Edge computing script/schema.json",
+  "title": "Smart Data Models - Ucifi / Edge computing script",
+  "description": "The uCIFI edge computing scripts object defines a particular script to be executed by a device under a time or any other condition set by a \"Edge Computing Time Condition\" or \"Edge Computing Generic Condition\" object.. objectID:'3437'. objectURN:'urn:oma:lwm2m:ext:3437'. lwm2mVersion:'1.0'. objectVersion:'1.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3437.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Edge computing script"
+          ],
+          "description": "Property. It must be equal to `Edge computing script`."
+        },
+        "Name": {
+          "description": "Property. Name of the script.. resourceID:'1'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Signature": {
+          "description": "Property. Unique hash or signature associated to the script to be verified by the end-device before execution. The format of the hash or signature is vendor-specific.. resourceID:'2'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Version": {
+          "description": "Property. Version of the script, as defined by the vendor.. resourceID:'3'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Script": {
+          "description": "Property. Vendor-specific script.. resourceID:'4'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string"
+        },
+        "Script format": {
+          "description": "Property. Script format to enable the device to select the script interpreter in case it supports multiple (e.g. LUA). The format of this resource is free to support vendor-specific formats.. resourceID:'5'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Non supported script": {
+          "description": "Property. Set to True if the script is not supported or if the device has identified errors in the script.. resourceID:'6'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Non authorized script": {
+          "description": "Property. Set to True if the hash/signature is not correct.. resourceID:'7'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Script"
+      ]
+    }
+  ]
+}

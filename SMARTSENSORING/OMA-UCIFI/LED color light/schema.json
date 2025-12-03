@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/LED color light/schema.json",
+  "title": "Smart Data Models - Ucifi / LED color light",
+  "description": "The uCIFI LED color light enables to control light colors of a LED luminaire.. objectID:'3420'. objectURN:'urn:oma:lwm2m:ext:3420'. lwm2mVersion:'1.0'. objectVersion:'1.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3420.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "LED color light"
+          ],
+          "description": "Property. It must be equal to `LED color light`."
+        },
+        "RGB value": {
+          "description": "Property. Text string according to the RBG hexadecimal format with # (e.g. #FF0000 for 100% red).. resourceID:'1'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "RGB value"
+      ]
+    }
+  ]
+}

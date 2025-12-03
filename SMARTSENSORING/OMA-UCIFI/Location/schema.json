@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Location/schema.json",
+  "title": "Smart Data Models - Ucifi / Location",
+  "description": "This LwM2M Object provides a range of location telemetry related information which can be queried by the LwM2M Server.. objectID:'6'. objectURN:'urn:oma:lwm2m:oma:6'. lwm2mVersion:'1.0'. objectVersion:'1.0'. multipleInstances:'Single'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/6.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Location"
+          ],
+          "description": "Property. It must be equal to `Location`."
+        },
+        "Latitude": {
+          "description": "Property. The decimal notation of latitude, e.g. -43.5723 [World Geodetic System 1984].. resourceID:'0'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'lat'.",
+          "type": "number"
+        },
+        "Longitude": {
+          "description": "Property. The decimal notation of longitude, e.g. 153.21760 [World Geodetic System 1984].. resourceID:'1'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'lon'.",
+          "type": "number"
+        },
+        "Altitude": {
+          "description": "Property. The decimal notation of altitude in meters above sea level.. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'m'.",
+          "type": "number"
+        },
+        "Radius": {
+          "description": "Property. The value in this resource indicates the radius of a circular area in meters. The circular area is used to describe uncertainty about a point for coordinates in a two-dimensional coordinate reference systems (CRS). The center point of a circular area is specified by using the Latitude and the Longitude Resources.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'m'.",
+          "type": "number"
+        },
+        "Velocity": {
+          "description": "Property. The velocity of the LwM2M Client, as defined in [3GPP-TS_23.032].. resourceID:'4'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the location measurement was performed.. resourceID:'5'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "integer"
+        },
+        "Speed": {
+          "description": "Property. Speed is the time rate of change in position of a LwM2M Client without regard for direction: the scalar component of velocity.. resourceID:'6'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'m/s'.",
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Latitude",
+        "Longitude",
+        "Timestamp"
+      ]
+    }
+  ]
+}

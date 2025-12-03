@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/LPWAN Communication/schema.json",
+  "title": "Smart Data Models - Ucifi / LPWAN Communication",
+  "description": "The uCIFI communication object provides attributes related to the communication on the LPWAN network, including multicast grouping.. objectID:'3412'. objectURN:'urn:oma:lwm2m:ext:3412:1.1'. lwm2mVersion:'1.0'. objectVersion:'1.1'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3412.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "LPWAN Communication"
+          ],
+          "description": "Property. It must be equal to `LPWAN Communication`."
+        },
+        "Type of network": {
+          "description": "Property. Type of LPWAN communication network (e.g. LoRaWAN, NB-IoT, wireless mesh, power line).. resourceID:'1'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "IPv4 address": {
+          "description": "Property. Device’s IPv4 address.. resourceID:'2'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "IPv6 address": {
+          "description": "Property. Device’s IPv6 address.. resourceID:'3'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Network address": {
+          "description": "Property. Address of the device on the LPWAN network.. resourceID:'4'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Secondary network address": {
+          "description": "Property. Secondary address used to communicate with the device on the LPWAN network.. resourceID:'5'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "MAC address": {
+          "description": "Property. IEEE MAC address of the device.. resourceID:'6'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string"
+        },
+        "Peer address": {
+          "description": "Property. Address of a peer (e.g. a router, a mesh node, a gateway).. resourceID:'7'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Multicast group address": {
+          "description": "Property. Group address from which the  device should accept incoming messages and/or commands.. resourceID:'8'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Multicast group key": {
+          "description": "Property. Security key (e.g. AES128) to be shared with other members to be part of a multicast group.. resourceID:'9'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Data rate": {
+          "description": "Property. Data rate of the communication used on the LPWAN network.. resourceID:'10'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'B/s'.",
+          "type": "integer"
+        },
+        "Transmit power": {
+          "description": "Property. Transmit power (also called TxPower) used by the device on the LPWAN network in decibel per milliwatt.. resourceID:'11'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'dBm'.",
+          "type": "number"
+        },
+        "Frequency": {
+          "description": "Property. Frequency of the wireless communication used on the LPWAN network.. resourceID:'12'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'Hz'.",
+          "type": "number"
+        },
+        "Session time": {
+          "description": "Property. Starting time of the multicast session. The device shall not accept incoming messages before this time or after this time + session duration.. resourceID:'13'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Session duration": {
+          "description": "Property. Duration of the multicast session. The device shall accept incoming messages only during this session duration time, starting at \"Session time\".. resourceID:'14'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "integer"
+        },
+        "Mesh node": {
+          "description": "Property. Set to True if the device is a mesh node that should repeat incoming messages on a mesh network.. resourceID:'15'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Maximum repeat time": {
+          "description": "Property. Maximum number of times a message should be repeated within a mesh network.. resourceID:'16'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Number of repeats": {
+          "description": "Property. Number of mesh nodes between the device and the destination device (e.g. another device or a router) including the destination node, on a mesh network.. resourceID:'17'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Signal to noise ratio": {
+          "description": "Property. Ratio of signal power to the noise power.. resourceID:'18'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'dB'.",
+          "type": "number"
+        },
+        "Communication failure": {
+          "description": "Property. Set to True when the device can't communicate properly.. resourceID:'19'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Received Signal Strength Indication": {
+          "description": "Property. Signal strength of the communication network measured by the device (a.k.a. RSSI or signal level).. resourceID:'20'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'dBm'.",
+          "type": "number"
+        },
+        "IMSI": {
+          "description": "Property. Device’s International Mobile Subscriber Identity.. resourceID:'21'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "IMEI": {
+          "description": "Property. Device’s International Mobile Equipment Identity.. resourceID:'22'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Current Communication Operator": {
+          "description": "Property. Device’s current communication operator. Communication operators could be private operators. Thus this resource is free text format and does not use Mobile Network Code or equivalent.. resourceID:'23'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Integrated Circuit Card Identifier": {
+          "description": "Property. Unique identifier used to identify a communication SIM card. The ICCID is defined by the ITU-T recommendation E.118 as the Primary Account Number, composed of 19 or 20 characters containing the ISO Industry Identifier, country code, issuer identity, account ID, and other data which allows the network operator to identify the card.. resourceID:'24'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "LTE Band number": {
+          "description": "Property. E-UTRA Operating Band.. resourceID:'25'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "LTE Signal to Interference plus Noise Ratio (SINR)": {
+          "description": "Property. It assesses the ratio of the power of the desired signal to the sum of the power from all other interfering signals and background noise.. resourceID:'26'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'dB'.",
+          "type": "number"
+        },
+        "LTE Reference Signals Received Power (RSRP)": {
+          "description": "Property. RSRP measures the power of the reference signal received from a cell tower. This signal is used for various functions, including handover decisions and cell selection/reselection in cellular networks.. resourceID:'27'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'dBm'.",
+          "type": "number"
+        },
+        "LTE Reference Signal Received Quality (RSRQ)": {
+          "description": "Property. RSRQ measures the ratio of the Reference Signal Received Power (RSRP) to the total received signal power (RSSI), effectively quantifying the quality of the signal relative to the noise and interference.. resourceID:'28'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'dB'.",
+          "type": "number"
+        },
+        "LTE Connection Uptime": {
+          "description": "Property. Seconds since the connection has been established. resourceID:'29'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "MAC address"
+      ]
+    }
+  ]
+}

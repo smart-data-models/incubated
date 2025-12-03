@@ -1,0 +1,293 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Single-phase electrical meter/schema.json",
+  "title": "Smart Data Models - Ucifi / Single-phase electrical meter",
+  "description": "The uCIFI single-phase electrical meter measures the electrical consumption of loads on one electrical line, such as electrical cabinets in city infrastructures, street lighting networks, homes and buildings.. objectID:'3421'. objectURN:'urn:oma:lwm2m:ext:3421:2.0'. lwm2mVersion:'1.0'. objectVersion:'2.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3421.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Single-phase electrical meter"
+          ],
+          "description": "Property. It must be equal to `Single-phase electrical meter`."
+        },
+        "Voltage": {
+          "description": "Property. Instantaneous voltage measured between line and neutral.. resourceID:'1'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'V'.",
+          "type": "number"
+        },
+        "Low voltage threshold": {
+          "description": "Property. Set to True when voltage is below low voltage threshold.. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "Low voltage": {
+          "description": "Property. Set to True when voltage is below low voltage threshold.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "High voltage threshold": {
+          "description": "Property. Threshold above which the high voltage resource is set to True.. resourceID:'4'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "High voltage": {
+          "description": "Property. Set to True when voltage is above high voltage threshold.. resourceID:'5'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Current": {
+          "description": "Property. Instantaneous current measured.. resourceID:'6'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'A'.",
+          "type": "number"
+        },
+        "Low current threshold": {
+          "description": "Property. Threshold below which the low current resource is set to True.. resourceID:'7'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'A'.",
+          "type": "number"
+        },
+        "Low current": {
+          "description": "Property. Set to True when current is below low current threshold.. resourceID:'8'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "High current threshold": {
+          "description": "Property. Threshold above which the high current resource is set to True.. resourceID:'9'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "High current": {
+          "description": "Property. Set to True when current is above high current threshold.. resourceID:'10'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Frequency": {
+          "description": "Property. Instantaneous frequency measured.. resourceID:'11'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'Hz'.",
+          "type": "number"
+        },
+        "Angle of I-U": {
+          "description": "Property. Instantaneous phase angle measured.. resourceID:'12'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'deg'.",
+          "type": "number"
+        },
+        "Instantaneous Power Factor": {
+          "description": "Property. Instantaneous power factor overall.. resourceID:'13'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "number"
+        },
+        "Low power factor threshold": {
+          "description": "Property. Threshold below which the low power factor resource is set to True.. resourceID:'14'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "Low power factor": {
+          "description": "Property. Set to True when power factor is below low power factor threshold.. resourceID:'15'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Active power+ (QI+QIV)": {
+          "description": "Property. Active power import. resourceID:'16'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'W'.",
+          "type": "number"
+        },
+        "Active power- (QII+QIII)": {
+          "description": "Property. Active power export.. resourceID:'17'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'W'.",
+          "type": "number"
+        },
+        "Reactive power+ (QI+QII)": {
+          "description": "Property. Reactive power import.. resourceID:'18'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'var'.",
+          "type": "number"
+        },
+        "Reactive power- (QIII+QIV)": {
+          "description": "Property. Reactive power export. resourceID:'19'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'var'.",
+          "type": "number"
+        },
+        "Instantaneous Apparent Power import (+VA)": {
+          "description": "Property. Instantaneous apparent power import.. resourceID:'20'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'VA'.",
+          "type": "number"
+        },
+        "Instantaneous Apparent Power export (-VA)": {
+          "description": "Property. Instantaneous apparent power export.. resourceID:'21'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'VA'.",
+          "type": "number"
+        },
+        "Instantaneous Active Power (|+A|+|-A|)": {
+          "description": "Property. Instantaneous active power.. resourceID:'22'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'W'.",
+          "type": "number"
+        },
+        "Instantaneous Net Active Power (|+A|-|-A|)": {
+          "description": "Property. Instantaneous net active power.. resourceID:'23'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'W'.",
+          "type": "number"
+        },
+        "Measurement period of Instantaneous value": {
+          "description": "Property. Measurement period of instantaneous value.. resourceID:'24'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number"
+        },
+        "Active energy import (+A) Un": {
+          "description": "Property. Active energy import (unified rate).. resourceID:'25'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'Wh'.",
+          "type": "number"
+        },
+        "Active energy export (-A) Un": {
+          "description": "Property. Active energy export (unified rate).. resourceID:'26'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'Wh'.",
+          "type": "number"
+        },
+        "Active energy (|+A|+|-A|) Combined total": {
+          "description": "Property. Active energy (|+A|+|-A|) Combined total.. resourceID:'27'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'Wh'.",
+          "type": "number"
+        },
+        "Active energy (|+A|-|-A|) Combined total": {
+          "description": "Property. Active energy (|+A|-|-A|) Combined total.. resourceID:'28'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'Wh'.",
+          "type": "number"
+        },
+        "Reactive energy import (+R) Un": {
+          "description": "Property. Reactive energy import (unified rate). resourceID:'29'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'varh'.",
+          "type": "number"
+        },
+        "Reactive energy export (-R) Un": {
+          "description": "Property. Reactive energy export (unified rate).. resourceID:'30'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'varh'.",
+          "type": "number"
+        },
+        "Reactive energy QI (+Ri) Un": {
+          "description": "Property. Reactive energy QI (+Ri) (unified rate).. resourceID:'31'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'varh'.",
+          "type": "number"
+        },
+        "Reactive energy QII (+Rc) Un": {
+          "description": "Property. Reactive energy QII (+Rc) (unified rate).. resourceID:'32'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'varh'.",
+          "type": "number"
+        },
+        "Reactive energy QIII (-Ri) Un": {
+          "description": "Property. Reactive energy QIII (-Ri) (unified rate).. resourceID:'33'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'varh'.",
+          "type": "number"
+        },
+        "Reactive energy QIV (-Rc) Un": {
+          "description": "Property. Reactive energy QIV (-Rc) (unified rate).. resourceID:'34'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'varh'.",
+          "type": "number"
+        },
+        "Apparent energy import Un": {
+          "description": "Property. Apparent energy import (unified rate).. resourceID:'35'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'VAh'.",
+          "type": "number"
+        },
+        "Apparent energy export Un": {
+          "description": "Property. Apparent energy export (unified rate).. resourceID:'36'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'VAh'.",
+          "type": "number"
+        },
+        "Number of power failures": {
+          "description": "Property. Number of power failures.. resourceID:'37'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "Number of long power failures": {
+          "description": "Property. Number of long power failures.. resourceID:'38'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "Time threshold for long power failure": {
+          "description": "Property. Time threshold for long power failure.. resourceID:'39'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number"
+        },
+        "Duration of last long power failure": {
+          "description": "Property. Duration of last long power failure.. resourceID:'40'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number"
+        },
+        "Threshold for voltage sag": {
+          "description": "Property. Threshold for voltage sag.. resourceID:'41'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "Time threshold for voltage sag": {
+          "description": "Property. Time threshold for voltage sag.. resourceID:'42'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number"
+        },
+        "Number of voltage sags": {
+          "description": "Property. Number of voltage sags.. resourceID:'43'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "Duration of last voltage sag": {
+          "description": "Property. Duration of last voltage sag.. resourceID:'44'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number"
+        },
+        "Magnitude of last voltage sag": {
+          "description": "Property. Magnitude of last voltage sag.. resourceID:'45'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "Threshold for voltage swell": {
+          "description": "Property. Threshold for voltage sag.. resourceID:'46'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "Time threshold for voltage swell": {
+          "description": "Property. Time threshold for voltage sag.. resourceID:'47'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number"
+        },
+        "Number of voltage swells": {
+          "description": "Property. Number of voltage sags.. resourceID:'48'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "Duration of last voltage swell": {
+          "description": "Property. Duration of last voltage sag.. resourceID:'49'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number"
+        },
+        "Magnitude of last voltage swell": {
+          "description": "Property. Magnitude of last voltage swell.. resourceID:'50'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "Threshold for missing voltage (voltage cut)": {
+          "description": "Property. Threshold for missing voltage (voltage cut).. resourceID:'51'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "Time threshold for voltage cut": {
+          "description": "Property. Time threshold for voltage cut.. resourceID:'52'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number"
+        },
+        "Voltage cut": {
+          "description": "Property. Set to True if a voltage cut for a time above the time threshold and for a voltage below the voltage threshold is detected.. resourceID:'53'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "CT Numerator Parameter": {
+          "description": "Property. Transformer ratio - current (numerator).. resourceID:'54'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "CT Denominator Parameter": {
+          "description": "Property. Transformer ratio - voltage (denominator).. resourceID:'55'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "VT Numerator Parameter": {
+          "description": "Property. Transformer ratio - current (numerator).. resourceID:'56'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "VT Denominator Parameter": {
+          "description": "Property. Transformer ratio - voltage (denominator).. resourceID:'57'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "Unexpected load": {
+          "description": "Property. True if an unexpected load is detected, e.g when current is consumed despite the load is supposed to be disconnected. resourceID:'58'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Measurement Quality Indicator": {
+          "description": "Property. Measurement quality indicator reported by a smart sensor. 0: UNCHECKED No quality checks were done because they do not exist or can not be applied. 1: REJECTED WITH CERTAINTY The measured value is invalid. 2: REJECTED WITH PROBABILITY The measured value is likely invalid. 3: ACCEPTED BUT SUSPICIOUS The measured value is likely OK. 4: ACCEPTED The measured value is OK. 5-15: Reserved for future extensions. 16-23: Vendor specific measurement quality.. resourceID:'6042'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        },
+        "Measurement Quality Level": {
+          "description": "Property. Measurement quality level reported by a smart sensor. Quality level 100 means that the measurement has fully passed quality check algorithms. Smaller quality levels mean that quality has decreased and the measurement has only partially passed quality check algorithms. The smaller the quality level, the more caution should be used by the application when using the measurement. When the quality level is 0 it means that the measurement should certainly be rejected.. resourceID:'6049'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Voltage",
+        "Current",
+        "Instantaneous Power Factor",
+        "Active power+ (QI+QIV)",
+        "Active energy import (+A) Un"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,323 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Outdoor lamp controller/schema.json",
+  "title": "Smart Data Models - Ucifi / Outdoor lamp controller",
+  "description": "The uCIFI outdoor lamp controller object provides attributes to control, command and monitor outdoor luminaires in streets, in tunnels, on roads and for illumination of park and gardens.. objectID:'3416'. objectURN:'urn:oma:lwm2m:ext:3416:3.0'. lwm2mVersion:'1.0'. objectVersion:'3.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3416.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Outdoor lamp controller"
+          ],
+          "description": "Property. It must be equal to `Outdoor lamp controller`."
+        },
+        "Command": {
+          "description": "Property. Command (e.g. manual override) sent to the outdoor lamp controller from 0 (OFF) to 100 (ON with dimming level = 100%).\nA command equal to 67 means ON at 67% dimming level.. resourceID:'1'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'/100'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Command in action": {
+          "description": "Property. For outdoor lighting applications, the command in action (this resource) may differ from a command that was sent (resource ID: 1), due to LPWAN network constraints and/or light adjustments within the lamp’s control gear (e.g. virtual power settings).\nThe command in action is the actual value of the command in action in the outdoor lamp controller which could have been set by a manual overide command, a scheduled action (e.g. control program) or any other mechanism.. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Dimming level": {
+          "description": "Property. Dimming level (0 for OFF and 100% for ON) measured on the outdoor lamp controller.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'/100'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Default dimming level": {
+          "description": "Property. The default dimming level that the outdoor lamp controller applies when no schedule nor manual override command is active. resourceID:'4'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Lamp failure": {
+          "description": "Property. Set to True if the outdoor lamp controller detects that the lamp is not producing light while it is expected to (e.g. the lamp is broken).. resourceID:'5'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Lamp failure reason": {
+          "description": "Property. Description of the reason why the lamp failed (e.g. low power on a LED engine, no consumption detected while relay closed).\nThe following bit mask can be used to differentiate the reason of the failure:\n  0: Generic Failure\n  1: Open_Circuit\n  2: Short_Circuit\n  3: Thermal Derating\n  4: Thermal Shutdown. resourceID:'6'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Control gear failure": {
+          "description": "Property. Set to True in case the control gear has a failure.\nOutdoor lamp controllers may read the control gear failure from a DALI bus or by analyzing a 0-10 volts interface to the control gear.. resourceID:'7'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Control gear failure reason": {
+          "description": "Property. Description of the reason why the control gear failed.\nYou may refer to the DiiA list of possible control gear failures.\nThe following bit mask can be used to differentiate the reason of the failure:\n  0: Generic Failure\n  1: Thermal Derating\n  2: Thermal Shutdown\n  3: External Supply Undervoltage\n  4: External Supply Overvoltage\n  5: Output Power Limitation. resourceID:'8'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Relay failure": {
+          "description": "Property. Set to True if the outdoor lamp controller detects that its relay is not operating as it is expected to.. resourceID:'9'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Day burner": {
+          "description": "Property. Set to True in case the lamp is ON while it should be OFF (e.g. day burner).. resourceID:'10'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Cycling failure": {
+          "description": "Property. Set to True if the outdoor lamp controller detects that the lamp is switching ON and OFF too often.. resourceID:'11'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Control gear communication failure": {
+          "description": "Property. Set to True in case the control gear (e.g. LED driver) does not answer on the DALI bus.. resourceID:'12'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Lamp operating hours": {
+          "description": "Property. Cumulated number of hours during which the lamp has been ON with a strictly positive dimming level.. resourceID:'15'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'h'.",
+          "type": "number"
+        },
+        "Lamp operating hours reset": {
+          "description": "Property. Reset of the lamp operating hours counter. [Executable resource]. resourceID:'16'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Lamp ON timestamp": {
+          "description": "Property. Last date and time at which the lamp switched ON, i.e. from no light to light (e.g. power off to power on and/or dim level = 0 to dim level &gt; 0).. resourceID:'17'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Lamp switch counter": {
+          "description": "Property. Number of times the lamp was switched from ON to OFF since the last lamp switch counter reset.. resourceID:'18'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Lamp switch counter reset": {
+          "description": "Property. Reset the lamp switch counter. [Executable resource]. resourceID:'19'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Control gear start counter": {
+          "description": "Property. Number of times the control gear was switched from OFF to ON.. resourceID:'20'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Control gear temperature": {
+          "description": "Property. Temperature measured by the control gear and transmitted to the device through DALI, Zhaga D4i or equivalent.. resourceID:'21'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'Cel'.",
+          "type": "number"
+        },
+        "Control gear thermal derating": {
+          "description": "Property. Set to True if the control gear has derated the light source due to high temperature.. resourceID:'22'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Control gear thermal derating counter": {
+          "description": "Property. Number of time the control gear has derated the light source due to a high temperature, since last counter reset.. resourceID:'23'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Control gear thermal derating counter reset": {
+          "description": "Property. Reset of the control gear thermal derating counter. [Executable resource]. resourceID:'24'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Control gear thermal shutdown": {
+          "description": "Property. Set to True if the control gear has shut the light source down due to high temperature.. resourceID:'25'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Control gear thermal shutdown counter": {
+          "description": "Property. Number of times the control gear has shutdown the light source since last counter reset.. resourceID:'26'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Control gear thermal shutdown counter reset": {
+          "description": "Property. Reset of the control gear shutdown counter. [Executable resource]. resourceID:'27'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Output port": {
+          "description": "Property. Address or reference of the output port (e.g. DALI port address or 1-10 volt output) in case of multiple control gears.. resourceID:'28'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Standby mode": {
+          "description": "Property. Set to True if the outdoor lamp controller should keep its relay closed (control gear is powered ON) when command and/or dimming level is equal to 0.\nSet to False if the outdoor lamp controller should open its relay (control gear is not powered ON) when command and/or dimming level is equal to 0.. resourceID:'29'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Constant light output": {
+          "description": "Property. Set to True to activate Constant Light Output dimming correction on the outdoor lamp controller.\nSet to False to deactivate Constant Light Output.. resourceID:'30'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Cleaning factor enabled": {
+          "description": "Property. Light output of a luminaire may depend on the lamp cleaning factor.\nCleaning factor may be used as a light output compensation.\nSet to True to activate lamp cleaning correction on the outdoor lamp controller.\nSet to False to deactivate the lamp cleaning correction.. resourceID:'31'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Cleaning period": {
+          "description": "Property. Number of days after which cleaning factor is back to 100%.. resourceID:'32'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Initial lamp cleaning factor": {
+          "description": "Property. Initial lamp cleaning correction factor to multiply to the command when the luminaire is cleaned, at the lamp cleaning date.. resourceID:'33'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Lamp cleaning date": {
+          "description": "Property. Date at which the luminaire was last (or will be next) cleaned and the lamp cleaning factor should be set to the initial lamp cleaning factor.. resourceID:'34'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Control type": {
+          "description": "Property. Type of control system with which the outdoor lamp controller switches, dims and monitors the lamp.\nThe possible control types are:\n0: No dimming control\n1 : DALI part 201 - Device Type 0\n2 : DALI part 202 - Device Type 1\n3 : DALI part 203 - Device Type 2\n4 : DALI part 204 - Device Type 3\n5 : DALI part 205 - Device Type 4\n6 : DALI part 206 - Device Type 5\n7 : DALI part 207 - Device Type 6\n8 : DALI part 208 - Device Type 7\n9 : DALI part 209 - Device Type 8\n10 : 0-10V\n11 : PWM\n12 : PWM_N\n13 : Other. resourceID:'35'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 13
+          }
+        },
+        "Nominal Lamp wattage": {
+          "description": "Property. Active power of the light source at 100% dimming level.. resourceID:'36'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'W'.",
+          "type": "integer"
+        },
+        "Minimum dimming level": {
+          "description": "Property. Minimum dimming level under which the lamp will most probably not operate.. resourceID:'37'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "integer"
+        },
+        "Minimum lamp wattage": {
+          "description": "Property. Expected active power of the light source at its minimum dimming level.\nThis value may be used to detect failure at low dimming level.. resourceID:'38'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'W'.",
+          "type": "integer"
+        },
+        "Light color temperature command": {
+          "description": "Property. Latest light color temperature command sent to the lamp actuator.. resourceID:'39'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'K'.",
+          "type": "integer"
+        },
+        "Actual light color temperature": {
+          "description": "Property. The actual light color temperature of the light source.. resourceID:'40'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'K'.",
+          "type": "integer"
+        },
+        "Virtual power output": {
+          "description": "Property. Percentage of nominal power at which the light source should be set when the Command is set to 100%.. resourceID:'41'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Voltage at max dim level": {
+          "description": "Property. Voltage level on the control port that corresponds to maximum dimming level.\nThis applies only if Control Type = 0-10V.. resourceID:'42'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "Voltage at min dim level": {
+          "description": "Property. Voltage level on the control port that corresponds to minimum dimming level.\nThis applies only if Control Type = 0-10V.. resourceID:'43'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "Light source voltage": {
+          "description": "Property. Voltage (usually DC voltage) to the light source or generic load, measured at the output of the control gear.. resourceID:'44'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "Light source current": {
+          "description": "Property. Current (usually DC current) delivered by the control gear to the light source or generic load, measured at the output of the control gear.. resourceID:'45'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'A'.",
+          "type": "number"
+        },
+        "Light source active power": {
+          "description": "Property. Active power of the light source or generic load, measured at the output of the control gear.. resourceID:'46'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'W'.",
+          "type": "number"
+        },
+        "Light source active energy": {
+          "description": "Property. Cumulated active energy consumption of the light source or generic load, measured at the output of the control gear.. resourceID:'47'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'kWh'.",
+          "type": "number"
+        },
+        "Maximum light source current": {
+          "description": "Property. Maximum current (usually DC current) the control gear is able to deliver to the light source or generic load, measured at the output of the control gear.. resourceID:'48'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'A'.",
+          "type": "number"
+        },
+        "Default fade time": {
+          "description": "Property. Fade time to be applied to dimming commands when no schedule nor manual override command is active, particularly managed by DALI control gears.\nDefault = 0. resourceID:'49'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number"
+        },
+        "Manual override start time": {
+          "description": "Property. If the current timestamp is greater than the configured start time and below the configured end time, the manual command specified in resource 1 is applied, overriding any schedule. Otherwise, if no schedule is currenlty active, the default values of dimming, color temperature and fade time would be restored.\nDefault = 0. resourceID:'50'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Manual override end time": {
+          "description": "Property. If the current timestamp is greater than the configured start time and below the configured end time, the manual command specified in resource 1 is applied, overriding any schedule. Otherwise, if no schedule is currenlty active, the default values of dimming, color temperature and fade time would be restored. Setting this resource to 0 would in fact clear any pending override command. If this resource is not explicitly written, the device shall adjust this resource according to the default duration (when the command will expire).\nDefault = 0. resourceID:'51'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Manual override fade": {
+          "description": "Property. Fade time to be applied when an override is in progress. If set to NaN or a negative number, the value would be ignored.\nDefault = 0. resourceID:'52'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number"
+        },
+        "Manual override default duration": {
+          "description": "Property. If a manual command is applied without specifying a corresponding end time, the default duration is applied and the end time, if supported, is changed accordingly.\nA value of 0 can be considered vendor specific.\nDefault = vendor specific (e.g. 7200). resourceID:'53'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "integer"
+        },
+        "Manual override active": {
+          "description": "Property. Indicate if a manual override is currently active on the device. resourceID:'54'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Default Light color temperature": {
+          "description": "Property. The default color temperature level that the outdoor lamp controller applies no schedule nor manual override command is active. (kelvin). resourceID:'55'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'K'.",
+          "type": "integer"
+        },
+        "Driver operating hours": {
+          "description": "Property. Cumulated number of hours during which the driver controlling the LED pannel has been powered.\nThis resource MUST be used as a direct mapping for the Control Gear Operating Time extracted from the Memory bank 205 of any D4i driver being connected to the DALI bus, and supporting DALI part 253. resourceID:'56'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'h'.",
+          "type": "number"
+        },
+        "Driver operating hours reset": {
+          "description": "Property. Triggers the reset of the Driver operating hours.\nOn drivers supporting DALI part 253, this should trigger the controller to reset the Control Gear Operating Time present in Memory bank 205. [Executable resource]. resourceID:'57'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Manufacturer GTIN": {
+          "description": "Property. GTIN associated to the driver manufacturer as retrieved from DALI Memory Bank 0. resourceID:'58'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Manufacturer Serial Number": {
+          "description": "Property. Identification number associated to the driver manufacturer as retrieved from DALI Memory Bank 0. resourceID:'59'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Firmware Version": {
+          "description": "Property. Firmware version of the bus unit. resourceID:'60'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "DALI Version": {
+          "description": "Property. Version of DALI implementation as a string (to allow future extensions). resourceID:'61'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Device capabilities": {
+          "description": "Property. Bit mask of supported capabilities:\nbit 0: Power Supply\nbit 1: Memory Bank 1 Extension\nbit 2: Energy Reporting\nbit 3: Diagnostic\nbit 4: Sensor Ready\nbit 5: Sensor Ready Extended Diagnostic\nbit 6: Sensor Ready Power Type: Total Energy\nbit 7: Sensor Ready Power Type: Apparent Energy. resourceID:'63'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Lamp max operating hours threshold": {
+          "description": "Property. Maximum number of hours that a lamp could be on before triggering an alarm (end of life). resourceID:'64'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'h'.",
+          "type": "number"
+        },
+        "Lamp max operating hours exceeded": {
+          "description": "Property. True if the maximum number of hours that a lamp could be on has been exceeded (end of life). resourceID:'65'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Measurement Quality Indicator": {
+          "description": "Property. Measurement quality indicator reported by a smart sensor. 0: UNCHECKED No quality checks were done because they do not exist or can not be applied. 1: REJECTED WITH CERTAINTY The measured value is invalid. 2: REJECTED WITH PROBABILITY The measured value is likely invalid. 3: ACCEPTED BUT SUSPICIOUS The measured value is likely OK. 4: ACCEPTED The measured value is OK. 5-15: Reserved for future extensions. 16-23: Vendor specific measurement quality.. resourceID:'6042'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        },
+        "Measurement Quality Level": {
+          "description": "Property. Measurement quality level reported by a smart sensor. Quality level 100 means that the measurement has fully passed quality check algorithms. Smaller quality levels mean that quality has decreased and the measurement has only partially passed quality check algorithms. The smaller the quality level, the more caution should be used by the application when using the measurement. When the quality level is 0 it means that the measurement should certainly be rejected.. resourceID:'6049'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Command",
+        "Dimming level"
+      ]
+    }
+  ]
+}

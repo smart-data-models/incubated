@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Device Extension/schema.json",
+  "title": "Smart Data Models - Ucifi / Device Extension",
+  "description": "The uCIFI device extension is an extension to the standard Lightweight M2M device (object ID 3) using the resource called \"ExtDevInfo\" (resource ID 22).. objectID:'3410'. objectURN:'urn:oma:lwm2m:ext:3410:2.0'. lwm2mVersion:'1.0'. objectVersion:'2.0'. multipleInstances:'Single'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3410.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Device Extension"
+          ],
+          "description": "Property. It must be equal to `Device Extension`."
+        },
+        "GTIN model number": {
+          "description": "Property. Standard global trade-in international number for the control device.. resourceID:'1'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Manufacturer identifier": {
+          "description": "Property. Unique identifier of the manufacturer of the control device, equivalent to IEEE's OUI (Organizational Unique Identifier). This value should be a Hexadecimal value. This value may be used by an online uCIFI product catalog server, for software modules to retrieve the data model of a device using this attribute associated with the model number on the \"Device\" (Id=3) object.. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string"
+        },
+        "User-given name": {
+          "description": "Property. User-readable name of the device set by the user.. resourceID:'3'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Asset identifier": {
+          "description": "Property. Identifier of the asset (e.g. meter, luminaire, container) that is controlled by the device.. resourceID:'4'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Installation date": {
+          "description": "Property. Installation date of the device.. resourceID:'5'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Software update": {
+          "description": "Property. Set to True while software within the device is being updated.. resourceID:'6'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Maintenance": {
+          "description": "Property. Set to True when the device is in maintenance mode.. resourceID:'7'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Configuration reset": {
+          "description": "Property. Reset the configuration parameters (and only the configuration parameters) of the device. It does not clear any counter (e.g. kWh counter or operating hour counter). [Executable resource]. resourceID:'8'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Device operating hours": {
+          "description": "Property. Cumulated number of hours during which the device has been powered on.. resourceID:'9'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'h'.",
+          "type": "integer"
+        },
+        "Additional firmware information": {
+          "description": "Property. Additional information about peripheral firmware versions. The format is left to the vendor.. resourceID:'10'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "DST Start": {
+          "description": "Property. The precise date and UTC time during the year when Daylight Saving Time begins, represented as Unix Time.. resourceID:'11'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'. units:'s'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "DST End": {
+          "description": "Property. The precise date and UTC time during the year when Daylight Saving Time ends, represented as Unix Time.. resourceID:'12'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "DST Offset": {
+          "description": "Property. The amount by which the UTC offset changes when Daylight Saving Time is in effect, represented as ISO 8601 time offset format. A DST offset of one hour is represented as \"01:00\". resourceID:'13'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Uptime": {
+          "description": "Property. Number of seconds since the last reboot of the device.. resourceID:'14'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "integer"
+        },
+        "RFD device": {
+          "description": "Property. Set to true if the device is a Reduce Functional Device running on battery.. resourceID:'15'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Manufacturer identifier"
+      ]
+    }
+  ]
+}

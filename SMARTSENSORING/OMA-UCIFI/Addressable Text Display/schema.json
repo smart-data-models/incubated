@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Addressable Text Display/schema.json",
+  "title": "Smart Data Models - Ucifi / Addressable Text Display",
+  "description": "This IPSO object is used to send text to a text-only or text mode graphics display. Writing a string of text to the text resource causes it to be displayed at the selected X and Y locations on the display. If X or Y are set to a value greater than the size of the display, the position \"wraps around\" to the modulus of the setting and the display size. Likewise, if the text string overflows the display size, the text \"wraps around\" and displays on the next line down or, if the last line has been written, wraps around to the top of the display. Brightness and Contrast controls are provided to allow control of various display types including STN and DSTN type LCD character displays. Writing an empty payload to the Clear Display resource causes the display to be erased.. objectID:'3341'. objectURN:'urn:oma:lwm2m:ext:3341'. lwm2mVersion:'1.0'. objectVersion:'1.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3341.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Addressable Text Display"
+          ],
+          "description": "Property. It must be equal to `Addressable Text Display`."
+        },
+        "Text": {
+          "description": "Property. A string of text.. resourceID:'5527'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string"
+        },
+        "X Coordinate": {
+          "description": "Property. X Coordinate.. resourceID:'5528'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Y Coordinate": {
+          "description": "Property. Y Coordinate.. resourceID:'5529'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Max X Coordinate": {
+          "description": "Property. The highest X coordinate the display supports before wrapping to the next line.. resourceID:'5545'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Max Y Coordinate": {
+          "description": "Property. The highest Y coordinate the display supports before wrapping to the next line.. resourceID:'5546'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Clear Display": {
+          "description": "Property. Command to clear the display. [Executable resource]. resourceID:'5530'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Level": {
+          "description": "Property. Used to represent a level control such as audio volume.. resourceID:'5548'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Contrast": {
+          "description": "Property. Proportional control, integer value between 0 and 100 as a percentage.. resourceID:'5531'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Application Type": {
+          "description": "Property. The application type of the sensor or actuator as a string depending on the use case.. resourceID:'5750'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Text"
+      ]
+    }
+  ]
+}

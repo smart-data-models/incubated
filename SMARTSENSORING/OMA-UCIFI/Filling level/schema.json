@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Filling level/schema.json",
+  "title": "Smart Data Models - Ucifi / Filling level",
+  "description": "The uCIFI filling level sensor measures how full and/or how empty a container (e.g. waste, fuel) is and reports it either in percentage or in centimeters. The filling level sensor may be complemented with a temperature sensor to compose a waste filling sensor that can also identify waste container fire.. objectID:'3435'. objectURN:'urn:oma:lwm2m:ext:3435:2.0'. lwm2mVersion:'1.0'. objectVersion:'2.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3435.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Filling level"
+          ],
+          "description": "Property. It must be equal to `Filling level`."
+        },
+        "Container height": {
+          "description": "Property. Height of the container.. resourceID:'1'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'cm'.",
+          "type": "integer"
+        },
+        "Actual filling percentage": {
+          "description": "Property. Percentage of container filled with content.. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'/100'.",
+          "type": "number"
+        },
+        "Actual filling level": {
+          "description": "Property. Height of content in the container.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'cm'.",
+          "type": "integer"
+        },
+        "High threshold": {
+          "description": "Property. Threshold above which the container is considered full.. resourceID:'4'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "number"
+        },
+        "Container full": {
+          "description": "Property. Set to True if the actual filling percentage is above the high threshold.. resourceID:'5'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "boolean"
+        },
+        "Low threshold": {
+          "description": "Property. Threshold below which the container is considered empty.. resourceID:'6'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "number"
+        },
+        "Container empty": {
+          "description": "Property. Set to True if the actual filling percentage is below the low threshold.. resourceID:'7'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "boolean"
+        },
+        "Average filling speed": {
+          "description": "Property. Average percentage filled per day.. resourceID:'8'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "number"
+        },
+        "Average filling speed reset": {
+          "description": "Property. Reset average filling speed. [Executable resource]. resourceID:'9'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Forecast full date": {
+          "description": "Property. Next date at which the container should reach the high threshold.. resourceID:'10'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Forecast empty date": {
+          "description": "Property. Next date at which the container should reach the low threshold.. resourceID:'11'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Container out of location": {
+          "description": "Property. Set to True if the container is not at the location where it should be.. resourceID:'12'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Container out of position": {
+          "description": "Property. Set to True if the container is not in correct upright position.. resourceID:'13'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Container width": {
+          "description": "Property. Width of the container.. resourceID:'14'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'cm'.",
+          "type": "integer"
+        },
+        "Container installation type": {
+          "description": "Property. Type of the container. Examples are underground, above ground.. resourceID:'15'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'cm'.",
+          "type": "string"
+        },
+        "Container volume max": {
+          "description": "Property. The maximum volume available in the container for waste items.. resourceID:'16'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'m3'.",
+          "type": "number"
+        },
+        "Filling sensor position": {
+          "description": "Property. The position of the filling sensor inside the container.. resourceID:'17'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Type of materials": {
+          "description": "Property. The type of the materials the container can be filled with. Examples are plastic, glass.. resourceID:'18'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Filling operations counter": {
+          "description": "Property. Total amount of filling operations performed.. resourceID:'19'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Reset filling operations counter": {
+          "description": "Property. Total amount of filling operations performed. [Executable resource]. resourceID:'20'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Cover open": {
+          "description": "Property. Set to true if the cover of the container is open and the filling level cannot be estimated. This is valid if the filling level sensor is installed under the cover of the bin.. resourceID:'21'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Temperature alarm": {
+          "description": "Property. Set to true if the sensor detects a fire using either a temperature sensor object.and/or a gas detection object.. resourceID:'22'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Water infiltration alarm": {
+          "description": "Property. Set to true if the sensor detects water infiltration or a high humidity level.. resourceID:'23'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Measurement Quality Indicator": {
+          "description": "Property. Measurement quality indicator reported by a smart sensor. 0: UNCHECKED No quality checks were done because they do not exist or can not be applied. 1: REJECTED WITH CERTAINTY The measured value is invalid. 2: REJECTED WITH PROBABILITY The measured value is likely invalid. 3: ACCEPTED BUT SUSPICIOUS The measured value is likely OK. 4: ACCEPTED The measured value is OK. 5-15: Reserved for future extensions. 16-23: Vendor specific measurement quality.. resourceID:'6042'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        },
+        "Measurement Quality Level": {
+          "description": "Property. Measurement quality level reported by a smart sensor. Quality level 100 means that the measurement has fully passed quality check algorithms. Smaller quality levels mean that quality has decreased and the measurement has only partially passed quality check algorithms. The smaller the quality level, the more caution should be used by the application when using the measurement. When the quality level is 0 it means that the measurement should certainly be rejected.. resourceID:'6049'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Actual filling percentage",
+        "Container full",
+        "Container empty"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Air quality/schema.json",
+  "title": "Smart Data Models - Ucifi / Air quality",
+  "description": "The uCIFI air quality sensor reports measurement required to calculate Air Quality Index (AIQ. It also provides resources for average calculation as per the IQ index calculation.. objectID:'3428'. objectURN:'urn:oma:lwm2m:ext:3428:2.0'. lwm2mVersion:'1.0'. objectVersion:'2.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3428.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Air quality"
+          ],
+          "description": "Property. It must be equal to `Air quality`."
+        },
+        "PM10": {
+          "description": "Property. Level of PM10 measured by the air quality sensor.. resourceID:'1'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ug/m3'.",
+          "type": "number"
+        },
+        "PM10 24 hour average": {
+          "description": "Property. Average level of PM10 measured by the sensor during the last 24 hours.. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ug/m3'.",
+          "type": "number"
+        },
+        "PM2.5": {
+          "description": "Property. Level of PM2.5 measured by the air quality sensor.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ug/m3'.",
+          "type": "number"
+        },
+        "PM2.5 24 hour average": {
+          "description": "Property. Average level of PM2.5 measured by the sensor during the last 24 hours.. resourceID:'4'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ug/m3'.",
+          "type": "number"
+        },
+        "PM1": {
+          "description": "Property. Level of PM1 measured by the air quality sensor.. resourceID:'5'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ug/m3'.",
+          "type": "number"
+        },
+        "PM1 24 hour average": {
+          "description": "Property. Average level of PM1 measured by the sensor during the last 24 hours.. resourceID:'6'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ug/m3'.",
+          "type": "number"
+        },
+        "CO": {
+          "description": "Property. Level of carbon monoxide measured by the air quality sensor.. resourceID:'7'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "CO 8 hour average": {
+          "description": "Property. Average level of carbon monoxide measured by the sensor during the last 8 hours.. resourceID:'8'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "SO2": {
+          "description": "Property. Level of sulfur dioxide measured by the air quality sensor.. resourceID:'9'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "SO2 1 hour average": {
+          "description": "Property. Average level of sulfur dioxide measured by the sensor during the last 1 hour.. resourceID:'10'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "SO2 24 hour average": {
+          "description": "Property. Average level of sulfur dioxide measured by the sensor during the last 24 hours.. resourceID:'11'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "O3": {
+          "description": "Property. Level of ozone measured by the air quality sensor.. resourceID:'12'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "O3 1 hour average": {
+          "description": "Property. Average level of ozone measured by the sensor during the last 1 hour.. resourceID:'13'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "O3 8 hour average": {
+          "description": "Property. Average level of ozone measured by the sensor during the last 8 hour.. resourceID:'14'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "NO2": {
+          "description": "Property. Level of nitrogen dioxide measured by the air quality sensor.. resourceID:'15'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "NO2 1 hour average": {
+          "description": "Property. Average level of nitrogen dioxide measured by the sensor during the last 1 hour.. resourceID:'16'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "CO2": {
+          "description": "Property. Level of carbon dioxide measured by the air quality sensor.. resourceID:'17'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "CO2 1 hour average": {
+          "description": "Property. Average level of carbon dioxide measured by the sensor during the last 1 hour.. resourceID:'18'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "NO": {
+          "description": "Property. Level of nitric oxide measured by the air quality sensor.. resourceID:'19'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "NO 1 hour average": {
+          "description": "Property. Average level of nitric oxide measured by the sensor during the last 1 hour.. resourceID:'20'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "H2S": {
+          "description": "Property. Level of hydrogen sulfid measured by the air quality sensor.. resourceID:'21'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "H2S 1 hour average": {
+          "description": "Property. Average level of hydrogen sulfid measured by the sensor during the last 1 hour.. resourceID:'22'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "VOC": {
+          "description": "Property. Level of Volatile Organic Compounds measured by the air quality sensor.. resourceID:'23'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "VOC 1 hour average": {
+          "description": "Property. Average level of Volatile Organic Compounds measured by the sensor during the last 1 hour.. resourceID:'24'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'ppm'.",
+          "type": "number"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Measurement Quality Indicator": {
+          "description": "Property. Measurement quality indicator reported by a smart sensor. 0: UNCHECKED No quality checks were done because they do not exist or can not be applied. 1: REJECTED WITH CERTAINTY The measured value is invalid. 2: REJECTED WITH PROBABILITY The measured value is likely invalid. 3: ACCEPTED BUT SUSPICIOUS The measured value is likely OK. 4: ACCEPTED The measured value is OK. 5-15: Reserved for future extensions. 16-23: Vendor specific measurement quality.. resourceID:'6042'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        },
+        "Measurement Quality Level": {
+          "description": "Property. Measurement quality level reported by a smart sensor. Quality level 100 means that the measurement has fully passed quality check algorithms. Smaller quality levels mean that quality has decreased and the measurement has only partially passed quality check algorithms. The smaller the quality level, the more caution should be used by the application when using the measurement. When the quality level is 0 it means that the measurement should certainly be rejected.. resourceID:'6049'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ]
+    }
+  ]
+}

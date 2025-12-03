@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Edge computing generic condition/schema.json",
+  "title": "Smart Data Models - Ucifi / Edge computing generic condition",
+  "description": "The uCIFI edge computing generic condition object defines a vendor-specific condition (e.g. when a resource or an object is equal to a particular value) at which a particular script should be executed by the device.. objectID:'3439'. objectURN:'urn:oma:lwm2m:ext:3439'. lwm2mVersion:'1.0'. objectVersion:'1.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3439.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Edge computing generic condition"
+          ],
+          "description": "Property. It must be equal to `Edge computing generic condition`."
+        },
+        "Vendor condition": {
+          "description": "Property. Condition described in a vendor specific way.. resourceID:'1'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Script identifier": {
+          "description": "Property. Object URN/Resource ID of the script to apply to the time/days defined in the vendor condition resource.. resourceID:'2'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Mandatory'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Non supported time condition": {
+          "description": "Property. Set to True if the device can’t support the condition.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Script identifier"
+      ]
+    }
+  ]
+}

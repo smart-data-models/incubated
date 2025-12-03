@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Roll over sensor/schema.json",
+  "title": "Smart Data Models - Ucifi / Roll over sensor",
+  "description": "The uCIFI Roll Over Sensor is used to measure the roll component of displacement and can be useful in safety application, by complementing the existing IPSO Direction and uCIFI Tilt sensors.. objectID:'3451'. objectURN:'urn:oma:lwm2m:ext:3451'. lwm2mVersion:'1.0'. objectVersion:'1.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3451.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Roll over sensor"
+          ],
+          "description": "Property. It must be equal to `Roll over sensor`."
+        },
+        "Angle": {
+          "description": "Property. Angle of inclination between the internal horizontal line and the parallel to earth. resourceID:'1'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'rad'.",
+          "type": "number"
+        },
+        "Minimum measured Angle": {
+          "description": "Property. Minimum angle measured by the roll over sensor since last reset or since power ON if no reset. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'rad'.",
+          "type": "number"
+        },
+        "Maximum measured angle": {
+          "description": "Property. Maximum angle measured by the roll over sensor since last reset or since power ON if no reset. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'rad'.",
+          "type": "number"
+        },
+        "Reset min max angles": {
+          "description": "Property. Set the minimum and maximum measured angles to the current angle value [Executable resource]. resourceID:'4'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Out of position threshold": {
+          "description": "Property. The angle above which the device triggers an out of position event. resourceID:'5'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'rad'.",
+          "type": "number"
+        },
+        "Out of position": {
+          "description": "Property. Set to True if the angle is above the out of position threshold. resourceID:'6'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Angle"
+      ]
+    }
+  ]
+}

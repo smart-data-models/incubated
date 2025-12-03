@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/uCIFI Generic Actuator/schema.json",
+  "title": "Smart Data Models - Ucifi / uCIFI Generic Actuator",
+  "description": "The uCIFI generic actuator may be used for any actuator but not to replace Outdoor Lamp Controllers nor for an Irrigation Valves which have a specific device type in the uCIFI data model.. objectID:'3413'. objectURN:'urn:oma:lwm2m:ext:3413:1.1'. lwm2mVersion:'1.0'. objectVersion:'1.1'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3413.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "uCIFI Generic Actuator"
+          ],
+          "description": "Property. It must be equal to `uCIFI Generic Actuator`."
+        },
+        "Default dimming level": {
+          "description": "Property. Default dimming level that the generic actuator applies when the device is powered ON.. resourceID:'1'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Dimming level": {
+          "description": "Property. Actual dimming level (0 for OFF and 100% for ON) measured on the actuator.. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Command": {
+          "description": "Property. Command (e.g. manual override, scheduler) sent to the actuator.. resourceID:'3'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Command in action": {
+          "description": "Property. For devices connected on slow LPWAN networks, the command in action (this resource) may differ from a command that was sent (resource ID: 3). The command in action is the actual value of the command in action in the actuator.. resourceID:'4'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Scheduler ID": {
+          "description": "Property. The identifier of the schedulers that are assigned to the Command of this actuator.. resourceID:'5'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Invalid scheduler": {
+          "description": "Property. Set to True when one of the schedulers can’t be executed or is not supported by the actuator. Otherwise set to False.. resourceID:'6'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Measurement Quality Indicator": {
+          "description": "Property. Measurement quality indicator reported by a smart sensor. 0: UNCHECKED No quality checks were done because they do not exist or can not be applied. 1: REJECTED WITH CERTAINTY The measured value is invalid. 2: REJECTED WITH PROBABILITY The measured value is likely invalid. 3: ACCEPTED BUT SUSPICIOUS The measured value is likely OK. 4: ACCEPTED The measured value is OK. 5-15: Reserved for future extensions. 16-23: Vendor specific measurement quality.. resourceID:'6042'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        },
+        "Measurement Quality Level": {
+          "description": "Property. Measurement quality level reported by a smart sensor. Quality level 100 means that the measurement has fully passed quality check algorithms. Smaller quality levels mean that quality has decreased and the measurement has only partially passed quality check algorithms. The smaller the quality level, the more caution should be used by the application when using the measurement. When the quality level is 0 it means that the measurement should certainly be rejected.. resourceID:'6049'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ]
+    }
+  ]
+}

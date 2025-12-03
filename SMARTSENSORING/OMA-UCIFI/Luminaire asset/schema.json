@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Luminaire asset/schema.json",
+  "title": "Smart Data Models - Ucifi / Luminaire asset",
+  "description": "The uCIFI luminaire asset is an object that enables outdoor lighting control software to configure outdoor lamp controllers. It also enables outdoor lamp controllers to send Zhaga D4i or DALI attributes read from the control gears, to centrally managed outdoor lighting control software or asset management systems.. objectID:'3417'. objectURN:'urn:oma:lwm2m:ext:3417'. lwm2mVersion:'1.0'. objectVersion:'1.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3417.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Luminaire asset"
+          ],
+          "description": "Property. It must be equal to `Luminaire asset`."
+        },
+        "Asset GTIN": {
+          "description": "Property. Global trade-in international number used in the Luminaire Asset controlled by the device.. resourceID:'1'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string"
+        },
+        "Year of manufacture": {
+          "description": "Property. Year of manufacture of the luminaire.. resourceID:'2'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Week of manufacture": {
+          "description": "Property. Week of manufacture of the luminaire.. resourceID:'3'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Nominal light output": {
+          "description": "Property. Nominal light output of the luminaire.. resourceID:'4'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'lm'.",
+          "type": "integer"
+        },
+        "Light distribution type": {
+          "description": "Property. Enumeration of possible light distribution type, using the Zhaga D4i enumeration. Please refer to ZD4i standard for more details.. resourceID:'5'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Luminaire color": {
+          "description": "Property. Painting color of the luminaire.. resourceID:'6'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Nominal input power": {
+          "description": "Property. Nominal input power of the luminaire.. resourceID:'7'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'W'.",
+          "type": "number"
+        },
+        "Power at minimum dim level": {
+          "description": "Property. Power at minimum dim level for the luminaire.. resourceID:'8'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'W'.",
+          "type": "number"
+        },
+        "Nominal max AC mains voltage": {
+          "description": "Property. Nominal max AC mains voltage for the luminaire to operate.. resourceID:'9'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "integer"
+        },
+        "Nominal min AC mains voltage": {
+          "description": "Property. Nominal min AC mains voltage for the luminaire to operate.. resourceID:'10'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "integer"
+        },
+        "CRI": {
+          "description": "Property. Color rendering index (0 to 100) of the luminaire.. resourceID:'11'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "CCT value": {
+          "description": "Property. Color temperature of the luminaire.. resourceID:'12'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'K'.",
+          "type": "integer"
+        },
+        "Luminaire identification": {
+          "description": "Property. Luminaire identification as per DiiA/D4i specification part 251 (MB1 extension): 60 ascii character string.. resourceID:'13'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Luminaire identification number": {
+          "description": "Property. Luminaire identification number as per DiiA/D4i specification part 251 (MB1 extension): 20 digit number.. resourceID:'14'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Asset GTIN"
+      ]
+    }
+  ]
+}

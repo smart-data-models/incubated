@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Traffic Counter/schema.json",
+  "title": "Smart Data Models - Ucifi / Traffic Counter",
+  "description": "The uCIFI traffic counter provides vehicle counting and traffic analysis data. A traffic counting device may implement multiple instances of this traffic counter object, each of them being in charge of counting different categories of vehicles (e.g. bikes, cars, trucks).. objectID:'3432'. objectURN:'urn:oma:lwm2m:ext:3432:2.1'. lwm2mVersion:'1.0'. objectVersion:'2.1'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3432.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Traffic Counter"
+          ],
+          "description": "Property. It must be equal to `Traffic Counter`."
+        },
+        "Vehicle type": {
+          "description": "Property. Identifies the Vehicle type(s) detected in conformance with DATEX II v3 specifications.\nThe resource instance ID used here should match, the remaining resource IDs under this object for measurement taken by the device for the specified vehicle type. \nInstance 0 of this resource is reserved for Vehicle type = 1 (Vehicle of any type)\n\n0=Vehicle normally used for agricultural purposes, e.g. tractor, combined harvester etc.\n1=Vehicle of any type.\n2=Articulated bus\n3=Articulated trolley bus\n4=Articulated vehicle.\n5=Bicycle.\n6=Bus.\n7=Vehicles designed and constructed for the carriage of passengers and comprising no more than eight seats in addition to the driver's seat, and having a maximum mass (\"technically permissible maximum laden mass\") not exceeding 3.5 tons (M1).\n8=Caravan.\n9=Car or light vehicle.\n10=Car towing a caravan.\n11=Car towing a trailer.\n12=Vehicle normally used for construction or maintenance purposes, e.g. digger, excavator, bulldozer, lorry mounted crane etc.\n13=Four wheel drive vehicle.\n14=Vehicles with a total weight above 3,500 kg (vehicle and load).\n15=Heavy goods vehicle with trailer\n16=A transporter for heavy duty (usually with abnormal dimensions).\n17=Vehicle whose weight means it should be classed as a heavy vehicle\n18=High sided vehicle.\n19=Vehicles for the carriage of goods and having a maximum mass not exceeding 3.5 tonnes (class N1).\n20=Large car\n21=Vehicles for the carriage of goods and having a maximum mass exceeding 3.5 tonnes (belonging to class N2 when not exceeding 12 tonnes, otherwise class N3).\n22=Light goods vehicle with trailer\n23=A heavy lorry that is longer than normal.\n24=Lorry of any type.\n25=Metro\n26=Vehicles designed and constructed for the carriage of passengers, comprising more than eight seats in addition to the driver's seat, and having a maximum mass not exceeding 5 tonnes (class M2).\n27=Moped (a two wheeled motor vehicle characterized by a small engine typically less than 50cc and by normally having pedals).\n28=Motorcycle.\n29=Three wheeled vehicle comprising a motorcycle with an attached side car.\n30=Motorhome\n31=Motorscooter (a two wheeled motor vehicle characterized by a step-through frame and small diameter wheels).\n32=Passenger car\n33=Small car\n34=Vehicle with large tank for carrying bulk liquids.\n35=Three wheeled vehicle of unspecified type.\n36=Trailer.\n37=Tram.\n38=Trolley bus\n39=Two wheeled vehicle of unspecified type.\n40=Van.\n41=Vehicle (of unspecified type) towing a caravan.\n42=Vehicle with catalytic converter.\n43Vehicle without catalytic converter.\n44=Vehicle (of unspecified type) towing a trailer.\n45n=Vehicle with even numbered registration plate.\n46=Vehicle with odd numbered registration plate.\n47=Pedestrian.\n99=Unknown.\n100=Other than as defined in this enumeration.. resourceID:'0'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Cumulated number": {
+          "description": "Property. Cumulated number of vehicles counted since last reset.. resourceID:'1'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Reset cumulated number": {
+          "description": "Property. Reset the cumulated number of vehicles. [Executable resource]. resourceID:'2'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Cumulated number today": {
+          "description": "Property. Cumulated number of vehicles counted today.. resourceID:'3'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Mandatory'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Measuring period 1": {
+          "description": "Property. Time period 1 during which the counter shall provide number of vehicles (e.g. 1 hour).. resourceID:'4'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'. units:'s'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Measuring period 2": {
+          "description": "Property. Time period 2 during which the counter shall provide number of vehicles (e.g. 15 minutes).. resourceID:'5'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'. units:'s'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Measuring period 3": {
+          "description": "Property. Time period 3 during which the counter shall provide number of vehicles (e.g. 5 minutes).. resourceID:'6'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'. units:'s'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Cumulated number during last period 1": {
+          "description": "Property. Cumulated number of vehicles counted during the last period 1 (e.g. 1 hour).. resourceID:'7'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Cumulated number during last period 2": {
+          "description": "Property. Cumulated number of vehicles counted during the last period 2 (e.g. 15 minutes).. resourceID:'8'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Cumulated number during last period 3": {
+          "description": "Property. Cumulated number of vehicles counted during the last period 3 (e.g. 5 minutes).. resourceID:'9'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Average speed during last period 1": {
+          "description": "Property. Average speed measured on the vehicles during the last period 1 (e.g. 1 hour).. resourceID:'10'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Average speed during last period 2": {
+          "description": "Property. Average speed measured on the vehicles during the last period 2 (e.g. 15 minutes).. resourceID:'11'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Average speed during last period 3": {
+          "description": "Property. Average speed measured on the vehicles during the last period 3 (e.g. 5 minutes).. resourceID:'12'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Average distance during last period 1": {
+          "description": "Property. Average distance between two vehicles measured during the last period 1 (e.g. 1 hour).. resourceID:'13'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Average distance during last period 2": {
+          "description": "Property. Average distance between two vehicles measured during the last period 2 (e.g. 15 minutes).. resourceID:'14'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Average distance during last period 3": {
+          "description": "Property. Average distance between two vehicles measured during the last period 3 (e.g. 5 minutes).. resourceID:'15'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Speed limit threshold": {
+          "description": "Property. Speed limit threshold used to calculate the percentage of vehicles above speed limit.. resourceID:'16'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Percentage above speed limit": {
+          "description": "Property. Percentage of vehicles driving above speed limit.. resourceID:'17'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Cumulated number (forward)": {
+          "description": "Property. Cumulated count value in forward direction.. resourceID:'18'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Cumulated number (reverse)": {
+          "description": "Property. Cumulated count value in reverse direction.. resourceID:'19'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Label": {
+          "description": "Property. Label name of area type in which the object is to be analyzed.. resourceID:'20'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "UID": {
+          "description": "Property. ID of area type in which the object is to be analyzed.. resourceID:'21'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Sensor Type": {
+          "description": "Property. The type of the sensor (for instance PIR type).. resourceID:'5751'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Measurement Quality Indicator": {
+          "description": "Property. Measurement quality indicator reported by a smart sensor. 0: UNCHECKED No quality checks were done because they do not exist or can not be applied. 1: REJECTED WITH CERTAINTY The measured value is invalid. 2: REJECTED WITH PROBABILITY The measured value is likely invalid. 3: ACCEPTED BUT SUSPICIOUS The measured value is likely OK. 4: ACCEPTED The measured value is OK. 5-15: Reserved for future extensions. 16-23: Vendor specific measurement quality.. resourceID:'6042'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        },
+        "Measurement Quality Level": {
+          "description": "Property. Measurement quality level reported by a smart sensor. Quality level 100 means that the measurement has fully passed quality check algorithms. Smaller quality levels mean that quality has decreased and the measurement has only partially passed quality check algorithms. The smaller the quality level, the more caution should be used by the application when using the measurement. When the quality level is 0 it means that the measurement should certainly be rejected.. resourceID:'6049'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Cumulated number today"
+      ]
+    }
+  ]
+}

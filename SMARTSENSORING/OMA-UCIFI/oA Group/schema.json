@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/oA Group/schema.json",
+  "title": "Smart Data Models - Ucifi / oA Group",
+  "description": "The 'oA Group' represents a group. It contains an application group ID, a security group ID and a list of multicast and unicast IP addresses that are used in the group. \\nAdditionally it contains a list of all members of the group.. objectID:'3389'. objectURN:'urn:oma:lwm2m:ext:3389'. lwm2mVersion:'1.1'. objectVersion:'1.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3389.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "oA Group"
+          ],
+          "description": "Property. It must be equal to `oA Group`."
+        },
+        "ObjectVersion": {
+          "description": "Property. LWM2M Object versioning label.. resourceID:'4001'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Documentary Description": {
+          "description": "Property. Resource to hold a documentary text description of the object.. resourceID:'901'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string",
+          "minimum": 0,
+          "maximum": 256
+        },
+        "Application Group ID": {
+          "description": "Property. Identifier of the application group. resourceID:'600'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "Security Group ID": {
+          "description": "Property. Identifier of the security group. resourceID:'601'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "IP Addresses": {
+          "description": "Property. List of multicast and unicast IPv6 addresses to be used for outgoing group messages. resourceID:'602'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Mandatory'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Members": {
+          "description": "Property. Link to the local object instances (and/or single resources) that are members of that group in CoRE Link Format [RFC6690](https://tools.ietf.org/html/rfc6690)\\nNote: instances and resources not listed here will not be addressable on this node through group messages of this group. resourceID:'603'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Mandatory'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Application Group ID",
+        "Security Group ID",
+        "IP Addresses",
+        "Members"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/LPWAN Mesh Connectivity/schema.json",
+  "title": "Smart Data Models - Ucifi / LPWAN Mesh Connectivity",
+  "description": "The uCIFI LPWAN Mesh Connectivity object enables monitoring and management of parameters related with the operation of 802.15.4-based LPWAN devices.. objectID:'3447'. objectURN:'urn:oma:lwm2m:ext:3447'. lwm2mVersion:'1.0'. objectVersion:'1.0'. multipleInstances:'Single'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3447.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "LPWAN Mesh Connectivity"
+          ],
+          "description": "Property. It must be equal to `LPWAN Mesh Connectivity`."
+        },
+        "Network Type": {
+          "description": "Property. Provides information on the type or set of specifications on which the mesh Connectivity is based. This information is encoded as string to provide flexibility in the adoption of future mesh technologies. Examples: \"802.15.4 proprietary\", \"Zigbee\", \"Bluetooth 5.0 Mesh\", \"Thread\", \"80215.4 6LowPAN\", \"Wi-SUN\".. resourceID:'0'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string"
+        },
+        "Device class": {
+          "description": "Property. 0: End-Device, 1: Router, 2: Repeater, 3: Border Router, 4: Bridge, 5: Gateway.. resourceID:'1'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "integer"
+        },
+        "Operating Frequency": {
+          "description": "Property. Frequency of the wireless communication used on the LPWAN network. Set as a Read-Writable attribute for those scenarios where the Radio can be configured to operate in different frequencies.. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'MHz'.",
+          "type": "number"
+        },
+        "Status": {
+          "description": "Property. 0: Disabled, 1: Connecting, 2: Connected, 3: Disconnecting, 4: Disconnected.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "integer"
+        },
+        "Connection Errors": {
+          "description": "Property. Display’s information on current errors affecting mesh connectivity.. resourceID:'4'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Last Error timestamp": {
+          "description": "Property. Represented in UTC.. resourceID:'5'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Error Counter": {
+          "description": "Property. Cumulative counter reporting on total observed errors.. resourceID:'6'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Error Counter Reset": {
+          "description": "Property. Resets \"Error Counter\" to zero. [Executable resource]. resourceID:'7'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Transmit Power": {
+          "description": "Property. Transmit power used by the IoT device on the LPWAN network.. resourceID:'8'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'dBm'.",
+          "type": "number"
+        },
+        "Data Rate": {
+          "description": "Property. Data rate of the communication used on the LPWAN network.. resourceID:'9'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'bit/s'.",
+          "type": "number"
+        },
+        "Operation Mode": {
+          "description": "Property. Provides information on what mode of operation is in effect. The meaning of which is technology dependent.. resourceID:'10'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Operating Channel": {
+          "description": "Property. The current channel used for the transfer of data frames. The LwM2M client may update this field to reflect changes in frequency if a frequency hopping mechanism is in use.. resourceID:'11'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Channel Hopping Function": {
+          "description": "Property. The current Frequency hopping function in use by the device: 0: disabled, 1: Pseudo-Random, 2: Adaptative.. resourceID:'12'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Available Channels": {
+          "description": "Property. Array of supported radio channels within the Regulatory Domain.. resourceID:'13'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Unicast Channel Plan": {
+          "description": "Property. Defined for those technologies that make use of a specific subset of channels for Unicast Datagram transmission.. resourceID:'14'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Broadcast Channel Plan": {
+          "description": "Property. Defined for those technologies that make use of a specific subset of channels for Broadcast Datagram transmission.. resourceID:'15'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "FEC": {
+          "description": "Property. Forward Error Correction may be enabled to improve datagram in noisy network conditions : 0: Disabled, 1: Enabled.. resourceID:'16'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Data Whitening": {
+          "description": "Property. Data whitening may be enabled to ensure smother power distribution over the occupied bandwidth and improve the quality of the RF link : 0: Disabled, 1: Enabled.. resourceID:'17'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Cipher Suite": {
+          "description": "Property. Cipher suite string identifying the authentication and encryption algorithms used in mesh security. i.e:  TLS_ECDHE_ECDSA_WITH_AES_128_CCM.. resourceID:'18'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "PAN Identifier": {
+          "description": "Property. The 802.15.4 PAN ID used within the network.. resourceID:'19'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Network Name": {
+          "description": "Property. An operator defined network ID associated with the mesh cluster.. resourceID:'20'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Node Rank": {
+          "description": "Property. The hierarchy of the mesh router/end-device within the network. It may be expressed as the number of hops between the node and the Border Router/gateway or as the computed cost of the path connecting the node to the Border-Router/gateway.. resourceID:'21'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Root Address": {
+          "description": "Property. Address or identifier of the Border Router/ Gateway node providing connectivity outside the mesh cluster.. resourceID:'22'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Parent Address": {
+          "description": "Property. Address or identifier of the node selected as the next hop on the optimal path towards the mesh Root.. resourceID:'23'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Physical interface": {
+          "description": "Property. The MAC address of the interface, in hexadecimal form.. resourceID:'24'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string"
+        },
+        "Logical Address": {
+          "description": "Property. The IP addresses assigned to the connectivity interface. (e.g. IPv4, IPv6, etc.).. resourceID:'25'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "IP Address": {
+          "description": "Property. The IP addresses assigned to the connectivity interface. (e.g. IPv4, IPv6, etc.).. resourceID:'26'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Multicast Group Address": {
+          "description": "Property. Group address from which the IoT device should accept incoming messages and/or commands.. resourceID:'27'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Multicast group key": {
+          "description": "Property. Security key (e.g. AES128) to be shared with other members to be part of a multicast group. The opaque format enables to support non printable characters.. resourceID:'28'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Signal to noise ratio": {
+          "description": "Property. Ratio of signal power to the noise power .. resourceID:'29'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'dB'.",
+          "type": "number"
+        },
+        "Received Signal Strength Indication": {
+          "description": "Property. Signal strength of the communication network measured by the device (a.k.a. RSSI).. resourceID:'30'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'dBm'.",
+          "type": "number"
+        },
+        "Noise Floor": {
+          "description": "Property. Noise Floor of the communication network measured by the device.. resourceID:'31'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'dBm'.",
+          "type": "number"
+        },
+        "Maximum repeat time": {
+          "description": "Property. Maximum number of times a message should be repeated within a mesh network (e.g. number of CoAP retransmissions). resourceID:'34'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Measurement Quality Indicator": {
+          "description": "Property. Measurement quality indicator reported by a smart sensor. 0: UNCHECKED No quality checks were done because they do not exist or can not be applied. 1: REJECTED WITH CERTAINTY The measured value is invalid. 2: REJECTED WITH PROBABILITY The measured value is likely invalid. 3: ACCEPTED BUT SUSPICIOUS The measured value is likely OK. 4: ACCEPTED The measured value is OK. 5-15: Reserved for future extensions. 16-23: Vendor specific measurement quality.. resourceID:'6042'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        },
+        "Measurement Quality Level": {
+          "description": "Property. Measurement quality level reported by a smart sensor. Quality level 100 means that the measurement has fully passed quality check algorithms. Smaller quality levels mean that quality has decreased and the measurement has only partially passed quality check algorithms. The smaller the quality level, the more caution should be used by the application when using the measurement. When the quality level is 0 it means that the measurement should certainly be rejected.. resourceID:'6049'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Network Type",
+        "Device class",
+        "Operating Frequency",
+        "Status",
+        "Physical interface"
+      ]
+    }
+  ]
+}

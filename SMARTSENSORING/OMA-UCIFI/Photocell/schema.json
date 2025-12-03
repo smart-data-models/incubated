@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Photocell/schema.json",
+  "title": "Smart Data Models - Ucifi / Photocell",
+  "description": "A uCIFI photocell object is used for lighting control, particularly to identify when light should be switched ON/OFF.. objectID:'3419'. objectURN:'urn:oma:lwm2m:ext:3419:1.1'. lwm2mVersion:'1.0'. objectVersion:'1.1'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3419.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Photocell"
+          ],
+          "description": "Property. It must be equal to `Photocell`."
+        },
+        "ON lux level": {
+          "description": "Property. Lux level below which the photocell switches its relay ON or sends a switch ON message on the network.. resourceID:'1'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'lx'.",
+          "type": "number"
+        },
+        "OFF lux level": {
+          "description": "Property. Lux level above which the photocell switches its relay OFF or sends a switch OFF message on the network.. resourceID:'2'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'lx'.",
+          "type": "number"
+        },
+        "Photocell status": {
+          "description": "Property. Set to True if lux level is below ON lux level. Set to False if lux level is above OFF lux.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ]
+    }
+  ]
+}

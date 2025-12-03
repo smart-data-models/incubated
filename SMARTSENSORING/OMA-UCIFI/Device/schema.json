@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Device/schema.json",
+  "title": "Smart Data Models - Ucifi / Device",
+  "description": "This LwM2M Object provides a range of device related information which can be queried by the LwM2M Server, and a device reboot and factory reset function.. objectID:'3'. objectURN:'urn:oma:lwm2m:oma:3:1.2'. lwm2mVersion:'1.1'. objectVersion:'1.2'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Device"
+          ],
+          "description": "Property. It must be equal to `Device`."
+        },
+        "Manufacturer": {
+          "description": "Property. Human readable manufacturer name. resourceID:'0'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Model Number": {
+          "description": "Property. A model identifier (manufacturer specified string). resourceID:'1'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Serial Number": {
+          "description": "Property. Serial Number. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Firmware Version": {
+          "description": "Property. Current firmware version of the Device.The Firmware Management function could rely on this resource.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Reboot": {
+          "description": "Property. Reboot the LwM2M Device to restore the Device from unexpected firmware failure. [Executable resource]. resourceID:'4'. operations:'E'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "null"
+        },
+        "Factory Reset": {
+          "description": "Property. Perform factory reset of the LwM2M Device to make the LwM2M Device to go through initial deployment sequence where provisioning and bootstrap sequence is performed. This requires client ensuring post factory reset to have minimal information to allow it to carry out one of the bootstrap methods specified in section 5.2.3. \nWhen this Resource is executed, \"De-register\" operation MAY be sent to the LwM2M Server(s) before factory reset of the LwM2M Device. [Executable resource]. resourceID:'5'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Available Power Sources": {
+          "description": "Property. 0: DC power\n1: Internal Battery\n2: External Battery\n3: Fuel Cell\n4: Power over Ethernet\n5: USB\n6: AC (Mains) power\n7: Solar\nThe same Resource Instance ID MUST be used to associate a given Power Source (Resource ID:6) with its Present Voltage (Resource ID:7) and its Present Current (Resource ID:8). resourceID:'6'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 7
+          }
+        },
+        "Power Source Voltage": {
+          "description": "Property. Present voltage for each Available Power Sources Resource Instance. The unit used for this resource is in mV.. resourceID:'7'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Power Source Current": {
+          "description": "Property. Present current for each Available Power Source. The unit used for this resource is in mA.. resourceID:'8'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Battery Level": {
+          "description": "Property. Contains the current battery level as a percentage (with a range from 0 to 100). This value is only valid for the Device internal Battery if present (one Available Power Sources Resource Instance is 1).. resourceID:'9'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "Memory Free": {
+          "description": "Property. Estimated current available amount of storage space which can store data and software in the LwM2M Device (expressed in kilobytes). Note: 1 kilobyte corresponds to 1000 bytes.. resourceID:'10'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Error Code": {
+          "description": "Property. 0=No error\n1=Low battery power\n2=External power supply off\n3=GPS module failure\n4=Low received signal strength\n5=Out of memory\n6=SMS failure\n7=IP connectivity failure\n8=Peripheral malfunction\n9..15=Reserved for future use\n16..32=Device specific error codes\n\nWhen the single Device Object Instance is initiated, there is only one error code Resource Instance whose value is equal to 0 that means no error. When the first error happens, the LwM2M Client changes error code Resource Instance to any non-zero value to indicate the error type. When any other error happens, a new error code Resource Instance is created. When an error associated with a Resource Instance is no longer present, that Resource Instance is deleted. When the single existing error is no longer present, the LwM2M Client returns to the original no error state where Instance 0 has value 0.\nThis error code Resource MAY be observed by the LwM2M Server. How to deal with LwM2M Client’s error report depends on the policy of the LwM2M Server. Error codes in between 16 and 32 are specific to the Device and may have different meanings among implementations.. resourceID:'11'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Mandatory'.",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 32
+          }
+        },
+        "Reset Error Code": {
+          "description": "Property. Delete all error code Resource Instances and create only one zero-value error code that implies no error, then re-evaluate all error conditions and update and create Resources Instances to capture all current error conditions. [Executable resource]. resourceID:'12'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Current Time": {
+          "description": "Property. Current UNIX time of the LwM2M Client.\nThe LwM2M Client should be responsible to increase this time value as every second elapses.\nThe LwM2M Server is able to write this Resource to make the LwM2M Client synchronized with the LwM2M Server.. resourceID:'13'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "UTC Offset": {
+          "description": "Property. Indicates the UTC offset currently in effect for this LwM2M Device. UTC+X [ISO 8601].. resourceID:'14'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Timezone": {
+          "description": "Property. Indicates in which time zone the LwM2M Device is located, in IANA Timezone (TZ) database format.. resourceID:'15'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Supported Binding and Modes": {
+          "description": "Property. Indicates which bindings and modes are supported in the LwM2M Client. The possible values are those listed in the LwM2M Core Specification.. resourceID:'16'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string"
+        },
+        "Device Type": {
+          "description": "Property. Type of the device (manufacturer specified string: e.g. smart meters / dev Class / ...). resourceID:'17'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Hardware Version": {
+          "description": "Property. Current hardware version of the device. resourceID:'18'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Software Version": {
+          "description": "Property. Current software version of the device (manufacturer specified string). On elaborated LwM2M device, SW could be split in 2 parts: a firmware one and a higher level software on top.\nBoth pieces of Software are together managed by LwM2M Firmware Update Object (Object ID 5). resourceID:'19'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Battery Status": {
+          "description": "Property. This value is only valid for the Device Internal Battery if present (one Available Power Sources Resource Instance value is 1).\nBattery\nStatus\tMeaning\tDescription\n0\tNormal\tThe battery is operating normally and not on power.\n1\tCharging\tThe battery is currently charging.\n2\tCharge Complete\tThe battery is fully charged and still on power.\n3\tDamaged\tThe battery has some problem.\n4\tLow Battery\tThe battery is low on charge.\n5\tNot Installed\tThe battery is not installed.\n6\tUnknown\tThe battery information is not available.. resourceID:'20'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 6
+        },
+        "Memory Total": {
+          "description": "Property. Total amount of storage space which can store data and software in the LwM2M Device (expressed in kilobytes).  Note: 1 kilobyte corresponds to 1000 bytes.. resourceID:'21'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "ExtDevInfo": {
+          "description": "Property. Reference to external \"Device\" object instance containing information. For example, such an external device can be a Host Device, which is a device into which the Device containing the LwM2M client is embedded. This Resource may be used to retrieve information about the Host Device.. resourceID:'22'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Reboot",
+        "Error Code",
+        "Supported Binding and Modes"
+      ]
+    }
+  ]
+}

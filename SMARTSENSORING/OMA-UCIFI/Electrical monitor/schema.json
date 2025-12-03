@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Electrical monitor/schema.json",
+  "title": "Smart Data Models - Ucifi / Electrical monitor",
+  "description": "The uCIFI electrical monitor object provides attributes related to the analysis of electrical consumption in an outdoor luminaire or in a streetlight cabinet. It also identifies electrical anomalies.. objectID:'3418'. objectURN:'urn:oma:lwm2m:ext:3418:2.1'. lwm2mVersion:'1.0'. objectVersion:'2.1'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3418.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Electrical monitor"
+          ],
+          "description": "Property. It must be equal to `Electrical monitor`."
+        },
+        "Supply voltage": {
+          "description": "Property. Electrical voltage supplied to the device.. resourceID:'1'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "Supply current": {
+          "description": "Property. Electrical current supplied to the device.. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'A'.",
+          "type": "number"
+        },
+        "Frequency": {
+          "description": "Property. Frequency of the supply current to the device.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'Hz'.",
+          "type": "number"
+        },
+        "Active power": {
+          "description": "Property. Active power consumed by the device and its electrical load.. resourceID:'4'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'W'.",
+          "type": "number"
+        },
+        "Power factor": {
+          "description": "Property. Power factor is equal to active power divided by apparent power. The value is between -1 and  1.. resourceID:'5'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1
+        },
+        "Cumulated active energy": {
+          "description": "Property. Cumulated number of Wh measured by the device and its load since last energy counter reset.. resourceID:'6'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'Wh'.",
+          "type": "number"
+        },
+        "Energy reset": {
+          "description": "Property. Reset cumulated active, reactive and apparent energy counters. [Executable resource]. resourceID:'7'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Low power factor threshold": {
+          "description": "Property. Threshold below which the device should trigger a low power factor event.. resourceID:'8'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "Low power factor": {
+          "description": "Property. Set to True if the power factor is below threshold. This is an absolute value threshold.. resourceID:'9'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Low power threshold": {
+          "description": "Property. Threshold below which the device should trigger a low power event.. resourceID:'10'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'W'.",
+          "type": "number"
+        },
+        "Low power threshold at low dim level": {
+          "description": "Property. Threshold below which the device should trigger a low power event. This is an addition to the low power threshold to allow a separated threshold when dim level is low.. resourceID:'11'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'W'.",
+          "type": "number"
+        },
+        "Low power": {
+          "description": "Property. Set to True if the power is below threshold. Vendor may consider the Low power threshold at low dim level to set this resource to True, taking into account the lamp dim level.. resourceID:'12'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "High power threshold": {
+          "description": "Property. Threshold above which the device should trigger a high power event.. resourceID:'13'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'W'.",
+          "type": "number"
+        },
+        "High power threshold at low dim level": {
+          "description": "Property. Threshold above which the device should trigger a high power event. This is an addition to the high power threshold to allow a separated threshold when dim level is low.. resourceID:'14'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'W'.",
+          "type": "number"
+        },
+        "High power": {
+          "description": "Property. Set to True if the power is above threshold. Vendor may consider the High power threshold at low dim level to set this resource to True, taking into account the lamp dim level.. resourceID:'15'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Low current threshold": {
+          "description": "Property. Threshold below which the device should trigger a low current event.. resourceID:'16'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'A'.",
+          "type": "number"
+        },
+        "Low current": {
+          "description": "Property. Set to True if the current is below threshold.. resourceID:'17'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "High current threshold": {
+          "description": "Property. Threshold above which the device should trigger a high current event.. resourceID:'18'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'A'.",
+          "type": "number"
+        },
+        "High current": {
+          "description": "Property. Set to True if the current is above threshold.. resourceID:'19'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Low voltage threshold": {
+          "description": "Property. Threshold below which the device should trigger a low voltage event.. resourceID:'20'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "Low voltage": {
+          "description": "Property. Set to True if the voltage is below threshold.. resourceID:'21'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "High voltage threshold": {
+          "description": "Property. Threshold above which the device should trigger a high voltage event.. resourceID:'22'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "High voltage": {
+          "description": "Property. Set to True if the voltage is above threshold.. resourceID:'23'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Critical inrush threshold": {
+          "description": "Property. Threshold above which the device should trigger a critical inrush event.. resourceID:'24'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'A'.",
+          "type": "number"
+        },
+        "Critical inrush current": {
+          "description": "Property. Set to True if the inrush current is above threshold.. resourceID:'25'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Minimum inrush Current": {
+          "description": "Property. Minimum inrush current since last configuration.. resourceID:'26'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'A'.",
+          "type": "number"
+        },
+        "Maximum inrush Current": {
+          "description": "Property. Maximum inrush current since last configuration.. resourceID:'27'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'A'.",
+          "type": "number"
+        },
+        "Latest inrush Current": {
+          "description": "Property. Latest inrush current measured since last time the relay switched ON.. resourceID:'28'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'A'.",
+          "type": "number"
+        },
+        "Reactive power": {
+          "description": "Property. Instantaneous reactive power measured by the device and its electrical load.. resourceID:'29'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'var'.",
+          "type": "number"
+        },
+        "Reactive energy": {
+          "description": "Property. Cumulative reactive power measured by the device and its electrical load since last energy counter reset.. resourceID:'30'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'varh'.",
+          "type": "number"
+        },
+        "Low power threshold at custom dim level": {
+          "description": "Property. If the measured power when the dimming is between \"Custom dim level min range\" and \"Custom dim level max range\" is below this threshold, a low power alarm is set.. resourceID:'31'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'. units:'W'.",
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "High power threshold at custom dim level": {
+          "description": "Property. If the measured power when the dimming is between \"Custom dim level min range\" and \"Custom dim level max range\" is above this threshold, a high power alarm is set.. resourceID:'32'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'. units:'W'.",
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "Custom dim level min range": {
+          "description": "Property. Custom dimming range (lower bound) to allow specification of finer grain thresholds and alarms.. resourceID:'33'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'. units:'/100'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Custom dim level max range": {
+          "description": "Property. Custom dimming range (upper bound) to allow specification of finer grain thresholds and alarms.. resourceID:'34'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Optional'. units:'/100'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Dimming level": {
+          "description": "Property. Dimming level associated to current measurement.. resourceID:'35'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'/100'.",
+          "type": "integer"
+        },
+        "Apparent Energy": {
+          "description": "Property. Cumulated number of VAh measured by the device and its load since last energy counter reset.. resourceID:'36'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'VAh'.",
+          "type": "number"
+        },
+        "Apparent Power": {
+          "description": "Property. Apparent power consumed by the device and its electrical load.. resourceID:'37'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'VA'.",
+          "type": "number"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Measurement Quality Indicator": {
+          "description": "Property. Measurement quality indicator reported by a smart sensor. 0: UNCHECKED No quality checks were done because they do not exist or can not be applied. 1: REJECTED WITH CERTAINTY The measured value is invalid. 2: REJECTED WITH PROBABILITY The measured value is likely invalid. 3: ACCEPTED BUT SUSPICIOUS The measured value is likely OK. 4: ACCEPTED The measured value is OK. 5-15: Reserved for future extensions. 16-23: Vendor specific measurement quality.. resourceID:'6042'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        },
+        "Measurement Quality Level": {
+          "description": "Property. Measurement quality level reported by a smart sensor. Quality level 100 means that the measurement has fully passed quality check algorithms. Smaller quality levels mean that quality has decreased and the measurement has only partially passed quality check algorithms. The smaller the quality level, the more caution should be used by the application when using the measurement. When the quality level is 0 it means that the measurement should certainly be rejected.. resourceID:'6049'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Edge computing manager/schema.json",
+  "title": "Smart Data Models - Ucifi / Edge computing manager",
+  "description": "The uCIFI edge computing manager object defines the capability of a device to run scripts on the device itself.. objectID:'3436'. objectURN:'urn:oma:lwm2m:ext:3436'. lwm2mVersion:'1.0'. objectVersion:'1.0'. multipleInstances:'Single'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3436.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Edge computing manager"
+          ],
+          "description": "Property. It must be equal to `Edge computing manager`."
+        },
+        "Max number of scripts": {
+          "description": "Property. Maximum number of scripts supported by the device.. resourceID:'1'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Number of free slots for scripts": {
+          "description": "Property. Number of free slots to store new scripts.. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Max number of conditions": {
+          "description": "Property. Maximum number of conditions supported by the device.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Number of free slots for conditions": {
+          "description": "Property. Number of free slots to store new conditions.. resourceID:'4'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Edge-computing capabilities": {
+          "description": "Property. Vendor-specific resource to share the capabilities of the devices as regards to edge computing.. resourceID:'5'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ]
+    }
+  ]
+}

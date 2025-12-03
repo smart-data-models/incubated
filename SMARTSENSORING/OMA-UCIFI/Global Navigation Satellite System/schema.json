@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Global Navigation Satellite System/schema.json",
+  "title": "Smart Data Models - Ucifi / Global Navigation Satellite System",
+  "description": "More than a positioning object, the uCIFI global navigation satellite system object provides all the information required to calculate a position/location.. objectID:'3430'. objectURN:'urn:oma:lwm2m:ext:3430:2.0'. lwm2mVersion:'1.0'. objectVersion:'2.0'. multipleInstances:'Single'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3430.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Global Navigation Satellite System"
+          ],
+          "description": "Property. It must be equal to `Global Navigation Satellite System`."
+        },
+        "Fix timestamp": {
+          "description": "Property. Timestamp of when the location measurement was performed.. resourceID:'0'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'s'.",
+          "type": "integer"
+        },
+        "Latitude": {
+          "description": "Property. Decimal notation of latitude, e.g. -43.5723 [World Geodetic System 1984]. This value ranges from [-90, 90].. resourceID:'1'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'lat'.",
+          "type": "number"
+        },
+        "Longitude": {
+          "description": "Property. Decimal notation of longitude, e.g. 153.21760 [World Geodetic System 1984]. This value ranges from [-180, 180].. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'lon'.",
+          "type": "number"
+        },
+        "Altitude": {
+          "description": "Property. Altitude above mean sea level in meters.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'m'.",
+          "type": "number"
+        },
+        "Speed": {
+          "description": "Property. Horizontal speed calculated by the device.. resourceID:'4'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'m/s'.",
+          "type": "integer"
+        },
+        "Heading": {
+          "description": "Property. Direction that the device is following. resourceID:'5'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'deg'.",
+          "type": "number"
+        },
+        "Radius": {
+          "description": "Property. Radius of a circular area corresponding to the location’s uncertainty (GPS data precision). Negative values indicate that the radius is not available.. resourceID:'6'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'m'.",
+          "type": "number"
+        },
+        "HDOP": {
+          "description": "Property. Horizontal dilution of precision.. resourceID:'7'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "VDOP": {
+          "description": "Property. Vertical dilution of precision.. resourceID:'8'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "Estimated horizontal accuracy": {
+          "description": "Property. Estimated horizontal accuracy.. resourceID:'9'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'m'.",
+          "type": "number"
+        },
+        "Estimated vertical accuracy": {
+          "description": "Property. Estimated vertical accuracy.. resourceID:'10'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'m'.",
+          "type": "number"
+        },
+        "Estimated speed accuracy": {
+          "description": "Property. Estimated speed accuracy.. resourceID:'11'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'m/s'.",
+          "type": "number"
+        },
+        "Estimated heading accuracy": {
+          "description": "Property. Estimated heading accuracy.. resourceID:'12'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'deg'.",
+          "type": "number"
+        },
+        "Fix type": {
+          "description": "Property. Possible values are : \n\t\t\t\t\t0 = No fix\n\t\t\t\t\t1 = Autonomous GNSS fix\n\t\t\t\t\t2 = Differential GNSS fix\n\t\t\t\t\t3 = GPS PPS\n\t\t\t\t\t4 = RTK-fixed\n\t\t\t\t\t5 = RTK-floated\n\t\t\t\t\t6 = Estimated fix\n\t\t\t\t\t7 = Dead reckoning fix\n\t\t\t\t\t8 = Manual input, surveyed\n\t\t\t\t\t9 = Simulated mode\n\t\t\t\t\tIf no fix is possible, but assisted position is provided, value can be returned as 8 = Manual input. resourceID:'13'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fix dimension": {
+          "description": "Property. Possible values are: \n\t\t\t\t\t0,1 = no fix\n\t\t\t\t\t2 = 2D fix\n\t\t\t\t\t3 = 3D fix \n\t\t\t\t\tAs per NMEA-0183 GSA.. resourceID:'14'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Used satellites": {
+          "description": "Property. Number of satellites used for the fix.. resourceID:'15'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Visible satellites": {
+          "description": "Property. Number of satellites viewed. Represent all the satellites seen but some of them cannot be in use (e.g. bad signal).. resourceID:'16'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Satellite identifiers": {
+          "description": "Property. Elevation of the satellite.. resourceID:'18'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'. units:'deg'.",
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "Satellite azimuth": {
+          "description": "Property. Azimuth of the satellite.. resourceID:'19'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'. units:'deg'.",
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "Almanac": {
+          "description": "Property. Validity of the almanac. Possible values are: \n\t\t\t\t\t0 = invalid\n\t\t\t\t\t1 = valid\n\t\t\t\t\t.. resourceID:'20'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Ephemeris": {
+          "description": "Property. Validity of the ephemeris of each satellite. Possible values are : \n\t\t\t\t\t0 = invalid\n\t\t\t\t\t1 = valid\n\t\t\t\t\t.. resourceID:'21'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          }
+        },
+        "Signal-to-noise ratio": {
+          "description": "Property. Strength of the signal for each satellite, also called carrier-to-noise.. resourceID:'22'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'. units:'dB'.",
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "GNSS": {
+          "description": "Property. GNSS used for the fix. A mask is used with the following bit definition:\n\t\t\t\t\t0 = GPS (USA)\n\t\t\t\t\t1 = GALILEO (EU)\n\t\t\t\t\t2 = GLONASS (Russia)\n\t\t\t\t\t3 = BeiDou (China)\n\t\t\t\t\t4 = QZSS (Japan)\n\t\t\t\t\t5 = IRNSS/NAVIC (India)\n\t\t\t\t\tA 0 indicates that the GNSS is not used a 1 indicates it is used.. resourceID:'23'. operations:'R'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "Hardware RTC": {
+          "description": "Property. Time of the internal clock of the GNSS hardware.. resourceID:'24'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "integer"
+        },
+        "Assisted GPS": {
+          "description": "Property. Set to True if the almanac is obtained via a cellular connection. Set to False otherwise.. resourceID:'25'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Power command": {
+          "description": "Property. Command to switch the hardware ON or OFF and status of the device.. resourceID:'26'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "PDOP": {
+          "description": "Property. Dilution of precision (NMEA-0183 GSA).. resourceID:'27'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "Status": {
+          "description": "Property. Status A=active or V=Void (NMEA-0183 RMC).. resourceID:'28'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string"
+        },
+        "Expected latitude": {
+          "description": "Property. Expected latitude configured by the user. Ignored if 0 or NaN. resourceID:'29'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'lat'.",
+          "type": "number"
+        },
+        "Expected longitude": {
+          "description": "Property. Expected longitude configured by the user. Ignored if 0 or NaN. resourceID:'30'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'lon'.",
+          "type": "number"
+        },
+        "Expected altitude": {
+          "description": "Property. Expected altitude configured by the user. Ignored if 0 or NaN. resourceID:'31'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'m'.",
+          "type": "number"
+        },
+        "Expected location threshold": {
+          "description": "Property. Distance threshold from the expected location beyond which the location changed resource will be set. Ignored if 0 or NaN. resourceID:'32'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'m'.",
+          "type": "number"
+        },
+        "Out of position": {
+          "description": "Property. True if the current position is distant more than the configured threshold from the expected location. resourceID:'33'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Assisted latitude": {
+          "description": "Property. Assisted latitude configured by the user, to be used in case of no coverage. Ignored if 0 or NaN. resourceID:'34'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'lat'.",
+          "type": "number"
+        },
+        "Assisted longitude": {
+          "description": "Property. Assisted longitude configured by the user, to be used in case of no coverage. Ignored if 0 or NaN. resourceID:'35'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'lon'.",
+          "type": "number"
+        },
+        "Assisted altitude": {
+          "description": "Property. Assisted altitude configured by the user, to be used in case of no coverage. Ignored if 0 or NaN. resourceID:'36'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'m'.",
+          "type": "number"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Measurement Quality Indicator": {
+          "description": "Property. Measurement quality indicator reported by a smart sensor. 0: UNCHECKED No quality checks were done because they do not exist or can not be applied. 1: REJECTED WITH CERTAINTY The measured value is invalid. 2: REJECTED WITH PROBABILITY The measured value is likely invalid. 3: ACCEPTED BUT SUSPICIOUS The measured value is likely OK. 4: ACCEPTED The measured value is OK. 5-15: Reserved for future extensions. 16-23: Vendor specific measurement quality.. resourceID:'6042'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        },
+        "Measurement Quality Level": {
+          "description": "Property. Measurement quality level reported by a smart sensor. Quality level 100 means that the measurement has fully passed quality check algorithms. Smaller quality levels mean that quality has decreased and the measurement has only partially passed quality check algorithms. The smaller the quality level, the more caution should be used by the application when using the measurement. When the quality level is 0 it means that the measurement should certainly be rejected.. resourceID:'6049'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Fix timestamp",
+        "Latitude",
+        "Longitude",
+        "Status"
+      ]
+    }
+  ]
+}

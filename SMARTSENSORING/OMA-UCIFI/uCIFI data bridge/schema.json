@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/uCIFI data bridge/schema.json",
+  "title": "Smart Data Models - Ucifi / uCIFI data bridge",
+  "description": "The uCIFI data bridge object may be used to transport data from a 3rd party device, operating a proprietary network or protocol, over a LwM2M compliant network.. objectID:'3414'. objectURN:'urn:oma:lwm2m:ext:3414:2.0'. lwm2mVersion:'1.0'. objectVersion:'2.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3414.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "uCIFI data bridge"
+          ],
+          "description": "Property. It must be equal to `uCIFI data bridge`."
+        },
+        "Payload": {
+          "description": "Property. Content of the message that is to be transported.. resourceID:'1'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string"
+        },
+        "Hash": {
+          "description": "Property. Hash to check the consistency of the data payload. Hash mechanism and calculation is vendor-specific.. resourceID:'2'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Cumulated daily data volume up": {
+          "description": "Property. Cumulated volume of data received by the device since beginning of the day. This information could be used for data invoicing.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'B'.",
+          "type": "integer"
+        },
+        "Cumulated daily data volume down": {
+          "description": "Property. Cumulated volume of data sent by the device since beginning of the day. This information could be used for data invoicing.. resourceID:'4'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'B'.",
+          "type": "integer"
+        },
+        "Cumulated daily data volume total": {
+          "description": "Property. Cumulated volume of data sent and received by/from the device since beginning of the day. This information could be used for data invoicing.. resourceID:'5'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'B'.",
+          "type": "integer"
+        },
+        "Communication error": {
+          "description": "Property. Set to True if the device detects a difference in a received payload and the hash.. resourceID:'6'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Data Priority": {
+          "description": "Property. Indicates the Application data priority: 0:Immediate, 1:BestEffort, 2:Latest, 3-100: Reserved for future use. 101-254: Proprietary mode.. resourceID:'7'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Data Creation Time": {
+          "description": "Property. Indicates the data instance creation timestamp.. resourceID:'8'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Data Description": {
+          "description": "Property. Indicates the data description (e.g. \"Meter data\").. resourceID:'9'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Data Format": {
+          "description": "Property. Indicates the format of the Application Data. E.g. JSON compressed format from company XYZ.. resourceID:'10'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "App ID": {
+          "description": "Property. Indicates the destination application identifier.. resourceID:'11'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Measurement Quality Indicator": {
+          "description": "Property. Measurement quality indicator reported by a smart sensor. 0: UNCHECKED No quality checks were done because they do not exist or can not be applied. 1: REJECTED WITH CERTAINTY The measured value is invalid. 2: REJECTED WITH PROBABILITY The measured value is likely invalid. 3: ACCEPTED BUT SUSPICIOUS The measured value is likely OK. 4: ACCEPTED The measured value is OK. 5-15: Reserved for future extensions. 16-23: Vendor specific measurement quality.. resourceID:'6042'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        },
+        "Measurement Quality Level": {
+          "description": "Property. Measurement quality level reported by a smart sensor. Quality level 100 means that the measurement has fully passed quality check algorithms. Smaller quality levels mean that quality has decreased and the measurement has only partially passed quality check algorithms. The smaller the quality level, the more caution should be used by the application when using the measurement. When the quality level is 0 it means that the measurement should certainly be rejected.. resourceID:'6049'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Payload"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Time synchronization/schema.json",
+  "title": "Smart Data Models - Ucifi / Time synchronization",
+  "description": "The uCIFI time synchronization object enables a device to sync-up its internal clock with a remote NTP server.. objectID:'3415'. objectURN:'urn:oma:lwm2m:ext:3415:2.0'. lwm2mVersion:'1.0'. objectVersion:'2.0'. multipleInstances:'Single'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3415.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Time synchronization"
+          ],
+          "description": "Property. It must be equal to `Time synchronization`."
+        },
+        "NTP server address": {
+          "description": "Property. Hostname or IP address of the Network Time Protocol server.. resourceID:'1'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string"
+        },
+        "Backup NTP server address": {
+          "description": "Property. Hostname or IP address of a backup NTP server to be used in case the main NTP server does not respond.. resourceID:'2'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "NTP period": {
+          "description": "Property. Number of hours before which the device tries to reach the NTP server for time synchronization.. resourceID:'3'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'h'.",
+          "type": "integer"
+        },
+        "Last time sync": {
+          "description": "Property. Last time at which a successful time synchronization occurred.. resourceID:'4'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'h'.",
+          "type": "integer"
+        },
+        "Time sync error": {
+          "description": "Property. Set to True in case the latest time synchronization operation failed. Set to False in case the last operation succeeded.. resourceID:'5'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "NTP server address"
+      ]
+    }
+  ]
+}

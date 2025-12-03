@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Parking Sensor/schema.json",
+  "title": "Smart Data Models - Ucifi / Parking Sensor",
+  "description": "The uCIFI parking sensor provides actual and cumulated occupancy duration as well as forbidden parking detection.. objectID:'3431'. objectURN:'urn:oma:lwm2m:ext:3431:1.2'. lwm2mVersion:'1.0'. objectVersion:'1.2'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3431.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Parking Sensor"
+          ],
+          "description": "Property. It must be equal to `Parking Sensor`."
+        },
+        "Occupancy": {
+          "description": "Property. Set to True if the parking place is occupied. Set to False if the parking place is free.. resourceID:'1'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "boolean"
+        },
+        "Duration": {
+          "description": "Property. Number of seconds since the parking place is occupied. If not occupied, duration shows the duration of the last occupation.. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "integer"
+        },
+        "Daily Duration": {
+          "description": "Property. Cumulated occupation time since beginning of the day.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "integer"
+        },
+        "Forbidden parking detected": {
+          "description": "Property. Set to True if the vehicle present on the parking place is not authorized. Set to False if parking place is free or if the vehicle is authorized.. resourceID:'4'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Type of Sensor": {
+          "description": "Property. Type of sensor (e.g. PIR, camera).. resourceID:'5'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Occupancy Start Time": {
+          "description": "Property. Timestamp when the parking occupancy started. If not occupied, shows the starts of the last occupation.. resourceID:'6'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Parking Area": {
+          "description": "Property. Identification of the parking area. resourceID:'7'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Parking Lot": {
+          "description": "Property. Identification of the parking lot. resourceID:'8'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "License Plate": {
+          "description": "Property. Identification of license plate of parked vehicle. If not occupied, shows the license plate of the last occupation\nIf unkown, an empty string is returned. resourceID:'9'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Vendor Attributes": {
+          "description": "Property. Additional attributes that could be provided by vendor. resourceID:'10'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Measurement Quality Indicator": {
+          "description": "Property. Measurement quality indicator reported by a smart sensor. 0: UNCHECKED No quality checks were done because they do not exist or can not be applied. 1: REJECTED WITH CERTAINTY The measured value is invalid. 2: REJECTED WITH PROBABILITY The measured value is likely invalid. 3: ACCEPTED BUT SUSPICIOUS The measured value is likely OK. 4: ACCEPTED The measured value is OK. 5-15: Reserved for future extensions. 16-23: Vendor specific measurement quality.. resourceID:'6042'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        },
+        "Measurement Quality Level": {
+          "description": "Property. Measurement quality level reported by a smart sensor. Quality level 100 means that the measurement has fully passed quality check algorithms. Smaller quality levels mean that quality has decreased and the measurement has only partially passed quality check algorithms. The smaller the quality level, the more caution should be used by the application when using the measurement. When the quality level is 0 it means that the measurement should certainly be rejected.. resourceID:'6049'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Occupancy"
+      ]
+    }
+  ]
+}

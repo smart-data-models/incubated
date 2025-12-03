@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Program Manager/schema.json",
+  "title": "Smart Data Models - Ucifi / Program Manager",
+  "description": "The uCIFI Program Manager describes the scheduling capabilities of the device, referring to Program Schedulers, Program Functions, Calendar Rules and Filters.. objectID:'3457'. objectURN:'urn:oma:lwm2m:ext:3457'. lwm2mVersion:'1.0'. objectVersion:'1.0'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3457.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Program Manager"
+          ],
+          "description": "Property. It must be equal to `Program Manager`."
+        },
+        "Max number of Program Schedulers": {
+          "description": "Property. Maximum number of program schedulers supported by the device.\nCan be eventually adjusted in order to reserve more or less memory.. resourceID:'0'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "integer"
+        },
+        "Current number of Program Schedulers": {
+          "description": "Property. Number of program schedulers currently allocated.. resourceID:'1'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "integer"
+        },
+        "Max number of Program Functions": {
+          "description": "Property. Maximum number of program functions supported by the device.\nCan be eventually adjusted in order to reserve more or less memory.. resourceID:'2'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "integer"
+        },
+        "Current number of Program Functions": {
+          "description": "Property. Number of program functions currently allocated.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "integer"
+        },
+        "Max number of Calendars": {
+          "description": "Property. Maximum number of calendars supported by the device.\nCan be eventually adjusted in order to reserve more or less memory.. resourceID:'4'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "integer"
+        },
+        "Current number of Calendar": {
+          "description": "Property. Number of calendars currently allocated.. resourceID:'5'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "integer"
+        },
+        "Max number of Actuators": {
+          "description": "Property. Maximum number of target actuators supported.\nCan be eventually adjusted in order to reserve more or less memory.. resourceID:'6'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "integer"
+        },
+        "Max number of Input Sources": {
+          "description": "Property. Maximum number of input sources supported.\nCan be eventually adjusted in order to reserve more or less memory.. resourceID:'7'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Max number of Dates in Calendar": {
+          "description": "Property. Maximum number of start/end date in Calendar supported.\nCan be eventually adjusted in order to reserve more or less memory.. resourceID:'8'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Max Flash Memory Allocated": {
+          "description": "Property. Max flash memory (in bytes) to be allocated.\nCan be eventually adjusted in order to reserve more or less memory. resourceID:'9'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'B'.",
+          "type": "integer"
+        },
+        "Flash Memory Free": {
+          "description": "Property. Free flash memory in bytes. resourceID:'10'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'B'.",
+          "type": "integer"
+        },
+        "Error Conditions": {
+          "description": "Property. Bitmap\nBit 0: No valid program \nBit 1: Missing configuration objects \nBit 2: Missing configuration resources \nBit 3: Invalid inputs\nBit 4: Invalid outputs\nBit 5: Invalid function format\nBit 6: Out of storage memory\nBit 7: Out of runtime memory\nBit 8..31: reserved for future use. resourceID:'11'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "integer"
+        },
+        "Clear errors": {
+          "description": "Property. When executed, clears temporary error conditions.\nTo be noted that some of the errors may require to change the content of other objects to be completely cleared. [Executable resource]. resourceID:'12'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Supported Capabilities": {
+          "description": "Property. Bitmap\nBit 0: Astronomical Events\nBit 1: Single sensor Inputs\nBit 2: Multi Sensor Inputs\nBit 3: Input Filters\nBit 4: Output Filters\nBit 5: Calendar\nBit 6: Compound Operations\nBit 7: Second granularity (for fixed time expressions)\nBit 8: Astronomical Midnight\nBit 9: Off when inactive. resourceID:'13'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Max Dynamic Memory Allocated": {
+          "description": "Property. Max RAM memory (in bytes) to be allocated.\nCan be eventually adjusted in order to reserve more or less memory. resourceID:'14'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'B'.",
+          "type": "integer"
+        },
+        "Dynamic Memory Free": {
+          "description": "Property. Free RAM memory in bytes. resourceID:'15'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'B'.",
+          "type": "integer"
+        },
+        "Reset schedule objects": {
+          "description": "Property. When executed, trigger a complete wipe of schedules already commissioned [Executable resource]. resourceID:'16'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Max number of Program Schedulers",
+        "Current number of Program Schedulers",
+        "Max number of Program Functions",
+        "Current number of Program Functions",
+        "Max number of Calendars",
+        "Current number of Calendar",
+        "Max number of Actuators",
+        "Max Flash Memory Allocated",
+        "Error Conditions"
+      ]
+    }
+  ]
+}

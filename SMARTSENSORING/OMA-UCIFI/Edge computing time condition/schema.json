@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Edge computing time condition/schema.json",
+  "title": "Smart Data Models - Ucifi / Edge computing time condition",
+  "description": "The uCIFI edge computing time condition object defines the day/time (defined as a CRON rule) at which a particular script should be executed by a device.. objectID:'3438'. objectURN:'urn:oma:lwm2m:ext:3438'. lwm2mVersion:'1.0'. objectVersion:'1.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3438.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Edge computing time condition"
+          ],
+          "description": "Property. It must be equal to `Edge computing time condition`."
+        },
+        "Execution time/day": {
+          "description": "Property. Date/time at which the script should be executed, formatted as a CRON rule.. resourceID:'1'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "string"
+        },
+        "Script identifier": {
+          "description": "Property. Object URN/Resource ID of the script to apply to the times/days defined in the execution time/day resource.. resourceID:'2'. operations:'RW'. multipleInstances:'Multiple'. mandatory:'Mandatory'.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Non supported time condition": {
+          "description": "Property. Set to True if the device can’t support the condition.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Execution time/day",
+        "Script identifier"
+      ]
+    }
+  ]
+}

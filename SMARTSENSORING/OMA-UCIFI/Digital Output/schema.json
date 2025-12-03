@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Digital Output/schema.json",
+  "title": "Smart Data Models - Ucifi / Digital Output",
+  "description": "Generic digital output for non-specific actuators. objectID:'3201'. objectURN:'urn:oma:lwm2m:ext:3201:1.1'. lwm2mVersion:'1.0'. objectVersion:'1.1'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3201.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Digital Output"
+          ],
+          "description": "Property. It must be equal to `Digital Output`."
+        },
+        "Digital Output State": {
+          "description": "Property. The current state of a digital output.. resourceID:'5550'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "boolean"
+        },
+        "Digital Output Polarity": {
+          "description": "Property. The polarity of the digital output as a Boolean (False = Normal, True = Reversed).. resourceID:'5551'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Application Type": {
+          "description": "Property. The application type of the sensor or actuator as a string depending on the use case.. resourceID:'5750'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Digital Output State"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Digital Input/schema.json",
+  "title": "Smart Data Models - Ucifi / Digital Input",
+  "description": "Generic digital input for non-specific sensors. objectID:'3200'. objectURN:'urn:oma:lwm2m:ext:3200:1.1'. lwm2mVersion:'1.0'. objectVersion:'1.1'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/3200.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Digital Input"
+          ],
+          "description": "Property. It must be equal to `Digital Input`."
+        },
+        "Digital Input State": {
+          "description": "Property. The current state of a digital input.. resourceID:'5500'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "boolean"
+        },
+        "Digital Input Counter": {
+          "description": "Property. The cumulative value of active state detected.. resourceID:'5501'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Digital Input Polarity": {
+          "description": "Property. The polarity of the digital input as a Boolean (False = Normal, True = Reversed).. resourceID:'5502'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Digital Input Debounce": {
+          "description": "Property. The debounce period in ms.. resourceID:'5503'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'ms'.",
+          "type": "integer"
+        },
+        "Digital Input Edge Selection": {
+          "description": "Property. The edge selection as an integer (1 = Falling edge, 2 = Rising edge, 3 = Both Rising and Falling edge).. resourceID:'5504'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "Digital Input Counter Reset": {
+          "description": "Property. Reset the Counter value. [Executable resource]. resourceID:'5505'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Application Type": {
+          "description": "Property. The application type of the sensor or actuator as a string depending on the use case.. resourceID:'5750'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Sensor Type": {
+          "description": "Property. The type of the sensor (for instance PIR type).. resourceID:'5751'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "string"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Digital Input State"
+      ]
+    }
+  ]
+}

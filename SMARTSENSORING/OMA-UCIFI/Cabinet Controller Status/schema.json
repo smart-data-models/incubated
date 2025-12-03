@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Cabinet Controller Status/schema.json",
+  "title": "Smart Data Models - Ucifi / Cabinet Controller Status",
+  "description": "The OMA Cabinet Controller Status shall provide electrical measurements related to street lines.. objectID:'600'. objectURN:'urn:oma:lwm2m:oma:600'. lwm2mVersion:'1.0'. objectVersion:'1.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/600.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Cabinet Controller Status"
+          ],
+          "description": "Property. It must be equal to `Cabinet Controller Status`."
+        },
+        "Total Current of all three phases": {
+          "description": "Property. Sum of current measured on all three lines.. resourceID:'1'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'A'.",
+          "type": "number"
+        },
+        "Overall Power Factor": {
+          "description": "Property. Overall power factor.. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "Low power factor": {
+          "description": "Property. Set to True when the overall power factor is below low power factor threshold.. resourceID:'3'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Total active power": {
+          "description": "Property. Total active power import on the 3 lines.. resourceID:'4'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'W'.",
+          "type": "number"
+        },
+        "Total reactive power": {
+          "description": "Property. Total reactive power import on the 3 lines.. resourceID:'5'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'var'.",
+          "type": "number"
+        },
+        "Total apparent power": {
+          "description": "Property. Total apparent power import on the 3 lines.. resourceID:'6'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'VA'.",
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1
+        },
+        "Total active energy": {
+          "description": "Property. Active energy import (unified rate) on the 3 lines.. resourceID:'7'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'Wh'.",
+          "type": "number"
+        },
+        "Total reactive energy": {
+          "description": "Property. Reactive energy import, unified rate, on the 3 lines.. resourceID:'8'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'varh'.",
+          "type": "number"
+        },
+        "Frequency": {
+          "description": "Property. Line frequency measured.. resourceID:'9'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'Hz'.",
+          "type": "number"
+        },
+        "Averaging period": {
+          "description": "Property. Seconds over which averaging themeasurements. If 0 or omitted means thatthe measurements are instantaneous.. resourceID:'10'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "integer"
+        },
+        "Excessive load": {
+          "description": "Property. True if an excessive load is detected, e.g when too much current is being imported. resourceID:'11'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Unexpected load": {
+          "description": "Property. True if an unexpected load is detected, e.g when current is imported despite the load being supposed to be disconnected. resourceID:'12'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L1 Voltage": {
+          "description": "Property. Instantaneous voltage measured between line 1 and neutral.. resourceID:'13'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'V'.",
+          "type": "number"
+        },
+        "L2 Voltage": {
+          "description": "Property. Instantaneous voltage measured between line 2 and neutral.. resourceID:'14'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'V'.",
+          "type": "number"
+        },
+        "L3 Voltage": {
+          "description": "Property. Instantaneous voltage measured between line 3 and neutral.. resourceID:'15'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'V'.",
+          "type": "number"
+        },
+        "L1 Low voltage": {
+          "description": "Property. Set to True when voltage 1 is below low voltage threshold.. resourceID:'16'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L2 Low voltage": {
+          "description": "Property. Set to True when voltage 2 is below low voltage threshold.. resourceID:'17'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L3 Low voltage": {
+          "description": "Property. Set to True when voltage 3 is below low voltage threshold.. resourceID:'18'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L1 High voltage": {
+          "description": "Property. Set to True when voltage 1 is above high voltage threshold.. resourceID:'19'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L2 High voltage": {
+          "description": "Property. Set to True when voltage 2 is above high voltage threshold.. resourceID:'20'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L3 High voltage": {
+          "description": "Property. Set to True when voltage 3 is above high voltage threshold.. resourceID:'21'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L1 Current": {
+          "description": "Property. Instantaneous current measured.. resourceID:'22'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'A'.",
+          "type": "number"
+        },
+        "L2 Current": {
+          "description": "Property. Instantaneous current measured.. resourceID:'23'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'A'.",
+          "type": "number"
+        },
+        "L3 Current": {
+          "description": "Property. Instantaneous current measured.. resourceID:'24'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'. units:'A'.",
+          "type": "number"
+        },
+        "L1 Low current": {
+          "description": "Property. Set to True when current 1 is below low current threshold.. resourceID:'25'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L2 Low current": {
+          "description": "Property. Set to True when current 2 is below low current threshold.. resourceID:'26'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L3 Low current": {
+          "description": "Property. Set to True when current 3 is below low current threshold.. resourceID:'27'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L1 High current": {
+          "description": "Property. Set to True when current 1 is above high current threshold.. resourceID:'28'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L2 High current": {
+          "description": "Property. Set to True when current 2 is above high current threshold.. resourceID:'29'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L3 High current": {
+          "description": "Property. Set to True when current 3 is above high current threshold.. resourceID:'30'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L1 Unexpected load": {
+          "description": "Property. True if an unexpected load is detected on line 1, e.g when current is consumed despite the load is supposed to be disconnected. resourceID:'31'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L2 Unexpected load": {
+          "description": "Property. True if an unexpected load is detected on line 2, e.g when current is consumed despite the load is supposed to be disconnected. resourceID:'32'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "L3 Unexpected load": {
+          "description": "Property. True if an unexpected load is detected on line 3, e.g when current is consumed despite the load is supposed to be disconnected. resourceID:'33'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Meter ID": {
+          "description": "Property. Can be used to eventually associateseparate sets of measurements beingprovided with different averaging periods. resourceID:'34'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Low voltage threshold": {
+          "description": "Property. Set to True when voltage is below low voltage threshold.. resourceID:'35'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "High voltage threshold": {
+          "description": "Property. Threshold above which the high voltage resource is set to True.. resourceID:'36'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "Low current threshold": {
+          "description": "Property. Threshold below which the low current resource is set to True.. resourceID:'37'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'A'.",
+          "type": "number"
+        },
+        "High current threshold": {
+          "description": "Property. Threshold above which the high current resource is set to True.. resourceID:'38'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'V'.",
+          "type": "number"
+        },
+        "Low power factor threshold": {
+          "description": "Property. Threshold below which the low power factor resource is set to True.. resourceID:'39'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "number"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Measurement Quality Indicator": {
+          "description": "Property. Measurement quality indicator reported by a smart sensor. 0: UNCHECKED No quality checks were done because they do not exist or can not be applied. 1: REJECTED WITH CERTAINTY The measured value is invalid. 2: REJECTED WITH PROBABILITY The measured value is likely invalid. 3: ACCEPTED BUT SUSPICIOUS The measured value is likely OK. 4: ACCEPTED The measured value is OK. 5-15: Reserved for future extensions. 16-23: Vendor specific measurement quality.. resourceID:'6042'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        },
+        "Measurement Quality Level": {
+          "description": "Property. Measurement quality level reported by a smart sensor. Quality level 100 means that the measurement has fully passed quality check algorithms. Smaller quality levels mean that quality has decreased and the measurement has only partially passed quality check algorithms. The smaller the quality level, the more caution should be used by the application when using the measurement. When the quality level is 0 it means that the measurement should certainly be rejected.. resourceID:'6049'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Total Current of all three phases",
+        "Total active power",
+        "Total reactive power",
+        "Total active energy",
+        "Total reactive energy",
+        "L1 Voltage",
+        "L2 Voltage",
+        "L3 Voltage",
+        "L1 Current",
+        "L2 Current",
+        "L3 Current"
+      ]
+    }
+  ]
+}

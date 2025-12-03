@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Ucifi/Cabinet Controller Manager/schema.json",
+  "title": "Smart Data Models - Ucifi / Cabinet Controller Manager",
+  "description": "The OMA Cabinet Controller Manager shall provide settings and alarms for corresponding Cabinet Controllers.. objectID:'601'. objectURN:'urn:oma:lwm2m:oma:601'. lwm2mVersion:'1.0'. objectVersion:'1.0'. multipleInstances:'Multiple'. mandatory:'Optional'.",
+  "modelTags": "UCIFI LwM2M",
+  "derivedFrom": "https://raw.githubusercontent.com/OpenMobileAlliance/lwm2m-registry/prod/601.xml",
+  "license": "https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/License/OMA-License.txt",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Cabinet Controller Manager"
+          ],
+          "description": "Property. It must be equal to `Cabinet Controller Manager`."
+        },
+        "Interface speed": {
+          "description": "Property. Speed of communication interface (e.g.serial).. resourceID:'1'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'bit/s'.",
+          "type": "integer"
+        },
+        "Interface alarm": {
+          "description": "Property. If true, communication failure with thecontroller interface.. resourceID:'2'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Number of relays": {
+          "description": "Property. Number of relays managed by theCabinet Controller. It will determine thenumber of available Relay Controlresources.. resourceID:'3'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "Number of meters": {
+          "description": "Property. Number of meters managed by theCabinet Controller. It will determine thenumber of Cabinet Controller Statusinstances that will be registered.. resourceID:'4'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "integer"
+        },
+        "Number of inputs": {
+          "description": "Property. Number of inputs managed by theCabinet Controller. It will determine thenumber of available Input Statusresources.. resourceID:'5'. operations:'RW'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "Meter reading period": {
+          "description": "Property. Interval of internal data update.. resourceID:'6'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "integer"
+        },
+        "Meter notification period": {
+          "description": "Property. Interval of autonomous measurementsnotifications.. resourceID:'7'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "integer"
+        },
+        "Alarm reading period": {
+          "description": "Property. Interval of internal alarms update.. resourceID:'8'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "integer"
+        },
+        "GSM error": {
+          "description": "Property. Error within the GSM module.. resourceID:'9'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "GPRS error": {
+          "description": "Property. Error within the GPRS module.. resourceID:'10'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "GPS error": {
+          "description": "Property. Error within the GPS module.. resourceID:'11'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Meter error": {
+          "description": "Property. Error within the meter.. resourceID:'12'. operations:'R'. multipleInstances:'Single'. mandatory:'Mandatory'.",
+          "type": "boolean"
+        },
+        "Main voltage error": {
+          "description": "Property. Error related to the main supply voltage.. resourceID:'13'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Tamper alert": {
+          "description": "Property. Tamper detected.. resourceID:'14'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Leakage detected": {
+          "description": "Property. Leakage detected.. resourceID:'15'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Door open": {
+          "description": "Property. When the cabinet door open some functionalities may be inhibited.. resourceID:'16'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Test mode": {
+          "description": "Property. When the cabinet door open some functionalities may be inhibited. [Executable resource]. resourceID:'20'. operations:'E'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "null"
+        },
+        "Relay #0 control": {
+          "description": "Property. Control relay output.. resourceID:'100'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Relay #1 control": {
+          "description": "Property. Control relay output.. resourceID:'101'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Relay #2 control": {
+          "description": "Property. Control relay output.. resourceID:'102'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Relay #3 control": {
+          "description": "Property. Control relay output.. resourceID:'103'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Relay #4 control": {
+          "description": "Property. Control relay output.. resourceID:'104'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Relay #5 control": {
+          "description": "Property. Control relay output.. resourceID:'105'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Relay #6 control": {
+          "description": "Property. Control relay output.. resourceID:'106'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Relay #7 control": {
+          "description": "Property. Control relay output.. resourceID:'107'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Relay #8 control": {
+          "description": "Property. Control relay output.. resourceID:'108'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Relay #9 control": {
+          "description": "Property. Control relay output.. resourceID:'109'. operations:'RW'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Input #0 status": {
+          "description": "Property. Input status.. resourceID:'200'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Input #1 status": {
+          "description": "Property. Input status.. resourceID:'201'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Input #2 status": {
+          "description": "Property. Input status.. resourceID:'202'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Input #3 status": {
+          "description": "Property. Input status.. resourceID:'203'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Input #4 status": {
+          "description": "Property. Input status.. resourceID:'204'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Input #5 status": {
+          "description": "Property. Input status.. resourceID:'205'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Input #6 status": {
+          "description": "Property. Input status.. resourceID:'206'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Input #7 status": {
+          "description": "Property. Input status.. resourceID:'207'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Input #8 status": {
+          "description": "Property. Input status.. resourceID:'208'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Input #9 status": {
+          "description": "Property. Input status.. resourceID:'209'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "boolean"
+        },
+        "Timestamp": {
+          "description": "Property. The timestamp of when the measurement was performed.. resourceID:'5518'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer"
+        },
+        "Fractional Timestamp": {
+          "description": "Property. Fractional part of the timestamp when sub-second precision is used (e.g., 0.23 for 230 ms).. resourceID:'6050'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'. units:'s'.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "Measurement Quality Indicator": {
+          "description": "Property. Measurement quality indicator reported by a smart sensor. 0: UNCHECKED No quality checks were done because they do not exist or can not be applied. 1: REJECTED WITH CERTAINTY The measured value is invalid. 2: REJECTED WITH PROBABILITY The measured value is likely invalid. 3: ACCEPTED BUT SUSPICIOUS The measured value is likely OK. 4: ACCEPTED The measured value is OK. 5-15: Reserved for future extensions. 16-23: Vendor specific measurement quality.. resourceID:'6042'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        },
+        "Measurement Quality Level": {
+          "description": "Property. Measurement quality level reported by a smart sensor. Quality level 100 means that the measurement has fully passed quality check algorithms. Smaller quality levels mean that quality has decreased and the measurement has only partially passed quality check algorithms. The smaller the quality level, the more caution should be used by the application when using the measurement. When the quality level is 0 it means that the measurement should certainly be rejected.. resourceID:'6049'. operations:'R'. multipleInstances:'Single'. mandatory:'Optional'.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "Number of relays",
+        "Number of meters",
+        "Number of inputs",
+        "Meter error"
+      ]
+    }
+  ]
+}
