@@ -217,6 +217,9 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
             output_json[prop] = json_data[prop]
             if prop == "resourceType":
                 output_json["type"] = output_json["resourceType"]
+            # get id in the example file
+            # if prop == "id":
+            #     output_json["id"] = "urn:ngsi-ld:" + json_data[prop] + ":" + json_data["id"]
         else:
             if prop == "hl7Type" and "type" in json_data:
                 # hl7Type is a translation of HL7 originated type in NGSI, to not conflict with type in NGSI standard
@@ -331,10 +334,12 @@ def prepare_example_json(json_data :dict, schema :dict, base_definitions :dict, 
     if "resourceType" in output_json:
         # add NGSI "type" from "resourceType"
         output_json["type"] = output_json["resourceType"]
-        # add NGSI id property to the output json object
-        output_json["id"] = "urn:ngsi-ld:" + output_json["resourceType"] + ":001"
-        # update description property in the output json object
-        output_json["description"] = "an instance of " + output_json["resourceType"]
+    # add NGSI id property to the output json object
+    if "id" not in output_json :
+        end = json_data["id"] if "id" in json_data else "001"
+        output_json["id"] = "urn:ngsi-ld:" + output_json["resourceType"] + ":" + end
+    # update description property in the output json object
+    # output_json["description"] = "an instance of " + output_json["resourceType"]
     return output_json
     ##-----------------------
 
