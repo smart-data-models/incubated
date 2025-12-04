@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "ROS2",
+  "$id": "https://smart-data-models.github.io/dataModel.ROS2/sensor_msgs_batteryState/schema.json",
+  "title": "Smart Data Models - ROS2 sensor_msgs/BatteryState",
+  "description": "Represents the state of a battery, including voltage, current, charge, capacity, and health status",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "SensorMsgsBatteryState"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It must be equal to SensorMsgsBatteryState"
+        },
+        "header": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/StructuredValue'. Message header with timestamp and frame information",
+          "properties": {
+            "stamp": {
+              "type": "object",
+              "description": "Property. Timestamp",
+              "properties": {
+                "sec": {
+                  "type": "integer",
+                  "description": "Property. Seconds component of timestamp"
+                },
+                "nanosec": {
+                  "type": "integer",
+                  "description": "Property. Nanoseconds component of timestamp"
+                }
+              }
+            },
+            "frameId": {
+              "type": "string",
+              "description": "Property. Reference frame identifier"
+            }
+          },
+          "required": ["frameId"]
+        },
+        "voltage": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Voltage in Volts (V). NaN if not available"
+        },
+        "temperature": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Temperature in Celsius (°C). NaN if not available"
+        },
+        "current": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Current in Amperes (A). Negative indicates discharging. NaN if not available"
+        },
+        "charge": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Current charge in Ampere-hours (Ah). NaN if not available"
+        },
+        "capacity": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Total capacity in Ampere-hours (Ah). NaN if not available"
+        },
+        "designCapacity": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Design capacity in Ampere-hours (Ah). NaN if not available"
+        },
+        "percentage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Property. Model:'https://schema.org/Number'. Charge percentage (0.0 to 1.0). NaN if not available"
+        },
+        "powerSupplyStatus": {
+          "type": "integer",
+          "description": "Property. Power supply status constant. 0=UNKNOWN, 1=CHARGING, 2=DISCHARGING, 3=NOT_CHARGING, 4=FULL",
+          "enum": [0, 1, 2, 3, 4]
+        },
+        "powerSupplyHealth": {
+          "type": "integer",
+          "description": "Property. Power supply health constant. 0=UNKNOWN, 1=GOOD, 2=OVERHEAT, 3=DEAD, 4=OVERVOLTAGE, 5=UNSPEC_FAILURE, 6=COLD, 7=WATCHDOG_TIMER_EXPIRE, 8=SAFETY_TIMER_EXPIRE",
+          "enum": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+        },
+        "powerSupplyTechnology": {
+          "type": "integer",
+          "description": "Property. Power supply technology constant. 0=UNKNOWN, 1=NIMH, 2=LION, 3=LIPO, 4=LIFE, 5=NICD, 6=LIMN",
+          "enum": [0, 1, 2, 3, 4, 5, 6]
+        },
+        "present": {
+          "type": "boolean",
+          "description": "Property. True if the battery is present"
+        },
+        "cellVoltage": {
+          "type": "array",
+          "description": "Property. Individual cell voltages in Volts (V). Empty array if not available",
+          "items": {
+            "type": "number"
+          }
+        },
+        "cellTemperature": {
+          "type": "array",
+          "description": "Property. Individual cell temperatures in Celsius (°C). Empty array if not available",
+          "items": {
+            "type": "number"
+          }
+        },
+        "location": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Battery location identifier"
+        },
+        "serialNumber": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Battery serial number"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "header",
+    "voltage",
+    "present"
+  ]
+}
