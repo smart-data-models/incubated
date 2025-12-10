@@ -55,19 +55,65 @@
         },
         "cliArgs": {
           "type": "array",
-          "description": "Property. Command line arguments (in key-value format) that are needed to run the component."
+          "description": "Property. Command line arguments (in key-value format) that are needed to run the component.",
+          "items": {
+            "type": "object",
+            "minItems": 1,
+            "description": "Property. Command line argument (in key-value format, the value can be empty).",
+            "properties": {
+              "key": {
+                "type": "string",
+                "description": "Command line argument name or key, it can start with a dash (-) for short options or two dashes (--) for long options."
+              },
+              "value": {
+                "type": "string",
+                "description": "Command line argument value (optional)."
+              }
+            },
+            "required": ["key"],
+            "additionalProperties": false
+          }
         },
         "envVars": {
           "type": "array",
-          "description": "Property. Environment variables (in key-value format) that are needed to run the component."
+          "description": "Property. Environment variables (in key-value format) that are needed to run the component.",
+          "items": {
+            "type": "object",
+            "minItems": 1,
+            "description": "Property. Environment variable (in key-value format).",
+            "properties": {
+              "key": {
+                "type": "string",
+                "description": "Environment variable name."
+              },
+              "value": {
+                "type": "string",
+                "description": "Environment variable value."
+              }
+            },
+            "required": ["key", "value"],
+            "additionalProperties": false
+          }
         },
         "networkPorts": {
           "type": "array",
-          "description": "Relationship. Network ports that are used by the component."
+          "description": "Relationship. Network ports that are exposed by the component.",
+          "items": {
+            "type": "string",
+            "format": "uri",
+            "minItems": 1,
+            "description": "Relationship. NetworkPort exposed by the component."
+          }
         },
         "persistentStorage": {
           "type": "array",
-          "description": "Relationship. Requirements of persistent storage that are needed for running the component."
+          "description": "Relationship. Requirements of persistent storage that are needed for running the component.",
+          "items": {
+            "type": "string",
+            "format": "uri",
+            "minItems": 1,
+            "description": "Relationship. PersistentStorage needed for running the component."
+          }
         },
         "isJob": {
           "type": "boolean",
