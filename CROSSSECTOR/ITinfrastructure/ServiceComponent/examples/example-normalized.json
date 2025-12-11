@@ -1,0 +1,80 @@
+{
+  "id": "Service:WebApp01:Component:Backend",
+  "type": "ServiceComponent",
+  "infrastructureElement": {
+    "type": "Relationship",
+    "value": "InfrastructureElement:Cloud:00155dc09474"
+  },
+  "service": {
+    "type": "Relationship",
+    "object": "Service:WebApp01"
+  },
+  "serviceComponentStatus": {
+    "type": "Text",
+    "value": "Starting"
+  },
+  "infrastructureElementRequirements": {
+    "type": "Relationship",
+    "value": "Service:WebApp01:Component:Backend:InfrastructureElementRequirements"
+  },
+  "containerImage": {
+    "type": "Property",
+    "value": "ravaga/webapp-backend:1.5.1"
+  },
+  "cliArgs": {
+    "type": "StructuredValue",
+    "value": [
+      {
+        "key": "-app-env",
+        "value": "production"
+      },
+      {
+        "key": "-db-url",
+        "value": "http://db-svc.default.svc.cluster.local:27017"
+      }
+    ]
+  },
+  "envVars": {
+    "type": "StructuredValue",
+    "value": [
+      {
+        "key": "APP_ENV",
+        "value": "production"
+      },
+      {
+        "key": "DB_URL",
+        "value": "http://db-svc.default.svc.cluster.local:27017"
+      }
+    ]
+  },
+  "networkPorts": {
+    "type": "Relationship",
+    "value": [
+      "Service:WebApp01:Component:Backend:NetworkPort:01",
+      "Service:WebApp01:Component:Backend:NetworkPort:02"
+    ]
+  },
+  "persistentStorage": {
+    "type": "Relationship",
+    "value": [
+      "Service:WebApp01:Component:Backend:PersistentStorage:01",
+      "Service:WebApp01:Component:Backend:PersistentStorage:02"
+    ]
+  },
+  "isJob": {
+    "type": "Boolean",
+    "value": false
+  },
+  "overlayNetworkIP": {
+    "type": "Text",
+    "value": "10.0.0.15"
+  },
+  "currentCpuUsage": {
+    "type": "Number",
+    "value": 0.25
+  },
+  "currentMemoryUsage": {
+    "type": "Number",
+    "value": 512
+  }
+}

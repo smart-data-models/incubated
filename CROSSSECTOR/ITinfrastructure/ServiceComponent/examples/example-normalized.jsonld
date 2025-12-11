@@ -1,0 +1,85 @@
+{
+  "id": "urn:ngsi-ld:Service:WebApp01:Component:Backend",
+  "type": "ServiceComponent",
+  "infrastructureElement": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:InfrastructureElement:Cloud:00155dc09474"
+  },
+  "service": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:Service:WebApp01"
+  },
+  "serviceComponentStatus": {
+    "type": "Property",
+    "value": "Starting"
+  },
+  "infrastructureElementRequirements": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:Service:WebApp01:Component:Backend:InfrastructureElementRequirements"
+  },
+  "containerImage": {
+    "type": "Property",
+    "value": "ravaga/webapp-backend:1.5.1"
+  },
+  "cliArgs": {
+    "type": "Property",
+    "value": [
+      {
+        "key": "-app-env",
+        "value": "production"
+      },
+      {
+        "key": "-db-url",
+        "value": "http://db-svc.default.svc.cluster.local:27017"
+      }
+    ]
+  },
+  "envVars": {
+    "type": "Property",
+    "value": [
+      {
+        "key": "APP_ENV",
+        "value": "production"
+      },
+      {
+        "key": "DB_URL",
+        "value": "http://db-svc.default.svc.cluster.local:27017"
+      }
+    ]
+  },
+  "networkPorts": {
+    "type": "Relationship",
+    "object": [
+      "urn:ngsi-ld:Service:WebApp01:Component:Backend:NetworkPort:01",
+      "urn:ngsi-ld:Service:WebApp01:Component:Backend:NetworkPort:02"
+    ]
+  },
+  "persistentStorage": {
+    "type": "Relationship",
+    "object": [
+      "urn:ngsi-ld:Service:WebApp01:Component:Backend:PersistentStorage:01",
+      "urn:ngsi-ld:Service:WebApp01:Component:Backend:PersistentStorage:02"
+    ]
+  },
+  "isJob": {
+    "type": "Property",
+    "value": false
+  },
+  "overlayNetworkIP": {
+    "type": "Property",
+    "value": "10.0.0.15"
+  },
+  "currentCpuUsage": {
+    "type": "Property",
+    "value": 0.25,
+    "unit": "Cores"
+  },
+  "currentMemoryUsage": {
+    "type": "Property",
+    "value": 512,
+    "unit": "Megabytes"
+  },
+  "@context": [
+    "https://smartdatamodels.org/context.jsonld"
+  ]
+}

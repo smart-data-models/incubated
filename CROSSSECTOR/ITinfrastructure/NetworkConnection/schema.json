@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.ITinfrastructure/NetworkConnection/schema.json",
+  "title": "Smart Data Models - ITinfrastructure / NetworkConnection",
+  "description": "Network connection among two ServiceComponents.",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.ITinfrastructure/NetworkConnection/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "description": "Property. NGSI Entity type. It has to be NetworkConnection",
+          "type": "string",
+          "enum": [
+            "NetworkConnection"
+          ]
+        },
+        "linkFrom": {
+          "type": "string",
+          "description": "Relationship. ServiceComponent which needs to establish a network connection with the 'linkTo' component."
+        },
+        "linkTo": {
+          "type": "string",
+          "description": "Relationship. ServiceComponent which exposes some network ports that need to be used by the 'linkFrom' component."
+        },
+        "networkPorts": {
+          "type": "array",
+          "description": "Relationship. NetworkPorts exposed by the 'linkTo' component and used by the 'linkFrom' component.",
+          "items": {
+            "type": "string",
+            "minItems": 1,
+            "description": "Relationship. NetworkPort exposed by the 'linkTo' component and used by the 'linkFrom' component."
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Up",
+            "Down"
+          ],
+          "description": "Property. Enum:'Up', 'Down'. Status of the connection."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "linkFrom",
+    "linkTo",
+    "networkPorts",
+    "status"
+  ]
+}
