@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.ITinfrastructure/InfrastructureElement/schema.json",
+  "title": "Smart Data Models - ITinfrastructure / InfrastructureElement",
+  "description": "An Infrastructure Element (IE) is a computing node of the Cloud-Edge-IoT computing continuum that can run different ServiceComponents.",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.ITinfrastructure/InfrastructureElement/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Device/device-schema.json#/definitions/Device-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be InfrastructureElement",
+          "enum": [
+            "InfrastructureElement"
+          ]
+        },
+        "domain": {
+          "type": "string",
+          "description": "Relationship. Domain to which belongs the Infrastructure Element"
+        },
+        "hostname": {
+          "type": "string",
+          "description": "Property. Hostname (or internal name) of the Infrastructure Element."
+        },
+        "internalIpAddress": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Internal IP address of the main network interface of the Infrastructure Element."
+        },
+        "infrastructureElementStatus": {
+          "type": "string",
+          "enum": [
+            "Disabled",
+            "Insecure",
+            "Maintenance",
+            "Overloaded",
+            "Ready",
+            "Untrusted"
+          ],
+          "description": "Property. Enum:'Disabled', 'Insecure', 'Maintenance', 'Overloaded', 'Ready', 'Untrusted'. Current status of the Infrastructure Element."
+        },
+        "trustScore": {
+          "type": "number",
+          "description": "Property. Numerical score between 0 and 1 that aims to indicate the trustworthiness index of the Infrastructure Element",
+          "format" : "float",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "containerTechnology": {
+          "type": "string",
+          "enum": [
+            "Kubernetes",
+            "Docker",
+            "containerd",
+            "Podman",
+            "iSulad"
+          ],
+          "description": "Property. Enum:'Kubernetes', 'Docker', 'containerd', 'Podman', 'iSulad'. Technology or container management framework that uses the IE to run containers (so that ServiceComponents) on it."
+        },
+        "lowLevelOrchestrator": {
+          "type": "string",
+          "description": "Relationship. LowLevelOrchestrator related to the Infrastructure Element."
+        },
+        "infrastructureElementTier": {
+          "type": "string",
+          "enum": [
+            "Cloud",
+            "Edge",
+            "FarEdge",
+            "IoT",
+            "CloudOnPremises"
+          ],
+          "description": "Property. Enum:'Cloud', 'Edge', 'FarEdge', 'IoT', 'CloudOnPremises'. Architectural layer or tier in the Cloud-Edge-Iot continuum to which belongs the Infrastructure Element."
+        },
+        "operatingSystem": {
+          "type": "string",
+          "enum": [
+            "Linux",
+            "macOS",
+            "Windows"
+          ],
+          "description": "Property. Enum:'Linux', 'macOS', 'Windows'. Operating System that runs the Infrastructure Element."
+        },
+        "cpuArchitecture": {
+          "type": "string",
+          "enum": [
+            "AMD64",
+            "ARM64",
+            "ARM32",
+            "MIPS64LE",
+            "PPC64LE",
+            "RISC-V",
+            "S390X"
+          ],
+          "description": "Property. Enum:'AMD64', 'ARM64', 'ARM32', 'MIPS64LE', 'PPC64LE', 'RISC-V', 'S390X'. CPU architecture that must have the Infrastructure Element."
+        },
+        "cpuCores": {
+          "type": "number",
+          "description": "Property. Number of CPU cores of the Infrastructure Element.",
+          "minimum": 1
+        },
+        "cpuFreqMax": {
+          "type": "number",
+          "description": "Property. Units:'Megahertzs (MHz)'. Maximum CPU frequency of the Infrastructure Element."
+        },
+        "currentCpuUsage": {
+          "type": "number",
+          "description": "Property. Current percentage of CPU usage in the Infrastructure Element.",
+          "format" : "float",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "ramCapacity": {
+          "type": "number",
+          "description": "Property. Units:'Megabytes (MB)'. RAM capacity of the Infrastructure Element."
+        },
+        "availableRam": {
+          "type": "number",
+          "description": "Property. Units:'Megabytes (MB)'. Current RAM available in Infrastructure Element."
+        },
+        "currentRamUsage": {
+          "type": "number",
+          "description": "Property. Units:'Megabytes (MB)'. Current RAM in use in Infrastructure Element."
+        },
+        "currentRamUsagePct": {
+          "type": "number",
+          "description": "Property. Current percentage of RAM usage in the Infrastructure Element.",
+          "format" : "float",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "gpu": {
+          "type": "boolean",
+          "description": "Property. Indicates if the Infrastructure Element has a dedicated GPU."
+        },
+        "gpuMemory": {
+          "type": "number",
+          "description": "Property. Units:'Megabytes (MB)'. (Only if the IE has GPU) GPU memory of the Infrastructure Element."
+        },
+        "diskType": {
+          "type": "string",
+          "enum": [
+            "HDD",
+            "SSD"
+          ],
+          "description": "Property. Enum:'HDD', 'SSD'. Disk type of the Infrastructure Element."
+        },
+        "diskCapacity": {
+          "type": "number",
+          "description": "Property. Units:'Megabytes (MB)'. Maximum disk capacity of the Infrastructure Element."
+        },
+        "availableDisk": {
+          "type": "number",
+          "description": "Property. Units:'Megabytes (MB)'. Current disk space available in Infrastructure Element."
+        },
+        "currentDiskUsage": {
+          "type": "number",
+          "description": "Property. Units:'Megabytes (MB)'. Current disk usage of the Infrastructure Element."
+        },
+        "currentDiskUsagePct": {
+          "type": "number",
+          "description": "Property. Current percentage of disk usage of the Infrastructure Element.",
+          "format" : "float",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "realTimeCapable": {
+          "type": "boolean",
+          "description": "Property. Defines if the Infrastructure Element is capable of real-time processing."
+        },
+        "netSpeedUp": {
+          "type": "number",
+          "description": "Property. Units:'Megabits per second (Mbps)'. Current upload speed of the main network interface of the Infrastructure Element."
+        },
+        "netSpeedDown": {
+          "type": "number",
+          "description": "Property. Units:'Megabits per second (Mbps)'. Current download speed of the main network interface of the Infrastructure Element."
+        },
+        "netTrafficUp": {
+          "type": "number",
+          "description": "Property. Units:'Megabytes per second (MBps)'. Current upload traffic of the main network interface of the Infrastructure Element."
+        },
+        "netTrafficDown": {
+          "type": "number",
+          "description": "Property. Units:'Megabytes per second (MBps)'. Current download traffic of the main network interface of the Infrastructure Element."
+        },
+        "netLostPackages": {
+          "type": "number",
+          "description": "Property. Number of packages lost from the main network interface of the Infrastructure Element."
+        },
+        "avgPowerConsumption": {
+          "type": "number",
+          "description": "Property. Units:'Watts (W)'. Average energy consumption of the Infrastructure Element.",
+          "format" : "float"
+        },
+        "currentPowerConsumption": {
+          "type": "number",
+          "description": "Property. Units:'Watts (W)'. Current energy consumption of the Infrastructure Element.",
+          "format" : "float"
+        },
+        "powerSource": {
+          "type": "string",
+          "description": "Relationship. PowerSource which feeds the Infrastructure Element."
+        },
+        "energyEfficiencyRatio": {
+          "type": "number",
+          "description": "Property. Ratio (between 0 and 1) that aims to depict the energy efficiency of the Infrastructure Element.",
+          "format" : "float",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "domain",
+    "hostname",
+    "internalIpAddress",
+    "macAddress",
+    "lowLevelOrchestrator",
+    "operatingSystem",
+    "cpuArchitecture",
+    "infrastructureElementStatus",
+    "cpuCores",
+    "currentCpuUsage",
+    "ramCapacity",
+    "availableRam",
+    "currentRamUsage"
+  ]
+}

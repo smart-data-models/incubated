@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.ITinfrastructure/NetworkPort/schema.json",
+  "title": "Smart Data Models - ITinfrastructure / NetworkPort",
+  "description": "Network port exposed by a ServiceComponent.",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.ITinfrastructure/NetworkPort/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "description": "Property. NGSI Entity type. It has to be NetworkPort",
+          "type": "string",
+          "enum": [
+            "NetworkPort"
+          ]
+        },
+        "number": {
+          "type": "number",
+          "description": "Property. Number of the network port."
+        },
+        "protocol": {
+          "type": "string",
+          "enum": [
+            "TCP",
+            "UDP",
+            "SCTP"
+          ],
+          "description": "Property. Protocol of the network port. Enum:'TCP', 'UDP', 'SCTP'"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "number",
+    "protocol"
+  ]
+}

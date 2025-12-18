@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.ITinfrastructure/LowLevelOrchestrator/schema.json",
+  "title": "Smart Data Models - ITinfrastructure / LowLevelOrchestrator",
+  "description": "A Low Level Orchestrator of the domain, which is associated with a unique orchestration type (e.g., Kubernetes, Docker, containerd, etc.).",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.ITinfrastructure/LowLevelOrchestrator/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "description": "Property. NGSI Entity type. It has to be LowLevelOrchestrator",
+          "type": "string",
+          "enum": [
+            "LowLevelOrchestrator"
+          ]
+        },
+        "domain": {
+          "type": "string",
+          "description": "Relationship. Domain to which the Low Level Orchestrator belongs."
+        },
+        "orchestrationType": {
+          "type": "string",
+          "enum": [
+            "Kubernetes",
+            "Docker",
+            "containerd",
+            "Podman",
+            "iSulad"
+          ],
+          "description": "Property. Enum:'Kubernetes', 'Docker', 'containerd', 'Podman', 'iSulad'. Orchestration type of the Low Level Orchestrator, which is usually a container management framework."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "domain",
+    "orchestrationType"
+  ]
+}

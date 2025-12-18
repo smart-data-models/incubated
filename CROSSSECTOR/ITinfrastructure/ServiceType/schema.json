@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.ITinfrastructure/ServiceType/schema.json",
+  "title": "Smart Data Models - ITinfrastructure / ServiceType",
+  "description": "Catalogued service that can be deployed in the Cloud-Edge-IoT continuum.",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.ITinfrastructure/ServiceType/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "description": "Property. NGSI Entity type. It has to be ServiceType",
+          "type": "string",
+          "enum": [
+            "ServiceType"
+          ]
+        },
+        "webPage": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/URL'. Link to the web page of the catalogued service."
+        },
+        "license": {
+          "type": "string",
+          "description": "Property. License under which the catalogued service is provided."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "name"
+  ]
+}

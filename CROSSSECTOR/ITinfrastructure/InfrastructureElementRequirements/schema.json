@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.ITinfrastructure/InfrastructureElementRequirements/schema.json",
+  "title": "Smart Data Models - ITinfrastructure / InfrastructureElementRequirements",
+  "description": "Computing requirements that must accomplish an InfrastructureElement to run a certain ServiceComponent on it.",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.ITinfrastructure/InfrastructureElementRequirements/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "description": "Property. NGSI Entity type. It has to be InfrastructureElementRequirements",
+          "type": "string",
+          "enum": [
+            "InfrastructureElementRequirements"
+          ]
+        },
+        "infrastructureElement": {
+          "type": "string",
+          "description": "Relationship. Only if an specific InfrastructureElement has been selected to run the component."
+        },
+        "cpuArchitecture": {
+          "type": "string",
+          "enum": [
+            "AMD64",
+            "ARM64",
+            "ARM32",
+            "MIPS64LE",
+            "PPC64LE",
+            "RISC-V",
+            "S390X"
+          ],
+          "description": "Property. Enum:'AMD64', 'ARM64', 'ARM32', 'MIPS64LE', 'PPC64LE', 'RISC-V', 'S390X'. CPU architecture that must have the Infrastructure Element."
+        },
+        "diskType": {
+          "type": "string",
+          "enum": [
+            "HDD",
+            "SSD"
+          ],
+          "description": "Property. Enum:'HDD', 'SSD'. Disk type that must have the Infrastructure Element."
+        },
+        "gpu": {
+          "type": "boolean",
+          "description": "Property. Defines if the Infrastructure Element must have a GPU."
+        },
+        "realTimeCapable": {
+          "type": "boolean",
+          "description": "Property. Defines if the Infrastructure Element must be capable of real-time processing."
+        },
+        "requiredCpuUsage": {
+          "type": "number",
+          "description": "Property. Units:'CPU cores'. Required CPU usage of the component.",
+          "format" : "float"
+        },
+        "requiredMemoryUsage": {
+          "type": "number",
+          "description": "Property. Units:'Megabytes (MB)'. Required memory usage of the component."
+        },
+        "greenEnergyRatio": {
+          "type": "number",
+          "description": "Property. Ratio (between 0 and 1) of green energy that must use the power source that feeds the Infrastructure Element.",
+          "format" : "float",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "energyEfficiencyRatio": {
+          "type": "number",
+          "description": "Property. Energy efficiency ratio (between 0 and 1) that must have the Infrastructure Element.",
+          "format" : "float",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
+}
