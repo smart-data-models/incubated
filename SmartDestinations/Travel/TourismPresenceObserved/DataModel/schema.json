@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Tourism/TourismPresenceObserved/schema.json",
+  "title": "Tourism Presence Observed",
+  "modelTags": "tourism,presence,statistics",
+  "description": "Hourly observation of visitor presence at a specific location (municipality), segmented by nationality. Each entity represents one hour of observation.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "TourismPresenceObserved"
+          ],
+          "description": "Property. NGSI entity type. It has to be TourismPresenceObserved"
+        },
+        "aggregationType": {
+          "type": "string",
+          "enum": [
+            "hourly_sum",
+            "hourly_average",
+            "hourly_snapshot",
+            "hourly_estimate"
+          ],
+          "description": "Property. Type of aggregation used for this hourly observation. Model:'https://schema.org/Text'"
+        },
+        "dateObserved": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date and time of this hourly observation in ISO8601 UTC format. It should represent the middle of the hour (e.g. 10:30 for 10:00–10:59). Model:'https://schema.org/DateTime'"
+        },
+        "hour": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23,
+          "description": "Property. Hour of the day (0–23) for this observation. Model:'https://schema.org/Number'"
+        },
+        "locationCode": {
+          "type": "string",
+          "description": "Property. Official code of the location/municipality (e.g. DICOFRE code in Portugal). Model:'https://schema.org/Text'"
+        },
+        "locationName": {
+          "type": "string",
+          "description": "Property. Name of the location/municipality. Model:'https://schema.org/Text'"
+        },
+        "district": {
+          "type": "string",
+          "description": "Property. Administrative district of the location. Model:'https://schema.org/Text'"
+        },
+        "nationality": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "description": "Property. Nationality of visitors expressed as ISO 3166-1 alpha-2 country code (e.g. ES, FR, PT). Model:'https://schema.org/Text'"
+        },
+        "nationalityName": {
+          "type": "string",
+          "description": "Property. Full name of the nationality country (optional, for human readability). Model:'https://schema.org/Text'"
+        },
+        "visitorCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Property. Number of visitors observed during this specific hour. Units:'persons'. Model:'https://schema.org/Number'"
+        },
+        "dataProvider": {
+          "type": "string",
+          "description": "Property. Provider of the harmonised data entity. Model:'https://schema.org/Text'"
+        },
+        "source": {
+          "type": "string",
+          "description": "Property. Original source of the data as a URL. Model:'https://schema.org/Text'"
+        },
+        "alternateName": {
+          "type": "string",
+          "description": "Property. An alternative name for this item. Model:'https://schema.org/Text'"
+        },
+        "areaServed": {
+          "type": "string",
+          "description": "Property. The geographic area where the service or data applies. Model:'https://schema.org/Text'"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "dateObserved",
+    "location",
+    "locationCode",
+    "nationality",
+    "visitorCount",
+    "hour"
+  ]
+}
