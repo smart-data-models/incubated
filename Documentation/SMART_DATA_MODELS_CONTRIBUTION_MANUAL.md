@@ -1,8 +1,6 @@
-Here is the converted content of the manual. Since I am a text-based AI, I cannot generate the actual image files (JPG/PNG). However, I have reconstructed the visual diagrams, charts, file trees, and code screenshots into **Markdown tables, code blocks, and structured lists** to preserve the information and layout as closely as possible.
-
 ### **Smart Data Models Contribution Manual**
 
-**Version:** Last update 9-10-2023 **A Global Program Led By:** FIWARE, IUDX, tmforum, Open & Agile Smart Cities 
+**Version:** Last update 17-12-2025 **A Global Program Led By:** FIWARE, IUDX, Tmforum, Open & Agile Smart Cities 
 
 ---
 
@@ -10,21 +8,15 @@ Here is the converted content of the manual. Since I am a text-based AI, I canno
 
 * Overview on the Smart Data Models 
 
-
 * Ways of contribution 
-
 
 * Contribution workflow 
 
-
 * Pull requests 
-
 
 * Acceptance criteria & guidelines 
 
-
 * Documents to contribute 
-
 
 * Common Mistakes 
 
