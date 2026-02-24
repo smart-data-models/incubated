@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
   "$id": "https://smart-data-models.github.io/dataModel.SmartManufactoring/DigitalTwin/SolarTracker/schema.json",
-  "title": "Smart Data Models - SmartManufactoring / DigitalTwin / SolarTracker",
+  "title": "Smart Data Models - SmartManufacturing / DigitalTwin / SolarTracker",
   "description": "Description of the data model SolarTracker ",
   "modelTags": "",
   "derivedFrom": "",
@@ -22,31 +22,31 @@
           "enum": [
             "SolarTracker"
           ],
-          "description": "Property. It must be equal to `SolarTracker`."
+          "description": "Property. It must be equal to `SolarTracker`"
         },
         "altitude": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Units:'meter (MTR)'. The elevation of the installation site above mean sea level. This value is used by the solar algorithm to refine the calculation of the sun's position and atmospheric refraction."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'meter (MTR)'. The elevation of the installation site above mean sea level. This value is used by the solar algorithm to refine the calculation of the sun's position and atmospheric refraction"
         },
         "dateUpdate": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'http://schema.org/DateTime'. The date when the configuration was updated."
+          "description": "Property. Model:'http://schema.org/DateTime'. The date when the configuration was updated"
         },
         "currentPowerConsumption": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'Watt (WTT)'. The real-time electrical power demand measured in Watts."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Watt (WTT)'. The real-time electrical power demand measured in Watts"
         },
         "maxPowerRecorded": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'Watt (WTT)'. The highest level of active electrical power consumption recorded during the last movement, measured in Watts."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Watt (WTT)'. The highest level of active electrical power consumption recorded during the last movement, measured in Watts"
         },
         "minPowerRecorded": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'Watt (WTT)'. The lowest level of active electrical power consumption recorded during the last movement, measured in Watts."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Watt (WTT)'. The lowest level of active electrical power consumption recorded during the last movement, measured in Watts"
         },
         "backtracking": {
           "type": "string",
@@ -54,19 +54,19 @@
             "on",
             "off"
           ],
-          "description": "Property. Model:'https://schema.org/Text'. Enum:'on','off'. Indicates whether the solar tracker is in backtracking mode to prevent row-to-row shadowing, deviating from the optimal sun-angle position."
+          "description": "Property. Model:'https://schema.org/Text'. Enum:'on','off'. Indicates whether the solar tracker is in backtracking mode to prevent row-to-row shadowing, deviating from the optimal sun-angle position"
         },
         "batteryLevel": {
           "type": "number",
           "minimum": 0,
           "maximum": 100,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'C62'. Represents the current charge level of the battery, expressed as a percentage of its total capacity (0 to 100)."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'C62'. Represents the current charge level of the battery, expressed as a percentage of its total capacity (0 to 100)"
         },
         "currentAngle": {
           "type": "number",
           "minimum": -90,
           "maximum": 90,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'Degree Angle (DD)'. The current angular position of the panel. A value of 0 indicates the panel is horizontal (facing directly upward). Minimum values represent an Eastward orientation, while maximum values represent a Westward orientation."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Degree Angle (DD)'. The current angular position of the panel. A value of 0 indicates the panel is horizontal (facing directly upward). Minimum values represent an Eastward orientation, while maximum values represent a Westward orientation"
         },
         "deviceCategory": {
           "type": "string",
@@ -75,7 +75,7 @@
             "FCU",
             "SCU"
           ],
-          "description": "Property. Model:'https://schema.org/Text'. Enum:'PCU','FCU','SCU'. Specifies the classification of the device within the system."
+          "description": "Property. Model:'https://schema.org/Text'. Enum:'PCU','FCU','SCU'. Specifies the classification of the device within the system"
         },
         "deviceState": {
           "type": "string",
@@ -83,7 +83,7 @@
             "Online",
             "Offline"
           ],
-          "description": "Property. Model:'https://schema.org/Text'. Enum:'Online','Offline'. Indicates the current operational connectivity status of the device."
+          "description": "Property. Model:'https://schema.org/Text'. Enum:'Online','Offline'. Indicates the current operational connectivity status of the device"
         },
         "motorDirection": {
           "type": "string",
@@ -91,7 +91,7 @@
             "1",
             "-1"
           ],
-          "description": "Property. Model:'https://schema.org/Text'. Enum:'-1','1'. Defines the physical mounting orientation of the motor, which determines the polarity of the rotation (Eastward-facing = 1; Westward-facing = -1)."
+          "description": "Property. Model:'https://schema.org/Text'. Enum:'-1','1'. Defines the physical mounting orientation of the motor, which determines the polarity of the rotation (Eastward-facing = 1; Westward-facing = -1)"
         },
         "boardDirection": {
           "type": "string",
@@ -99,13 +99,13 @@
             "1",
             "-1"
           ],
-          "description": "Property. Model:'https://schema.org/Text'. Enum:'-1','1'. Specifies the physical orientation of the control board based on the position of the emergency stop button (Eastward-facing = 1; Westward-facing = -1)."
+          "description": "Property. Model:'https://schema.org/Text'. Enum:'-1','1'. Specifies the physical orientation of the control board based on the position of the emergency stop button (Eastward-facing = 1; Westward-facing = -1)"
         },
         "targetAngle": {
           "type": "number",
           "minimum": -90,
           "maximum": 90,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'Degree Angle (DD)'. The target angular setpoint for the panel's orientation. A value of 0 indicates the panel is horizontal (facing directly upward). Minimum values represent an Eastward orientation, while maximum values represent a Westward orientation."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Degree Angle (DD)'. The target angular setpoint for the panel's orientation. A value of 0 indicates the panel is horizontal (facing directly upward). Minimum values represent an Eastward orientation, while maximum values represent a Westward orientation"
         },
         "movementInterval": {
           "type": "string",
@@ -114,47 +114,47 @@
             "10",
             "15"
           ],
-          "description": "Property. Model:'https://schema.org/Text'. Enum:'5','10','15'. Defines the time frequency at which the panel adjusts its position. The value must be one of the predefined intervals: 5, 10, or 15 minutes."
+          "description": "Property. Model:'https://schema.org/Text'. Enum:'5','10','15'. Defines the time frequency at which the panel adjusts its position. The value must be one of the predefined intervals: 5, 10, or 15 minutes"
         },
         "panelLength": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'meter (MTR)'. The dimension of the panel measured along the axis perpendicular to the axis of rotation. This value is critical for calculating the shadow cast by the panel and determining the appropriate backtracking movement."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'meter (MTR)'. The dimension of the panel measured along the axis perpendicular to the axis of rotation. This value is critical for calculating the shadow cast by the panel and determining the appropriate backtracking movement"
         },
         "maxPowerThreshold": {
           "type": "number",
           "minimum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'Watt (WTT)'. The safety limit for power consumption during motor operation. If the electrical power exceeds this threshold, the panel movement is immediately interrupted to prevent mechanical damage or motor overload."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Watt (WTT)'. The safety limit for power consumption during motor operation. If the electrical power exceeds this threshold, the panel movement is immediately interrupted to prevent mechanical damage or motor overload"
         },
         "maxAngleLimit": {
           "type": "number",
           "minimum": 0,
           "maximum": 90,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'Degree Angle (DD)'. The maximum allowable angular position towards the West. This software limit acts as a hard ceiling; the panel will not rotate beyond this value even if the calculated target angle is greater."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Degree Angle (DD)'. The maximum allowable angular position towards the West. This software limit acts as a hard ceiling; the panel will not rotate beyond this value even if the calculated target angle is greater"
         },
         "minAngleLimit": {
           "type": "number",
           "minimum": -90,
           "maximum": 0,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'Degree Angle (DD)'. The minimum allowable angular position towards the East. This parameter defines a mandatory operational boundary; the panel will not rotate further East than this value, regardless of the requested target position."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Degree Angle (DD)'. The minimum allowable angular position towards the East. This parameter defines a mandatory operational boundary; the panel will not rotate further East than this value, regardless of the requested target position"
         },
         "snowSafetyAngle": {
           "type": "number",
           "minimum": -90,
           "maximum": 90,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'Degree Angle (DD)'. The specific angular position the panel must adopt during a snow event. This angle is designed to facilitate snow shedding and prevent excessive structural loading on the tracker."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Degree Angle (DD)'. The specific angular position the panel must adopt during a snow event. This angle is designed to facilitate snow shedding and prevent excessive structural loading on the tracker"
         },
         "windSafetyAngle": {
           "type": "number",
           "minimum": -90,
           "maximum": 90,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'Degree Angle (DD)'. The safety setpoint angle the panel assumes when wind speeds exceed the operational threshold. This position minimize the sail effect and reduce structural stress caused by wind uplift or pressure."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Degree Angle (DD)'. The safety setpoint angle the panel assumes when wind speeds exceed the operational threshold. This position minimize the sail effect and reduce structural stress caused by wind uplift or pressure"
         },
         "restingAngle": {
           "type": "number",
           "minimum": -90,
           "maximum": 90,
-          "description": "Property. Model:'https://schema.org/Number'. Units:'Degree Angle (DD)'. The specific angular position the panel assumes during the night or when the sun is below the horizon. This position is used to park the tracker until the next sunrise."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Degree Angle (DD)'. The specific angular position the panel assumes during the night or when the sun is below the horizon. This position is used to park the tracker until the next sunrise"
         },
         "operatingMode": {
           "type": "string",
@@ -167,14 +167,15 @@
             "safewindsensor",
             "maintenance"
           ],
-          "description": "Property. Model:'https://schema.org/Text'. Enum:'automatic','manual','safesnow','safesnowsensor','safewind','safewindsensor','maintenance'. Defines the current functional state of the panel. This mode dictates whether the tracker follows the solar algorithm or responds to external overrides/safety events."
+          "description": "Property. Model:'https://schema.org/Text'. Enum:'automatic','manual','safesnow','safesnowsensor','safewind','safewindsensor','maintenance'. Defines the current functional state of the panel. This mode dictates whether the tracker follows the solar algorithm or responds to external overrides/safety events"
         },
         "ipAddress": {
           "type": "array",
           "description": "Property. Model:'https://schema.org/Text'. List of IP address of the device. It can be a comma separated list of values if the device has more than one IP address",
           "items": {
             "type": "string",
-            "oneOf": [
+            "description": "Property. Model:'https://schema.org/Text'. Every item in the list of IP address of the device",
+            "anyOf": [
               {
                 "format": "ipv4"
               },
