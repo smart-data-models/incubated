@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.ITinfrastructure/Service/schema.json",
+  "title": "Smart Data Models - ITinfrastructure / Service",
+  "description": "Service deployed in the Cloud-Edge-IoT continuum, which is composed of a set of ServiceComponents running on top of InfrastructureElements.",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.ITinfrastructure/Service/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "description": "Property. NGSI Entity type. It has to be Service",
+          "type": "string",
+          "enum": [
+            "Service"
+          ]
+        },
+        "serviceType": {
+          "type": "string",
+          "description": "Relationship. Type of the deployed service, which must be a ServiceType entity."
+        },
+        "actionType": {
+          "type": "string",
+          "enum": [
+            "Deploying",
+            "Deployed",
+            "Destroying",
+            "Finished",
+            "Handled"
+          ],
+          "description": "Property. Enum:'Deploying', 'Deployed', 'Destroying', 'Finished', 'Handled'. Current status of whole service in the orchestration process."
+        },
+        "domainHandler": {
+          "type": "string",
+          "description": "Relationship. Domain which is in charge of performing the orchestration process of the service."
+        },
+        "hasOverlay": {
+          "type": "boolean",
+          "description": "Property. Defines if the components of this services are connected through an overlay network."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "actionType",
+    "domainHandler",
+    "hasOverlay"
+  ]
+}

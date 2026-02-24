@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.ITinfrastructure/ServiceComponent/schema.json",
+  "title": "Smart Data Models - ITinfrastructure / ServiceComponent",
+  "description": "Component (packaged software, for instance, a container) of a service deployed in the Cloud-Edge-IoT continuum, which runs on top of an InfrastructureElement.",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.ITinfrastructure/ServiceComponent/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "description": "Property. NGSI Entity type. It has to be ServiceComponent",
+          "type": "string",
+          "enum": [
+            "ServiceComponent"
+          ]
+        },
+        "infrastructureElement": {
+          "type": "string",
+          "description": "Relationship. InfrastructureElement in which the component has been deployed."
+        },
+        "service": {
+          "type": "string",
+          "description": "Relationship. Service to which the component belongs."
+        },
+        "serviceComponentStatus": {
+          "type": "string",
+          "enum": [
+            "Failed",
+            "Finished",
+            "Locating",
+            "Migrating",
+            "Removing",
+            "Running",
+            "Starting"
+          ],
+          "description": "Property. Current status of the component. Enum:'Failed', 'Finished', 'Locating', 'Migrating', 'Removing', 'Running', 'Starting'"
+        },
+        "infrastructureElementRequirements": {
+          "type": "string",
+          "description": "Relationship. Requirements of infrastructure (e.g. RAM, CPU, ...) that are needed for running the component."
+        },
+        "containerImage": {
+          "type": "string",
+          "description": "Property. Container image used for the component, it must point to a valid image stored in a container registry (e.g. Docker Hub or GitHub/Gitlab container registry)."
+        },
+        "cliArgs": {
+          "type": "array",
+          "description": "Property. Command line arguments (in key-value format) that are needed to run the component.",
+          "items": {
+            "type": "object",
+            "minItems": 1,
+            "description": "Property. Command line argument (in key-value format, the value can be empty).",
+            "properties": {
+              "key": {
+                "type": "string",
+                "description": "Property. Command line argument name or key, it can start with a dash (-) for short options or two dashes (--) for long options."
+              },
+              "value": {
+                "type": "string",
+                "description": "Property. Command line argument value (optional)."
+              }
+            },
+            "required": ["key"],
+            "additionalProperties": false
+          }
+        },
+        "envVars": {
+          "type": "array",
+          "description": "Property. Environment variables (in key-value format) that are needed to run the component.",
+          "items": {
+            "type": "object",
+            "minItems": 1,
+            "description": "Property. Environment variable (in key-value format).",
+            "properties": {
+              "key": {
+                "type": "string",
+                "description": "Property. Environment variable name."
+              },
+              "value": {
+                "type": "string",
+                "description": "Property. Environment variable value."
+              }
+            },
+            "required": ["key", "value"],
+            "additionalProperties": false
+          }
+        },
+        "networkPorts": {
+          "type": "array",
+          "description": "Relationship. Network ports that are exposed by the component.",
+          "items": {
+            "type": "string",
+            "format": "uri",
+            "minItems": 1,
+            "description": "Relationship. NetworkPort exposed by the component."
+          }
+        },
+        "persistentStorage": {
+          "type": "array",
+          "description": "Relationship. Requirements of persistent storage that are needed for running the component.",
+          "items": {
+            "type": "string",
+            "format": "uri",
+            "minItems": 1,
+            "description": "Relationship. PersistentStorage needed for running the component."
+          }
+        },
+        "isJob": {
+          "type": "boolean",
+          "description": "Property. Defines if the component is deployed as a job: a one-off task that runs to completion and then stops."
+        },
+        "overlayNetworkIP": {
+          "type": "string",
+          "description": "Property. IP address assigned to the component in the network overlay that connects all the components of the same service."
+        },
+        "currentCpuUsage": {
+          "type": "number",
+          "description": "Property. Units:'CPU cores'. Current CPU usage of the component.",
+          "format" : "float"
+        },
+        "currentMemoryUsage": {
+          "type": "number",
+          "description": "Property. Units:'Megabytes (MB)'. Current memory usage of the component."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "infrastructureElement",
+    "service",
+    "serviceComponentStatus",
+    "infrastructureElementRequirements",
+    "containerImage",
+    "isJob"
+  ]
+}

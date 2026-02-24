@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.ITinfrastructure/PersistentStorage/schema.json",
+  "title": "Smart Data Models - ITinfrastructure / PersistentStorage",
+  "description": "Persistent storage requested by a ServiceComponent.",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.ITinfrastructure/PersistentStorage/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "description": "Property. NGSI Entity type. It has to be PersistentStorage",
+          "type": "string",
+          "enum": [
+            "PersistentStorage"
+          ]
+        },
+        "mountPath": {
+          "type": "string",
+          "description": "Property. Mount path in the ServiceComponent of the requested persistent storage."
+        },
+        "storageType": {
+          "type": "string",
+          "enum": [
+            "External",
+            "Local"
+          ],
+          "description": "Property. Type of the requested storage, if local is mounted in the selectedIE of the ServiceComponent, otherwise is mounted in an external infrastructure such a cloud storage system. Enum:'External', 'Local'"
+        },
+        "hostPath": {
+          "type": "string",
+          "description": "Property. (Only if the storageType is 'local') Host path in the Infrastructure Element where the persistent storage is located."
+        },
+        "accessMode": {
+          "type": "string",
+          "enum": [
+            "ReadWriteOnce",
+            "ReadOnlyMany",
+            "ReadWriteMany"
+          ],
+          "description": "Property. Mode of the requested persistent storage. Enum:'ReadWriteOnce', 'ReadOnlyMany', 'ReadWriteMany'"
+        },
+        "size": {
+          "type": "number",
+          "description": "Property. Units:'Megabytes (MB)'. Size of the requested persistent storage."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "mountPath",
+    "size"
+  ]
+}

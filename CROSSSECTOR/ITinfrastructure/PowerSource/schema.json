@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.ITinfrastructure/PowerSource/schema.json",
+  "title": "Smart Data Models - ITinfrastructure / PowerSource",
+  "description": "Power source of an Infrastructure Element.",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.ITinfrastructure/PowerSource/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "description": "Property. NGSI Entity type. It has to be PowerSource",
+          "type": "string",
+          "enum": [
+            "PowerSource"
+          ]
+        },
+        "greenEnergyRatio": {
+          "type": "number",
+          "description": "Property. Ratio (between 0 and 1) of green energy used by the power source.",
+          "format" : "float",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "currentPowerGeneratorPotential": {
+          "type": "number",
+          "description": "Property. Units:'kW'. Current power generator potential.",
+          "format" : "float"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "greenEnergyRatio",
+    "currentPowerGeneratorPotential"
+  ]
+}
