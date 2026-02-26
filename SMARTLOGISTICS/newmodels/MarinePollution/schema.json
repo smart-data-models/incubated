@@ -1,0 +1,290 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "modelTags": "ESHUV, i4trust, marpol",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://example.org/schema/MarinePollution/schema.json",
+  "title": "Smart Data models MarinePollution schema",
+  "description": "Data model to represent a MARPOL waste reception / discharge record associated to a Port Call, including vessel identification, agent, facility/operator, discharge time, location and MARPOL annex details (amounts and categories).",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be MarinePollution",
+          "enum": ["MarinePollution"]
+        },
+
+        "mrn": {
+          "type": "string",
+          "description": "Property. MRN coded identifier of this MarinePollution record. Proposed format: urn:mrn:<OID>:<ONSS>:portcalls:marpol:id:<id>."
+        },
+
+        "marpolServiceRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity in URN/MRN format"
+            }
+          ],
+          "description": "Relationship/Property. Reference to the MARPOL service (work order / service request) related to this discharge."
+        },
+
+        "portCallNumber": {
+          "type": "string",
+          "description": "Property. Port call identifier coded (e.g., ESHUV202510001)."
+        },
+
+        "portCode": {
+          "type": "string",
+          "description": "Property. Port code / UN-LOCODE abbreviation used by the port authority (e.g., ESHUV)."
+        },
+
+        "portAreaName": {
+          "type": "string",
+          "description": "Property. Human-readable name of the port area (e.g., Puerto de Huelva)."
+        },
+
+        "portOperatorReceptionFacilityName": {
+          "type": "string",
+          "description": "Property. Name of the port operator / reception facility operator."
+        },
+
+        "treatmentCompanyFacilityName": {
+          "type": "string",
+          "description": "Property. Name of the waste treatment company / facility."
+        },
+
+        "vesselName": {
+          "type": "string",
+          "description": "Property. Name of the vessel."
+        },
+
+        "imo": {
+          "type": "number",
+          "description": "Property. IMO ship identification number."
+        },
+
+        "vesselRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity in MRN format"
+            }
+          ],
+          "description": "Relationship. Reference to the vessel entity (e.g., MasterVessel)."
+        },
+
+        "agentLegalCode": {
+          "type": "string",
+          "description": "Property. Legal identifier code of the ship agent (e.g., VAT/NIF)."
+        },
+
+        "wasteDeliveryReceiverUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. URL to the waste delivery receiver certificate/document."
+        },
+
+        "animalProductsReceiptUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. URL to the animal products receipt certificate/document."
+        },
+
+        "wasteDischargeDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date/time of waste discharge (ISO 8601 UTC format)."
+        },
+
+        "locationType": {
+          "type": "string",
+          "description": "Property. Type of discharge location (e.g., berth, anchorage, terminal)."
+        },
+
+        "locationCode": {
+          "type": "string",
+          "description": "Property. Code of the discharge location (e.g., berth code)."
+        },
+
+        "locationName": {
+          "type": "string",
+          "description": "Property. Name of the discharge location."
+        },
+
+        "createdDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date/time of creation of the entity on its owner system."
+        },
+        "modifiedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date/time of modification of the entity on its owner system."
+        },
+        "deletedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date/time of logical deletion of the record on its owner system."
+        },
+
+        "annex1OilDate": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Property. Date/time for Annex I (Oil) waste delivery/discharge."
+        },
+        "annex1OilAmounts": {
+          "type": ["array", "null"],
+          "description": "Property. Annex I amounts (ordered list of quantities, units as per implementation agreement).",
+          "items": { "type": "number" }
+        },
+
+        "annex2NoxiousLiquidDates": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Property. Date/time for Annex II (Noxious Liquid Substances) discharge."
+        },
+        "annex2NoxiousLiquidAmounts": {
+          "type": ["array", "null"],
+          "description": "Property. Annex II amounts as pairs [wasteCode, amount].",
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": [
+              { "type": "number", "description": "Waste code / category code." },
+              { "type": "number", "description": "Amount." }
+            ]
+          }
+        },
+        "annex2NoxiousLiquidMode": {
+          "type": ["string", "null"],
+          "description": "Property. Delivery mode for Annex II (e.g., ship/truck)."
+        },
+
+        "annex3HarmfullSubstancesDates": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Property. Date/time for Annex III (Harmful substances in packaged form) discharge."
+        },
+        "annex3HarmfullSubstancesAmounts": {
+          "type": ["array", "null"],
+          "description": "Property. Annex III amounts as pairs [wasteCode, amount] or implementation-defined structure.",
+          "items": {
+            "anyOf": [
+              { "type": "number" },
+              {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": [{ "type": "number" }, { "type": "number" }]
+              }
+            ]
+          }
+        },
+
+        "annex4SewageDates": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Property. Date/time for Annex IV (Sewage) discharge."
+        },
+        "annex4SewageAmounts": {
+          "type": ["array", "null"],
+          "description": "Property. Annex IV amounts as pairs [wasteCode, amount].",
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": [
+              { "type": "number", "description": "Waste code / category code." },
+              { "type": "number", "description": "Amount." }
+            ]
+          }
+        },
+
+        "annex5GarbageDates": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Property. Date/time for Annex V (Garbage) discharge."
+        },
+        "annex5GarbageAmounts": {
+          "type": ["array", "null"],
+          "description": "Property. Annex V amounts as pairs [wasteCode, amount].",
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": [
+              { "type": "number", "description": "Waste code / category code." },
+              { "type": "number", "description": "Amount." }
+            ]
+          }
+        },
+        "annex5HarmfullAmounts": {
+          "type": ["array", "null"],
+          "description": "Property. Annex V harmful amounts (example shows mixed string/number codes). Stored as pairs [code, amount] accepting code as string or number.",
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": [
+              { "anyOf": [{ "type": "string" }, { "type": "number" }], "description": "Code." },
+              { "anyOf": [{ "type": "string" }, { "type": "number" }], "description": "Amount (kept flexible to match producer format)." }
+            ]
+          }
+        },
+
+        "annex6AirPollutionDates": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Property. Date/time for Annex VI (Air Pollution) discharge/measurement."
+        },
+        "annex6AirPollutionAmounts": {
+          "type": ["array", "null"],
+          "description": "Property. Annex VI amounts as pairs [wasteCode, amount].",
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": [
+              { "type": "number", "description": "Waste code / category code." },
+              { "type": "number", "description": "Amount." }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "portCallNumber",
+    "portCode",
+    "wasteDischargeDate"
+  ]
+}

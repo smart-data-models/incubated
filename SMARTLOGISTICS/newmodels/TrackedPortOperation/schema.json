@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "modelTags": "ESHUV, i4trust, Tracked",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://example.org/schema/TrackedPortOperation.json",
+  "title": "TrackedPortOperation schema",
+  "description": "TrackedPortOperation entity coming from Tracking (Operation Tracking System). Tracking operation. The entityId follows the pattern mrn:urn:eshuv:pdph:Tracked:type:attr:value, where type=PortOperation and attr=operationCode.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be TrackedPortOperation",
+          "enum": ["TrackedPortOperation"]
+        },
+        "observedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update date of the entity."
+        },
+        "originSystem": {
+          "type": "string",
+          "description": "Source system of the entity. (Not present in data retrieved from the Tracked API)"
+        },
+        "operationCode": {
+          "type": "string",
+          "description": "Operation code."
+        },
+        "terminal": {
+          "type": "string",
+          "description": "Operation terminal."
+        },
+        "operatingCompany": {
+          "type": "string",
+          "description": "Operating company of the operation."
+        },
+        "operationType": {
+          "type": "string",
+          "description": "Operation type."
+        },
+        "product": {
+          "type": "string",
+          "description": "Product of the operation."
+        },
+        "onuNumber": {
+          "type": "string",
+          "description": "UN number of the operation."
+        },
+        "tons": {
+          "type": "number",
+          "description": "Tonnage of the operation."
+        },
+        "checkListDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Checklist date of the operation."
+        },
+        "connectionDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Connection date of the operation."
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Operation start date."
+        },
+        "forecastDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Forecast date of the operation."
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Operation end date."
+        },
+        "disconnectionDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Disconnection date of the operation."
+        },
+        "observations": {
+          "type": "string",
+          "description": "Operation observations."
+        },
+        "refPortCallId": {
+          "type": "string",
+          "description": "Reference to the port call."
+        }
+      }
+    }
+  ],
+  "required": ["id", "type"]
+}

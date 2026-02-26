@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$schemaVersion": "1.0.2",
+  "$schemaVersion": "0.0.2",
   "modelTags": "ESHUV",
   "derivedFrom": "",
   "license": "",
@@ -12,6 +12,9 @@
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
     {
       "properties": {
@@ -263,7 +266,11 @@
           "type": "string"
         },
         "location": {
-          "type": "location",
+          "type": "string",
+          "description": "Identifies a physical location at which the event will take place"
+        },
+        "coordinates": {
+          "type": "string",
           "description": "Identifies a physical location at which the event will take place"
         },
         "port": {

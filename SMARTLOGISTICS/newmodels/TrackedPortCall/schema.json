@@ -1,0 +1,235 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "modelTags": "ESHUV, i4trust, Tracked",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://example.org/schema/TrackedPortCall.json",
+  "title": "TrackedPortCall schema",
+  "description": "TrackedPortCall entity coming from Tracking systems (Operation Tracking Systems). Tracked port call. The entityId follows the pattern mrn:urn:eshuv:pdph:Tracked:type:value, where type=PortCall and value=stmRegister.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It must be TrackedPortCall",
+          "enum": ["TrackedPortCall"]
+        },
+        "observedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of the data observation"
+        },
+        "refVesselId": {
+          "type": "string",
+          "description": "Identifier of the vessel"
+        },
+        "portCallId": {
+          "type": "string",
+          "description": "Identifier of the port call"
+        },
+        "UNLOCODE": {
+          "type": "string",
+          "description": "UN/LOCODE of the port"
+        },
+        "stmRegister": {
+          "type": "string",
+          "description": "STM register of the port call"
+        },
+        "portCallNumber": {
+          "type": "string",
+          "description": "Primary port call number"
+        },
+        "portCallNumber2": {
+          "type": "string",
+          "description": "Secondary port call number"
+        },
+        "center": {
+          "type": "string",
+          "description": "Control center from which the port call is managed"
+        },
+        "forecastReportingDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Reporting date of the forecast for the vessel arrival"
+        },
+        "forecastETA": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Estimated time of arrival according to the forecast"
+        },
+        "forecast": {
+          "type": "string",
+          "description": "Maneuver that the vessel is expected to perform"
+        },
+        "arrivalFirstReportDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date of the first report indicating that the vessel intends to enter the area"
+        },
+        "arrivalVTSDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date when the vessel arrived at the VTS area"
+        },
+        "arrivalOneHour": {
+          "type": "string",
+          "description": "One-hour stay of the vessel"
+        },
+        "arrivalTwoHours": {
+          "type": "string",
+          "description": "Two-hour stay of the vessel"
+        },
+        "arrivalAuthorized": {
+          "type": "string",
+          "description": "Authorization for the vessel to perform the port call"
+        },
+        "arrivalLastPort": {
+          "type": "string",
+          "description": "Last port visited by the vessel"
+        },
+        "arrivalArrivalPort": {
+          "type": "string",
+          "description": "Arrival port of the vessel"
+        },
+        "arrivalAgent": {
+          "type": "string",
+          "description": "Vessel agent"
+        },
+        "arrivalPosition": {
+          "type": "object",
+          "description": "Vessel position upon arrival at the designated area",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["Point", "LineString", "Polygon"]
+            },
+            "coordinates": {
+              "type": "array"
+            }
+          },
+          "required": ["type", "coordinates"]
+        },
+        "arrivalPassengersNumber": {
+          "type": "number",
+          "description": "Number of passengers on board"
+        },
+        "arrivalCrewNumber": {
+          "type": "number",
+          "description": "Number of crew members on board"
+        },
+        "arrivalMaxDraft": {
+          "type": "number",
+          "description": "Maximum draft of the vessel"
+        },
+        "arrivalDeficiencies": {
+          "type": "string",
+          "description": "Vessel deficiencies"
+        },
+        "arrivalDeficienciesText": {
+          "type": "string",
+          "description": "Description of the deficiencies"
+        },
+        "arrivalObservations": {
+          "type": "string",
+          "description": "Observations at vessel arrival"
+        },
+        "arrivalTotalIMOLoad": {
+          "type": "number",
+          "description": "Total cargo regulated by the IMO"
+        },
+        "arrivalIMOLoads": {
+          "type": "object",
+          "description": "IMO-regulated cargoes"
+        },
+        "arrivalOtherLoadsType": {
+          "type": "string",
+          "description": "Type of other cargoes carried by the vessel"
+        },
+        "arrivalOtherLoadsAmount": {
+          "type": "string",
+          "description": "Amount of other cargoes carried by the vessel"
+        },
+        "arrivalOtherLoadsObservations": {
+          "type": "string",
+          "description": "Observations related to other cargoes"
+        },
+        "departureCommunicationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Planned departure communication date"
+        },
+        "departureVTSDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date when the vessel left the VTS area"
+        },
+        "departureAuthorized": {
+          "type": "string",
+          "description": "Authorization for the vessel to depart"
+        },
+        "departureDestinationPort": {
+          "type": "string",
+          "description": "Destination port of the vessel"
+        },
+        "departureETA": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Estimated departure time of the vessel"
+        },
+        "departurePassengersNumber": {
+          "type": "number",
+          "description": "Number of passengers on board"
+        },
+        "departureCrewNumber": {
+          "type": "number",
+          "description": "Number of crew members on board"
+        },
+        "departureMaxDraft": {
+          "type": "number",
+          "description": "Maximum draft of the vessel"
+        },
+        "departureDeficiencies": {
+          "type": "string",
+          "description": "Vessel deficiencies"
+        },
+        "departureDeficienciesText": {
+          "type": "string",
+          "description": "Description of the deficiencies"
+        },
+        "departureObservations": {
+          "type": "string",
+          "description": "Observations at vessel departure"
+        },
+        "departureTotalIMOLoad": {
+          "type": "number",
+          "description": "Total cargo regulated by the IMO"
+        },
+        "departureIMOLoads": {
+          "type": "object",
+          "description": "IMO-regulated cargoes"
+        },
+        "departureOtherLoadsType": {
+          "type": "string",
+          "description": "Type of other cargoes carried by the vessel"
+        },
+        "departureOtherLoadsAmount": {
+          "type": "string",
+          "description": "Amount of other cargoes carried by the vessel"
+        },
+        "departureOtherLoadsObservations": {
+          "type": "string",
+          "description": "Observations related to other cargoes"
+        }
+      }
+    }
+  ],
+  "required": ["id", "type"]
+}

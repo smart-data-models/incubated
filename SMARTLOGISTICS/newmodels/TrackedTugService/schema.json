@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.1.0",
+  "modelTags": "ESHUV, SIGO",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://example.org/dataModel/TrackedTugService/schema.json",
+  "title": "Smart Data models TrackedTugService schema",
+  "description": "Tug service from the Tracking System. The entityId follows the pattern mrn:urn:eshuv:pdph:sigo:type:attr:value, where type is the entity type (TugService), attr is the attribute used as the unique identifier (name), and value is its value (ExampleName).",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Property. Unique identifier of the entity (MRN/URN)."
+        },
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be TrackedTugService",
+          "enum": ["TrackedTugService"]
+        },
+        "observedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Last update date of the entity. Represented in ISO 8601 UTC format."
+        },
+        "refManeuverId": {
+          "type": "string",
+          "description": "Property. Identifier of the tug maneuver."
+        },
+        "name": {
+          "type": "string",
+          "description": "Property. Tugboat name."
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Start date/time of the tug maneuver. Represented in ISO 8601 UTC format."
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. End date/time of the tug maneuver. Represented in ISO 8601 UTC format."
+        },
+        "standBy": {
+          "type": "string",
+          "description": "Property. Stand-by status for the tug maneuver (e.g., Yes/No)."
+        },
+        "observations": {
+          "type": "string",
+          "description": "Property. Tug maneuver observations."
+        },
+        "startLocation": {
+          "type": "string",
+          "description": "Property. Start location of the tug maneuver."
+        },
+        "endLocation": {
+          "type": "string",
+          "description": "Property. End location of the tug maneuver."
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "TimeInstant",
+    "refManeuverId",
+    "name",
+    "startDate",
+    "endDate"
+  ]
+}

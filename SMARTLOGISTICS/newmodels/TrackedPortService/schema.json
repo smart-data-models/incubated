@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "modelTags": "ESHUV, i4trust, Tracked",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://example.org/schema/TrackedPortService.json",
+  "title": "TrackedPortService schema",
+  "description": "TrackedPortService entity coming from Tracking (Operation Tracking System). Tracking port service. The entityId follows the pattern mrn:urn:eshuv:pdph:Tracked:type:attr:value, where type=PortService and attr=serviceCode.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be TrackedPortService",
+          "enum": ["TrackedPortService"]
+        },
+        "observedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update date of the entity."
+        },
+        "refManeuverId": {
+          "type": "string",
+          "description": "Identifier of the port service maneuver."
+        },
+        "serviceCode": {
+          "type": "string",
+          "description": "Port service code."
+        },
+        "serviceType": {
+          "type": "string",
+          "description": "Port service type."
+        },
+        "observations": {
+          "type": "string",
+          "description": "Port service observations."
+        },
+        "othersOthers": {
+          "type": "string",
+          "description": "Other details of the port service."
+        },
+
+        "personalTransportationPassageVessel": {
+          "type": "string",
+          "description": "Vessel used for the personnel/passenger transfer service."
+        },
+        "personalTransportationPassageStartDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Alongside time for the personnel/passenger transfer service."
+        },
+        "personalTransportationPassageEndDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "End time of the personnel/passenger transfer service."
+        },
+        "personalTransportationPassageDurationHours": {
+          "type": "number",
+          "description": "Duration in hours of the personnel/passenger transfer service."
+        },
+
+        "wastesVessel": {
+          "type": "string",
+          "description": "Vessel used for the waste service."
+        },
+        "wastesStartDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Alongside time for the waste service."
+        },
+        "wastesEndDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "End time of the waste service."
+        },
+        "wastesDurationHours": {
+          "type": "number",
+          "description": "Duration in hours of the waste service."
+        },
+        "wastesType": {
+          "type": "string",
+          "description": "Waste type for the waste service."
+        },
+        "wastesAmount": {
+          "type": "string",
+          "description": "Waste amount for the waste service."
+        },
+
+        "provisioningVessel": {
+          "type": "string",
+          "description": "Vessel used for the provisioning service."
+        },
+        "provisioningStartDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Alongside time for the provisioning service."
+        },
+        "provisioningEndDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "End time of the provisioning service."
+        },
+        "provisioningDurationHours": {
+          "type": "number",
+          "description": "Duration in hours of the provisioning service."
+        },
+        "provisioningType": {
+          "type": "string",
+          "description": "Provisioning type for the provisioning service."
+        },
+        "provisioningFuelType": {
+          "type": "string",
+          "description": "Fuel/lubricants type for the provisioning service."
+        },
+        "provisioningFuelAmount": {
+          "type": "string",
+          "description": "Provisioning amount for the provisioning service."
+        }
+      }
+    }
+  ],
+  "required": ["id", "type"]
+}

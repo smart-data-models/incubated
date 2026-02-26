@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "1.0.0",
+  "modelTags": "ESHUV",
+  "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/company/schema.json",
+  "title": "Smart Data models company schema",
+  "description": "This data model describes a company in a port.",
+  "type": "object",
+  "properties": {
+    "mrn": {
+      "type": "string",
+      "description": "Property. MRN coded identifier. This URN should Conforms MRN & IETF specifically RFC 2141, RFC 5234, and RFC 8141. \n    The propossed format is \n    id::='urn:mrn:<PORT>:<ONSS>:community:company:id:[0-9]+' or  \n    where PORT := UN/LOCODE of port, OID:= Organisation UN/LOCODE, OONSS:=Organization Name of Service, 9999999 an unique identifier that the creator of the company registry entity will identify on his sistems (i.e. a SQL row-id), \n    i.e. urn:mrn:eshuv:community:company:id:1296",
+      "enum": [
+        "Company"
+      ]
+    },
+    "legalCode": {
+      "type": "string",
+      "description": "Property. Code of the company or entity with activities or responsabiliy in the port."
+    },
+	"registeredName": {
+      "type": "string",
+      "description": "official Name of the company or entity with activities or responsabiliy in the port."
+    },
+	"alias": {
+      "type": "string",
+      "description": "Non official Name (nickname) of the company or entity with activities or responsabiliy in the port."
+    },
+	"entityType": {
+      "type": "string",
+      "description": "type of the company or entity with activities or responsabiliy in the port."
+	  "enum": [
+        "PortAuthority",
+		"Agent",
+		"ServiceProvider",
+		"TerminalOperator",
+		"Steevedore",
+		"PublicBody",
+        "LogisticsOperator",
+        "Carrier",
+        "TransportCompany",
+        "WasteManagementCompany",
+        "PortReceptionFacilityOperator",
+        "Other"
+      ]
+    },
+	"address": {
+      "type": "string",
+      "description": "Postal address of the company or entity with activities or responsabiliy in the port."
+    },
+	"addressNumber": {
+      "type": "string",
+      "description": "Postal address of the company or entity with activities or responsabiliy in the port."
+    },
+	"zipCode": {
+      "type": "string",
+      "description": "postal code of the company or entity with activities or responsabiliy in the port."
+    },
+	"addressLocality": {
+      "type": "string",
+      "description": "localization of the company or entity with activities or responsabiliy in the port."
+    },
+	"addressRegion": {
+      "type": "string",
+      "description": "localization of the company or entity with activities or responsabiliy in the port."
+    },
+	"countryCode": {
+      "type": "string",
+      "description": "country of the company or entity with activities or responsabiliy in the port."
+    },
+	"email": {
+      "type": "string",
+      "description": "email of the company or entity with activities or responsabiliy in the port."
+    },
+	"telephone": {
+      "type": "string",
+      "description": "phone number of the company or entity with activities or responsabiliy in the port."
+    },
+	"active": {
+      "type": "boolean",
+      "description": "status of activation of the company or entity with activities or responsabiliy in the port."
+    },
+	"admissionDate": {
+      "type": "string",
+      "description": "date in which the company was registered in the model."
+    },
+	"createdAt": {
+      "type": "string",
+      "description": "date in which the record created"
+    },
+	"modifiedAt": {
+      "type": "string",
+      "description": "date in which the company was modified in the model."
+    },
+	"deletedAt": {
+      "type": "string",
+      "description": "date in which the company was delleted in the model."
+    }
+  },
+  "required": [
+    "id",
+	"legalCode",
+	"registeredName",
+    "entityType",
+	"modifiedAt",
+    "status"
+  ]
+}

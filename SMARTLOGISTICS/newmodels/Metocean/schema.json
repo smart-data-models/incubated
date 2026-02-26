@@ -1,0 +1,206 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.1",
+  "modelTags": "ESHUV, i4trust",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/Metocean/schema.json",
+  "title": "Smart Data Models Metocean schema",
+  "description": "This data model represents metocean information (meteorology + oceanography) for a given period and location. It supports both time-series measures and forecasts using points with observed data samples.",
+  "type": "object",
+  "additionalProperties": true,
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be Metocean.",
+          "enum": ["Metocean"]
+        },
+
+        "code": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Metocean product/area code or identifier of the computation set."
+        },
+
+        "fromDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. ISO 8601 UTC start of the metocean period covered by this entity."
+        },
+
+        "toDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. ISO 8601 UTC end of the metocean period covered by this entity."
+        },
+
+        "modifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. ISO 8601 UTC timestamp when the forecast or dataset was computed (if applicable)."
+        },
+
+        "collectionName": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Logical name of the metocean collection (e.g. '10-min-metocean-measures', '12hour-daily-forecast')."
+        },
+
+
+        "points": {
+          "type": "array",
+          "description": "Property. Array of metocean points (sensors, grid points, prediction locations) each holding a time-series of data samples.",
+
+          "items": {
+            "type": "object",
+            "properties": {
+              "pointCode": {
+                "type": "number",
+                "description": "Property. Numeric code of the metocean point (sensor, location or prediction point). Model:'https://schema.org/Number'."
+              },
+              "pointName": {
+                "type": "string",
+                "description": "Property. Human-readable name of the metocean point. Model:'https://schema.org/Text'."
+              },
+              "pointType": {
+                "type": "string",
+                "description": "Property. Type of metocean point (e.g. 'current-meter', 'wave-gauge', 'wind-gauge', 'cma-prediction'). Model:'https://schema.org/Text'.",
+                "enum": [
+                  "current-meter",
+                  "wave-gauge",
+                  "wind-gauge",
+                  "cma-prediction",
+                  "ihm-prediction",
+                  "tide-gauge",
+                  "other"
+                ]
+              },
+              "dataNature": {
+                "type": "string",
+                "description": "Property. Nature of the data contained in this entity.",
+                "enum": [
+                  "measure",
+                  "forecast",
+                  "measure-and-forecast"
+                ]
+              },
+              "variables": {
+                "type": "string",
+                "description": "Property. Comma-separated list of variable names present in the 'data' array of this point (e.g. 'currentSpeed,currentDir,tideHeight'). Model:'https://schema.org/Text'."
+              },
+              "data": {
+                "type": "array",
+                "description": "Property. Time-series of metocean samples for this point.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "observedAt": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Property. NGSI-LD observedAt timestamp for this data sample (ISO 8601, UTC preferred)."
+                    },
+
+                    "waveDir": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 360,
+                      "description": "Property. Mean wave direction in degrees (0–360). Model:'https://schema.org/Number'."
+                    },
+                    "wavePeakDir": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 360,
+                      "description": "Property. Peak wave direction in degrees (0–360), if provided by the source. Model:'https://schema.org/Number'."
+                    },
+                    "waveHeight": {
+                      "type": "number",
+                      "description": "Property. Wave height in meters as provided by the source (often total or characteristic wave height). Model:'https://schema.org/Number'."
+                    },
+                    "significantWaveHeight": {
+                      "type": "number",
+                      "description": "Property. Significant wave height in meters. Model:'https://schema.org/Number'."
+                    },
+                    "wavePeakPeriod": {
+                      "type": "number",
+                      "description": "Property. Peak wave period in seconds. Model:'https://schema.org/Number'."
+                    },
+
+                    "windSpeed": {
+                      "type": "number",
+                      "description": "Property. Wind speed in m/s. Model:'https://schema.org/Number'."
+                    },
+                    "windDir": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 360,
+                      "description": "Property. Wind direction in degrees (0–360). Model:'https://schema.org/Number'."
+                    },
+
+                    "currentSpeed": {
+                      "type": "number",
+                      "description": "Property. Current speed in m/s. Model:'https://schema.org/Number'."
+                    },
+                    "currentDir": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 360,
+                      "description": "Property. Current direction in degrees (0–360). Model:'https://schema.org/Number'."
+                    },
+
+                    "tideHeight": {
+                      "type": "number",
+                      "description": "Property. Tide height or water level at this instant, referenced to local datum, in meters. Model:'https://schema.org/Number'."
+                    },
+                    "tideHeight10mValues": {
+                      "type": "array",
+                      "description": "Property. Optional intra-hour tide height values (e.g. 10-minute steps within the hour around 'observedAt'), in meters. Model:'https://schema.org/Number'.",
+                      "items": {
+                        "type": "number"
+                      }
+                    },
+
+                    "peakDateTime": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Property. If applicable, ISO 8601 time of the nearest related tide peak (high or low)."
+                    },
+                    "peakHeight": {
+                      "type": "number",
+                      "description": "Property. Height of the related tide peak in meters. Model:'https://schema.org/Number'."
+                    },
+                    "peakType": {
+                      "type": "string",
+                      "enum": [
+                        "hightide",
+                        "lowtide",
+                        ""
+                      ],
+                      "description": "Property. Type of tide peak (hightide/lowtide). May be empty when not applicable."
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "fromDate",
+    "toDate",
+    "collectionName",
+    "dataNature",
+    "points"
+  ]
+}

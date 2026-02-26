@@ -1,0 +1,232 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.1.0",
+  "modelTags": "ESHUV, i4trust, Tracked",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://example.org/schema/TrackedManoeuvre.json",
+  "title": "TrackedManeuver schema",
+  "description": "TrackedManoeuvre entity coming from Tracked (Operation Tracking System). Tracked maneuver. The entityId follows the pattern mrn:urn:eshuv:pdph:Tracked:type:attr:value, where type=Manoeuvre and attr=manoeuvreCode.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be TrackedManoeuvre",
+          "enum": ["TrackedManeuver"]
+        },
+        "observedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update date of the entity."
+        },
+        "refPortCallId": {
+          "type": "string",
+          "description": "Reference to the port call."
+        },
+        "refTugServiceId": {
+          "type": "string",
+          "description": "Reference to the tug service."
+        },
+        "portCallCode": {
+          "type": "string",
+          "description": "STM register of the port call."
+        },
+        "maneuverCode": {
+          "type": "string",
+          "description": "Maneuver code."
+        },
+        "maneuverType": {
+          "type": "string",
+          "description": "Maneuver type."
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Maneuver start date."
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Maneuver end date."
+        },
+        "durationHours": {
+          "type": "number",
+          "description": "Maneuver duration in hours."
+        },
+        "observations": {
+          "type": "string",
+          "description": "Maneuver observations."
+        },
+        "mooringFirstCableDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "First line time for the mooring maneuver."
+        },
+        "mooringLocation": {
+          "type": "string",
+          "description": "Location of the mooring maneuver."
+        },
+        "mooringCablesNumber": {
+          "type": "number",
+          "description": "Number of lines for the mooring maneuver."
+        },
+        "mooringNoraysFrom": {
+          "type": "number",
+          "description": "Bollard number from (mooring maneuver)."
+        },
+        "mooringNoraysTo": {
+          "type": "number",
+          "description": "Bollard number to (mooring maneuver)."
+        },
+        "mooringSide": {
+          "type": "string",
+          "description": "Mooring side for the mooring maneuver."
+        },
+        "mooringChangeLastCableDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last line time for the berth-shifting maneuver."
+        },
+        "mooringChangeInitialLocation": {
+          "type": "string",
+          "description": "Initial location of the berth-shifting maneuver."
+        },
+        "mooringChangeFirstLandCableDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "First shore line time for the berth-shifting maneuver."
+        },
+        "mooringChangeLastLocation": {
+          "type": "string",
+          "description": "Final location of the berth-shifting maneuver."
+        },
+        "mooringChangeCablesNumber": {
+          "type": "number",
+          "description": "Number of lines for the berth-shifting maneuver."
+        },
+        "mooringChangeNoraysFrom": {
+          "type": "number",
+          "description": "Bollard number from (berth-shifting maneuver)."
+        },
+        "mooringChangeNoraysTo": {
+          "type": "number",
+          "description": "Bollard number to (berth-shifting maneuver)."
+        },
+        "mooringChangeSide": {
+          "type": "string",
+          "description": "Mooring side for the berth-shifting maneuver."
+        },
+        "undockingLastCableDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last line time for the unmooring (undocking) maneuver."
+        },
+        "undockingLocation": {
+          "type": "string",
+          "description": "Location of the unmooring (undocking) maneuver."
+        },
+        "amendedOnMooringLocation": {
+          "type": "string",
+          "description": "Location of the 'made fast alongside / amended on mooring' maneuver."
+        },
+        "anchoringZone": {
+          "type": "string",
+          "description": "Anchorage zone for the anchoring maneuver."
+        },
+        "anchoringLocation": {
+          "type": "object",
+          "description": "Location of the anchoring maneuver.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["Point", "LineString", "Polygon"]
+            },
+            "coordinates": {
+              "type": "array"
+            }
+          },
+          "required": ["type", "coordinates"]
+        },
+        "anchoringDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Anchor down time for the anchoring maneuver."
+        },
+        "anchoringAnchorUpDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Anchor aweigh (anchor up) time for the anchoring maneuver."
+        },
+        "othersType": {
+          "type": "string",
+          "description": "Type of other maneuver."
+        },
+        "othersZone": {
+          "type": "string",
+          "description": "Zone/location of the other maneuver."
+        },
+        "othersLocation": {
+          "type": "object",
+          "description": "Location of the other maneuver.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["Point", "LineString", "Polygon"]
+            },
+            "coordinates": {
+              "type": "array"
+            }
+          },
+          "required": ["type", "coordinates"]
+        },
+        "pilotageEmbarkLocation": {
+          "type": "string",
+          "description": "Pilot embarkation location for the pilotage maneuver."
+        },
+        "pilotageEmbarkDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Pilot embarkation time for the pilotage maneuver."
+        },
+        "pilotageDisembarkLocation": {
+          "type": "string",
+          "description": "Pilot disembarkation location for the pilotage maneuver."
+        },
+        "pilotageDisembarkDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Pilot disembarkation time for the pilotage maneuver."
+        },
+        "pilotagePilots": {
+          "type": "string",
+          "description": "Pilots involved in the pilotage maneuver."
+        },
+        "pilotageExempt": {
+          "type": "string",
+          "description": "Pilotage exemption."
+        },
+        "pilotageObservations": {
+          "type": "string",
+          "description": "Pilotage maneuver observations."
+        },
+        "tugboatsNumber": {
+          "type": "number",
+          "description": "Number of tugboats for the tug service maneuver."
+        },
+        "tugboatsObservations": {
+          "type": "string",
+          "description": "Tug service maneuver observations."
+        }
+      }
+    }
+  ],
+  "required": ["id", "type"]
+}

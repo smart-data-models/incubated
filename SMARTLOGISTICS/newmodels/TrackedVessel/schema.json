@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.1.0",
+  "modelTags": "ESHUV, i4trust, SIGO, PDPH",
+  "derivedFrom": "",
+  "license": "",
+  "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/TrackedVessel/schema.json",
+  "title": "Smart Data Models TrackedVessel schema",
+  "description": "This data model represents a Tracked Vessel entity. The entityId follows the structure mrn:urn:eshuv:pdph:sigo:<type>:<attr>:<value>, where type is the entity type (Vessel), attr is the unique identifier attribute (imo) and value is its value (e.g. 2626430).",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity type. It has to be TrackedVessel",
+          "enum": ["TrackedVessel"]
+        },
+
+        "observedDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. TimeInstant ISO 8601 UTC format."
+        },
+
+        "imo": {
+          "type": "number",
+          "description": "Property. International Maritime Organization Number (a global forever UID). Model:'https://schema.org/Number'."
+        },
+
+        "mmsi": {
+          "type": "number",
+          "description": "Property. Marine Mobile Service Identity Number (temporarily assigned UID). Model:'https://schema.org/Number'."
+        },
+
+        "registration": {
+          "type": "string",
+          "description": "Property. Unique identifier of a vessel. Model:'https://schema.org/Text'."
+        },
+
+        "callSign": {
+          "type": "string",
+          "description": "Property. Maritime call sign assigned as unique identifier to vessels. Model:'https://schema.org/Text'."
+        },
+
+        "speedOverGround": {
+          "type": "number",
+          "description": "Property. Speed Over Ground (SOG). Model:'https://schema.org/Number'. Units: 'meters per second'."
+        },
+
+        "courseOverGround": {
+          "type": "number",
+          "description": "Property. Course Over Ground (COG). Model:'https://schema.org/Number'. Units: 'degree'."
+        },
+
+        "heading": {
+          "type": "number",
+          "description": "Property. Heading of the Vessel (HDG). Model:'https://schema.org/Number'. Units: 'degree'."
+        },
+
+        "rateOfTurn": {
+          "type": "number",
+          "description": "Property. Rate of Turn (ROT). Model:'https://schema.org/Number'. Units: 'degree'."
+        },
+
+        "modifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date and time of last modification of the entity represented by an ISO 8601 UTC format."
+        },
+
+        "observedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date and time of this observation represented by an ISO 8601 UTC format."
+        },
+
+        "flagCode": {
+          "type": "string",
+          "description": "Property. International Flag Code (ISO 3166-1 alpha-2). Model:'https://schema.org/Text'."
+        },
+
+        "vesselType": {
+          "type": "number",
+          "description": "Property. Code for vessel type. Model:'https://schema.org/Number'. Enum: '1=Reserved,2=Wing In Ground,3=Special Category,4=High-Speed Craft,5=Special Category,6=Passenger,7=Cargo,8=Tanker,9=Other'.",
+          "enum": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        },
+
+        "vesselSubType": {
+          "type": "number",
+          "description": "Property. Code for vessel Sub-Type (AIS). Model:'https://schema.org/Number'. Range: 0..99.",
+          "minimum": 0,
+          "maximum": 99
+        },
+
+        "grossTonnage": {
+          "type": "number",
+          "description": "Property. Gross Tonnage (GT). Model:'https://schema.org/Number'. Units: 'moorson tons'."
+        },
+
+        "beam": {
+          "type": "number",
+          "description": "Property. Beam of Vessel. Model:'https://schema.org/Number'. Units: 'meters'.",
+          "minimum": 0,
+          "maximum": 1000
+        },
+
+        "length": {
+          "type": "number",
+          "description": "Property. Length of Vessel. Model:'https://schema.org/Number'. Units: 'meters'.",
+          "minimum": 0,
+          "maximum": 8000
+        },
+
+        "maximumDraught": {
+          "type": "number",
+          "description": "Property. Maximum Draught. Model:'https://schema.org/Number'. Units: 'meters'."
+        },
+
+        "deadweightTonnage": {
+          "type": "number",
+          "description": "Property. Deadweight Tonnage (DWT). Model:'https://schema.org/Number'. Units: 'tons'."
+        },
+
+        "buildingAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Date and time of building of the vessel represented by an ISO 8601 UTC format."
+        },
+
+        "toBow": {
+          "type": "number",
+          "description": "Property. Dimension to Bow. Model:'https://schema.org/Number'. Units: 'meters'."
+        },
+
+        "toStern": {
+          "type": "number",
+          "description": "Property. Dimension to Stern. Model:'https://schema.org/Number'. Units: 'meters'."
+        },
+
+        "toPort": {
+          "type": "number",
+          "description": "Property. Dimension to Port. Model:'https://schema.org/Number'. Units: 'meters'."
+        },
+
+        "toStardoard": {
+          "type": "number",
+          "description": "Property. Dimension to Starboard. Model:'https://schema.org/Number'. Units: 'meters'. (Attribute name kept as provided: toStardboard)."
+        },
+
+        "navigationStatus": {
+          "type": "number",
+          "description": "Property. Navigation Status (AIS). Model:'https://schema.org/Number'. Enum: 0..15.",
+          "minimum": 0,
+          "maximum": 15
+        },
+
+        "airDraught": {
+          "type": "number",
+          "description": "Property. Air Draught (highest point to waterline). Model:'https://schema.org/Number'. Units: 'meters'."
+        },
+
+        "draught": {
+          "type": "number",
+          "description": "Property. Draught (waterline to keel). Model:'https://schema.org/Number'. Units: 'meters'."
+        },
+
+        "photo": {
+          "type": "string",
+          "description": "Property. Vessel Photo URL. Model:'https://schema.org/URL'."
+        },
+
+        "ownerVessel": {
+          "type": "string",
+          "description": "Property. Owner Vessel. Model:'https://schema.org/Text'."
+        },
+
+        "manager": {
+          "type": "string",
+          "description": "Property. Manager Vessel. Model:'https://schema.org/Text'."
+        },
+
+        "financialOwner": {
+          "type": "string",
+          "description": "Property. Financial Owner. Model:'https://schema.org/Text'."
+        },
+
+        "technicalManager": {
+          "type": "string",
+          "description": "Property. Technical Manager. Model:'https://schema.org/Text'."
+        },
+
+        "dataProvider": {
+          "type": "string",
+          "description": "Property. A sequence of characters identifying the provider of the harmonised data entity. Model:'https://schema.org/Text'."
+        },
+
+        "destinationPort": {
+          "type": "string",
+          "description": "Property. Destination Port UN/LOCODE. Model:'https://schema.org/Text'."
+        },
+
+        "previousPort": {
+          "type": "string",
+          "description": "Property. Previous Port UN/LOCODE. Model:'https://schema.org/Text'."
+        },
+
+        "registrationPort": {
+          "type": "string",
+          "description": "Property. Registration Port UN/LOCODE. Model:'https://schema.org/Text'."
+        },
+
+        "estimatedTimeOfArrival": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Estimated time of arrival represented by an ISO 8601 UTC format."
+        },
+
+        "positionAccuracy": {
+          "type": "number",
+          "description": "Property. Code for the accuracy of the vessel position flag. Model:'https://schema.org/Number'. Enum: '0=Low,1=High'.",
+          "enum": [0, 1]
+        },
+
+        "specialManeuverIndicator": {
+          "type": "number",
+          "description": "Property. Code for the special maneuver flag. Model:'https://schema.org/Number'. Enum: '0=Not available,1=Not engaged,2=Engaged'.",
+          "enum": [0, 1, 2]
+        },
+
+        "location": {
+          "type": "object",
+          "description": "GeoProperty. Boat position (GeoJSON Point).",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["Point"]
+            },
+            "coordinates": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 3,
+              "items": { "type": "number" }
+            }
+          },
+          "required": ["type", "coordinates"]
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "imo"
+  ]
+}
