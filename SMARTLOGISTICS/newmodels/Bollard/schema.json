@@ -1,20 +1,17 @@
 {
-  "$schema": "http://json-schema.org/schema#",
-  "$schemaVersion": "0.0.2",
+  "$schema": " https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
   "modelTags": "ESHUV",
   "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/Bollard/schema.json",
   "title": "Smart Data models Bollard schema",
   "description": "This data model describes a bollard in a port facility, used for mooring vessels.",
   "type": "object",
   "allOf": [
-    {
-      "$ref": "https://smart-data-models.github.io/dataModel.MarineTransport/context.jsonld"
+   {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
     },
     {
-      "$ref": "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
-    },
-    {
-      "$ref": "https://smart-data-models.github.io/data-models/context.jsonld"
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
     {
       "properties": {
@@ -27,7 +24,7 @@
         },
         "mrn": {
           "type": "string",
-          "description": "Property. MRN coded identifier. It has to be related to the entity in a way that is well-known by different organisms the meaning and the initiator of the entity, and all next parties will maintain on its origianl value. This identifier must be an UNIQUE identifier of the PortCall entity assigned by the system who created on first the entity. This URN should Conforms MRN & IETF specifically RFC 2141, RFC 5234, and RFC 8141. \n    The propossed format is \n    id::='urn:mrn:eshuv:<ONSS>:portcalls:bollard:code:[0-9]+' or  \n    where OID:= Organisation UN/LOCODE, OONSS:=Organization Name of Service, 2099 the year on which the portcall was initiated, 9999999 an increasing, unique identifier that the issuer of the Bollard entity will identify on his sistems (i.e. a SQL row-id), \n    i.e. urn:mrn:eshuv:portcalls:bollard:id:296 \n     See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)In international standards is also known as [Ship's Visit]",
+          "description": "Property. MRN coded identifier. It has to be related to the entity in a way that is well-known by different organisms the meaning and the initiator of the entity, and all next parties will maintain on its original value. This identifier must be an UNIQUE identifier of the PortCall entity assigned by the system who created on first the entity. This URN should Conforms MRN & IETF specifically RFC 2141, RFC 5234, and RFC 8141. The propossed format is     id::='urn:mrn:eshuv:<ONSS>:portcalls:bollard:code:[0-9]+' or where OID:= Organisation UN/LOCODE, OONSS:=Organization Name of Service, 2099 the year on which the portcall was initiated, 9999999 an increasing, unique identifier that the issuer of the Bollard entity will identify on his sistems (i.e. a SQL row-id), i.e. urn:mrn:eshuv:portcalls:bollard:id:296 See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory)In international standards is also known as [Ship's Visit]",
           "enum": [
             "PortCall"
           ]
@@ -84,9 +81,6 @@
   "required": [
     "id",
     "type",
-    "portCode",
-    "facilityRef",
-    "code",
     "bollardIndex"
   ]
 }
