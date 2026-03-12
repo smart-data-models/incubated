@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$schemaVersion": "1.0.2",
+  "$schemaVersion": "0.0.1",
   "modelTags": "I4Trust",
   "derivedFrom": "",
   "license": "",
@@ -50,7 +50,7 @@
         },
         "portCallNumber": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Port call identifier in MRN format. First element of the NSS should be the 5 character UN/Locode of the port, later the YEAR and finishing with a sequential number in this port [LLLLLYYYY99999] where LLLLL is the UN/LOCODE of the visited port, YYYY is the year, and 99999 is a unique sequential number assigned by port authority unique on each year (i.e. ESHUV202310323). An abreviation can be used for UN/LOCODE (i.e. H202310323).  The portCallNumber is assigned during the initial steps of the visit, but could be null at the beggining. In international standards is also known as [Port Call ID], [Visit ID] or [Port Call Coded]. See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory) [EMSWe: DG-004/DG-004-01] [EDIFACT:BGM-1004] [IALA_S211:portCallId] [IMO:IMO108+IMO0153]"
+          "description": "Property. Model:'https://schema.org/Text'. Port call identifier in MRN format. First element of the NSS should be the 5 character UN/Locode of the port, later the YEAR and finishing with a sequential number in this port [LLLLLYYYY99999] where LLLLL is the UN/LOCODE of the visited port, YYYY is the year, and 99999 is a unique sequential number assigned by port authority unique on each year (i.e. ESHUV202310323). An abbreviation can be used for UN/LOCODE (i.e. H202310323).  The portCallNumber is assigned during the initial steps of the visit, but could be null at the beginning. In international standards is also known as [Port Call ID], [Visit ID] or [Port Call Coded]. See [Unlocode](https://unece.org/trade/cefact/unlocode-code-list-country-and-territory) [EMSWe: DG-004/DG-004-01] [EDIFACT:BGM-1004] [IALA_S211:portCallId] [IMO:IMO108+IMO0153]"
         },
         "portCallRef": {
           "type": "Relationship",
@@ -71,12 +71,12 @@
         "etaAis": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'https://schema.org/Text'. Estimated time of arrival, as it is reported by AIS system, represented by an ISO 8601 UTC format."
+          "description": "Property. Model:'https://schema.org/Text'. Estimated time of arrival, as it is reported by AIS system, represented by an ISO 8601 UTC format"
         },
         "etaAlgorithm": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'https://schema.org/Text'. Estimated time of arrival, computed by an algorithm based on vessel's positions, represented by an ISO 8601 UTC format."
+          "description": "Property. Model:'https://schema.org/Text'. Estimated time of arrival, computed by an algorithm based on vessel's positions, represented by an ISO 8601 UTC format"
         },
         "navigationStatus": {
           "type": "number",
@@ -98,24 +98,24 @@
             14,
             15
           ],
-          "description": "Property. Model:'https://schema.org/Number'. Enum:'0=Under way using engine, 1=At anchor, 2=Not under command,3=Restricted manoeuverability,4=Constrained by her draught, 5=Moored, 6=Aground, 7=Engaged in Fishing, 8=Under way sailing, 9=Reserved for future amendment of Navigational state for HSC, 10=Reserved for future amendment of Navigational Status for WIG, 11=Reserved for future use, 12=Reserved for future use,13=Reserved for future use, 14=AIS-SART is active, 15=Not defined (default)'. Navigation Status. AIVDM/AIVDO data format'"
+          "description": "Property. Model:'https://schema.org/Number'. Enum:'0=Under way using engine, 1=At anchor, 2=Not under command, 3=Restricted manoeuverability,4=Constrained by her draught, 5=Moored, 6=Aground, 7=Engaged in Fishing, 8=Under way sailing, 9=Reserved for future amendment of Navigational state for HSC, 10=Reserved for future amendment of Navigational Status for WIG, 11=Reserved for future use, 12=Reserved for future use,13=Reserved for future use, 14=AIS-SART is active, 15=Not defined (default)'. Navigation Status. AIVDM/AIVDO data format'"
         },
         "location": {
           "@id": "http://uri.etsi.org/ngsi-ld/location",
           "@type": "https://uri.etsi.org/ngsi-ld/GeoProperty",
-          "description": "GeoProperty. Geojson reference to the vessel position. It must be a Point where the vessel was placed at observedDate date."
+          "description": "GeoProperty. Geojson reference to the vessel position. It must be a Point where the vessel was placed at observedDate date"
         },
         "latitude": {
           "type": "number",
-          "description": "Property. Latitude coordinate of the vessel."
+          "description": "Property. Latitude coordinate of the vessel"
         },
         "longitude": {
           "type": "number",
-          "description": "Property. Longitude coordinate of the vessel."
+          "description": "Property. Longitude coordinate of the vessel"
         },
         "vesselAtPort": {
           "type": "boolean",
-          "description": "Property. Model:'https://schema.org/Boolean'. The vessel is in port limits, including waiting outside, at the harbor entrance, awaiting instructions, etc."
+          "description": "Property. Model:'https://schema.org/Boolean'. The vessel is in port limits, including waiting outside, at the harbor entrance, awaiting instructions, etc"
         },
         "positionAccuracy": {
           "type": "number",
@@ -123,46 +123,46 @@
             0,
             1
           ],
-          "description": "Property. Model:'https://schema.org/Number'. Enum:'0=Low (> 10 m; autonomous mode of e.g. global navigation satellite system (GNSS) receiver or of other electronic position fixing device; default), 1=High (< 10 m; differential mode of e.g. DGNSS receiver)'. Code for the accuracy of the vessel position flag."
+          "description": "Property. Model:'https://schema.org/Number'. Enum:'0=Low (> 10 m; autonomous mode of e.g. global navigation satellite system (GNSS) receiver or of other electronic position fixing device; default), 1=High (< 10 m; differential mode of e.g. DGNSS receiver)'. Code for the accuracy of the vessel position flag"
         },
         "speedOverGround": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Units:'meters per second'. Speed Over Ground (SOG)."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'meters per second'. Speed Over Ground (SOG)"
         },
         "courseOverGround": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Units:'degree'. Course Over Ground (COG)."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'degree'. Course Over Ground (COG)"
         },
         "dataProvider": {
           "type": "string",
           "enum": [
             "AIS",
             "AISHUB",
-            "MARINETRAFFIC",
             "ALGORITHM",
-            "IA"
+            "IA",
+            "MARINETRAFFIC"
           ],
-          "description": "Property. Model:'https://schema.org/Text'. A sequence of characters identifying the provider of the harmonised data entity."
+          "description": "Property. Model:'https://schema.org/Text'. A sequence of characters identifying the provider of the harmonised data entity"
         },
         "createdDate": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'https://schema.org/Text'. Date and time of creation of the entity represented by an ISO 8601 UTC format."
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of creation of the entity represented by an ISO 8601 UTC format"
         },
         "modifiedDate": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'https://schema.org/Text'. Date and time of last modification of the entity represented by an ISO 8601 UTC format."
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of last modification of the entity represented by an ISO 8601 UTC format"
         },
         "deletedDate": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'https://schema.org/Text'. Date and time of deletion of the entity represented by an ISO 8601 UTC format."
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of deletion of the entity represented by an ISO 8601 UTC format"
         },
         "observedDate": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Model:'https://schema.org/Text'. Date and time of this observation represented by an ISO 8601 UTC format."
+          "description": "Property. Model:'https://schema.org/Text'. Date and time of this observation represented by an ISO 8601 UTC format"
         }
       }
     }
