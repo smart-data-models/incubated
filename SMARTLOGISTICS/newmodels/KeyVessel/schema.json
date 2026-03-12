@@ -10,7 +10,10 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      "$ref": "https://raw.githubusercontent.com/smart-data-models/data-models/refs/heads/master/common-schema.json#/definitions/GSMA-Commons"
+    },
+     {
+      "$ref": "https://raw.githubusercontent.com/smart-data-models/data-models/refs/heads/master/common-schema.json#/definitions/Location-Commons"
     },
     {
       "properties": {
@@ -23,7 +26,7 @@
         },
         "vesselRef": {
           "type": "Relationship",
-          "description": "Relationship.Reference to parent MasterVessel entity. [NGSI-MarineTransport.MasterVessel.id]- urn:mrn:<oid>:portcalls:mastervessel:id:9999"
+          "description": "Relationship. Reference to parent MasterVessel entity. [NGSI-MarineTransport.MasterVessel.id]- urn:mrn:<oid>:portcalls:mastervessel:id:9999"
         },
         "imo": {
           "type": "number",
@@ -51,7 +54,7 @@
         },
         "portCallRef": {
           "type": "Relationship",
-          "description": "Relationship.Reference to parent PortCall entity. [NGSI-MarineTransport.PortCall.id]"
+          "description": "Relationship. Reference to parent PortCall entity. [NGSI-MarineTransport.PortCall.id]"
         },
         "portCode": {
           "type": "string",
@@ -95,7 +98,7 @@
             14,
             15
           ],
-          "description": "Property. Model:'http://schema.org/Number'. Enum: '0=Under way using engine,1=At anchor,2=Not under command,3=Restricted manoeuverability,4=Constrained by her draught,5=Moored,6=Aground,7=Engaged in Fishing,8=Under way sailing,9=Reserved for future amendment of Navigational state for HSC,10=Reserved for future amendment of Navigational Status for WIG,11=Reserved for future use,12=Reserved for future use,13=Reserved for future use,14=AIS-SART is active,15=Not defined (default)'. Navigation Status. AIVDM/AIVDO data format."
+          "description": "Property. Model:'https://schema.org/Number'. Enum:'0=Under way using engine, 1=At anchor, 2=Not under command,3=Restricted manoeuverability,4=Constrained by her draught, 5=Moored, 6=Aground, 7=Engaged in Fishing, 8=Under way sailing, 9=Reserved for future amendment of Navigational state for HSC, 10=Reserved for future amendment of Navigational Status for WIG, 11=Reserved for future use, 12=Reserved for future use,13=Reserved for future use, 14=AIS-SART is active, 15=Not defined (default)'. Navigation Status. AIVDM/AIVDO data format'"
         },
         "location": {
           "@id": "http://uri.etsi.org/ngsi-ld/location",
@@ -120,15 +123,15 @@
             0,
             1
           ],
-          "description": "Property. Model:'https://schema.org/Number'.Enum: '0=Low (> 10 m; autonomous mode of e.g. global navigation satellite system (GNSS) receiver or of other electronic position fixing device; default),1=High (< 10 m; differential mode of e.g. DGNSS receiver)'. Code for the accuracy of the vessel position flag."
+          "description": "Property. Model:'https://schema.org/Number'. Enum:'0=Low (> 10 m; autonomous mode of e.g. global navigation satellite system (GNSS) receiver or of other electronic position fixing device; default), 1=High (< 10 m; differential mode of e.g. DGNSS receiver)'. Code for the accuracy of the vessel position flag."
         },
         "speedOverGround": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Units: 'meters per second'. Speed Over Ground (SOG)."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'meters per second'. Speed Over Ground (SOG)."
         },
         "courseOverGround": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. Units: 'degree'. Course Over Ground (COG)."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'degree'. Course Over Ground (COG)."
         },
         "dataProvider": {
           "type": "string",

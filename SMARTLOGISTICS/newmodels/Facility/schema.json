@@ -1,20 +1,17 @@
 {
-  "$schema": "http://json-schema.org/schema#",
-  "$schemaVersion": "0.0.2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
   "modelTags": "ESHUV",
   "$id": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/Facility/schema.json",
   "title": "Smart Data models Facility schema",
   "description": "This data model describes a facility in a port, which may include berths, terminals, or other port infrastructure.",
   "type": "object",
   "allOf": [
-    {
-      "$ref": "https://smart-data-models.github.io/dataModel.MarineTransport/context.jsonld"
+     {
+      "$ref": "https://raw.githubusercontent.com/smart-data-models/data-models/refs/heads/master/common-schema.json#/definitions/Location-Commons"
     },
     {
-      "$ref": "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
-    },
-    {
-      "$ref": "https://smart-data-models.github.io/data-models/context.jsonld"
+      "$ref": "https://raw.githubusercontent.com/smart-data-models/data-models/refs/heads/master/common-schema.json#/definitions/GSMA-Commons"
     },
     {
       "properties": {
@@ -134,7 +131,8 @@
         "bollardCodes": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Property. Any element in the list of bollard codes available at the facility."
           },
           "description": "Property. List of bollard codes available at the facility."
         }
@@ -144,9 +142,7 @@
   "required": [
     "id",
     "portCode",
-    "facilityName",
-    "facilityCode",
-    "facilityType",
-    "modifiedAt"
+    "type"
+
   ]
 }
