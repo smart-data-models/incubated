@@ -17,7 +17,9 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["OSMHighway"],
+          "enum": [
+            "OSMHighway"
+          ],
           "description": "Property. NGSI Entity type. It has to be OSMHighway"
         },
         "osmId": {
@@ -26,7 +28,11 @@
         },
         "osmType": {
           "type": "string",
-          "enum": ["node", "way", "relation"],
+          "enum": [
+            "node",
+            "way",
+            "relation"
+          ],
           "description": "Property. The type of the original OpenStreetMap element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
         },
         "osmLastModified": {
@@ -37,12 +43,30 @@
         "highwayType": {
           "type": "string",
           "enum": [
-            "motorway", "trunk", "primary", "secondary", "tertiary",
-            "unclassified", "residential", "service", "living_street",
-            "pedestrian", "track", "footway", "cycleway", "path",
-            "motorway_link", "trunk_link", "primary_link", "secondary_link",
-            "tertiary_link", "road", "busway", "bus_guideway",
-            "construction", "proposed"
+            "motorway",
+            "trunk",
+            "primary",
+            "secondary",
+            "tertiary",
+            "unclassified",
+            "residential",
+            "service",
+            "living_street",
+            "pedestrian",
+            "track",
+            "footway",
+            "cycleway",
+            "path",
+            "motorway_link",
+            "trunk_link",
+            "primary_link",
+            "secondary_link",
+            "tertiary_link",
+            "road",
+            "busway",
+            "bus_guideway",
+            "construction",
+            "proposed"
           ],
           "description": "Property. The OSM highway tag value that classifies the type of road or path. Enum:'motorway, trunk, primary, secondary, tertiary, unclassified, residential, service, living_street, pedestrian, track, footway, cycleway, path, motorway_link, trunk_link, primary_link, secondary_link, tertiary_link, road, busway, bus_guideway, construction, proposed'. Model:'https://wiki.openstreetmap.org/wiki/Key:highway'"
         },
@@ -67,15 +91,39 @@
         "surface": {
           "type": "string",
           "enum": [
-            "asphalt", "concrete", "gravel", "dirt", "paving_stones",
-            "cobblestone", "unpaved", "grass", "compacted", "fine_gravel",
-            "sand", "ground", "metal", "wood", "pebblestone", "mud", "ice", "salt"
+            "asphalt",
+            "concrete",
+            "gravel",
+            "dirt",
+            "paving_stones",
+            "cobblestone",
+            "unpaved",
+            "grass",
+            "compacted",
+            "fine_gravel",
+            "sand",
+            "ground",
+            "metal",
+            "wood",
+            "pebblestone",
+            "mud",
+            "ice",
+            "salt"
           ],
           "description": "Property. Physical surface material of the road. Model:'https://wiki.openstreetmap.org/wiki/Key:surface'"
         },
         "access": {
           "type": "string",
-          "enum": ["yes", "no", "private", "permissive", "destination", "delivery", "customers", "designated"],
+          "enum": [
+            "yes",
+            "no",
+            "private",
+            "permissive",
+            "destination",
+            "delivery",
+            "customers",
+            "designated"
+          ],
           "description": "Property. General access restriction for the road. Model:'https://wiki.openstreetmap.org/wiki/Key:access'"
         },
         "bridge": {
@@ -109,7 +157,13 @@
         },
         "sidewalk": {
           "type": "string",
-          "enum": ["both", "left", "right", "none", "separate"],
+          "enum": [
+            "both",
+            "left",
+            "right",
+            "none",
+            "separate"
+          ],
           "description": "Property. Indicates the presence and side of a sidewalk alongside the road. Model:'https://wiki.openstreetmap.org/wiki/Key:sidewalk'"
         },
         "inclinePercent": {
@@ -118,13 +172,30 @@
         },
         "seeAlso": {
           "oneOf": [
-            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
-            {"type": "string", "format": "uri"}
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
           ],
           "description": "Property. List of URIs pointing to additional resources about this item (e.g. Wikidata, Wikipedia)."
         }
-      },
-      "required": ["id", "type", "location", "osmId", "osmType", "highwayType"]
+      }
     }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "osmId",
+    "osmType",
+    "highwayType"
   ]
 }
