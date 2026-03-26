@@ -1,111 +1,111 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$schemaVersion": "0.0.1",
-    "modelTags": "OSM OpenStreetMap Buildings Address",
-    "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMAddressPoint/schema.json",
-    "title": "Smart Data Models - OpenStreetMap / OSMAddressPoint",
-    "description": "A standalone address point from OpenStreetMap, representing a node or area tagged with addr:* keys that describes a postal address not attached to a specific building outline. Used when address data exists independently of building geometry.",
-    "type": "object",
-    "allOf": [
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Buildings Address",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMAddressPoint/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMAddressPoint",
+  "description": "A standalone address point from OpenStreetMap, representing a node or area tagged with addr:* keys that describes a postal address not attached to a specific building outline. Used when address data exists independently of building geometry.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "OSMAddressPoint"
+          ],
+          "description": "Property. NGSI Entity type. It has to be OSMAddressPoint"
         },
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
         },
-        {
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "OSMAddressPoint"
-                    ],
-                    "description": "Property. NGSI Entity type. It has to be OSMAddressPoint"
-                },
-                "osmId": {
-                    "type": "integer",
-                    "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
-                },
-                "osmType": {
-                    "type": "string",
-                    "enum": [
-                        "node",
-                        "way",
-                        "relation"
-                    ],
-                    "description": "Property. The type of the original OpenStreetMap element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
-                },
-                "osmLastModified": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Property. Timestamp of the last modification of the OSM element."
-                },
-                "streetAddress": {
-                    "type": "string",
-                    "description": "Property. Name of the street to which the address belongs. OSM tag: addr:street. Model:'https://schema.org/streetAddress'"
-                },
-                "houseNumber": {
-                    "type": "string",
-                    "description": "Property. House or building number within the street. Includes suffixes such as '14A' or '14-16'. OSM tag: addr:housenumber. Model:'https://wiki.openstreetmap.org/wiki/Key:addr'"
-                },
-                "houseName": {
-                    "type": "string",
-                    "description": "Property. Named identifier of the building or property, as an alternative or complement to a house number. OSM tag: addr:housename. Model:'https://wiki.openstreetmap.org/wiki/Key:addr'"
-                },
-                "addressCity": {
-                    "type": "string",
-                    "description": "Property. Name of the city or town. OSM tag: addr:city. Model:'https://schema.org/addressLocality'"
-                },
-                "addressDistrict": {
-                    "type": "string",
-                    "description": "Property. Name of the district, sub-municipality, or borough within the city. OSM tag: addr:district. Model:'https://wiki.openstreetmap.org/wiki/Key:addr'"
-                },
-                "addressProvince": {
-                    "type": "string",
-                    "description": "Property. Name of the province, region, or state. OSM tag: addr:province. Model:'https://schema.org/addressRegion'"
-                },
-                "postalCode": {
-                    "type": "string",
-                    "description": "Property. Postal or ZIP code for the address. OSM tag: addr:postcode. Model:'https://schema.org/postalCode'"
-                },
-                "addressCountry": {
-                    "type": "string",
-                    "description": "Property. Two-letter ISO 3166-1 alpha-2 country code (e.g. 'ES', 'FR', 'DE'). OSM tag: addr:country. Model:'https://schema.org/addressCountry'"
-                },
-                "fullAddress": {
-                    "type": "string",
-                    "description": "Property. Full address in a single text string for cases where individual fields are not available. OSM tag: addr:full. Model:'https://wiki.openstreetmap.org/wiki/Key:addr'"
-                },
-                "refBuilding": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Relationship. URI reference to an associated OSMBuilding entity, when this address point corresponds to a known building."
-                },
-                "seeAlso": {
-                    "oneOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "format": "uri"
-                            },
-                            "minItems": 1
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri"
-                        }
-                    ],
-                    "description": "Property. List of URIs pointing to additional resources about this item."
-                }
+        "osmType": {
+          "type": "string",
+          "enum": [
+            "node",
+            "way",
+            "relation"
+          ],
+          "description": "Property. The type of the original OpenStreetMap element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification of the OSM element."
+        },
+        "streetAddress": {
+          "type": "string",
+          "description": "Property. Name of the street to which the address belongs. OSM tag: addr:street. Model:'https://schema.org/streetAddress'"
+        },
+        "houseNumber": {
+          "type": "string",
+          "description": "Property. House or building number within the street. Includes suffixes such as '14A' or '14-16'. OSM tag: addr:housenumber. Model:'https://wiki.openstreetmap.org/wiki/Key:addr'"
+        },
+        "houseName": {
+          "type": "string",
+          "description": "Property. Named identifier of the building or property, as an alternative or complement to a house number. OSM tag: addr:housename. Model:'https://wiki.openstreetmap.org/wiki/Key:addr'"
+        },
+        "addressCity": {
+          "type": "string",
+          "description": "Property. Name of the city or town. OSM tag: addr:city. Model:'https://schema.org/addressLocality'"
+        },
+        "addressDistrict": {
+          "type": "string",
+          "description": "Property. Name of the district, sub-municipality, or borough within the city. OSM tag: addr:district. Model:'https://wiki.openstreetmap.org/wiki/Key:addr'"
+        },
+        "addressProvince": {
+          "type": "string",
+          "description": "Property. Name of the province, region, or state. OSM tag: addr:province. Model:'https://schema.org/addressRegion'"
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "Property. Postal or ZIP code for the address. OSM tag: addr:postcode. Model:'https://schema.org/postalCode'"
+        },
+        "addressCountry": {
+          "type": "string",
+          "description": "Property. Two-letter ISO 3166-1 alpha-2 country code (e.g. 'ES', 'FR', 'DE'). OSM tag: addr:country. Model:'https://schema.org/addressCountry'"
+        },
+        "fullAddress": {
+          "type": "string",
+          "description": "Property. Full address in a single text string for cases where individual fields are not available. OSM tag: addr:full. Model:'https://wiki.openstreetmap.org/wiki/Key:addr'"
+        },
+        "refBuilding": {
+          "type": "string",
+          "format": "uri",
+          "description": "Relationship. URI reference to an associated OSMBuilding entity, when this address point corresponds to a known building."
+        },
+        "seeAlso": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
             },
-            "required": [
-                "id",
-                "type",
-                "location",
-                "osmId",
-                "osmType"
-            ]
+            {
+              "type": "string",
+              "format": "uri"
+            }
+          ],
+          "description": "Property. List of URIs pointing to additional resources about this item."
         }
-    ]
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "osmId",
+    "osmType"
+  ]
 }
