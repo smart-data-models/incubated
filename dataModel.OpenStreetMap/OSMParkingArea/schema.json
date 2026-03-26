@@ -1,0 +1,152 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "OSM OpenStreetMap Transportation Parking",
+    "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMParkingArea/schema.json",
+    "title": "Smart Data Models - OpenStreetMap / OSMParkingArea",
+    "description": "A vehicle parking area or facility from OpenStreetMap tagged with amenity=parking. Represents surface car parks, multi-storey garages, underground facilities, and other organised parking areas.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "OSMParkingArea"
+                    ],
+                    "description": "Property. NGSI Entity type. It has to be OSMParkingArea"
+                },
+                "osmId": {
+                    "type": "integer",
+                    "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+                },
+                "osmType": {
+                    "type": "string",
+                    "enum": [
+                        "node",
+                        "way",
+                        "relation"
+                    ],
+                    "description": "Property. The type of the original OpenStreetMap element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+                },
+                "osmLastModified": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Timestamp of the last modification of the OSM element."
+                },
+                "parkingType": {
+                    "type": "string",
+                    "enum": [
+                        "surface",
+                        "multi-storey",
+                        "underground",
+                        "street_side",
+                        "rooftop",
+                        "sheds",
+                        "carports",
+                        "garage_boxes",
+                        "lane"
+                    ],
+                    "description": "Property. Physical type or layout of the parking facility. Enum:'surface, multi-storey, underground, street_side, rooftop, sheds, carports, garage_boxes, lane'. Model:'https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dparking'"
+                },
+                "access": {
+                    "type": "string",
+                    "enum": [
+                        "yes",
+                        "no",
+                        "private",
+                        "permissive",
+                        "customers",
+                        "destination"
+                    ],
+                    "description": "Property. Access restriction for the parking facility. Model:'https://wiki.openstreetmap.org/wiki/Key:access'"
+                },
+                "capacity": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property. Total number of parking spaces available. Model:'https://wiki.openstreetmap.org/wiki/Key:capacity'"
+                },
+                "fee": {
+                    "type": "boolean",
+                    "description": "Property. Indicates whether a fee is charged for parking. Model:'https://wiki.openstreetmap.org/wiki/Key:fee'"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "Property. Name of the entity operating or managing the parking facility. Model:'https://wiki.openstreetmap.org/wiki/Key:operator'"
+                },
+                "maxStay": {
+                    "type": "string",
+                    "description": "Property. Maximum permitted parking duration (e.g. '2h', '1 day'). Model:'https://wiki.openstreetmap.org/wiki/Key:maxstay'"
+                },
+                "surface": {
+                    "type": "string",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "gravel",
+                        "dirt",
+                        "paving_stones",
+                        "cobblestone",
+                        "unpaved",
+                        "grass",
+                        "compacted"
+                    ],
+                    "description": "Property. Surface material of the parking area. Model:'https://wiki.openstreetmap.org/wiki/Key:surface'"
+                },
+                "lit": {
+                    "type": "boolean",
+                    "description": "Property. Indicates whether the parking area is lit at night. Model:'https://wiki.openstreetmap.org/wiki/Key:lit'"
+                },
+                "wheelchair": {
+                    "type": "string",
+                    "enum": [
+                        "yes",
+                        "no",
+                        "limited"
+                    ],
+                    "description": "Property. Availability of wheelchair-accessible parking spaces. Model:'https://wiki.openstreetmap.org/wiki/Key:wheelchair'"
+                },
+                "capacityDisabled": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property. Number of designated disabled parking spaces. Model:'https://wiki.openstreetmap.org/wiki/Key:capacity:disabled'"
+                },
+                "openingHours": {
+                    "type": "string",
+                    "description": "Property. Opening hours of the parking facility in OSM opening_hours syntax. Model:'https://wiki.openstreetmap.org/wiki/Key:opening_hours'"
+                },
+                "seeAlso": {
+                    "oneOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "minItems": 1
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    ],
+                    "description": "Property. List of URIs pointing to additional resources about this item."
+                }
+            },
+            "required": [
+                "id",
+                "type",
+                "location",
+                "osmId",
+                "osmType",
+                "parkingType"
+            ]
+        }
+    ]
+}

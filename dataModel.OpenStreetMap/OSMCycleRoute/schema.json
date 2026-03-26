@@ -1,0 +1,150 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "OSM OpenStreetMap Transportation Cycling",
+    "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMCycleRoute/schema.json",
+    "title": "Smart Data Models - OpenStreetMap / OSMCycleRoute",
+    "description": "A dedicated cycling infrastructure element from OpenStreetMap. Represents cycle paths, shared cycle lanes, and bike routes tagged with highway=cycleway or cycleway=* on road ways.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "OSMCycleRoute"
+                    ],
+                    "description": "Property. NGSI Entity type. It has to be OSMCycleRoute"
+                },
+                "osmId": {
+                    "type": "integer",
+                    "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+                },
+                "osmType": {
+                    "type": "string",
+                    "enum": [
+                        "node",
+                        "way",
+                        "relation"
+                    ],
+                    "description": "Property. The type of the original OpenStreetMap element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+                },
+                "osmLastModified": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Timestamp of the last modification of the OSM element."
+                },
+                "cyclewayType": {
+                    "type": "string",
+                    "enum": [
+                        "lane",
+                        "track",
+                        "opposite",
+                        "opposite_lane",
+                        "shared_busway",
+                        "path",
+                        "separate",
+                        "shared"
+                    ],
+                    "description": "Property. Classification of the cycling infrastructure. Enum:'lane, track, opposite, opposite_lane, shared_busway, path, separate, shared'. Model:'https://wiki.openstreetmap.org/wiki/Key:cycleway'"
+                },
+                "surface": {
+                    "type": "string",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "gravel",
+                        "dirt",
+                        "paving_stones",
+                        "cobblestone",
+                        "unpaved",
+                        "grass",
+                        "compacted",
+                        "fine_gravel",
+                        "sand",
+                        "ground",
+                        "wood"
+                    ],
+                    "description": "Property. Physical surface material of the cycle path. Model:'https://wiki.openstreetmap.org/wiki/Key:surface'"
+                },
+                "oneway": {
+                    "type": "boolean",
+                    "description": "Property. Indicates whether the cycle route is one-way for cyclists. Model:'https://wiki.openstreetmap.org/wiki/Key:oneway'"
+                },
+                "segregated": {
+                    "type": "boolean",
+                    "description": "Property. Indicates whether the cycling infrastructure is physically separated from pedestrian use. Model:'https://wiki.openstreetmap.org/wiki/Key:segregated'"
+                },
+                "lit": {
+                    "type": "boolean",
+                    "description": "Property. Indicates whether the cycle route has street lighting. Model:'https://wiki.openstreetmap.org/wiki/Key:lit'"
+                },
+                "access": {
+                    "type": "string",
+                    "enum": [
+                        "yes",
+                        "no",
+                        "private",
+                        "permissive",
+                        "destination",
+                        "designated"
+                    ],
+                    "description": "Property. Access restriction applying to cyclists on this route. Model:'https://wiki.openstreetmap.org/wiki/Key:access'"
+                },
+                "widthMeters": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Property. Width of the cycle path in metres. Units:'m'. Model:'https://wiki.openstreetmap.org/wiki/Key:width'"
+                },
+                "maxSpeed": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Property. Maximum permitted speed in kilometres per hour. Units:'Km/h'. Model:'https://wiki.openstreetmap.org/wiki/Key:maxspeed'"
+                },
+                "rcnRef": {
+                    "type": "string",
+                    "description": "Property. Regional Cycle Network route reference number. Model:'https://wiki.openstreetmap.org/wiki/Key:rcn_ref'"
+                },
+                "ncnRef": {
+                    "type": "string",
+                    "description": "Property. National Cycle Network route reference number. Model:'https://wiki.openstreetmap.org/wiki/Key:ncn_ref'"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "Property. Name of the entity responsible for maintaining this cycle route. Model:'https://wiki.openstreetmap.org/wiki/Key:operator'"
+                },
+                "seeAlso": {
+                    "oneOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "minItems": 1
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    ],
+                    "description": "Property. List of URIs pointing to additional resources about this item."
+                }
+            },
+            "required": [
+                "id",
+                "type",
+                "location",
+                "osmId",
+                "osmType",
+                "cyclewayType"
+            ]
+        }
+    ]
+}

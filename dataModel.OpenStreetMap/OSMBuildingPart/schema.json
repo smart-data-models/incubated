@@ -1,0 +1,135 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "OSM OpenStreetMap Buildings 3D",
+    "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMBuildingPart/schema.json",
+    "title": "Smart Data Models - OpenStreetMap / OSMBuildingPart",
+    "description": "A part or section of a building from OpenStreetMap tagged with building:part=*. Used to represent buildings with varying heights, roof shapes, or materials across different sections, enabling 3D building visualisation (Simple 3D Buildings standard).",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "OSMBuildingPart"
+                    ],
+                    "description": "Property. NGSI Entity type. It has to be OSMBuildingPart"
+                },
+                "osmId": {
+                    "type": "integer",
+                    "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+                },
+                "osmType": {
+                    "type": "string",
+                    "enum": [
+                        "node",
+                        "way",
+                        "relation"
+                    ],
+                    "description": "Property. The type of the original OpenStreetMap element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+                },
+                "osmLastModified": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Timestamp of the last modification of the OSM element."
+                },
+                "buildingPartType": {
+                    "type": "string",
+                    "description": "Property. The OSM building:part tag value. Typically 'yes' or a specific type label for the architectural section. Model:'https://wiki.openstreetmap.org/wiki/Key:building:part'"
+                },
+                "buildingLevels": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property. Number of above-ground floors in this part of the building. Model:'https://wiki.openstreetmap.org/wiki/Key:building:levels'"
+                },
+                "buildingHeight": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Property. Total height of this building part in metres. Units:'m'. Model:'https://wiki.openstreetmap.org/wiki/Key:height'"
+                },
+                "minHeight": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Property. Height above ground at which this building part starts, in metres. Used for overhangs and elevated sections. Units:'m'. Model:'https://wiki.openstreetmap.org/wiki/Key:min_height'"
+                },
+                "minLevel": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property. Floor level at which this building part starts. Used for indoor mapping. Model:'https://wiki.openstreetmap.org/wiki/Key:min_level'"
+                },
+                "roofShape": {
+                    "type": "string",
+                    "enum": [
+                        "flat",
+                        "gabled",
+                        "hipped",
+                        "half-hipped",
+                        "pyramidal",
+                        "gambrel",
+                        "mansard",
+                        "dome",
+                        "skillion",
+                        "round",
+                        "saltbox",
+                        "onion",
+                        "cone"
+                    ],
+                    "description": "Property. Shape of the roof on this building part. Enum:'flat, gabled, hipped, half-hipped, pyramidal, gambrel, mansard, dome, skillion, round, saltbox, onion, cone'. Model:'https://wiki.openstreetmap.org/wiki/Key:roof:shape'"
+                },
+                "roofMaterial": {
+                    "type": "string",
+                    "description": "Property. Primary material of the roof surface on this part. Model:'https://wiki.openstreetmap.org/wiki/Key:roof:material'"
+                },
+                "roofColour": {
+                    "type": "string",
+                    "description": "Property. Colour of the roof on this part, expressed as a CSS colour name or hex code. Model:'https://wiki.openstreetmap.org/wiki/Key:roof:colour'"
+                },
+                "buildingColour": {
+                    "type": "string",
+                    "description": "Property. Colour of the facade of this building part, expressed as a CSS colour name or hex code. Model:'https://wiki.openstreetmap.org/wiki/Key:building:colour'"
+                },
+                "buildingMaterial": {
+                    "type": "string",
+                    "description": "Property. Primary facade or structural material of this building part. Model:'https://wiki.openstreetmap.org/wiki/Key:building:material'"
+                },
+                "refBuilding": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Relationship. URI reference to the parent OSMBuilding entity this part belongs to."
+                },
+                "seeAlso": {
+                    "oneOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "minItems": 1
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    ],
+                    "description": "Property. List of URIs pointing to additional resources about this item."
+                }
+            },
+            "required": [
+                "id",
+                "type",
+                "location",
+                "osmId",
+                "osmType",
+                "buildingPartType"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Transportation",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMHighway/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMHighway",
+  "description": "A road or path element from OpenStreetMap tagged with the highway key. Represents all types of roads, from motorways to footpaths, as defined by the OSM highway taxonomy.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMHighway"],
+          "description": "Property. NGSI Entity type. It has to be OSMHighway"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OpenStreetMap element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification of the OSM element."
+        },
+        "highwayType": {
+          "type": "string",
+          "enum": [
+            "motorway", "trunk", "primary", "secondary", "tertiary",
+            "unclassified", "residential", "service", "living_street",
+            "pedestrian", "track", "footway", "cycleway", "path",
+            "motorway_link", "trunk_link", "primary_link", "secondary_link",
+            "tertiary_link", "road", "busway", "bus_guideway",
+            "construction", "proposed"
+          ],
+          "description": "Property. The OSM highway tag value that classifies the type of road or path. Enum:'motorway, trunk, primary, secondary, tertiary, unclassified, residential, service, living_street, pedestrian, track, footway, cycleway, path, motorway_link, trunk_link, primary_link, secondary_link, tertiary_link, road, busway, bus_guideway, construction, proposed'. Model:'https://wiki.openstreetmap.org/wiki/Key:highway'"
+        },
+        "ref": {
+          "type": "string",
+          "description": "Property. Official road reference number or code (e.g. A-3, M-30). Model:'https://wiki.openstreetmap.org/wiki/Key:ref'"
+        },
+        "maxSpeed": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Maximum permitted speed in kilometres per hour. Units:'Km/h'. Model:'https://wiki.openstreetmap.org/wiki/Key:maxspeed'"
+        },
+        "lanes": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Property. Total number of traffic lanes in both directions. Model:'https://wiki.openstreetmap.org/wiki/Key:lanes'"
+        },
+        "oneway": {
+          "type": "boolean",
+          "description": "Property. Indicates whether the road is one-way for motor vehicles. Model:'https://wiki.openstreetmap.org/wiki/Key:oneway'"
+        },
+        "surface": {
+          "type": "string",
+          "enum": [
+            "asphalt", "concrete", "gravel", "dirt", "paving_stones",
+            "cobblestone", "unpaved", "grass", "compacted", "fine_gravel",
+            "sand", "ground", "metal", "wood", "pebblestone", "mud", "ice", "salt"
+          ],
+          "description": "Property. Physical surface material of the road. Model:'https://wiki.openstreetmap.org/wiki/Key:surface'"
+        },
+        "access": {
+          "type": "string",
+          "enum": ["yes", "no", "private", "permissive", "destination", "delivery", "customers", "designated"],
+          "description": "Property. General access restriction for the road. Model:'https://wiki.openstreetmap.org/wiki/Key:access'"
+        },
+        "bridge": {
+          "type": "boolean",
+          "description": "Property. Indicates whether this road segment runs over a bridge. Model:'https://wiki.openstreetmap.org/wiki/Key:bridge'"
+        },
+        "tunnel": {
+          "type": "boolean",
+          "description": "Property. Indicates whether this road segment runs through a tunnel. Model:'https://wiki.openstreetmap.org/wiki/Key:tunnel'"
+        },
+        "layer": {
+          "type": "integer",
+          "description": "Property. Vertical layer relative to other features at the same location, used to indicate overlapping ways. Model:'https://wiki.openstreetmap.org/wiki/Key:layer'"
+        },
+        "lit": {
+          "type": "boolean",
+          "description": "Property. Indicates whether the road is illuminated by street lighting. Model:'https://wiki.openstreetmap.org/wiki/Key:lit'"
+        },
+        "operator": {
+          "type": "string",
+          "description": "Property. Name of the entity responsible for the operation or maintenance of this road. Model:'https://wiki.openstreetmap.org/wiki/Key:operator'"
+        },
+        "widthMeters": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Physical width of the road in metres. Units:'m'. Model:'https://wiki.openstreetmap.org/wiki/Key:width'"
+        },
+        "cyclewayPresent": {
+          "type": "boolean",
+          "description": "Property. Indicates whether a dedicated cycle lane is present alongside this road. Model:'https://wiki.openstreetmap.org/wiki/Key:cycleway'"
+        },
+        "sidewalk": {
+          "type": "string",
+          "enum": ["both", "left", "right", "none", "separate"],
+          "description": "Property. Indicates the presence and side of a sidewalk alongside the road. Model:'https://wiki.openstreetmap.org/wiki/Key:sidewalk'"
+        },
+        "inclinePercent": {
+          "type": "number",
+          "description": "Property. Slope of the road expressed as a percentage. Positive values indicate uphill. Units:'%'. Model:'https://wiki.openstreetmap.org/wiki/Key:incline'"
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources about this item (e.g. Wikidata, Wikipedia)."
+        }
+      },
+      "required": ["id", "type", "location", "osmId", "osmType", "highwayType"]
+    }
+  ]
+}

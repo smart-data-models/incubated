@@ -1,0 +1,266 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "OSM OpenStreetMap Buildings",
+    "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMBuilding/schema.json",
+    "title": "Smart Data Models - OpenStreetMap / OSMBuilding",
+    "description": "A building or group of connected buildings from OpenStreetMap tagged with building=*. Represents the physical structure of a building, including its geometry, dimensions, materials, and functional classification. For specific functions within a building (shop, amenity, etc.) additional entities should be used.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "OSMBuilding"
+                    ],
+                    "description": "Property. NGSI Entity type. It has to be OSMBuilding"
+                },
+                "osmId": {
+                    "type": "integer",
+                    "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+                },
+                "osmType": {
+                    "type": "string",
+                    "enum": [
+                        "node",
+                        "way",
+                        "relation"
+                    ],
+                    "description": "Property. The type of the original OpenStreetMap element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+                },
+                "osmLastModified": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Timestamp of the last modification of the OSM element."
+                },
+                "buildingType": {
+                    "type": "string",
+                    "enum": [
+                        "yes",
+                        "residential",
+                        "apartments",
+                        "house",
+                        "detached",
+                        "bungalow",
+                        "cabin",
+                        "dormitory",
+                        "hotel",
+                        "ger",
+                        "barracks",
+                        "annexe",
+                        "farm",
+                        "farm_auxiliary",
+                        "barn",
+                        "commercial",
+                        "office",
+                        "industrial",
+                        "warehouse",
+                        "retail",
+                        "supermarket",
+                        "kiosk",
+                        "school",
+                        "university",
+                        "hospital",
+                        "clinic",
+                        "church",
+                        "cathedral",
+                        "mosque",
+                        "synagogue",
+                        "temple",
+                        "chapel",
+                        "civic",
+                        "government",
+                        "public",
+                        "transportation",
+                        "train_station",
+                        "stadium",
+                        "grandstand",
+                        "sports_hall",
+                        "garage",
+                        "garages",
+                        "shed",
+                        "greenhouse",
+                        "conservatory",
+                        "service",
+                        "shed",
+                        "roof",
+                        "ruins"
+                    ],
+                    "description": "Property. The OSM building tag value classifying the type or function of the building. Enum:'yes, residential, apartments, house, detached, bungalow, cabin, dormitory, hotel, commercial, office, industrial, warehouse, retail, supermarket, school, university, hospital, church, cathedral, mosque, synagogue, civic, government, public, transportation, train_station, stadium, garage, shed, greenhouse, service, ruins'. Model:'https://wiki.openstreetmap.org/wiki/Key:building'"
+                },
+                "buildingLevels": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property. Number of above-ground floors in the building. Model:'https://wiki.openstreetmap.org/wiki/Key:building:levels'"
+                },
+                "buildingLevelsUnderground": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property. Number of underground or basement floors in the building. Model:'https://wiki.openstreetmap.org/wiki/Key:building:levels:underground'"
+                },
+                "buildingHeight": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Property. Total height of the building in metres from ground to highest point. Units:'m'. Model:'https://wiki.openstreetmap.org/wiki/Key:height'"
+                },
+                "minHeight": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Property. Height of the base of the building above ground level in metres, used for buildings on slopes or elevated structures. Units:'m'. Model:'https://wiki.openstreetmap.org/wiki/Key:min_height'"
+                },
+                "roofShape": {
+                    "type": "string",
+                    "enum": [
+                        "flat",
+                        "gabled",
+                        "hipped",
+                        "half-hipped",
+                        "pyramidal",
+                        "gambrel",
+                        "mansard",
+                        "dome",
+                        "skillion",
+                        "round",
+                        "saltbox",
+                        "onion",
+                        "cone"
+                    ],
+                    "description": "Property. Shape of the roof. Enum:'flat, gabled, hipped, half-hipped, pyramidal, gambrel, mansard, dome, skillion, round, saltbox, onion, cone'. Model:'https://wiki.openstreetmap.org/wiki/Key:roof:shape'"
+                },
+                "roofMaterial": {
+                    "type": "string",
+                    "description": "Property. Primary material of the roof surface. Model:'https://wiki.openstreetmap.org/wiki/Key:roof:material'"
+                },
+                "roofColour": {
+                    "type": "string",
+                    "description": "Property. Colour of the roof, expressed as a CSS colour name or hex code. Model:'https://wiki.openstreetmap.org/wiki/Key:roof:colour'"
+                },
+                "buildingMaterial": {
+                    "type": "string",
+                    "enum": [
+                        "brick",
+                        "concrete",
+                        "wood",
+                        "glass",
+                        "steel",
+                        "stone",
+                        "plaster",
+                        "metal",
+                        "timber_framing",
+                        "clay",
+                        "sand",
+                        "adobe",
+                        "granite",
+                        "limestone",
+                        "marble"
+                    ],
+                    "description": "Property. Primary structural or facade material of the building. Model:'https://wiki.openstreetmap.org/wiki/Key:building:material'"
+                },
+                "buildingColour": {
+                    "type": "string",
+                    "description": "Property. Colour of the main facade, expressed as a CSS colour name or hex code. Model:'https://wiki.openstreetmap.org/wiki/Key:building:colour'"
+                },
+                "startDate": {
+                    "type": "string",
+                    "description": "Property. Year or date when the building was constructed. Free-form date or year value. Model:'https://wiki.openstreetmap.org/wiki/Key:start_date'"
+                },
+                "amenity": {
+                    "type": "string",
+                    "description": "Property. Primary amenity function of the building (e.g. hospital, school). Model:'https://wiki.openstreetmap.org/wiki/Key:amenity'"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "Property. Name of the entity operating or managing the building. Model:'https://wiki.openstreetmap.org/wiki/Key:operator'"
+                },
+                "wheelchair": {
+                    "type": "string",
+                    "enum": [
+                        "yes",
+                        "no",
+                        "limited"
+                    ],
+                    "description": "Property. Level of wheelchair accessibility of the building. Model:'https://wiki.openstreetmap.org/wiki/Key:wheelchair'"
+                },
+                "access": {
+                    "type": "string",
+                    "enum": [
+                        "yes",
+                        "no",
+                        "private",
+                        "permissive",
+                        "customers",
+                        "destination"
+                    ],
+                    "description": "Property. General access restriction to the building. Model:'https://wiki.openstreetmap.org/wiki/Key:access'"
+                },
+                "flats": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property. Total number of individual dwelling units within the building. Model:'https://wiki.openstreetmap.org/wiki/Key:building:flats'"
+                },
+                "address": {
+                    "type": "object",
+                    "description": "Property. Address of the building, structured following schema.org PostalAddress.",
+                    "properties": {
+                        "streetAddress": {
+                            "type": "string",
+                            "description": "Street name. OSM: addr:street"
+                        },
+                        "houseNumber": {
+                            "type": "string",
+                            "description": "House or building number. OSM: addr:housenumber"
+                        },
+                        "addressCity": {
+                            "type": "string",
+                            "description": "City. OSM: addr:city"
+                        },
+                        "postalCode": {
+                            "type": "string",
+                            "description": "Postal code. OSM: addr:postcode"
+                        },
+                        "addressCountry": {
+                            "type": "string",
+                            "description": "ISO 3166-1 alpha-2 country code. OSM: addr:country"
+                        }
+                    }
+                },
+                "openingHours": {
+                    "type": "string",
+                    "description": "Property. Opening hours of the building or its primary function in OSM opening_hours syntax. Model:'https://wiki.openstreetmap.org/wiki/Key:opening_hours'"
+                },
+                "seeAlso": {
+                    "oneOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "minItems": 1
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    ],
+                    "description": "Property. List of URIs pointing to additional resources about this item."
+                }
+            },
+            "required": [
+                "id",
+                "type",
+                "location",
+                "osmId",
+                "osmType",
+                "buildingType"
+            ]
+        }
+    ]
+}

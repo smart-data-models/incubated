@@ -1,0 +1,169 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "OSM OpenStreetMap Transportation Railway",
+    "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMRailway/schema.json",
+    "title": "Smart Data Models - OpenStreetMap / OSMRailway",
+    "description": "A railway track or infrastructure element from OpenStreetMap tagged with the railway key. Covers all types of rail infrastructure, from mainline heavy rail to trams, subways and funiculars.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "OSMRailway"
+                    ],
+                    "description": "Property. NGSI Entity type. It has to be OSMRailway"
+                },
+                "osmId": {
+                    "type": "integer",
+                    "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+                },
+                "osmType": {
+                    "type": "string",
+                    "enum": [
+                        "node",
+                        "way",
+                        "relation"
+                    ],
+                    "description": "Property. The type of the original OpenStreetMap element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+                },
+                "osmLastModified": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Timestamp of the last modification of the OSM element."
+                },
+                "railwayType": {
+                    "type": "string",
+                    "enum": [
+                        "rail",
+                        "subway",
+                        "tram",
+                        "light_rail",
+                        "narrow_gauge",
+                        "monorail",
+                        "funicular",
+                        "miniature",
+                        "preserved",
+                        "disused",
+                        "abandoned",
+                        "construction",
+                        "proposed"
+                    ],
+                    "description": "Property. The OSM railway tag value that classifies the type of rail infrastructure. Enum:'rail, subway, tram, light_rail, narrow_gauge, monorail, funicular, miniature, preserved, disused, abandoned, construction, proposed'. Model:'https://wiki.openstreetmap.org/wiki/Key:railway'"
+                },
+                "ref": {
+                    "type": "string",
+                    "description": "Property. Official line reference number or code. Model:'https://wiki.openstreetmap.org/wiki/Key:ref'"
+                },
+                "gauge": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property. Track gauge in millimetres (distance between the two rails). Units:'mm'. Model:'https://wiki.openstreetmap.org/wiki/Key:gauge'"
+                },
+                "electrified": {
+                    "type": "string",
+                    "enum": [
+                        "contact_line",
+                        "rail",
+                        "yes",
+                        "no",
+                        "4_rail"
+                    ],
+                    "description": "Property. Method of electrification of the railway. Model:'https://wiki.openstreetmap.org/wiki/Key:electrified'"
+                },
+                "voltage": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Property. Electrical voltage used for traction in Volts. Units:'V'. Model:'https://wiki.openstreetmap.org/wiki/Key:voltage'"
+                },
+                "frequency": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Property. Electrical frequency of the traction current in Hertz. Units:'Hz'. Model:'https://wiki.openstreetmap.org/wiki/Key:frequency'"
+                },
+                "maxSpeed": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Property. Maximum permitted speed on this track in kilometres per hour. Units:'Km/h'. Model:'https://wiki.openstreetmap.org/wiki/Key:maxspeed'"
+                },
+                "tracks": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Property. Number of parallel tracks. Model:'https://wiki.openstreetmap.org/wiki/Key:tracks'"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "Property. Name of the railway operator or company. Model:'https://wiki.openstreetmap.org/wiki/Key:operator'"
+                },
+                "usage": {
+                    "type": "string",
+                    "enum": [
+                        "main",
+                        "branch",
+                        "industrial",
+                        "military",
+                        "tourism",
+                        "test",
+                        "scientific"
+                    ],
+                    "description": "Property. Intended usage of the railway line. Model:'https://wiki.openstreetmap.org/wiki/Key:usage'"
+                },
+                "service": {
+                    "type": "string",
+                    "enum": [
+                        "spur",
+                        "yard",
+                        "siding",
+                        "crossover"
+                    ],
+                    "description": "Property. Type of service track, if not part of the main running line. Model:'https://wiki.openstreetmap.org/wiki/Key:service'"
+                },
+                "bridge": {
+                    "type": "boolean",
+                    "description": "Property. Indicates whether this railway segment runs over a bridge. Model:'https://wiki.openstreetmap.org/wiki/Key:bridge'"
+                },
+                "tunnel": {
+                    "type": "boolean",
+                    "description": "Property. Indicates whether this railway segment runs through a tunnel. Model:'https://wiki.openstreetmap.org/wiki/Key:tunnel'"
+                },
+                "layer": {
+                    "type": "integer",
+                    "description": "Property. Vertical layer relative to other features at the same location. Model:'https://wiki.openstreetmap.org/wiki/Key:layer'"
+                },
+                "seeAlso": {
+                    "oneOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "minItems": 1
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    ],
+                    "description": "Property. List of URIs pointing to additional resources about this item."
+                }
+            },
+            "required": [
+                "id",
+                "type",
+                "location",
+                "osmId",
+                "osmType",
+                "railwayType"
+            ]
+        }
+    ]
+}
