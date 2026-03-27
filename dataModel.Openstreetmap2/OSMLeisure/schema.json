@@ -1,0 +1,141 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "modelTags": "OSM OpenStreetMap Leisure",
+    "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMLeisure/schema.json",
+    "title": "Smart Data Models - OpenStreetMap / OSMLeisure",
+    "description": "A place for leisure, sports, or recreation from OpenStreetMap tagged with leisure=*. Includes parks, sports pitches, swimming pools, stadiums, etc.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+        },
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        },
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "OSMLeisure"
+                    ],
+                    "description": "Property. NGSI Entity type. It has to be OSMLeisure"
+                },
+                "osmId": {
+                    "type": "integer",
+                    "description": "Property. The original OpenStreetMap element integer identifier."
+                },
+                "osmType": {
+                    "type": "string",
+                    "enum": [
+                        "node",
+                        "way",
+                        "relation"
+                    ],
+                    "description": "Property. The type of the original OSM element."
+                },
+                "osmLastModified": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Timestamp of the last modification."
+                },
+                "leisureType": {
+                    "type": "string",
+                    "enum": [
+                        "park",
+                        "pitch",
+                        "swimming_pool",
+                        "sports_centre",
+                        "stadium",
+                        "playground",
+                        "garden",
+                        "nature_reserve",
+                        "marina",
+                        "golf_course",
+                        "track",
+                        "fitness_centre",
+                        "fitness_station",
+                        "ice_rink",
+                        "dance",
+                        "water_park",
+                        "miniature_golf",
+                        "bowling_alley",
+                        "slipway",
+                        "resort"
+                    ],
+                    "description": "Property. The OSM leisure tag classifying the facility. Enum:'park, pitch, swimming_pool, sports_centre, stadium, playground, garden, nature_reserve, marina...'. Model:'https://wiki.openstreetmap.org/wiki/Key:leisure'"
+                },
+                "sport": {
+                    "type": "string",
+                    "description": "Property. The specific sport played here (e.g. soccer, tennis, basketball). Model:'https://wiki.openstreetmap.org/wiki/Key:sport'"
+                },
+                "surface": {
+                    "type": "string",
+                    "description": "Property. The physical surface of the pitch or track. Model:'https://wiki.openstreetmap.org/wiki/Key:surface'"
+                },
+                "lit": {
+                    "type": "boolean",
+                    "description": "Property. Indicates whether the facility is illuminated. Model:'https://wiki.openstreetmap.org/wiki/Key:lit'"
+                },
+                "fee": {
+                    "type": "boolean",
+                    "description": "Property. Indicates whether an entrance or usage fee is required. Model:'https://wiki.openstreetmap.org/wiki/Key:fee'"
+                },
+                "access": {
+                    "type": "string",
+                    "enum": [
+                        "yes",
+                        "private",
+                        "permissive",
+                        "customers",
+                        "no"
+                    ],
+                    "description": "Property. Access restrictions. Model:'https://wiki.openstreetmap.org/wiki/Key:access'"
+                },
+                "wheelchair": {
+                    "type": "string",
+                    "enum": [
+                        "yes",
+                        "no",
+                        "limited"
+                    ],
+                    "description": "Property. Wheelchair accessibility."
+                },
+                "openingHours": {
+                    "type": "string",
+                    "description": "Property. Opening hours of the facility."
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "Property. Operator or managing entity."
+                },
+                "seeAlso": {
+                    "oneOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "minItems": 1
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    ],
+                    "description": "Property. List of URIs pointing to additional resources."
+                }
+            },
+            "required": [
+                "id",
+                "type",
+                "location",
+                "osmId",
+                "osmType",
+                "leisureType"
+            ]
+        }
+    ]
+}

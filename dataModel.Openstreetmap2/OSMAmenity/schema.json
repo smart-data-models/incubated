@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap POI Amenity",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMAmenity/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMAmenity",
+  "description": "A facility or amenity from OpenStreetMap tagged with amenity=*. Represents places of public or private use such as restaurants, schools, hospitals, banks, etc.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMAmenity"],
+          "description": "Property. NGSI Entity type. It has to be OSMAmenity"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OpenStreetMap element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification of the OSM element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "amenityType": {
+          "type": "string",
+          "enum": [
+            "restaurant", "cafe", "bar", "fast_food", "pub", "ice_cream", "biergarten", "food_court",
+            "school", "kindergarten", "university", "college", "library", "music_school", "driving_school",
+            "hospital", "clinic", "pharmacy", "doctors", "dentist", "veterinary",
+            "bank", "atm", "bureau_de_change",
+            "post_office", "police", "fire_station", "place_of_worship", "courthouse", "townhall",
+            "fuel", "parking", "bicycle_parking", "car_sharing", "bus_station", "taxi",
+            "toilets", "bench", "drinking_water", "fountain", "waste_basket", "waste_disposal", "recycling"
+          ],
+          "description": "Property. The OSM amenity tag classifying the facility. Enum:'restaurant, cafe, bar, fast_food, pub, ice_cream, biergarten, food_court, school, kindergarten, university, college, library, music_school, driving_school, hospital, clinic, pharmacy, doctors, dentist, veterinary, bank, atm, bureau_de_change, post_office, police, fire_station, place_of_worship, courthouse, townhall, fuel, parking, bicycle_parking, car_sharing, bus_station, taxi, toilets, bench, drinking_water, fountain, waste_basket, waste_disposal, recycling'. Model:'https://wiki.openstreetmap.org/wiki/Key:amenity'"
+        },
+        "cuisine": {
+          "type": "string",
+          "description": "Property. Type of food served. Model:'https://wiki.openstreetmap.org/wiki/Key:cuisine'"
+        },
+        "takeaway": {
+          "type": "string",
+          "enum": ["yes", "no", "only"],
+          "description": "Property. Indicates if the food establishment offers takeaway. Model:'https://wiki.openstreetmap.org/wiki/Key:takeaway'"
+        },
+        "delivery": {
+          "type": "boolean",
+          "description": "Property. Indicates if the facility offers delivery service. Model:'https://wiki.openstreetmap.org/wiki/Key:delivery'"
+        },
+        "outdoorSeating": {
+          "type": "boolean",
+          "description": "Property. Indicates if outdoor seating is available. Model:'https://wiki.openstreetmap.org/wiki/Key:outdoor_seating'"
+        },
+        "capacity": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Property. Maximum capacity of people for the amenity. Model:'https://wiki.openstreetmap.org/wiki/Key:capacity'"
+        },
+        "fee": {
+          "type": "boolean",
+          "description": "Property. Indicates whether a fee must be paid to use or enter the amenity. Model:'https://wiki.openstreetmap.org/wiki/Key:fee'"
+        },
+        "wheelchair": {
+          "type": "string",
+          "enum": ["yes", "no", "limited"],
+          "description": "Property. Wheelchair accessibility. Model:'https://wiki.openstreetmap.org/wiki/Key:wheelchair'"
+        },
+        "openingHours": {
+          "type": "string",
+          "description": "Property. Opening hours of the amenity in OSM format. Model:'https://wiki.openstreetmap.org/wiki/Key:opening_hours'"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Property. Phone number for the amenity. Model:'https://wiki.openstreetmap.org/wiki/Key:phone'"
+        },
+        "website": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Official website URL. Model:'https://wiki.openstreetmap.org/wiki/Key:website'"
+        },
+        "address": {
+          "type": "object",
+          "description": "Property. Address of the amenity, structured following schema.org PostalAddress.",
+          "properties": {
+            "streetAddress": {"type": "string", "description": "Street name."},
+            "houseNumber": {"type": "string", "description": "House or building number."},
+            "addressCity": {"type": "string", "description": "City."},
+            "postalCode": {"type": "string", "description": "Postal code."},
+            "addressCountry": {"type": "string", "description": "ISO 3166-1 alpha-2 country code."}
+          }
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources about this item."
+        }
+      },
+      "required": ["id", "type", "location", "osmId", "osmType", "amenityType"]
+    }
+  ]
+}
