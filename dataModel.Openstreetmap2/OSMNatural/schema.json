@@ -1,137 +1,137 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$schemaVersion": "0.0.1",
-    "modelTags": "OSM OpenStreetMap Environment Natural",
-    "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMNatural/schema.json",
-    "title": "Smart Data Models - OpenStreetMap / OSMNatural",
-    "description": "A natural feature from OpenStreetMap tagged with natural=*. Describes geographical features such as water bodies, woods, scrub, peaks, beaches, etc.",
-    "type": "object",
-    "allOf": [
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Environment Natural",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMNatural/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMNatural",
+  "description": "A natural feature from OpenStreetMap tagged with natural=*. Describes geographical features such as water bodies, woods, scrub, peaks, beaches, etc.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "OSMNatural"
+          ],
+          "description": "Property. NGSI Entity type. It has to be OSMNatural"
         },
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier."
         },
-        {
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "OSMNatural"
-                    ],
-                    "description": "Property. NGSI Entity type. It has to be OSMNatural"
-                },
-                "osmId": {
-                    "type": "integer",
-                    "description": "Property. The original OpenStreetMap element integer identifier."
-                },
-                "osmType": {
-                    "type": "string",
-                    "enum": [
-                        "node",
-                        "way",
-                        "relation"
-                    ],
-                    "description": "Property. The type of the original OSM element."
-                },
-                "osmLastModified": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Property. Timestamp of the last modification."
-                },
-                "naturalType": {
-                    "type": "string",
-                    "enum": [
-                        "water",
-                        "wood",
-                        "tree",
-                        "tree_row",
-                        "scrub",
-                        "heath",
-                        "grassland",
-                        "fell",
-                        "bare_rock",
-                        "scree",
-                        "shingle",
-                        "sand",
-                        "beach",
-                        "coastline",
-                        "bay",
-                        "strait",
-                        "cape",
-                        "cliff",
-                        "ridge",
-                        "peak",
-                        "volcano",
-                        "valley",
-                        "spring",
-                        "cave_entrance",
-                        "glacier",
-                        "wetland",
-                        "mud"
-                    ],
-                    "description": "Property. The OSM natural tag classifying the geological or physical feature. Enum:'water, wood, tree, scrub, heath, grassland, peak, ridge, bare_rock, sand, beach, coastline, spring, cave_entrance, wetland...'. Model:'https://wiki.openstreetmap.org/wiki/Key:natural'"
-                },
-                "water": {
-                    "type": "string",
-                    "description": "Property. Type of water body if natural=water (e.g. lake, reservoir, river, pond). Model:'https://wiki.openstreetmap.org/wiki/Key:water'"
-                },
-                "leafType": {
-                    "type": "string",
-                    "enum": [
-                        "broadleaved",
-                        "needleleaved",
-                        "mixed",
-                        "leafless"
-                    ],
-                    "description": "Property. The leaf type of trees or woods. Model:'https://wiki.openstreetmap.org/wiki/Key:leaf_type'"
-                },
-                "leafCycle": {
-                    "type": "string",
-                    "enum": [
-                        "deciduous",
-                        "evergreen",
-                        "mixed",
-                        "semi_deciduous",
-                        "semi_evergreen"
-                    ],
-                    "description": "Property. The leaf cycle of trees or woods. Model:'https://wiki.openstreetmap.org/wiki/Key:leaf_cycle'"
-                },
-                "elevation": {
-                    "type": "number",
-                    "description": "Property. Elevation (ele) of the feature in metres above sea level, typically for peaks. Model:'https://wiki.openstreetmap.org/wiki/Key:ele'"
-                },
-                "wetland": {
-                    "type": "string",
-                    "description": "Property. Type of wetland if natural=wetland (e.g. swamp, bog, marsh). Model:'https://wiki.openstreetmap.org/wiki/Key:wetland'"
-                },
-                "seeAlso": {
-                    "oneOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "format": "uri"
-                            },
-                            "minItems": 1
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri"
-                        }
-                    ],
-                    "description": "Property. List of URIs pointing to additional resources."
-                }
+        "osmType": {
+          "type": "string",
+          "enum": [
+            "node",
+            "way",
+            "relation"
+          ],
+          "description": "Property. The type of the original OSM element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification."
+        },
+        "naturalType": {
+          "type": "string",
+          "enum": [
+            "water",
+            "wood",
+            "tree",
+            "tree_row",
+            "scrub",
+            "heath",
+            "grassland",
+            "fell",
+            "bare_rock",
+            "scree",
+            "shingle",
+            "sand",
+            "beach",
+            "coastline",
+            "bay",
+            "strait",
+            "cape",
+            "cliff",
+            "ridge",
+            "peak",
+            "volcano",
+            "valley",
+            "spring",
+            "cave_entrance",
+            "glacier",
+            "wetland",
+            "mud"
+          ],
+          "description": "Property. The OSM natural tag classifying the geological or physical feature. Enum:'water, wood, tree, scrub, heath, grassland, peak, ridge, bare_rock, sand, beach, coastline, spring, cave_entrance, wetland...'. Model:'https://wiki.openstreetmap.org/wiki/Key:natural'"
+        },
+        "water": {
+          "type": "string",
+          "description": "Property. Type of water body if natural=water (e.g. lake, reservoir, river, pond). Model:'https://wiki.openstreetmap.org/wiki/Key:water'"
+        },
+        "leafType": {
+          "type": "string",
+          "enum": [
+            "broadleaved",
+            "needleleaved",
+            "mixed",
+            "leafless"
+          ],
+          "description": "Property. The leaf type of trees or woods. Model:'https://wiki.openstreetmap.org/wiki/Key:leaf_type'"
+        },
+        "leafCycle": {
+          "type": "string",
+          "enum": [
+            "deciduous",
+            "evergreen",
+            "mixed",
+            "semi_deciduous",
+            "semi_evergreen"
+          ],
+          "description": "Property. The leaf cycle of trees or woods. Model:'https://wiki.openstreetmap.org/wiki/Key:leaf_cycle'"
+        },
+        "elevation": {
+          "type": "number",
+          "description": "Property. Elevation (ele) of the feature in metres above sea level, typically for peaks. Model:'https://wiki.openstreetmap.org/wiki/Key:ele'"
+        },
+        "wetland": {
+          "type": "string",
+          "description": "Property. Type of wetland if natural=wetland (e.g. swamp, bog, marsh). Model:'https://wiki.openstreetmap.org/wiki/Key:wetland'"
+        },
+        "seeAlso": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
             },
-            "required": [
-                "id",
-                "type",
-                "location",
-                "osmId",
-                "osmType",
-                "naturalType"
-            ]
+            {
+              "type": "string",
+              "format": "uri"
+            }
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
         }
-    ]
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "osmId",
+    "osmType",
+    "naturalType"
+  ]
 }

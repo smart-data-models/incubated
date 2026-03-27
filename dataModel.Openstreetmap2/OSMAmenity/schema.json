@@ -17,7 +17,9 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["OSMAmenity"],
+          "enum": [
+            "OSMAmenity"
+          ],
           "description": "Property. NGSI Entity type. It has to be OSMAmenity"
         },
         "osmId": {
@@ -26,7 +28,11 @@
         },
         "osmType": {
           "type": "string",
-          "enum": ["node", "way", "relation"],
+          "enum": [
+            "node",
+            "way",
+            "relation"
+          ],
           "description": "Property. The type of the original OpenStreetMap element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
         },
         "osmLastModified": {
@@ -37,13 +43,49 @@
         "amenityType": {
           "type": "string",
           "enum": [
-            "restaurant", "cafe", "bar", "fast_food", "pub", "ice_cream", "biergarten", "food_court",
-            "school", "kindergarten", "university", "college", "library", "music_school", "driving_school",
-            "hospital", "clinic", "pharmacy", "doctors", "dentist", "veterinary",
-            "bank", "atm", "bureau_de_change",
-            "post_office", "police", "fire_station", "place_of_worship", "courthouse", "townhall",
-            "fuel", "parking", "bicycle_parking", "car_sharing", "bus_station", "taxi",
-            "toilets", "bench", "drinking_water", "fountain", "waste_basket", "waste_disposal", "recycling"
+            "restaurant",
+            "cafe",
+            "bar",
+            "fast_food",
+            "pub",
+            "ice_cream",
+            "biergarten",
+            "food_court",
+            "school",
+            "kindergarten",
+            "university",
+            "college",
+            "library",
+            "music_school",
+            "driving_school",
+            "hospital",
+            "clinic",
+            "pharmacy",
+            "doctors",
+            "dentist",
+            "veterinary",
+            "bank",
+            "atm",
+            "bureau_de_change",
+            "post_office",
+            "police",
+            "fire_station",
+            "place_of_worship",
+            "courthouse",
+            "townhall",
+            "fuel",
+            "parking",
+            "bicycle_parking",
+            "car_sharing",
+            "bus_station",
+            "taxi",
+            "toilets",
+            "bench",
+            "drinking_water",
+            "fountain",
+            "waste_basket",
+            "waste_disposal",
+            "recycling"
           ],
           "description": "Property. The OSM amenity tag classifying the facility. Enum:'restaurant, cafe, bar, fast_food, pub, ice_cream, biergarten, food_court, school, kindergarten, university, college, library, music_school, driving_school, hospital, clinic, pharmacy, doctors, dentist, veterinary, bank, atm, bureau_de_change, post_office, police, fire_station, place_of_worship, courthouse, townhall, fuel, parking, bicycle_parking, car_sharing, bus_station, taxi, toilets, bench, drinking_water, fountain, waste_basket, waste_disposal, recycling'. Model:'https://wiki.openstreetmap.org/wiki/Key:amenity'"
         },
@@ -53,7 +95,11 @@
         },
         "takeaway": {
           "type": "string",
-          "enum": ["yes", "no", "only"],
+          "enum": [
+            "yes",
+            "no",
+            "only"
+          ],
           "description": "Property. Indicates if the food establishment offers takeaway. Model:'https://wiki.openstreetmap.org/wiki/Key:takeaway'"
         },
         "delivery": {
@@ -75,7 +121,11 @@
         },
         "wheelchair": {
           "type": "string",
-          "enum": ["yes", "no", "limited"],
+          "enum": [
+            "yes",
+            "no",
+            "limited"
+          ],
           "description": "Property. Wheelchair accessibility. Model:'https://wiki.openstreetmap.org/wiki/Key:wheelchair'"
         },
         "openingHours": {
@@ -95,22 +145,54 @@
           "type": "object",
           "description": "Property. Address of the amenity, structured following schema.org PostalAddress.",
           "properties": {
-            "streetAddress": {"type": "string", "description": "Street name."},
-            "houseNumber": {"type": "string", "description": "House or building number."},
-            "addressCity": {"type": "string", "description": "City."},
-            "postalCode": {"type": "string", "description": "Postal code."},
-            "addressCountry": {"type": "string", "description": "ISO 3166-1 alpha-2 country code."}
+            "streetAddress": {
+              "type": "string",
+              "description": "Street name."
+            },
+            "houseNumber": {
+              "type": "string",
+              "description": "House or building number."
+            },
+            "addressCity": {
+              "type": "string",
+              "description": "City."
+            },
+            "postalCode": {
+              "type": "string",
+              "description": "Postal code."
+            },
+            "addressCountry": {
+              "type": "string",
+              "description": "ISO 3166-1 alpha-2 country code."
+            }
           }
         },
         "seeAlso": {
           "oneOf": [
-            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
-            {"type": "string", "format": "uri"}
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
           ],
           "description": "Property. List of URIs pointing to additional resources about this item."
         }
-      },
-      "required": ["id", "type", "location", "osmId", "osmType", "amenityType"]
+      }
     }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "osmId",
+    "osmType",
+    "amenityType"
   ]
 }

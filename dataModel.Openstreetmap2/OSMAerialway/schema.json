@@ -1,119 +1,119 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$schemaVersion": "0.0.1",
-    "modelTags": "OSM OpenStreetMap Aerialway",
-    "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMAerialway/schema.json",
-    "title": "Smart Data Models - OpenStreetMap / OSMAerialway",
-    "description": "An aerial transport or lift from OpenStreetMap tagged with aerialway=*. Describes cable cars, gondolas, chair lifts, and drag lifts.",
-    "type": "object",
-    "allOf": [
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Aerialway",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMAerialway/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMAerialway",
+  "description": "An aerial transport or lift from OpenStreetMap tagged with aerialway=*. Describes cable cars, gondolas, chair lifts, and drag lifts.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "OSMAerialway"
+          ],
+          "description": "Property. NGSI Entity type. It has to be OSMAerialway"
         },
-        {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier."
         },
-        {
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "OSMAerialway"
-                    ],
-                    "description": "Property. NGSI Entity type. It has to be OSMAerialway"
-                },
-                "osmId": {
-                    "type": "integer",
-                    "description": "Property. The original OpenStreetMap element integer identifier."
-                },
-                "osmType": {
-                    "type": "string",
-                    "enum": [
-                        "node",
-                        "way",
-                        "relation"
-                    ],
-                    "description": "Property. The type of the original OSM element."
-                },
-                "osmLastModified": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Property. Timestamp of the last modification."
-                },
-                "aerialwayType": {
-                    "type": "string",
-                    "enum": [
-                        "cable_car",
-                        "gondola",
-                        "mixed_lift",
-                        "chair_lift",
-                        "drag_lift",
-                        "t-bar",
-                        "j-bar",
-                        "platter",
-                        "rope_tow",
-                        "magic_carpet",
-                        "zip_line",
-                        "goods",
-                        "pylon",
-                        "station"
-                    ],
-                    "description": "Property. The OSM aerialway tag classifying the lift or transport type. Enum:'cable_car, gondola, chair_lift, drag_lift, t-bar, rope_tow, magic_carpet, zip_line, goods, pylon, station...'. Model:'https://wiki.openstreetmap.org/wiki/Key:aerialway'"
-                },
-                "capacity": {
-                    "type": "integer",
-                    "description": "Property. Total capacity of the line in persons per hour. Model:'https://wiki.openstreetmap.org/wiki/Key:capacity'"
-                },
-                "occupancy": {
-                    "type": "integer",
-                    "description": "Property. Passengers per cabin or chair. Model:'https://wiki.openstreetmap.org/wiki/Key:aerialway:occupancy'"
-                },
-                "duration": {
-                    "type": "number",
-                    "description": "Property. Ride duration in minutes. Model:'https://wiki.openstreetmap.org/wiki/Key:aerialway:duration'"
-                },
-                "heating": {
-                    "type": "boolean",
-                    "description": "Property. Indicates if the chairs or cabins are heated. Model:'https://wiki.openstreetmap.org/wiki/Key:aerialway:heating'"
-                },
-                "bubble": {
-                    "type": "boolean",
-                    "description": "Property. Indicates if chair lifts have a bubble cover. Model:'https://wiki.openstreetmap.org/wiki/Key:aerialway:bubble'"
-                },
-                "operator": {
-                    "type": "string",
-                    "description": "Property. Operator or managing entity."
-                },
-                "elevationGain": {
-                    "type": "number",
-                    "description": "Property. Vertical elevation gain of the aerialway in metres."
-                },
-                "seeAlso": {
-                    "oneOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "format": "uri"
-                            },
-                            "minItems": 1
-                        },
-                        {
-                            "type": "string",
-                            "format": "uri"
-                        }
-                    ],
-                    "description": "Property. List of URIs pointing to additional resources."
-                }
+        "osmType": {
+          "type": "string",
+          "enum": [
+            "node",
+            "way",
+            "relation"
+          ],
+          "description": "Property. The type of the original OSM element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification."
+        },
+        "aerialwayType": {
+          "type": "string",
+          "enum": [
+            "cable_car",
+            "gondola",
+            "mixed_lift",
+            "chair_lift",
+            "drag_lift",
+            "t-bar",
+            "j-bar",
+            "platter",
+            "rope_tow",
+            "magic_carpet",
+            "zip_line",
+            "goods",
+            "pylon",
+            "station"
+          ],
+          "description": "Property. The OSM aerialway tag classifying the lift or transport type. Enum:'cable_car, gondola, chair_lift, drag_lift, t-bar, rope_tow, magic_carpet, zip_line, goods, pylon, station...'. Model:'https://wiki.openstreetmap.org/wiki/Key:aerialway'"
+        },
+        "capacity": {
+          "type": "integer",
+          "description": "Property. Total capacity of the line in persons per hour. Model:'https://wiki.openstreetmap.org/wiki/Key:capacity'"
+        },
+        "occupancy": {
+          "type": "integer",
+          "description": "Property. Passengers per cabin or chair. Model:'https://wiki.openstreetmap.org/wiki/Key:aerialway:occupancy'"
+        },
+        "duration": {
+          "type": "number",
+          "description": "Property. Ride duration in minutes. Model:'https://wiki.openstreetmap.org/wiki/Key:aerialway:duration'"
+        },
+        "heating": {
+          "type": "boolean",
+          "description": "Property. Indicates if the chairs or cabins are heated. Model:'https://wiki.openstreetmap.org/wiki/Key:aerialway:heating'"
+        },
+        "bubble": {
+          "type": "boolean",
+          "description": "Property. Indicates if chair lifts have a bubble cover. Model:'https://wiki.openstreetmap.org/wiki/Key:aerialway:bubble'"
+        },
+        "operator": {
+          "type": "string",
+          "description": "Property. Operator or managing entity."
+        },
+        "elevationGain": {
+          "type": "number",
+          "description": "Property. Vertical elevation gain of the aerialway in metres."
+        },
+        "seeAlso": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
             },
-            "required": [
-                "id",
-                "type",
-                "location",
-                "osmId",
-                "osmType",
-                "aerialwayType"
-            ]
+            {
+              "type": "string",
+              "format": "uri"
+            }
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
         }
-    ]
+      }
+    }
+  ],
+  "required": [
+        "id",
+        "type",
+        "location",
+        "osmId",
+        "osmType",
+        "aerialwayType"
+      ]
 }
