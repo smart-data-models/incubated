@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Barrier",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:barrier",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMBarrier/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMBarrier",
+  "description": "Barriers and physical obstructions from OpenStreetMap tagged with barrier=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMBarrier"],
+          "description": "Property. NGSI Entity type. It has to be OSMBarrier"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OpenStreetMap element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification of the OSM element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "barrierType": {
+          "type": "string",
+          "enum": [
+            "fence", "wall", "gate", "bollard", "hedge", "retaining_wall", "city_wall", "ditch", "cattle_grid", "guard_rail", "kerb", "block", "stile", "toll_booth", "lift_gate", "swing_gate", "wire_fence", "yes"
+          ],
+          "description": "Property. The OSM barrier tag classifying the obstruction. Model:'https://wiki.openstreetmap.org/wiki/Key:barrier'"
+        },
+        "access": {
+          "type": "string",
+          "enum": ["yes", "no", "private", "permissive"],
+          "description": "Property. Access restrictions for the barrier or gate. Model:'https://wiki.openstreetmap.org/wiki/Key:access'"
+        },
+        "height": {
+          "type": "number",
+          "description": "Property. Height of the barrier in metres. Model:'https://wiki.openstreetmap.org/wiki/Key:height'"
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
+        }
+      }
+    }
+  ],
+  "required": ["id", "type", "location", "osmId", "osmType", "barrierType"]
+}

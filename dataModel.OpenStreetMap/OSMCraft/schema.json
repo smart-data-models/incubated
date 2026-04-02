@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Craft",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:craft",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMCraft/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMCraft",
+  "description": "A place for crafts and manual trades from OpenStreetMap tagged with craft=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMCraft"],
+          "description": "Property. NGSI Entity type. It has to be OSMCraft"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier."
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OSM element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification."
+        },
+        "craftType": {
+          "type": "string",
+          "enum": [
+            "agricultural_engines", "bakery", "basket_maker", "beekeeper", "blacksmith", "boatbuilder", "bookbinder", "brewery", "builder", "carpenter", "clockmaker", "confectionery", "electrician", "furniture_maker", "gardener", "glazier", "handicraft", "hvac", "jeweller", "key_cutter", "locksmith", "metalworker", "musical_instrument_painter", "optician", "painter", "photographer", "photographic_laboratory", "plasterer", "plumber", "pottery", "printer", "roofer", "sawmill", "shoemaker", "stonemason", "tailor", "upholsterer", "watchmaker", "window_construction", "winery"
+          ],
+          "description": "Property. The OSM craft tag classifying the service. Model:'https://wiki.openstreetmap.org/wiki/Key:craft'"
+        },
+        "openingHours": {
+          "type": "string",
+          "description": "Property. Regular opening hours of the craft facility. Model:'https://wiki.openstreetmap.org/wiki/Key:opening_hours'"
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
+        }
+      }
+    }
+  ],
+  "required": ["id", "type", "location", "osmId", "osmType", "craftType"]
+}

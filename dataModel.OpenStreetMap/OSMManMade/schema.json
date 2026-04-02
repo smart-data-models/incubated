@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap ManMade",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:man_made",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMManMade/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMManMade",
+  "description": "An artificial structure from OpenStreetMap tagged with man_made=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMManMade"],
+          "description": "Property. NGSI Entity type. It has to be OSMManMade"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier."
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OSM element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification."
+        },
+        "manMadeType": {
+          "type": "string",
+          "enum": [
+            "tower", "pipeline", "works", "bridge", "bunker_silo", "chimney", "crane", "flagpole",
+            "lighthouse", "mast", "pier", "silo", "storage_tank", "wastewater_plant", "water_tower", "water_works"
+          ],
+          "description": "Property. The OSM man_made tag classifying the structure. Model:'https://wiki.openstreetmap.org/wiki/Key:man_made'"
+        },
+        "manMadeHeight": {
+          "type": "number",
+          "description": "Property. Height of the structure in metres. Maps to the OSM 'height' tag. Model:'https://wiki.openstreetmap.org/wiki/Key:height'"
+        },
+        "material": {
+          "type": "string",
+          "description": "Property. The primary material the feature is made of. Model:'https://wiki.openstreetmap.org/wiki/Key:material'"
+        },
+        "operator": {
+          "type": "string",
+          "description": "Property. The entity responsible for operation."
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
+        }
+      },
+      "required": ["id", "type", "location", "osmId", "osmType", "manMadeType"]
+    }
+  ]
+}

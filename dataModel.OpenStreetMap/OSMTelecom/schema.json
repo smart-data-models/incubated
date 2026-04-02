@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Telecom",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:telecom",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMTelecom/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMTelecom",
+  "description": "Telecommunication infrastructure from OpenStreetMap tagged with telecom=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMTelecom"],
+          "description": "Property. NGSI Entity type. It has to be OSMTelecom"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OpenStreetMap element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification of the OSM element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "telecomType": {
+          "type": "string",
+          "enum": [
+            "antenna", "exchange", "cabinet", "connection_point", "distribution_point", "manhole", "outlet", "pedestal", "service_device"
+          ],
+          "description": "Property. The OSM telecom tag classifying the telecommunication feature. Model:'https://wiki.openstreetmap.org/wiki/Key:telecom'"
+        },
+        "operator": {
+          "type": "string",
+          "description": "Property. The name of the organization operating the telecommunication infrastructure."
+        },
+        "ref": {
+          "type": "string",
+          "description": "Property. External reference for this specific item. Model:'https://wiki.openstreetmap.org/wiki/Key:ref'"
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
+        }
+      }
+    }
+  ],
+  "required": ["id", "type", "location", "osmId", "osmType", "telecomType"]
+}

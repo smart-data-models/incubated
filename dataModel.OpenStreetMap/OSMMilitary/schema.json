@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Military",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:military",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMMilitary/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMMilitary",
+  "description": "Military zones and buildings from OpenStreetMap tagged with military=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMMilitary"],
+          "description": "Property. NGSI Entity type. It has to be OSMMilitary"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OpenStreetMap element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification of the OSM element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "militaryType": {
+          "type": "string",
+          "enum": [
+            "airfield", "bunker", "barracks", "checkpoint", "danger_area", "naval_base", "nuclear_weapons_site", "obstacle_course", "office", "range", "training_area", "yes"
+          ],
+          "description": "Property. The OSM military tag classifying the site. Model:'https://wiki.openstreetmap.org/wiki/Key:military'"
+        },
+        "operator": {
+          "type": "string",
+          "description": "Property. The organization or branch of service operating the facility."
+        },
+        "access": {
+          "type": "string",
+          "enum": ["yes", "no", "private", "permissive"],
+          "description": "Property. Access restrictions for the site. Model:'https://wiki.openstreetmap.org/wiki/Key:access'"
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
+        }
+      }
+    }
+  ],
+  "required": ["id", "type", "location", "osmId", "osmType", "militaryType"]
+}

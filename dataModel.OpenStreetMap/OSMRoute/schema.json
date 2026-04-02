@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Route",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:route",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMRoute/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMRoute",
+  "description": "Established routes from OpenStreetMap tagged with route=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMRoute"],
+          "description": "Property. NGSI Entity type. It has to be OSMRoute"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier."
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OSM element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification."
+        },
+        "routeType": {
+          "type": "string",
+          "enum": [
+            "bus", "trolleybus", "tram", "train", "subway", "light_rail", "monorail", "ferry", "bicycle", "hiking", "horse", "foot", "ski", "road", "railway", "power", "pipeline", "piste"
+          ],
+          "description": "Property. The OSM route tag classifying the path or service. Model:'https://wiki.openstreetmap.org/wiki/Key:route'"
+        },
+        "ref": {
+          "type": "string",
+          "description": "Property. Reference number or route name (e.g. bus number). Model:'https://wiki.openstreetmap.org/wiki/Key:ref'"
+        },
+        "network": {
+          "type": "string",
+          "description": "Property. The name of the network this route belongs to (e.g. VTM, RTM). Model:'https://wiki.openstreetmap.org/wiki/Key:network'"
+        },
+        "operator": {
+          "type": "string",
+          "description": "Property. Operator or managing organisation."
+        },
+        "distance": {
+          "type": "number",
+          "description": "Property. Approximate distance of the route in metres. Model:'https://wiki.openstreetmap.org/wiki/Key:distance'"
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
+        }
+      }
+    }
+  ],
+  "required": ["id", "type", "location", "osmId", "osmType", "routeType"]
+}

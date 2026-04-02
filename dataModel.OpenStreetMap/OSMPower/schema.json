@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Power",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:power",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMPower/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMPower",
+  "description": "Facilities for generation and distribution of electrical power from OpenStreetMap tagged with power=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMPower"],
+          "description": "Property. NGSI Entity type. It has to be OSMPower"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier."
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OSM element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification."
+        },
+        "powerType": {
+          "type": "string",
+          "enum": [
+            "plant", "generator", "line", "minor_line", "pole", "tower", "substation",
+            "transformer", "cable", "switch", "insulator"
+          ],
+          "description": "Property. The OSM power tag classifying the electrical feature. Model:'https://wiki.openstreetmap.org/wiki/Key:power'"
+        },
+        "voltage": {
+          "type": "number",
+          "description": "Property. Operating voltage of the equipment in volts. Used directly for numbers, parses 'voltage' OSM tag. Model:'https://wiki.openstreetmap.org/wiki/Key:voltage'"
+        },
+        "cables": {
+          "type": "integer",
+          "description": "Property. Number of cables on a power line. Model:'https://wiki.openstreetmap.org/wiki/Key:cables'"
+        },
+        "operator": {
+          "type": "string",
+          "description": "Property. The company or utility managing the power equipment."
+        },
+        "line": {
+          "type": "string",
+          "enum": ["busbar", "bay"],
+          "description": "Property. Type of power line within a substation. Model:'https://wiki.openstreetmap.org/wiki/Key:line'"
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
+        }
+      },
+      "required": ["id", "type", "location", "osmId", "osmType", "powerType"]
+    }
+  ]
+}

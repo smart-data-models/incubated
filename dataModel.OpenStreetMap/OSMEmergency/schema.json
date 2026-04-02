@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Emergency",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:emergency",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMEmergency/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMEmergency",
+  "description": "An emergency facility or equipment from OpenStreetMap tagged with emergency=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMEmergency"],
+          "description": "Property. NGSI Entity type. It has to be OSMEmergency"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier."
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OSM element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification."
+        },
+        "emergencyType": {
+          "type": "string",
+          "enum": [
+            "fire_hydrant", "defibrillator", "ambulance_station", "fire_station",
+            "phone", "assembly_point", "emergency_ward_entrance", "life_ring",
+            "water_rescue", "siren"
+          ],
+          "description": "Property. The OSM emergency tag classifying the feature. Model:'https://wiki.openstreetmap.org/wiki/Key:emergency'"
+        },
+        "operator": {
+          "type": "string",
+          "description": "Property. Operator or managing organisation."
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Property. Contact phone number for the facility."
+        },
+        "ref": {
+          "type": "string",
+          "description": "Property. Internal reference number (e.g., hydrant number)."
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
+        }
+      },
+      "required": ["id", "type", "location", "osmId", "osmType", "emergencyType"]
+    }
+  ]
+}

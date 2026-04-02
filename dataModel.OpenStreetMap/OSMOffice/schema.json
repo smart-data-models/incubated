@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Office",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:office",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMOffice/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMOffice",
+  "description": "An office or place of business from OpenStreetMap tagged with office=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMOffice"],
+          "description": "Property. NGSI Entity type. It has to be OSMOffice"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OpenStreetMap element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification of the OSM element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "officeType": {
+          "type": "string",
+          "enum": [
+            "accountant", "architect", "association", "company", "consulting", "courier", "diplomatic", "educational_institution", "employment_agency", "energy_supplier", "estate_agent", "financial", "foundation", "government", "insurance", "it", "lawyer", "logistics", "newspaper", "ngo", "notary", "political_party", "quango", "religion", "research", "tax_advisor", "telecommunication", "travel_agent", "water_utility", "yes"
+          ],
+          "description": "Property. The OSM office tag classifying the office type. Model:'https://wiki.openstreetmap.org/wiki/Key:office'"
+        },
+        "operator": {
+          "type": "string",
+          "description": "Property. The name of the organization operating the office."
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
+        }
+      }
+    }
+  ],
+  "required": ["id", "type", "location", "osmId", "osmType", "officeType"]
+}

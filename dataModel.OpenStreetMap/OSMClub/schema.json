@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Club",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:club",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMClub/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMClub",
+  "description": "Social, sports, or interest-based clubs from OpenStreetMap tagged with club=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMClub"],
+          "description": "Property. NGSI Entity type. It has to be OSMClub"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OpenStreetMap element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification of the OSM element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "clubType": {
+          "type": "string",
+          "enum": [
+            "sport", "music", "art", "charity", "games", "history", "social", "theatre", "youth", "senior", "fan", "scout", "nature", "veteran"
+          ],
+          "description": "Property. The OSM club tag classifying the organization's focus. Model:'https://wiki.openstreetmap.org/wiki/Key:club'"
+        },
+        "operator": {
+          "type": "string",
+          "description": "Property. The organization managing the club."
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
+        }
+      }
+    }
+  ],
+  "required": ["id", "type", "location", "osmId", "osmType", "clubType"]
+}

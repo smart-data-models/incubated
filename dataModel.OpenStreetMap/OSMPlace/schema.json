@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Place",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:place",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMPlace/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMPlace",
+  "description": "Geographical places from OpenStreetMap tagged with place=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMPlace"],
+          "description": "Property. NGSI Entity type. It has to be OSMPlace"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OpenStreetMap element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification of the OSM element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "placeType": {
+          "type": "string",
+          "enum": [
+            "continent", "country", "state", "region", "province", "district", "county", "municipality", "city", "town", "village", "hamlet", "isolated_dwelling", "farm", "neighbourhood", "suburb", "quarter", "city_block", "plot", "locality", "island", "islet", "sea", "ocean"
+          ],
+          "description": "Property. The OSM place tag classifying the territory or populated area. Model:'https://wiki.openstreetmap.org/wiki/Key:place'"
+        },
+        "population": {
+          "type": "integer",
+          "description": "Property. Total population of the place. Model:'https://wiki.openstreetmap.org/wiki/Key:population'"
+        },
+        "capital": {
+          "type": "string",
+          "enum": ["yes", "no", "4", "2"],
+          "description": "Property. Indicates if the place is a capital (4=territory/region, 2=country). Model:'https://wiki.openstreetmap.org/wiki/Key:capital'"
+        },
+        "rank": {
+          "type": "integer",
+          "description": "Property. Administrative or prominence rank. Model:'https://wiki.openstreetmap.org/wiki/Key:rank'"
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
+        }
+      }
+    }
+  ],
+  "required": ["id", "type", "location", "osmId", "osmType", "placeType"]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Healthcare",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:healthcare",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMHealthcare/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMHealthcare",
+  "description": "Healthcare facilities and services from OpenStreetMap tagged with healthcare=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMHealthcare"],
+          "description": "Property. NGSI Entity type. It has to be OSMHealthcare"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OpenStreetMap element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification of the OSM element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "healthcareType": {
+          "type": "string",
+          "enum": [
+            "hospital", "clinic", "pharmacy", "dentist", "doctors", "physiotherapist", "rehabilitation", "laboratory", "hospice", "occupational_therapist", "optometrist", "psychotherapist", "podiatrist", "speech_therapist", "alternative", "vaccination_centre"
+          ],
+          "description": "Property. The OSM healthcare tag classifying the facility. Model:'https://wiki.openstreetmap.org/wiki/Key:healthcare'"
+        },
+        "speciality": {
+          "type": "string",
+          "description": "Property. Medical specialisation of the facility. Model:'https://wiki.openstreetmap.org/wiki/Key:healthcare:speciality'"
+        },
+        "operator": {
+          "type": "string",
+          "description": "Property. The organization or branch of service operating the facility."
+        },
+        "emergency": {
+          "type": "boolean",
+          "description": "Property. Indicates if the facility has emergency services. Model:'https://wiki.openstreetmap.org/wiki/Key:emergency'"
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
+        }
+      }
+    }
+  ],
+  "required": ["id", "type", "location", "osmId", "osmType", "healthcareType"]
+}

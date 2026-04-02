@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Historic",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:historic",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMHistoric/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMHistoric",
+  "description": "A historic site or monument from OpenStreetMap tagged with historic=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMHistoric"],
+          "description": "Property. NGSI Entity type. It has to be OSMHistoric"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier."
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OSM element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification."
+        },
+        "historicType": {
+          "type": "string",
+          "enum": [
+            "monument", "memorial", "ruin", "archaeological_site", "castle", "manor", "ship",
+            "battlefield", "building", "tomb", "citywalls", "yes"
+          ],
+          "description": "Property. The OSM historic tag classifying the feature. Model:'https://wiki.openstreetmap.org/wiki/Key:historic'"
+        },
+        "heritage": {
+          "type": "string",
+          "description": "Property. Designation of heritage status. Model:'https://wiki.openstreetmap.org/wiki/Key:heritage'"
+        },
+        "heritageLevel": {
+          "type": "string",
+          "description": "Property. Level of heritage designation (international, national, regional). Model:'https://wiki.openstreetmap.org/wiki/Key:heritage:operator'"
+        },
+        "ruins": {
+          "type": "boolean",
+          "description": "Property. Indicates if the feature is in ruins. Model:'https://wiki.openstreetmap.org/wiki/Key:ruins'"
+        },
+        "fee": {
+          "type": "boolean",
+          "description": "Property. Indicates if a fee must be paid to visit. Model:'https://wiki.openstreetmap.org/wiki/Key:fee'"
+        },
+        "startDate": {
+          "type": "string",
+          "description": "Property. Year or period of origin/construction. Model:'https://wiki.openstreetmap.org/wiki/Key:start_date'"
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
+        }
+      },
+      "required": ["id", "type", "location", "osmId", "osmType", "historicType"]
+    }
+  ]
+}

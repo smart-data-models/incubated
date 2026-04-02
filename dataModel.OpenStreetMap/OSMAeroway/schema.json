@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Aeroway",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:aeroway",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMAeroway/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMAeroway",
+  "description": "An aeroway feature from OpenStreetMap tagged with aeroway=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMAeroway"],
+          "description": "Property. NGSI Entity type. It has to be OSMAeroway"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OpenStreetMap element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification of the OSM element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "aerowayType": {
+          "type": "string",
+          "enum": [
+            "aerodrome", "apron", "gate", "hangar", "helipad", "heliport", "runway", "taxiway", "terminal",
+            "windsock", "holding_position", "navigationaid"
+          ],
+          "description": "Property. The OSM aeroway tag classifying the feature. Model:'https://wiki.openstreetmap.org/wiki/Key:aeroway'"
+        },
+        "surface": {
+          "type": "string",
+          "description": "Property. Physical surface of the runway, taxiway, or apron. Model:'https://wiki.openstreetmap.org/wiki/Key:surface'"
+        },
+        "icao": {
+          "type": "string",
+          "description": "Property. 4-letter ICAO airport code. Model:'https://wiki.openstreetmap.org/wiki/Key:icao'"
+        },
+        "iata": {
+          "type": "string",
+          "description": "Property. 3-letter IATA airport code. Model:'https://wiki.openstreetmap.org/wiki/Key:iata'"
+        },
+        "lengthMeters": {
+          "type": "number",
+          "description": "Property. Length of the feature (such as a runway) in metres. Model:'https://wiki.openstreetmap.org/wiki/Key:length'"
+        },
+        "widthMeters": {
+          "type": "number",
+          "description": "Property. Width of the feature in metres. Model:'https://wiki.openstreetmap.org/wiki/Key:width'"
+        },
+        "ref": {
+          "type": "string",
+          "description": "Property. Reference code (like runway number or gate number). Model:'https://wiki.openstreetmap.org/wiki/Key:ref'"
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources about this item."
+        }
+      },
+      "required": ["id", "type", "location", "osmId", "osmType", "aerowayType"]
+    }
+  ]
+}

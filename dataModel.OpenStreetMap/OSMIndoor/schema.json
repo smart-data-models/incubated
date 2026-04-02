@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "OSM OpenStreetMap Indoor",
+  "derivedFrom": "https://wiki.openstreetmap.org/wiki/Key:indoor",
+  "$id": "https://smart-data-models.github.io/dataModel.OpenStreetMap/OSMIndoor/schema.json",
+  "title": "Smart Data Models - OpenStreetMap / OSMIndoor",
+  "description": "Indoor features from OpenStreetMap tagged with indoor=*. This data model is a derivative work based on the OpenStreetMap Wiki, licensed under CC BY-SA 2.0 by OpenStreetMap contributors.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["OSMIndoor"],
+          "description": "Property. NGSI Entity type. It has to be OSMIndoor"
+        },
+        "osmId": {
+          "type": "integer",
+          "description": "Property. The original OpenStreetMap element integer identifier. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "osmType": {
+          "type": "string",
+          "enum": ["node", "way", "relation"],
+          "description": "Property. The type of the original OpenStreetMap element."
+        },
+        "osmLastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification of the OSM element. Model:'https://wiki.openstreetmap.org/wiki/Elements'"
+        },
+        "indoorType": {
+          "type": "string",
+          "enum": [
+            "room", "corridor", "area", "wall", "door", "window", "staircase", "elevator", "escalator"
+          ],
+          "description": "Property. The OSM indoor tag classifying the indoor element. Model:'https://wiki.openstreetmap.org/wiki/Key:indoor'"
+        },
+        "level": {
+          "type": "string",
+          "description": "Property. The floor level the element is located on (e.g., 0, 1, -1, 2). Model:'https://wiki.openstreetmap.org/wiki/Key:level'"
+        },
+        "roomType": {
+          "type": "string",
+          "description": "Property. The specific purpose of the room (e.g., office, shop, classroom). Model:'https://wiki.openstreetmap.org/wiki/Key:room'"
+        },
+        "ref": {
+          "type": "string",
+          "description": "Property. Internal reference or room number. Model:'https://wiki.openstreetmap.org/wiki/Key:ref'"
+        },
+        "seeAlso": {
+          "oneOf": [
+            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
+            {"type": "string", "format": "uri"}
+          ],
+          "description": "Property. List of URIs pointing to additional resources."
+        }
+      }
+    }
+  ],
+  "required": ["id", "type", "location", "osmId", "osmType", "indoorType"]
+}
