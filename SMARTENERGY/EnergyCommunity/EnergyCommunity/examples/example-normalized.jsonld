@@ -1,6 +1,6 @@
 {
   "@context": [
-    "https://smart-data-models.github.io/dataModel.EnergyCommunity/context.jsonld",
+    "https://smart-data-models.github.io/dataModel.EnergyCommunity/EnergyCommunity/context.jsonld",
     "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
   ],
   "id": "urn:ngsi-ld:EnergyCommunity:community-001",
@@ -42,24 +42,39 @@
     "value": "EU Renewable Energy Directive (RED II)"
   },
 
-  "hasMember": {
-    "type": "Relationship",
-    "object": [
-      "urn:ngsi-ld:EnergyProsumer:prosumer-001",
-      "urn:ngsi-ld:EnergyProsumer:prosumer-002"
-    ]
-  },
+  "hasMember": [
+    {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:EnergyProsumer:prosumer-001"
+    },
+    {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:EnergyProsumer:prosumer-002"
+    }
+  ],
 
-  "aggregates": {
-    "type": "Relationship",
-    "object": [
-      "urn:ngsi-ld:PhotovoltaicDevice:pv-001",
-      "urn:ngsi-ld:Battery:battery-001",
-      "urn:ngsi-ld:SpaceHeater:spaceheater-001",
-      "urn:ngsi-ld:Vehicle:vehicle-001",
-      "urn:ngsi-ld:EVChargingStation:charger-001"
-    ]
-  },
+  "aggregates": [
+    {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:PhotovoltaicDevice:pv-001"
+    },
+    {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:Battery:battery-001"
+    },
+    {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:SpaceHeater:spaceheater-001"
+    },
+    {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:Vehicle:vehicle-001"
+    },
+    {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:EVChargingStation:charger-001"
+    }
+  ],
 
   "aggregatesConsumption": {
     "type": "Relationship",
