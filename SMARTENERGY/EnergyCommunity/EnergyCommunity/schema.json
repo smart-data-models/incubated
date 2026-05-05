@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.EnergyCommunity/EnergyCommunity/schema.json",
+  "title": "Smart Data Models - EnergyCommunity",
+  "description": "A collective entity representing an energy community enabling shared production, consumption, and storage of energy among its members.",
+  "type": "object",
+
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+
+        "type": {
+          "type": "string",
+          "enum": ["EnergyCommunity"],
+          "description": "NGSI-LD entity type. It must be EnergyCommunity."
+        },
+
+        "communityType": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Property",
+          "description": "Type of energy community (e.g., Renewable Energy Community, Citizen Energy Community)."
+        },
+
+        "regulatoryFramework": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Property",
+          "description": "Regulatory or legal framework governing the energy community."
+        },
+
+        "hasMember": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship",
+          "description": "Energy prosumers participating in the energy community."
+        },
+
+        "aggregates": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship",
+          "description": "Energy assets aggregated, owned, or managed at community level."
+        },
+
+        "aggregatesConsumption": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship",
+          "description": "Aggregated energy consumption of the energy community."
+        },
+
+        "aggregatesProduction": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship",
+          "description": "Aggregated energy production of the energy community."
+        },
+
+        "usesWeatherForecast": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship",
+          "description": "Weather forecast entity used by the energy community."
+        }
+      }
+    }
+  ],
+
+  "required": ["id", "type"]
+}

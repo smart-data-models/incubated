@@ -1,0 +1,82 @@
+{
+  "id": "urn:ngsi-ld:EnergyProsumer:prosumer-001",
+  "type": "EnergyProsumer",
+
+  "name": {
+    "type": "Property",
+    "value": "Household Prosumer 001"
+  },
+
+  "description": {
+    "type": "Property",
+    "value": "Residential prosumer participating in a local energy community"
+  },
+
+  "roleType": {
+    "type": "Property",
+    "value": "prosumer"
+  },
+
+  "timezone": {
+    "type": "Property",
+    "value": "Europe/Stockholm"
+  },
+
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [11.9746, 57.7089]
+    }
+  },
+
+  "contractedPower": {
+    "type": "Property",
+    "value": 10
+  },
+
+  "totalEnergyImported": {
+    "type": "Property",
+    "value": 4200
+  },
+
+  "totalEnergyExported": {
+    "type": "Property",
+    "value": 1800
+  },
+
+  "memberOf": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:EnergyCommunity:community-001"
+  },
+
+  "represents": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:Person:person-001"
+  },
+
+  "controls": {
+    "type": "Relationship",
+    "object": [
+      "urn:ngsi-ld:PhotovoltaicDevice:pv-001",
+      "urn:ngsi-ld:Battery:battery-001",
+      "urn:ngsi-ld:SpaceHeater:spaceheater-001",
+      "urn:ngsi-ld:Vehicle:vehicle-001",
+      "urn:ngsi-ld:EVChargingStation:charger-001"
+    ]
+  },
+
+  "consumes": {
+    "type": "Relationship",
+    "object": [
+      "urn:ngsi-ld:Consumption:consumption-001"
+    ]
+  },
+
+  "produces": {
+    "type": "Relationship",
+    "object": [
+      "urn:ngsi-ld:GreenEnergyMeasurement:production-001"
+    ]
+  }
+}
