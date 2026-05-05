@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://smart-data-models.github.io/dataModel.EnergyCommunity/EnergyCommunity/context.jsonld",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ],
+  "id": "urn:ngsi-ld:EnergyCommunity:community-001",
+  "type": "EnergyCommunity",
+
+  "name": "Göteborg Renewable Energy Community",
+
+  "description": "Local energy community enabling shared photovoltaic generation, storage, and collective self-consumption.",
+
+  "location": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [11.960, 57.700],
+        [11.990, 57.700],
+        [11.990, 57.720],
+        [11.960, 57.720],
+        [11.960, 57.700]
+      ]
+    ]
+  },
+
+  "communityType": "RenewableEnergyCommunity",
+
+  "regulatoryFramework": "EU Renewable Energy Directive (RED II)",
+
+  "hasMember": [
+    "urn:ngsi-ld:EnergyProsumer:prosumer-001",
+    "urn:ngsi-ld:EnergyProsumer:prosumer-002"
+  ],
+
+  "aggregates": [
+    "urn:ngsi-ld:PhotovoltaicDevice:pv-001",
+    "urn:ngsi-ld:Battery:battery-001",
+    "urn:ngsi-ld:SpaceHeater:spaceheater-001",
+    "urn:ngsi-ld:Vehicle:vehicle-001",
+    "urn:ngsi-ld:EVChargingStation:charger-001"
+  ],
+
+  "aggregatesConsumption": "urn:ngsi-ld:Consumption:community-consumption-001",
+
+  "aggregatesProduction": "urn:ngsi-ld:GreenEnergyMeasurement:community-production-001",
+
+  "usesWeatherForecast": "urn:ngsi-ld:Weather:weather-001"
+}

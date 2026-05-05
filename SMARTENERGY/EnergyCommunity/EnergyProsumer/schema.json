@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.EnergyCommunity/EnergyProsumer/schema.json",
+  "title": "Smart Data Models - EnergyProsumer",
+  "description": "A role played by an individual or organization that both consumes and produces energy within an energy community.",
+  "type": "object",
+
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+
+        "type": {
+          "type": "string",
+          "enum": ["EnergyProsumer"],
+          "description": "NGSI entity type. It must be EnergyProsumer."
+        },
+
+        "roleType": {
+          "type": "string",
+          "enum": ["consumer", "producer", "prosumer"],
+          "description": "Energy participation role of the entity."
+        },
+
+        "timezone": {
+          "type": "string",
+          "description": "Timezone of the prosumer location (IANA TZ database)."
+        },
+
+        "contractedPower": {
+          "type": "number",
+          "description": "Contracted active power for the prosumer."
+        },
+
+        "totalEnergyImported": {
+          "type": "number",
+          "description": "Total cumulative imported energy."
+        },
+
+        "totalEnergyExported": {
+          "type": "number",
+          "description": "Total cumulative exported energy."
+        },
+
+        "memberOf": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship",
+          "description": "Energy community in which the prosumer participates."
+        },
+
+        "represents": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship",
+          "description": "Person or organization playing the energy prosumer role."
+        },
+
+        "controls": {
+          "type": "array",
+          "description": "Energy assets controlled by the prosumer.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship"
+          }
+        },
+
+        "consumes": {
+          "type": "array",
+          "description": "Energy consumption entities associated with the prosumer.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship"
+          }
+        },
+
+        "produces": {
+          "type": "array",
+          "description": "Energy production entities associated with the prosumer.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship"
+          }
+        }
+      }
+    }
+  ],
+
+  "required": ["id", "type"]
+}
