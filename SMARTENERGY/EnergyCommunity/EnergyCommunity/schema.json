@@ -23,23 +23,29 @@
         },
 
         "communityType": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Property",
+          "type": "string",
           "description": "Type of energy community (e.g., Renewable Energy Community, Citizen Energy Community)."
         },
 
         "regulatoryFramework": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Property",
+          "type": "string",
           "description": "Regulatory or legal framework governing the energy community."
         },
 
         "hasMember": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship",
-          "description": "Energy prosumers participating in the energy community."
+          "type": "array",
+          "description": "Energy prosumers participating in the energy community.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship"
+          }
         },
 
         "aggregates": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship",
-          "description": "Energy assets aggregated, owned, or managed at community level."
+          "type": "array",
+          "description": "Energy assets aggregated, owned, or managed at community level.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship"
+          }
         },
 
         "aggregatesConsumption": {

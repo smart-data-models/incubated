@@ -1,4 +1,4 @@
-{
+{{
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
   "$id": "https://smart-data-models.github.io/dataModel.EnergyCommunity/EnergyProsumer/schema.json",
@@ -59,18 +59,27 @@
         },
 
         "controls": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship",
-          "description": "Energy assets controlled by the prosumer."
+          "type": "array",
+          "description": "Energy assets controlled by the prosumer.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship"
+          }
         },
 
         "consumes": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship",
-          "description": "Energy consumption entities associated with the prosumer."
+          "type": "array",
+          "description": "Energy consumption entities associated with the prosumer.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship"
+          }
         },
 
         "produces": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship",
-          "description": "Energy production entities associated with the prosumer."
+          "type": "array",
+          "description": "Energy production entities associated with the prosumer.",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship"
+          }
         }
       }
     }
