@@ -18,7 +18,9 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["OSMEmergency"],
+          "enum": [
+            "OSMEmergency"
+          ],
           "description": "Property. NGSI Entity type. It has to be OSMEmergency"
         },
         "osmId": {
@@ -27,7 +29,11 @@
         },
         "osmType": {
           "type": "string",
-          "enum": ["node", "way", "relation"],
+          "enum": [
+            "node",
+            "way",
+            "relation"
+          ],
           "description": "Property. The type of the original OSM element."
         },
         "osmLastModified": {
@@ -38,9 +44,16 @@
         "emergencyType": {
           "type": "string",
           "enum": [
-            "fire_hydrant", "defibrillator", "ambulance_station", "fire_station",
-            "phone", "assembly_point", "emergency_ward_entrance", "life_ring",
-            "water_rescue", "siren"
+            "fire_hydrant",
+            "defibrillator",
+            "ambulance_station",
+            "fire_station",
+            "phone",
+            "assembly_point",
+            "emergency_ward_entrance",
+            "life_ring",
+            "water_rescue",
+            "siren"
           ],
           "description": "Property. The OSM emergency tag classifying the feature. Model:'https://wiki.openstreetmap.org/wiki/Key:emergency'"
         },
@@ -58,13 +71,34 @@
         },
         "seeAlso": {
           "oneOf": [
-            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
-            {"type": "string", "format": "uri"}
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
           ],
           "description": "Property. List of URIs pointing to additional resources."
         }
       },
-      "required": ["id", "type", "location", "osmId", "osmType", "emergencyType"]
+      "required": [
+        "id",
+        "type",
+        "location",
+        "osmId",
+        "osmType",
+        "emergencyType"
+      ]
     }
+  ],
+  "required": [
+    "id",
+    "type"
   ]
 }

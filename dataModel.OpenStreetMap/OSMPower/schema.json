@@ -18,7 +18,9 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["OSMPower"],
+          "enum": [
+            "OSMPower"
+          ],
           "description": "Property. NGSI Entity type. It has to be OSMPower"
         },
         "osmId": {
@@ -27,7 +29,11 @@
         },
         "osmType": {
           "type": "string",
-          "enum": ["node", "way", "relation"],
+          "enum": [
+            "node",
+            "way",
+            "relation"
+          ],
           "description": "Property. The type of the original OSM element."
         },
         "osmLastModified": {
@@ -38,8 +44,17 @@
         "powerType": {
           "type": "string",
           "enum": [
-            "plant", "generator", "line", "minor_line", "pole", "tower", "substation",
-            "transformer", "cable", "switch", "insulator"
+            "plant",
+            "generator",
+            "line",
+            "minor_line",
+            "pole",
+            "tower",
+            "substation",
+            "transformer",
+            "cable",
+            "switch",
+            "insulator"
           ],
           "description": "Property. The OSM power tag classifying the electrical feature. Model:'https://wiki.openstreetmap.org/wiki/Key:power'"
         },
@@ -57,18 +72,42 @@
         },
         "line": {
           "type": "string",
-          "enum": ["busbar", "bay"],
+          "enum": [
+            "busbar",
+            "bay"
+          ],
           "description": "Property. Type of power line within a substation. Model:'https://wiki.openstreetmap.org/wiki/Key:line'"
         },
         "seeAlso": {
           "oneOf": [
-            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
-            {"type": "string", "format": "uri"}
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
           ],
           "description": "Property. List of URIs pointing to additional resources."
         }
       },
-      "required": ["id", "type", "location", "osmId", "osmType", "powerType"]
+      "required": [
+        "id",
+        "type",
+        "location",
+        "osmId",
+        "osmType",
+        "powerType"
+      ]
     }
+  ],
+  "required": [
+    "id",
+    "type"
   ]
 }

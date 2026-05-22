@@ -18,7 +18,9 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["OSMHistoric"],
+          "enum": [
+            "OSMHistoric"
+          ],
           "description": "Property. NGSI Entity type. It has to be OSMHistoric"
         },
         "osmId": {
@@ -27,7 +29,11 @@
         },
         "osmType": {
           "type": "string",
-          "enum": ["node", "way", "relation"],
+          "enum": [
+            "node",
+            "way",
+            "relation"
+          ],
           "description": "Property. The type of the original OSM element."
         },
         "osmLastModified": {
@@ -38,8 +44,18 @@
         "historicType": {
           "type": "string",
           "enum": [
-            "monument", "memorial", "ruin", "archaeological_site", "castle", "manor", "ship",
-            "battlefield", "building", "tomb", "citywalls", "yes"
+            "monument",
+            "memorial",
+            "ruin",
+            "archaeological_site",
+            "castle",
+            "manor",
+            "ship",
+            "battlefield",
+            "building",
+            "tomb",
+            "citywalls",
+            "yes"
           ],
           "description": "Property. The OSM historic tag classifying the feature. Model:'https://wiki.openstreetmap.org/wiki/Key:historic'"
         },
@@ -65,13 +81,34 @@
         },
         "seeAlso": {
           "oneOf": [
-            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
-            {"type": "string", "format": "uri"}
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
           ],
           "description": "Property. List of URIs pointing to additional resources."
         }
       },
-      "required": ["id", "type", "location", "osmId", "osmType", "historicType"]
+      "required": [
+        "id",
+        "type",
+        "location",
+        "osmId",
+        "osmType",
+        "historicType"
+      ]
     }
+  ],
+  "required": [
+    "id",
+    "type"
   ]
 }

@@ -18,7 +18,9 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["OSMAeroway"],
+          "enum": [
+            "OSMAeroway"
+          ],
           "description": "Property. NGSI Entity type. It has to be OSMAeroway"
         },
         "osmId": {
@@ -27,7 +29,11 @@
         },
         "osmType": {
           "type": "string",
-          "enum": ["node", "way", "relation"],
+          "enum": [
+            "node",
+            "way",
+            "relation"
+          ],
           "description": "Property. The type of the original OpenStreetMap element."
         },
         "osmLastModified": {
@@ -38,8 +44,18 @@
         "aerowayType": {
           "type": "string",
           "enum": [
-            "aerodrome", "apron", "gate", "hangar", "helipad", "heliport", "runway", "taxiway", "terminal",
-            "windsock", "holding_position", "navigationaid"
+            "aerodrome",
+            "apron",
+            "gate",
+            "hangar",
+            "helipad",
+            "heliport",
+            "runway",
+            "taxiway",
+            "terminal",
+            "windsock",
+            "holding_position",
+            "navigationaid"
           ],
           "description": "Property. The OSM aeroway tag classifying the feature. Model:'https://wiki.openstreetmap.org/wiki/Key:aeroway'"
         },
@@ -69,13 +85,34 @@
         },
         "seeAlso": {
           "oneOf": [
-            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
-            {"type": "string", "format": "uri"}
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
           ],
           "description": "Property. List of URIs pointing to additional resources about this item."
         }
       },
-      "required": ["id", "type", "location", "osmId", "osmType", "aerowayType"]
+      "required": [
+        "id",
+        "type",
+        "location",
+        "osmId",
+        "osmType",
+        "aerowayType"
+      ]
     }
+  ],
+  "required": [
+    "id",
+    "type"
   ]
 }

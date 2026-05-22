@@ -18,7 +18,9 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["OSMManMade"],
+          "enum": [
+            "OSMManMade"
+          ],
           "description": "Property. NGSI Entity type. It has to be OSMManMade"
         },
         "osmId": {
@@ -27,7 +29,11 @@
         },
         "osmType": {
           "type": "string",
-          "enum": ["node", "way", "relation"],
+          "enum": [
+            "node",
+            "way",
+            "relation"
+          ],
           "description": "Property. The type of the original OSM element."
         },
         "osmLastModified": {
@@ -38,8 +44,22 @@
         "manMadeType": {
           "type": "string",
           "enum": [
-            "tower", "pipeline", "works", "bridge", "bunker_silo", "chimney", "crane", "flagpole",
-            "lighthouse", "mast", "pier", "silo", "storage_tank", "wastewater_plant", "water_tower", "water_works"
+            "tower",
+            "pipeline",
+            "works",
+            "bridge",
+            "bunker_silo",
+            "chimney",
+            "crane",
+            "flagpole",
+            "lighthouse",
+            "mast",
+            "pier",
+            "silo",
+            "storage_tank",
+            "wastewater_plant",
+            "water_tower",
+            "water_works"
           ],
           "description": "Property. The OSM man_made tag classifying the structure. Model:'https://wiki.openstreetmap.org/wiki/Key:man_made'"
         },
@@ -57,13 +77,34 @@
         },
         "seeAlso": {
           "oneOf": [
-            {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1},
-            {"type": "string", "format": "uri"}
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "minItems": 1
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
           ],
           "description": "Property. List of URIs pointing to additional resources."
         }
       },
-      "required": ["id", "type", "location", "osmId", "osmType", "manMadeType"]
+      "required": [
+        "id",
+        "type",
+        "location",
+        "osmId",
+        "osmType",
+        "manMadeType"
+      ]
     }
+  ],
+  "required": [
+    "id",
+    "type"
   ]
 }
