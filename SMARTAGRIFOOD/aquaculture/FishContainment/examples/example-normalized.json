@@ -1,19 +1,49 @@
 {
-    "id": "urn:ngsi:fishcontainment:1",
-    "type": "FishContainment",
-    "endpoint": {
-        "type": "Text",
-        "value": "TBD"
-    },
-    "hasProvider": {
-        "type": "Text",
-        "value": "urn:ngsi:provider:1"
-    },
-    "version": {
-        "type": "Text",
-        "value": "1.0"
-    },
-    "@context": [
-        "https://raw.githubusercontent.com/smart-data-models/data-models/master/context.jsonld"
+  "id": "urn:ngsi-ld:FishContainment:1",
+  "type": "FishContainment",
+  "category": {
+    "type": "Text",
+    "value": "Tank"
+  },
+  "depth": {
+    "type": "Number",
+    "value": 10,
+    "metadata": {
+      "unitCode": {
+        "value": "MTR"
+      }
+    }
+  },
+  "dissolvedOxygen": {
+    "type": "Number",
+    "value": 80,
+    "metadata": {
+      "unitCode": {
+        "value": "P1"
+      }
+    }
+  },
+  "pH": {
+    "type": "Number",
+    "value": 7
+  },
+  "salinity": {
+    "type": "Number",
+    "value": 7
+  },
+  "temperature": {
+    "type": "StructuredValue",
+    "value": [
+      15.2,
+      16.1
     ]
+  },
+  "refSump": {
+    "type": "Text",
+    "value": "urn:ngsi-ld:Sump:1"
+  },
+  "refFarm": {
+    "type": "Text",
+    "value": "urn:ngsi-ld:Farm:1"
+  }
 }

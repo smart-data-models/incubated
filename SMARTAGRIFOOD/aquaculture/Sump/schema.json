@@ -1,11 +1,12 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "modelTags": "",
+  "modelTags": "Aquaculture",
   "$id": "https://smart-data-models.github.io/dataModel.Aquaculture/Sump/schema.json",
-  "title": "Sump",
-  "description": "",
+  "title": "Aquaculture Sump Unit",
+  "description": "Sump entity represents a water treatment and recirculation unit in an aquaculture facility, monitoring water quality parameters such as pH, CO2, redox potential, and gas pressure to ensure optimal conditions for fish containment.",
   "type": "object",
+  "license": "https://smart-data-models.github.io/data-models/full_license.md",
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -14,50 +15,66 @@
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
     {
-      "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/AgriFood-Commons"
-    },
-    {
       "properties": {
         "type": {
           "type": "string",
           "enum": [
             "Sump"
           ],
-          "description": "Property. NGSI Entity Type"
+          "description": "Property. NGSI Entity Type. It has to be Sump."
         },
         "co2": {
           "type": "number",
-          "description": "Property. Model:'http://schema.org/Number'. Units:'mg/L'. The measured dissolved C02 concentration."
+          "minimum": 0,
+          "description": "Property. Model:'http://schema.org/Number'. Units:'mg/L'. Measured dissolved CO2 concentration in the sump water."
         },
         "pH": {
           "type": "number",
-          "description": "Property. Model: https://schema.org/Number. Water pH level measured."
+          "minimum": 0,
+          "maximum": 14,
+          "description": "Property. Model:'https://schema.org/Number'. Water pH level measured in the sump unit."
         },
         "processes": {
           "type": "array",
-          "description": "Property. ",
+          "description": "Property. List of water treatment processes active in the sump (e.g. ozone injection, UV filtration, oxygen enrichment).",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Property. Name of a water treatment process active in the sump (e.g. ozone injection, UV filtration)."
           }
         },
         "redoxPotential": {
           "type": "number",
-          "description": "Property. "
+          "description": "Property. Model:'https://schema.org/Number'. Units:'mV'. Oxidation-reduction (redox) potential of the water measured in the sump unit."
         },
         "refFishContainment": {
           "type": "array",
-          "description": "Relationship. References to the related FishContainments",
+          "description": "Relationship. References to the FishContainment entities connected to this sump unit.",
           "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifyerType"
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256,
+                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                "description": "Relationship. Identifier of a FishContainment entity connected to this sump unit."
+              },
+              {
+                "type": "string",
+                "format": "uri",
+                "description": "Relationship. Identifier of a FishContainment entity connected to this sump unit."
+              }
+            ]
           }
         },
         "totalGasPressure": {
           "type": "number",
-          "description": "Property. "
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Pa'. Total dissolved gas pressure measured in the sump water."
         },
         "waterConsumption": {
           "type": "number",
-          "description": "Property. Units:'liters'"
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'L'. Volume of water consumed or processed by the sump unit."
         }
       }
     }

@@ -1,11 +1,12 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "modelTags": "",
+  "modelTags": "Aquaculture",
   "$id": "https://smart-data-models.github.io/dataModel.Aquaculture/Specie/schema.json",
-  "title": " Specie",
-  "description": "Spiece of the animal",
+  "title": "Aquaculture Fish Specie",
+  "description": "Specie entity describes scientific and physiological parameters of an aquaculture fish species, including digestion, feeding capacity, and biological growth-related properties used for simulation and monitoring",
   "type": "object",
+  "license": "https://smart-data-models.github.io/data-models/full_license.md",
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -14,56 +15,72 @@
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
     {
-      "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/AgriFood-Commons"
-    },
-    {
       "properties": {
         "type": {
           "type": "string",
           "enum": [
             "Specie"
           ],
-          "description": "Property. NGSI Entity Type"
+          "description": "Property. NGSI Entity Type. It has to be Specie"
         },
         "absorptionRatio": {
           "type": "number",
-          "description": "Property."
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Ratio of nutrients absorbed by the fish from ingested food, used in bioenergetics modelling"
         },
         "stomachCapacity": {
           "type": "number",
-          "description": "Property."
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'g'. Maximum capacity of the fish stomach in grams of food"
         },
         "waterUptake": {
           "type": "number",
-          "description": "Property."
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'mL/h'. Rate of water uptake by the fish, relevant for osmoregulation studies"
         },
         "midgutMaxdur": {
           "type": "number",
-          "description": "Property."
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'h'. Maximum duration of food transit through the midgut of the fish"
         },
         "ingestionDelay": {
           "type": "number",
-          "description": "Property."
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'min'. Time delay between food presentation and the start of ingestion by the fish"
         },
         "transportPattern": {
           "type": "number",
-          "description": "Property."
+          "description": "Property. Model:'https://schema.org/Number'. Numerical coefficient representing the food transport pattern through the digestive system of the fish"
         },
         "appetiteFactor": {
           "type": "number",
-          "description": "Property."
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Factor representing the appetite level of the fish species, influencing feed consumption rates"
         },
         "midgutVolume": {
           "type": "number",
-          "description": "Property."
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'mL'. Volume of the fish midgut used in digestive capacity calculations"
         },
         "digestionDelay": {
           "type": "number",
-          "description": "Property."
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'h'. Time delay required for the fish to complete digestion of a meal"
         },
         "hasFishPopulation": {
-          "type": "string",
-          "description": "Relationship."
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
+          ],
+          "description": "Relationship. Reference to the FishPopulation entity that uses this species definition"
         }
       }
     }

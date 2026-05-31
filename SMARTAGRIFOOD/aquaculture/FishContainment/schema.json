@@ -1,11 +1,12 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "modelTags": "",
-  "$id": "https://smart-data-models.github.io/dataModel.Aquaculture/Specie/schema.json",
-  "title": "Specie",
-  "description": "",
+  "modelTags": "Aquaculture",
+  "$id": "https://smart-data-models.github.io/dataModel.Aquaculture/FishContainment/schema.json",
+  "title": "FishContainment",
+  "description": "FishContainment entity represents a fish containment unit (tank, cage, pond, or any enclosed water structure) used in aquaculture to house and monitor fish populations and water quality parameters",
   "type": "object",
+  "license": "https://smart-data-models.github.io/data-models/full_license.md",
   "allOf": [
     {
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
@@ -14,71 +15,141 @@
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
     {
-      "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/AgriFood-Commons"
-    },
-    {
       "properties": {
         "type": {
           "type": "string",
           "enum": [
-            "Specie"
+            "FishContainment"
           ],
-          "description": "Property. NGSI Entity Type"
+          "description": "Property. NGSI Entity Type. It has to be FishContainment"
         },
-        "name": {
-          "type": "number",
-          "description": "Property."
+        "category": {
+          "type": "string",
+          "description": "Property. Category or type of the fish containment unit (e.g. Tank, Cage, Pond, Net)"
         },
-        "description": {
-          "type": "number",
-          "description": "Property."
+        "refSump": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
+          ],
+          "description": "Relationship. Reference to the Sump unit associated with this fish containment"
         },
-        "absorptionRatio": {
-          "type": "number",
-          "description": "Property."
+        "refFarm": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
+          ],
+          "description": "Relationship. Reference to the Farm entity that manages this fish containment unit"
         },
-        "stomachCapacity": {
+        "depth": {
           "type": "number",
-          "description": "Property."
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'m'. Depth of the fish containment unit in metres"
         },
-        "waterUptake": {
-          "type": "number",
-          "description": "Property."
+        "videoStream": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/URL'. URL of the video stream providing live monitoring of the fish containment unit"
         },
-        "midgutMaxdur": {
-          "type": "number",
-          "description": "Property."
+        "temperature": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'Cel'. Array of water temperature measurements (degrees Celsius) recorded at different depths of the containment unit",
+          "items": {
+            "type": "number",
+            "description": "Property. Single water temperature measurement in degrees Celsius recorded in the containment unit"
+          }
         },
-        "ingestionDelay": {
+        "dissolvedOxygen": {
           "type": "number",
-          "description": "Property."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'mg/L'. Dissolved oxygen concentration measured in the fish containment unit"
         },
-        "transportPattern": {
+        "pH": {
           "type": "number",
-          "description": "Property."
+          "minimum": 0,
+          "maximum": 14,
+          "description": "Property. Model:'https://schema.org/Number'. Water pH level measured in the fish containment unit"
         },
-        "appetiteFactor": {
+        "redoxPotential": {
           "type": "number",
-          "description": "Property."
+          "description": "Property. Model:'https://schema.org/Number'. Units:'mV'. Oxidation-reduction (redox) potential of the water in the containment unit"
         },
-        "midgutVolume": {
+        "turbidity": {
           "type": "number",
-          "description": "Property."
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'NTU'. Water turbidity level measured in the fish containment unit"
         },
-        "digestionDelay": {
+        "conductivity": {
           "type": "number",
-          "description": "Property."
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'mS/cm'. Electrical conductivity of the water in the fish containment unit"
         },
-        "hasFishPopulation": {
+        "salinity": {
           "type": "number",
-          "description": "Relationship."
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'g/kg'. Water salinity level measured in the fish containment unit"
+        },
+        "totalDissolvedSolids": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'mg/L'. Total dissolved solids concentration measured in the fish containment water"
+        },
+        "marineCurrents": {
+          "type": "string",
+          "description": "Property. Description of water currents present in or affecting the fish containment unit"
+        },
+        "feedingOperation": {
+          "type": "string",
+          "description": "Property. Reference or description of the feeding operation or automated feeder device associated with this fish containment unit"
+        },
+        "observation": {
+          "type": "string",
+          "description": "Property. Free-text observations or notes about the current state of the fish containment unit"
+        },
+        "threats": {
+          "type": "string",
+          "description": "Property. Description of threats, anomalies, or risks detected in or around the fish containment unit"
+        },
+        "startedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. Date and time when the monitoring or operational session for the fish containment started"
+        },
+        "fishDensity": {
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'kg/m3'. Array of fish density measurements recorded at different depths of the containment unit",
+          "items": {
+            "type": "number",
+            "description": "Property. Single fish density measurement in kg per cubic metre recorded at one depth layer"
+          }
+        },
+        "fishSpeed": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Average swimming speed of fish measured inside the containment unit"
+        },
+        "fishDirection": {
+          "type": "string",
+          "description": "Property. Predominant swimming direction of fish in the containment unit (e.g. N, NE, E, SE, S, SW, W, NW, NA)"
         }
       }
     }
   ],
   "required": [
     "id",
-    "type",
-    "hasFishPopulation"
+    "type"
   ]
 }
