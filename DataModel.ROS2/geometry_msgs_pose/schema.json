@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "ROS2",
+  "$id": "https://smart-data-models.github.io/dataModel.ROS2/geometry_msgs_pose/schema.json",
+  "title": "Smart Data Models - ROS2 geometry_msgs/Pose",
+  "description": "A representation of pose in free space, composed of position and orientation",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "GeometryMsgsPose"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It must be equal to GeometryMsgsPose"
+        },
+        "position": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/StructuredValue'. Position in 3D space",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "Property. X coordinate in meters"
+            },
+            "y": {
+              "type": "number",
+              "description": "Property. Y coordinate in meters"
+            },
+            "z": {
+              "type": "number",
+              "description": "Property. Z coordinate in meters"
+            }
+          },
+          "required": ["x", "y", "z"]
+        },
+        "orientation": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/StructuredValue'. Orientation as a quaternion",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "Property. X component of quaternion"
+            },
+            "y": {
+              "type": "number",
+              "description": "Property. Y component of quaternion"
+            },
+            "z": {
+              "type": "number",
+              "description": "Property. Z component of quaternion"
+            },
+            "w": {
+              "type": "number",
+              "description": "Property. W component of quaternion"
+            }
+          },
+          "required": ["x", "y", "z", "w"]
+        },
+        "frameId": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Reference frame identifier"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "position",
+    "orientation"
+  ]
+}

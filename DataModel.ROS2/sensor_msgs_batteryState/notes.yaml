@@ -1,0 +1,14 @@
+notesHeader:
+  - This data model is based on the ROS2 sensor_msgs/BatteryState message type
+  - Reference documentation can be found at http://docs.ros.org/en/api/sensor_msgs/html/msg/BatteryState.html
+
+notesSpecification:
+  - The voltage property represents the battery voltage in Volts (V)
+  - The current property is in Amperes (A), negative values indicate discharging
+  - The charge and capacity properties are in Ampere-hours (Ah)
+  - The percentage property is normalized from 0.0 to 1.0
+  - powerSupplyStatus indicates charging state (0=UNKNOWN, 1=CHARGING, 2=DISCHARGING, 3=NOT_CHARGING, 4=FULL)
+  - powerSupplyHealth indicates battery health (0=UNKNOWN, 1=GOOD, 2=OVERHEAT, 3=DEAD, 4=OVERVOLTAGE, 5=UNSPEC_FAILURE, 6=COLD, 7=WATCHDOG_TIMER_EXPIRE, 8=SAFETY_TIMER_EXPIRE)
+  - powerSupplyTechnology indicates battery type (0=UNKNOWN, 1=NIMH, 2=LION, 3=LIPO, 4=LIFE, 5=NICD, 6=LIMN)
+  - cellVoltage and cellTemperature arrays can store individual cell measurements
+  - Use NaN for unavailable numeric values

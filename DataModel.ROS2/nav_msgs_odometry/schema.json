@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "ROS2",
+  "$id": "https://smart-data-models.github.io/dataModel.ROS2/nav_msgs_odometry/schema.json",
+  "title": "Smart Data Models - ROS2 nav_msgs/Odometry",
+  "description": "Represents an estimate of a position and velocity in free space",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "NavMsgsOdometry"
+          ],
+          "description": "Property. NGSI-LD Entity Type. It must be equal to NavMsgsOdometry"
+        },
+        "header": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/StructuredValue'. Message header with timestamp and frame information",
+          "properties": {
+            "stamp": {
+              "type": "object",
+              "description": "Property. Timestamp",
+              "properties": {
+                "sec": {
+                  "type": "integer",
+                  "description": "Property. Seconds component of timestamp"
+                },
+                "nanosec": {
+                  "type": "integer",
+                  "description": "Property. Nanoseconds component of timestamp"
+                }
+              }
+            },
+            "frameId": {
+              "type": "string",
+              "description": "Property. Reference frame identifier"
+            }
+          },
+          "required": ["frameId"]
+        },
+        "childFrameId": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Child frame identifier"
+        },
+        "pose": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/StructuredValue'. Pose estimate with covariance",
+          "properties": {
+            "pose": {
+              "type": "object",
+              "properties": {
+                "position": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "description": "Property. X coordinate in meters"
+                    },
+                    "y": {
+                      "type": "number",
+                      "description": "Property. Y coordinate in meters"
+                    },
+                    "z": {
+                      "type": "number",
+                      "description": "Property. Z coordinate in meters"
+                    }
+                  },
+                  "required": ["x", "y", "z"]
+                },
+                "orientation": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "description": "Property. X component of quaternion"
+                    },
+                    "y": {
+                      "type": "number",
+                      "description": "Property. Y component of quaternion"
+                    },
+                    "z": {
+                      "type": "number",
+                      "description": "Property. Z component of quaternion"
+                    },
+                    "w": {
+                      "type": "number",
+                      "description": "Property. W component of quaternion"
+                    }
+                  },
+                  "required": ["x", "y", "z", "w"]
+                }
+              },
+              "required": ["position", "orientation"]
+            },
+            "covariance": {
+              "type": "array",
+              "description": "Property. 6x6 covariance matrix (row-major order)",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 36,
+              "maxItems": 36
+            }
+          },
+          "required": ["pose"]
+        },
+        "twist": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/StructuredValue'. Velocity estimate with covariance",
+          "properties": {
+            "twist": {
+              "type": "object",
+              "properties": {
+                "linear": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "description": "Property. Linear velocity in X direction (m/s)"
+                    },
+                    "y": {
+                      "type": "number",
+                      "description": "Property. Linear velocity in Y direction (m/s)"
+                    },
+                    "z": {
+                      "type": "number",
+                      "description": "Property. Linear velocity in Z direction (m/s)"
+                    }
+                  },
+                  "required": ["x", "y", "z"]
+                },
+                "angular": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "description": "Property. Angular velocity around X axis (rad/s)"
+                    },
+                    "y": {
+                      "type": "number",
+                      "description": "Property. Angular velocity around Y axis (rad/s)"
+                    },
+                    "z": {
+                      "type": "number",
+                      "description": "Property. Angular velocity around Z axis (rad/s)"
+                    }
+                  },
+                  "required": ["x", "y", "z"]
+                }
+              },
+              "required": ["linear", "angular"]
+            },
+            "covariance": {
+              "type": "array",
+              "description": "Property. 6x6 covariance matrix (row-major order)",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 36,
+              "maxItems": 36
+            }
+          },
+          "required": ["twist"]
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "header",
+    "childFrameId",
+    "pose",
+    "twist"
+  ]
+}
