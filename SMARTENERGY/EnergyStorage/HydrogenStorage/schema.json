@@ -1,115 +1,60 @@
 {
-  "$schema": "http://json-schema.org/schema#",
-  "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.EnergyStorage/HydrogenStorage/schema.json,",
-  "title": "Hydrogen storage data model",
-  "description": "A generic tank for hydrogen storage",
-  "modelTags": "",
-  "derivedFrom": "",
-  "required": [
-    "id",
-    "type"
-  ],
-  "license": "https://smart-data-models.github.io/dataModel.EnergyStorage/HydrogenStorage/LICENSE.md",
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "format": "uri",
-      "description": "Property. Unique ID of the object"
-    },
-    "type": {
-      "type": "string",
-      "description": "Property. Title of the form element"
-    },
-    "description": {
-      "type": "string",
-      "description": "Property. Description of the element"
-    },
-    "location": {
-      "type": "object",
-      "description": "GeoProperty. Location",
-      "properties": {}
-    },
-    "name": {
-      "type": "string",
-      "description": "Property. Name of the object"
-    },
-    "volume": {
-      "type": "number",
-      "description": "Property. Capacity (L)"
-    },
-    "maxPressure": {
-      "type": "number",
-      "description": "Property. Maximum pressure (bar)"
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.EnergyStorage/HydrogenStorage/schema.json",
+    "title": "Hydrogen storage data model",
+    "description": "A generic tank used for storing compressed hydrogen gas at high pressure",
+    "modelTags": "",
+    "derivedFrom": "",
+    "required": [
+        "id",
+        "type"
+    ],
+    "license": "https://smart-data-models.github.io/dataModel.EnergyStorage/HydrogenStorage/LICENSE.md",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uri",
+            "description": "Property. Unique ID of the object"
+        },
+        "type": {
+            "type": "string",
+            "description": "Property. Title of the form element"
+        },
+        "description": {
+            "type": "string",
+            "description": "Property. Description of the element"
+        },
+        "location": {
+            "type": "object",
+            "description": "GeoProperty. Geolocation of the hydrogen storage tank",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Property. GeoJSON geometry type (e.g. Point)"
+                },
+                "coordinates": {
+                    "type": "array",
+                    "description": "Property. Array of WGS84 longitude and latitude coordinates",
+                    "items": {
+                        "type": "number",
+                        "description": "Property. A coordinate value (longitude or latitude)"
+                    }
+                }
+            }
+        },
+        "name": {
+            "type": "string",
+            "description": "Property. Name of the object"
+        },
+        "volume": {
+            "type": "number",
+            "description": "Property. Capacity (L)"
+        },
+        "maxPressure": {
+            "type": "number",
+            "description": "Property. Maximum pressure (bar)"
+        }
     }
-  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
