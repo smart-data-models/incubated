@@ -1,94 +1,72 @@
 {
   "id": "urn:ngsi-ld:EnergyProsumer:prosumer-001",
   "type": "EnergyProsumer",
-
   "name": {
-    "type": "Property",
-    "value": "Household Prosumer 001"
+    "value": "Household Prosumer 001",
+    "type": "Text"
   },
-
   "description": {
-    "type": "Property",
-    "value": "Residential prosumer participating in a local energy community"
+    "value": "Residential prosumer participating in a local energy community",
+    "type": "Text"
   },
-
   "roleType": {
-    "type": "Property",
-    "value": "prosumer"
+    "value": "prosumer",
+    "type": "Text"
   },
-
   "timezone": {
-    "type": "Property",
-    "value": "Europe/Stockholm"
+    "value": "Europe/Stockholm",
+    "type": "Text"
   },
-
   "location": {
-    "type": "GeoProperty",
+    "type": "geo:json",
     "value": {
       "type": "Point",
-      "coordinates": [11.9746, 57.7089]
+      "coordinates": [
+        11.9746,
+        57.7089
+      ]
     }
   },
-
   "contractedPower": {
-    "type": "Property",
-    "value": 10
+    "value": 10,
+    "type": "Number"
   },
-
   "totalEnergyImported": {
-    "type": "Property",
-    "value": 4200
+    "value": 4200,
+    "type": "Number"
   },
-
   "totalEnergyExported": {
-    "type": "Property",
-    "value": 1800
+    "value": 1800,
+    "type": "Number"
   },
-
   "memberOf": {
-    "type": "Relationship",
-    "object": "urn:ngsi-ld:EnergyCommunity:community-001"
+    "type": "Text",
+    "value": "urn:ngsi-ld:EnergyCommunity:community-001"
   },
-
   "represents": {
-    "type": "Relationship",
-    "object": "urn:ngsi-ld:Person:person-001"
+    "type": "Text",
+    "value": "urn:ngsi-ld:Person:person-001"
   },
-
-  "controls": [
-    {
-      "type": "Relationship",
-      "object": "urn:ngsi-ld:PhotovoltaicDevice:pv-001"
-    },
-    {
-      "type": "Relationship",
-      "object": "urn:ngsi-ld:Battery:battery-001"
-    },
-    {
-      "type": "Relationship",
-      "object": "urn:ngsi-ld:SpaceHeater:spaceheater-001"
-    },
-    {
-      "type": "Relationship",
-      "object": "urn:ngsi-ld:Vehicle:vehicle-001"
-    },
-    {
-      "type": "Relationship",
-      "object": "urn:ngsi-ld:EVChargingStation:charger-001"
-    }
-  ],
-
-  "consumes": [
-    {
-      "type": "Relationship",
-      "object": "urn:ngsi-ld:Consumption:consumption-001"
-    }
-  ],
-
-  "produces": [
-    {
-      "type": "Relationship",
-      "object": "urn:ngsi-ld:GreenEnergyMeasurement:production-001"
-    }
-  ]
+  "controls": {
+    "type": "StructuredValue",
+    "value": [
+      "urn:ngsi-ld:PhotovoltaicDevice:pv-001",
+      "urn:ngsi-ld:Battery:battery-001",
+      "urn:ngsi-ld:SpaceHeater:spaceheater-001",
+      "urn:ngsi-ld:Vehicle:vehicle-001",
+      "urn:ngsi-ld:EVChargingStation:charger-001"
+    ]
+  },
+  "consumes": {
+    "type": "StructuredValue",
+    "value": [
+      "urn:ngsi-ld:Consumption:consumption-001"
+    ]
+  },
+  "produces": {
+    "type": "StructuredValue",
+    "value": [
+      "urn:ngsi-ld:GreenEnergyMeasurement:production-001"
+    ]
+  }
 }

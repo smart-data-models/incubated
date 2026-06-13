@@ -1,89 +1,151 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.EnergyCommunity/EnergyProsumer/schema.json",
-  "title": "Smart Data Models - EnergyProsumer",
-  "description": "A role played by an individual or organization that both consumes and produces energy within an energy community.",
-  "type": "object",
-
-  "allOf": [
-    {
-      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
-    },
-    {
-      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
-    },
-    {
-      "properties": {
-
-        "type": {
-          "type": "string",
-          "enum": ["EnergyProsumer"],
-          "description": "NGSI entity type. It must be EnergyProsumer."
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.EnergyCommunity/EnergyProsumer/schema.json",
+    "title": "Smart Data Models - EnergyProsumer",
+    "description": "A role played by an individual or organization that both consumes and produces energy within an energy community.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
         },
-
-        "roleType": {
-          "type": "string",
-          "enum": ["consumer", "producer", "prosumer"],
-          "description": "Energy participation role of the entity."
+        {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
         },
-
-        "timezone": {
-          "type": "string",
-          "description": "Timezone of the prosumer location (IANA TZ database)."
-        },
-
-        "contractedPower": {
-          "type": "number",
-          "description": "Contracted active power for the prosumer."
-        },
-
-        "totalEnergyImported": {
-          "type": "number",
-          "description": "Total cumulative imported energy."
-        },
-
-        "totalEnergyExported": {
-          "type": "number",
-          "description": "Total cumulative exported energy."
-        },
-
-        "memberOf": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship",
-          "description": "Energy community in which the prosumer participates."
-        },
-
-        "represents": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship",
-          "description": "Person or organization playing the energy prosumer role."
-        },
-
-        "controls": {
-          "type": "array",
-          "description": "Energy assets controlled by the prosumer.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship"
-          }
-        },
-
-        "consumes": {
-          "type": "array",
-          "description": "Energy consumption entities associated with the prosumer.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship"
-          }
-        },
-
-        "produces": {
-          "type": "array",
-          "description": "Energy production entities associated with the prosumer.",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Relationship"
-          }
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "EnergyProsumer"
+                    ],
+                    "description": "Property. NGSI entity type. It must be EnergyProsumer."
+                },
+                "roleType": {
+                    "type": "string",
+                    "enum": [
+                        "consumer",
+                        "producer",
+                        "prosumer"
+                    ],
+                    "description": "Property. Energy participation role of the entity."
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Property. Timezone of the prosumer location (IANA TZ database)."
+                },
+                "contractedPower": {
+                    "type": "number",
+                    "description": "Property. Contracted active power for the prosumer."
+                },
+                "totalEnergyImported": {
+                    "type": "number",
+                    "description": "Property. Total cumulative imported energy."
+                },
+                "totalEnergyExported": {
+                    "type": "number",
+                    "description": "Property. Total cumulative exported energy."
+                },
+                "memberOf": {
+                    "description": "Relationship. Energy community in which the prosumer participates.",
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 256,
+                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                            "description": "Property. Identifier format of any NGSI entity"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "Property. Identifier format of any NGSI entity"
+                        }
+                    ]
+                },
+                "represents": {
+                    "description": "Relationship. Person or organization playing the energy prosumer role.",
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 256,
+                            "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                            "description": "Property. Identifier format of any NGSI entity"
+                        },
+                        {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "Property. Identifier format of any NGSI entity"
+                        }
+                    ]
+                },
+                "controls": {
+                    "type": "array",
+                    "description": "Relationship. Energy assets controlled by the prosumer.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 256,
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            },
+                            {
+                                "type": "string",
+                                "format": "uri",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ]
+                    }
+                },
+                "consumes": {
+                    "type": "array",
+                    "description": "Relationship. Energy consumption entities associated with the prosumer.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 256,
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            },
+                            {
+                                "type": "string",
+                                "format": "uri",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ]
+                    }
+                },
+                "produces": {
+                    "type": "array",
+                    "description": "Relationship. Energy production entities associated with the prosumer.",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 256,
+                                "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            },
+                            {
+                                "type": "string",
+                                "format": "uri",
+                                "description": "Property. Identifier format of any NGSI entity"
+                            }
+                        ]
+                    }
+                }
+            }
         }
-      }
-    }
-  ],
-
-  "required": ["id", "type"]
+    ],
+    "required": [
+        "id",
+        "type"
+    ],
+    "modelTags": "SmartEnergy"
 }
