@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Agrifood/AgriManagementZone/schema.json",
+  "title": "Smart Data Models - Agrifood / AgriManagementZone",
+  "description": "A zone inside an agricultural parcel, either drawn by hand (for example an experimental design) or derived by a method such as vegetation index clustering, terrain or topographic wetness. All the zones produced by one zoning run share a run identifier and together partition the parcel.",
+  "modelTags": "agrifood, sampling",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.Agrifood/AgriManagementZone/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/AgriFood-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "AgriManagementZone"
+          ],
+          "description": "Property. NGSI Entity Type. It has to be AgriManagementZone"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "Polygon",
+                "MultiPolygon"
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "description": "GeoProperty. Geometry of the zone. Only Polygon or MultiPolygon are allowed"
+        },
+        "hasAgriParcel": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Parcel that contains the zone"
+        },
+        "zoningMethod": {
+          "type": "string",
+          "enum": [
+            "manual",
+            "vegetationIndex",
+            "terrain",
+            "topographicWetness",
+            "soilSurvey",
+            "yieldMap",
+            "other"
+          ],
+          "description": "Property. Enum:'manual, vegetationIndex, terrain, topographicWetness, soilSurvey, yieldMap, other'. Method used to delineate the zone"
+        },
+        "zoningRunId": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Identifier shared by all the zones produced by the same zoning run. A new run replaces the zones of the previous one"
+        },
+        "dateZoned": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. Date and time when the zoning run that produced the zone was carried out"
+        },
+        "zoneLabel": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Human readable label of the zone within its parcel, for example Z1 or Block A"
+        },
+        "zoneRank": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Property. Model:'https://schema.org/Integer'. Display order of the zone among the zones of the same run, starting at 1"
+        },
+        "zoneClass": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "description": "Property. Enum:'low, medium, high'. Relative class of the zone for the variable used to delineate it"
+        },
+        "variableAttribute": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Name of the variable used to delineate the zone, for example NDVI or elevation"
+        },
+        "meanValue": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Mean value of the delineating variable inside the zone, in the units of that variable"
+        },
+        "area": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'m2'. Area of the zone in square meters"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "hasAgriParcel"
+  ]
+}

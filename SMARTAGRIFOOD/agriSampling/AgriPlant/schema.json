@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Agrifood/AgriPlant/schema.json",
+  "title": "Smart Data Models - Agrifood / AgriPlant",
+  "description": "An individual plant (tree, vine or shrub) identified and located in the field and kept over time, for example a marked olive tree that is sampled every year. The plantation as a whole is described by AgriCrop and AgriParcel; AgriPlant does not replace them.",
+  "modelTags": "agrifood, sampling",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.Agrifood/AgriPlant/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/AgriFood-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "AgriPlant"
+          ],
+          "description": "Property. NGSI Entity Type. It has to be AgriPlant"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "Point"
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "description": "GeoProperty. Position of the plant. Only Point is allowed: one entity per plant"
+        },
+        "hasAgriParcel": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Parcel where the plant grows"
+        },
+        "hasAgriCrop": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Crop or plantation the plant belongs to. The plantation stays the unit of the crop cycle"
+        },
+        "agroVocConcept": {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Model:'http://schema.org/URL'. The link to the species concept in the AgroVoc vocabulary"
+        },
+        "variety": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Variety or cultivar of the plant as named by the grower or nursery"
+        },
+        "plantCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Field label of the plant, unique within its parcel, for example the code on a physical tag"
+        },
+        "datePlanted": {
+          "type": "string",
+          "format": "date",
+          "description": "Property. Model:'https://schema.org/Date'. Date when the plant was planted, if known"
+        },
+        "plantStatus": {
+          "type": "string",
+          "enum": [
+            "alive",
+            "dead",
+            "removed",
+            "replaced"
+          ],
+          "description": "Property. Enum:'alive, dead, removed, replaced'. Current status of the individual plant"
+        },
+        "hasAgriPlantReplacement": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Plant that replaced this one. The new plant is a new entity, so the history of the old one is kept"
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'m'. Height of the plant in meters"
+        },
+        "trunkPerimeter": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'m'. Perimeter of the trunk in meters, measured at the height given in trunkPerimeterHeight"
+        },
+        "trunkPerimeterHeight": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'m'. Height above the ground at which trunkPerimeter was measured, in meters"
+        },
+        "canopyDiameter": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Units:'m'. Mean diameter of the canopy projection in meters"
+        },
+        "rowNumber": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Property. Model:'https://schema.org/Integer'. Number of the row where the plant stands, starting at 1"
+        },
+        "positionInRow": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Property. Model:'https://schema.org/Integer'. Position of the plant within its row, starting at 1"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "hasAgriParcel"
+  ]
+}
