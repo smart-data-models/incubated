@@ -1,0 +1,243 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Agrifood/AgriPlantSample/schema.json",
+  "title": "Smart Data Models - Agrifood / AgriPlantSample",
+  "description": "A physical sample of plant tissue (for example leaves) taken from one plant, from a set of marked plants or as a composite over a zone or parcel, together with its laboratory results on a dry-matter basis.",
+  "modelTags": "agrifood, sampling",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.Agrifood/AgriPlantSample/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Agrifood/agrifood-schema.json#/definitions/AgriFood-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "AgriPlantSample"
+          ],
+          "description": "Property. NGSI Entity Type. It has to be AgriPlantSample"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "Point",
+                "Polygon"
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "description": "GeoProperty. Where the sample was taken: the plant position, or a Polygon for a composite over an area"
+        },
+        "hasAgriPlant": {
+          "anyOf": [
+            {
+              "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          ],
+          "description": "Relationship. Plant or plants the sample was taken from. Several plants for a composite of marked plants"
+        },
+        "hasAgriManagementZone": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Management zone the sample represents, for composite samples per zone"
+        },
+        "hasAgriParcel": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType",
+          "description": "Relationship. Parcel the sample represents or was taken in"
+        },
+        "plantTissue": {
+          "type": "string",
+          "enum": [
+            "leaf",
+            "petiole",
+            "fruit",
+            "flower",
+            "shoot",
+            "wholePlant",
+            "other"
+          ],
+          "description": "Property. Enum:'leaf, petiole, fruit, flower, shoot, wholePlant, other'. Plant tissue that was sampled"
+        },
+        "phenologicalStage": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Phenological stage of the plant at sampling time, preferably as a BBCH code"
+        },
+        "dateSampled": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. Date and time when the sample was taken in the field"
+        },
+        "dateAnalysed": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. Date and time when the laboratory analysed the sample"
+        },
+        "numberOfSubsamples": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Property. Model:'https://schema.org/Integer'. Number of organs or subsamples mixed into the sample, for example the number of leaves"
+        },
+        "sampleCode": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Code that identifies the sample at the laboratory"
+        },
+        "laboratory": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Name of the laboratory that analysed the sample"
+        },
+        "analysisMethod": {
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Default analytical method or standard applied to the sample as a whole"
+        },
+        "nitrogen": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Nitrogen content of the dry matter, as a fraction between 0 and 1",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "phosphorus": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Phosphorus content of the dry matter, as a fraction between 0 and 1",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "potassium": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Potassium content of the dry matter, as a fraction between 0 and 1",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "calcium": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Calcium content of the dry matter, as a fraction between 0 and 1",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "magnesium": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Magnesium content of the dry matter, as a fraction between 0 and 1",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "sulphur": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Sulphur content of the dry matter, as a fraction between 0 and 1",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "chloride": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Chloride content of the dry matter, as a fraction between 0 and 1",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "iron": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'mg/kg'. Iron content of the dry matter",
+          "minimum": 0
+        },
+        "manganese": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'mg/kg'. Manganese content of the dry matter",
+          "minimum": 0
+        },
+        "zinc": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'mg/kg'. Zinc content of the dry matter",
+          "minimum": 0
+        },
+        "copper": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'mg/kg'. Copper content of the dry matter",
+          "minimum": 0
+        },
+        "boron": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'mg/kg'. Boron content of the dry matter",
+          "minimum": 0
+        },
+        "sodium": {
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Units:'mg/kg'. Sodium content of the dry matter",
+          "minimum": 0
+        },
+        "otherResults": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "parameter": {
+                "type": "string",
+                "description": "Property. Model:'https://schema.org/Text'. Name of the measured parameter"
+              },
+              "value": {
+                "type": "number",
+                "description": "Property. Model:'https://schema.org/Number'. Measured value of the parameter"
+              },
+              "unitCode": {
+                "type": "string",
+                "pattern": "^[A-Z0-9]{2,3}$",
+                "description": "Property. Model:'https://schema.org/unitCode'. Unit of the value as a UN/CEFACT common code"
+              },
+              "method": {
+                "type": "string",
+                "description": "Property. Model:'https://schema.org/Text'. Analytical method used for this parameter"
+              }
+            },
+            "required": [
+              "parameter",
+              "value",
+              "unitCode"
+            ]
+          },
+          "description": "Property. Model:'https://schema.org/ItemList'. Results of parameters that have no dedicated property, each with its unit and method"
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "dateSampled",
+    "plantTissue"
+  ],
+  "anyOf": [
+    {
+      "required": [
+        "hasAgriPlant"
+      ]
+    },
+    {
+      "required": [
+        "hasAgriManagementZone"
+      ]
+    },
+    {
+      "required": [
+        "hasAgriParcel"
+      ]
+    }
+  ]
+}
