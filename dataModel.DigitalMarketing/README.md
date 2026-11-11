@@ -15,7 +15,7 @@ looks like (`DigitalAssetMetric`).
 | [Brand](./Brand/doc/spec.md) | Commercial identity / business line of an `Organization`. Carries the NACE sector. | incubated |
 | [DigitalAsset](./DigitalAsset/doc/spec.md) | Concrete digital asset (web, app, social profile, paid-ads account…) of a `Brand`, observed through one `SoftwareApplication`. | incubated |
 | [DataProvider](./DataProvider/doc/spec.md) | Technical agent (ETL / connector) that injects observations into the data space. Sovereignty-aware: canonical case is Internal to the data owner. | incubated |
-| [DigitalAssetMetric](./DigitalAssetMetric/doc/spec.md) | Observation of a channel for a given date and temporal granularity (P1D / P1M / P3M / P1Y). 70+ traffic, engagement, e-commerce, organic and ads metrics. | incubated |
+| [DigitalAssetMetric](./DigitalAssetMetric/doc/spec.md) | Observation of a channel for a given date and temporal granularity (P1D / P1M / P3M / P1Y). 59 traffic, engagement, e-commerce, organic and ads metrics. | incubated |
 
 ## Reused entities (from other subjects)
 
