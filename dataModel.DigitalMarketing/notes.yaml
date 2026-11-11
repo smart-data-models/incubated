@@ -1,0 +1,91 @@
+subject: dataModel.DigitalMarketing
+description: |
+  Smart Data Model subject for Digital Marketing analytics in a federated
+  data space context (FIWARE / NGSI-LD).
+
+  The subject models the entities required to publish comparable digital
+  marketing metrics across brands, channels and platforms, decoupling the
+  commercial identity (Brand), the observable digital asset (DigitalAsset),
+  the measuring tool (SoftwareApplication), the technical pipeline that
+  injects the data (DataProvider) and the legal owner of the data
+  (Organization). The time-series observations are emitted as
+  DigitalAssetMetric entities with explicit temporal resolution
+  (P1D, P1M, P3M, P1Y) and 59 traffic, engagement, e-commerce, organic
+  and paid-ads metrics.
+
+  The model was developed within the Ariadne Data Space initiative
+  (Spanish PIED), grounded on real ingestion pipelines from GA4, Google
+  Ads, Meta Ads, LinkedIn, X (Twitter), YouTube, Google Search Console
+  and Instagram, and aligned with the European Marco Técnico de
+  Interoperabilidad (UNE 0087:2025) for digital marketing data spaces.
+
+  See the README.md of this subject for the entity diagram, examples and
+  the conceptual model.
+
+entities:
+  - Brand
+  - DataProvider
+  - DigitalAsset
+  - DigitalAssetMetric
+
+reused_entities:
+  - subject: dataModel.Organization
+    entity: Organization
+    role: Legal owner of a Brand (DataOwner) and of a DataProvider
+      pipeline (ServiceProvider / Agency / SoftwareVendor depending on
+      the `category` attribute).
+  - subject: schema.org
+    entity: SoftwareApplication
+    role: The measuring tool that observes a DigitalAsset (e.g. Google
+      Analytics 4, Meta Business Manager, LinkedIn Marketing API).
+      Points back to its manufacturer via refManufacturer.
+
+domain: CrossSector
+keywords:
+  - digital marketing
+  - analytics
+  - benchmarking
+  - GA4
+  - paid ads
+  - organic
+  - SEO
+  - social media
+  - data space
+  - NGSI-LD
+license: MIT
+use_case:
+  name: Digital Benchmark
+  description: |
+    Cross-brand benchmarking of digital marketing performance. Brands publish
+    DigitalAssetMetric time series of their digital assets (web, app, social
+    profiles, paid-ads accounts) and consumers subscribe to aggregated,
+    comparative analytics under explicit ODRL agreements. The use case is
+    deployed on top of the Ariadne Data Space (Spanish PIED initiative)
+    but is reusable in any FIWARE / NGSI-LD federated data space.
+promoter:
+  name: I2C Internet SL
+  url: https://lin3s.com
+  role: |
+    Promoter and owner of the Digital Benchmark use case. Drives the schema
+    evolution, the ODRL policies of the benchmarking subscription offerings
+    and the adopter onboarding.
+maintainers:
+  - name: I2C Internet SL
+    url: https://lin3s.com
+    role: Maintainer of the Smart Data Model for the Digital Benchmark use case.
+adopters:
+  # Lista completa con razón social en per-entity ADOPTERS.yaml.
+  # Aquí solo el resumen para discovery.
+  - Torresburriel S.L.
+  - Torresburriel Academy S.L.
+  - SUPERPET PUNTO CLUB, S.L.
+  - GEOTELECOM S.L.U.
+  - LIGHTHOUSE FEED, S.L.U.
+  - Workoholics SL
+  - Seobide Marketing S.L.
+
+resources:
+  # Full specification lives in this subject: README.md (entity graph and
+  # worked examples) and <Entity>/doc/spec.md (per-entity rationale).
+  spec_full: README.md
+  data_space: https://ariadnedata.eu

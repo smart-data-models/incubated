@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "1.3.0",
+  "$id": "https://smart-data-models.github.io/dataModel.DigitalMarketing/DigitalAsset/schema.json",
+  "title": "Smart Data Models - DigitalAsset",
+  "description": "A concrete digital asset (web site, mobile app, social media profile, search engine listing, paid-ads account, etc.) that belongs to a Brand and is observed through a specific SoftwareApplication (e.g. Google Analytics 4, LinkedIn Ads, Meta Business). One Brand can group N DigitalAssets.",
+  "modelTags": "DigitalMarketing",
+  "type": "object",
+  "properties": {
+    "id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ],
+      "description": "Unique identifier of the entity. Recommended pattern: urn:ngsi-ld:DigitalAsset:<Brand>-<Software>[-<suffix>]. Suffix is only needed if the same Brand has multiple channels on the same SoftwareApplication."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "DigitalAsset"
+      ],
+      "description": "Property. NGSI Entity type. It has to be DigitalAsset."
+    },
+    "name": {
+      "type": "string",
+      "description": "Property. Human-readable name of the channel (e.g. 'Acme Web GA4', 'Acme LinkedIn Page')."
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "Property. Alternative or short name."
+    },
+    "description": {
+      "type": "string",
+      "description": "Property. Free-text description of the channel."
+    },
+    "digitalAssetUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Property. Canonical URL of the channel itself: the page being measured for a Web channel, the LinkedIn organization URL for a social profile, the app store URL for a mobile app, etc. Differs from Brand.url which is the brand landing."
+    },
+    "digitalAssetKind": {
+      "type": "string",
+      "enum": [
+        "Web",
+        "MobileApp",
+        "SocialProfile",
+        "SearchEngine",
+        "PaidAds",
+        "VideoPlatform",
+        "Email",
+        "Newsletter",
+        "Podcast",
+        "Marketplace",
+        "Other"
+      ],
+      "description": "Property. High-level kind of the digital channel. Optional: helps consumers filter without having to introspect SoftwareApplication. Extend the enum if a new kind is needed; treat 'Other' as a temporary catch-all and request a proper value via PR."
+    },
+    "externalId": {
+      "type": "string",
+      "description": "Property. Native identifier of the channel inside its SoftwareApplication. Examples: GA4 property id ('properties/123456789'), LinkedIn organization id, Meta business id. Optional but recommended for traceability and joins back to source systems."
+    },
+    "refBrand": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ],
+      "description": "Relationship. URN of the Brand that owns this channel."
+    },
+    "refSoftwareApplication": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ],
+      "description": "Relationship. URN of the SoftwareApplication used to measure or operate this channel (e.g. urn:ngsi-ld:SoftwareApplication:GoogleAnalytics4)."
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "name",
+    "refBrand",
+    "refSoftwareApplication"
+  ],
+  "derivedFrom": "",
+  "license": "https://github.com/smart-data-models/dataModel.DigitalMarketing/blob/master/LICENSE.md"
+}

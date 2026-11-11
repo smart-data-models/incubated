@@ -1,0 +1,347 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "1.4.0",
+  "$id": "https://smart-data-models.github.io/dataModel.DigitalMarketing/DigitalAssetMetric/schema.json",
+  "title": "Smart Data Models - DigitalAssetMetric",
+  "description": "A digital marketing observation of a DigitalAsset for a specific date and temporal granularity (daily/monthly/quarterly/yearly). Includes traffic, engagement, e-commerce, organic-social and paid-ads metrics. Metrics that admit segmentation by acquisition channel group are arrays of {channelGroup, value}; the rest are scalars. Non-applicable metrics are omitted (sparse schema).",
+  "modelTags": "DigitalMarketing",
+  "type": "object",
+  "definitions": {
+    "SegmentedMetricValue": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "channelGroup",
+          "value"
+        ],
+        "properties": {
+          "channelGroup": {
+            "type": "string",
+            "description": "Name of the acquisition channel group (e.g. Direct, Organic Search, Paid Search, Organic Social, Paid Social, Referral, Email, Cross-network, Unassigned). Comes from the source platform - GA4 reports it natively as defaultChannelGroup; for other platforms the producer is responsible for mapping."
+          },
+          "value": {
+            "type": "number",
+            "description": "Numeric value of the metric for this segment."
+          }
+        }
+      },
+      "description": "Array of {channelGroup, value} pairs describing the breakdown of the parent metric by acquisition channel group."
+    }
+  },
+  "properties": {
+    "id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ],
+      "description": "Unique identifier. Recommended pattern: urn:ngsi-ld:DigitalAssetMetric:<Brand>:<Software>:<temporalResolution>. NOT including the date: the broker performs upsert on the same id, Quantum Leap (or any subscriber) keeps the history indexed by dateObserved."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "DigitalAssetMetric"
+      ],
+      "description": "Property. NGSI Entity type. It has to be DigitalAssetMetric."
+    },
+    "dateObserved": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Property. Reference timestamp of the observation (ISO 8601). Combined with `temporalResolution` defines the time window. For daily granularity (P1D) it is the start-of-day in UTC of the observed day."
+    },
+    "temporalResolution": {
+      "type": "string",
+      "enum": [
+        "P1D",
+        "P1M",
+        "P3M",
+        "P1Y"
+      ],
+      "description": "Property. ISO 8601 duration. Granularity of the observation: daily (P1D), monthly (P1M), quarterly (P3M), yearly (P1Y). Each granularity is published as an independent entity to avoid the non-additivity problem of unique-user metrics."
+    },
+    "refDigitalAsset": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ],
+      "description": "Relationship. URN of the DigitalAsset observed."
+    },
+    "refDataProvider": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ],
+      "description": "Relationship. URN of the DataProvider that supplied this observation. Required for traceability and to disambiguate parallel feeds for the same (channel, day, granularity)."
+    },
+    "keyEventsPurchase": {
+      "$ref": "#/definitions/SegmentedMetricValue",
+      "description": "Property. Key events 'purchase' broken down by channel group."
+    },
+    "keyEventsGenerateLead": {
+      "$ref": "#/definitions/SegmentedMetricValue",
+      "description": "Property. Key events 'generate_lead' broken down by channel group."
+    },
+    "purchaseRevenue": {
+      "$ref": "#/definitions/SegmentedMetricValue",
+      "description": "Property. Revenue from purchases broken down by channel group. Monetary; emit with NGSI-LD meta `unitCode` (ISO 4217, default EUR)."
+    },
+    "sessions": {
+      "$ref": "#/definitions/SegmentedMetricValue",
+      "description": "Property. Sessions broken down by channel group."
+    },
+    "totalRevenue": {
+      "$ref": "#/definitions/SegmentedMetricValue",
+      "description": "Property. Total revenue broken down by channel group. Monetary; emit with `unitCode` (default EUR)."
+    },
+    "channelCount": {
+      "type": "integer",
+      "description": "Property. Number of distinct acquisition channels active in the period."
+    },
+    "campaignCount": {
+      "type": "integer",
+      "description": "Property. Number of distinct campaigns active in the period."
+    },
+    "newUsers": {
+      "type": "integer",
+      "description": "Property. New users (first-time visitors)."
+    },
+    "engagedSessions": {
+      "type": "integer",
+      "description": "Property. Sessions classified as engaged by the source platform."
+    },
+    "userEngagementDuration": {
+      "type": "number",
+      "description": "Property. Aggregated user engagement time. Emit with `unitCode` = C26 (minutes, UN/CEFACT)."
+    },
+    "pageViews": {
+      "type": "integer",
+      "description": "Property. Page (or screen) views aggregated in the period."
+    },
+    "keyEvents": {
+      "type": "integer",
+      "description": "Property. Total key events (sum of all conversion-like events)."
+    },
+    "totalUsers": {
+      "type": "integer",
+      "description": "Property. Total users (unique users in the period at this granularity)."
+    },
+    "activeUsers": {
+      "type": "integer",
+      "description": "Property. Active users (engagement-qualified users)."
+    },
+    "totalPurchasers": {
+      "type": "integer",
+      "description": "Property. Distinct purchasers in the period."
+    },
+    "itemsPurchased": {
+      "type": "integer",
+      "description": "Property. Total items purchased."
+    },
+    "itemRefundAmount": {
+      "type": "number",
+      "description": "Property. Total amount refunded. Monetary; emit with `unitCode` (default EUR)."
+    },
+    "itemViewEvents": {
+      "type": "integer",
+      "description": "Property. Item view events (PDP impressions)."
+    },
+    "addToCarts": {
+      "type": "integer",
+      "description": "Property. Add-to-cart events."
+    },
+    "checkouts": {
+      "type": "integer",
+      "description": "Property. Checkout-started events."
+    },
+    "ecommercePurchases": {
+      "type": "integer",
+      "description": "Property. Successful e-commerce purchase events."
+    },
+    "transactions": {
+      "type": "integer",
+      "description": "Property. Total transactions (can include non-e-commerce)."
+    },
+    "firstTimePurchasers": {
+      "type": "integer",
+      "description": "Property. Distinct first-time purchasers."
+    },
+    "organicKeywordCount": {
+      "type": "integer",
+      "description": "Property. SEO. Number of distinct organic keywords driving impressions."
+    },
+    "organicAveragePosition": {
+      "type": "number",
+      "description": "Property. SEO. Average ranking position across organic keywords. Dimensionless."
+    },
+    "organicFollowers": {
+      "type": "integer",
+      "description": "Property. Social. Total followers at end of period."
+    },
+    "organicFollowersGained": {
+      "type": "integer",
+      "description": "Property. Social. Followers gained during the period."
+    },
+    "organicFollowersLost": {
+      "type": "integer",
+      "description": "Property. Social. Followers lost during the period."
+    },
+    "organicClicks": {
+      "type": "integer",
+      "description": "Property. SEO/Social. Organic clicks."
+    },
+    "organicImpressions": {
+      "type": "integer",
+      "description": "Property. Organic impressions or content views (posts, reels, stories...)."
+    },
+    "organicLikes": {
+      "type": "integer",
+      "description": "Property. Social. Likes on organic content."
+    },
+    "organicDislikes": {
+      "type": "integer",
+      "description": "Property. Social. Dislikes on organic content (e.g. YouTube)."
+    },
+    "organicReactions": {
+      "type": "integer",
+      "description": "Property. Social. Total reactions on organic content."
+    },
+    "organicComments": {
+      "type": "integer",
+      "description": "Property. Social. Comments on organic content."
+    },
+    "organicSaved": {
+      "type": "integer",
+      "description": "Property. Social. Times the content was saved/bookmarked."
+    },
+    "organicShares": {
+      "type": "integer",
+      "description": "Property. Social. Shares of organic content."
+    },
+    "organicVideosAddedToPlaylists": {
+      "type": "integer",
+      "description": "Property. Video. Times videos were added to playlists."
+    },
+    "organicVideosRemovedFromPlaylists": {
+      "type": "integer",
+      "description": "Property. Video. Times videos were removed from playlists."
+    },
+    "organicVideoViews": {
+      "type": "integer",
+      "description": "Property. Video. Video views from organic distribution."
+    },
+    "organicInteractions": {
+      "type": "integer",
+      "description": "Property. Social. Total interactions = reactions + comments + shares + saved..."
+    },
+    "organicReach": {
+      "type": "integer",
+      "description": "Property. Social. Distinct people reached organically."
+    },
+    "organicEngagementTime": {
+      "type": "number",
+      "description": "Property. Social. Engagement time on organic content. Emit with `unitCode` = C26 (minutes)."
+    },
+    "organicVideoViewTime": {
+      "type": "number",
+      "description": "Property. Video. Aggregated video viewing time. Emit with `unitCode` = C26 (minutes)."
+    },
+    "adsSpend": {
+      "type": "number",
+      "description": "Property. Paid. Ads spend. Monetary; emit with `unitCode` (default EUR)."
+    },
+    "adsClicks": {
+      "type": "integer",
+      "description": "Property. Paid. Ads clicks."
+    },
+    "adsImpressions": {
+      "type": "integer",
+      "description": "Property. Paid. Ads impressions."
+    },
+    "adsReach": {
+      "type": "integer",
+      "description": "Property. Paid. Distinct people reached by ads."
+    },
+    "adsLikes": {
+      "type": "integer",
+      "description": "Property. Paid. Likes attributed to paid placements."
+    },
+    "adsComments": {
+      "type": "integer",
+      "description": "Property. Paid. Comments attributed to paid placements."
+    },
+    "adsShares": {
+      "type": "integer",
+      "description": "Property. Paid. Shares attributed to paid placements."
+    },
+    "adsVideoViews": {
+      "type": "integer",
+      "description": "Property. Paid. Video views from paid placements."
+    },
+    "adsInteractions": {
+      "type": "integer",
+      "description": "Property. Paid. Total interactions on paid placements."
+    },
+    "adsEngagements": {
+      "type": "integer",
+      "description": "Property. Paid. Engagements = interactions + extras (clicks, expansions...)."
+    },
+    "adsConversions": {
+      "type": "integer",
+      "description": "Property. Paid. Conversions attributed to ads."
+    },
+    "adsRevenue": {
+      "type": "number",
+      "description": "Property. Paid. Revenue attributed to ads. Monetary; emit with `unitCode` (default EUR)."
+    },
+    "adsFollows": {
+      "type": "integer",
+      "description": "Property. Paid. New follows attributed to paid placements."
+    },
+    "adsConversionsValue": {
+      "type": "number",
+      "description": "Property. Paid. Total monetary value attributed to ad conversions. Emit with `unitCode` (default EUR)."
+    },
+    "adsReactions": {
+      "type": "integer",
+      "description": "Property. Paid. Total reactions (sentiment emojis: Like, Love, Haha, Wow, Sad, Angry) on a paid post."
+    },
+    "organicContentPublications": {
+      "type": "integer",
+      "description": "Property. Organic. Total count of content pieces published organically in the period."
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "dateObserved",
+    "temporalResolution",
+    "refDigitalAsset",
+    "refDataProvider"
+  ],
+  "derivedFrom": "",
+  "license": "https://github.com/smart-data-models/dataModel.DigitalMarketing/blob/master/LICENSE.md"
+}
